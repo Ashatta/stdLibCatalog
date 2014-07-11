@@ -1,8 +1,8 @@
-package services.links;
+package com.jetbrains.agapova.stdLibCatalog.services.links;
 
-import classes.FunctionEntity;
-import classes.TypeEntity;
-import classes.User;
+import com.jetbrains.agapova.stdLibCatalog.domain.FunctionEntity;
+import com.jetbrains.agapova.stdLibCatalog.domain.TypeEntity;
+import com.jetbrains.agapova.stdLibCatalog.domain.User;
 
 /**
  * Created by ashatta on 7/10/14.
