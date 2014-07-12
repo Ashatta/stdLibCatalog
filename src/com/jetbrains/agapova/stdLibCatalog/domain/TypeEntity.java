@@ -6,58 +6,37 @@ import java.util.List;
 /**
  * Created by ashatta on 7/10/14.
  */
-public class TypeEntity {
-    private String id;
-    private String name;
-    private String lang;
-    private String documentation;
-    private List<FunctionEntity> functions;
-    private List<TypeEntity> subTypes;
-    private List<TypeEntity> superTypes;
-    private PackageEntity containingPackage;
-    private List<TypeLink> links;
-    private String docLink;
+/** Base class for Classes and Interfaces */
+public class TypeEntity extends Entity {
+    protected List<FunctionEntity> functions;
+    protected List<TypeEntity> derived;
+    protected List<TypeEntity> base;
+    protected List<TypeEntity> parameters;      // generic parameters etc.
+    protected PackageEntity containingPackage;
+    protected List<TypeLink> links;
 
     public TypeEntity(String id, String name, String lang, String documentation, List<FunctionEntity> functions
-            , List<TypeEntity> subTypes, List<TypeEntity> superTypes, PackageEntity containingPackage, String docLink) {
-        this.id = id;
-        this.name = name;
-        this.lang = lang;
-        this.documentation = documentation;
+            , List<TypeEntity> derived, List<TypeEntity> base, List<TypeEntity> parameters
+            , PackageEntity containingPackage, String docLink) {
+        super(id, name, lang, documentation, docLink);
         this.functions = functions;
-        this.subTypes = subTypes;
-        this.superTypes = superTypes;
+        this.derived = derived;
+        this.base = base;
+        this.parameters = parameters;
         this.containingPackage = containingPackage;
         this.links = new ArrayList<TypeLink>();
-        this.docLink = docLink;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getLang() {
-        return lang;
-    }
-
-    public String getDocumentation() {
-        return documentation;
     }
 
     public List<FunctionEntity> getFunctions() {
         return functions;
     }
 
-    public List<TypeEntity> getSubTypes() {
-        return subTypes;
+    public List<TypeEntity> getDerived() {
+        return derived;
     }
 
-    public List<TypeEntity> getSuperTypes() {
-        return superTypes;
+    public List<TypeEntity> getBase() {
+        return base;
     }
 
     public PackageEntity getContainingPackage() {
@@ -68,7 +47,7 @@ public class TypeEntity {
         return links;
     }
 
-    public String getDocLink() {
-        return docLink;
+    public List<TypeEntity> getParameters() {
+        return parameters;
     }
 }

@@ -35,26 +35,32 @@ public class SearchByName {
         return Collections.<FunctionEntity>emptyList();
     }
 
+    // all methods for types search return both classes and interfaces
     public List<TypeEntity> findType(String name) {
         return Collections.<TypeEntity>emptyList();
     }
 
+    // all methods for types search return both classes and interfaces
     public List<TypeEntity> findType(String lang, String name) {
         return Collections.<TypeEntity>emptyList();
     }
 
+    // all methods for types search return both classes and interfaces
     public List<TypeEntity> findTypeWithPackage(String name, String pack) {
         return Collections.<TypeEntity>emptyList();
     }
 
+    // all methods for types search return both classes and interfaces
     public List<TypeEntity> findTypeWithPackage(String lang, String name, String pack) {
         return Collections.<TypeEntity>emptyList();
     }
 
+    // all methods for types search return both classes and interfaces
     public List<PackageEntity> findPackage(String name) {
         return Collections.<PackageEntity>emptyList();
     }
 
+    // all methods for types search return both classes and interfaces
     public List<PackageEntity> findPackage(String lang, String name) {
         return Collections.<PackageEntity>emptyList();
     }

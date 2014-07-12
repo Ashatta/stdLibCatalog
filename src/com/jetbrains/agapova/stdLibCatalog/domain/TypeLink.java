@@ -5,6 +5,9 @@ import org.joda.time.DateTime;
 /**
  * Created by ashatta on 7/10/14.
  */
+/* I have no separate classes fo ClassLink and InterfaceLink because it is possible for a class to have a link
+ * to an interface and vice versa
+ */
 public class TypeLink {
     private TypeEntity first;
     private TypeEntity second;

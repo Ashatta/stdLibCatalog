@@ -5,41 +5,30 @@ import java.util.List;
 /**
  * Created by ashatta on 7/10/14.
  */
-public class PackageEntity {
-    private String id;
-    private String name;
-    private String lang;
-    private List<TypeEntity> containedTypes;
+public class PackageEntity extends Entity {
+    private List<ClassEntity> containedClasses;
+    private List<ClassEntity> containedInterfaces;
     private List<FunctionEntity> containedFunctions;
     private List<PackageEntity> subPackages;
     private PackageEntity containingPackage;
 
-    public PackageEntity(String id, String name, String lang, List<TypeEntity> containedTypes
-            , List<FunctionEntity> containedFunctions, List<PackageEntity> subPackages
-            , PackageEntity containingPackage) {
-        this.id = id;
-        this.name = name;
-        this.lang = lang;
-        this.containedTypes = containedTypes;
+    public PackageEntity(String id, String name, String lang, List<ClassEntity> containedClasses
+            , List<ClassEntity> containedInterfaces, List<FunctionEntity> containedFunctions
+            , List<PackageEntity> subPackages, PackageEntity containingPackage, String documentation, String docLink) {
+        super(id, lang, name, documentation, docLink);
+        this.containedClasses = containedClasses;
+        this.containedInterfaces = containedInterfaces;
         this.containedFunctions = containedFunctions;
         this.subPackages = subPackages;
         this.containingPackage = containingPackage;
     }
 
-    public String getId() {
-        return id;
+    public List<ClassEntity> getContainedClasses() {
+        return containedClasses;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getLang() {
-        return lang;
-    }
-
-    public List<TypeEntity> getContainedTypes() {
-        return containedTypes;
+    public List<ClassEntity> getContainedInterfaces() {
+        return containedInterfaces;
     }
 
     public List<FunctionEntity> getContainedFunctions() {
