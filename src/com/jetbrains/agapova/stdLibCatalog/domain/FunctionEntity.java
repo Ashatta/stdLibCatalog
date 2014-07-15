@@ -6,15 +6,16 @@ import java.util.List;
 /**
  * Created by ashatta on 7/10/14.
  */
-public class FunctionEntity extends Entity {
+public class FunctionEntity extends TypedEntity {
     private Signature signature;
     private TypeEntity containingType;
     private PackageEntity containingPackage;
     private List<FunctionLink> links;
 
     public FunctionEntity(String id, String lang, String name, Signature signature, String documentation
-            , TypeEntity containingType, PackageEntity containingPackage, String docLink) {
-        super(id, lang, name, documentation, docLink);
+            , TypeEntity containingType, PackageEntity containingPackage, String docLink
+            , List<TypedEntity> parameters) {
+        super(id, lang, name, documentation, docLink, parameters);
         this.signature = signature;
         this.containingType = containingType;
         this.containingPackage = containingPackage;

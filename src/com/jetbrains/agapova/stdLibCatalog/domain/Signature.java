@@ -8,19 +8,20 @@ import java.util.List;
 public class Signature {
     // functions can take other functions as arguments, so I will need to change things here a bit
     // maybe make a base class for functions and types derived from Entity
-    private List<TypeEntity> arguments;
-    private TypeEntity result;
+    private List<TypedEntity> arguments;
+    private TypedEntity result;
 
-    public Signature(List<TypeEntity> arguments, TypeEntity result) {
+    public Signature(List<TypedEntity> arguments, TypedEntity result) {
         this.arguments = arguments;
         this.result = result;
     }
 
-    public List<TypeEntity> getArguments() {
+    public List<TypedEntity> getArguments() {
         return arguments;
     }
 
-    public TypeEntity getResult() {
+    public TypedEntity getResult() {
         return result;
     }
+
 }

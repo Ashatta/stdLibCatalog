@@ -7,22 +7,20 @@ import java.util.List;
  * Created by ashatta on 7/10/14.
  */
 /** Base class for Classes and Interfaces */
-public class TypeEntity extends Entity {
+public abstract class TypeEntity extends TypedEntity {
     protected List<FunctionEntity> functions;
     protected List<TypeEntity> derived;
     protected List<TypeEntity> base;
-    protected List<TypeEntity> parameters;      // generic parameters etc.
     protected PackageEntity containingPackage;
     protected List<TypeLink> links;
 
     public TypeEntity(String id, String name, String lang, String documentation, List<FunctionEntity> functions
-            , List<TypeEntity> derived, List<TypeEntity> base, List<TypeEntity> parameters
+            , List<TypeEntity> derived, List<TypeEntity> base, List<TypedEntity> parameters
             , PackageEntity containingPackage, String docLink) {
-        super(id, name, lang, documentation, docLink);
+        super(id, name, lang, documentation, docLink, parameters);
         this.functions = functions;
         this.derived = derived;
         this.base = base;
-        this.parameters = parameters;
         this.containingPackage = containingPackage;
         this.links = new ArrayList<TypeLink>();
     }
@@ -45,9 +43,5 @@ public class TypeEntity extends Entity {
 
     public List<TypeLink> getLinks() {
         return links;
-    }
-
-    public List<TypeEntity> getParameters() {
-        return parameters;
     }
 }

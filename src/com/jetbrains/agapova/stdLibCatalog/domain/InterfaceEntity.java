@@ -10,7 +10,7 @@ public class InterfaceEntity extends TypeEntity {
 
     public InterfaceEntity(String id, String name, String lang, String documentation, List<FunctionEntity> functions
             , List<TypeEntity> derived, List<TypeEntity> parentEntities, PackageEntity containingPackage
-            , List<TypeEntity> parameters, String docLink, List<ClassEntity> supportingClasses) {
+            , List<TypedEntity> parameters, String docLink, List<ClassEntity> supportingClasses) {
         super(id, name, lang, documentation, functions, derived, parentEntities, parameters, containingPackage
                 , docLink);
         this.supportingClasses = supportingClasses;
