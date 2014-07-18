@@ -3,7 +3,7 @@ package com.jetbrains.agapova.stdLibCatalog.domain;
 /**
  * Created by ashatta on 7/12/14.
  */
-public class Entity {
+public class Entity implements Cloneable {
     protected String id;
     protected String name;
     protected String lang;
@@ -36,5 +36,9 @@ public class Entity {
 
     public String getDocLink() {
         return docLink;
+    }
+
+    public Entity clone() {
+        return new Entity(id, name, lang, documentation, docLink);
     }
 }

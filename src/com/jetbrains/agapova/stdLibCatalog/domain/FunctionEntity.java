@@ -30,11 +30,28 @@ public class FunctionEntity extends TypedEntity {
         return containingType;
     }
 
+    public void setContainingType(TypeEntity containingType) {
+        this.containingType = containingType;
+    }
+
     public PackageEntity getContainingPackage() {
         return containingPackage;
     }
 
     public List<FunctionLink> getLinks() {
         return links;
+    }
+
+    public void addParameter(Parameter param) {
+        parameters.add(param);
+    }
+
+    public void setSignature(Signature signature) {
+        this.signature = signature;
+    }
+
+    public FunctionEntity clone() {
+        return new FunctionEntity(id, lang, name, signature, documentation, containingType, containingPackage
+                , docLink, parameters);
     }
 }

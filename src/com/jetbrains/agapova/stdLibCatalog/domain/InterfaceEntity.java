@@ -19,4 +19,13 @@ public class InterfaceEntity extends TypeEntity {
     public List<ClassEntity> getSupportingClasses() {
         return supportingClasses;
     }
+
+    public void addSupporting(ClassEntity c) {
+        supportingClasses.add(c);
+    }
+
+    public InterfaceEntity clone() {
+        return new InterfaceEntity(id, name, lang, documentation, functions, derived, base, containingPackage
+                , parameters, docLink, supportingClasses);
+    }
 }

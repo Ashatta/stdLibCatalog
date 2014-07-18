@@ -19,4 +19,9 @@ public class ClassEntity extends TypeEntity {
     public List<InterfaceEntity> getInterfaces() {
         return interfaces;
     }
+
+    public ClassEntity clone() {
+        return new ClassEntity(id, name, lang, documentation, functions, derived, base, containingPackage
+                , parameters, docLink, interfaces);
+    }
 }

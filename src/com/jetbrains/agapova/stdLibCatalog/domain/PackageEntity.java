@@ -42,4 +42,9 @@ public class PackageEntity extends Entity {
     public PackageEntity getContainingPackage() {
         return containingPackage;
     }
+
+    public PackageEntity clone() {
+        return new PackageEntity(id, name, lang, containedClasses, containedInterfaces, containedFunctions
+                , subPackages, containingPackage, documentation, docLink);
+    }
 }

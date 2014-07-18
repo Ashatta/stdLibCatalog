@@ -44,4 +44,12 @@ public abstract class TypeEntity extends TypedEntity {
     public List<TypeLink> getLinks() {
         return links;
     }
+
+    public void addDerived(TypeEntity d) {
+        derived.add(d);
+    }
+
+    public void addBase(TypeEntity b) {
+        base.add(b);
+    }
 }

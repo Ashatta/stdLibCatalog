@@ -26,4 +26,8 @@ public class Parameter extends TypedEntity {
     public List<InterfaceEntity> getInterfaces() {
         return interfaces;
     }
+
+    public Parameter clone() {
+        return new Parameter(parameterId, interfaces);
+    }
 }
