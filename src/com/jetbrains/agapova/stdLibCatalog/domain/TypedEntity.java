@@ -17,4 +17,8 @@ public abstract class TypedEntity extends Entity {
     public List<TypedEntity> getParameters() {
         return parameters;
     }
+
+    public void addParameter(Parameter param) {
+        parameters.add(param);
+    }
 }

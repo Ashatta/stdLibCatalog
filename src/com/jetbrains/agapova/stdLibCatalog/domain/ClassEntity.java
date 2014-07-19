@@ -24,4 +24,8 @@ public class ClassEntity extends TypeEntity {
         return new ClassEntity(id, name, lang, documentation, functions, derived, base, containingPackage
                 , parameters, docLink, interfaces);
     }
+
+    public void addInterface(InterfaceEntity interfaceEntity) {
+        interfaces.add(interfaceEntity);
+    }
 }

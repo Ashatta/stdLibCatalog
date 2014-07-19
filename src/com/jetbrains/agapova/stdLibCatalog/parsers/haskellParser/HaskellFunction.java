@@ -19,6 +19,9 @@ class HaskellFunction extends HaskellType {
         }
 
         signature = signature.substring(1, signature.length() - 1);
+        String[] parts = signature.split("\\.\\s+");
+        signature = parts[parts.length - 1];
+
         HaskellFunction func = new HaskellFunction();
         List<String> types = typeSplit(signature, "->");
         if (types.size() < 2) {

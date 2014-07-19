@@ -42,10 +42,6 @@ public class FunctionEntity extends TypedEntity {
         return links;
     }
 
-    public void addParameter(Parameter param) {
-        parameters.add(param);
-    }
-
     public void setSignature(Signature signature) {
         this.signature = signature;
     }
