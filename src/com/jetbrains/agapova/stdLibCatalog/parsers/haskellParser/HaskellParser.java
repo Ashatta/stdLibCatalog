@@ -1,7 +1,6 @@
 package com.jetbrains.agapova.stdLibCatalog.parsers.haskellParser;
 
 import com.jetbrains.agapova.stdLibCatalog.domain.*;
-import com.sun.xml.internal.bind.v2.runtime.reflect.Lister;
 import javafx.util.Pair;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -9,13 +8,16 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.*;
 import java.util.regex.Pattern;
 
 /**
- * Created by ashatta on 7/14/14.
+ * TODO: tuple-like and infix constructors
+ * TODO: links to source code
+ * TODO: links to documentation
+ * TODO: type synonyms
+ * TODO: split functions into functional groups
  */
 public class HaskellParser {
     Map<String, PackageEntity> packages = new HashMap<>();
@@ -56,22 +58,9 @@ public class HaskellParser {
         String curr = module.child(0).text().replaceAll("^\\p{javaSpaceChar}", "");
         initPackage(curr);
 
-        List<PackageEntity> subpackages = new ArrayList<>();
-        Elements lists = module.getElementsByTag("ul");
-        if (!lists.isEmpty()) {
-            for (Element subModule : lists.get(0).children()) {
-                PackageEntity sub = parseModule(subModule);
-                if (sub != null) {
-                    subpackages.add(sub);
-                }
-            }
-        }
+        List<PackageEntity> subpackages = parseSubpackages(module);
 
-        if (curr.equals("Data.Type.Coercion") || curr.equals("Data.Type.Equality")
-                || curr.equals("Data.Typeable") || curr.equals("GHC.Generics")
-                || curr.equals("GHC.Integer") || curr.equals("GHC.Prim")
-                || curr.equals("GHC.TypeLits") || curr.equals("Data.Typeable.Internal")
-                || curr.equals("GHC.Integer.GMP.Internals") || curr.equals("GHC.Integer.Logarithms")) {
+        if (isIgnorable(curr)) {
             return null;
         }
 
@@ -83,12 +72,30 @@ public class HaskellParser {
 
         PackageEntity pack = new PackageEntity("", curr, "Haskell", new ArrayList<>(classes.get(curr).values())
                 , new ArrayList<>(interfaces.get(curr).values()), new ArrayList<>(functions.get(curr).values())
-                , subpackages, null, packageDoc.get(curr), "");
+                , subpackages, null, (packageDoc.containsKey(curr) ? packageDoc.get(curr) : ""), "");
         packages.put(curr, pack);
+
         for (PackageEntity subpackage : subpackages) {
             subpackage.setContainingPackage(pack);
         }
+
         return pack;
+    }
+
+    private List<PackageEntity> parseSubpackages(Element module) throws IOException {
+        List<PackageEntity> subpackages = new ArrayList<>();
+
+        Elements lists = module.getElementsByTag("ul");
+        if (!lists.isEmpty()) {
+            for (Element subModule : lists.get(0).children()) {
+                PackageEntity sub = parseModule(subModule);
+                if (sub != null) {
+                    subpackages.add(sub);
+                }
+            }
+        }
+
+        return subpackages;
     }
 
     public void parse(URL url) throws IOException {
@@ -98,27 +105,22 @@ public class HaskellParser {
             return;
         }
 
-        String doc = "";
-        if (document.getElementById("description") != null) {
-            Elements docs = document.getElementById("description").getElementsByClass("doc");
-            if (!docs.isEmpty()) {
-                doc = docs.get(0).text();
-            }
+        packageDoc.put(packageName, getDoc(document.getElementById("description")));
+
+        for (Element elem : document.getElementsByClass("top")) {
+            parseElem(elem);
         }
-        packageDoc.put(this.packageName, doc);
+    }
 
-        Elements topElems = document.getElementsByClass("top");
-
-        for (Element elem : topElems) {
-            if (isTypeClass(elem)) {
-                parseTypeClass(elem);
-            } else if (isDataType(elem)) {
-                parseData(elem);
-            } else if (isType(elem)) {
-                parseType(elem);
-            } else if (isFunction(elem)) {
-                parseFunction(elem.child(0));
-            }
+    private void parseElem(Element elem) {
+        if (isTypeClass(elem)) {
+            parseTypeClass(elem);
+        } else if (isDataType(elem)) {
+            parseData(elem);
+        } else if (isType(elem)) {
+            parseType(elem);
+        } else if (isFunction(elem)) {
+            parseFunctionDef(elem.child(0));
         }
     }
 
@@ -142,32 +144,33 @@ public class HaskellParser {
     }
 
     private void parseTypeClass(Element elem) {
-        String doc = getDoc(elem);
         String name = elem.child(0).getElementsByClass("def").get(0).text();
-        parents.get(packageName).put(name, parseTypeClassParents(elem.children().get(0), name));
 
+        parents.get(packageName).put(name, parseTypeClassParents(elem.children().get(0), name));
         parseInstances(elem, name);
 
-        interfaces.get(packageName).put(name, new InterfaceEntity("", name, "Haskell", doc, parseFunctions(elem), new ArrayList<TypeEntity>() /*derived*/
-                , new ArrayList<TypeEntity>() /*parents*/, null, new ArrayList<TypedEntity>() /*parameters*/
-                , "", new ArrayList<ClassEntity>() /*instances*/));
+        interfaces.get(packageName).put(name, new InterfaceEntity("", name, "Haskell", getDoc(elem)
+                , parseFunctions(elem), new ArrayList<TypeEntity>() /*derived*/, new ArrayList<TypeEntity>() /*parents*/
+                , null, new ArrayList<TypedEntity>() /*parameters*/, "", new ArrayList<ClassEntity>() /*instances*/));
     }
 
     private List<Pair<String, String>> parseTypeClassParents(Element element, String parentName) {
         List<Pair<String, String>> result = new ArrayList<>();
 
-        for (Element child : element.getElementsByAttribute("href")) {
-            if (!child.hasClass("link")) {
-                String parentPackage = getPackageName(child.attributes().get("href"));
-                result.add(new Pair<>(parentPackage, child.text()));
-                if (!derived.containsKey(parentPackage)) {
-                    derived.put(parentPackage, new HashMap<String, List<Pair<String, String>>>());
-                }
-                if (!derived.get(parentPackage).containsKey(child.text())) {
-                    derived.get(parentPackage).put(child.text(), new ArrayList<Pair<String, String>>());
-                }
-                derived.get(parentPackage).get(child.text()).add(new Pair<>(packageName, parentName));
+        for (Element parentLink : element.getElementsByAttribute("href")) {
+            if (parentLink.hasClass("link")) {
+                continue;
             }
+
+            String parentPackage = getPackageName(parentLink.attributes().get("href"));
+            result.add(new Pair<>(parentPackage, parentLink.text()));
+            if (!derived.containsKey(parentPackage)) {
+                derived.put(parentPackage, new HashMap<String, List<Pair<String, String>>>());
+            }
+            if (!derived.get(parentPackage).containsKey(parentLink.text())) {
+                derived.get(parentPackage).put(parentLink.text(), new ArrayList<Pair<String, String>>());
+            }
+            derived.get(parentPackage).get(parentLink.text()).add(new Pair<>(packageName, parentName));
         }
 
         return result;
@@ -185,11 +188,9 @@ public class HaskellParser {
 
         for (Element el : elem.getElementsByClass("instances").get(0).getElementsByClass("src")) {
             Pair<String, String> type = getType(el, name);
-            if (type == null) {
-                continue;
+            if (type != null) {
+                fillInstance(name, type);
             }
-
-            fillInstance(name, type);
         }
     }
 
@@ -258,10 +259,9 @@ public class HaskellParser {
         List<FunctionEntity> functions = new ArrayList<>();
 
         if (!elem.getElementsByClass("methods").isEmpty()) {
-            Elements funcElems = elem.getElementsByClass("methods").get(0).getElementsByClass("src");
-            for (Element func : funcElems) {
+            for (Element func : elem.getElementsByClass("methods").get(0).getElementsByClass("src")) {
                 if (!func.getElementsByClass("def").isEmpty()) {
-                    functions.addAll(parseFunction(func));
+                    functions.addAll(parseFunctionDef(func));
                 }
             }
         }
@@ -269,32 +269,41 @@ public class HaskellParser {
         return functions;
     }
 
-    private List<FunctionEntity> parseFunction(Element func) {
+    private List<FunctionEntity> parseFunctionDef(Element func) {
         String[] names = func.child(0).text().split("::\\s+")[0].split(",\\s+");
+
         List<FunctionEntity> result = new ArrayList<>();
         for (String name : names) {
-            String signature = getSignature(name);
-
-            Map<String, Pair<Integer, List<Pair<String, String>>>> parameters = parseParameters(signature);
-            parseSignature(signature, name, parameters);
-            fillInterfaces(shortDefinitions.get(packageName).getElementsMatchingText(
-                    "^" + Pattern.quote(name) + "(\\s|,)").last(), parameters);
-
-            functionParameters.get(packageName).put(name, parameters);
-            functionEndParameters.get(packageName).put(name, new HashMap<String, Parameter>());
-
-            Element doc = func.nextElementSibling();
-            String d = "";
-            if (doc != null) {
-                d = doc.text();
-            }
-
-            FunctionEntity function = new FunctionEntity("", name, "Haskell", null /*signature*/, d, null /*parent*/, null /*package*/, "", new ArrayList<TypedEntity>());
-            functions.get(packageName).put(name, function);
-            result.add(function);
+            result.add(parseFunction(func, name));
         }
 
         return result;
+    }
+
+    private FunctionEntity parseFunction(Element func, String name) {
+        String signature = getSignature(name);
+        fillFunctionType(name, signature);
+
+        Element doc = func.nextElementSibling();
+        String d = "";
+        if (doc != null) {
+            d = doc.text();
+        }
+
+        FunctionEntity function = new FunctionEntity("", name, "Haskell", null /*signature*/, d, null /*parent*/
+                , null /*package*/, "", new ArrayList<TypedEntity>());
+        functions.get(packageName).put(name, function);
+        return function;
+    }
+
+    private void fillFunctionType(String name, String signature) {
+        Map<String, Pair<Integer, List<Pair<String, String>>>> parameters = parseParameters(signature);
+        parseSignature(signature, name, parameters);
+        fillInterfaces(shortDefinitions.get(packageName).getElementsMatchingText(
+                "^" + Pattern.quote(name) + "(\\s|,)").last(), parameters);
+
+        functionParameters.get(packageName).put(name, parameters);
+        functionEndParameters.get(packageName).put(name, new HashMap<String, Parameter>());
     }
 
     private Map<String, Pair<Integer, List<Pair<String, String>>>> parseParameters(String signature) {
@@ -312,21 +321,16 @@ public class HaskellParser {
 
     private void parseSignature(String signature, String funcName, Map<String, Pair<Integer, List<Pair<String, String>>>> parameters) {
         signature = "(" + signature + ")";
-        HaskellType type = HaskellType.parse(signature, parameters);
-        if (type == null) {
-            throw new NullPointerException();
-        }
-        signatures.get(packageName).put(funcName, type);
+        signatures.get(packageName).put(funcName, HaskellType.parse(signature, parameters));
     }
 
     private void fillInterfaces(Element func, Map<String, Pair<Integer, List<Pair<String, String>>>> parameters) {
         for (Pair<Integer, List<Pair<String, String>>> param : parameters.values()) {
             for (Pair<String, String> type : param.getValue()) {
-                Elements elems = func.getElementsMatchingText("^" + type.getValue() + "$");
+                Elements elems = func.getElementsMatchingOwnText("^" + type.getValue() + "$");
                 if (!elems.isEmpty()) {
-                    Elements fit = func.getElementsMatchingOwnText("^" + type.getValue() + "$");
                     param.getValue().set(param.getValue().indexOf(type), new Pair<>(
-                            getPackageName(func.getElementsMatchingOwnText("^" + type.getValue() + "$").get(0).attributes().get("href"))
+                            getPackageName(elems.get(0).attributes().get("href"))
                             , type.getValue()));
                 }
             }
@@ -334,8 +338,10 @@ public class HaskellParser {
     }
 
     private String getSignature(String name) {
-        Element func = shortDefinitions.get(packageName).getElementsMatchingText("^" + Pattern.quote(name) + "$").get(0).parent();
+        Element func = shortDefinitions.get(packageName).getElementsMatchingText(
+                "^" + Pattern.quote(name) + "$").get(0).parent();
         String[] parts = func.text().split("::\\s*");
+
         if (!func.getElementsByClass("fixity").isEmpty()) {
             parts[1] = parts[1].replaceAll(func.getElementsByClass("fixity").get(0).text(), "");
         }
@@ -348,12 +354,10 @@ public class HaskellParser {
             parts[1] = parts[1].replaceAll(func.getElementsByClass("link").get(0).text(), "");
         }
 
-        String tmp = parts[1].replaceAll("forall(\\s+[a-z]+)*\\.\\s+", "").trim();
         return parts[1].replaceAll("forall(\\s+[a-z]+)*\\.\\s+", "").trim();
     }
 
     private void parseData(Element elem) {
-        String doc = getDoc(elem);
         String name = elem.child(0).getElementsByClass("def").get(0).text();
 
         String def = elem.children().get(0).text().split("\\s+Source")[0].split("\\s+where")[0]
@@ -362,24 +366,9 @@ public class HaskellParser {
         parseTypeParameters(elem, def, name);
         parseInterfacesInstances(elem, name);
 
-        classes.get(packageName).put(name, new ClassEntity("", name, "Haskell", doc, new ArrayList<FunctionEntity>() /*functions*/
+        classes.get(packageName).put(name, new ClassEntity("", name, "Haskell", getDoc(elem), new ArrayList<FunctionEntity>() /*functions*/
                 , new ArrayList<TypeEntity>() /*derived*/, new ArrayList<TypeEntity>() /*base*/, null
                 , new ArrayList<TypedEntity>() /*parameter*/, "", new ArrayList<InterfaceEntity>() /*interfaces*/));
-    }
-
-    private void parseInterfacesInstances(Element elem, String name) {
-        if (elem.getElementsByClass("instances").isEmpty()) {
-            return;
-        }
-
-        for (Element el : elem.getElementsByClass("instances").get(0).getElementsByClass("src")) {
-            String[] description = el.text().split("\\s+=>\\s+");
-            String interf = description[description.length - 1].split("\\s+")[0];
-            Pair<String, String> type = getType(el, interf);
-            if (type != null && type.getValue().equals(name)) {
-                fillInstance(interf, new Pair<>(packageName, name));
-            }
-        }
     }
 
     private void parseTypeParameters(Element elem, String def, String name) {
@@ -412,20 +401,38 @@ public class HaskellParser {
         typeParameters.get(packageName).put(name, parameters);
     }
 
+    private void parseInterfacesInstances(Element elem, String name) {
+        if (elem.getElementsByClass("instances").isEmpty()) {
+            return;
+        }
+
+        for (Element el : elem.getElementsByClass("instances").get(0).getElementsByClass("src")) {
+            String[] description = el.text().split("\\s+=>\\s+");
+            String interf = description[description.length - 1].split("\\s+")[0];
+            Pair<String, String> type = getType(el, interf);
+            if (type != null && type.getValue().equals(name)) {
+                fillInstance(interf, new Pair<>(packageName, name));
+            }
+        }
+    }
+
     private void parseType(Element elem) {
-        String doc = getDoc(elem);
         String name = elem.child(0).getElementsByClass("def").get(0).text();
 
-        classes.get(packageName).put(name, new ClassEntity("", name, "Haskell", doc, new ArrayList<FunctionEntity>() /*functions*/
-                , new ArrayList<TypeEntity>() /*derived*/, new ArrayList<TypeEntity>() /*base*/, null
-                , new ArrayList<TypedEntity>() /*parameter*/, "", new ArrayList<InterfaceEntity>() /*interfaces*/));
+        classes.get(packageName).put(name, new ClassEntity("", name, "Haskell", getDoc(elem)
+                , new ArrayList<FunctionEntity>() /*functions*/, new ArrayList<TypeEntity>() /*derived*/
+                , new ArrayList<TypeEntity>() /*base*/, null, new ArrayList<TypedEntity>() /*parameter*/, ""
+                , new ArrayList<InterfaceEntity>() /*interfaces*/));
     }
 
     private static String getDoc(Element elem) {
-        Elements docs = elem.getElementsByClass("doc");
         String doc = "";
-        if (!docs.isEmpty()) {
-            doc = docs.get(0).text();
+
+        if (elem != null) {
+            Elements docs = elem.getElementsByClass("doc");
+            if (!docs.isEmpty()) {
+                doc = docs.get(0).text();
+            }
         }
 
         return doc;
@@ -435,14 +442,14 @@ public class HaskellParser {
         for (Map.Entry<String, Map<String, InterfaceEntity>> entity : interfaces.entrySet()) {
             for (InterfaceEntity typeClass : entity.getValue().values()) {
                 typeClass.setContainingPackage(packages.get(entity.getKey()));
-                createInterfacesConnections(typeClass);
+                createInterfaceConnections(typeClass);
             }
         }
 
         for (Map.Entry<String, Map<String, FunctionEntity>> entity : functions.entrySet()) {
             for (FunctionEntity function : entity.getValue().values()) {
                 function.setContainingPackage(packages.get(entity.getKey()));
-                createFunctionsConnections(function);
+                createFunctionConnections(function);
             }
         }
 
@@ -456,6 +463,11 @@ public class HaskellParser {
 
     private void createClassConnections(ClassEntity classEntity) {
         String packName = classEntity.getContainingPackage().getName();
+        connectTypeClasses(classEntity, packName);
+        connectTypeParameters(classEntity, packName);
+    }
+
+    private void connectTypeClasses(ClassEntity classEntity, String packName) {
         if (typeClasses.get(packName).containsKey(classEntity.getName())) {
             for (Pair<String, String> instance : typeClasses.get(packName).get(classEntity.getName())) {
                 if (interfaces.get(instance.getKey()).containsKey(instance.getValue())) {
@@ -463,23 +475,44 @@ public class HaskellParser {
                 }
             }
         }
+    }
 
-        Map<String, Pair<Integer, List<Pair<String, String>>>> params = typeParameters.get(packName).get(classEntity.getName());
-        if (params != null) {
-            for (Map.Entry<String, Pair<Integer, List<Pair<String, String>>>> param : params.entrySet()) {
-                List<InterfaceEntity> interfaceConstraints = new ArrayList<>();
-                for (Pair<String, String> interf : param.getValue().getValue()) {
-                    if (interfaces.get(interf.getKey()).containsKey(interf.getValue())) {
-                        interfaceConstraints.add(interfaces.get(interf.getKey()).get(interf.getValue()));
-                    }
-                }
-                classEntity.addParameter(new Parameter(param.getValue().getKey(), interfaceConstraints));
-            }
+    private void connectTypeParameters(ClassEntity classEntity, String packName) {
+        Map<String, Pair<Integer, List<Pair<String, String>>>> params
+                = typeParameters.get(packName).get(classEntity.getName());
+        if (params == null) {
+            return;
+        }
+
+        for (Pair<Integer, List<Pair<String, String>>> param : params.values()) {
+            classEntity.addParameter(new Parameter(param.getKey(), paramInterfaceConstraints(param)));
         }
     }
 
-    private void createInterfacesConnections(InterfaceEntity typeClass) {
+    private List<InterfaceEntity> paramInterfaceConstraints(Pair<Integer, List<Pair<String, String>>> param) {
+        List<InterfaceEntity> interfaceConstraints = new ArrayList<>();
+        for (Pair<String, String> interf : param.getValue()) {
+            if (interfaces.containsKey(interf.getKey())
+                    && interfaces.get(interf.getKey()).containsKey(interf.getValue())) {
+                interfaceConstraints.add(interfaces.get(interf.getKey()).get(interf.getValue()));
+            }
+        }
+        return interfaceConstraints;
+    }
+
+    private void createInterfaceConnections(InterfaceEntity typeClass) {
         String packName = typeClass.getContainingPackage().getName();
+
+        connectDerivedTypeClasses(typeClass, packName);
+        connectParentTypeClasses(typeClass, packName);
+        connectInstances(typeClass, packName);
+
+        for (FunctionEntity function : typeClass.getFunctions()) {
+            function.setContainingType(typeClass);
+        }
+    }
+
+    private void connectDerivedTypeClasses(InterfaceEntity typeClass, String packName) {
         if (derived.get(packName).containsKey(typeClass.getName())) {
             for (Pair<String, String> derivedClass : derived.get(packName).get(typeClass.getName())) {
                 if (interfaces.get(derivedClass.getKey()).containsKey(derivedClass.getValue())) {
@@ -487,14 +520,18 @@ public class HaskellParser {
                 }
             }
         }
+    }
 
+    private void connectParentTypeClasses(InterfaceEntity typeClass, String packName) {
         for (Pair<String, String> baseClass : parents.get(packName).get(typeClass.getName())) {
             if (interfaces.containsKey(baseClass.getKey())
                     && interfaces.get(baseClass.getKey()).containsKey(baseClass.getValue())) {
                 typeClass.addBase(interfaces.get(baseClass.getKey()).get(baseClass.getValue()));
             }
         }
+    }
 
+    private void connectInstances(InterfaceEntity typeClass, String packName) {
         if (instances.get(packName).containsKey(typeClass.getName())) {
             for (Pair<String, String> instance : instances.get(packName).get(typeClass.getName())) {
                 if (classes.containsKey(instance.getKey())
@@ -503,24 +540,15 @@ public class HaskellParser {
                 }
             }
         }
-
-        for (FunctionEntity function : typeClass.getFunctions()) {
-            function.setContainingType(typeClass);
-        }
     }
 
-    private void createFunctionsConnections(FunctionEntity function) {
+    private void createFunctionConnections(FunctionEntity function) {
         String packName = function.getContainingPackage().getName();
-        Map<String, Pair<Integer, List<Pair<String, String>>>> params = functionParameters.get(packName).get(function.getName());
-        for (Map.Entry<String, Pair<Integer, List<Pair<String, String>>>> param : params.entrySet()) {
-            List<InterfaceEntity> interfaceConstraints = new ArrayList<>();
-            for (Pair<String, String> interf : param.getValue().getValue()) {
-                if (interfaces.containsKey(interf.getKey())
-                        && interfaces.get(interf.getKey()).containsKey(interf.getValue())) {
-                    interfaceConstraints.add(interfaces.get(interf.getKey()).get(interf.getValue()));
-                }
-            }
-            function.addParameter(new Parameter(param.getValue().getKey(), interfaceConstraints));
+
+        Map<String, Pair<Integer, List<Pair<String, String>>>> params
+                = functionParameters.get(packName).get(function.getName());
+        for (Pair<Integer, List<Pair<String, String>>> param : params.values()) {
+            function.addParameter(new Parameter(param.getKey(), paramInterfaceConstraints(param)));
         }
 
         function.setSignature(signatures.get(function.getContainingPackage().getName()).get(function.getName())
@@ -582,5 +610,13 @@ public class HaskellParser {
         functionParameters.put(name, new HashMap<String, Map<String, Pair<Integer, List<Pair<String, String>>>>>());
         typeParameters.put(name, new HashMap<String, Map<String, Pair<Integer, List<Pair<String, String>>>>>());
         signatures.put(name, new HashMap<String, HaskellType>());
+    }
+
+    private boolean isIgnorable(String moduleName) {
+        return moduleName.equals("Data.Type.Coercion") || moduleName.equals("Data.Type.Equality")
+                || moduleName.equals("Data.Typeable") || moduleName.equals("GHC.Generics")
+                || moduleName.equals("GHC.Integer") || moduleName.equals("GHC.Prim")
+                || moduleName.equals("GHC.TypeLits") || moduleName.equals("Data.Typeable.Internal")
+                || moduleName.equals("GHC.Integer.GMP.Internals") || moduleName.equals("GHC.Integer.Logarithms");
     }
 }

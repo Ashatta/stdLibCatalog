@@ -53,7 +53,8 @@ class HaskellParameter extends HaskellType {
 
     public Parameter buildType(HaskellParser parser, FunctionEntity function) {
         String packName = function.getContainingPackage().getName();
-        Pair<Integer, List<Pair<String, String>>> desc = parser.functionParameters.get(packName).get(function.getName()).get(name);
+        Pair<Integer, List<Pair<String, String>>> desc
+                = parser.functionParameters.get(packName).get(function.getName()).get(name);
         List<InterfaceEntity> interfaces = new ArrayList<>();
         for (Pair<String, String> interf : desc.getValue()) {
             if (parser.interfaces.containsKey(interf.getKey())) {
@@ -62,7 +63,9 @@ class HaskellParameter extends HaskellType {
         }
 
         if (!parser.functionEndParameters.get(packName).get(function.getName()).containsKey(name)) {
-            parser.functionEndParameters.get(packName).get(function.getName()).put(name, new Parameter(desc.getKey(), interfaces));
+            parser.functionEndParameters.get(packName).get(function.getName()).put(
+                    name
+                    , new Parameter(desc.getKey(), interfaces));
         }
         return parser.functionEndParameters.get(packName).get(function.getName()).get(name);
     }
