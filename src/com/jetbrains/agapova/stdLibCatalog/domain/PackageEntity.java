@@ -7,15 +7,15 @@ import java.util.List;
  */
 public class PackageEntity extends Entity {
     private List<ClassEntity> containedClasses;
-    private List<ClassEntity> containedInterfaces;
+    private List<InterfaceEntity> containedInterfaces;
     private List<FunctionEntity> containedFunctions;
     private List<PackageEntity> subPackages;
     private PackageEntity containingPackage;
 
     public PackageEntity(String id, String name, String lang, List<ClassEntity> containedClasses
-            , List<ClassEntity> containedInterfaces, List<FunctionEntity> containedFunctions
+            , List<InterfaceEntity> containedInterfaces, List<FunctionEntity> containedFunctions
             , List<PackageEntity> subPackages, PackageEntity containingPackage, String documentation, String docLink) {
-        super(id, lang, name, documentation, docLink);
+        super(id, name, lang, documentation, docLink);
         this.containedClasses = containedClasses;
         this.containedInterfaces = containedInterfaces;
         this.containedFunctions = containedFunctions;
@@ -27,7 +27,7 @@ public class PackageEntity extends Entity {
         return containedClasses;
     }
 
-    public List<ClassEntity> getContainedInterfaces() {
+    public List<InterfaceEntity> getContainedInterfaces() {
         return containedInterfaces;
     }
 
@@ -46,5 +46,9 @@ public class PackageEntity extends Entity {
     public PackageEntity clone() {
         return new PackageEntity(id, name, lang, containedClasses, containedInterfaces, containedFunctions
                 , subPackages, containingPackage, documentation, docLink);
+    }
+
+    public void setContainingPackage(PackageEntity containingPackage) {
+        this.containingPackage = containingPackage;
     }
 }

@@ -41,6 +41,10 @@ public abstract class TypeEntity extends TypedEntity {
         return containingPackage;
     }
 
+    public void setContainingPackage(PackageEntity containingPackage) {
+        this.containingPackage = containingPackage;
+    }
+
     public List<TypeLink> getLinks() {
         return links;
     }

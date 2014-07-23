@@ -38,6 +38,10 @@ public class FunctionEntity extends TypedEntity {
         return containingPackage;
     }
 
+    public void setContainingPackage(PackageEntity containingPackage) {
+        this.containingPackage = containingPackage;
+    }
+
     public List<FunctionLink> getLinks() {
         return links;
     }

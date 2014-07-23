@@ -23,5 +23,4 @@ public class Signature {
     public TypedEntity getResult() {
         return result;
     }
-
 }

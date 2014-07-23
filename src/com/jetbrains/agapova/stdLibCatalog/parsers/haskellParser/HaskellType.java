@@ -1,36 +1,42 @@
 package com.jetbrains.agapova.stdLibCatalog.parsers.haskellParser;
 
+import com.jetbrains.agapova.stdLibCatalog.domain.FunctionEntity;
+import com.jetbrains.agapova.stdLibCatalog.domain.Signature;
+import com.jetbrains.agapova.stdLibCatalog.domain.TypedEntity;
+import javafx.util.Pair;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
 * Created by ashatta on 7/18/14.
 */
-class HaskellType {
-    public static HaskellType parse(String signature) {
-        HaskellFunction func = HaskellFunction.parse(signature);
-        if (func != null) {
-            return func;
-        }
-
-        HaskellList list = HaskellList.parse(signature);
+abstract class HaskellType {
+    public static HaskellType parse(String signature, Map<String, Pair<Integer, List<Pair<String, String>>>> parameters) {
+        HaskellList list = HaskellList.parse(signature, parameters);
         if (list != null) {
             return list;
         }
 
-        HaskellTuple tuple = HaskellTuple.parse(signature);
+        HaskellTuple tuple = HaskellTuple.parse(signature, parameters);
         if (tuple != null) {
             return tuple;
         }
 
-        HaskellConcreteType concrete = HaskellConcreteType.parse(signature);
+        HaskellConcreteType concrete = HaskellConcreteType.parse(signature, parameters);
         if (concrete != null) {
             return concrete;
         }
 
-        HaskellParameter param = HaskellParameter.parse(signature);
+        HaskellParameter param = HaskellParameter.parse(signature, parameters);
         if (param != null) {
             return param;
+        }
+
+        HaskellFunction func = HaskellFunction.parse(signature, parameters);
+        if (func != null) {
+            return func;
         }
 
         return null;
@@ -44,9 +50,9 @@ class HaskellType {
         for (int i = 0; i < signature.length(); ++i) {
             i = skip(signature, i, len);
 
-            if (signature.charAt(i) == '(') {
+            if (signature.charAt(i) == '(' || signature.charAt(i) == '[') {
                 braces++;
-            } else if (signature.charAt(i) == ')') {
+            } else if (signature.charAt(i) == ')' || signature.charAt(i) == ']') {
                 braces--;
             } else if (braces == 0 && substr(signature, str, i, len)) {
                 result.add(signature.substring(start, i).trim());
@@ -80,4 +86,12 @@ class HaskellType {
 
         return i;
     }
+
+    public Signature makeSignature(HaskellParser parser, FunctionEntity function) {
+        return new Signature(new ArrayList<TypedEntity>(), buildType(parser, function));
+    }
+
+    abstract public TypedEntity buildType(HaskellParser parser, FunctionEntity function);
+
+    abstract public void addParameters(HaskellParser parser, FunctionEntity function, List<TypedEntity> params);
 }

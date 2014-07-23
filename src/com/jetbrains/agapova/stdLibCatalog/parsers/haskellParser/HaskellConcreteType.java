@@ -1,8 +1,15 @@
 package com.jetbrains.agapova.stdLibCatalog.parsers.haskellParser;
 
+import com.jetbrains.agapova.stdLibCatalog.domain.*;
+import javafx.util.Pair;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.regex.Pattern;
 
 /**
 * Created by ashatta on 7/18/14.
@@ -15,7 +22,7 @@ class HaskellConcreteType extends HaskellType {
         parameters = new ArrayList<>();
     }
 
-    public static HaskellConcreteType parse(String signature) {
+    public static HaskellConcreteType parse(String signature, Map<String, Pair<Integer, List<Pair<String, String>>>> parameters) {
         if (signature.startsWith("(") && signature.endsWith(")")) {
             signature = signature.substring(1, signature.length() - 1);
         }
@@ -30,7 +37,7 @@ class HaskellConcreteType extends HaskellType {
         concrete.name = it.next();
         while (it.hasNext()) {
             String par = it.next();
-            HaskellType param = HaskellType.parse(par);
+            HaskellType param = HaskellType.parse(par, parameters);
             if (param == null) {
                 return null;
             }
@@ -46,5 +53,38 @@ class HaskellConcreteType extends HaskellType {
 
     public List<HaskellType> getParameters() {
         return parameters;
+    }
+
+    public ClassEntity buildType(HaskellParser parser, FunctionEntity function) {
+        Element def = parser.shortDefinitions.get(function.getContainingPackage().getName())
+                .getElementsMatchingText("^" + Pattern.quote(function.getName()) + "\\s").get(0);
+
+        Elements typeDef = def.getElementsMatchingOwnText("^" + name + "$");
+        ClassEntity type = null;
+        if (!typeDef.isEmpty()) {
+            String packName = parser.getPackageName(typeDef.get(0).attributes().get("href"));
+            if (parser.classes.get(packName).containsKey(name)) {
+                type = parser.classes.get(packName).get(name).clone();
+            }
+        }
+        if (type == null) {
+            type = new ClassEntity("", name, "Haskell", "", new ArrayList<FunctionEntity>(), new ArrayList<TypeEntity>()
+                    , new ArrayList<TypeEntity>(), null, new ArrayList<TypedEntity>(), ""
+                    , new ArrayList<InterfaceEntity>());
+        }
+
+        List<TypedEntity> params = new ArrayList<>();
+        for (HaskellType t : parameters) {
+            params.add(t.buildType(parser, function));
+        }
+
+        type.setParameters(params);
+        return type;
+    }
+
+    public void addParameters(HaskellParser parser, FunctionEntity function, List<TypedEntity> params) {
+        for (HaskellType type : parameters) {
+            type.addParameters(parser, function, params);
+        }
     }
 }

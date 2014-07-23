@@ -18,6 +18,10 @@ public abstract class TypedEntity extends Entity {
         return parameters;
     }
 
+    public void setParameters(List<TypedEntity> parameters) {
+        this.parameters = parameters;
+    }
+
     public void addParameter(Parameter param) {
         parameters.add(param);
     }
