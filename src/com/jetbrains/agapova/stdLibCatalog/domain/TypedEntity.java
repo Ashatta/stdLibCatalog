@@ -3,7 +3,7 @@ package com.jetbrains.agapova.stdLibCatalog.domain;
 import java.util.List;
 
 /**
- * Created by ashatta on 7/14/14.
+ * Represents entity that can be a function parameter
  */
 public abstract class TypedEntity extends Entity {
     protected List<TypedEntity> parameters;

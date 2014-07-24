@@ -20,35 +20,45 @@ import java.util.regex.Pattern;
  * TODO: split functions into functional groups
  */
 public class HaskellParser {
+    // packageName -> packageEntity
     Map<String, PackageEntity> packages = new HashMap<>();
-    Map<String, String> packageDoc = new HashMap<>();
+    // packageName -> (interfaceName -> interfaceEntity)
     Map<String, Map<String, InterfaceEntity>> interfaces = new HashMap<>();
+    // packageName -> (functionName -> functionEntity)
     Map<String, Map<String, FunctionEntity>> functions = new HashMap<>();
+    // packageName -> (className -> classEntity)
     Map<String, Map<String, ClassEntity>> classes = new HashMap<>();
+    // packageName -> packageDocumentation
+    Map<String, String> packageDoc = new HashMap<>();
+    // packageName -> (interfaceName -> [(parentPackage, parentName)])
     Map<String, Map<String, List<Pair<String, String>>>> parents = new HashMap<>();
+    // packageName -> (interfaceName -> [(childPackage, childName)])
     Map<String, Map<String, List<Pair<String, String>>>> derived = new HashMap<>();
+    // packageName -> (interfaceName -> [(instancePackage, instanceName)])
     Map<String, Map<String, List<Pair<String, String>>>> instances = new HashMap<>();
+    // packageName -> (className -> [(supportedInterfacePackage, supportedInterfaceName)])
     Map<String, Map<String, List<Pair<String, String>>>> typeClasses = new HashMap<>();
+    // packageName -> (functionName -> (parameterVariable -> (parameterNumber, [(interfacePackage, interfaceName)])))
     Map<String, Map<String, Map<String, Pair<Integer, List<Pair<String, String>>>>>> functionParameters = new HashMap<>();
+    // packageName -> (functionName -> (parameterVariable -> parameterEntity))
     Map<String, Map<String, Map<String, Parameter>>> functionEndParameters = new HashMap<>();
+    // packageName -> (className -> (parameterVariable -> (parameterNumber, [(interfacePackage, interfaceName)])))
     Map<String, Map<String, Map<String, Pair<Integer, List<Pair<String, String>>>>>> typeParameters = new HashMap<>();
+    // packageName -> (functionName -> functionSignatureInIntermediateFormat
     Map<String, Map<String, HaskellType>> signatures = new HashMap<>();
-    static String baseAddress = "http://www.haskell.org/ghc/docs/latest/html/libraries/";
+    static final String BASE_ADDRESS = "http://www.haskell.org/ghc/docs/latest/html/libraries/";
     String packageName = "";
+    // packageName -> listOfContainedEntities
     Map<String, Element> shortDefinitions = new HashMap<>();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         HaskellParser parser = new HaskellParser();
         parser.fillListAndTuples();
 
-        try {
-            Document moduleList = Jsoup.parse(new URL(baseAddress), 2000);
-            Elements modules = moduleList.getElementById("module-list").getElementsByTag("ul").get(0).children();
-            for (Element module : modules) {
-                parser.parseModule(module);
-            }
-        } catch (java.io.IOException m) {
-            return;
+        Document moduleList = Jsoup.parse(new URL(BASE_ADDRESS), 2000);
+        Elements modules = moduleList.getElementById("module-list").getElementsByTag("ul").get(0).children();
+        for (Element module : modules) {
+            parser.parseModule(module);
         }
 
         parser.createEntitiesConnections();
@@ -67,7 +77,7 @@ public class HaskellParser {
         if (!module.child(0).getElementsByAttribute("href").isEmpty()) {
             String link = module.child(0).getElementsByAttribute("href").get(0).attributes().get("href");
             packageName = curr;
-            parse(new URL(baseAddress + link));
+            parse(new URL(BASE_ADDRESS + link));
         }
 
         PackageEntity pack = new PackageEntity("", curr, "Haskell", new ArrayList<>(classes.get(curr).values())
