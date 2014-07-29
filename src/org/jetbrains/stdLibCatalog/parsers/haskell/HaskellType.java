@@ -2,8 +2,9 @@ package org.jetbrains.stdLibCatalog.parsers.haskell;
 
 import javafx.util.Pair;
 import org.jetbrains.stdLibCatalog.domain.FunctionEntity;
-import org.jetbrains.stdLibCatalog.domain.Signature;
-import org.jetbrains.stdLibCatalog.domain.TypedEntity;
+import org.jetbrains.stdLibCatalog.domain.FunctionType;
+import org.jetbrains.stdLibCatalog.domain.TypeConstructor;
+import org.jetbrains.stdLibCatalog.domain.TypeEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,11 +85,9 @@ abstract class HaskellType {
         return i;
     }
 
-    public Signature makeSignature(HaskellParser parser, FunctionEntity function) {
-        return new Signature(new ArrayList<TypedEntity>(), buildType(parser, function));
+    public FunctionType makeSignature(HaskellParser parser, FunctionEntity function) {
+        return new FunctionType(new ArrayList<TypeEntity>(), buildType(parser, function));
     }
 
-    abstract public TypedEntity buildType(HaskellParser parser, FunctionEntity function);
-
-    abstract public void addParameters(HaskellParser parser, FunctionEntity function, List<TypedEntity> params);
+    abstract public TypeEntity buildType(HaskellParser parser, FunctionEntity function);
 }

@@ -1,9 +1,7 @@
 package org.jetbrains.stdLibCatalog.parsers.haskell;
 
 import javafx.util.Pair;
-import org.jetbrains.stdLibCatalog.domain.ClassEntity;
-import org.jetbrains.stdLibCatalog.domain.FunctionEntity;
-import org.jetbrains.stdLibCatalog.domain.TypedEntity;
+import org.jetbrains.stdLibCatalog.domain.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,24 +39,13 @@ class HaskellTuple extends HaskellType {
         return tuple;
     }
 
-    public List<HaskellType> getSubs() {
-        return subs;
-    }
-
-    public ClassEntity buildType(HaskellParser parser, FunctionEntity function) {
-        ClassEntity tuple = parser.classes.get("other").get("Tuple" + String.valueOf(subs.size())).clone();
-        List<TypedEntity> parameters = new ArrayList<>();
+    public DataType buildType(HaskellParser parser, FunctionEntity function) {
+        Classifier tuple = parser.classes.get("other").get("Tuple" + String.valueOf(subs.size()));
+        List<TypeEntity> parameters = new ArrayList<>();
         for (HaskellType type : subs) {
             parameters.add(type.buildType(parser, function));
         }
 
-        tuple.setParameters(parameters);
-        return tuple;
-    }
-
-    public void addParameters(HaskellParser parser, FunctionEntity function, List<TypedEntity> params) {
-        for (HaskellType type : subs) {
-            type.addParameters(parser, function, params);
-        }
+        return new DataType(tuple, parameters);
     }
 }

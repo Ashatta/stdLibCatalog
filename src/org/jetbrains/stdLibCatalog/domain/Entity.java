@@ -1,22 +1,16 @@
 package org.jetbrains.stdLibCatalog.domain;
 
-public class Entity implements Cloneable {
-    protected String id;
-    protected String name;
-    protected String lang;
-    protected String documentation;
-    protected String docLink;
+public class Entity {
+    private final String name;
+    private final String lang;
+    private final String documentation;
+    private final String docLink;
 
-    public Entity(String id, String name, String lang, String documentation, String docLink) {
-        this.id = id;
+    public Entity(String name, String lang, String documentation, String docLink) {
         this.name = name;
         this.lang = lang;
         this.documentation = documentation;
         this.docLink = docLink;
-    }
-
-    public String getId() {
-        return id;
     }
 
     public String getName() {
@@ -33,9 +27,5 @@ public class Entity implements Cloneable {
 
     public String getDocLink() {
         return docLink;
-    }
-
-    public Entity clone() {
-        return new Entity(id, name, lang, documentation, docLink);
     }
 }

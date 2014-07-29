@@ -22,26 +22,20 @@ import java.util.regex.Pattern;
 public class HaskellParser {
     // packageName -> packageEntity
     Map<String, PackageEntity> packages = new HashMap<>();
-    // packageName -> (interfaceName -> interfaceEntity)
-    Map<String, Map<String, InterfaceEntity>> interfaces = new HashMap<>();
     // packageName -> (functionName -> functionEntity)
     Map<String, Map<String, FunctionEntity>> functions = new HashMap<>();
     // packageName -> (className -> classEntity)
-    Map<String, Map<String, ClassEntity>> classes = new HashMap<>();
+    Map<String, Map<String, Classifier>> classes = new HashMap<>();
     // packageName -> packageDocumentation
     Map<String, String> packageDoc = new HashMap<>();
     // packageName -> (interfaceName -> [(parentPackage, parentName)])
     Map<String, Map<String, List<Pair<String, String>>>> parents = new HashMap<>();
     // packageName -> (interfaceName -> [(childPackage, childName)])
     Map<String, Map<String, List<Pair<String, String>>>> derived = new HashMap<>();
-    // packageName -> (interfaceName -> [(instancePackage, instanceName)])
-    Map<String, Map<String, List<Pair<String, String>>>> instances = new HashMap<>();
-    // packageName -> (className -> [(supportedInterfacePackage, supportedInterfaceName)])
-    Map<String, Map<String, List<Pair<String, String>>>> typeClasses = new HashMap<>();
     // packageName -> (functionName -> (parameterVariable -> (parameterNumber, [(interfacePackage, interfaceName)])))
     Map<String, Map<String, Map<String, Pair<Integer, List<Pair<String, String>>>>>> functionParameters = new HashMap<>();
     // packageName -> (functionName -> (parameterVariable -> parameterEntity))
-    Map<String, Map<String, Map<String, Parameter>>> functionEndParameters = new HashMap<>();
+    Map<String, Map<String, Map<String, TypeVariable>>> functionEndParameters = new HashMap<>();
     // packageName -> (className -> (parameterVariable -> (parameterNumber, [(interfacePackage, interfaceName)])))
     Map<String, Map<String, Map<String, Pair<Integer, List<Pair<String, String>>>>>> typeParameters = new HashMap<>();
     // packageName -> (functionName -> functionSignatureInIntermediateFormat
@@ -80,9 +74,8 @@ public class HaskellParser {
             parse(new URL(BASE_ADDRESS + link));
         }
 
-        PackageEntity pack = new PackageEntity("", curr, "Haskell", new ArrayList<>(classes.get(curr).values())
-                , new ArrayList<>(interfaces.get(curr).values()), new ArrayList<>(functions.get(curr).values())
-                , subpackages, null, (packageDoc.containsKey(curr) ? packageDoc.get(curr) : ""), "");
+        PackageEntity pack = new PackageEntity(curr, "Haskell", new ArrayList<>(classes.get(curr).values())
+                , new ArrayList<>(functions.get(curr).values()), subpackages, null, packageDoc.get(curr), "");
         packages.put(curr, pack);
 
         for (PackageEntity subpackage : subpackages) {
@@ -159,9 +152,7 @@ public class HaskellParser {
         parents.get(packageName).put(name, parseTypeClassParents(elem.children().get(0), name));
         parseInstances(elem, name);
 
-        interfaces.get(packageName).put(name, new InterfaceEntity("", name, "Haskell", getDoc(elem)
-                , parseFunctions(elem), new ArrayList<TypeEntity>() /*derived*/, new ArrayList<TypeEntity>() /*parents*/
-                , null, new ArrayList<TypedEntity>() /*parameters*/, "", new ArrayList<ClassEntity>() /*instances*/));
+        classes.get(packageName).put(name, new Classifier(name, "Haskell", getDoc(elem), parseFunctions(elem), ""));
     }
 
     private List<Pair<String, String>> parseTypeClassParents(Element element, String parentName) {
@@ -247,21 +238,21 @@ public class HaskellParser {
     }
 
     private void fillInstance(String name, Pair<String, String> type) {
-        if (!instances.get(packageName).containsKey(name)) {
-            instances.get(packageName).put(name, new ArrayList<Pair<String, String>>());
+        if (!derived.get(packageName).containsKey(name)) {
+            derived.get(packageName).put(name, new ArrayList<Pair<String, String>>());
         }
-        if (!instances.get(packageName).get(name).contains(type)) {
-            instances.get(packageName).get(name).add(type);
+        if (!derived.get(packageName).get(name).contains(type)) {
+            derived.get(packageName).get(name).add(type);
         }
 
-        if (!typeClasses.containsKey(type.getKey())) {
-            typeClasses.put(type.getKey(), new HashMap<String, List<Pair<String, String>>>());
+        if (!parents.containsKey(type.getKey())) {
+            parents.put(type.getKey(), new HashMap<String, List<Pair<String, String>>>());
         }
-        if (!typeClasses.get(type.getKey()).containsKey(type.getValue())) {
-            typeClasses.get(type.getKey()).put(type.getValue(), new ArrayList<Pair<String, String>>());
+        if (!parents.get(type.getKey()).containsKey(type.getValue())) {
+            parents.get(type.getKey()).put(type.getValue(), new ArrayList<Pair<String, String>>());
         }
-        if (!typeClasses.get(type.getKey()).get(type.getValue()).contains(new Pair<>(packageName, name))) {
-            typeClasses.get(type.getKey()).get(type.getValue()).add(new Pair<>(packageName, name));
+        if (!parents.get(type.getKey()).get(type.getValue()).contains(new Pair<>(packageName, name))) {
+            parents.get(type.getKey()).get(type.getValue()).add(new Pair<>(packageName, name));
         }
     }
 
@@ -300,8 +291,7 @@ public class HaskellParser {
             d = doc.text();
         }
 
-        FunctionEntity function = new FunctionEntity("", name, "Haskell", null /*signature*/, d, null /*parent*/
-                , null /*package*/, "", new ArrayList<TypedEntity>());
+        FunctionEntity function = new FunctionEntity(name, "Haskell", d, "");
         functions.get(packageName).put(name, function);
         return function;
     }
@@ -313,7 +303,7 @@ public class HaskellParser {
                 "^" + Pattern.quote(name) + "(\\s|,)").last(), parameters);
 
         functionParameters.get(packageName).put(name, parameters);
-        functionEndParameters.get(packageName).put(name, new HashMap<String, Parameter>());
+        functionEndParameters.get(packageName).put(name, new HashMap<String, TypeVariable>());
     }
 
     private Map<String, Pair<Integer, List<Pair<String, String>>>> parseParameters(String signature) {
@@ -376,9 +366,8 @@ public class HaskellParser {
         parseTypeParameters(elem, def, name);
         parseInterfacesInstances(elem, name);
 
-        classes.get(packageName).put(name, new ClassEntity("", name, "Haskell", getDoc(elem), new ArrayList<FunctionEntity>() /*functions*/
-                , new ArrayList<TypeEntity>() /*derived*/, new ArrayList<TypeEntity>() /*base*/, null
-                , new ArrayList<TypedEntity>() /*parameter*/, "", new ArrayList<InterfaceEntity>() /*interfaces*/));
+        classes.get(packageName).put(name, new Classifier(name, "Haskell", getDoc(elem)
+                , new ArrayList<FunctionEntity>(), ""));
     }
 
     private void parseTypeParameters(Element elem, String def, String name) {
@@ -429,10 +418,8 @@ public class HaskellParser {
     private void parseType(Element elem) {
         String name = elem.child(0).getElementsByClass("def").get(0).text();
 
-        classes.get(packageName).put(name, new ClassEntity("", name, "Haskell", getDoc(elem)
-                , new ArrayList<FunctionEntity>() /*functions*/, new ArrayList<TypeEntity>() /*derived*/
-                , new ArrayList<TypeEntity>() /*base*/, null, new ArrayList<TypedEntity>() /*parameter*/, ""
-                , new ArrayList<InterfaceEntity>() /*interfaces*/));
+        classes.get(packageName).put(name, new Classifier(name, "Haskell", getDoc(elem)
+                , new ArrayList<FunctionEntity>() /*functions*/, ""));
     }
 
     private static String getDoc(Element elem) {
@@ -449,45 +436,54 @@ public class HaskellParser {
     }
 
     private void createEntitiesConnections() {
-        for (Map.Entry<String, Map<String, InterfaceEntity>> entity : interfaces.entrySet()) {
-            for (InterfaceEntity typeClass : entity.getValue().values()) {
-                typeClass.setContainingPackage(packages.get(entity.getKey()));
-                createInterfaceConnections(typeClass);
+        for (Map.Entry<String, Map<String, Classifier>> pack : classes.entrySet()) {
+            for (Classifier classifier : pack.getValue().values()) {
+                classifier.setContainingPackage(packages.get(pack.getKey()));
+                createClassifierConnections(classifier);
             }
         }
 
-        for (Map.Entry<String, Map<String, FunctionEntity>> entity : functions.entrySet()) {
-            for (FunctionEntity function : entity.getValue().values()) {
-                function.setContainingPackage(packages.get(entity.getKey()));
+        for (Map.Entry<String, Map<String, FunctionEntity>> pack : functions.entrySet()) {
+            for (FunctionEntity function : pack.getValue().values()) {
+                function.setContainingPackage(packages.get(pack.getKey()));
                 createFunctionConnections(function);
             }
         }
+    }
 
-        for (Map.Entry<String, Map<String, ClassEntity>> entity : classes.entrySet()) {
-            for (ClassEntity classEntity : entity.getValue().values()) {
-                classEntity.setContainingPackage(packages.get(entity.getKey()));
-                createClassConnections(classEntity);
-            }
+    private void createClassifierConnections(Classifier classifier) {
+        String packName = classifier.getContainingPackage().getName();
+
+        connectDerived(classifier, packName, true);
+        connectDerived(classifier, packName, false);
+        connectTypeParameters(classifier, packName);
+
+        for (FunctionEntity function : classifier.getFunctions()) {
+            function.setContainingType(classifier);
         }
     }
 
-    private void createClassConnections(ClassEntity classEntity) {
-        String packName = classEntity.getContainingPackage().getName();
-        connectTypeClasses(classEntity, packName);
-        connectTypeParameters(classEntity, packName);
-    }
-
-    private void connectTypeClasses(ClassEntity classEntity, String packName) {
-        if (typeClasses.get(packName).containsKey(classEntity.getName())) {
-            for (Pair<String, String> instance : typeClasses.get(packName).get(classEntity.getName())) {
-                if (interfaces.get(instance.getKey()).containsKey(instance.getValue())) {
-                    classEntity.addInterface(interfaces.get(instance.getKey()).get(instance.getValue()));
+    private void connectDerived(Classifier classifier, String packName, boolean isParent) {
+        Map<String, Map<String, List<Pair<String, String>>>> connected = isParent ? derived : parents;
+        if (connected.get(packName).containsKey(classifier.getName())) {
+            for (Pair<String, String> connection : connected.get(packName).get(classifier.getName())) {
+                if (classes.containsKey(connection.getKey())
+                        && classes.get(connection.getKey()).containsKey(connection.getValue())) {
+                    if (isParent) {
+                        classifier.addDerived(classes.get(connection.getKey()).get(connection.getValue()));
+                    } else {
+                        classifier.addBase(classes.get(connection.getKey()).get(connection.getValue()));
+                    }
                 }
             }
         }
     }
 
-    private void connectTypeParameters(ClassEntity classEntity, String packName) {
+    private void connectTypeParameters(Classifier classEntity, String packName) {
+        if (!typeParameters.containsKey(packName)) {
+            return;
+        }
+
         Map<String, Pair<Integer, List<Pair<String, String>>>> params
                 = typeParameters.get(packName).get(classEntity.getName());
         if (params == null) {
@@ -495,61 +491,19 @@ public class HaskellParser {
         }
 
         for (Pair<Integer, List<Pair<String, String>>> param : params.values()) {
-            classEntity.addParameter(new Parameter(param.getKey(), paramInterfaceConstraints(param)));
+            classEntity.addParameter(new TypeVariable(param.getKey(), paramInterfaceConstraints(param)));
         }
     }
 
-    private List<InterfaceEntity> paramInterfaceConstraints(Pair<Integer, List<Pair<String, String>>> param) {
-        List<InterfaceEntity> interfaceConstraints = new ArrayList<>();
+    private List<Classifier> paramInterfaceConstraints(Pair<Integer, List<Pair<String, String>>> param) {
+        List<Classifier> interfaceConstraints = new ArrayList<>();
         for (Pair<String, String> interf : param.getValue()) {
-            if (interfaces.containsKey(interf.getKey())
-                    && interfaces.get(interf.getKey()).containsKey(interf.getValue())) {
-                interfaceConstraints.add(interfaces.get(interf.getKey()).get(interf.getValue()));
+            if (classes.containsKey(interf.getKey())
+                    && classes.get(interf.getKey()).containsKey(interf.getValue())) {
+                interfaceConstraints.add(classes.get(interf.getKey()).get(interf.getValue()));
             }
         }
         return interfaceConstraints;
-    }
-
-    private void createInterfaceConnections(InterfaceEntity typeClass) {
-        String packName = typeClass.getContainingPackage().getName();
-
-        connectDerivedTypeClasses(typeClass, packName);
-        connectParentTypeClasses(typeClass, packName);
-        connectInstances(typeClass, packName);
-
-        for (FunctionEntity function : typeClass.getFunctions()) {
-            function.setContainingType(typeClass);
-        }
-    }
-
-    private void connectDerivedTypeClasses(InterfaceEntity typeClass, String packName) {
-        if (derived.get(packName).containsKey(typeClass.getName())) {
-            for (Pair<String, String> derivedClass : derived.get(packName).get(typeClass.getName())) {
-                if (interfaces.get(derivedClass.getKey()).containsKey(derivedClass.getValue())) {
-                    typeClass.addDerived(interfaces.get(derivedClass.getKey()).get(derivedClass.getValue()));
-                }
-            }
-        }
-    }
-
-    private void connectParentTypeClasses(InterfaceEntity typeClass, String packName) {
-        for (Pair<String, String> baseClass : parents.get(packName).get(typeClass.getName())) {
-            if (interfaces.containsKey(baseClass.getKey())
-                    && interfaces.get(baseClass.getKey()).containsKey(baseClass.getValue())) {
-                typeClass.addBase(interfaces.get(baseClass.getKey()).get(baseClass.getValue()));
-            }
-        }
-    }
-
-    private void connectInstances(InterfaceEntity typeClass, String packName) {
-        if (instances.get(packName).containsKey(typeClass.getName())) {
-            for (Pair<String, String> instance : instances.get(packName).get(typeClass.getName())) {
-                if (classes.containsKey(instance.getKey())
-                        && classes.get(instance.getKey()).containsKey(instance.getValue())) {
-                    typeClass.addSupporting(classes.get(instance.getKey()).get(instance.getValue()));
-                }
-            }
-        }
     }
 
     private void createFunctionConnections(FunctionEntity function) {
@@ -557,66 +511,61 @@ public class HaskellParser {
 
         Map<String, Pair<Integer, List<Pair<String, String>>>> params
                 = functionParameters.get(packName).get(function.getName());
-        for (Pair<Integer, List<Pair<String, String>>> param : params.values()) {
-            function.addParameter(new Parameter(param.getKey(), paramInterfaceConstraints(param)));
+        for (Map.Entry<String, Pair<Integer, List<Pair<String, String>>>> param : params.entrySet()) {
+            TypeVariable variable = new TypeVariable(param.getValue().getKey(), paramInterfaceConstraints(param.getValue()));
+            function.addParameter(variable);
+            if (!functionEndParameters.get(packName).get(function.getName()).containsKey(param.getKey())) {
+                functionEndParameters.get(packName).get(function.getName()).put(param.getKey(), variable);
+            }
         }
 
-        function.setSignature(signatures.get(function.getContainingPackage().getName()).get(function.getName())
-                .makeSignature(this, function));
+        function.setSignature(signatures.get(packName).get(function.getName()).makeSignature(this, function));
     }
 
     private void fillListAndTuples() {
         initPackage("other");
-        List<ClassEntity> otherClasses = new ArrayList<>();
-        List<TypedEntity> listParam = new ArrayList<>();
-        listParam.add(new Parameter(0, new ArrayList<InterfaceEntity>()));
-        ClassEntity list = new ClassEntity("", "List", "Haskell", "", new ArrayList<FunctionEntity>()
-                , new ArrayList<TypeEntity>(), new ArrayList<TypeEntity>(), null, listParam, ""
-                , new ArrayList<InterfaceEntity>());
+        List<Classifier> otherClasses = new ArrayList<>();
+        Classifier list = new Classifier("List", "Haskell", "", new ArrayList<FunctionEntity>(), "");
+        list.addParameter(new TypeVariable(0, new ArrayList<Classifier>()));
         otherClasses.add(list);
         classes.get("other").put("List", list);
-        typeClasses.get("other").put("List", new ArrayList<Pair<String, String>>());
+        parents.get("other").put("List", new ArrayList<Pair<String, String>>());
         typeParameters.get("other").put("List", new HashMap<String, Pair<Integer, List<Pair<String, String>>>>());
 
         for (int i = 0; i <= 63; ++i) {
             if (i == 1) {
                 continue;
             }
-            List<TypedEntity> tupleParams = new ArrayList<>();
-            for (int j = 0; j < i; ++j) {
-                tupleParams.add(new Parameter(j, new ArrayList<InterfaceEntity>()));
-            }
             String name = "Tuple" + String.valueOf(i);
-            ClassEntity tuple = new ClassEntity("", name, "Haskell"
-                    , "", new ArrayList<FunctionEntity>(), new ArrayList<TypeEntity>(), new ArrayList<TypeEntity>()
-                    , null, tupleParams, "", new ArrayList<InterfaceEntity>());
+            Classifier tuple = new Classifier(name, "Haskell", "", new ArrayList<FunctionEntity>(), "");
+            for (int j = 0; j < i; ++j) {
+                tuple.addParameter(new TypeVariable(j, new ArrayList<Classifier>()));
+            }
             otherClasses.add(tuple);
             classes.get("other").put(name, tuple);
-            typeClasses.get("other").put(name, new ArrayList<Pair<String, String>>());
+            parents.get("other").put(name, new ArrayList<Pair<String, String>>());
             typeParameters.get("other").put(name, new HashMap<String, Pair<Integer, List<Pair<String, String>>>>());
         }
 
-        PackageEntity other = new PackageEntity("", "other", "Haskell", otherClasses, new ArrayList<InterfaceEntity>()
+        PackageEntity other = new PackageEntity("other", "Haskell", otherClasses
                 , new ArrayList<FunctionEntity>(), new ArrayList<PackageEntity>(), null, "", "");
-        for (ClassEntity otherClass : otherClasses) {
+        for (Classifier otherClass : otherClasses) {
             otherClass.setContainingPackage(other);
         }
         packages.put("other", other);
     }
 
     private void initPackage(String name) {
-        interfaces.put(name, new HashMap<String, InterfaceEntity>());
+        packageDoc.put(name, "");
+        classes.put(name, new HashMap<String, Classifier>());
         functions.put(name, new HashMap<String, FunctionEntity>());
-        classes.put(name, new HashMap<String, ClassEntity>());
-        parents.put(name, new HashMap<String, List<Pair<String, String>>>());
         if (!derived.containsKey(name)) {
             derived.put(name, new HashMap<String, List<Pair<String, String>>>());
         }
-        instances.put(name, new HashMap<String, List<Pair<String, String>>>());
-        if (!typeClasses.containsKey(name)) {
-            typeClasses.put(name, new HashMap<String, List<Pair<String, String>>>());
+        if (!parents.containsKey(name)) {
+            parents.put(name, new HashMap<String, List<Pair<String, String>>>());
         }
-        functionEndParameters.put(name, new HashMap<String, Map<String, Parameter>>());
+        functionEndParameters.put(name, new HashMap<String, Map<String, TypeVariable>>());
         functionParameters.put(name, new HashMap<String, Map<String, Pair<Integer, List<Pair<String, String>>>>>());
         typeParameters.put(name, new HashMap<String, Map<String, Pair<Integer, List<Pair<String, String>>>>>());
         signatures.put(name, new HashMap<String, HaskellType>());

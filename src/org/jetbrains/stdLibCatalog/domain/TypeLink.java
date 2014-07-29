@@ -2,27 +2,24 @@ package org.jetbrains.stdLibCatalog.domain;
 
 import org.joda.time.DateTime;
 
-/* I have no separate classes fo ClassLink and InterfaceLink because it is possible for a class to have a link
- * to an interface and vice versa
- */
 public class TypeLink {
-    private TypeEntity first;
-    private TypeEntity second;
+    private Classifier first;
+    private Classifier second;
     private User author;
     private DateTime date;
 
-    public TypeLink(TypeEntity first, TypeEntity second, User author, DateTime date) {
+    public TypeLink(Classifier first, Classifier second, User author, DateTime date) {
         this.first = first;
         this.second = second;
         this.author = author;
         this.date = date;
     }
 
-    public TypeEntity getFirst() {
+    public Classifier getFirst() {
         return first;
     }
 
-    public TypeEntity getSecond() {
+    public Classifier getSecond() {
         return second;
     }
 

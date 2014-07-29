@@ -2,8 +2,9 @@ package org.jetbrains.stdLibCatalog.parsers.haskell;
 
 import javafx.util.Pair;
 import org.jetbrains.stdLibCatalog.domain.FunctionEntity;
-import org.jetbrains.stdLibCatalog.domain.Signature;
-import org.jetbrains.stdLibCatalog.domain.TypedEntity;
+import org.jetbrains.stdLibCatalog.domain.FunctionType;
+import org.jetbrains.stdLibCatalog.domain.TypeConstructor;
+import org.jetbrains.stdLibCatalog.domain.TypeEntity;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -54,13 +55,9 @@ class HaskellFunction extends HaskellType {
         }
     }
 
-    public List<HaskellType> getArguments() {
-        return arguments;
-    }
-
-    public Signature makeSignature(HaskellParser parser, FunctionEntity function) {
+    public FunctionType makeSignature(HaskellParser parser, FunctionEntity function) {
         Iterator<HaskellType> it = arguments.iterator();
-        List<TypedEntity> args = new ArrayList<>();
+        List<TypeEntity> args = new ArrayList<>();
         HaskellType type = null;
         while (it.hasNext()) {
             type = it.next();
@@ -71,23 +68,11 @@ class HaskellFunction extends HaskellType {
             args.add(type.buildType(parser, function));
         }
 
-        return new Signature(args, type.buildType(parser, function));
+        assert type != null;
+        return new FunctionType(args, type.buildType(parser, function));
     }
 
-    public FunctionEntity buildType(HaskellParser parser, FunctionEntity function) {
-        Signature signature = makeSignature(parser, function);
-        return new FunctionEntity("", "", "Haskell", signature, "", null, null, "", parameters(parser, function));
-    }
-
-    private List<TypedEntity> parameters(HaskellParser parser, FunctionEntity function) {
-        List<TypedEntity> params = new ArrayList<>();
-        addParameters(parser, function, params);
-        return params;
-    }
-
-    public void addParameters(HaskellParser parser, FunctionEntity function, List<TypedEntity> params) {
-        for (HaskellType type : arguments) {
-            type.addParameters(parser, function, params);
-        }
+    public FunctionType buildType(HaskellParser parser, FunctionEntity function) {
+        return makeSignature(parser, function);
     }
 }

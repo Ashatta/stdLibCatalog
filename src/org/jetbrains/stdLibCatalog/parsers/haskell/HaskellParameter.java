@@ -1,10 +1,7 @@
 package org.jetbrains.stdLibCatalog.parsers.haskell;
 
 import javafx.util.Pair;
-import org.jetbrains.stdLibCatalog.domain.FunctionEntity;
-import org.jetbrains.stdLibCatalog.domain.InterfaceEntity;
-import org.jetbrains.stdLibCatalog.domain.Parameter;
-import org.jetbrains.stdLibCatalog.domain.TypedEntity;
+import org.jetbrains.stdLibCatalog.domain.*;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -44,33 +41,14 @@ class HaskellParameter extends HaskellType {
         return parameter;
     }
 
-    public List<HaskellType> getParameters() {
-        return parameters;
-    }
-
-    public Parameter buildType(HaskellParser parser, FunctionEntity function) {
+    public DataType buildType(HaskellParser parser, FunctionEntity function) {
         String packName = function.getContainingPackage().getName();
-        Pair<Integer, List<Pair<String, String>>> desc
-                = parser.functionParameters.get(packName).get(function.getName()).get(name);
-        List<InterfaceEntity> interfaces = new ArrayList<>();
-        for (Pair<String, String> interf : desc.getValue()) {
-            if (parser.interfaces.containsKey(interf.getKey())) {
-                interfaces.add(parser.interfaces.get(interf.getKey()).get(interf.getValue()));
-            }
+
+        List<TypeEntity> params = new ArrayList<>();
+        for (HaskellType param : parameters) {
+            params.add(param.buildType(parser, function));
         }
 
-        if (!parser.functionEndParameters.get(packName).get(function.getName()).containsKey(name)) {
-            parser.functionEndParameters.get(packName).get(function.getName()).put(
-                    name
-                    , new Parameter(desc.getKey(), interfaces));
-        }
-        return parser.functionEndParameters.get(packName).get(function.getName()).get(name);
-    }
-
-    public void addParameters(HaskellParser parser, FunctionEntity function, List<TypedEntity> params) {
-        String packName = function.getContainingPackage().getName();
-        if (!params.contains(parser.functionEndParameters.get(packName).get(function.getName()).get(name))) {
-            params.add(parser.functionEndParameters.get(packName).get(function.getName()).get(name));
-        }
+        return new DataType(parser.functionEndParameters.get(packName).get(function.getName()).get(name), params);
     }
 }

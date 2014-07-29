@@ -1,21 +1,21 @@
 package org.jetbrains.stdLibCatalog.services.search;
 
 import org.jetbrains.stdLibCatalog.domain.FunctionEntity;
-import org.jetbrains.stdLibCatalog.domain.Signature;
+import org.jetbrains.stdLibCatalog.domain.FunctionType;
 
 import java.util.Collections;
 import java.util.List;
 
 public class SearchBySignature {
-    public List<FunctionEntity> find(String lang, String name, Signature sign) {
+    public List<FunctionEntity> find(String lang, String name, FunctionType sign) {
         return Collections.<FunctionEntity>emptyList();
     }
 
-    public List<FunctionEntity> findWithName(String name, Signature sign) {
+    public List<FunctionEntity> findWithName(String name, FunctionType sign) {
         return Collections.<FunctionEntity>emptyList();
     }
 
-    public List<FunctionEntity> findWithLang(String lang, Signature sign) {
+    public List<FunctionEntity> findWithLang(String lang, FunctionType sign) {
         return Collections.<FunctionEntity>emptyList();
     }
 }

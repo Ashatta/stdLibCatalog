@@ -3,31 +3,29 @@ package org.jetbrains.stdLibCatalog.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FunctionEntity extends TypedEntity {
-    private Signature signature;
-    private TypeEntity containingType;
+public class FunctionEntity extends Entity {
+    private FunctionType signature;
+    private Classifier containingType;
     private PackageEntity containingPackage;
-    private List<FunctionLink> links;
+    private final List<TypeConstructor> parameters;
 
-    public FunctionEntity(String id, String lang, String name, Signature signature, String documentation
-            , TypeEntity containingType, PackageEntity containingPackage, String docLink
-            , List<TypedEntity> parameters) {
-        super(id, lang, name, documentation, docLink, parameters);
-        this.signature = signature;
-        this.containingType = containingType;
-        this.containingPackage = containingPackage;
-        this.links = new ArrayList<FunctionLink>();
+    public FunctionEntity(String lang, String name, String documentation, String docLink) {
+        super(lang, name, documentation, docLink);
+        this.signature = null;
+        this.containingType = null;
+        this.containingPackage = null;
+        this.parameters = new ArrayList<>();
     }
 
-    public Signature getSignature() {
+    public FunctionType getSignature() {
         return signature;
     }
 
-    public TypeEntity getContainingType() {
+    public Classifier getContainingType() {
         return containingType;
     }
 
-    public void setContainingType(TypeEntity containingType) {
+    public void setContainingType(Classifier containingType) {
         this.containingType = containingType;
     }
 
@@ -39,16 +37,15 @@ public class FunctionEntity extends TypedEntity {
         this.containingPackage = containingPackage;
     }
 
-    public List<FunctionLink> getLinks() {
-        return links;
-    }
-
-    public void setSignature(Signature signature) {
+    public void setSignature(FunctionType signature) {
         this.signature = signature;
     }
 
-    public FunctionEntity clone() {
-        return new FunctionEntity(id, lang, name, signature, documentation, containingType, containingPackage
-                , docLink, parameters);
+    public List<TypeConstructor> getParameters() {
+        return parameters;
+    }
+
+    public void addParameter(TypeConstructor param) {
+        parameters.add(param);
     }
 }

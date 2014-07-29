@@ -1,9 +1,7 @@
 package org.jetbrains.stdLibCatalog.parsers.haskell;
 
 import javafx.util.Pair;
-import org.jetbrains.stdLibCatalog.domain.ClassEntity;
-import org.jetbrains.stdLibCatalog.domain.FunctionEntity;
-import org.jetbrains.stdLibCatalog.domain.TypedEntity;
+import org.jetbrains.stdLibCatalog.domain.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,16 +25,10 @@ class HaskellList extends HaskellType {
         return (list.parameter == null ? null : list);
     }
 
-    public ClassEntity buildType(HaskellParser parser, FunctionEntity function) {
-        ClassEntity list = parser.classes.get("other").get("List").clone();
-        List<TypedEntity> parameters = new ArrayList<>();
+    public DataType buildType(HaskellParser parser, FunctionEntity function) {
+        Classifier list = parser.classes.get("other").get("List");
+        List<TypeEntity> parameters = new ArrayList<>();
         parameters.add(parameter.buildType(parser, function));
-        list.setParameters(parameters);
-        return list;
+        return new DataType(list, parameters);
     }
-
-    public void addParameters(HaskellParser parser, FunctionEntity function, List<TypedEntity> params) {
-        parameter.addParameters(parser, function, params);
-    }
-
 }

@@ -44,44 +44,27 @@ class HaskellConcreteType extends HaskellType {
         return concrete;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public List<HaskellType> getParameters() {
-        return parameters;
-    }
-
-    public ClassEntity buildType(HaskellParser parser, FunctionEntity function) {
+    public DataType buildType(HaskellParser parser, FunctionEntity function) {
         Element def = parser.shortDefinitions.get(function.getContainingPackage().getName())
                 .getElementsMatchingText("^" + Pattern.quote(function.getName()) + "\\s").get(0);
 
         Elements typeDef = def.getElementsMatchingOwnText("^" + name + "$");
-        ClassEntity type = null;
+        Classifier type = null;
         if (!typeDef.isEmpty()) {
             String packName = parser.getPackageName(typeDef.get(0).attributes().get("href"));
             if (parser.classes.get(packName).containsKey(name)) {
-                type = parser.classes.get(packName).get(name).clone();
+                type = parser.classes.get(packName).get(name);
             }
         }
         if (type == null) {
-            type = new ClassEntity("", name, "Haskell", "", new ArrayList<FunctionEntity>(), new ArrayList<TypeEntity>()
-                    , new ArrayList<TypeEntity>(), null, new ArrayList<TypedEntity>(), ""
-                    , new ArrayList<InterfaceEntity>());
+            type = new Classifier(name, "Haskell", "", new ArrayList<FunctionEntity>(), "");
         }
 
-        List<TypedEntity> params = new ArrayList<>();
+        List<TypeEntity> params = new ArrayList<>();
         for (HaskellType t : parameters) {
             params.add(t.buildType(parser, function));
         }
 
-        type.setParameters(params);
-        return type;
-    }
-
-    public void addParameters(HaskellParser parser, FunctionEntity function, List<TypedEntity> params) {
-        for (HaskellType type : parameters) {
-            type.addParameters(parser, function, params);
-        }
+        return new DataType(type, params);
     }
 }

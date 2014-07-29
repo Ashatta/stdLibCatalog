@@ -1,7 +1,7 @@
 package org.jetbrains.stdLibCatalog.services.search;
 
+import org.jetbrains.stdLibCatalog.domain.Classifier;
 import org.jetbrains.stdLibCatalog.domain.FunctionEntity;
-import org.jetbrains.stdLibCatalog.domain.TypeEntity;
 
 import java.util.Collections;
 import java.util.List;
@@ -16,13 +16,13 @@ public class SearchByDoc {
     }
 
     // all methods for types search return both classes and interfaces
-    public List<TypeEntity> findType(String lang, List<String> keywords) {
-        return Collections.<TypeEntity>emptyList();
+    public List<Classifier> findType(String lang, List<String> keywords) {
+        return Collections.<Classifier>emptyList();
     }
 
     // all methods for types search return both classes and interfaces
-    public List<TypeEntity> findType(String lang, String regexp) {
-        return Collections.<TypeEntity>emptyList();
+    public List<Classifier> findType(String lang, String regexp) {
+        return Collections.<Classifier>emptyList();
 
     }
 }
