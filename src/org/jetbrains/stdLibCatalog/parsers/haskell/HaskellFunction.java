@@ -1,9 +1,7 @@
 package org.jetbrains.stdLibCatalog.parsers.haskell;
 
-import javafx.util.Pair;
 import org.jetbrains.stdLibCatalog.domain.FunctionEntity;
 import org.jetbrains.stdLibCatalog.domain.FunctionType;
-import org.jetbrains.stdLibCatalog.domain.TypeConstructor;
 import org.jetbrains.stdLibCatalog.domain.TypeEntity;
 
 import java.util.ArrayList;
@@ -18,7 +16,7 @@ class HaskellFunction extends HaskellType {
         arguments = new ArrayList<>();
     }
 
-    public static HaskellFunction parse(String signature, Map<String, Pair<Integer, List<Pair<String, String>>>> parameters) {
+    public static HaskellFunction parse(String signature, Map<String, HaskellParser.ParameterDescription> parameters) {
         if (!signature.startsWith("(") || !signature.endsWith(")")) {
             return null;
         }
@@ -45,12 +43,13 @@ class HaskellFunction extends HaskellType {
         return func;
     }
 
-    private static void parseInterfaces(String description, Map<String, Pair<Integer, List<Pair<String, String>>>> parameters) {
+    private static void parseInterfaces(String description, Map<String, HaskellParser.ParameterDescription> parameters) {
         String[] classes = description.replaceAll("[()]", "").split(",\\s+");
         for (String cl : classes) {
             String[] def = cl.split("\\s+");
-            if (!parameters.get(def[1]).getValue().contains(new Pair<String, String>("", def[0]))) {
-                parameters.get(def[1]).getValue().add(new Pair<String, String>("", def[0]));
+            HaskellParser.QualifiedName interfaceName = new HaskellParser.QualifiedName("", def[0]);
+            if (!parameters.get(def[1]).getValue().contains(interfaceName)) {
+                parameters.get(def[1]).getValue().add(interfaceName);
             }
         }
     }

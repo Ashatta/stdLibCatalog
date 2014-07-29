@@ -1,6 +1,5 @@
 package org.jetbrains.stdLibCatalog.parsers.haskell;
 
-import javafx.util.Pair;
 import org.jetbrains.stdLibCatalog.domain.*;
 
 import java.util.ArrayList;
@@ -16,7 +15,7 @@ class HaskellParameter extends HaskellType {
         parameters = new ArrayList<>();
     }
 
-    public static HaskellParameter parse(String signature, Map<String, Pair<Integer, List<Pair<String, String>>>> parameters) {
+    public static HaskellParameter parse(String signature, Map<String, HaskellParser.ParameterDescription> parameters) {
         if (signature.startsWith("(") && signature.endsWith(")")) {
             signature = signature.substring(1, signature.length() - 1);
         }
@@ -49,6 +48,6 @@ class HaskellParameter extends HaskellType {
             params.add(param.buildType(parser, function));
         }
 
-        return new DataType(parser.functionEndParameters.get(packName).get(function.getName()).get(name), params);
+        return new DataType(parser.functionEndParameters.get(new HaskellParser.QualifiedName(packName, function.getName())).get(name), params);
     }
 }

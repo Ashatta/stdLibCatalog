@@ -1,6 +1,5 @@
 package org.jetbrains.stdLibCatalog.parsers.haskell;
 
-import javafx.util.Pair;
 import org.jetbrains.stdLibCatalog.domain.*;
 
 import java.util.ArrayList;
@@ -14,7 +13,7 @@ class HaskellTuple extends HaskellType {
         subs = new ArrayList<>();
     }
 
-    public static HaskellTuple parse(String signature, Map<String, Pair<Integer, List<Pair<String, String>>>> parameters) {
+    public static HaskellTuple parse(String signature, Map<String, HaskellParser.ParameterDescription> parameters) {
         if (!signature.startsWith("(") || !signature.endsWith(")")) {
             return null;
         }
@@ -40,7 +39,7 @@ class HaskellTuple extends HaskellType {
     }
 
     public DataType buildType(HaskellParser parser, FunctionEntity function) {
-        Classifier tuple = parser.classes.get("other").get("Tuple" + String.valueOf(subs.size()));
+        Classifier tuple = parser.classes.get(new HaskellParser.QualifiedName("other", "Tuple" + String.valueOf(subs.size())));
         List<TypeEntity> parameters = new ArrayList<>();
         for (HaskellType type : subs) {
             parameters.add(type.buildType(parser, function));

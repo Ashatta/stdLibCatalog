@@ -1,9 +1,7 @@
 package org.jetbrains.stdLibCatalog.parsers.haskell;
 
-import javafx.util.Pair;
 import org.jetbrains.stdLibCatalog.domain.FunctionEntity;
 import org.jetbrains.stdLibCatalog.domain.FunctionType;
-import org.jetbrains.stdLibCatalog.domain.TypeConstructor;
 import org.jetbrains.stdLibCatalog.domain.TypeEntity;
 
 import java.util.ArrayList;
@@ -11,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 abstract class HaskellType {
-    public static HaskellType parse(String signature, Map<String, Pair<Integer, List<Pair<String, String>>>> parameters) {
+    public static HaskellType parse(String signature, Map<String, HaskellParser.ParameterDescription> parameters) {
         HaskellList list = HaskellList.parse(signature, parameters);
         if (list != null) {
             return list;

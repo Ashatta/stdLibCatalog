@@ -1,6 +1,5 @@
 package org.jetbrains.stdLibCatalog.parsers.haskell;
 
-import javafx.util.Pair;
 import org.jetbrains.stdLibCatalog.domain.*;
 
 import java.util.ArrayList;
@@ -12,7 +11,7 @@ class HaskellList extends HaskellType {
 
     HaskellList() {}
 
-    public static HaskellList parse(String signature, Map<String, Pair<Integer, List<Pair<String, String>>>> parameters) {
+    public static HaskellList parse(String signature, Map<String, HaskellParser.ParameterDescription> parameters) {
         if (!signature.startsWith("[") || !signature.endsWith("]")) {
             return null;
         }
@@ -26,7 +25,7 @@ class HaskellList extends HaskellType {
     }
 
     public DataType buildType(HaskellParser parser, FunctionEntity function) {
-        Classifier list = parser.classes.get("other").get("List");
+        Classifier list = parser.classes.get(new HaskellParser.QualifiedName("other", "List"));
         List<TypeEntity> parameters = new ArrayList<>();
         parameters.add(parameter.buildType(parser, function));
         return new DataType(list, parameters);

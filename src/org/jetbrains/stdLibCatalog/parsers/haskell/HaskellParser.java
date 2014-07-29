@@ -20,30 +20,31 @@ import java.util.regex.Pattern;
  * TODO: split functions into functional groups
  */
 public class HaskellParser {
-    // packageName -> packageEntity
-    Map<String, PackageEntity> packages = new HashMap<>();
-    // packageName -> (functionName -> functionEntity)
-    Map<String, Map<String, FunctionEntity>> functions = new HashMap<>();
-    // packageName -> (className -> classEntity)
-    Map<String, Map<String, Classifier>> classes = new HashMap<>();
-    // packageName -> packageDocumentation
-    Map<String, String> packageDoc = new HashMap<>();
-    // packageName -> (interfaceName -> [(parentPackage, parentName)])
-    Map<String, Map<String, List<Pair<String, String>>>> parents = new HashMap<>();
-    // packageName -> (interfaceName -> [(childPackage, childName)])
-    Map<String, Map<String, List<Pair<String, String>>>> derived = new HashMap<>();
-    // packageName -> (functionName -> (parameterVariable -> (parameterNumber, [(interfacePackage, interfaceName)])))
-    Map<String, Map<String, Map<String, Pair<Integer, List<Pair<String, String>>>>>> functionParameters = new HashMap<>();
-    // packageName -> (functionName -> (parameterVariable -> parameterEntity))
-    Map<String, Map<String, Map<String, TypeVariable>>> functionEndParameters = new HashMap<>();
-    // packageName -> (className -> (parameterVariable -> (parameterNumber, [(interfacePackage, interfaceName)])))
-    Map<String, Map<String, Map<String, Pair<Integer, List<Pair<String, String>>>>>> typeParameters = new HashMap<>();
-    // packageName -> (functionName -> functionSignatureInIntermediateFormat
-    Map<String, Map<String, HaskellType>> signatures = new HashMap<>();
+    static class QualifiedName extends Pair<String, String> {
+        public QualifiedName(String packageName, String entityName) {
+            super(packageName, entityName);
+        }
+    }
+
+    static class ParameterDescription extends Pair<Integer, List<QualifiedName>> {
+        public ParameterDescription(Integer parameterNumber, List<QualifiedName> constraintsDescription) {
+            super(parameterNumber, constraintsDescription);
+        }
+    }
+
     static final String BASE_ADDRESS = "http://www.haskell.org/ghc/docs/latest/html/libraries/";
     String packageName = "";
-    // packageName -> listOfContainedEntities
     Map<String, Element> shortDefinitions = new HashMap<>();
+    Map<String, PackageEntity> packages = new HashMap<>();
+    Map<String, String> packageDoc = new HashMap<>();
+    Map<QualifiedName, FunctionEntity> functions = new HashMap<>();
+    Map<QualifiedName, Classifier> classes = new HashMap<>();
+    Map<QualifiedName, List<QualifiedName>> parents = new HashMap<>();
+    Map<QualifiedName, List<QualifiedName>> derived = new HashMap<>();
+    Map<QualifiedName, Map<String, ParameterDescription>> typeParameters = new HashMap<>();
+    Map<QualifiedName, Map<String, ParameterDescription>> functionParameters = new HashMap<>();
+    Map<QualifiedName, Map<String, TypeVariable>> functionEndParameters = new HashMap<>();
+    Map<QualifiedName, HaskellType> signatures = new HashMap<>();
 
     public static void main(String[] args) throws IOException {
         HaskellParser parser = new HaskellParser();
@@ -60,7 +61,6 @@ public class HaskellParser {
 
     private PackageEntity parseModule(Element module) throws IOException {
         String curr = module.child(0).text().replaceAll("^\\p{javaSpaceChar}", "");
-        initPackage(curr);
 
         List<PackageEntity> subpackages = parseSubpackages(module);
 
@@ -74,8 +74,9 @@ public class HaskellParser {
             parse(new URL(BASE_ADDRESS + link));
         }
 
-        PackageEntity pack = new PackageEntity(curr, "Haskell", new ArrayList<>(classes.get(curr).values())
-                , new ArrayList<>(functions.get(curr).values()), subpackages, null, packageDoc.get(curr), "");
+        PackageEntity pack = new PackageEntity(curr, "Haskell", classesByPackageName(curr),
+                functionsByPackageName(curr), subpackages, null,
+                (packageDoc.containsKey(curr) ? packageDoc.get(curr) : ""), "");
         packages.put(curr, pack);
 
         for (PackageEntity subpackage : subpackages) {
@@ -149,14 +150,15 @@ public class HaskellParser {
     private void parseTypeClass(Element elem) {
         String name = elem.child(0).getElementsByClass("def").get(0).text();
 
-        parents.get(packageName).put(name, parseTypeClassParents(elem.children().get(0), name));
+        parents.put(new QualifiedName(packageName, name), parseTypeClassParents(elem.children().get(0), name));
         parseInstances(elem, name);
 
-        classes.get(packageName).put(name, new Classifier(name, "Haskell", getDoc(elem), parseFunctions(elem), ""));
+        classes.put(new QualifiedName(packageName, name),
+                new Classifier(name, "Haskell", getDoc(elem), parseFunctions(elem), ""));
     }
 
-    private List<Pair<String, String>> parseTypeClassParents(Element element, String parentName) {
-        List<Pair<String, String>> result = new ArrayList<>();
+    private List<QualifiedName> parseTypeClassParents(Element element, String parentName) {
+        List<QualifiedName> result = new ArrayList<>();
 
         for (Element parentLink : element.getElementsByAttribute("href")) {
             if (parentLink.hasClass("link")) {
@@ -164,14 +166,12 @@ public class HaskellParser {
             }
 
             String parentPackage = getPackageName(parentLink.attributes().get("href"));
-            result.add(new Pair<>(parentPackage, parentLink.text()));
-            if (!derived.containsKey(parentPackage)) {
-                derived.put(parentPackage, new HashMap<String, List<Pair<String, String>>>());
+            QualifiedName parent = new QualifiedName(parentPackage, parentLink.text());
+            result.add(parent);
+             if (!derived.containsKey(parent)) {
+                derived.put(parent, new ArrayList<QualifiedName>());
             }
-            if (!derived.get(parentPackage).containsKey(parentLink.text())) {
-                derived.get(parentPackage).put(parentLink.text(), new ArrayList<Pair<String, String>>());
-            }
-            derived.get(parentPackage).get(parentLink.text()).add(new Pair<>(packageName, parentName));
+            derived.get(parent).add(new QualifiedName(packageName, parentName));
         }
 
         return result;
@@ -188,14 +188,14 @@ public class HaskellParser {
         }
 
         for (Element el : elem.getElementsByClass("instances").get(0).getElementsByClass("src")) {
-            Pair<String, String> type = getType(el, name);
+            QualifiedName type = getType(el, name);
             if (type != null) {
                 fillInstance(name, type);
             }
         }
     }
 
-    private Pair<String, String> getType(Element el, String name) {
+    private QualifiedName getType(Element el, String name) {
         String[] description = el.text().split("\\s+=>\\s+");
 
         String fullType = description[description.length - 1];
@@ -214,7 +214,7 @@ public class HaskellParser {
             packName = getPackageName(el.getElementsMatchingOwnText("^" + typeName + "$").get(0).attributes().get("href"));
         }
 
-        return new Pair<>(packName, typeName);
+        return new QualifiedName(packName, typeName);
     }
 
     private String getTypeName(String fullType) {
@@ -237,22 +237,21 @@ public class HaskellParser {
         return type;
     }
 
-    private void fillInstance(String name, Pair<String, String> type) {
-        if (!derived.get(packageName).containsKey(name)) {
-            derived.get(packageName).put(name, new ArrayList<Pair<String, String>>());
+    private void fillInstance(String name, QualifiedName type) {
+        QualifiedName qualifiedName = new QualifiedName(packageName, name);
+
+        if (!derived.containsKey(qualifiedName)) {
+            derived.put(qualifiedName, new ArrayList<QualifiedName>());
         }
-        if (!derived.get(packageName).get(name).contains(type)) {
-            derived.get(packageName).get(name).add(type);
+        if (!derived.get(qualifiedName).contains(type)) {
+            derived.get(qualifiedName).add(type);
         }
 
-        if (!parents.containsKey(type.getKey())) {
-            parents.put(type.getKey(), new HashMap<String, List<Pair<String, String>>>());
+        if (!parents.containsKey(type)) {
+            parents.put(type, new ArrayList<QualifiedName>());
         }
-        if (!parents.get(type.getKey()).containsKey(type.getValue())) {
-            parents.get(type.getKey()).put(type.getValue(), new ArrayList<Pair<String, String>>());
-        }
-        if (!parents.get(type.getKey()).get(type.getValue()).contains(new Pair<>(packageName, name))) {
-            parents.get(type.getKey()).get(type.getValue()).add(new Pair<>(packageName, name));
+        if (!parents.get(type).contains(qualifiedName)) {
+            parents.get(type).add(qualifiedName);
         }
     }
 
@@ -292,44 +291,44 @@ public class HaskellParser {
         }
 
         FunctionEntity function = new FunctionEntity(name, "Haskell", d, "");
-        functions.get(packageName).put(name, function);
+        functions.put(new QualifiedName(packageName, name), function);
         return function;
     }
 
     private void fillFunctionType(String name, String signature) {
-        Map<String, Pair<Integer, List<Pair<String, String>>>> parameters = parseParameters(signature);
+        Map<String, ParameterDescription> parameters = parseParameters(signature);
         parseSignature(signature, name, parameters);
         fillInterfaces(shortDefinitions.get(packageName).getElementsMatchingText(
                 "^" + Pattern.quote(name) + "(\\s|,)").last(), parameters);
 
-        functionParameters.get(packageName).put(name, parameters);
-        functionEndParameters.get(packageName).put(name, new HashMap<String, TypeVariable>());
+        QualifiedName qualifiedName = new QualifiedName(packageName, name);
+        functionParameters.put(qualifiedName, parameters);
+        functionEndParameters.put(qualifiedName, new HashMap<String, TypeVariable>());
     }
 
-    private Map<String, Pair<Integer, List<Pair<String, String>>>> parseParameters(String signature) {
-        Map<String, Pair<Integer, List<Pair<String, String>>>> parameters = new HashMap<>();
+    private Map<String, ParameterDescription> parseParameters(String signature) {
+        Map<String, ParameterDescription> parameters = new HashMap<>();
         for (String s : signature.split("\\s+")) {
             s = s.replaceAll("[\\(\\)\\[\\],\\->]", "");
             if (!s.isEmpty() && Character.isLowerCase(s.charAt(0)) && !parameters.containsKey(s)) {
-                parameters.put(s, new Pair<Integer, List<Pair<String, String>>>(parameters.size()
-                        , new ArrayList<Pair<String, String>>()));
+                parameters.put(s, new ParameterDescription(parameters.size(), new ArrayList<QualifiedName>()));
             }
         }
 
         return parameters;
     }
 
-    private void parseSignature(String signature, String funcName, Map<String, Pair<Integer, List<Pair<String, String>>>> parameters) {
+    private void parseSignature(String signature, String funcName, Map<String, ParameterDescription> parameters) {
         signature = "(" + signature + ")";
-        signatures.get(packageName).put(funcName, HaskellType.parse(signature, parameters));
+        signatures.put(new QualifiedName(packageName, funcName), HaskellType.parse(signature, parameters));
     }
 
-    private void fillInterfaces(Element func, Map<String, Pair<Integer, List<Pair<String, String>>>> parameters) {
-        for (Pair<Integer, List<Pair<String, String>>> param : parameters.values()) {
-            for (Pair<String, String> type : param.getValue()) {
+    private void fillInterfaces(Element func, Map<String, ParameterDescription> parameters) {
+        for (ParameterDescription param : parameters.values()) {
+            for (QualifiedName type : param.getValue()) {
                 Elements elems = func.getElementsMatchingOwnText("^" + type.getValue() + "$");
                 if (!elems.isEmpty()) {
-                    param.getValue().set(param.getValue().indexOf(type), new Pair<>(
+                    param.getValue().set(param.getValue().indexOf(type), new QualifiedName(
                             getPackageName(elems.get(0).attributes().get("href"))
                             , type.getValue()));
                 }
@@ -366,7 +365,7 @@ public class HaskellParser {
         parseTypeParameters(elem, def, name);
         parseInterfacesInstances(elem, name);
 
-        classes.get(packageName).put(name, new Classifier(name, "Haskell", getDoc(elem)
+        classes.put(new QualifiedName(packageName, name), new Classifier(name, "Haskell", getDoc(elem)
                 , new ArrayList<FunctionEntity>(), ""));
     }
 
@@ -377,10 +376,9 @@ public class HaskellParser {
             return;
         }
 
-        Map<String, Pair<Integer, List<Pair<String, String>>>> parameters = new HashMap<>();
+        Map<String, ParameterDescription> parameters = new HashMap<>();
         for (int i = 1; i < params.length; ++i) {
-            parameters.put(params[i], new Pair<Integer, List<Pair<String, String>>>(i - 1
-                    , new ArrayList<Pair<String, String>>()));
+            parameters.put(params[i], new ParameterDescription(i - 1, new ArrayList<QualifiedName>()));
         }
 
         if (parts.length > 1) {
@@ -391,13 +389,13 @@ public class HaskellParser {
             String[] interfaces = interfacesString.split(",\\s+");
             for (String anInterface : interfaces) {
                 String[] d = anInterface.split("\\s+");
-                parameters.get(d[1]).getValue().add(new Pair<>(
+                parameters.get(d[1]).getValue().add(new QualifiedName(
                         getPackageName(elem.getElementsMatchingOwnText("^" + d[0] + "$").get(0).attributes().get("href"))
                         , d[0]));
             }
         }
 
-        typeParameters.get(packageName).put(name, parameters);
+        typeParameters.put(new QualifiedName(packageName, name), parameters);
     }
 
     private void parseInterfacesInstances(Element elem, String name) {
@@ -410,7 +408,7 @@ public class HaskellParser {
             String interf = description[description.length - 1].split("\\s+")[0];
             Pair<String, String> type = getType(el, interf);
             if (type != null && type.getValue().equals(name)) {
-                fillInstance(interf, new Pair<>(packageName, name));
+                fillInstance(interf, new QualifiedName(packageName, name));
             }
         }
     }
@@ -418,7 +416,7 @@ public class HaskellParser {
     private void parseType(Element elem) {
         String name = elem.child(0).getElementsByClass("def").get(0).text();
 
-        classes.get(packageName).put(name, new Classifier(name, "Haskell", getDoc(elem)
+        classes.put(new QualifiedName(packageName, name), new Classifier(name, "Haskell", getDoc(elem)
                 , new ArrayList<FunctionEntity>() /*functions*/, ""));
     }
 
@@ -436,18 +434,14 @@ public class HaskellParser {
     }
 
     private void createEntitiesConnections() {
-        for (Map.Entry<String, Map<String, Classifier>> pack : classes.entrySet()) {
-            for (Classifier classifier : pack.getValue().values()) {
-                classifier.setContainingPackage(packages.get(pack.getKey()));
-                createClassifierConnections(classifier);
-            }
+        for (Map.Entry<QualifiedName, Classifier> classDesc : classes.entrySet()) {
+            classDesc.getValue().setContainingPackage(packages.get(classDesc.getKey().getKey()));
+            createClassifierConnections(classDesc.getValue());
         }
 
-        for (Map.Entry<String, Map<String, FunctionEntity>> pack : functions.entrySet()) {
-            for (FunctionEntity function : pack.getValue().values()) {
-                function.setContainingPackage(packages.get(pack.getKey()));
-                createFunctionConnections(function);
-            }
+        for (Map.Entry<QualifiedName, FunctionEntity> func : functions.entrySet()) {
+            func.getValue().setContainingPackage(packages.get(func.getKey().getKey()));
+            createFunctionConnections(func.getValue());
         }
     }
 
@@ -464,15 +458,15 @@ public class HaskellParser {
     }
 
     private void connectDerived(Classifier classifier, String packName, boolean isParent) {
-        Map<String, Map<String, List<Pair<String, String>>>> connected = isParent ? derived : parents;
-        if (connected.get(packName).containsKey(classifier.getName())) {
-            for (Pair<String, String> connection : connected.get(packName).get(classifier.getName())) {
-                if (classes.containsKey(connection.getKey())
-                        && classes.get(connection.getKey()).containsKey(connection.getValue())) {
+        Map<QualifiedName, List<QualifiedName>> connected = isParent ? derived : parents;
+        QualifiedName classifierName = new QualifiedName(packName, classifier.getName());
+        if (connected.containsKey(classifierName)) {
+            for (QualifiedName connection : connected.get(classifierName)) {
+                if (classes.containsKey(connection)) {
                     if (isParent) {
-                        classifier.addDerived(classes.get(connection.getKey()).get(connection.getValue()));
+                        classifier.addDerived(classes.get(connection));
                     } else {
-                        classifier.addBase(classes.get(connection.getKey()).get(connection.getValue()));
+                        classifier.addBase(classes.get(connection));
                     }
                 }
             }
@@ -484,53 +478,71 @@ public class HaskellParser {
             return;
         }
 
-        Map<String, Pair<Integer, List<Pair<String, String>>>> params
-                = typeParameters.get(packName).get(classEntity.getName());
+        Map<String, ParameterDescription> params = typeParameters.get(new QualifiedName(packName, classEntity.getName()));
         if (params == null) {
             return;
         }
 
-        for (Pair<Integer, List<Pair<String, String>>> param : params.values()) {
+        for (Pair<Integer, List<QualifiedName>> param : params.values()) {
             classEntity.addParameter(new TypeVariable(param.getKey(), paramInterfaceConstraints(param)));
         }
     }
 
-    private List<Classifier> paramInterfaceConstraints(Pair<Integer, List<Pair<String, String>>> param) {
+    private List<Classifier> paramInterfaceConstraints(Pair<Integer, List<QualifiedName>> param) {
         List<Classifier> interfaceConstraints = new ArrayList<>();
-        for (Pair<String, String> interf : param.getValue()) {
-            if (classes.containsKey(interf.getKey())
-                    && classes.get(interf.getKey()).containsKey(interf.getValue())) {
-                interfaceConstraints.add(classes.get(interf.getKey()).get(interf.getValue()));
+        for (QualifiedName interf : param.getValue()) {
+            if (classes.containsKey(interf)) {
+                interfaceConstraints.add(classes.get(interf));
             }
         }
         return interfaceConstraints;
     }
 
     private void createFunctionConnections(FunctionEntity function) {
-        String packName = function.getContainingPackage().getName();
+        QualifiedName funcName = new QualifiedName(function.getContainingPackage().getName(), function.getName());
 
-        Map<String, Pair<Integer, List<Pair<String, String>>>> params
-                = functionParameters.get(packName).get(function.getName());
-        for (Map.Entry<String, Pair<Integer, List<Pair<String, String>>>> param : params.entrySet()) {
+        Map<String, ParameterDescription> params = functionParameters.get(funcName);
+        for (Map.Entry<String, ParameterDescription> param : params.entrySet()) {
             TypeVariable variable = new TypeVariable(param.getValue().getKey(), paramInterfaceConstraints(param.getValue()));
             function.addParameter(variable);
-            if (!functionEndParameters.get(packName).get(function.getName()).containsKey(param.getKey())) {
-                functionEndParameters.get(packName).get(function.getName()).put(param.getKey(), variable);
+            if (!functionEndParameters.get(funcName).containsKey(param.getKey())) {
+                functionEndParameters.get(funcName).put(param.getKey(), variable);
             }
         }
 
-        function.setSignature(signatures.get(packName).get(function.getName()).makeSignature(this, function));
+        function.setSignature(signatures.get(funcName).makeSignature(this, function));
+    }
+
+    private List<Classifier> classesByPackageName(String packName) {
+        List<Classifier> result = new ArrayList<>();
+        for (Map.Entry<QualifiedName, Classifier> function : classes.entrySet()) {
+            if (function.getKey().getKey().equals(packName)) {
+                result.add(function.getValue());
+            }
+        }
+        return result;
+    }
+
+    private List<FunctionEntity> functionsByPackageName(String packName) {
+        List<FunctionEntity> result = new ArrayList<>();
+        for (Map.Entry<QualifiedName, FunctionEntity> function : functions.entrySet()) {
+            if (function.getKey().getKey().equals(packName)) {
+                result.add(function.getValue());
+            }
+        }
+        return result;
     }
 
     private void fillListAndTuples() {
-        initPackage("other");
+        packageDoc.put("other", "");
         List<Classifier> otherClasses = new ArrayList<>();
         Classifier list = new Classifier("List", "Haskell", "", new ArrayList<FunctionEntity>(), "");
         list.addParameter(new TypeVariable(0, new ArrayList<Classifier>()));
         otherClasses.add(list);
-        classes.get("other").put("List", list);
-        parents.get("other").put("List", new ArrayList<Pair<String, String>>());
-        typeParameters.get("other").put("List", new HashMap<String, Pair<Integer, List<Pair<String, String>>>>());
+        QualifiedName listQualified = new QualifiedName("other", "List");
+        classes.put(listQualified, list);
+        parents.put(listQualified, new ArrayList<QualifiedName>());
+        typeParameters.put(listQualified, new HashMap<String, ParameterDescription>());
 
         for (int i = 0; i <= 63; ++i) {
             if (i == 1) {
@@ -542,9 +554,10 @@ public class HaskellParser {
                 tuple.addParameter(new TypeVariable(j, new ArrayList<Classifier>()));
             }
             otherClasses.add(tuple);
-            classes.get("other").put(name, tuple);
-            parents.get("other").put(name, new ArrayList<Pair<String, String>>());
-            typeParameters.get("other").put(name, new HashMap<String, Pair<Integer, List<Pair<String, String>>>>());
+            QualifiedName qualifiedName = new QualifiedName("other", name);
+            classes.put(qualifiedName, tuple);
+            parents.put(qualifiedName, new ArrayList<QualifiedName>());
+            typeParameters.put(qualifiedName, new HashMap<String, ParameterDescription>());
         }
 
         PackageEntity other = new PackageEntity("other", "Haskell", otherClasses
@@ -553,22 +566,6 @@ public class HaskellParser {
             otherClass.setContainingPackage(other);
         }
         packages.put("other", other);
-    }
-
-    private void initPackage(String name) {
-        packageDoc.put(name, "");
-        classes.put(name, new HashMap<String, Classifier>());
-        functions.put(name, new HashMap<String, FunctionEntity>());
-        if (!derived.containsKey(name)) {
-            derived.put(name, new HashMap<String, List<Pair<String, String>>>());
-        }
-        if (!parents.containsKey(name)) {
-            parents.put(name, new HashMap<String, List<Pair<String, String>>>());
-        }
-        functionEndParameters.put(name, new HashMap<String, Map<String, TypeVariable>>());
-        functionParameters.put(name, new HashMap<String, Map<String, Pair<Integer, List<Pair<String, String>>>>>());
-        typeParameters.put(name, new HashMap<String, Map<String, Pair<Integer, List<Pair<String, String>>>>>());
-        signatures.put(name, new HashMap<String, HaskellType>());
     }
 
     private boolean isIgnorable(String moduleName) {

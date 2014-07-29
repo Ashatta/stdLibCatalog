@@ -1,7 +1,6 @@
 package org.jetbrains.stdLibCatalog.parsers.haskell;
 
 import org.jetbrains.stdLibCatalog.domain.*;
-import javafx.util.Pair;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
@@ -19,7 +18,7 @@ class HaskellConcreteType extends HaskellType {
         parameters = new ArrayList<>();
     }
 
-    public static HaskellConcreteType parse(String signature, Map<String, Pair<Integer, List<Pair<String, String>>>> parameters) {
+    public static HaskellConcreteType parse(String signature, Map<String, HaskellParser.ParameterDescription> parameters) {
         if (signature.startsWith("(") && signature.endsWith(")")) {
             signature = signature.substring(1, signature.length() - 1);
         }
@@ -52,9 +51,7 @@ class HaskellConcreteType extends HaskellType {
         Classifier type = null;
         if (!typeDef.isEmpty()) {
             String packName = parser.getPackageName(typeDef.get(0).attributes().get("href"));
-            if (parser.classes.get(packName).containsKey(name)) {
-                type = parser.classes.get(packName).get(name);
-            }
+            type = parser.classes.get(new HaskellParser.QualifiedName(packName, name));
         }
         if (type == null) {
             type = new Classifier(name, "Haskell", "", new ArrayList<FunctionEntity>(), "");
