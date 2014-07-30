@@ -7,18 +7,18 @@ import java.util.List;
 
 public class SearchForLinks {
     public List<FunctionLink> findLinks(FunctionEntity func) {
-        return Collections.<FunctionLink>emptyList();
+        return Collections.emptyList();
     }
 
     public List<TypeLink> findLinks(Classifier type) {
-        return Collections.<TypeLink>emptyList();
+        return Collections.emptyList();
     }
 
     public List<FunctionLink> findLinkSuggestions(FunctionEntity func) {
-        return Collections.<FunctionLink>emptyList();
+        return Collections.emptyList();
     }
 
     public List<TypeLink> findLinkSuggestions(Classifier type) {
-        return Collections.<TypeLink>emptyList();
+        return Collections.emptyList();
     }
 }

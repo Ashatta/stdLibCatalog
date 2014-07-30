@@ -9,6 +9,7 @@ public class Classifier extends TypeConstructor {
     private final List<Classifier> base;
     private PackageEntity containingPackage;
     private final List<TypeConstructor> parameters;
+    private final List<TypeLink> links;
 
     public Classifier(String name, String lang, String documentation, List<FunctionEntity> functions
             , String docLink) {
@@ -18,6 +19,7 @@ public class Classifier extends TypeConstructor {
         this.base = new ArrayList<>();
         this.containingPackage = null;
         this.parameters = new ArrayList<>();
+        this.links = new ArrayList<>();
     }
 
     public List<FunctionEntity> getFunctions() {
@@ -50,5 +52,9 @@ public class Classifier extends TypeConstructor {
 
     public void addParameter(TypeConstructor param) {
         parameters.add(param);
+    }
+
+    public List<TypeLink> getLinks() {
+        return links;
     }
 }

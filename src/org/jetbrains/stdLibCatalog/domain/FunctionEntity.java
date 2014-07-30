@@ -8,6 +8,7 @@ public class FunctionEntity extends Entity {
     private Classifier containingType;
     private PackageEntity containingPackage;
     private final List<TypeConstructor> parameters;
+    private final List<FunctionLink> links;
 
     public FunctionEntity(String lang, String name, String documentation, String docLink) {
         super(lang, name, documentation, docLink);
@@ -15,6 +16,7 @@ public class FunctionEntity extends Entity {
         this.containingType = null;
         this.containingPackage = null;
         this.parameters = new ArrayList<>();
+        this.links = new ArrayList<>();
     }
 
     public FunctionType getSignature() {
@@ -47,5 +49,9 @@ public class FunctionEntity extends Entity {
 
     public void addParameter(TypeConstructor param) {
         parameters.add(param);
+    }
+
+    public List<FunctionLink> getLinks() {
+        return links;
     }
 }

@@ -8,21 +8,19 @@ import java.util.List;
 
 public class SearchByDoc {
     public List<FunctionEntity> findFunction(String lang, List<String> keywords) {
-        return Collections.<FunctionEntity>emptyList();
+        return Collections.emptyList();
     }
 
     public List<FunctionEntity> findFunction(String lang, String regexp) {
-        return Collections.<FunctionEntity>emptyList();
+        return Collections.emptyList();
     }
 
-    // all methods for types search return both classes and interfaces
     public List<Classifier> findType(String lang, List<String> keywords) {
-        return Collections.<Classifier>emptyList();
+        return Collections.emptyList();
     }
 
-    // all methods for types search return both classes and interfaces
-    public List<Classifier> findType(String lang, String regexp) {
-        return Collections.<Classifier>emptyList();
+     public List<Classifier> findType(String lang, String regexp) {
+        return Collections.emptyList();
 
     }
 }

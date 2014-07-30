@@ -7,35 +7,27 @@ import java.util.List;
 
 public class SearchForConnectedEntities {
     public List<FunctionEntity> findMemberFunctions(Classifier t) {
-        return Collections.<FunctionEntity>emptyList();
+        return Collections.emptyList();
     }
 
     public List<Classifier> findSubtypes(Classifier t) {
-        return Collections.<Classifier>emptyList();
+        return Collections.emptyList();
     }
 
     public List<Classifier> findSupertypes(Classifier t) {
-        return Collections.<Classifier>emptyList();
-    }
-
-    public List<Classifier> findSupportingClasses(Classifier t) {
-        return Collections.<Classifier>emptyList();
-    }
-
-    public List<Classifier> findInterfaces(Classifier t) {
-        return Collections.<Classifier>emptyList();
+        return Collections.emptyList();
     }
 
     public List<FunctionEntity> findUsingFunctions(Classifier t) {
-        return Collections.<FunctionEntity>emptyList();
+        return Collections.emptyList();
     }
 
-    public List<Classifier> findClassifiers(PackageEntity pack) {
-        return Collections.<Classifier>emptyList();
+    public List<Classifier> findTypes(PackageEntity pack) {
+        return Collections.emptyList();
     }
 
     public List<FunctionEntity> findFunctions(PackageEntity pack) {
-        return Collections.<FunctionEntity>emptyList();
+        return Collections.emptyList();
     }
 
     public Classifier findContainingType(FunctionEntity func) {
@@ -48,5 +40,13 @@ public class SearchForConnectedEntities {
 
     public PackageEntity findContainingPackage(Classifier t) {
         return null;
+    }
+
+    public PackageEntity findContainingPackage(PackageEntity pack) {
+        return null;
+    }
+
+    public List<PackageEntity> findSubpackages(PackageEntity pack) {
+        return Collections.emptyList();
     }
 }

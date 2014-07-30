@@ -8,14 +8,14 @@ import java.util.List;
 
 public class SearchBySignature {
     public List<FunctionEntity> find(String lang, String name, FunctionType sign) {
-        return Collections.<FunctionEntity>emptyList();
+        return Collections.emptyList();
     }
 
     public List<FunctionEntity> findWithName(String name, FunctionType sign) {
-        return Collections.<FunctionEntity>emptyList();
+        return Collections.emptyList();
     }
 
     public List<FunctionEntity> findWithLang(String lang, FunctionType sign) {
-        return Collections.<FunctionEntity>emptyList();
+        return Collections.emptyList();
     }
 }

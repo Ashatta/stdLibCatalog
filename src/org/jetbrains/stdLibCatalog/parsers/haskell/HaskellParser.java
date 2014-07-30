@@ -33,6 +33,9 @@ public class HaskellParser {
     }
 
     static final String BASE_ADDRESS = "http://www.haskell.org/ghc/docs/latest/html/libraries/";
+    static final int CONNECTION_TIMEOUT = 2000;
+    static final String OTHER_PACKAGE = "other";  // a name of dummy package for embedded stuff like lists or tuples
+
     String packageName = "";
     Map<String, Element> shortDefinitions = new HashMap<>();
     Map<String, PackageEntity> packages = new HashMap<>();
@@ -50,7 +53,7 @@ public class HaskellParser {
         HaskellParser parser = new HaskellParser();
         parser.fillListAndTuples();
 
-        Document moduleList = Jsoup.parse(new URL(BASE_ADDRESS), 2000);
+        Document moduleList = Jsoup.parse(new URL(BASE_ADDRESS), CONNECTION_TIMEOUT);
         Elements modules = moduleList.getElementById("module-list").getElementsByTag("ul").get(0).children();
         for (Element module : modules) {
             parser.parseModule(module);
@@ -60,6 +63,7 @@ public class HaskellParser {
     }
 
     private PackageEntity parseModule(Element module) throws IOException {
+        // there are strange non-breaking spaces before module name sometimes
         String curr = module.child(0).text().replaceAll("^\\p{javaSpaceChar}", "");
 
         List<PackageEntity> subpackages = parseSubpackages(module);
@@ -68,8 +72,9 @@ public class HaskellParser {
             return null;
         }
 
-        if (!module.child(0).getElementsByAttribute("href").isEmpty()) {
-            String link = module.child(0).getElementsByAttribute("href").get(0).attributes().get("href");
+        Elements moduleLinkElem = module.child(0).getElementsByAttribute("href");
+        if (!moduleLinkElem.isEmpty()) {
+            String link = moduleLinkElem.get(0).attributes().get("href");
             packageName = curr;
             parse(new URL(BASE_ADDRESS + link));
         }
@@ -103,7 +108,7 @@ public class HaskellParser {
     }
 
     public void parse(URL url) throws IOException {
-        Document document = Jsoup.parse(url, 2000);
+        Document document = Jsoup.parse(url, CONNECTION_TIMEOUT);
         shortDefinitions.put(packageName, document.getElementById("section.syn"));
         if (shortDefinitions.get(packageName) == null) {
             return;
@@ -149,12 +154,12 @@ public class HaskellParser {
 
     private void parseTypeClass(Element elem) {
         String name = elem.child(0).getElementsByClass("def").get(0).text();
+        QualifiedName qualifiedName = new QualifiedName(packageName, name);
 
-        parents.put(new QualifiedName(packageName, name), parseTypeClassParents(elem.children().get(0), name));
+        parents.put(qualifiedName, parseTypeClassParents(elem.children().get(0), name));
         parseInstances(elem, name);
 
-        classes.put(new QualifiedName(packageName, name),
-                new Classifier(name, "Haskell", getDoc(elem), parseFunctions(elem), ""));
+        classes.put(qualifiedName, new Classifier(name, "Haskell", getDoc(elem), parseFunctions(elem), ""));
     }
 
     private List<QualifiedName> parseTypeClassParents(Element element, String parentName) {
@@ -178,6 +183,7 @@ public class HaskellParser {
     }
 
     String getPackageName(String link) {
+        // link has format "http://something/something/Package-Name.html", getting "Package.Name" out of it
         String[] parts = link.split("\\.html")[0].split("/");
         return parts[parts.length - 1].replaceAll("-", ".");
     }
@@ -196,12 +202,15 @@ public class HaskellParser {
     }
 
     private QualifiedName getType(Element el, String name) {
+        // we don't care about typeclass constraints here so we throw them away
         String[] description = el.text().split("\\s+=>\\s+");
-
         String fullType = description[description.length - 1];
+
+        // TODO: need to handle strange instances somehow
         if (!name.equals(fullType.split("\\s+")[0])) {
             return null;
         }
+        // get instance type only
         fullType = fullType.replaceAll("^" + name + "\\s+", "");
 
         String typeName = getTypeName(fullType);
@@ -209,7 +218,7 @@ public class HaskellParser {
             return null;
         }
 
-        String packName = "other";
+        String packName = OTHER_PACKAGE;
         if (!typeName.equals("List") && !typeName.matches("^Tuple\\d+$")) {
             packName = getPackageName(el.getElementsMatchingOwnText("^" + typeName + "$").get(0).attributes().get("href"));
         }
@@ -258,8 +267,9 @@ public class HaskellParser {
     private List<FunctionEntity> parseFunctions(Element elem) {
         List<FunctionEntity> functions = new ArrayList<>();
 
-        if (!elem.getElementsByClass("methods").isEmpty()) {
-            for (Element func : elem.getElementsByClass("methods").get(0).getElementsByClass("src")) {
+        Elements methodsElem = elem.getElementsByClass("methods");
+        if (!methodsElem.isEmpty()) {
+            for (Element func : methodsElem.get(0).getElementsByClass("src")) {
                 if (!func.getElementsByClass("def").isEmpty()) {
                     functions.addAll(parseFunctionDef(func));
                 }
@@ -270,6 +280,7 @@ public class HaskellParser {
     }
 
     private List<FunctionEntity> parseFunctionDef(Element func) {
+        // names of functions in the definition (which can contain more than one function, divided by ',')
         String[] names = func.child(0).text().split("::\\s+")[0].split(",\\s+");
 
         List<FunctionEntity> result = new ArrayList<>();
@@ -309,7 +320,7 @@ public class HaskellParser {
     private Map<String, ParameterDescription> parseParameters(String signature) {
         Map<String, ParameterDescription> parameters = new HashMap<>();
         for (String s : signature.split("\\s+")) {
-            s = s.replaceAll("[\\(\\)\\[\\],\\->]", "");
+            s = s.replaceAll("[\\(\\)\\[\\],\\->]", "");  // keep parameters without list-tuple-function artifacts
             if (!s.isEmpty() && Character.isLowerCase(s.charAt(0)) && !parameters.containsKey(s)) {
                 parameters.put(s, new ParameterDescription(parameters.size(), new ArrayList<QualifiedName>()));
             }
@@ -339,26 +350,28 @@ public class HaskellParser {
     private String getSignature(String name) {
         Element func = shortDefinitions.get(packageName).getElementsMatchingText(
                 "^" + Pattern.quote(name) + "$").get(0).parent();
-        String[] parts = func.text().split("::\\s*");
+        String[] parts = func.text().split("::\\s*");  // split into name and type description
 
-        if (!func.getElementsByClass("fixity").isEmpty()) {
-            parts[1] = parts[1].replaceAll(func.getElementsByClass("fixity").get(0).text(), "");
+        for (Element elem : func.getElementsByClass("fixity")) {
+            parts[1] = parts[1].replaceAll(elem.text(), "");
         }
 
-        if (!func.getElementsByClass("rightedge").isEmpty()) {
-            parts[1] = parts[1].replaceAll(func.getElementsByClass("rightedge").get(0).text(), "");
+        for (Element elem : func.getElementsByClass("rightedge")) {
+            parts[1] = parts[1].replaceAll(elem.text(), "");
         }
 
-        if (!func.getElementsByClass("link").isEmpty()) {
-            parts[1] = parts[1].replaceAll(func.getElementsByClass("link").get(0).text(), "");
+        for (Element elem : func.getElementsByClass("link")) {
+            parts[1] = parts[1].replaceAll(elem.text(), "");
         }
 
+        // ignoring forall specifications for simplicity of further parsing
         return parts[1].replaceAll("forall(\\s+[a-z]+)*\\.\\s+", "").trim();
     }
 
     private void parseData(Element elem) {
         String name = elem.child(0).getElementsByClass("def").get(0).text();
 
+        // removing links to source, keywords and kind specification
         String def = elem.children().get(0).text().split("\\s+Source")[0].split("\\s+where")[0]
                 .split("\\s+::\\s+")[0].replaceFirst("\\s*data\\s+", "").replaceFirst("\\s*newtype\\s+", "");
 
@@ -474,10 +487,6 @@ public class HaskellParser {
     }
 
     private void connectTypeParameters(Classifier classEntity, String packName) {
-        if (!typeParameters.containsKey(packName)) {
-            return;
-        }
-
         Map<String, ParameterDescription> params = typeParameters.get(new QualifiedName(packName, classEntity.getName()));
         if (params == null) {
             return;
@@ -534,12 +543,12 @@ public class HaskellParser {
     }
 
     private void fillListAndTuples() {
-        packageDoc.put("other", "");
+        packageDoc.put(OTHER_PACKAGE, "");
         List<Classifier> otherClasses = new ArrayList<>();
         Classifier list = new Classifier("List", "Haskell", "", new ArrayList<FunctionEntity>(), "");
         list.addParameter(new TypeVariable(0, new ArrayList<Classifier>()));
         otherClasses.add(list);
-        QualifiedName listQualified = new QualifiedName("other", "List");
+        QualifiedName listQualified = new QualifiedName(OTHER_PACKAGE, "List");
         classes.put(listQualified, list);
         parents.put(listQualified, new ArrayList<QualifiedName>());
         typeParameters.put(listQualified, new HashMap<String, ParameterDescription>());
@@ -554,18 +563,18 @@ public class HaskellParser {
                 tuple.addParameter(new TypeVariable(j, new ArrayList<Classifier>()));
             }
             otherClasses.add(tuple);
-            QualifiedName qualifiedName = new QualifiedName("other", name);
+            QualifiedName qualifiedName = new QualifiedName(OTHER_PACKAGE, name);
             classes.put(qualifiedName, tuple);
             parents.put(qualifiedName, new ArrayList<QualifiedName>());
             typeParameters.put(qualifiedName, new HashMap<String, ParameterDescription>());
         }
 
-        PackageEntity other = new PackageEntity("other", "Haskell", otherClasses
+        PackageEntity other = new PackageEntity(OTHER_PACKAGE, "Haskell", otherClasses
                 , new ArrayList<FunctionEntity>(), new ArrayList<PackageEntity>(), null, "", "");
         for (Classifier otherClass : otherClasses) {
             otherClass.setContainingPackage(other);
         }
-        packages.put("other", other);
+        packages.put(OTHER_PACKAGE, other);
     }
 
     private boolean isIgnorable(String moduleName) {
