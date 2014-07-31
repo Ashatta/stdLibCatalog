@@ -49,4 +49,12 @@ public class SearchForConnectedEntities {
     public List<PackageEntity> findSubpackages(PackageEntity pack) {
         return Collections.emptyList();
     }
+
+    public TypeEntity findAliasedType(TypeAlias alias) {
+        return null;
+    }
+
+    public List<TypeAlias> findAliases(TypeConstructor t) {
+        return Collections.emptyList();
+    }
 }

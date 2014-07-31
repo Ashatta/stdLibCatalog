@@ -15,8 +15,6 @@ import java.util.regex.Pattern;
 /**
  * TODO: tuple-like and infix constructors
  * TODO: links to source code
- * TODO: links to documentation
- * TODO: type synonyms
  * TODO: split functions into functional groups
  */
 public class HaskellParser {
@@ -37,6 +35,7 @@ public class HaskellParser {
     static final String OTHER_PACKAGE = "other";  // a name of dummy package for embedded stuff like lists or tuples
 
     String packageName = "";
+    String currentAddress = "";
     final Map<String, Element> shortDefinitions = new HashMap<>();
     final Map<String, PackageEntity> packages = new HashMap<>();
     final Map<String, String> packageDoc = new HashMap<>();
@@ -65,23 +64,27 @@ public class HaskellParser {
     private PackageEntity parseModule(Element module) throws IOException {
         // there are strange non-breaking spaces before module name sometimes
         String curr = module.child(0).text().replaceAll("^\\p{javaSpaceChar}", "");
+        String link = "";
 
         List<PackageEntity> subpackages = parseSubpackages(module);
 
+        // ignoring infix and tuple-like data types
         if (isIgnorable(curr)) {
             return null;
         }
 
         Elements moduleLinkElem = module.child(0).getElementsByAttribute("href");
         if (!moduleLinkElem.isEmpty()) {
-            String link = moduleLinkElem.get(0).attributes().get("href");
             packageName = curr;
-            parse(new URL(BASE_ADDRESS + link));
+            link = moduleLinkElem.get(0).attributes().get("href");
+            currentAddress = BASE_ADDRESS + link;
+            parse(new URL(currentAddress));
         }
 
         PackageEntity pack = new PackageEntity(curr, "Haskell", classesByPackageName(curr),
                 functionsByPackageName(curr), subpackages, null,
-                (packageDoc.containsKey(curr) ? packageDoc.get(curr) : ""), "");
+                (packageDoc.containsKey(curr) ? packageDoc.get(curr) : ""),
+                (link.equals("") ? "" : (BASE_ADDRESS + link)));
         packages.put(curr, pack);
 
         for (PackageEntity subpackage : subpackages) {
@@ -160,7 +163,8 @@ public class HaskellParser {
         parents.put(qualifiedName, parseTypeClassParents(elem.children().get(0), name));
         parseInstances(elem, name);
 
-        classes.put(qualifiedName, new Classifier(name, "Haskell", getDoc(elem), "", parseFunctions(elem)));
+        classes.put(qualifiedName, new Classifier(name, "Haskell", getDoc(elem), currentAddress + "#t:" + name,
+                parseFunctions(elem)));
     }
 
     private List<QualifiedName> parseTypeClassParents(Element element, String parentName) {
@@ -302,7 +306,8 @@ public class HaskellParser {
             d = doc.text();
         }
 
-        FunctionEntity function = new FunctionEntity(name.getValue(), "Haskell", d, "");
+        FunctionEntity function = new FunctionEntity(name.getValue(), "Haskell", d,
+                currentAddress + "#v:" + name.getValue());
         functions.put(name, function);
         return function;
     }
@@ -379,7 +384,7 @@ public class HaskellParser {
         parseInterfacesInstances(elem, name);
 
         classes.put(new QualifiedName(packageName, name), new Classifier(name, "Haskell", getDoc(elem)
-                , "", new ArrayList<FunctionEntity>()));
+                , currentAddress + "#t:" + name, new ArrayList<FunctionEntity>()));
     }
 
     private void parseTypeParameters(Element elem, String def, String name) {
@@ -447,7 +452,7 @@ public class HaskellParser {
 
         entityParameters.put(qualifiedName, parameters);
         entityEndParameters.put(qualifiedName, new HashMap<String, TypeVariable>());
-        aliases.put(qualifiedName, new TypeAlias(name, "Haskell", getDoc(elem), ""));
+        aliases.put(qualifiedName, new TypeAlias(name, "Haskell", getDoc(elem), currentAddress + "#t:" + name));
     }
 
     private static String getDoc(Element elem) {
