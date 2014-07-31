@@ -5,33 +5,18 @@ import java.util.List;
 
 public class Classifier extends TypeConstructor {
     private final List<FunctionEntity> functions;
-    private final List<Classifier> derived;
-    private final List<Classifier> base;
-    private PackageEntity containingPackage;
-    private final List<TypeConstructor> parameters;
-    private final List<TypeLink> links;
+    private final List<Classifier> derived = new ArrayList<>();
+    private final List<Classifier> base = new ArrayList<>();
+    private final List<TypeConstructor> parameters = new ArrayList<>();
+    private final List<TypeLink> links = new ArrayList<>();
 
-    public Classifier(String name, String lang, String documentation, List<FunctionEntity> functions
-            , String docLink) {
+    public Classifier(String name, String lang, String documentation, String docLink, List<FunctionEntity> functions) {
         super(name, lang, documentation, docLink);
         this.functions = functions;
-        this.derived = new ArrayList<>();
-        this.base = new ArrayList<>();
-        this.containingPackage = null;
-        this.parameters = new ArrayList<>();
-        this.links = new ArrayList<>();
     }
 
     public List<FunctionEntity> getFunctions() {
         return functions;
-    }
-
-    public PackageEntity getContainingPackage() {
-        return containingPackage;
-    }
-
-    public void setContainingPackage(PackageEntity containingPackage) {
-        this.containingPackage = containingPackage;
     }
 
     public void addDerived(Classifier d) {

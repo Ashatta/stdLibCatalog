@@ -24,10 +24,10 @@ class HaskellList extends HaskellType {
         return (list.parameter == null ? null : list);
     }
 
-    public DataType buildType(HaskellParser parser, FunctionEntity function) {
+    public DataType buildType(HaskellParser parser, HaskellParser.QualifiedName entity, boolean isType) {
         Classifier list = parser.classes.get(new HaskellParser.QualifiedName("other", "List"));
         List<TypeEntity> parameters = new ArrayList<>();
-        parameters.add(parameter.buildType(parser, function));
+        parameters.add(parameter.buildType(parser, entity, isType));
         return new DataType(list, parameters);
     }
 }

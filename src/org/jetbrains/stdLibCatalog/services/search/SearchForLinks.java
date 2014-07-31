@@ -10,7 +10,7 @@ public class SearchForLinks {
         return Collections.emptyList();
     }
 
-    public List<TypeLink> findLinks(Classifier type) {
+    public List<TypeLink> findLinks(TypeConstructor type) {
         return Collections.emptyList();
     }
 
@@ -18,7 +18,7 @@ public class SearchForLinks {
         return Collections.emptyList();
     }
 
-    public List<TypeLink> findLinkSuggestions(Classifier type) {
+    public List<TypeLink> findLinkSuggestions(TypeConstructor type) {
         return Collections.emptyList();
     }
 }

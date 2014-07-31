@@ -38,11 +38,11 @@ class HaskellTuple extends HaskellType {
         return tuple;
     }
 
-    public DataType buildType(HaskellParser parser, FunctionEntity function) {
+    public DataType buildType(HaskellParser parser, HaskellParser.QualifiedName entity, boolean isType) {
         Classifier tuple = parser.classes.get(new HaskellParser.QualifiedName("other", "Tuple" + String.valueOf(subs.size())));
         List<TypeEntity> parameters = new ArrayList<>();
         for (HaskellType type : subs) {
-            parameters.add(type.buildType(parser, function));
+            parameters.add(type.buildType(parser, entity, isType));
         }
 
         return new DataType(tuple, parameters);

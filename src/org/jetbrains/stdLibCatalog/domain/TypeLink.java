@@ -3,23 +3,23 @@ package org.jetbrains.stdLibCatalog.domain;
 import org.joda.time.DateTime;
 
 public class TypeLink {
-    private Classifier first;
-    private Classifier second;
+    private TypeConstructor first;
+    private TypeConstructor second;
     private User author;
     private DateTime date;
 
-    public TypeLink(Classifier first, Classifier second, User author, DateTime date) {
+    public TypeLink(TypeConstructor first, TypeConstructor second, User author, DateTime date) {
         this.first = first;
         this.second = second;
         this.author = author;
         this.date = date;
     }
 
-    public Classifier getFirst() {
+    public TypeConstructor getFirst() {
         return first;
     }
 
-    public Classifier getSecond() {
+    public TypeConstructor getSecond() {
         return second;
     }
 

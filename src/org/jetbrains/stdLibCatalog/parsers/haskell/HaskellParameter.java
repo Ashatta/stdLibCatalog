@@ -40,14 +40,12 @@ class HaskellParameter extends HaskellType {
         return parameter;
     }
 
-    public DataType buildType(HaskellParser parser, FunctionEntity function) {
-        String packName = function.getContainingPackage().getName();
-
+    public DataType buildType(HaskellParser parser, HaskellParser.QualifiedName entity, boolean isType) {
         List<TypeEntity> params = new ArrayList<>();
         for (HaskellType param : parameters) {
-            params.add(param.buildType(parser, function));
+            params.add(param.buildType(parser, entity, isType));
         }
 
-        return new DataType(parser.functionEndParameters.get(new HaskellParser.QualifiedName(packName, function.getName())).get(name), params);
+        return new DataType(parser.entityEndParameters.get(entity).get(name), params);
     }
 }

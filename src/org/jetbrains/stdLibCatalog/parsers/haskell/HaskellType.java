@@ -1,6 +1,5 @@
 package org.jetbrains.stdLibCatalog.parsers.haskell;
 
-import org.jetbrains.stdLibCatalog.domain.FunctionEntity;
 import org.jetbrains.stdLibCatalog.domain.FunctionType;
 import org.jetbrains.stdLibCatalog.domain.TypeEntity;
 
@@ -83,9 +82,9 @@ abstract class HaskellType {
         return i;
     }
 
-    public FunctionType makeSignature(HaskellParser parser, FunctionEntity function) {
-        return new FunctionType(new ArrayList<TypeEntity>(), buildType(parser, function));
+    public FunctionType makeSignature(HaskellParser parser, HaskellParser.QualifiedName entity, boolean isType) {
+        return new FunctionType(new ArrayList<TypeEntity>(), buildType(parser, entity, isType));
     }
 
-    abstract public TypeEntity buildType(HaskellParser parser, FunctionEntity function);
+    abstract public TypeEntity buildType(HaskellParser parser, HaskellParser.QualifiedName entity, boolean isType);
 }

@@ -43,9 +43,9 @@ class HaskellConcreteType extends HaskellType {
         return concrete;
     }
 
-    public DataType buildType(HaskellParser parser, FunctionEntity function) {
-        Element def = parser.shortDefinitions.get(function.getContainingPackage().getName())
-                .getElementsMatchingText("^" + Pattern.quote(function.getName()) + "\\s").get(0);
+    public DataType buildType(HaskellParser parser, HaskellParser.QualifiedName entity, boolean isType) {
+        String pattern = "^" + (isType ? "type\\s+" : "") + Pattern.quote(entity.getValue()) + "\\s";
+        Element def = parser.shortDefinitions.get(entity.getKey()).getElementsMatchingText(pattern).last();
 
         Elements typeDef = def.getElementsMatchingOwnText("^" + name + "$");
         Classifier type = null;
@@ -54,12 +54,12 @@ class HaskellConcreteType extends HaskellType {
             type = parser.classes.get(new HaskellParser.QualifiedName(packName, name));
         }
         if (type == null) {
-            type = new Classifier(name, "Haskell", "", new ArrayList<FunctionEntity>(), "");
+            type = new Classifier(name, "Haskell", "", "", new ArrayList<FunctionEntity>());
         }
 
         List<TypeEntity> params = new ArrayList<>();
         for (HaskellType t : parameters) {
-            params.add(t.buildType(parser, function));
+            params.add(t.buildType(parser, entity, isType));
         }
 
         return new DataType(type, params);
