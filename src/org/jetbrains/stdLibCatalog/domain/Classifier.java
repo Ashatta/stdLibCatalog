@@ -9,10 +9,13 @@ public class Classifier extends TypeConstructor {
     private final List<Classifier> base = new ArrayList<>();
     private final List<TypeConstructor> parameters = new ArrayList<>();
     private final List<TypeLink> links = new ArrayList<>();
+    private final String definition;
 
-    public Classifier(String name, String lang, String documentation, String docLink, List<FunctionEntity> functions) {
+    public Classifier(String name, String lang, String documentation, String docLink, List<FunctionEntity> functions,
+            String definition) {
         super(name, lang, documentation, docLink);
         this.functions = functions;
+        this.definition = definition;
     }
 
     public List<FunctionEntity> getFunctions() {

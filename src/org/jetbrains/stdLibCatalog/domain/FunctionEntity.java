@@ -8,9 +8,11 @@ public class FunctionEntity extends Entity {
     private Classifier containingType;
     private final List<TypeConstructor> parameters = new ArrayList<>();
     private final List<FunctionLink> links = new ArrayList<>();
+    private final String definition;
 
-    public FunctionEntity(String lang, String name, String documentation, String docLink) {
+    public FunctionEntity(String lang, String name, String documentation, String docLink, String definition) {
         super(lang, name, documentation, docLink);
+        this.definition = definition;
         this.signature = null;
         this.containingType = null;
     }

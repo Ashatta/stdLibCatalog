@@ -14,7 +14,6 @@ import java.util.regex.Pattern;
 
 /**
  * TODO: tuple-like and infix constructors
- * TODO: links to source code
  * TODO: split functions into functional groups
  */
 public class HaskellParser {
@@ -163,8 +162,10 @@ public class HaskellParser {
         parents.put(qualifiedName, parseTypeClassParents(elem.children().get(0), name));
         parseInstances(elem, name);
 
+        Element def = shortDefinitions.get(packageName).getElementsMatchingText(
+                "^class\\s+(|.*=>\\s+)" + Pattern.quote(name)).last();
         classes.put(qualifiedName, new Classifier(name, "Haskell", getDoc(elem), currentAddress + "#t:" + name,
-                parseFunctions(elem)));
+                parseFunctions(elem), def.text()));
     }
 
     private List<QualifiedName> parseTypeClassParents(Element element, String parentName) {
@@ -298,7 +299,9 @@ public class HaskellParser {
 
     private FunctionEntity parseFunction(Element func, QualifiedName name) {
         String signature = getSignature(name.getValue());
-        fillFunctionType(name, signature);
+        Element definition = shortDefinitions.get(packageName).getElementsMatchingText(
+                "^" + Pattern.quote(name.getValue()) + "(\\s|,)").last();
+        fillFunctionType(name, signature, definition);
 
         Element doc = func.nextElementSibling();
         String d = "";
@@ -307,16 +310,15 @@ public class HaskellParser {
         }
 
         FunctionEntity function = new FunctionEntity(name.getValue(), "Haskell", d,
-                currentAddress + "#v:" + name.getValue());
+                currentAddress + "#v:" + name.getValue(), definition.text());
         functions.put(name, function);
         return function;
     }
 
-    private void fillFunctionType(QualifiedName name, String signature) {
+    private void fillFunctionType(QualifiedName name, String signature, Element definition) {
         Map<String, ParameterDescription> parameters = parseParameters(signature);
         parseSignature(signature, name, parameters);
-        fillInterfaces(shortDefinitions.get(packageName).getElementsMatchingText(
-                "^" + Pattern.quote(name.getValue()) + "(\\s|,)").last(), parameters);
+        fillInterfaces(definition, parameters);
 
         entityParameters.put(name, parameters);
         entityEndParameters.put(name, new HashMap<String, TypeVariable>());
@@ -383,8 +385,10 @@ public class HaskellParser {
         parseTypeParameters(elem, def, name);
         parseInterfacesInstances(elem, name);
 
+        Element shortDef = shortDefinitions.get(packageName).getElementsMatchingText(
+                "^(data|newtype)\\s+" + Pattern.quote(name)).last();
         classes.put(new QualifiedName(packageName, name), new Classifier(name, "Haskell", getDoc(elem)
-                , currentAddress + "#t:" + name, new ArrayList<FunctionEntity>()));
+                , currentAddress + "#t:" + name, new ArrayList<FunctionEntity>(), shortDef.text()));
     }
 
     private void parseTypeParameters(Element elem, String def, String name) {
@@ -452,7 +456,7 @@ public class HaskellParser {
 
         entityParameters.put(qualifiedName, parameters);
         entityEndParameters.put(qualifiedName, new HashMap<String, TypeVariable>());
-        aliases.put(qualifiedName, new TypeAlias(name, "Haskell", getDoc(elem), currentAddress + "#t:" + name));
+        aliases.put(qualifiedName, new TypeAlias(name, "Haskell", getDoc(elem), currentAddress + "#t:" + name, def.text()));
     }
 
     private static String getDoc(Element elem) {
@@ -591,9 +595,10 @@ public class HaskellParser {
     }
 
     private void fillListAndTuples() {
+        // TODO: docs for lists, tuples and "other" package
         packageDoc.put(OTHER_PACKAGE, "");
         List<TypeConstructor> otherClasses = new ArrayList<>();
-        Classifier list = new Classifier("List", "Haskell", "", "", new ArrayList<FunctionEntity>());
+        Classifier list = new Classifier("List", "Haskell", "", "", new ArrayList<FunctionEntity>(), "");
         list.addParameter(new TypeVariable(0, new ArrayList<Classifier>()));
         otherClasses.add(list);
         QualifiedName listQualified = new QualifiedName(OTHER_PACKAGE, "List");
@@ -606,7 +611,7 @@ public class HaskellParser {
                 continue;
             }
             String name = "Tuple" + String.valueOf(i);
-            Classifier tuple = new Classifier(name, "Haskell", "", "", new ArrayList<FunctionEntity>());
+            Classifier tuple = new Classifier(name, "Haskell", "", "", new ArrayList<FunctionEntity>(), "");
             for (int j = 0; j < i; ++j) {
                 tuple.addParameter(new TypeVariable(j, new ArrayList<Classifier>()));
             }
