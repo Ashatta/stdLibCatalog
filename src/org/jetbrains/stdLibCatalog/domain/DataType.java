@@ -11,10 +11,13 @@ public class DataType extends TypeEntity {
         this.parameters = parameters;
     }
 
+
+    //todo dphJB not used!
     public TypeConstructor getTypeConstructor() {
         return typeConstructor;
     }
 
+    //todo dphJB not used!
     public List<TypeEntity> getParameters() {
         return parameters;
     }
