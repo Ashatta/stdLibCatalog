@@ -2,20 +2,20 @@ package org.jetbrains.stdLibCatalog.domain;
 
 import java.util.List;
 
-public class DataType extends TypeEntity {
+public class DataType extends Type {
     private final TypeConstructor typeConstructor;
-    private final List<TypeEntity> parameters;
+    private final List<Type> arguments;
 
-    public DataType(TypeConstructor typeConstructor, List<TypeEntity> parameters) {
+    public DataType(TypeConstructor typeConstructor, List<Type> arguments) {
         this.typeConstructor = typeConstructor;
-        this.parameters = parameters;
+        this.arguments = arguments;
     }
 
     public TypeConstructor getTypeConstructor() {
         return typeConstructor;
     }
 
-    public List<TypeEntity> getParameters() {
-        return parameters;
+    public List<Type> getArguments() {
+        return arguments;
     }
 }

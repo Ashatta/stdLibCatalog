@@ -3,23 +3,23 @@ package org.jetbrains.stdLibCatalog.domain;
 import org.joda.time.DateTime;
 
 public class FunctionLink {
-    private FunctionEntity first;
-    private FunctionEntity second;
+    private MemberEntity first;
+    private MemberEntity second;
     private User author;
     private DateTime date;
 
-    public FunctionLink(FunctionEntity first, FunctionEntity second, User author, DateTime date) {
+    public FunctionLink(MemberEntity first, MemberEntity second, User author, DateTime date) {
         this.first = first;
         this.second = second;
         this.author = author;
         this.date = date;
     }
 
-    public FunctionEntity getFirst() {
+    public MemberEntity getFirst() {
         return first;
     }
 
-    public FunctionEntity getSecond() {
+    public MemberEntity getSecond() {
         return second;
     }
 

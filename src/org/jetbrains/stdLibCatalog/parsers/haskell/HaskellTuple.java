@@ -40,7 +40,7 @@ class HaskellTuple extends HaskellType {
 
     public DataType buildType(HaskellParser parser, HaskellParser.QualifiedName entity, boolean isType) {
         Classifier tuple = parser.classes.get(new HaskellParser.QualifiedName("other", "Tuple" + String.valueOf(subs.size())));
-        List<TypeEntity> parameters = new ArrayList<>();
+        List<Type> parameters = new ArrayList<>();
         for (HaskellType type : subs) {
             parameters.add(type.buildType(parser, entity, isType));
         }

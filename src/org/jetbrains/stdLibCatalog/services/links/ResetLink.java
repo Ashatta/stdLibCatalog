@@ -1,12 +1,12 @@
 package org.jetbrains.stdLibCatalog.services.links;
 
-import org.jetbrains.stdLibCatalog.domain.FunctionEntity;
+import org.jetbrains.stdLibCatalog.domain.MemberEntity;
 import org.jetbrains.stdLibCatalog.domain.TypeConstructor;
 import org.jetbrains.stdLibCatalog.domain.User;
 
 
 public class ResetLink {
-    public void resetLink(FunctionEntity func1, FunctionEntity func2, User user, String comment) {
+    public void resetLink(MemberEntity func1, MemberEntity func2, User user, String comment) {
 
     }
 

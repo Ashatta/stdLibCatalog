@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class SearchForConnectedEntities {
-    public List<FunctionEntity> findMemberFunctions(Classifier t) {
+    public List<MemberEntity> findMemberFunctions(Classifier t) {
         return Collections.emptyList();
     }
 
@@ -18,7 +18,7 @@ public class SearchForConnectedEntities {
         return Collections.emptyList();
     }
 
-    public List<FunctionEntity> findUsingFunctions(Classifier t) {
+    public List<MemberEntity> findUsingFunctions(Classifier t) {
         return Collections.emptyList();
     }
 
@@ -26,15 +26,15 @@ public class SearchForConnectedEntities {
         return Collections.emptyList();
     }
 
-    public List<FunctionEntity> findFunctions(PackageEntity pack) {
+    public List<MemberEntity> findFunctions(PackageEntity pack) {
         return Collections.emptyList();
     }
 
-    public Classifier findContainingType(FunctionEntity func) {
+    public Classifier findContainingType(MemberEntity func) {
         return null;
     }
 
-    public PackageEntity findContainingPackage(FunctionEntity func) {
+    public PackageEntity findContainingPackage(MemberEntity func) {
         return null;
     }
 
@@ -50,7 +50,7 @@ public class SearchForConnectedEntities {
         return Collections.emptyList();
     }
 
-    public TypeEntity findAliasedType(TypeAlias alias) {
+    public Type findAliasedType(TypeAlias alias) {
         return null;
     }
 

@@ -38,7 +38,7 @@ public class HaskellParser {
     final Map<String, Element> shortDefinitions = new HashMap<>();
     final Map<String, PackageEntity> packages = new HashMap<>();
     final Map<String, String> packageDoc = new HashMap<>();
-    final Map<QualifiedName, FunctionEntity> functions = new HashMap<>();
+    final Map<QualifiedName, MemberEntity> functions = new HashMap<>();
     final Map<QualifiedName, Classifier> classes = new HashMap<>();
     final Map<QualifiedName, TypeAlias> aliases = new HashMap<>();
     final Map<QualifiedName, List<QualifiedName>> parents = new HashMap<>();
@@ -270,8 +270,8 @@ public class HaskellParser {
         }
     }
 
-    private List<FunctionEntity> parseFunctions(Element elem) {
-        List<FunctionEntity> functions = new ArrayList<>();
+    private List<MemberEntity> parseFunctions(Element elem) {
+        List<MemberEntity> functions = new ArrayList<>();
 
         Elements methodsElem = elem.getElementsByClass("methods");
         if (!methodsElem.isEmpty()) {
@@ -285,11 +285,11 @@ public class HaskellParser {
         return functions;
     }
 
-    private List<FunctionEntity> parseFunctionDef(Element func) {
+    private List<MemberEntity> parseFunctionDef(Element func) {
         // names of functions in the definition (which can contain more than one function, divided by ',')
         String[] names = func.child(0).text().split("::\\s+")[0].split(",\\s+");
 
-        List<FunctionEntity> result = new ArrayList<>();
+        List<MemberEntity> result = new ArrayList<>();
         for (String name : names) {
             result.add(parseFunction(func, new QualifiedName(packageName, name)));
         }
@@ -297,7 +297,7 @@ public class HaskellParser {
         return result;
     }
 
-    private FunctionEntity parseFunction(Element func, QualifiedName name) {
+    private MemberEntity parseFunction(Element func, QualifiedName name) {
         String signature = getSignature(name.getValue());
         Element definition = shortDefinitions.get(packageName).getElementsMatchingText(
                 "^" + Pattern.quote(name.getValue()) + "(\\s|,)").last();
@@ -309,7 +309,7 @@ public class HaskellParser {
             d = doc.text();
         }
 
-        FunctionEntity function = new FunctionEntity(name.getValue(), "Haskell", d,
+        MemberEntity function = new MemberEntity(name.getValue(), "Haskell", d,
                 currentAddress + "#v:" + name.getValue(), definition.text());
         functions.put(name, function);
         return function;
@@ -387,8 +387,8 @@ public class HaskellParser {
 
         Element shortDef = shortDefinitions.get(packageName).getElementsMatchingText(
                 "^(data|newtype)\\s+" + Pattern.quote(name)).last();
-        classes.put(new QualifiedName(packageName, name), new Classifier(name, "Haskell", getDoc(elem)
-                , currentAddress + "#t:" + name, new ArrayList<FunctionEntity>(), shortDef.text()));
+        classes.put(new QualifiedName(packageName, name), new Classifier(name, "Haskell", getDoc(elem),
+                currentAddress + "#t:" + name, new ArrayList<MemberEntity>(), shortDef.text()));
     }
 
     private void parseTypeParameters(Element elem, String def, String name) {
@@ -412,8 +412,7 @@ public class HaskellParser {
             for (String anInterface : interfaces) {
                 String[] d = anInterface.split("\\s+");
                 parameters.get(d[1]).getValue().add(new QualifiedName(
-                        getPackageName(elem.getElementsMatchingOwnText("^" + d[0] + "$").get(0).attributes().get("href"))
-                        , d[0]));
+                        getPackageName(elem.getElementsMatchingOwnText("^" + d[0] + "$").get(0).attr("href")), d[0]));
             }
         }
 
@@ -478,7 +477,7 @@ public class HaskellParser {
             createClassifierConnections(classDesc.getValue());
         }
 
-        for (Map.Entry<QualifiedName, FunctionEntity> func : functions.entrySet()) {
+        for (Map.Entry<QualifiedName, MemberEntity> func : functions.entrySet()) {
             func.getValue().setContainingPackage(packages.get(func.getKey().getKey()));
             createFunctionConnections(func.getValue());
         }
@@ -496,7 +495,7 @@ public class HaskellParser {
         connectDerived(classifier, packName, false);
         connectTypeParameters(classifier, packName);
 
-        for (FunctionEntity function : classifier.getFunctions()) {
+        for (MemberEntity function : classifier.getFunctions()) {
             function.setContainingType(classifier);
         }
     }
@@ -523,12 +522,13 @@ public class HaskellParser {
             return;
         }
 
-        for (Pair<Integer, List<QualifiedName>> param : params.values()) {
-            classEntity.addParameter(new TypeVariable(param.getKey(), paramInterfaceConstraints(param)));
+        for (Map.Entry<String, ParameterDescription> param : params.entrySet()) {
+            classEntity.addParameter(new TypeVariable(param.getKey(), "Haskell", param.getValue().getKey(),
+                    paramInterfaceConstraints(param.getValue())));
         }
     }
 
-    private List<Classifier> paramInterfaceConstraints(Pair<Integer, List<QualifiedName>> param) {
+    private List<Classifier> paramInterfaceConstraints(ParameterDescription param) {
         List<Classifier> interfaceConstraints = new ArrayList<>();
         for (QualifiedName interf : param.getValue()) {
             if (classes.containsKey(interf)) {
@@ -539,12 +539,13 @@ public class HaskellParser {
     }
 
     // TODO: next method, copypaste
-    private void createFunctionConnections(FunctionEntity function) {
+    private void createFunctionConnections(MemberEntity function) {
         QualifiedName funcName = new QualifiedName(function.getContainingPackage().getName(), function.getName());
 
         Map<String, ParameterDescription> params = entityParameters.get(funcName);
         for (Map.Entry<String, ParameterDescription> param : params.entrySet()) {
-            TypeVariable variable = new TypeVariable(param.getValue().getKey(), paramInterfaceConstraints(param.getValue()));
+            TypeVariable variable = new TypeVariable(param.getKey(), "Haskell", param.getValue().getKey(),
+                    paramInterfaceConstraints(param.getValue()));
             function.addParameter(variable);
             if (!entityEndParameters.get(funcName).containsKey(param.getKey())) {
                 entityEndParameters.get(funcName).put(param.getKey(), variable);
@@ -559,7 +560,8 @@ public class HaskellParser {
 
         Map<String, ParameterDescription> params = entityParameters.get(name);
         for (Map.Entry<String, ParameterDescription> param : params.entrySet()) {
-            TypeVariable variable = new TypeVariable(param.getValue().getKey(), paramInterfaceConstraints(param.getValue()));
+            TypeVariable variable = new TypeVariable(param.getKey(), "Haskell", param.getValue().getKey(),
+                    paramInterfaceConstraints(param.getValue()));
             alias.addParameter(variable);
             if (!entityEndParameters.get(name).containsKey(param.getKey())) {
                 entityEndParameters.get(name).put(param.getKey(), variable);
@@ -584,9 +586,9 @@ public class HaskellParser {
         return result;
     }
 
-    private List<FunctionEntity> functionsByPackageName(String packName) {
-        List<FunctionEntity> result = new ArrayList<>();
-        for (Map.Entry<QualifiedName, FunctionEntity> function : functions.entrySet()) {
+    private List<MemberEntity> functionsByPackageName(String packName) {
+        List<MemberEntity> result = new ArrayList<>();
+        for (Map.Entry<QualifiedName, MemberEntity> function : functions.entrySet()) {
             if (function.getKey().getKey().equals(packName)) {
                 result.add(function.getValue());
             }
@@ -598,8 +600,8 @@ public class HaskellParser {
         // TODO: docs for lists, tuples and "other" package
         packageDoc.put(OTHER_PACKAGE, "");
         List<TypeConstructor> otherClasses = new ArrayList<>();
-        Classifier list = new Classifier("List", "Haskell", "", "", new ArrayList<FunctionEntity>(), "");
-        list.addParameter(new TypeVariable(0, new ArrayList<Classifier>()));
+        Classifier list = new Classifier("List", "Haskell", "", "", new ArrayList<MemberEntity>(), "");
+        list.addParameter(new TypeVariable("a", "Haskell", 0, new ArrayList<Classifier>()));
         otherClasses.add(list);
         QualifiedName listQualified = new QualifiedName(OTHER_PACKAGE, "List");
         classes.put(listQualified, list);
@@ -611,9 +613,10 @@ public class HaskellParser {
                 continue;
             }
             String name = "Tuple" + String.valueOf(i);
-            Classifier tuple = new Classifier(name, "Haskell", "", "", new ArrayList<FunctionEntity>(), "");
+            Classifier tuple = new Classifier(name, "Haskell", "", "", new ArrayList<MemberEntity>(), "");
             for (int j = 0; j < i; ++j) {
-                tuple.addParameter(new TypeVariable(j, new ArrayList<Classifier>()));
+                String paramName = (j > 25 ? "a" : "") + String.valueOf((char) ('a' + (j % 26)));
+                tuple.addParameter(new TypeVariable(paramName, "Haskell", j, new ArrayList<Classifier>()));
             }
             otherClasses.add(tuple);
             QualifiedName qualifiedName = new QualifiedName(OTHER_PACKAGE, name);
@@ -622,8 +625,8 @@ public class HaskellParser {
             entityParameters.put(qualifiedName, new HashMap<String, ParameterDescription>());
         }
 
-        PackageEntity other = new PackageEntity(OTHER_PACKAGE, "Haskell", otherClasses
-                , new ArrayList<FunctionEntity>(), new ArrayList<PackageEntity>(), null, "", "");
+        PackageEntity other = new PackageEntity(OTHER_PACKAGE, "Haskell", otherClasses,
+                new ArrayList<MemberEntity>(), new ArrayList<PackageEntity>(), null, "", "");
         for (TypeConstructor otherClass : otherClasses) {
             // TODO: ugly cast
             ((Classifier) otherClass).setContainingPackage(other);

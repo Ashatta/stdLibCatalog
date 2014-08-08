@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class SearchForLinks {
-    public List<FunctionLink> findLinks(FunctionEntity func) {
+    public List<FunctionLink> findLinks(MemberEntity func) {
         return Collections.emptyList();
     }
 
@@ -14,7 +14,7 @@ public class SearchForLinks {
         return Collections.emptyList();
     }
 
-    public List<FunctionLink> findLinkSuggestions(FunctionEntity func) {
+    public List<FunctionLink> findLinkSuggestions(MemberEntity func) {
         return Collections.emptyList();
     }
 

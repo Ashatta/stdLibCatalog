@@ -3,14 +3,13 @@ package org.jetbrains.stdLibCatalog.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FunctionEntity extends Entity {
+public class MemberEntity extends Entity {
     private FunctionType signature;
     private Classifier containingType;
-    private final List<TypeConstructor> parameters = new ArrayList<>();
-    private final List<FunctionLink> links = new ArrayList<>();
+    private final List<TypeVariable> parameters = new ArrayList<>();
     private final String definition;
 
-    public FunctionEntity(String lang, String name, String documentation, String docLink, String definition) {
+    public MemberEntity(String lang, String name, String documentation, String docLink, String definition) {
         super(lang, name, documentation, docLink);
         this.definition = definition;
         this.signature = null;
@@ -33,15 +32,11 @@ public class FunctionEntity extends Entity {
         this.signature = signature;
     }
 
-    public List<TypeConstructor> getParameters() {
+    public List<TypeVariable> getParameters() {
         return parameters;
     }
 
-    public void addParameter(TypeConstructor param) {
+    public void addParameter(TypeVariable param) {
         parameters.add(param);
-    }
-
-    public List<FunctionLink> getLinks() {
-        return links;
     }
 }

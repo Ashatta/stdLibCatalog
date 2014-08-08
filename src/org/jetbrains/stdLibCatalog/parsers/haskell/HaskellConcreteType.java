@@ -54,10 +54,10 @@ class HaskellConcreteType extends HaskellType {
             type = parser.classes.get(new HaskellParser.QualifiedName(packName, name));
         }
         if (type == null) {
-            type = new Classifier(name, "Haskell", "", "", new ArrayList<FunctionEntity>(), "");
+            type = new Classifier(name, "Haskell", "", "", new ArrayList<MemberEntity>(), "");
         }
 
-        List<TypeEntity> params = new ArrayList<>();
+        List<Type> params = new ArrayList<>();
         for (HaskellType t : parameters) {
             params.add(t.buildType(parser, entity, isType));
         }

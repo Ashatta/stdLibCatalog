@@ -1,4 +1,4 @@
 package org.jetbrains.stdLibCatalog.domain;
 
-public abstract class TypeEntity {
+public abstract class Type {
 }

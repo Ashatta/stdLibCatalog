@@ -2,20 +2,20 @@ package org.jetbrains.stdLibCatalog.domain;
 
 import java.util.List;
 
-public class FunctionType extends TypeEntity {
-    private final List<TypeEntity> arguments;
-    private final TypeEntity result;
+public class FunctionType extends Type {
+    private final List<Type> parameters;
+    private final Type result;
 
-    public FunctionType(List<TypeEntity> arguments, TypeEntity result) {
-        this.arguments = arguments;
+    public FunctionType(List<Type> parameters, Type result) {
+        this.parameters = parameters;
         this.result = result;
     }
 
-    public List<TypeEntity> getArguments() {
-        return arguments;
+    public List<Type> getParameters() {
+        return parameters;
     }
 
-    public TypeEntity getResult() {
+    public Type getResult() {
         return result;
     }
 }

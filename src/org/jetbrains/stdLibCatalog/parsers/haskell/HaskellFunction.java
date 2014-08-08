@@ -1,7 +1,7 @@
 package org.jetbrains.stdLibCatalog.parsers.haskell;
 
 import org.jetbrains.stdLibCatalog.domain.FunctionType;
-import org.jetbrains.stdLibCatalog.domain.TypeEntity;
+import org.jetbrains.stdLibCatalog.domain.Type;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -55,7 +55,7 @@ class HaskellFunction extends HaskellType {
 
     public FunctionType makeSignature(HaskellParser parser, HaskellParser.QualifiedName entity, boolean isType) {
         Iterator<HaskellType> it = arguments.iterator();
-        List<TypeEntity> args = new ArrayList<>();
+        List<Type> args = new ArrayList<>();
         HaskellType type = null;
         while (it.hasNext()) {
             type = it.next();

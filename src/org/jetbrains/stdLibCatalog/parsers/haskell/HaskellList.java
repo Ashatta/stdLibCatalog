@@ -26,7 +26,7 @@ class HaskellList extends HaskellType {
 
     public DataType buildType(HaskellParser parser, HaskellParser.QualifiedName entity, boolean isType) {
         Classifier list = parser.classes.get(new HaskellParser.QualifiedName("other", "List"));
-        List<TypeEntity> parameters = new ArrayList<>();
+        List<Type> parameters = new ArrayList<>();
         parameters.add(parameter.buildType(parser, entity, isType));
         return new DataType(list, parameters);
     }

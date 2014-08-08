@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TypeAlias extends TypeConstructor {
-    private TypeEntity aliasedType;
-    private final List<TypeConstructor> parameters = new ArrayList<>();
-    private final List<TypeLink> links = new ArrayList<>();
+    private Type aliasedType;
+    private final List<TypeVariable> parameters = new ArrayList<>();
     private final String definition;
 
     public TypeAlias(String name, String lang, String documentation, String docLink, String definition) {
@@ -14,19 +13,15 @@ public class TypeAlias extends TypeConstructor {
         this.definition = definition;
     }
 
-    public TypeEntity getAliasedType() {
+    public Type getAliasedType() {
         return aliasedType;
     }
 
-    public void setAliasedType(TypeEntity aliasedType) {
+    public void setAliasedType(Type aliasedType) {
         this.aliasedType = aliasedType;
     }
 
-    public List<TypeLink> getLinks() {
-        return links;
-    }
-
-    public void addParameter(TypeConstructor parameter) {
+    public void addParameter(TypeVariable parameter) {
         parameters.add(parameter);
     }
 }

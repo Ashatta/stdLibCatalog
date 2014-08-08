@@ -4,21 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Classifier extends TypeConstructor {
-    private final List<FunctionEntity> functions;
+    private final List<MemberEntity> functions;
     private final List<Classifier> derived = new ArrayList<>();
     private final List<Classifier> base = new ArrayList<>();
-    private final List<TypeConstructor> parameters = new ArrayList<>();
-    private final List<TypeLink> links = new ArrayList<>();
+    private final List<TypeVariable> parameters = new ArrayList<>();
     private final String definition;
 
-    public Classifier(String name, String lang, String documentation, String docLink, List<FunctionEntity> functions,
+    public Classifier(String name, String lang, String documentation, String docLink, List<MemberEntity> functions,
             String definition) {
         super(name, lang, documentation, docLink);
         this.functions = functions;
         this.definition = definition;
     }
 
-    public List<FunctionEntity> getFunctions() {
+    public List<MemberEntity> getFunctions() {
         return functions;
     }
 
@@ -34,15 +33,11 @@ public class Classifier extends TypeConstructor {
         }
     }
 
-    public List<TypeConstructor> getParameters() {
+    public List<TypeVariable> getParameters() {
         return parameters;
     }
 
-    public void addParameter(TypeConstructor param) {
+    public void addParameter(TypeVariable param) {
         parameters.add(param);
-    }
-
-    public List<TypeLink> getLinks() {
-        return links;
     }
 }

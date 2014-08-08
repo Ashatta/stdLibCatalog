@@ -41,7 +41,7 @@ class HaskellParameter extends HaskellType {
     }
 
     public DataType buildType(HaskellParser parser, HaskellParser.QualifiedName entity, boolean isType) {
-        List<TypeEntity> params = new ArrayList<>();
+        List<Type> params = new ArrayList<>();
         for (HaskellType param : parameters) {
             params.add(param.buildType(parser, entity, isType));
         }
