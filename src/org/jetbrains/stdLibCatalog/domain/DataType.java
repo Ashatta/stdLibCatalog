@@ -11,6 +11,8 @@ public class DataType extends Type {
         this.arguments = arguments;
     }
 
+
+    //todo dphJB not used!
     public TypeConstructor getTypeConstructor() {
         return typeConstructor;
     }

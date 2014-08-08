@@ -49,7 +49,7 @@ public class HaskellParser {
 
     public static void main(String[] args) throws IOException {
         HaskellParser parser = new HaskellParser();
-        parser.fillListAndTuples();
+        parser.fillListAndTuples(); //todo dph тут же еще нет ничего?
 
         Document moduleList = Jsoup.parse(new URL(BASE_ADDRESS), CONNECTION_TIMEOUT);
         Elements modules = moduleList.getElementById("module-list").getElementsByTag("ul").get(0).children();
@@ -62,7 +62,7 @@ public class HaskellParser {
 
     private PackageEntity parseModule(Element module) throws IOException {
         // there are strange non-breaking spaces before module name sometimes
-        String curr = module.child(0).text().replaceAll("^\\p{javaSpaceChar}", "");
+        String curr = module.child(0).text().replaceAll("^\\p{javaSpaceChar}", ""); //todo dph А не проще сделат trim?
         String link = "";
 
         List<PackageEntity> subpackages = parseSubpackages(module);
