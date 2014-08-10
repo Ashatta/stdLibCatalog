@@ -1,5 +1,6 @@
 package org.jetbrains.stdLibCatalog.domain;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +11,7 @@ public class Classifier extends TypeConstructor {
     private final List<TypeVariable> parameters = new ArrayList<>();
     private final String definition;
 
-    public Classifier(String name, String lang, String documentation, String docLink, List<MemberEntity> functions,
+    public Classifier(String name, Language lang, String documentation, URL docLink, List<MemberEntity> functions,
             String definition) {
         super(name, lang, documentation, docLink);
         this.functions = functions;

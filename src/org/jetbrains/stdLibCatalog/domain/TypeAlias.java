@@ -1,5 +1,6 @@
 package org.jetbrains.stdLibCatalog.domain;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +9,7 @@ public class TypeAlias extends TypeConstructor {
     private final List<TypeVariable> parameters = new ArrayList<>();
     private final String definition;
 
-    public TypeAlias(String name, String lang, String documentation, String docLink, String definition) {
+    public TypeAlias(String name, Language lang, String documentation, URL docLink, String definition) {
         super(name, lang, documentation, docLink);
         this.definition = definition;
     }

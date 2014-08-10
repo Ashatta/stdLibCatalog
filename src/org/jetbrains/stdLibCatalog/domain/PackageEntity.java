@@ -1,5 +1,6 @@
 package org.jetbrains.stdLibCatalog.domain;
 
+import java.net.URL;
 import java.util.List;
 
 public class PackageEntity extends Entity {
@@ -7,9 +8,9 @@ public class PackageEntity extends Entity {
     private final List<MemberEntity> containedFunctions;
     private final List<PackageEntity> subPackages;
 
-    public PackageEntity(String name, String lang, List<TypeConstructor> containedClasses,
+    public PackageEntity(String name, Language lang, List<TypeConstructor> containedClasses,
             List<MemberEntity> containedFunctions, List<PackageEntity> subPackages, PackageEntity containingPackage,
-            String documentation, String docLink) {
+            String documentation, URL docLink) {
         super(name, lang, documentation, docLink);
         this.containedClasses = containedClasses;
         this.containedFunctions = containedFunctions;

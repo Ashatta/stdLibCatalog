@@ -1,5 +1,6 @@
 package org.jetbrains.stdLibCatalog.domain;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,8 +10,8 @@ public class MemberEntity extends Entity {
     private final List<TypeVariable> parameters = new ArrayList<>();
     private final String definition;
 
-    public MemberEntity(String lang, String name, String documentation, String docLink, String definition) {
-        super(lang, name, documentation, docLink);
+    public MemberEntity(String name, Language lang, String documentation, URL docLink, String definition) {
+        super(name, lang, documentation, docLink);
         this.definition = definition;
         this.signature = null;
         this.containingType = null;

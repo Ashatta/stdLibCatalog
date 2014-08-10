@@ -1,13 +1,15 @@
 package org.jetbrains.stdLibCatalog.domain;
 
+import java.net.URL;
+
 public class Entity {
     private final String name;
-    private final String lang;
+    private final Language lang;
     private final String documentation;
-    private final String docLink;
+    private final URL docLink;
     private PackageEntity containingPackage;
 
-    public Entity(String name, String lang, String documentation, String docLink) {
+    public Entity(String name, Language lang, String documentation, URL docLink) {
         this.name = name;
         this.lang = lang;
         this.documentation = documentation;
@@ -19,7 +21,7 @@ public class Entity {
         return name;
     }
 
-    public String getLang() {
+    public Language getLang() {
         return lang;
     }
 
@@ -27,7 +29,7 @@ public class Entity {
         return documentation;
     }
 
-    public String getDocLink() {
+    public URL getDocLink() {
         return docLink;
     }
 
