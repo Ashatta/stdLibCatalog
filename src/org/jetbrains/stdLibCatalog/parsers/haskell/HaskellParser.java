@@ -47,6 +47,7 @@ public class HaskellParser {
     final Map<QualifiedName, Map<String, ParameterDescription>> entityParameters = new HashMap<>();
     final Map<QualifiedName, Map<String, TypeVariable>> entityEndParameters = new HashMap<>();
     final Map<QualifiedName, HaskellType> signatures = new HashMap<>();
+    final List<Element> instances = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {
         HaskellParser parser = new HaskellParser();
@@ -84,7 +85,7 @@ public class HaskellParser {
         PackageEntity pack = new PackageEntity(curr, Language.HASKELL, classesByPackageName(curr),
                 functionsByPackageName(curr), subpackages, null,
                 (packageDoc.containsKey(curr) ? packageDoc.get(curr) : ""),
-                new URL(link.equals("") ? "" : (BASE_ADDRESS + link)));
+                link.equals("") ? null : new URL(BASE_ADDRESS + link));
         packages.put(curr, pack);
 
         for (PackageEntity subpackage : subpackages) {
@@ -161,7 +162,7 @@ public class HaskellParser {
         QualifiedName qualifiedName = new QualifiedName(packageName, name);
 
         parents.put(qualifiedName, parseTypeClassParents(elem.children().get(0), name));
-        parseInstances(elem, name);
+        parseInstances(elem);
 
         Element def = shortDefinitions.get(packageName).getElementsMatchingText(
                 "^class\\s+(|.*=>\\s+)" + Pattern.quote(name)).last();
@@ -195,80 +196,40 @@ public class HaskellParser {
         return parts[parts.length - 1].replaceAll("-", ".");
     }
 
-    private void parseInstances(Element elem, String name) {
+    private void parseInstances(Element elem) {
         if (elem.getElementsByClass("instances").isEmpty()) {
             return;
         }
 
         for (Element el : elem.getElementsByClass("instances").get(0).getElementsByClass("src")) {
-            QualifiedName type = getType(el, name);
-            if (type != null) {
-                fillInstance(name, type);
-            }
+            instances.add(el);
         }
     }
 
-    private QualifiedName getType(Element el, String name) {
-        // we don't care about typeclass constraints here so we throw them away
-        String[] description = el.text().split("\\s+=>\\s+");
-        String fullType = description[description.length - 1];
-
-        // TODO: need to handle strange instances somehow
-        if (!name.equals(fullType.split("\\s+")[0])) {
-            return null;
-        }
-        // get instance type only
-        fullType = fullType.replaceAll("^" + name + "\\s+", "");
-
-        String typeName = getTypeName(fullType);
-        if (!Character.isUpperCase(typeName.charAt(0))) {
-            return null;
+    private String removeKinds(String type) {
+        int i = 0;
+        int braces = 0;
+        while (type.charAt(i) == '(') {
+            ++i;
+            ++braces;
         }
 
-        String packName = OTHER_PACKAGE;
-        if (!typeName.equals("List") && !typeName.matches("^Tuple\\d+$")) {
-            packName = getPackageName(el.getElementsMatchingOwnText("^" + typeName + "$").get(0).attributes().get("href"));
-        }
-
-        return new QualifiedName(packName, typeName);
-    }
-
-    private String getTypeName(String fullType) {
-        String type = "";
-        if (fullType.startsWith("[") && fullType.endsWith("]")) {
-            type = "List";
-        } else if (fullType.startsWith("(") && fullType.endsWith(")")) {
-            fullType = fullType.substring(1, fullType.length() - 1);
-            if (fullType.isEmpty()) {
-                type = "Tuple0";
-            } else if (fullType.equals(new String(new char[fullType.length()]).replace('\0', ','))) {
-                type = "Tuple" + String.valueOf(fullType.length() + 1);
+        if (type.charAt(i) == 'k' || type.charAt(i) == '*') {
+            while (braces > 0 || !Character.isWhitespace(type.charAt(i))) {
+                if (type.charAt(i) == '(') {
+                    ++braces;
+                } else if (type.charAt(i) == ')') {
+                    --braces;
+                }
+                ++i;
             }
-        }
-
-        if (type.equals("")) {
-            type = fullType.split("\\s+")[0];
+            while (Character.isWhitespace(type.charAt(i))) {
+                ++i;
+            }
+            type = type.substring(i, type.length());
         }
 
         return type;
-    }
-
-    private void fillInstance(String name, QualifiedName type) {
-        QualifiedName qualifiedName = new QualifiedName(packageName, name);
-
-        if (!derived.containsKey(qualifiedName)) {
-            derived.put(qualifiedName, new ArrayList<QualifiedName>());
-        }
-        if (!derived.get(qualifiedName).contains(type)) {
-            derived.get(qualifiedName).add(type);
-        }
-
-        if (!parents.containsKey(type)) {
-            parents.put(type, new ArrayList<QualifiedName>());
-        }
-        if (!parents.get(type).contains(qualifiedName)) {
-            parents.get(type).add(qualifiedName);
-        }
     }
 
     private List<MemberEntity> parseFunctions(Element elem) throws MalformedURLException {
@@ -348,7 +309,7 @@ public class HaskellParser {
                 Elements elems = func.getElementsMatchingOwnText("^" + type.getValue() + "$");
                 if (!elems.isEmpty()) {
                     param.getValue().set(param.getValue().indexOf(type), new QualifiedName(
-                            getPackageName(elems.get(0).attributes().get("href"))
+                            getPackageName(elems.get(0).attr("href"))
                             , type.getValue()));
                 }
             }
@@ -384,7 +345,7 @@ public class HaskellParser {
                 .split("\\s+::\\s+")[0].replaceFirst("\\s*data\\s+", "").replaceFirst("\\s*newtype\\s+", "");
 
         parseTypeParameters(elem, def, name);
-        parseInterfacesInstances(elem, name);
+        parseInstances(elem);
 
         Element shortDef = shortDefinitions.get(packageName).getElementsMatchingText(
                 "^(data|newtype)\\s+" + Pattern.quote(name)).last();
@@ -418,21 +379,6 @@ public class HaskellParser {
         }
 
         entityParameters.put(new QualifiedName(packageName, name), parameters);
-    }
-
-    private void parseInterfacesInstances(Element elem, String name) {
-        if (elem.getElementsByClass("instances").isEmpty()) {
-            return;
-        }
-
-        for (Element el : elem.getElementsByClass("instances").get(0).getElementsByClass("src")) {
-            String[] description = el.text().split("\\s+=>\\s+");
-            String interf = description[description.length - 1].split("\\s+")[0];
-            Pair<String, String> type = getType(el, interf);
-            if (type != null && type.getValue().equals(name)) {
-                fillInstance(interf, new QualifiedName(packageName, name));
-            }
-        }
     }
 
     private void parseTypeAlias(Element elem) throws MalformedURLException {
@@ -488,6 +434,10 @@ public class HaskellParser {
             alias.getValue().setContainingPackage(packages.get(alias.getKey().getKey()));
             createAliasConnections(alias.getValue());
         }
+
+        for (Element instance : instances) {
+            parseInstance(instance);
+        }
     }
 
     private void createClassifierConnections(Classifier classifier) {
@@ -511,7 +461,7 @@ public class HaskellParser {
                     if (isParent) {
                         classifier.addDerived(classes.get(connection));
                     } else {
-                        classifier.addBase(classes.get(connection));
+                        classifier.addBase(new DataType(classes.get(connection), new ArrayList<Type>()));
                     }
                 }
             }
@@ -573,6 +523,21 @@ public class HaskellParser {
         alias.setAliasedType(signatures.get(name).buildType(this, name, true));
     }
 
+    private void parseInstance(Element el) {
+        String[] decl = el.text().split("\\s+=>\\s+");
+        String fullType = decl[decl.length - 1].replaceAll("type\\s+", "");
+        String constraints = decl.length > 1 ? decl[0] : "";
+
+        String typeClassName = fullType.split("\\s+")[0];
+        String typeClassModule = getPackageName(el.getElementsMatchingOwnText("^" + Pattern.quote(typeClassName) + "$")
+                .last().attr("href"));
+        QualifiedName typeClass = new QualifiedName(typeClassModule, typeClassName);
+
+        fullType = removeKinds(fullType.replaceAll(Pattern.quote(typeClassName) + "\\s+", ""));
+
+        HaskellType instanceType = HaskellType.parse(fullType, new HashMap<String, ParameterDescription>());
+    }
+
     private List<TypeConstructor> classesByPackageName(String packName) {
         List<TypeConstructor> result = new ArrayList<>();
         for (Map.Entry<QualifiedName, Classifier> classifier : classes.entrySet()) {
@@ -630,8 +595,7 @@ public class HaskellParser {
         PackageEntity other = new PackageEntity(OTHER_PACKAGE, Language.HASKELL, otherClasses,
                 new ArrayList<MemberEntity>(), new ArrayList<PackageEntity>(), null, "", null);
         for (TypeConstructor otherClass : otherClasses) {
-            // TODO: ugly cast
-            ((Classifier) otherClass).setContainingPackage(other);
+            otherClass.setContainingPackage(other);
         }
         packages.put(OTHER_PACKAGE, other);
     }

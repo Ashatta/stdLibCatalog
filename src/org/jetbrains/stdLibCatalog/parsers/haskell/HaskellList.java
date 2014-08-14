@@ -16,11 +16,18 @@ class HaskellList extends HaskellType {
             return null;
         }
         HaskellList list = new HaskellList();
+
         String arg = signature.substring(1, signature.length() - 1);
+        if (arg.isEmpty()) {
+            list.parameter = HaskellType.parse("curriedParam", parameters);
+            return list;
+        }
+
         if (!arg.startsWith("(") || !arg.endsWith(")")) {
             arg = "(" + arg + ")";
         }
         list.parameter = HaskellType.parse(arg, parameters);
+
         return (list.parameter == null ? null : list);
     }
 

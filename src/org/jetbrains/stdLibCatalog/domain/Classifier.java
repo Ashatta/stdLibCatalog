@@ -7,7 +7,7 @@ import java.util.List;
 public class Classifier extends TypeConstructor {
     private final List<MemberEntity> functions;
     private final List<Classifier> derived = new ArrayList<>();
-    private final List<Classifier> base = new ArrayList<>();
+    private final List<Type> base = new ArrayList<>();
     private final List<TypeVariable> parameters = new ArrayList<>();
     private final String definition;
 
@@ -28,7 +28,7 @@ public class Classifier extends TypeConstructor {
         }
     }
 
-    public void addBase(Classifier b) {
+    public void addBase(Type b) {
         if (!base.contains(b)) {
             base.add(b);
         }

@@ -23,7 +23,7 @@ class HaskellConcreteType extends HaskellType {
             signature = signature.substring(1, signature.length() - 1);
         }
 
-        if (!Character.isUpperCase(signature.charAt(0))) {
+        if (!Character.isUpperCase(signature.charAt(0)) && signature.charAt(0) != '(') {
             return null;
         }
 
@@ -31,6 +31,17 @@ class HaskellConcreteType extends HaskellType {
         List<String> params = typeSplit(signature, "");
         Iterator<String> it = params.iterator();
         concrete.name = it.next();
+        if (it.hasNext()) {
+            String firstParam = it.next();
+            if (!(firstParam.charAt(0) == '*' || firstParam.charAt(0) == 'k'
+                    || firstParam.charAt(0) == '(' && (firstParam.charAt(1) == '*' || firstParam.charAt(1) == 'k'))) {
+                HaskellType param = HaskellType.parse(firstParam, parameters);
+                if (param == null) {
+                    return null;
+                }
+                concrete.parameters.add(param);
+            }
+        }
         while (it.hasNext()) {
             String par = it.next();
             HaskellType param = HaskellType.parse(par, parameters);

@@ -19,13 +19,11 @@ class HaskellFunction extends HaskellType {
         if (!signature.startsWith("(") || !signature.endsWith(")")) {
             return null;
         }
-
         signature = signature.substring(1, signature.length() - 1);
 
         HaskellFunction func = new HaskellFunction();
 
         List<String> types = typeSplit(signature, "->");
-
         for (String arg : types) {
             List<String> parts = typeSplit(arg, "=>");
             if (parts.size() > 1) {
