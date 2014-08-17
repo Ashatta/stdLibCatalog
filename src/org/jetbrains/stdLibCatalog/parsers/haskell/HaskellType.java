@@ -1,35 +1,34 @@
 package org.jetbrains.stdLibCatalog.parsers.haskell;
 
-import org.jetbrains.stdLibCatalog.domain.FunctionType;
-import org.jetbrains.stdLibCatalog.domain.Type;
+import org.jetbrains.stdLibCatalog.domain.*;
+import org.jsoup.nodes.Element;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 abstract class HaskellType {
-    public static HaskellType parse(String signature, Map<String, HaskellParser.ParameterDescription> parameters) {
-        HaskellList list = HaskellList.parse(signature, parameters);
+    public static HaskellType parse(Element elem, String signature, List<HaskellConstraint> parameters) {
+        HaskellList list = HaskellList.parse(elem, signature, parameters);
         if (list != null) {
             return list;
         }
 
-        HaskellTuple tuple = HaskellTuple.parse(signature, parameters);
+        HaskellTuple tuple = HaskellTuple.parse(elem, signature, parameters);
         if (tuple != null) {
             return tuple;
         }
 
-        HaskellConcreteType concrete = HaskellConcreteType.parse(signature, parameters);
+        HaskellConcreteType concrete = HaskellConcreteType.parse(elem, signature, parameters);
         if (concrete != null) {
             return concrete;
         }
 
-        HaskellParameter param = HaskellParameter.parse(signature, parameters);
+        HaskellParameter param = HaskellParameter.parse(elem, signature, parameters);
         if (param != null) {
             return param;
         }
 
-        HaskellFunction func = HaskellFunction.parse(signature, parameters);
+        HaskellFunction func = HaskellFunction.parse(elem, signature, parameters);
         if (func != null) {
             return func;
         }
@@ -37,7 +36,7 @@ abstract class HaskellType {
         return null;
     }
 
-    protected static List<String> typeSplit(String signature, String str) {
+    static List<String> typeSplit(String signature, String str) {
         List<String> result = new ArrayList<>();
         int braces = 0;
         int start = 0;
@@ -87,4 +86,24 @@ abstract class HaskellType {
     }
 
     abstract public Type buildType(HaskellParser parser, HaskellParser.QualifiedName entity, boolean isType);
+
+    public Classifier buildClassifier(String definition, int paramsNumber) {
+        Classifier fakeClassifier = new Classifier(classifierName(), Language.HASKELL, "", null,
+                new ArrayList<MemberEntity>(), definition);
+
+        List<String> variables = new ArrayList<>();
+        extractVariables(variables, paramsNumber);
+        for (String variable : variables) {
+            fakeClassifier.addParameter(new TypeVariable(variable, Language.HASKELL));
+        }
+
+        return fakeClassifier;
+
+    }
+
+    public abstract void extractVariables(List<String> variables, int paramsNumber);
+
+    public abstract String getName();
+
+    protected abstract String classifierName();
 }

@@ -1,11 +1,11 @@
 package org.jetbrains.stdLibCatalog.parsers.haskell;
 
 import org.jetbrains.stdLibCatalog.domain.*;
+import org.jsoup.nodes.Element;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 class HaskellParameter extends HaskellType {
     private String name;
@@ -15,10 +15,11 @@ class HaskellParameter extends HaskellType {
         parameters = new ArrayList<>();
     }
 
-    public static HaskellParameter parse(String signature, Map<String, HaskellParser.ParameterDescription> parameters) {
+    public static HaskellParameter parse(Element elem, String signature, List<HaskellConstraint> parameters) {
         if (signature.startsWith("(") && signature.endsWith(")")) {
             signature = signature.substring(1, signature.length() - 1);
         }
+        signature = typeSplit(signature, "::").get(0);
 
         if (!Character.isLowerCase(signature.charAt(0))) {
             return null;
@@ -30,7 +31,7 @@ class HaskellParameter extends HaskellType {
         parameter.name = it.next();
         while (it.hasNext()) {
             String par = it.next();
-            HaskellType param = HaskellType.parse(par, parameters);
+            HaskellType param = HaskellType.parse(elem, par, parameters);
             if (param == null) {
                 return null;
             }
@@ -46,6 +47,37 @@ class HaskellParameter extends HaskellType {
             params.add(param.buildType(parser, entity, isType));
         }
 
-        return new DataType(parser.entityEndParameters.get(entity).get(name), params);
+        for (TypeVariable param : parser.entityParams.get(entity)) {
+            if (param.getName().equals(name)) {
+                return new DataType(param, params);
+            }
+        }
+
+        return null;
+    }
+
+    public void extractVariables(List<String> variables, int paramsNumber) {
+        if (!variables.contains(name)) {
+            variables.add(name);
+        }
+        for (HaskellType param : parameters) {
+            param.extractVariables(variables, 0);
+        }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    protected String classifierName() {
+        String result = name + "<";
+        for (HaskellType param : parameters) {
+            result += param.classifierName() + ",";
+        }
+        if (result.endsWith(",")) {
+            result = result.substring(0, result.length() - 1);
+        }
+        return result + ">";
     }
 }
+

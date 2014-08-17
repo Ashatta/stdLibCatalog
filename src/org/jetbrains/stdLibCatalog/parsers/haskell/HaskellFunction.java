@@ -2,11 +2,11 @@ package org.jetbrains.stdLibCatalog.parsers.haskell;
 
 import org.jetbrains.stdLibCatalog.domain.FunctionType;
 import org.jetbrains.stdLibCatalog.domain.Type;
+import org.jsoup.nodes.Element;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 class HaskellFunction extends HaskellType {
     private List<HaskellType> arguments;
@@ -15,7 +15,7 @@ class HaskellFunction extends HaskellType {
         arguments = new ArrayList<>();
     }
 
-    public static HaskellFunction parse(String signature, Map<String, HaskellParser.ParameterDescription> parameters) {
+    public static HaskellFunction parse(Element elem, String signature, List<HaskellConstraint> constraints) {
         if (!signature.startsWith("(") || !signature.endsWith(")")) {
             return null;
         }
@@ -27,10 +27,10 @@ class HaskellFunction extends HaskellType {
         for (String arg : types) {
             List<String> parts = typeSplit(arg, "=>");
             if (parts.size() > 1) {
-                parseInterfaces(parts.get(0), parameters);
+                HaskellConstraint.parseConstraints(elem, parts.get(0), constraints);
             }
 
-            HaskellType a = HaskellType.parse(parts.get(parts.size() - 1), parameters);
+            HaskellType a = HaskellType.parse(elem, parts.get(parts.size() - 1), constraints);
             if (a == null) {
                 return null;
             }
@@ -38,17 +38,6 @@ class HaskellFunction extends HaskellType {
         }
 
         return func;
-    }
-
-    private static void parseInterfaces(String description, Map<String, HaskellParser.ParameterDescription> parameters) {
-        String[] classes = description.replaceAll("[()]", "").split(",\\s+");
-        for (String cl : classes) {
-            String[] def = cl.split("\\s+");
-            HaskellParser.QualifiedName interfaceName = new HaskellParser.QualifiedName("", def[0]);
-            if (!parameters.get(def[1]).getValue().contains(interfaceName)) {
-                parameters.get(def[1]).getValue().add(interfaceName);
-            }
-        }
     }
 
     public FunctionType makeSignature(HaskellParser parser, HaskellParser.QualifiedName entity, boolean isType) {
@@ -70,5 +59,26 @@ class HaskellFunction extends HaskellType {
 
     public FunctionType buildType(HaskellParser parser, HaskellParser.QualifiedName entity, boolean isType) {
         return makeSignature(parser, entity, isType);
+    }
+
+    public void extractVariables(List<String> variables, int paramsNumber) {
+        for (HaskellType param : arguments) {
+            param.extractVariables(variables, 0);
+        }
+    }
+
+    public String getName() {
+        return "";
+    }
+
+    protected String classifierName() {
+        String result = "Function<";
+        for (HaskellType param : arguments) {
+            result += param.classifierName() + ",";
+        }
+        if (result.endsWith(",")) {
+            result = result.substring(0, result.length() - 1);
+        }
+        return result + ">";
     }
 }

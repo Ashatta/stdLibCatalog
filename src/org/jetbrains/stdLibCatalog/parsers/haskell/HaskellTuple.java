@@ -1,26 +1,32 @@
 package org.jetbrains.stdLibCatalog.parsers.haskell;
 
 import org.jetbrains.stdLibCatalog.domain.*;
+import org.jsoup.nodes.Element;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 class HaskellTuple extends HaskellType {
-    private List<HaskellType> subs;
+    private List<HaskellType> parameters;
 
     HaskellTuple() {
-        subs = new ArrayList<>();
+        parameters = new ArrayList<>();
     }
 
-    public static HaskellTuple parse(String signature, Map<String, HaskellParser.ParameterDescription> parameters) {
+    public static HaskellTuple parse(Element elem, String signature, List<HaskellConstraint> parameters) {
         if (!signature.startsWith("(") || !signature.endsWith(")")) {
             return null;
         }
+        signature = signature.substring(1, signature.length() - 1);
+        boolean singletonAllowed = false;
+        if (signature.startsWith("#") && signature.endsWith("#")) {
+            singletonAllowed = true;
+            signature = signature.substring(1, signature.length() - 1);
+        }
 
         HaskellTuple tuple = new HaskellTuple();
-        List<String> args = typeSplit(signature.substring(1, signature.length() - 1), ",");
-        if (args.size() == 1) {
+        List<String> args = typeSplit(signature, ",");
+        if (args.size() == 1 && !singletonAllowed) {
             return null;
         }
 
@@ -28,23 +34,48 @@ class HaskellTuple extends HaskellType {
             if (!arg.startsWith("(") || !arg.endsWith(")")) {
                 arg = "(" + arg + ")";
             }
-            HaskellType a = HaskellType.parse(arg, parameters);
+            HaskellType a = HaskellType.parse(elem, arg, parameters);
             if (a == null) {
                 return null;
             }
-            tuple.subs.add(a);
+            tuple.parameters.add(a);
         }
 
         return tuple;
     }
 
     public DataType buildType(HaskellParser parser, HaskellParser.QualifiedName entity, boolean isType) {
-        Classifier tuple = parser.classes.get(new HaskellParser.QualifiedName("other", "Tuple" + String.valueOf(subs.size())));
+        Classifier tuple = parser.classes.get(
+                new HaskellParser.QualifiedName("Data.Tuple",
+                        "(" + new String(new char[parameters.size() == 0 ? 0 : parameters.size() + 1])
+                                .replace("\0", ",") + ")"));
         List<Type> parameters = new ArrayList<>();
-        for (HaskellType type : subs) {
+        for (HaskellType type : this.parameters) {
             parameters.add(type.buildType(parser, entity, isType));
         }
 
         return new DataType(tuple, parameters);
+    }
+
+    public void extractVariables(List<String> variables, int paramsNumber) {
+        for (HaskellType param : parameters) {
+            param.extractVariables(variables, 0);
+        }
+    }
+
+    public String getName() {
+        return "(" + new String(new char[parameters.size() == 0 ? 0 : parameters.size() + 1]).replace("\0", ",") + ")";
+    }
+
+    protected String classifierName() {
+        String result = "(" + new String(new char[parameters.size() == 0 ? 0 : parameters.size() + 1])
+                .replace("\0", ",") + ")" + "<";
+        for (HaskellType param : parameters) {
+            result += param.classifierName() + ",";
+        }
+        if (result.endsWith(",")) {
+            result = result.substring(0, result.length() - 1);
+        }
+        return result + ">";
     }
 }

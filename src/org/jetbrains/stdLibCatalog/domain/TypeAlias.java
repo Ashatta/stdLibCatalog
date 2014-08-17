@@ -22,6 +22,10 @@ public class TypeAlias extends TypeConstructor {
         this.aliasedType = aliasedType;
     }
 
+    public List<TypeVariable> getParameters() {
+        return parameters;
+    }
+
     public void addParameter(TypeVariable parameter) {
         parameters.add(parameter);
     }

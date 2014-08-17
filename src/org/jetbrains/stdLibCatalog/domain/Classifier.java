@@ -41,4 +41,8 @@ public class Classifier extends TypeConstructor {
     public void addParameter(TypeVariable param) {
         parameters.add(param);
     }
+
+    public String getDefinition() {
+        return definition;
+    }
 }
