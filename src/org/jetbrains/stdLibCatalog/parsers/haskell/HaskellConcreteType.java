@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
 
 class HaskellConcreteType extends HaskellType {
     private static List<String> INFIX_NAMES = Arrays.asList(":~:", "~", ":+:", ":*:", ":.:", "<=?");
+    private static List<String> K_ALLOWED_TYPES = Arrays.asList("Map", "Set", "Weak");
 
     private String name;
     private List<HaskellType> parameters;
@@ -75,7 +76,7 @@ class HaskellConcreteType extends HaskellType {
         concrete.name = it.next();
         if (it.hasNext()) {
             String firstParam = it.next();
-            if (!(firstParam.charAt(0) == '*' || firstParam.charAt(0) == 'k'
+            if (!(firstParam.charAt(0) == '*' || (firstParam.charAt(0) == 'k' && !K_ALLOWED_TYPES.contains(concrete.name))
                     || firstParam.charAt(0) == '(' && (firstParam.charAt(1) == '*' || firstParam.charAt(1) == 'k'))) {
                 HaskellType param = HaskellType.parse(elem, firstParam, parameters);
                 if (param == null) {

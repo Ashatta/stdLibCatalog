@@ -40,4 +40,17 @@ public class MemberEntity extends Entity {
     public void addParameter(TypeVariable param) {
         parameters.add(param);
     }
+
+    public String toString() {
+        String result = "[Function]\n" + definition + "\n" + super.toString()
+                + "\nContaining type: " + (containingType != null ? containingType.getName() : "null")
+                + "\nparameters {";
+
+        for (TypeVariable param : parameters) {
+            result += "\n" + param.toString();
+        }
+        result += "\n}\nSignature = " + signature.toString();
+
+        return result;
+    }
 }

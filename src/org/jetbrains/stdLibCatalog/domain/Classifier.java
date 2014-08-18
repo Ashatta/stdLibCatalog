@@ -5,21 +5,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Classifier extends TypeConstructor {
-    private final List<MemberEntity> functions;
+    private final List<MemberEntity> members;
     private final List<Classifier> derived = new ArrayList<>();
     private final List<Type> base = new ArrayList<>();
     private final List<TypeVariable> parameters = new ArrayList<>();
     private final String definition;
 
-    public Classifier(String name, Language lang, String documentation, URL docLink, List<MemberEntity> functions,
+    public Classifier(String name, Language lang, String documentation, URL docLink, List<MemberEntity> members,
             String definition) {
         super(name, lang, documentation, docLink);
-        this.functions = functions;
+        this.members = members;
         this.definition = definition;
     }
 
-    public List<MemberEntity> getFunctions() {
-        return functions;
+    public List<MemberEntity> getMembers() {
+        return members;
     }
 
     public void addDerived(Classifier d) {
@@ -44,5 +44,33 @@ public class Classifier extends TypeConstructor {
 
     public String getDefinition() {
         return definition;
+    }
+
+    public String toString() {
+        String result = "[Classifier]\n" + definition + "\n" + super.toString() + "\nparameters {";
+        for (TypeVariable param : parameters) {
+            result += "\n" + param.toString();
+        }
+
+        result += "\nderived {";
+        for (Classifier child : derived) {
+            result += "\n" + (child.getContainingPackage() != null ? child.getContainingPackage().getName() : "null")
+                    + "::" + child.getName();
+        }
+        result += "\n}";
+
+        result += "\nsupertypes {";
+        for (Type superType : base) {
+            result += "\n" + superType.toString();
+        }
+        result += "\n}";
+
+        result += "\nmembers {";
+        for (MemberEntity member : members) {
+            result += "\n\n" + member.toString();
+        }
+        result += "\n}";
+
+        return result;
     }
 }

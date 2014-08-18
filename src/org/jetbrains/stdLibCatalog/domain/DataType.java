@@ -20,4 +20,18 @@ public class DataType extends Type {
     public List<Type> getArguments() {
         return arguments;
     }
+
+    public String toString() {
+        PackageEntity packageEntity = typeConstructor.getContainingPackage();
+        String result = (packageEntity == null ? "null" : packageEntity.getName()) + "::" + typeConstructor.getName();
+        if (!arguments.isEmpty()) {
+            result += " {";
+            for (Type arg : arguments) {
+                result += "\n" + arg.toString();
+            }
+            result += "\n}";
+        }
+
+        return result;
+    }
 }

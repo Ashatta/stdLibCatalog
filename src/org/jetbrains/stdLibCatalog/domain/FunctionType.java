@@ -18,4 +18,15 @@ public class FunctionType extends Type {
     public Type getResult() {
         return result;
     }
+
+    public String toString() {
+        String result = "<function> {\n[parameters]";
+
+        for (Type param : parameters) {
+            result += "\n" + param.toString();
+        }
+
+        result += "\n[result]\n" + result.toString() + "}";
+        return result;
+    }
 }

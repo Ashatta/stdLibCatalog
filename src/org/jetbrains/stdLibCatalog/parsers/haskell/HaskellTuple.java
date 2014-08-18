@@ -45,10 +45,10 @@ class HaskellTuple extends HaskellType {
     }
 
     public DataType buildType(HaskellParser parser, HaskellParser.QualifiedName entity, boolean isType) {
-        Classifier tuple = parser.classes.get(
-                new HaskellParser.QualifiedName("Data.Tuple",
-                        "(" + new String(new char[parameters.size() == 0 ? 0 : parameters.size() + 1])
-                                .replace("\0", ",") + ")"));
+        String tupleName = "(" + new String(new char[parameters.size() == 0 ? 0 : parameters.size() - 1])
+                .replace("\0", ",") + ")";
+        Classifier tuple = parser.classes.get(new HaskellParser.QualifiedName(
+                parameters.size() > 62 ? HaskellParser.OTHER_PACKAGE : "GHC.Tuple", tupleName));
         List<Type> parameters = new ArrayList<>();
         for (HaskellType type : this.parameters) {
             parameters.add(type.buildType(parser, entity, isType));

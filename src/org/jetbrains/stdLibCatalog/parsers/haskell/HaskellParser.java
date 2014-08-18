@@ -8,6 +8,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -126,12 +128,7 @@ public class HaskellParser {
         } else if (isTypeAlias(elem)) {
             parseTypeAlias(elem);
         } else if (isFunction(elem)) {
-            try {
-                parseFunctionDef(elem.child(0));
-            } catch (Exception e) {
-                System.out.println(packageName + " " + elem.text());
-                throw e;
-            }
+            parseFunctionDef(elem.child(0));
         }
     }
 
@@ -162,7 +159,7 @@ public class HaskellParser {
         parents.put(qualifiedName, parseTypeClassParents(elem.children().get(0), name));
         parseInstances(elem);
 
-        constraints.put(qualifiedName, new ArrayList<HaskellConstraint>());
+        addConstraints(qualifiedName, new ArrayList<HaskellConstraint>());
         entityParams.put(qualifiedName, new ArrayList<TypeVariable>());
 
         classes.put(qualifiedName, new Classifier(name, Language.HASKELL, getDoc(elem),
@@ -244,7 +241,10 @@ public class HaskellParser {
 
         List<MemberEntity> result = new ArrayList<>();
         for (String name : names) {
-            result.add(parseFunction(func, new QualifiedName(packageName, name)));
+            QualifiedName funcName = new QualifiedName(packageName, name);
+            if (!functions.containsKey(funcName)) {        // module Ix - rangeSize definition is repeated twice
+                result.add(parseFunction(func, funcName));
+            }
         }
 
         return result;
@@ -252,7 +252,7 @@ public class HaskellParser {
 
     private MemberEntity parseFunction(Element func, QualifiedName name) throws MalformedURLException {
         String signature = getSignature(name.getValue());
-        parseParameters(name, signature);
+        parseParameters(name, signature, true);
         fillFunctionType(func, name, signature);
 
         Element doc = func.nextElementSibling();
@@ -274,10 +274,10 @@ public class HaskellParser {
     private void fillFunctionType(Element func, QualifiedName name, String signature) {
         List<HaskellConstraint> constraints = new ArrayList<>();
         parseSignature(func, signature, name, constraints);
-        this.constraints.put(name, constraints);
+        addConstraints(name, constraints);
     }
 
-    private void parseParameters(QualifiedName name, String signature) {
+    private void parseParameters(QualifiedName name, String signature, boolean isFunction) {
         if (!entityParams.containsKey(name)) {
             entityParams.put(name, new ArrayList<TypeVariable>());
         }
@@ -286,7 +286,7 @@ public class HaskellParser {
         boolean first = true;
         for (String s : signature.split("\\s+")) {
             s = s.replaceAll("[\\(\\)\\[\\],\\->]", "");  // keep parameters without list-tuple-function artifacts
-            if (!s.isEmpty() && Character.isLowerCase(s.charAt(0)) && (!first || s.charAt(0) != 'k')
+            if (!s.isEmpty() && Character.isLowerCase(s.charAt(0)) && (isFunction || !first || s.charAt(0) != 'k')
                     && !paramNames.contains(s)) {
                 paramNames.add(s);
                 first = false;
@@ -391,7 +391,7 @@ public class HaskellParser {
 
         List<HaskellConstraint> constraints = new ArrayList<>();
         HaskellConstraint.parseConstraints(elem, parts.length > 1 ? parts[0] : "", constraints);
-        this.constraints.put(qualifiedName, constraints);
+        addConstraints(qualifiedName, constraints);
     }
 
     private void parseTypeAlias(Element elem) throws MalformedURLException {
@@ -410,10 +410,10 @@ public class HaskellParser {
         parts[0] = parts[0].replaceAll("^type\\s+", "").trim();
         parts[1] = parts[1].trim();
 
-        parseParameters(qualifiedName, parts[1]);
+        parseParameters(qualifiedName, parts[1], false);
         List<HaskellConstraint> constraints = new ArrayList<>();
         parseSignature(elem, parts[1], qualifiedName, constraints);
-        this.constraints.put(qualifiedName, constraints);
+        addConstraints(qualifiedName, constraints);
 
         aliases.put(qualifiedName, new TypeAlias(name, Language.HASKELL, getDoc(elem),
                 new URL(currentAddress + "#t:" + name), def.text()));
@@ -460,7 +460,7 @@ public class HaskellParser {
         connectDerived(classifier, packName, false);
         connectTypeParameters(classifier, packName);
 
-        for (MemberEntity function : classifier.getFunctions()) {
+        for (MemberEntity function : classifier.getMembers()) {
             function.setContainingType(classifier);
         }
     }
@@ -507,10 +507,7 @@ public class HaskellParser {
         for (HaskellConstraint constraint : constraints.get(funcName)) {
             endConstraints.add(constraint.buildConstraint(this, entityParams.get(funcName)));
         }
-
-        if (function.getContainingType() != null) {
-            endConstraints.add(typeClassConstraint(function));
-        }
+        addTypeClassConstraint(function, endConstraints);
 
         for (TypeVariable variable : entityParams.get(funcName)) {
             for (Constraint constraint : endConstraints) {
@@ -522,6 +519,23 @@ public class HaskellParser {
         }
 
         function.setSignature(signatures.get(funcName).makeSignature(this, funcName, false));
+    }
+
+    private void addTypeClassConstraint(MemberEntity function, List<Constraint> endConstraints) {
+        if (function.getContainingType() != null) {
+            Constraint constraint = typeClassConstraint(function);
+            boolean add = true;
+            for (Constraint constr : endConstraints) {
+                if (constr.getDeclaration().equals(constraint.getDeclaration())) {
+                    add = false;
+                    break;
+                }
+            }
+
+            if (add) {
+                endConstraints.add(constraint);
+            }
+        }
     }
 
     private Constraint typeClassConstraint(MemberEntity function) {
@@ -568,7 +582,6 @@ public class HaskellParser {
     private void parseInstance(Element el) {
         String[] decl = el.text().split("\\s+=>\\s+");
         if (decl[decl.length - 1].startsWith("type")) {
-            System.out.println(el.text());
             return;
         }
         String fullType = decl[decl.length - 1].replaceAll("type\\s+", "");
@@ -685,6 +698,17 @@ public class HaskellParser {
         return result;
     }
 
+    private void addConstraints(QualifiedName name, List<HaskellConstraint> constraints) {
+        List<String> declarations = new ArrayList<>();
+        this.constraints.put(name, new ArrayList<HaskellConstraint>());
+        for (HaskellConstraint constraint : constraints) {
+            if (!declarations.contains(constraint.getDeclaration())) {
+                this.constraints.get(name).add(constraint);
+                declarations.add(constraint.getDeclaration());
+            }
+        }
+    }
+
     private void fillListAndTuples() {
         // TODO: docs for lists and "other" package
         packageDoc.put(OTHER_PACKAGE, "");
@@ -695,8 +719,21 @@ public class HaskellParser {
         QualifiedName listQualified = new QualifiedName(OTHER_PACKAGE, "List");
         classes.put(listQualified, list);
         parents.put(listQualified, new ArrayList<QualifiedName>());
-        constraints.put(listQualified, new ArrayList<HaskellConstraint>());
+        addConstraints(listQualified, new ArrayList<HaskellConstraint>());;
         entityParams.put(listQualified, new ArrayList<TypeVariable>());
+
+        String name = "(" + new String(new char[63]).replace("\0", ",") + ")";
+        Classifier tuple = new Classifier(name, Language.HASKELL, "", null, new ArrayList<MemberEntity>(), "");
+        for (int j = 0; j < 64; ++j) {
+            String paramName = (j > 25 ? "a" : "") + String.valueOf((char) ('a' + (j % 26)));
+            tuple.addParameter(new TypeVariable(paramName, Language.HASKELL));
+        }
+        otherClasses.add(tuple);
+        QualifiedName qualifiedName = new QualifiedName(OTHER_PACKAGE, name);
+        classes.put(qualifiedName, tuple);
+        parents.put(qualifiedName, new ArrayList<QualifiedName>());
+        addConstraints(qualifiedName, new ArrayList<HaskellConstraint>());
+        entityParams.put(qualifiedName, new ArrayList<TypeVariable>());
 
         PackageEntity other = new PackageEntity(OTHER_PACKAGE, Language.HASKELL, otherClasses,
                 new ArrayList<MemberEntity>(), new ArrayList<PackageEntity>(), null, "", null);

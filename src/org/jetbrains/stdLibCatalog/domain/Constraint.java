@@ -17,4 +17,8 @@ public class Constraint {
     public List<TypeVariable> getVariables() {
         return variables;
     }
+
+    public String getDeclaration() {
+        return declaration;
+    }
 }

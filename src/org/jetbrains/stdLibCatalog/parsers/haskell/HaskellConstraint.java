@@ -76,4 +76,8 @@ class HaskellConstraint {
 
         return new Constraint(typeVariables, other, declaration);
     }
+
+    public String getDeclaration() {
+        return declaration;
+    }
 }

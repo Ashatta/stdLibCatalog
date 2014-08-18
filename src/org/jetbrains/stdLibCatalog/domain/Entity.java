@@ -2,7 +2,7 @@ package org.jetbrains.stdLibCatalog.domain;
 
 import java.net.URL;
 
-public class Entity {
+public abstract class Entity {
     private final String name;
     private final Language lang;
     private final String documentation;
@@ -39,5 +39,12 @@ public class Entity {
 
     public void setContainingPackage(PackageEntity containingPackage) {
         this.containingPackage = containingPackage;
+    }
+
+    public String toString() {
+        return "Name: " + name
+                + "\nLanguage: " + lang.name()
+                + "\nDoc: " + (docLink != null ? docLink.toString() : "null")
+                + "\nContaining package: " + (containingPackage != null ? containingPackage.getName() : "null");
     }
 }

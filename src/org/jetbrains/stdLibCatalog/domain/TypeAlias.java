@@ -29,4 +29,14 @@ public class TypeAlias extends TypeConstructor {
     public void addParameter(TypeVariable parameter) {
         parameters.add(parameter);
     }
+
+    public String toString() {
+        String result = "[Alias]\n" + definition + "\n" + super.toString() + "\nparameters {";
+        for (TypeVariable param : parameters) {
+            result += "\n" + param.toString();
+        }
+        result += "\n}\nAliased type = " + aliasedType.toString();
+
+        return result;
+    }
 }
