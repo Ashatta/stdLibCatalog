@@ -21,4 +21,21 @@ public class Constraint {
     public String getDeclaration() {
         return declaration;
     }
+
+    public String toString() {
+        String result = "(" + declaration + "; ";
+
+        for (TypeVariable variable : variables) {
+            result += variable.getName() + ", ";
+        }
+        result = result.substring(0, result.length() - 2) + "; ";
+
+        for (Entity entity : otherEntities) {
+            PackageEntity containingPackage = entity.getContainingPackage();
+            result += (containingPackage != null ? containingPackage.getName() : "null") + "::" + entity.getName() + ", ";
+        }
+        result = result.substring(0, result.length() - 2) + ")";
+
+        return result;
+    }
 }

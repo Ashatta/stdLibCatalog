@@ -56,6 +56,18 @@ public class HaskellParser {
         }
 
         parser.createEntitiesConnections();
+/*
+        File dir = new File("/home/ashatta/debug");
+        if (dir.exists()) {
+            dir.delete();
+        }
+        dir.mkdir();
+        for (PackageEntity pack : parser.packages.values()) {
+            FileWriter out = new FileWriter(dir.getAbsolutePath() + "/" + pack.getName() + ".txt");
+            out.write(pack.toString());
+            out.close();
+        }
+*/
     }
 
     private PackageEntity parseModule(Element module) throws IOException {
@@ -168,7 +180,18 @@ public class HaskellParser {
 
     private String getTypeClassDefinition(String name) {
         Element shortDef = shortDefinitions.get(packageName);
-        Element elem = shortDef.getElementsMatchingText("^class\\s+(|.*=>\\s+)" + Pattern.quote(name)).last();
+
+        Element elem = null;
+        for (Element el : shortDef.getElementsMatchingText("^class\\s+(|.*=>\\s+)" + Pattern.quote(name))) {
+            if (shortDef.id().equals("interface")) {
+                el = el.parent();
+            }
+            String[] def = el.text().split("where")[0].split("=>");
+            if (def[def.length - 1].contains(" " + name + " ")) {
+                elem = el;
+            }
+        }
+
         if (shortDef.id().equals("section.syn")) {
             return elem.text();
         } else {
@@ -285,7 +308,7 @@ public class HaskellParser {
         List<String> paramNames = new ArrayList<>();
         boolean first = true;
         for (String s : signature.split("\\s+")) {
-            s = s.replaceAll("[\\(\\)\\[\\],\\->]", "");  // keep parameters without list-tuple-function artifacts
+            s = s.replaceAll("[\\(\\)\\[\\],\\->#]", "");  // keep parameters without list-tuple-function artifacts
             if (!s.isEmpty() && Character.isLowerCase(s.charAt(0)) && (isFunction || !first || s.charAt(0) != 'k')
                     && !paramNames.contains(s)) {
                 paramNames.add(s);
@@ -383,7 +406,7 @@ public class HaskellParser {
         }
 
         for (String param : params) {
-            param = param.replaceAll("[\\(\\)\\[\\],\\->]", "");
+            param = param.replaceAll("[\\(\\)\\[\\],\\->#]", "");
             if (!param.isEmpty() && Character.isLowerCase(param.charAt(0))) {
                 entityParams.get(qualifiedName).add(new TypeVariable(param, Language.HASKELL));
             }
@@ -719,7 +742,7 @@ public class HaskellParser {
         QualifiedName listQualified = new QualifiedName(OTHER_PACKAGE, "List");
         classes.put(listQualified, list);
         parents.put(listQualified, new ArrayList<QualifiedName>());
-        addConstraints(listQualified, new ArrayList<HaskellConstraint>());;
+        addConstraints(listQualified, new ArrayList<HaskellConstraint>());
         entityParams.put(listQualified, new ArrayList<TypeVariable>());
 
         String name = "(" + new String(new char[63]).replace("\0", ",") + ")";

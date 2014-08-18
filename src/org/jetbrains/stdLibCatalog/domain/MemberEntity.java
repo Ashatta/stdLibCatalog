@@ -47,7 +47,7 @@ public class MemberEntity extends Entity {
                 + "\nparameters {";
 
         for (TypeVariable param : parameters) {
-            result += "\n" + param.toString();
+            result += "\n\t" + param.toString();
         }
         result += "\n}\nSignature = " + signature.toString();
 

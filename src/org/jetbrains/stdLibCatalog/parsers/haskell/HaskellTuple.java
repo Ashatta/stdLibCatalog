@@ -31,7 +31,7 @@ class HaskellTuple extends HaskellType {
         }
 
         for (String arg : args) {
-            if (!arg.startsWith("(") || !arg.endsWith(")")) {
+            if (!(arg.startsWith("[") && arg.endsWith("]")) && !(arg.startsWith("(") && arg.endsWith(")"))) {
                 arg = "(" + arg + ")";
             }
             HaskellType a = HaskellType.parse(elem, arg, parameters);

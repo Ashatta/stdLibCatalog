@@ -1,5 +1,8 @@
 package org.jetbrains.stdLibCatalog.domain;
 
+import org.jsoup.helper.StringUtil;
+
+import java.util.Arrays;
 import java.util.List;
 
 public class FunctionType extends Type {
@@ -20,13 +23,13 @@ public class FunctionType extends Type {
     }
 
     public String toString() {
-        String result = "<function> {\n[parameters]";
+        String result = "<function> {\n\t[parameters]";
 
         for (Type param : parameters) {
-            result += "\n" + param.toString();
+            result += "\n\t" + StringUtil.join(Arrays.asList(param.toString().split("\n")), "\n\t");
         }
 
-        result += "\n[result]\n" + result.toString() + "}";
+        result += "\n\n\t[result]\n\t" + StringUtil.join(Arrays.asList(this.result.toString().split("\n")), "\n\t") + "\n}";
         return result;
     }
 }

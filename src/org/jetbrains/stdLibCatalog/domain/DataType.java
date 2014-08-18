@@ -1,5 +1,8 @@
 package org.jetbrains.stdLibCatalog.domain;
 
+import org.jsoup.helper.StringUtil;
+
+import java.util.Arrays;
 import java.util.List;
 
 public class DataType extends Type {
@@ -27,7 +30,7 @@ public class DataType extends Type {
         if (!arguments.isEmpty()) {
             result += " {";
             for (Type arg : arguments) {
-                result += "\n" + arg.toString();
+                result += "\n\t" + StringUtil.join(Arrays.asList(arg.toString().split("\n")), "\n\t");
             }
             result += "\n}";
         }

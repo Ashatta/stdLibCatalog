@@ -21,7 +21,7 @@ class HaskellConstraint {
     }
 
     public static HaskellConstraint parse(Element entityElem, String declaration) {
-        String[] parts = declaration.replaceAll("[\\(\\)\\[\\],\\->]", "").split("\\s+");
+        String[] parts = declaration.replaceAll("[\\(\\)\\[\\],\\->#]", "").split("\\s+");
         List<String> vars = new ArrayList<>();
         for (String part : parts) {
             if (Character.isLowerCase(part.charAt(0)) && part.charAt(0) != 'k') {

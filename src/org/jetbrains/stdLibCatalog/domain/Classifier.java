@@ -1,7 +1,10 @@
 package org.jetbrains.stdLibCatalog.domain;
 
+import org.jsoup.helper.StringUtil;
+
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Classifier extends TypeConstructor {
@@ -49,25 +52,25 @@ public class Classifier extends TypeConstructor {
     public String toString() {
         String result = "[Classifier]\n" + definition + "\n" + super.toString() + "\nparameters {";
         for (TypeVariable param : parameters) {
-            result += "\n" + param.toString();
+            result += "\n\t" + param.toString();
         }
 
         result += "\nderived {";
         for (Classifier child : derived) {
-            result += "\n" + (child.getContainingPackage() != null ? child.getContainingPackage().getName() : "null")
+            result += "\n\t" + (child.getContainingPackage() != null ? child.getContainingPackage().getName() : "null")
                     + "::" + child.getName();
         }
         result += "\n}";
 
         result += "\nsupertypes {";
         for (Type superType : base) {
-            result += "\n" + superType.toString();
+            result += "\n\t" + StringUtil.join(Arrays.asList(superType.toString().split("\n")), "\n\t");
         }
         result += "\n}";
 
         result += "\nmembers {";
         for (MemberEntity member : members) {
-            result += "\n\n" + member.toString();
+            result += "\n\n\t" + StringUtil.join(Arrays.asList(member.toString().split("\n")), "\n\t");
         }
         result += "\n}";
 

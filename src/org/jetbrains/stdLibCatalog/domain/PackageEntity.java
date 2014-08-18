@@ -26,10 +26,10 @@ public class PackageEntity extends Entity {
     }
 
     public String toString() {
-        String result = "[Package]\n" + super.toString() + "\nSubpackages {";
+        String result = "[Package]\n" + super.toString() + "\n\nSubpackages {";
 
         for (PackageEntity subPackage : subPackages) {
-            result += "\n" + subPackage.getName();
+            result += "\n\t" + subPackage.getName();
         }
         result += "\n}";
 
@@ -38,7 +38,8 @@ public class PackageEntity extends Entity {
         }
 
         for (MemberEntity member : members) {
-            result += "\n\n" + member.toString();
+            if (member.getContainingType() == null)
+                result += "\n\n" + member.toString();
         }
 
         return result;
