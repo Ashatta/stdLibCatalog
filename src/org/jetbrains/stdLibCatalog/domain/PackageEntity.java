@@ -9,8 +9,7 @@ public class PackageEntity extends Entity {
     private final List<PackageEntity> subPackages;
 
     public PackageEntity(String name, Language lang, List<TypeConstructor> containedClasses,
-            List<MemberEntity> members, List<PackageEntity> subPackages, PackageEntity containingPackage,
-            String documentation, URL docLink) {
+            List<MemberEntity> members, List<PackageEntity> subPackages, String documentation, URL docLink) {
         super(name, lang, documentation, docLink);
         this.containedClasses = containedClasses;
         this.members = members;

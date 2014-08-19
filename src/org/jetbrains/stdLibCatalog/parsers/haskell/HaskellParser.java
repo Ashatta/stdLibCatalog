@@ -91,8 +91,7 @@ public class HaskellParser {
         }
 
         PackageEntity pack = new PackageEntity(curr, Language.HASKELL, classesByPackageName(curr),
-                functionsByPackageName(curr), subpackages, null,
-                (packageDoc.containsKey(curr) ? packageDoc.get(curr) : ""),
+                functionsByPackageName(curr), subpackages, (packageDoc.containsKey(curr) ? packageDoc.get(curr) : ""),
                 link.equals("") ? null : new URL(BASE_ADDRESS + link));
         packages.put(curr, pack);
 
@@ -179,8 +178,12 @@ public class HaskellParser {
         addConstraints(qualifiedName, new ArrayList<HaskellConstraint>());
         entityParams.put(qualifiedName, new ArrayList<TypeVariable>());
 
-        classes.put(qualifiedName, new Classifier(name, Language.HASKELL, getDoc(elem),
-                new URL(currentAddress + "#t:" + name), parseFunctions(elem), getTypeClassDefinition(name)));
+        Classifier typeClass = new Classifier(name, Language.HASKELL, getDoc(elem),
+                new URL(currentAddress + "#t:" + name), parseFunctions(elem), getTypeClassDefinition(name));
+        typeClass.setAttr("classifierType", "typeclass");
+        typeClass.setAttr("fakeInstanceClassifier", "false");
+
+        classes.put(qualifiedName, typeClass);
     }
 
     private String getTypeClassDefinition(String name) {
@@ -296,8 +299,9 @@ public class HaskellParser {
 
         MemberEntity function = new MemberEntity(name.getValue(), Language.HASKELL, d,
                 new URL(currentAddress + "#v:" + name.getValue()), definition);
-        functions.put(name, function);
+        function.setAttr("memberType", "function");
 
+        functions.put(name, function);
         return function;
     }
 
@@ -366,8 +370,13 @@ public class HaskellParser {
         parseTypeParameters(elem, def, name);
         parseInstances(elem);
 
-        classes.put(new QualifiedName(packageName, name), new Classifier(name, Language.HASKELL, getDoc(elem),
-                new URL(currentAddress + "#t:" + name), new ArrayList<MemberEntity>(), getDataDefinition(def)));
+        Classifier data = new Classifier(name, Language.HASKELL, getDoc(elem),
+                new URL(currentAddress + "#t:" + name), new ArrayList<MemberEntity>(), getDataDefinition(def));
+        data.setAttr("classifierType", data.getDefinition().startsWith("data") ? "data" : "newtype");
+        data.setAttr("fakeInstanceClassifier", "false");
+        data.setAttr("infix", (name.length() > 2 && isInfix(name.substring(1, name.length() - 1))) ? "true" : "false");
+
+        classes.put(new QualifiedName(packageName, name), data);
     }
 
     private String getDataDefinition(String name) {
@@ -624,6 +633,12 @@ public class HaskellParser {
         Classifier fakeClassifier = instanceType.buildClassifier(decl[decl.length - 1], typeClass,
                 classes.containsKey(entityQualifiedName) ? classes.get(entityQualifiedName).getParameters().size() : 0);
 
+        fakeClassifier.setAttr("classifierType", classes.containsKey(entityQualifiedName)
+                ? classes.get(entityQualifiedName).getAttr("classifierType")
+                : "data");
+        fakeClassifier.setAttr("fakeInstanceClassifier", "true");
+        fakeClassifier.setAttr("isInfix", instanceType.classifierName().startsWith("(") ? "true" : "false");
+
         fillConstraints(fakeClassifier, constraints);
         fakeClassifier.setContainingPackage(packages.get(entityQualifiedName.getKey()));
 
@@ -748,6 +763,8 @@ public class HaskellParser {
         packageDoc.put(OTHER_PACKAGE, "");
         List<TypeConstructor> otherClasses = new ArrayList<>();
         Classifier list = new Classifier("List", Language.HASKELL, "", null, new ArrayList<MemberEntity>(), "");
+        list.setAttr("classifierType", "data");
+        list.setAttr("fakeInstanceClassifier", "false");
         list.addParameter(new TypeVariable("a", Language.HASKELL));
         otherClasses.add(list);
         QualifiedName listQualified = new QualifiedName(OTHER_PACKAGE, "List");
@@ -758,6 +775,8 @@ public class HaskellParser {
 
         String name = "(" + new String(new char[63]).replace("\0", ",") + ")";
         Classifier tuple = new Classifier(name, Language.HASKELL, "", null, new ArrayList<MemberEntity>(), "");
+        tuple.setAttr("classifierType", "data");
+        tuple.setAttr("fakeInstanceClassifier", "false");
         for (int j = 0; j < 64; ++j) {
             String paramName = (j > 25 ? "a" : "") + String.valueOf((char) ('a' + (j % 26)));
             tuple.addParameter(new TypeVariable(paramName, Language.HASKELL));
@@ -770,7 +789,7 @@ public class HaskellParser {
         entityParams.put(qualifiedName, new ArrayList<TypeVariable>());
 
         PackageEntity other = new PackageEntity(OTHER_PACKAGE, Language.HASKELL, otherClasses,
-                new ArrayList<MemberEntity>(), new ArrayList<PackageEntity>(), null, "", null);
+                new ArrayList<MemberEntity>(), new ArrayList<PackageEntity>(), "", null);
         for (TypeConstructor otherClass : otherClasses) {
             otherClass.setContainingPackage(other);
         }
