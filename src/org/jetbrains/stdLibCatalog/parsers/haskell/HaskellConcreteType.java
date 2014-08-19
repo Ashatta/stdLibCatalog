@@ -22,16 +22,27 @@ class HaskellConcreteType extends HaskellType {
         parameters = new ArrayList<>();
     }
 
-    public static HaskellConcreteType parse(Element elem, String signature, List<HaskellConstraint> parameters) {
+    public static HaskellConcreteType parse(Element elem, String signature, List<HaskellConstraint> constraints) {
         if (signature.startsWith("(") && signature.endsWith(")")
                 && !signature.equals("(->)") && !signature.matches("^\\(,*\\)$")) {
             signature = signature.substring(1, signature.length() - 1);
         }
 
+        List<HaskellConstraint> localConstraints = new ArrayList<>();
+        List<String> parts = typeSplit(signature, "=>");
+        if (parts.size() > 1) {
+            HaskellConstraint.parseConstraints(elem, parts.get(0), localConstraints);
+            signature = parts.get(parts.size() - 1);
+        }
+
         List<String> params = typeSplit(signature, "");
-        HaskellConcreteType concrete = parseInfix(elem, params, parameters);
+        HaskellConcreteType concrete = parseInfix(elem, params, localConstraints);
         if (concrete == null) {
-            concrete = parsePrefix(elem, params, parameters);
+            concrete = parsePrefix(elem, params, localConstraints);
+        }
+
+        if (concrete != null) {
+            constraints.addAll(localConstraints);
         }
 
         return concrete;
@@ -66,7 +77,7 @@ class HaskellConcreteType extends HaskellType {
         return null;
     }
 
-    private static HaskellConcreteType parsePrefix(Element elem, List<String> params, List<HaskellConstraint> parameters) {
+    private static HaskellConcreteType parsePrefix(Element elem, List<String> params, List<HaskellConstraint> constraints) {
         if (!Character.isUpperCase(params.get(0).charAt(0)) && params.get(0).charAt(0) != '(') {
             return null;
         }
@@ -78,7 +89,7 @@ class HaskellConcreteType extends HaskellType {
             String firstParam = it.next();
             if (!(firstParam.charAt(0) == '*' || (firstParam.charAt(0) == 'k' && !K_ALLOWED_TYPES.contains(concrete.name))
                     || firstParam.charAt(0) == '(' && (firstParam.charAt(1) == '*' || firstParam.charAt(1) == 'k'))) {
-                HaskellType param = HaskellType.parse(elem, firstParam, parameters);
+                HaskellType param = HaskellType.parse(elem, firstParam, constraints);
                 if (param == null) {
                     return null;
                 }
@@ -87,7 +98,7 @@ class HaskellConcreteType extends HaskellType {
         }
         while (it.hasNext()) {
             String par = it.next();
-            HaskellType param = HaskellType.parse(elem, par, parameters);
+            HaskellType param = HaskellType.parse(elem, par, constraints);
             if (param == null) {
                 return null;
             }
@@ -99,13 +110,17 @@ class HaskellConcreteType extends HaskellType {
 
     public DataType buildType(HaskellParser parser, HaskellParser.QualifiedName entity, boolean isType) {
         String pattern = "^" + (isType ? "type\\s+" : "") + Pattern.quote(entity.getValue()) + "\\s";
-        Element def = parser.shortDefinitions.get(entity.getKey()).getElementsMatchingText(pattern).last();
+        Element def = parser.getShortDefinitions().get(entity.getKey()).getElementsMatchingText(pattern).last();
 
         Elements typeDef = def.getElementsMatchingOwnText("^" + Pattern.quote(name) + "$");
-        Classifier type = null;
+        TypeConstructor type = null;
         if (!typeDef.isEmpty()) {
             String packName = HaskellParser.getPackageName(typeDef.get(0).attr("href"));
-            type = parser.classes.get(new HaskellParser.QualifiedName(packName, name));
+            HaskellParser.QualifiedName qualifiedName = new HaskellParser.QualifiedName(packName, name);
+            type = parser.getClasses().get(qualifiedName);
+            if (type == null) {
+                type = parser.getAliases().get(qualifiedName);
+            }
         }
         if (type == null) {
             type = new Classifier(name, Language.HASKELL, "", null, new ArrayList<MemberEntity>(), "");

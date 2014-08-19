@@ -23,20 +23,22 @@ class HaskellFunction extends HaskellType {
 
         HaskellFunction func = new HaskellFunction();
 
+        List<HaskellConstraint> localConstraints = new ArrayList<>();
         List<String> types = typeSplit(signature, "->");
         for (String arg : types) {
             List<String> parts = typeSplit(arg, "=>");
             if (parts.size() > 1) {
-                HaskellConstraint.parseConstraints(elem, parts.get(0), constraints);
+                HaskellConstraint.parseConstraints(elem, parts.get(0), localConstraints);
             }
 
-            HaskellType a = HaskellType.parse(elem, parts.get(parts.size() - 1), constraints);
+            HaskellType a = HaskellType.parse(elem, parts.get(parts.size() - 1), localConstraints);
             if (a == null) {
                 return null;
             }
             func.arguments.add(a);
         }
 
+        constraints.addAll(localConstraints);
         return func;
     }
 

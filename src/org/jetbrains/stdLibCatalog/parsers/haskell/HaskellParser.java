@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
  * TODO: split functions into functional groups
  */
 public class HaskellParser {
-    static class QualifiedName extends Pair<String, String> {
+    public static class QualifiedName extends Pair<String, String> {
         public QualifiedName(String packageName, String entityName) {
             super(packageName, entityName);
         }
@@ -30,32 +30,25 @@ public class HaskellParser {
     static final int CONNECTION_TIMEOUT = 2000;
     static final String OTHER_PACKAGE = "other";  // a name of dummy package for embedded stuff like lists or tuples
 
-    String packageName = "";
-    String currentAddress = "";
-    final Map<String, Element> shortDefinitions = new HashMap<>();
-    final Map<String, PackageEntity> packages = new HashMap<>();
-    final Map<String, String> packageDoc = new HashMap<>();
-    final Map<QualifiedName, MemberEntity> functions = new HashMap<>();
-    final Map<QualifiedName, Classifier> classes = new HashMap<>();
-    final Map<QualifiedName, TypeAlias> aliases = new HashMap<>();
-    final Map<QualifiedName, List<QualifiedName>> parents = new HashMap<>();
-    final Map<QualifiedName, List<QualifiedName>> derived = new HashMap<>();
-    final Map<QualifiedName, HaskellType> signatures = new HashMap<>();
-    final List<Element> instances = new ArrayList<>();
-    final Map<QualifiedName, List<HaskellConstraint>> constraints = new HashMap<>();
-    final Map<QualifiedName, List<TypeVariable>> entityParams = new HashMap<>();
+    private String packageName = "";
+    private String currentAddress = "";
+    private final Map<String, Element> shortDefinitions = new HashMap<>();
+    private final Map<String, PackageEntity> packages = new HashMap<>();
+    private final Map<String, String> packageDoc = new HashMap<>();
+
+    private final Map<QualifiedName, MemberEntity> functions = new HashMap<>();
+    private final Map<QualifiedName, Classifier> classes = new HashMap<>();
+    private final Map<QualifiedName, TypeAlias> aliases = new HashMap<>();
+    private final Map<QualifiedName, List<QualifiedName>> parents = new HashMap<>();
+    private final Map<QualifiedName, List<QualifiedName>> derived = new HashMap<>();
+    private final Map<QualifiedName, HaskellType> signatures = new HashMap<>();
+    private final List<Element> instances = new ArrayList<>();
+    private final Map<QualifiedName, List<HaskellConstraint>> constraints = new HashMap<>();
+    private final Map<QualifiedName, List<TypeVariable>> entityParams = new HashMap<>();
 
     public static void main(String[] args) throws IOException {
         HaskellParser parser = new HaskellParser();
-        parser.fillListAndTuples(); //todo dph тут же еще нет ничего?
-
-        Document moduleList = Jsoup.parse(new URL(BASE_ADDRESS), CONNECTION_TIMEOUT);
-        Elements modules = moduleList.getElementById("module-list").getElementsByTag("ul").get(0).children();
-        for (Element module : modules) {
-            parser.parseModule(module);
-        }
-
-        parser.createEntitiesConnections();
+        parser.parse();
 /*
         File dir = new File("/home/ashatta/debug");
         if (dir.exists()) {
@@ -68,6 +61,18 @@ public class HaskellParser {
             out.close();
         }
 */
+    }
+
+    public void parse() throws IOException {
+        fillListAndTuples(); //todo dph тут же еще нет ничего?
+
+        Document moduleList = Jsoup.parse(new URL(BASE_ADDRESS), CONNECTION_TIMEOUT);
+        Elements modules = moduleList.getElementById("module-list").getElementsByTag("ul").get(0).children();
+        for (Element module : modules) {
+            parseModule(module);
+        }
+
+        createEntitiesConnections();
     }
 
     private PackageEntity parseModule(Element module) throws IOException {
@@ -200,7 +205,7 @@ public class HaskellParser {
             if (!elem.getElementsByClass("methods").isEmpty()) {
                 Elements methods = elem.getElementsByClass("methods").get(0).getElementsByClass("src");
                 for (Element method : methods) {
-                    definition += "\n" + method.text().split("\\s+Source(\\s|$)")[0];
+                    definition += "\n\t" + method.text().split("\\s+Source(\\s|$)")[0];
                 }
             }
 
@@ -274,9 +279,11 @@ public class HaskellParser {
     }
 
     private MemberEntity parseFunction(Element func, QualifiedName name) throws MalformedURLException {
-        String signature = getSignature(name.getValue());
+        Element funcShortDef = shortDefinitions.get(packageName).getElementsMatchingText(
+                "^" + Pattern.quote(name.getValue()) + "$").last().parent();
+        String signature = getSignature(funcShortDef);
         parseParameters(name, signature, true);
-        fillFunctionType(func, name, signature);
+        fillFunctionType(funcShortDef, name, signature);
 
         Element doc = func.nextElementSibling();
         String d = "";
@@ -285,7 +292,7 @@ public class HaskellParser {
         }
 
         String definition = shortDefinitions.get(packageName).getElementsMatchingText(
-                "^" + Pattern.quote(name.getValue()) + "(\\s|,)").last().text();
+                "^" + Pattern.quote(name.getValue()) + "(\\s|,)").last().text().split("\\s+Source(\\s|$)")[0];
 
         MemberEntity function = new MemberEntity(name.getValue(), Language.HASKELL, d,
                 new URL(currentAddress + "#v:" + name.getValue()), definition);
@@ -326,9 +333,7 @@ public class HaskellParser {
         signatures.put(name, HaskellType.parse(el, signature, constraints));
     }
 
-    private String getSignature(String name) {
-        Element func = shortDefinitions.get(packageName).getElementsMatchingText(
-                "^" + Pattern.quote(name) + "$").last().parent();
+    private String getSignature(Element func) {
         List<String> parts = HaskellType.typeSplit(func.text(), "::");  // split into name and type description
 
         for (Element elem : func.getElementsByClass("fixity")) {
@@ -344,7 +349,7 @@ public class HaskellParser {
         }
 
         // ignoring forall specifications for simplicity of further parsing
-        return parts.get(1).replaceAll("forall(\\s+[a-z]+)*\\.\\s+", "").trim();
+        return parts.get(1).replaceAll("forall(\\s+[a-z']+)*\\.\\s+", "").trim();
     }
 
     private void parseData(Element elem) throws MalformedURLException {
@@ -361,9 +366,8 @@ public class HaskellParser {
         parseTypeParameters(elem, def, name);
         parseInstances(elem);
 
-        String shortDef = getDataDefinition(def);
         classes.put(new QualifiedName(packageName, name), new Classifier(name, Language.HASKELL, getDoc(elem),
-                new URL(currentAddress + "#t:" + name), new ArrayList<MemberEntity>(), shortDef));
+                new URL(currentAddress + "#t:" + name), new ArrayList<MemberEntity>(), getDataDefinition(def)));
     }
 
     private String getDataDefinition(String name) {
@@ -382,9 +386,9 @@ public class HaskellParser {
                         definition = definition.substring(0, definition.length() - 3) + " { ";
                         Elements fields = fieldsElem.get(0).getElementsByTag("dt");
                         for (Element field : fields) {
-                            definition += "\n" + field.text().split("\\s+Source(\\s|$)")[0];
+                            definition += "\n\t" + field.text().split("\\s+Source(\\s|$)")[0];
                         }
-                        definition = "\n} ";
+                        definition += "\n} ";
                     } else {
                         definition += constructor.child(0).text().split("\\s+Source(\\s|$)")[0];
                     }
@@ -461,14 +465,14 @@ public class HaskellParser {
             createClassifierConnections(classDesc.getValue());
         }
 
-        for (Map.Entry<QualifiedName, MemberEntity> func : functions.entrySet()) {
-            func.getValue().setContainingPackage(packages.get(func.getKey().getKey()));
-            createFunctionConnections(func.getValue());
-        }
-
         for (Map.Entry<QualifiedName, TypeAlias> alias : aliases.entrySet()) {
             alias.getValue().setContainingPackage(packages.get(alias.getKey().getKey()));
             createAliasConnections(alias.getValue());
+        }
+
+        for (Map.Entry<QualifiedName, MemberEntity> func : functions.entrySet()) {
+            func.getValue().setContainingPackage(packages.get(func.getKey().getKey()));
+            createFunctionConnections(func.getValue());
         }
 
         for (Element instance : instances) {
@@ -617,17 +621,22 @@ public class HaskellParser {
         HaskellType instanceType = HaskellType.parse(el, fullType, constraints);
 
         QualifiedName entityQualifiedName = getEntityName(el, instanceType.getName());
-        Classifier fakeClassifier = instanceType.buildClassifier(decl[decl.length - 1],
+        Classifier fakeClassifier = instanceType.buildClassifier(decl[decl.length - 1], typeClass,
                 classes.containsKey(entityQualifiedName) ? classes.get(entityQualifiedName).getParameters().size() : 0);
 
         fillConstraints(fakeClassifier, constraints);
         fakeClassifier.setContainingPackage(packages.get(entityQualifiedName.getKey()));
 
+        QualifiedName fakeClassifierName = new QualifiedName(fakeClassifier.getContainingPackage().getName(),
+                fakeClassifier.getName());
+        if (classes.containsKey(fakeClassifierName)) {
+            return;
+        }
+
         fakeClassifier.addBase(new DataType(classes.get(typeClass), new ArrayList<Type>()));
         classes.get(typeClass).addDerived(fakeClassifier);
 
-        classes.put(new QualifiedName(fakeClassifier.getContainingPackage().getName(), fakeClassifier.getName()),
-                fakeClassifier);
+        classes.put(fakeClassifierName, fakeClassifier);
     }
 
     private QualifiedName getTypeClass(Element el, String fullType) {
@@ -643,6 +652,8 @@ public class HaskellParser {
         QualifiedName entityQualifiedName;
         if (name.equals("List")) {
             entityQualifiedName = new QualifiedName(OTHER_PACKAGE, name);
+        } else if (name.matches("^\\(,*\\)$")) {
+            entityQualifiedName = new QualifiedName("GHC.Tuple", name);
         } else {
             Elements linksToEntity = el.getElementsMatchingOwnText("^" + Pattern.quote(name) + "$");
             if (!linksToEntity.isEmpty() && linksToEntity.last().text().equals(name)) {
@@ -768,5 +779,29 @@ public class HaskellParser {
 
     private static boolean isInfix(String name) {
         return name.equals(":~:") || name.equals("~") || name.equals(":+:") || name.equals(":*:") || name.equals(":.:");
+    }
+
+    public Map<String, Element> getShortDefinitions() {
+        return shortDefinitions;
+    }
+
+    public Map<String, PackageEntity> getPackages() {
+        return packages;
+    }
+
+    public Map<QualifiedName, MemberEntity> getFunctions() {
+        return functions;
+    }
+
+    public Map<QualifiedName, Classifier> getClasses() {
+        return classes;
+    }
+
+    public Map<QualifiedName, TypeAlias> getAliases() {
+        return aliases;
+    }
+
+    public Map<QualifiedName, List<TypeVariable>> getEntityParams() {
+        return entityParams;
     }
 }

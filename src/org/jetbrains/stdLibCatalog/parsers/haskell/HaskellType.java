@@ -7,28 +7,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 abstract class HaskellType {
-    public static HaskellType parse(Element elem, String signature, List<HaskellConstraint> parameters) {
-        HaskellList list = HaskellList.parse(elem, signature, parameters);
+    public static HaskellType parse(Element elem, String signature, List<HaskellConstraint> constraints) {
+        HaskellList list = HaskellList.parse(elem, signature, constraints);
         if (list != null) {
             return list;
         }
 
-        HaskellTuple tuple = HaskellTuple.parse(elem, signature, parameters);
+        HaskellTuple tuple = HaskellTuple.parse(elem, signature, constraints);
         if (tuple != null) {
             return tuple;
         }
 
-        HaskellConcreteType concrete = HaskellConcreteType.parse(elem, signature, parameters);
+        HaskellConcreteType concrete = HaskellConcreteType.parse(elem, signature, constraints);
         if (concrete != null) {
             return concrete;
         }
 
-        HaskellParameter param = HaskellParameter.parse(elem, signature, parameters);
+        HaskellParameter param = HaskellParameter.parse(elem, signature, constraints);
         if (param != null) {
             return param;
         }
 
-        HaskellFunction func = HaskellFunction.parse(elem, signature, parameters);
+        HaskellFunction func = HaskellFunction.parse(elem, signature, constraints);
         if (func != null) {
             return func;
         }
@@ -87,8 +87,9 @@ abstract class HaskellType {
 
     abstract public Type buildType(HaskellParser parser, HaskellParser.QualifiedName entity, boolean isType);
 
-    public Classifier buildClassifier(String definition, int paramsNumber) {
-        Classifier fakeClassifier = new Classifier(classifierName(), Language.HASKELL, "", null,
+    public Classifier buildClassifier(String definition, HaskellParser.QualifiedName typeClass, int paramsNumber) {
+        Classifier fakeClassifier = new Classifier(
+                typeClass.getKey() + "." + typeClass.getValue() + "_" + classifierName(), Language.HASKELL, "", null,
                 new ArrayList<MemberEntity>(), definition);
 
         List<String> variables = new ArrayList<>();

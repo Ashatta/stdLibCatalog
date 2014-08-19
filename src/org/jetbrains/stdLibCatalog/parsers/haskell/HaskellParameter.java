@@ -15,11 +15,18 @@ class HaskellParameter extends HaskellType {
         parameters = new ArrayList<>();
     }
 
-    public static HaskellParameter parse(Element elem, String signature, List<HaskellConstraint> parameters) {
+    public static HaskellParameter parse(Element elem, String signature, List<HaskellConstraint> constraints) {
         if (signature.startsWith("(") && signature.endsWith(")")) {
             signature = signature.substring(1, signature.length() - 1);
         }
         signature = typeSplit(signature, "::").get(0);
+
+        List<HaskellConstraint> localConstraints = new ArrayList<>();
+        List<String> parts = typeSplit(signature, "=>");
+        if (parts.size() > 1) {
+            HaskellConstraint.parseConstraints(elem, parts.get(0), localConstraints);
+            signature = parts.get(parts.size() - 1);
+        }
 
         if (!Character.isLowerCase(signature.charAt(0))) {
             return null;
@@ -31,13 +38,14 @@ class HaskellParameter extends HaskellType {
         parameter.name = it.next();
         while (it.hasNext()) {
             String par = it.next();
-            HaskellType param = HaskellType.parse(elem, par, parameters);
+            HaskellType param = HaskellType.parse(elem, par, localConstraints);
             if (param == null) {
                 return null;
             }
             parameter.parameters.add(param);
         }
 
+        constraints.addAll(localConstraints);
         return parameter;
     }
 
@@ -47,7 +55,7 @@ class HaskellParameter extends HaskellType {
             params.add(param.buildType(parser, entity, isType));
         }
 
-        for (TypeVariable param : parser.entityParams.get(entity)) {
+        for (TypeVariable param : parser.getEntityParams().get(entity)) {
             if (param.getName().equals(name)) {
                 return new DataType(param, params);
             }

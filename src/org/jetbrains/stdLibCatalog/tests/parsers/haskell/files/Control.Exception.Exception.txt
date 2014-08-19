@@ -1,0 +1,74 @@
+[Classifier]
+class (Typeable e, Show e) => Exception e where toException :: e -> SomeException fromException :: SomeException -> Maybe e
+Name: Exception
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception.html#t:Exception
+Containing package: Control.Exception
+parameters {
+}
+derived {
+	Control.Exception::Control.Exception.Exception_SomeException<>
+	Control.Exception::Control.Exception.Exception_ArithException<>
+	Control.Exception::Control.Exception.Exception_ErrorCall<>
+	Control.Exception::Control.Exception.Exception_IOException<>
+	Data.Dynamic::Control.Exception.Exception_Dynamic<>
+	System.Exit::Control.Exception.Exception_ExitCode<>
+	Control.Exception::Control.Exception.Exception_ArrayException<>
+	Control.Exception::Control.Exception.Exception_AsyncException<>
+	Control.Exception::Control.Exception.Exception_SomeAsyncException<>
+	Control.Exception::Control.Exception.Exception_AssertionFailed<>
+	Control.Exception::Control.Exception.Exception_Deadlock<>
+	Control.Exception::Control.Exception.Exception_BlockedIndefinitelyOnSTM<>
+	Control.Exception::Control.Exception.Exception_BlockedIndefinitelyOnMVar<>
+	Control.Exception::Control.Exception.Exception_NestedAtomically<>
+	Control.Exception::Control.Exception.Exception_NonTermination<>
+	Control.Exception::Control.Exception.Exception_NoMethodError<>
+	Control.Exception::Control.Exception.Exception_RecUpdError<>
+	Control.Exception::Control.Exception.Exception_RecConError<>
+	Control.Exception::Control.Exception.Exception_RecSelError<>
+	Control.Exception::Control.Exception.Exception_PatternMatchFail<>
+}
+supertypes {
+	Data.Typeable.Internal::Typeable
+	Text.Show::Show
+}
+members {
+
+	[Function]
+	toException :: e -> SomeException
+	Name: toException
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception.html#v:toException
+	Containing package: Control.Exception
+	Containing type: Exception
+	parameters {
+		e: (Exception e; e; Control.Exception::Exception)
+	}
+	Signature = <function> {
+		[parameters]
+		null::e
+	
+		[result]
+		Control.Exception::SomeException
+	}
+
+	[Function]
+	fromException :: SomeException -> Maybe e
+	Name: fromException
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception.html#v:fromException
+	Containing package: Control.Exception
+	Containing type: Exception
+	parameters {
+		e: (Exception e; e; Control.Exception::Exception)
+	}
+	Signature = <function> {
+		[parameters]
+		Control.Exception::SomeException
+	
+		[result]
+		Data.Maybe::Maybe {
+			null::e
+		}
+	}
+}

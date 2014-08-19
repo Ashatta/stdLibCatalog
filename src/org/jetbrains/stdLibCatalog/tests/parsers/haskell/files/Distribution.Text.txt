@@ -1,0 +1,127 @@
+[Package]
+Name: Distribution.Text
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Text.html
+Containing package: Distribution
+
+Subpackages {
+}
+
+[Classifier]
+class Text a where
+	disp :: a -> Doc
+	parse :: ReadP r a
+Name: Text
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Text.html#t:Text
+Containing package: Distribution.Text
+parameters {
+}
+derived {
+	Distribution.Compiler::Distribution.Text.Text_CompilerFlavor<>
+	Distribution.Compiler::Distribution.Text.Text_CompilerId<>
+	Distribution.License::Distribution.Text.Text_License<>
+	Distribution.Make::Distribution.Text.Text_License<>
+	Distribution.Make::Distribution.Text.Text_Version<>
+	Distribution.ModuleName::Distribution.Text.Text_ModuleName<>
+	Distribution.Package::Distribution.Text.Text_PackageName<>
+	Distribution.Package::Distribution.Text.Text_PackageIdentifier<>
+	Distribution.Package::Distribution.Text.Text_InstalledPackageId<>
+	Distribution.Package::Distribution.Text.Text_Dependency<>
+	Distribution.PackageDescription::Distribution.Text.Text_BuildType<>
+	Distribution.PackageDescription::Distribution.Text.Text_TestType<>
+	Distribution.PackageDescription::Distribution.Text.Text_BenchmarkType<>
+	Distribution.PackageDescription::Distribution.Text.Text_RepoKind<>
+	Distribution.PackageDescription::Distribution.Text.Text_RepoType<>
+	Distribution.Simple.Setup::Distribution.Text.Text_TestShowDetails<>
+	Distribution.System::Distribution.Text.Text_OS<>
+	Distribution.System::Distribution.Text.Text_Arch<>
+	Distribution.System::Distribution.Text.Text_Platform<>
+	Data.Bool::Distribution.Text.Text_Bool<>
+	Distribution.Version::Distribution.Text.Text_Version<>
+	Distribution.Version::Distribution.Text.Text_VersionRange<>
+	Language.Haskell.Extension::Distribution.Text.Text_KnownExtension<>
+	Language.Haskell.Extension::Distribution.Text.Text_Extension<>
+	Language.Haskell.Extension::Distribution.Text.Text_Language<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	disp :: a -> Doc
+	Name: disp
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Text.html#v:disp
+	Containing package: Distribution.Text
+	Containing type: Text
+	parameters {
+		a: (Text a; a; Distribution.Text::Text)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Text.PrettyPrint::Doc
+	}
+
+	[Function]
+	parse :: ReadP r a
+	Name: parse
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Text.html#v:parse
+	Containing package: Distribution.Text
+	Containing type: Text
+	parameters {
+		r
+		a: (Text a; a; Distribution.Text::Text)
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		Distribution.Compat.ReadP::ReadP {
+			null::r
+			null::a
+		}
+	}
+}
+
+[Function]
+simpleParse :: Text a => String -> Maybe a
+Name: simpleParse
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Text.html#v:simpleParse
+Containing package: Distribution.Text
+Containing type: null
+parameters {
+	a: (Text a; a; Distribution.Text::Text)
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Data.Maybe::Maybe {
+		null::a
+	}
+}
+
+[Function]
+display :: Text a => a -> String
+Name: display
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Text.html#v:display
+Containing package: Distribution.Text
+Containing type: null
+parameters {
+	a: (Text a; a; Distribution.Text::Text)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	Data.String::String
+}

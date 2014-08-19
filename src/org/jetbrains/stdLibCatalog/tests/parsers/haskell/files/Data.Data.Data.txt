@@ -1,0 +1,653 @@
+[Classifier]
+class Typeable a => Data a where gfoldl :: (forall d b. Data d => c (d -> b) -> d -> c b) -> (forall g. g -> c g) -> a -> c a gunfold :: (forall b r. Data b => c (b -> r) -> c r) -> (forall r. r -> c r) -> Constr -> c a toConstr :: a -> Constr dataTypeOf :: a -> DataType dataCast1 :: Typeable t => (forall d. Data d => c (t d)) -> Maybe (c a) dataCast2 :: Typeable t => (forall d e. (Data d, Data e) => c (t d e)) -> Maybe (c a) gmapT :: (forall b. Data b => b -> b) -> a -> a gmapQl :: forall r r'. (r -> r' -> r) -> r -> (forall d. Data d => d -> r') -> a -> r gmapQr :: forall r r'. (r' -> r -> r) -> r -> (forall d. Data d => d -> r') -> a -> r gmapQ :: (forall d. Data d => d -> u) -> a -> [u] gmapQi :: forall u. Int -> (forall d. Data d => d -> u) -> a -> u gmapM :: forall m. Monad m => (forall d. Data d => d -> m d) -> a -> m a gmapMp :: forall m. MonadPlus m => (forall d. Data d => d -> m d) -> a -> m a gmapMo :: forall m. MonadPlus m => (forall d. Data d => d -> m d) -> a -> m a
+Name: Data
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Data.html#t:Data
+Containing package: Data.Data
+parameters {
+}
+derived {
+	Complex::Data.Data.Data_Complex<a<>>
+	Data.Bool::Data.Data.Data_Bool<>
+	Data.ByteString.Char8::Data.Data.Data_ByteString<>
+	Data.ByteString.Lazy.Char8::Data.Data.Data_ByteString<>
+	Data.ByteString.Lazy::Data.Data.Data_ByteString<>
+	Data.ByteString.Short::Data.Data.Data_ShortByteString<>
+	Data.ByteString::Data.Data.Data_ByteString<>
+	Data.Char::Data.Data.Data_Char<>
+	Data.Complex::Data.Data.Data_Complex<a<>>
+	Prelude::Data.Data.Data_Double<>
+	Prelude::Data.Data.Data_Float<>
+	Data.Int::Data.Data.Data_Int<>
+	Data.Int::Data.Data.Data_Int8<>
+	Data.Int::Data.Data.Data_Int16<>
+	Data.Int::Data.Data.Data_Int32<>
+	Data.Int::Data.Data.Data_Int64<>
+	Prelude::Data.Data.Data_Integer<>
+	Data.Ord::Data.Data.Data_Ordering<>
+	Data.Word::Data.Data.Data_Word<>
+	Data.Word::Data.Data.Data_Word8<>
+	Data.Word::Data.Data.Data_Word16<>
+	Data.Word::Data.Data.Data_Word32<>
+	Data.Word::Data.Data.Data_Word64<>
+	GHC.Tuple::Data.Data.Data_()<>
+	Data.Version::Data.Data.Data_Version<>
+	GHC.Exts::Data.Data.Data_SpecConstrAnnotation<>
+	other::Data.Data.Data_List<a<>>
+	Data.Ratio::Data.Data.Data_Ratio<a<>>
+	Foreign.Ptr::Data.Data.Data_Ptr<a<>>
+	Data.Maybe::Data.Data.Data_Maybe<a<>>
+	Foreign.ForeignPtr.Safe::Data.Data.Data_ForeignPtr<a<>>
+	Data.Fixed::Data.Data.Data_Fixed<a<>>
+	Data.Either::Data.Data.Data_Either<a<>,b<>>
+	GHC.Tuple::Data.Data.Data_(,,,)<a<>,b<>>
+	Data.Proxy::Data.Data.Data_Proxy<t<>>
+	GHC.Tuple::Data.Data.Data_(,,,,)<a<>,b<>,c<>>
+	Data.Type.Equality::Data.Data.Data_(:~:)<a<>,b<>>
+	Data.Type.Coercion::Data.Data.Data_Coercion<a<>,b<>>
+	GHC.Tuple::Data.Data.Data_(,,,,,)<a<>,b<>,c<>,d<>>
+	GHC.Tuple::Data.Data.Data_(,,,,,,)<a<>,b<>,c<>,d<>,e<>>
+	GHC.Tuple::Data.Data.Data_(,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>>
+	GHC.Tuple::Data.Data.Data_(,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>>
+	Data.IntMap.Lazy::Data.Data.Data_IntMap<a<>>
+	Data.IntMap.Strict::Data.Data.Data_IntMap<a<>>
+	Data.IntSet::Data.Data.Data_IntSet<>
+	Data.Map.Lazy::Data.Data.Data_Map<k<>,a<>>
+	Data.Map.Strict::Data.Data.Data_Map<k<>,a<>>
+	Data.Sequence::Data.Data.Data_Seq<a<>>
+	Data.Sequence::Data.Data.Data_ViewL<a<>>
+	Data.Sequence::Data.Data.Data_ViewR<a<>>
+	Data.Set::Data.Data.Data_Set<a<>>
+	Data.Time.Calendar::Data.Data.Data_Day<>
+	Data.Time.Clock.TAI::Data.Data.Data_AbsoluteTime<>
+	Data.Time.Clock::Data.Data.Data_UniversalTime<>
+	Data.Time.Clock::Data.Data.Data_DiffTime<>
+	Data.Time.Clock::Data.Data.Data_UTCTime<>
+	Data.Time.Clock::Data.Data.Data_NominalDiffTime<>
+	Data.Time.LocalTime::Data.Data.Data_TimeZone<>
+	Data.Time.LocalTime::Data.Data.Data_TimeOfDay<>
+	Data.Time.LocalTime::Data.Data.Data_LocalTime<>
+	Data.Time.LocalTime::Data.Data.Data_ZonedTime<>
+	Data.Tree::Data.Data.Data_Tree<a<>>
+	Data.Typeable.Internal::Data.Data.Data_Proxy<t<>>
+	Data.Typeable::Data.Data.Data_(:~:)<a<>,b<>>
+	Data.Typeable::Data.Data.Data_Proxy<t<>>
+	Distribution.Compiler::Data.Data.Data_CompilerFlavor<>
+	Distribution.License::Data.Data.Data_License<>
+	Distribution.Make::Data.Data.Data_License<>
+	Distribution.Make::Data.Data.Data_Version<>
+	Distribution.ModuleName::Data.Data.Data_ModuleName<>
+	Distribution.Package::Data.Data.Data_PackageName<>
+	Distribution.Package::Data.Data.Data_PackageIdentifier<>
+	Distribution.Package::Data.Data.Data_InstalledPackageId<>
+	Distribution.Package::Data.Data.Data_Dependency<>
+	Distribution.PackageDescription::Data.Data.Data_PackageDescription<>
+	Distribution.PackageDescription::Data.Data.Data_BuildType<>
+	Distribution.PackageDescription::Data.Data.Data_Library<>
+	Distribution.PackageDescription::Data.Data.Data_Executable<>
+	Distribution.PackageDescription::Data.Data.Data_TestSuite<>
+	Distribution.PackageDescription::Data.Data.Data_TestSuiteInterface<>
+	Distribution.PackageDescription::Data.Data.Data_TestType<>
+	Distribution.PackageDescription::Data.Data.Data_Benchmark<>
+	Distribution.PackageDescription::Data.Data.Data_BenchmarkInterface<>
+	Distribution.PackageDescription::Data.Data.Data_BenchmarkType<>
+	Distribution.PackageDescription::Data.Data.Data_BuildInfo<>
+	Distribution.PackageDescription::Data.Data.Data_GenericPackageDescription<>
+	Distribution.PackageDescription::Data.Data.Data_Flag<>
+	Distribution.PackageDescription::Data.Data.Data_FlagName<>
+	Distribution.PackageDescription::Data.Data.Data_CondTree<v<>,c<>,a<>>
+	Distribution.PackageDescription::Data.Data.Data_ConfVar<>
+	Distribution.PackageDescription::Data.Data.Data_Condition<c<>>
+	Distribution.PackageDescription::Data.Data.Data_SourceRepo<>
+	Distribution.PackageDescription::Data.Data.Data_RepoKind<>
+	Distribution.PackageDescription::Data.Data.Data_RepoType<>
+	Distribution.System::Data.Data.Data_OS<>
+	Distribution.System::Data.Data.Data_Arch<>
+	Distribution.System::Data.Data.Data_Platform<>
+	Distribution.Version::Data.Data.Data_Version<>
+	Distribution.Version::Data.Data.Data_VersionRange<>
+	Foreign.ForeignPtr::Data.Data.Data_ForeignPtr<a<>>
+	GHC.Exts::Data.Data.Data_Int<>
+	GHC.Exts::Data.Data.Data_Word<>
+	GHC.Exts::Data.Data.Data_Float<>
+	GHC.Exts::Data.Data.Data_Double<>
+	GHC.Exts::Data.Data.Data_Char<>
+	GHC.Exts::Data.Data.Data_Ptr<a<>>
+	Language.Haskell.Extension::Data.Data.Data_Language<>
+	Language.Haskell.Extension::Data.Data.Data_Extension<>
+	Language.Haskell.Extension::Data.Data.Data_KnownExtension<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_ModName<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_PkgName<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_Module<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_OccName<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_Name<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_NameFlavour<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_NameSpace<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_Info<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_ModuleInfo<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_Fixity<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_FixityDirection<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_Lit<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_Pat<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_Match<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_Clause<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_Exp<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_Body<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_Guard<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_Stmt<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_Range<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_Dec<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_TySynEqn<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_FunDep<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_FamFlavour<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_Foreign<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_Callconv<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_Safety<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_Pragma<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_Inline<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_RuleMatch<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_Phases<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_RuleBndr<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_AnnTarget<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_Pred<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_Strict<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_Con<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_Type<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_TyVarBndr<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_TyLit<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_Role<>
+	Language.Haskell.TH.Syntax::Data.Data.Data_AnnLookup<>
+	Language.Haskell.TH::Data.Data.Data_Info<>
+	Language.Haskell.TH::Data.Data.Data_ModuleInfo<>
+	Language.Haskell.TH::Data.Data.Data_AnnLookup<>
+	Language.Haskell.TH::Data.Data.Data_Name<>
+	Language.Haskell.TH::Data.Data.Data_NameSpace<>
+	Language.Haskell.TH::Data.Data.Data_Dec<>
+	Language.Haskell.TH::Data.Data.Data_Con<>
+	Language.Haskell.TH::Data.Data.Data_Clause<>
+	Language.Haskell.TH::Data.Data.Data_Strict<>
+	Language.Haskell.TH::Data.Data.Data_Foreign<>
+	Language.Haskell.TH::Data.Data.Data_Callconv<>
+	Language.Haskell.TH::Data.Data.Data_Safety<>
+	Language.Haskell.TH::Data.Data.Data_Pragma<>
+	Language.Haskell.TH::Data.Data.Data_Inline<>
+	Language.Haskell.TH::Data.Data.Data_RuleMatch<>
+	Language.Haskell.TH::Data.Data.Data_Phases<>
+	Language.Haskell.TH::Data.Data.Data_RuleBndr<>
+	Language.Haskell.TH::Data.Data.Data_AnnTarget<>
+	Language.Haskell.TH::Data.Data.Data_FunDep<>
+	Language.Haskell.TH::Data.Data.Data_FamFlavour<>
+	Language.Haskell.TH::Data.Data.Data_TySynEqn<>
+	Language.Haskell.TH::Data.Data.Data_Fixity<>
+	Language.Haskell.TH::Data.Data.Data_FixityDirection<>
+	Language.Haskell.TH::Data.Data.Data_Exp<>
+	Language.Haskell.TH::Data.Data.Data_Match<>
+	Language.Haskell.TH::Data.Data.Data_Body<>
+	Language.Haskell.TH::Data.Data.Data_Guard<>
+	Language.Haskell.TH::Data.Data.Data_Stmt<>
+	Language.Haskell.TH::Data.Data.Data_Range<>
+	Language.Haskell.TH::Data.Data.Data_Lit<>
+	Language.Haskell.TH::Data.Data.Data_Pat<>
+	Language.Haskell.TH::Data.Data.Data_Type<>
+	Language.Haskell.TH::Data.Data.Data_TyVarBndr<>
+	Language.Haskell.TH::Data.Data.Data_TyLit<>
+	Language.Haskell.TH::Data.Data.Data_Pred<>
+	Language.Haskell.TH::Data.Data.Data_Role<>
+	Prelude::Data.Data.Data_Bool<>
+	Prelude::Data.Data.Data_Maybe<a<>>
+	Prelude::Data.Data.Data_Either<a<>,b<>>
+	Prelude::Data.Data.Data_Ordering<>
+	Prelude::Data.Data.Data_Char<>
+	Prelude::Data.Data.Data_Int<>
+}
+supertypes {
+	Data.Typeable.Internal::Typeable
+}
+members {
+
+	[Function]
+	gfoldl :: (forall d b. Data d => c (d -> b) -> d -> c b) -> (forall g. g -> c g) -> a -> c a
+	Name: gfoldl
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Data.html#v:gfoldl
+	Containing package: Data.Data
+	Containing type: Data
+	parameters {
+		d: (Data d; d; Data.Data::Data)
+		c
+		b
+		g
+		a: (Data a; a; Data.Data::Data)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::c {
+				<function> {
+					[parameters]
+					null::d
+				
+					[result]
+					null::b
+				}
+			}
+			null::d
+		
+			[result]
+			null::c {
+				null::b
+			}
+		}
+		<function> {
+			[parameters]
+			null::g
+		
+			[result]
+			null::c {
+				null::g
+			}
+		}
+		null::a
+	
+		[result]
+		null::c {
+			null::a
+		}
+	}
+
+	[Function]
+	gunfold :: (forall b r. Data b => c (b -> r) -> c r) -> (forall r. r -> c r) -> Constr -> c a
+	Name: gunfold
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Data.html#v:gunfold
+	Containing package: Data.Data
+	Containing type: Data
+	parameters {
+		b: (Data b; b; Data.Data::Data)
+		c
+		r
+		a: (Data a; a; Data.Data::Data)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::c {
+				<function> {
+					[parameters]
+					null::b
+				
+					[result]
+					null::r
+				}
+			}
+		
+			[result]
+			null::c {
+				null::r
+			}
+		}
+		<function> {
+			[parameters]
+			null::r
+		
+			[result]
+			null::c {
+				null::r
+			}
+		}
+		Data.Data::Constr
+	
+		[result]
+		null::c {
+			null::a
+		}
+	}
+
+	[Function]
+	toConstr :: a -> Constr
+	Name: toConstr
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Data.html#v:toConstr
+	Containing package: Data.Data
+	Containing type: Data
+	parameters {
+		a: (Data a; a; Data.Data::Data)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Data.Data::Constr
+	}
+
+	[Function]
+	dataTypeOf :: a -> DataType
+	Name: dataTypeOf
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Data.html#v:dataTypeOf
+	Containing package: Data.Data
+	Containing type: Data
+	parameters {
+		a: (Data a; a; Data.Data::Data)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Data.Data::DataType
+	}
+
+	[Function]
+	dataCast1 :: Typeable t => (forall d. Data d => c (t d)) -> Maybe (c a)
+	Name: dataCast1
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Data.html#v:dataCast1
+	Containing package: Data.Data
+	Containing type: Data
+	parameters {
+		t: (Typeable t; t; Data.Typeable.Internal::Typeable)
+		d: (Data d; d; Data.Data::Data)
+		c
+		a: (Data a; a; Data.Data::Data)
+	}
+	Signature = <function> {
+		[parameters]
+		null::c {
+			null::t {
+				null::d
+			}
+		}
+	
+		[result]
+		Data.Maybe::Maybe {
+			null::c {
+				null::a
+			}
+		}
+	}
+
+	[Function]
+	dataCast2 :: Typeable t => (forall d e. (Data d, Data e) => c (t d e)) -> Maybe (c a)
+	Name: dataCast2
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Data.html#v:dataCast2
+	Containing package: Data.Data
+	Containing type: Data
+	parameters {
+		t: (Typeable t; t; Data.Typeable.Internal::Typeable)
+		d: (Data d; d; Data.Data::Data)
+		e: (Data e; e; Data.Data::Data)
+		c
+		a: (Data a; a; Data.Data::Data)
+	}
+	Signature = <function> {
+		[parameters]
+		null::c {
+			null::t {
+				null::d
+				null::e
+			}
+		}
+	
+		[result]
+		Data.Maybe::Maybe {
+			null::c {
+				null::a
+			}
+		}
+	}
+
+	[Function]
+	gmapT :: (forall b. Data b => b -> b) -> a -> a
+	Name: gmapT
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Data.html#v:gmapT
+	Containing package: Data.Data
+	Containing type: Data
+	parameters {
+		b: (Data b; b; Data.Data::Data)
+		a: (Data a; a; Data.Data::Data)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::b
+		
+			[result]
+			null::b
+		}
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	gmapQl :: forall r r'. (r -> r' -> r) -> r -> (forall d. Data d => d -> r') -> a -> r
+	Name: gmapQl
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Data.html#v:gmapQl
+	Containing package: Data.Data
+	Containing type: Data
+	parameters {
+		r
+		r'
+		d: (Data d; d; Data.Data::Data)
+		a: (Data a; a; Data.Data::Data)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::r
+			null::r'
+		
+			[result]
+			null::r
+		}
+		null::r
+		<function> {
+			[parameters]
+			null::d
+		
+			[result]
+			null::r'
+		}
+		null::a
+	
+		[result]
+		null::r
+	}
+
+	[Function]
+	gmapQr :: forall r r'. (r' -> r -> r) -> r -> (forall d. Data d => d -> r') -> a -> r
+	Name: gmapQr
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Data.html#v:gmapQr
+	Containing package: Data.Data
+	Containing type: Data
+	parameters {
+		r'
+		r
+		d: (Data d; d; Data.Data::Data)
+		a: (Data a; a; Data.Data::Data)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::r'
+			null::r
+		
+			[result]
+			null::r
+		}
+		null::r
+		<function> {
+			[parameters]
+			null::d
+		
+			[result]
+			null::r'
+		}
+		null::a
+	
+		[result]
+		null::r
+	}
+
+	[Function]
+	gmapQ :: (forall d. Data d => d -> u) -> a -> [u]
+	Name: gmapQ
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Data.html#v:gmapQ
+	Containing package: Data.Data
+	Containing type: Data
+	parameters {
+		d: (Data d; d; Data.Data::Data)
+		u
+		a: (Data a; a; Data.Data::Data)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::d
+		
+			[result]
+			null::u
+		}
+		null::a
+	
+		[result]
+		other::List {
+			null::u
+		}
+	}
+
+	[Function]
+	gmapQi :: forall u. Int -> (forall d. Data d => d -> u) -> a -> u
+	Name: gmapQi
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Data.html#v:gmapQi
+	Containing package: Data.Data
+	Containing type: Data
+	parameters {
+		d: (Data d; d; Data.Data::Data)
+		u
+		a: (Data a; a; Data.Data::Data)
+	}
+	Signature = <function> {
+		[parameters]
+		Data.Int::Int
+		<function> {
+			[parameters]
+			null::d
+		
+			[result]
+			null::u
+		}
+		null::a
+	
+		[result]
+		null::u
+	}
+
+	[Function]
+	gmapM :: forall m. Monad m => (forall d. Data d => d -> m d) -> a -> m a
+	Name: gmapM
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Data.html#v:gmapM
+	Containing package: Data.Data
+	Containing type: Data
+	parameters {
+		m: (Monad m; m; Control.Monad::Monad)
+		d: (Data d; d; Data.Data::Data)
+		a: (Data a; a; Data.Data::Data)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::d
+		
+			[result]
+			null::m {
+				null::d
+			}
+		}
+		null::a
+	
+		[result]
+		null::m {
+			null::a
+		}
+	}
+
+	[Function]
+	gmapMp :: forall m. MonadPlus m => (forall d. Data d => d -> m d) -> a -> m a
+	Name: gmapMp
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Data.html#v:gmapMp
+	Containing package: Data.Data
+	Containing type: Data
+	parameters {
+		m: (MonadPlus m; m; Control.Monad::MonadPlus)
+		d: (Data d; d; Data.Data::Data)
+		a: (Data a; a; Data.Data::Data)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::d
+		
+			[result]
+			null::m {
+				null::d
+			}
+		}
+		null::a
+	
+		[result]
+		null::m {
+			null::a
+		}
+	}
+
+	[Function]
+	gmapMo :: forall m. MonadPlus m => (forall d. Data d => d -> m d) -> a -> m a
+	Name: gmapMo
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Data.html#v:gmapMo
+	Containing package: Data.Data
+	Containing type: Data
+	parameters {
+		m: (MonadPlus m; m; Control.Monad::MonadPlus)
+		d: (Data d; d; Data.Data::Data)
+		a: (Data a; a; Data.Data::Data)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::d
+		
+			[result]
+			null::m {
+				null::d
+			}
+		}
+		null::a
+	
+		[result]
+		null::m {
+			null::a
+		}
+	}
+}

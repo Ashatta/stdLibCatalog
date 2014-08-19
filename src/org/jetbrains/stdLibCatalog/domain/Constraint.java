@@ -28,13 +28,19 @@ public class Constraint {
         for (TypeVariable variable : variables) {
             result += variable.getName() + ", ";
         }
-        result = result.substring(0, result.length() - 2) + "; ";
+        if (!variables.isEmpty()) {
+            result = result.substring(0, result.length() - 2);
+        }
+        result += "; ";
 
         for (Entity entity : otherEntities) {
             PackageEntity containingPackage = entity.getContainingPackage();
             result += (containingPackage != null ? containingPackage.getName() : "null") + "::" + entity.getName() + ", ";
         }
-        result = result.substring(0, result.length() - 2) + ")";
+        if (!otherEntities.isEmpty()) {
+            result = result.substring(0, result.length() - 2);
+        }
+        result += ")";
 
         return result;
     }

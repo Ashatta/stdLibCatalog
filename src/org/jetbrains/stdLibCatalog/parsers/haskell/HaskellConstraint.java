@@ -7,9 +7,12 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 class HaskellConstraint {
+    private static List<String> K_ALLOWED_TYPES = Arrays.asList("Ord", "Eq", "Show");
+
     private final List<String> variables;
     private final List<HaskellParser.QualifiedName> otherEntities;
     private final String declaration;
@@ -21,21 +24,33 @@ class HaskellConstraint {
     }
 
     public static HaskellConstraint parse(Element entityElem, String declaration) {
-        String[] parts = declaration.replaceAll("[\\(\\)\\[\\],\\->#]", "").split("\\s+");
+        List<String> parts = Arrays.asList(declaration.replaceAll("[\\(\\)\\[\\],\\->#]", "").split("\\s+"));
         List<String> vars = new ArrayList<>();
+
+        boolean kAllowed = false;
         for (String part : parts) {
-            if (Character.isLowerCase(part.charAt(0)) && part.charAt(0) != 'k') {
+            if (K_ALLOWED_TYPES.contains(part)) {
+                kAllowed = true;
+                break;
+            }
+        }
+
+        for (String part : parts) {
+            if (Character.isLowerCase(part.charAt(0)) && (kAllowed || part.charAt(0) != 'k')) {
                 vars.add(part);
             }
         }
 
         Elements entityElems = entityElem.getElementsByAttribute("href");
-        String beforeArrow = HaskellType.typeSplit(entityElem.text(), "=>").get(0);
 
         List<HaskellParser.QualifiedName> other = new ArrayList<>();
         for (Element elem : entityElems) {
-            if (beforeArrow.contains(elem.text())) {
-                other.add(new HaskellParser.QualifiedName(HaskellParser.getPackageName(elem.attr("href")), elem.text()));
+            if (parts.contains(elem.text())) {
+                HaskellParser.QualifiedName entityName
+                        = new HaskellParser.QualifiedName(HaskellParser.getPackageName(elem.attr("href")), elem.text());
+                if (!other.contains(entityName)) {
+                    other.add(entityName);
+                }
             }
         }
 
@@ -65,12 +80,12 @@ class HaskellConstraint {
 
         List<Entity> other = new ArrayList<>();
         for (HaskellParser.QualifiedName entity : otherEntities) {
-            if (parser.classes.containsKey(entity)) {
-                other.add(parser.classes.get(entity));
-            } else if (parser.aliases.containsKey(entity)) {
-                other.add(parser.aliases.get(entity));
-            } else if (parser.functions.containsKey(entity)) {
-                other.add(parser.functions.get(entity));
+            if (parser.getClasses().containsKey(entity)) {
+                other.add(parser.getClasses().get(entity));
+            } else if (parser.getAliases().containsKey(entity)) {
+                other.add(parser.getAliases().get(entity));
+            } else if (parser.getFunctions().containsKey(entity)) {
+                other.add(parser.getFunctions().get(entity));
             }
         }
 

@@ -1,0 +1,86 @@
+[Classifier]
+class Monad m => MonadPlus m where mzero :: m a mplus :: m a -> m a -> m a
+Name: MonadPlus
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Monad.html#t:MonadPlus
+Containing package: Control.Monad
+parameters {
+}
+derived {
+	Control.Arrow::Control.Monad.MonadPlus_ArrowMonad<a<>>
+	Control.Monad.Trans.Error::Control.Monad.MonadPlus_ErrorT<e<>,m<>>
+	Control.Monad.Trans.Identity::Control.Monad.MonadPlus_IdentityT<m<>>
+	Control.Monad.Trans.List::Control.Monad.MonadPlus_ListT<m<>>
+	Control.Monad.Trans.Maybe::Control.Monad.MonadPlus_MaybeT<m<>>
+	Control.Monad.Trans.RWS.Lazy::Control.Monad.MonadPlus_RWST<r<>,w<>,s<>,m<>>
+	Control.Monad.Trans.RWS.Strict::Control.Monad.MonadPlus_RWST<r<>,w<>,s<>,m<>>
+	Control.Monad.Trans.Reader::Control.Monad.MonadPlus_ReaderT<r<>,m<>>
+	Control.Monad.Trans.State.Lazy::Control.Monad.MonadPlus_StateT<s<>,m<>>
+	Control.Monad.Trans.State.Strict::Control.Monad.MonadPlus_StateT<s<>,m<>>
+	Control.Monad.Trans.Writer.Lazy::Control.Monad.MonadPlus_WriterT<w<>,m<>>
+	Control.Monad.Trans.Writer.Strict::Control.Monad.MonadPlus_WriterT<w<>,m<>>
+	other::Control.Monad.MonadPlus_List<curriedParam<>>
+	Data.Maybe::Control.Monad.MonadPlus_Maybe<>
+	Text.ParserCombinators.ReadP::Control.Monad.MonadPlus_ReadP<>
+	Text.ParserCombinators.ReadPrec::Control.Monad.MonadPlus_ReadPrec<>
+	GHC.Conc::Control.Monad.MonadPlus_STM<>
+	Data.Binary.Get.Internal::Control.Monad.MonadPlus_Get<>
+	Data.Binary.Get::Control.Monad.MonadPlus_Get<>
+	Data.Binary::Control.Monad.MonadPlus_Get<>
+	Data.Functor.Product::Control.Monad.MonadPlus_Product<f<>,g<>>
+	Data.Sequence::Control.Monad.MonadPlus_Seq<>
+	GHC.Conc.Sync::Control.Monad.MonadPlus_STM<>
+	Prelude::Control.Monad.MonadPlus_Maybe<>
+	System.Console.Terminfo.Base::Control.Monad.MonadPlus_Capability<>
+}
+supertypes {
+	Control.Monad::Monad
+}
+members {
+
+	[Function]
+	mzero :: m a
+	Name: mzero
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Monad.html#v:mzero
+	Containing package: Control.Monad
+	Containing type: MonadPlus
+	parameters {
+		m: (MonadPlus m; m; Control.Monad::MonadPlus)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		null::m {
+			null::a
+		}
+	}
+
+	[Function]
+	mplus :: m a -> m a -> m a
+	Name: mplus
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Monad.html#v:mplus
+	Containing package: Control.Monad
+	Containing type: MonadPlus
+	parameters {
+		m: (MonadPlus m; m; Control.Monad::MonadPlus)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::m {
+			null::a
+		}
+		null::m {
+			null::a
+		}
+	
+		[result]
+		null::m {
+			null::a
+		}
+	}
+}

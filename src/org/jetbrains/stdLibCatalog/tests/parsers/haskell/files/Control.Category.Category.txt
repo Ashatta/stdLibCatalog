@@ -1,0 +1,72 @@
+[Classifier]
+class Category cat where id :: cat a a (.) :: cat b c -> cat a b -> cat a c
+Name: Category
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Category.html#t:Category
+Containing package: Control.Category
+parameters {
+}
+derived {
+	Control.Arrow::Arrow
+	Control.Arrow::Control.Category.Category_Kleisli<m<>>
+	other::Control.Category.Category_(->)<>
+	Data.Type.Coercion::Control.Category.Category_Coercion<>
+	Data.Type.Equality::Control.Category.Category_(:~:)<>
+	Data.Typeable::Control.Category.Category_(:~:)<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	id :: cat a a
+	Name: id
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Category.html#v:id
+	Containing package: Control.Category
+	Containing type: Category
+	parameters {
+		cat: (Category cat; cat; Control.Category::Category)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		null::cat {
+			null::a
+			null::a
+		}
+	}
+
+	[Function]
+	(.) :: cat b c -> cat a b -> cat a c
+	Name: (.)
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Category.html#v:(.)
+	Containing package: Control.Category
+	Containing type: Category
+	parameters {
+		cat: (Category cat; cat; Control.Category::Category)
+		b
+		c
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::cat {
+			null::b
+			null::c
+		}
+		null::cat {
+			null::a
+			null::b
+		}
+	
+		[result]
+		null::cat {
+			null::a
+			null::c
+		}
+	}
+}

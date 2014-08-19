@@ -54,6 +54,7 @@ public class Classifier extends TypeConstructor {
         for (TypeVariable param : parameters) {
             result += "\n\t" + param.toString();
         }
+        result += "\n}";
 
         result += "\nderived {";
         for (Classifier child : derived) {
@@ -75,5 +76,9 @@ public class Classifier extends TypeConstructor {
         result += "\n}";
 
         return result;
+    }
+
+    public List<Type> getBase() {
+        return base;
     }
 }

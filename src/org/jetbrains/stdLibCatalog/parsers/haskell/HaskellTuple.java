@@ -13,7 +13,15 @@ class HaskellTuple extends HaskellType {
         parameters = new ArrayList<>();
     }
 
-    public static HaskellTuple parse(Element elem, String signature, List<HaskellConstraint> parameters) {
+    public static HaskellTuple parse(Element elem, String signature, List<HaskellConstraint> constraints) {
+        List<HaskellConstraint> localConstraints = new ArrayList<>();
+
+        List<String> parts = typeSplit(signature, "=>");
+        if (parts.size() > 1) {
+            HaskellConstraint.parseConstraints(elem, parts.get(0), localConstraints);
+            signature = parts.get(parts.size() - 1);
+        }
+
         if (!signature.startsWith("(") || !signature.endsWith(")")) {
             return null;
         }
@@ -34,20 +42,22 @@ class HaskellTuple extends HaskellType {
             if (!(arg.startsWith("[") && arg.endsWith("]")) && !(arg.startsWith("(") && arg.endsWith(")"))) {
                 arg = "(" + arg + ")";
             }
-            HaskellType a = HaskellType.parse(elem, arg, parameters);
+
+            HaskellType a = HaskellType.parse(elem, arg, localConstraints);
             if (a == null) {
                 return null;
             }
             tuple.parameters.add(a);
         }
 
+        constraints.addAll(localConstraints);
         return tuple;
     }
 
     public DataType buildType(HaskellParser parser, HaskellParser.QualifiedName entity, boolean isType) {
         String tupleName = "(" + new String(new char[parameters.size() == 0 ? 0 : parameters.size() - 1])
                 .replace("\0", ",") + ")";
-        Classifier tuple = parser.classes.get(new HaskellParser.QualifiedName(
+        Classifier tuple = parser.getClasses().get(new HaskellParser.QualifiedName(
                 parameters.size() > 62 ? HaskellParser.OTHER_PACKAGE : "GHC.Tuple", tupleName));
         List<Type> parameters = new ArrayList<>();
         for (HaskellType type : this.parameters) {
