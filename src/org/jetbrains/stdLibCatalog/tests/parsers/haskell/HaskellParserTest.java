@@ -14,235 +14,224 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HaskellParserTest {
-    private static HaskellParser PARSER;
-
-    private enum EntityType {
-        PACKAGE,
-        TYPECLASS,
-        DATA,
-        NEWTYPE,
-        ALIAS,
-        FUNCTION
-    }
+    private final String TEST_FOLDER = "resources/tests/parsers/haskell/";
+    private static HaskellParser parser;
 
     @BeforeClass
     public static void setUp() throws IOException {
-        PARSER = new HaskellParser();
-        PARSER.parse();
+        parser = new HaskellParser();
+        parser.parse();
     }
 
     @Test
     public void testPackageEmpty() throws IOException {
-        test(EntityType.PACKAGE, "Bits", "Bits");
+        testPackage("Bits");
     }
 
     @Test
     public void testPackageWithoutSynopsis() throws IOException {
-        test(EntityType.PACKAGE, "Distribution.Text", "Distribution.Text");
+        testPackage("Distribution.Text");
     }
 
     @Test
     public void testPackageTuples() throws IOException {
-        test(EntityType.PACKAGE, "GHC.Tuple", "GHC.Tuple");
+        testPackage("GHC.Tuple");
     }
 
     @Test
     public void testTypeclassWithSplitMethod() throws IOException {
-        test(EntityType.TYPECLASS, "Compiler.Hoopl", "IfThenElseable");
+        testClassifier("Compiler.Hoopl", "IfThenElseable");
     }
 
     @Test
     public void testTypeclassWithInfixMethod() throws IOException {
-        test(EntityType.TYPECLASS, "Control.Category", "Category");
+        testClassifier("Control.Category", "Category");
     }
 
     @Test
     public void testTypeclassWithMultipleParents() throws IOException {
-        test(EntityType.TYPECLASS, "Control.Exception", "Exception");
+        testClassifier("Control.Exception", "Exception");
     }
 
     @Test
     public void testTypeclassWithSingleParent() throws IOException {
-        test(EntityType.TYPECLASS, "Control.Monad", "MonadPlus");
+        testClassifier("Control.Monad", "MonadPlus");
     }
 
     @Test
     public void testTypeclassWithInfixDataInMethods() throws IOException {
-        test(EntityType.TYPECLASS, "Data.Type.Equality", "TestEquality");
+        testClassifier("Data.Type.Equality", "TestEquality");
     }
 
     @Test
     public void testTypeclassWithManyMethodsAndInstances() throws IOException {
-        test(EntityType.TYPECLASS, "Data.Data", "Data");
+        testClassifier("Data.Data", "Data");
     }
 
     @Test
     public void testDataWithKindsWithoutConstructor() throws IOException {
-        test(EntityType.DATA, "Array", "Array");
+        testClassifier("Array", "Array");
     }
 
     @Test
     public void testDataWithComplexConstructors() throws IOException {
-        test(EntityType.DATA, "Compiler.Hoopl", "Graph'");
+        testClassifier("Compiler.Hoopl", "Graph'");
     }
 
     @Test
     public void testDataWithInfixConstructor() throws IOException {
-        test(EntityType.DATA, "Complex", "Complex");
+        testClassifier("Complex", "Complex");
     }
 
     @Test
     public void testDataEnumLike() throws IOException {
-        test(EntityType.DATA, "Control.Exception", "ArithException");
+        testClassifier("Control.Exception", "ArithException");
     }
 
     @Test
     public void testDataWithMultipleConstructors() throws IOException {
-        test(EntityType.DATA, "Data.Binary.Get", "Decoder");
+        testClassifier("Data.Binary.Get", "Decoder");
     }
 
     @Test
     public void testDataWithMultipleConstructorsAndVariables() throws IOException {
-        test(EntityType.DATA, "Data.Either", "Either");
+        testClassifier("Data.Either", "Either");
     }
 
     @Test
     public void testDataInfixDefinition() throws IOException {
-        test(EntityType.DATA, "Data.Type.Equality", "(:~:)");
+        testClassifier("Data.Type.Equality", "(:~:)");
     }
 
     @Test
     public void testDataWithFields() throws IOException {
-        test(EntityType.DATA, "Distribution.InstalledPackageInfo", "InstalledPackageInfo_");
+        testClassifier("Distribution.InstalledPackageInfo", "InstalledPackageInfo_");
     }
 
     @Test
     public void testNewtypeWithVariables() throws IOException {
-        test(EntityType.NEWTYPE, "Data.Functor.Compose", "Compose");
+        testClassifier("Data.Functor.Compose", "Compose");
     }
 
     @Test
     public void testSimpleAliasWithoutParameters() throws IOException {
-        test(EntityType.ALIAS, "Char", "String");
+        testAlias("Char", "String");
     }
 
     @Test
     public void testAliasWithParameters() throws IOException {
-        test(EntityType.ALIAS, "Distribution.Compat.ReadP", "ReadP");
+        testAlias("Distribution.Compat.ReadP", "ReadP");
     }
 
     @Test
     public void testAliasForComplexFunctionType() throws IOException {
-        test(EntityType.ALIAS, "Distribution.Compat.ReadP", "ReadS");
+        testAlias("Distribution.Compat.ReadP", "ReadS");
     }
 
     @Test
     public void testAliasForFunctionWithForall() throws IOException {
-        test(EntityType.ALIAS, "Compiler.Hoopl", "TraceFn");
+        testAlias("Compiler.Hoopl", "TraceFn");
     }
 
     @Test
     public void testAliasWithInfixTypes() throws IOException {
-        test(EntityType.ALIAS, "GHC.TypeLits", "(<=)");
+        testAlias("GHC.TypeLits", "(<=)");
     }
 
     @Test
     public void testFunctionSplitInMultipleLines() throws IOException {
-        test(EntityType.FUNCTION, "Array", "accumArray");
+        testFunction("Array", "accumArray");
     }
 
     @Test
     public void testInfixFunction() throws IOException {
-        test(EntityType.FUNCTION, "Array", "(!)");
+        testFunction("Array", "(!)");
     }
 
     @Test
     public void testFunctionWithoutParametersAndTypeVariables() throws IOException {
-        test(EntityType.FUNCTION, "CPUTime", "getCPUTime");
+        testFunction("CPUTime", "getCPUTime");
     }
 
     @Test
     public void testSimpleUnaryFunctionWithourTypeVariables() throws IOException {
-        test(EntityType.FUNCTION, "Char", "intToDigit");
+        testFunction("Char", "intToDigit");
     }
 
     @Test
     public void testFunctionWithComplexTypesAndConstraints() throws IOException {
-        test(EntityType.FUNCTION, "Compiler.Hoopl", "bodyList");
+        testFunction("Compiler.Hoopl", "bodyList");
     }
 
     @Test
     public void testFunctionWithApostrophesAndForalls() throws IOException {
-        test(EntityType.FUNCTION, "Compiler.Hoopl", "mapGraphBlocks");
+        testFunction("Compiler.Hoopl", "mapGraphBlocks");
     }
 
     @Test
     public void testFunctionWithMultipleConstraintsAndForalls() throws IOException {
-        test(EntityType.FUNCTION, "Data.Data", "fromConstrM");
+        testFunction("Data.Data", "fromConstrM");
     }
 
     @Test
     public void testFunctionWithKParametersAndConstraints() throws IOException {
-        test(EntityType.FUNCTION, "Data.Map", "insertWithKey'");
+        testFunction("Data.Map", "insertWithKey'");
     }
 
     @Test
     public void testFunctionWithInfixData() throws IOException {
-        test(EntityType.FUNCTION, "Data.Type.Equality", "apply");
+        testFunction("Data.Type.Equality", "apply");
     }
 
     @Test
     public void testFunctionWithUnboxedTypes() throws IOException {
-        test(EntityType.FUNCTION, "GHC.Prim", "casMutVar#");
+        testFunction("GHC.Prim", "casMutVar#");
     }
 
     @Test
     public void testFakeInstanceClassifiers() throws IOException {
-        test(EntityType.DATA, "Data.Type.Equality", "Data.Data.Data_(:~:)<a<>,b<>>");
-        test(EntityType.DATA, "Control.Applicative", "Data.Typeable.Internal.Typeable_Applicative<>");
-        test(EntityType.DATA, "Data.Type.Coercion", "Data.Typeable.Internal.Typeable_Coercion<>");
-        test(EntityType.DATA, "other", "Data.Functor.Functor_(->)<r<>>");
+        testClassifier("Data.Type.Equality", "Data.Data.Data_(:~:)<a<>,b<>>");
+        testClassifier("Control.Applicative", "Data.Typeable.Internal.Typeable_Applicative<>");
+        testClassifier("Data.Type.Coercion", "Data.Typeable.Internal.Typeable_Coercion<>");
+        testClassifier("other", "Data.Functor.Functor_(->)<r<>>");
     }
 
     @Test
     public void testPackage() {
-        PackageEntity pack = PARSER.getPackages().get("Compiler.Hoopl");
+        PackageEntity pack = parser.getPackages().get("Compiler.Hoopl");
         testPackageChilden(pack, "Compiler.Hoopl.Internals,Passes,Compiler.Hoopl.Wrappers");
 
-        PackageEntity parent = PARSER.getPackages().get("Compiler");
+        PackageEntity parent = parser.getPackages().get("Compiler");
         Assert.assertSame(parent, pack.getContainingPackage());
         Assert.assertTrue(parent.getSubPackages().contains(pack));
     }
 
     @Test
     public void testTopLevelPackage() {
-        PackageEntity pack = PARSER.getPackages().get("Control");
+        PackageEntity pack = parser.getPackages().get("Control");
         testPackageChilden(pack, "Control.Applicative,Control.Arrow,Control.Category,Control.Concurrent,Control.DeepSeq,Control.Exception,Control.Monad");
         Assert.assertNull(pack.getContainingPackage());
     }
 
-    private void test(EntityType type, String packageName, String entityName) throws IOException {
-        final String TEST_FOLDER = "src/org/jetbrains/stdLibCatalog/tests/parsers/haskell/files/";
+    private void testPackage(String packageName) throws IOException {
+        Assert.assertEquals(FileUtils.readFileToString(new File(TEST_FOLDER + packageName + ".txt")),
+                parser.getPackages().get(packageName).toString());
+    }
 
-        switch (type) {
-            case PACKAGE:
-                Assert.assertEquals(FileUtils.readFileToString(new File(TEST_FOLDER + packageName + ".txt")),
-                    PARSER.getPackages().get(packageName).toString());
-                break;
-            case TYPECLASS:
-            case DATA:
-            case NEWTYPE: Assert.assertEquals(
-                    FileUtils.readFileToString(new File(TEST_FOLDER + packageName + "." + entityName + ".txt")),
-                    PARSER.getClasses().get(new HaskellParser.QualifiedName(packageName, entityName)).toString());
-                break;
-            case ALIAS: Assert.assertEquals(
-                    FileUtils.readFileToString(new File(TEST_FOLDER + packageName + "." + entityName + ".txt")),
-                    PARSER.getAliases().get(new HaskellParser.QualifiedName(packageName, entityName)).toString());
-                break;
-            case FUNCTION: Assert.assertEquals(
-                    FileUtils.readFileToString(new File(TEST_FOLDER + packageName + "." + entityName + ".txt")),
-                    PARSER.getFunctions().get(new HaskellParser.QualifiedName(packageName, entityName)).toString());
-        }
+    private void testClassifier(String packageName, String entityName) throws IOException {
+        Assert.assertEquals(FileUtils.readFileToString(new File(TEST_FOLDER + packageName + "." + entityName + ".txt")),
+                parser.getClasses().get(new HaskellParser.QualifiedName(packageName, entityName)).toString());
+    }
+
+    private void testFunction(String packageName, String entityName) throws IOException {
+        Assert.assertEquals(FileUtils.readFileToString(new File(TEST_FOLDER + packageName + "." + entityName + ".txt")),
+                parser.getFunctions().get(new HaskellParser.QualifiedName(packageName, entityName)).toString());
+    }
+
+    private void testAlias(String packageName, String entityName) throws IOException {
+        Assert.assertEquals(
+                FileUtils.readFileToString(new File(TEST_FOLDER + packageName + "." + entityName + ".txt")),
+                parser.getAliases().get(new HaskellParser.QualifiedName(packageName, entityName)).toString());
     }
 
     public void testPackageChilden(PackageEntity pack, String expectedChildrenString) {
