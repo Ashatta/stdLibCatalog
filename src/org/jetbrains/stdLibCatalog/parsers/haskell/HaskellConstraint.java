@@ -3,6 +3,7 @@ package org.jetbrains.stdLibCatalog.parsers.haskell;
 import org.jetbrains.stdLibCatalog.domain.Constraint;
 import org.jetbrains.stdLibCatalog.domain.Entity;
 import org.jetbrains.stdLibCatalog.domain.TypeVariable;
+import org.jetbrains.stdLibCatalog.parsers.utils.ParserUtils;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
@@ -10,14 +11,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.jetbrains.stdLibCatalog.parsers.utils.ParserUtils.QualifiedName;
+
 class HaskellConstraint {
     private static List<String> K_ALLOWED_TYPES = Arrays.asList("Ord", "Eq", "Show");
 
     private final List<String> variables;
-    private final List<HaskellParser.QualifiedName> otherEntities;
+    private final List<QualifiedName> otherEntities;
     private final String declaration;
 
-    private HaskellConstraint(List<String> variables, List<HaskellParser.QualifiedName> otherEntities, String declaration) {
+    private HaskellConstraint(List<String> variables, List<QualifiedName> otherEntities, String declaration) {
         this.variables = variables;
         this.otherEntities = otherEntities;
         this.declaration = declaration;
@@ -43,11 +46,11 @@ class HaskellConstraint {
 
         Elements entityElems = entityElem.getElementsByAttribute("href");
 
-        List<HaskellParser.QualifiedName> other = new ArrayList<>();
+        List<QualifiedName> other = new ArrayList<>();
         for (Element elem : entityElems) {
             if (parts.contains(elem.text())) {
-                HaskellParser.QualifiedName entityName
-                        = new HaskellParser.QualifiedName(HaskellParser.getPackageName(elem.attr("href")), elem.text());
+                QualifiedName entityName
+                        = new QualifiedName(HaskellParser.getPackageName(elem.attr("href")), elem.text());
                 if (!other.contains(entityName)) {
                     other.add(entityName);
                 }
@@ -79,7 +82,7 @@ class HaskellConstraint {
         }
 
         List<Entity> other = new ArrayList<>();
-        for (HaskellParser.QualifiedName entity : otherEntities) {
+        for (QualifiedName entity : otherEntities) {
             if (parser.getClasses().containsKey(entity)) {
                 other.add(parser.getClasses().get(entity));
             } else if (parser.getAliases().containsKey(entity)) {

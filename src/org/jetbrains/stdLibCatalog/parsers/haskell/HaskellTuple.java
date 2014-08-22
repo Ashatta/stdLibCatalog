@@ -1,10 +1,13 @@
 package org.jetbrains.stdLibCatalog.parsers.haskell;
 
 import org.jetbrains.stdLibCatalog.domain.*;
+import org.jetbrains.stdLibCatalog.parsers.utils.ParserUtils;
 import org.jsoup.nodes.Element;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.jetbrains.stdLibCatalog.parsers.utils.ParserUtils.QualifiedName;
 
 class HaskellTuple extends HaskellType {
     private List<HaskellType> parameters;
@@ -54,10 +57,10 @@ class HaskellTuple extends HaskellType {
         return tuple;
     }
 
-    public DataType buildType(HaskellParser parser, HaskellParser.QualifiedName entity, boolean isType) {
+    public DataType buildType(HaskellParser parser, QualifiedName entity, boolean isType) {
         String tupleName = "(" + new String(new char[parameters.size() == 0 ? 0 : parameters.size() - 1])
                 .replace("\0", ",") + ")";
-        Classifier tuple = parser.getClasses().get(new HaskellParser.QualifiedName(
+        Classifier tuple = parser.getClasses().get(new QualifiedName(
                 parameters.size() > 62 ? HaskellParser.OTHER_PACKAGE : "GHC.Tuple", tupleName));
         List<Type> parameters = new ArrayList<>();
         for (HaskellType type : this.parameters) {

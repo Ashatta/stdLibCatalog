@@ -2,11 +2,14 @@ package org.jetbrains.stdLibCatalog.parsers.haskell;
 
 import org.jetbrains.stdLibCatalog.domain.FunctionType;
 import org.jetbrains.stdLibCatalog.domain.Type;
+import org.jetbrains.stdLibCatalog.parsers.utils.ParserUtils;
 import org.jsoup.nodes.Element;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import static org.jetbrains.stdLibCatalog.parsers.utils.ParserUtils.QualifiedName;
 
 class HaskellFunction extends HaskellType {
     private List<HaskellType> arguments;
@@ -42,7 +45,7 @@ class HaskellFunction extends HaskellType {
         return func;
     }
 
-    public FunctionType makeSignature(HaskellParser parser, HaskellParser.QualifiedName entity, boolean isType) {
+    public FunctionType makeSignature(HaskellParser parser, QualifiedName entity, boolean isType) {
         Iterator<HaskellType> it = arguments.iterator();
         List<Type> args = new ArrayList<>();
         HaskellType type = null;
@@ -59,7 +62,7 @@ class HaskellFunction extends HaskellType {
         return new FunctionType(args, type.buildType(parser, entity, isType));
     }
 
-    public FunctionType buildType(HaskellParser parser, HaskellParser.QualifiedName entity, boolean isType) {
+    public FunctionType buildType(HaskellParser parser, QualifiedName entity, boolean isType) {
         return makeSignature(parser, entity, isType);
     }
 

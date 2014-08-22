@@ -1,6 +1,5 @@
 package org.jetbrains.stdLibCatalog.parsers.haskell;
 
-import javafx.util.Pair;
 import org.jetbrains.stdLibCatalog.domain.*;
 import org.jsoup.Jsoup;
 import org.jsoup.helper.StringUtil;
@@ -8,23 +7,19 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.*;
 import java.util.regex.Pattern;
 
+import static org.jetbrains.stdLibCatalog.parsers.utils.ParserUtils.QualifiedName;
+
 /**
  * TODO: split functions into functional groups
+ * todo: data and newtype fields
  */
 public class HaskellParser {
-    public static class QualifiedName extends Pair<String, String> {
-        public QualifiedName(String packageName, String entityName) {
-            super(packageName, entityName);
-        }
-    }
 
     static final String BASE_ADDRESS = "http://www.haskell.org/ghc/docs/latest/html/libraries/";
     static final int CONNECTION_TIMEOUT = 2000;

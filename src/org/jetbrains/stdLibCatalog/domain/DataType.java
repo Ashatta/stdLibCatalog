@@ -24,6 +24,10 @@ public class DataType extends Type {
     }
 
     public String toString() {
+        if (typeConstructor instanceof Wildcard) {
+            return typeConstructor.toString();
+        }
+
         PackageEntity packageEntity = typeConstructor.getContainingPackage();
         String result = (packageEntity == null ? "null" : packageEntity.getName()) + "::" + typeConstructor.getName();
         if (!arguments.isEmpty()) {

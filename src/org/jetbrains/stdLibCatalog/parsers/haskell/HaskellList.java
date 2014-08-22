@@ -1,10 +1,13 @@
 package org.jetbrains.stdLibCatalog.parsers.haskell;
 
 import org.jetbrains.stdLibCatalog.domain.*;
+import org.jetbrains.stdLibCatalog.parsers.utils.ParserUtils;
 import org.jsoup.nodes.Element;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.jetbrains.stdLibCatalog.parsers.utils.ParserUtils.QualifiedName;
 
 class HaskellList extends HaskellType {
     private HaskellType parameter;
@@ -42,8 +45,8 @@ class HaskellList extends HaskellType {
         return (list.parameter == null ? null : list);
     }
 
-    public DataType buildType(HaskellParser parser, HaskellParser.QualifiedName entity, boolean isType) {
-        Classifier list = parser.getClasses().get(new HaskellParser.QualifiedName("other", "List"));
+    public DataType buildType(HaskellParser parser, QualifiedName entity, boolean isType) {
+        Classifier list = parser.getClasses().get(new QualifiedName("other", "List"));
         List<Type> parameters = new ArrayList<>();
         parameters.add(parameter.buildType(parser, entity, isType));
         return new DataType(list, parameters);

@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.List;
 
 public class PackageEntity extends Entity {
+
     private final List<TypeConstructor> containedClasses;
     private final List<MemberEntity> members;
     private final List<PackageEntity> subPackages;
@@ -15,6 +16,9 @@ public class PackageEntity extends Entity {
         this.members = members;
         this.subPackages = subPackages;
     }
+    public List<TypeConstructor> getContainedClasses() {
+        return containedClasses;
+    }
 
     public List<MemberEntity> getMembers() {
         return members;
@@ -22,6 +26,10 @@ public class PackageEntity extends Entity {
 
     public List<PackageEntity> getSubPackages() {
         return subPackages;
+    }
+
+    public void addSubPackage(PackageEntity subPackage) {
+        subPackages.add(subPackage);
     }
 
     public String toString() {

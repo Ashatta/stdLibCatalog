@@ -1,11 +1,14 @@
 package org.jetbrains.stdLibCatalog.parsers.haskell;
 
 import org.jetbrains.stdLibCatalog.domain.*;
+import org.jetbrains.stdLibCatalog.parsers.utils.ParserUtils;
 import org.jsoup.nodes.Element;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import static org.jetbrains.stdLibCatalog.parsers.utils.ParserUtils.QualifiedName;
 
 class HaskellParameter extends HaskellType {
     private String name;
@@ -49,7 +52,7 @@ class HaskellParameter extends HaskellType {
         return parameter;
     }
 
-    public DataType buildType(HaskellParser parser, HaskellParser.QualifiedName entity, boolean isType) {
+    public DataType buildType(HaskellParser parser, QualifiedName entity, boolean isType) {
         List<Type> params = new ArrayList<>();
         for (HaskellType param : parameters) {
             params.add(param.buildType(parser, entity, isType));

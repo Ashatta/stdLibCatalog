@@ -1,6 +1,7 @@
 package org.jetbrains.stdLibCatalog.parsers.haskell;
 
 import org.jetbrains.stdLibCatalog.domain.*;
+import org.jetbrains.stdLibCatalog.parsers.utils.ParserUtils;
 import org.jsoup.helper.StringUtil;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -10,6 +11,8 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
+
+import static org.jetbrains.stdLibCatalog.parsers.utils.ParserUtils.QualifiedName;
 
 class HaskellConcreteType extends HaskellType {
     private static List<String> INFIX_NAMES = Arrays.asList(":~:", "~", ":+:", ":*:", ":.:", "<=?");
@@ -108,7 +111,7 @@ class HaskellConcreteType extends HaskellType {
         return concrete;
     }
 
-    public DataType buildType(HaskellParser parser, HaskellParser.QualifiedName entity, boolean isType) {
+    public DataType buildType(HaskellParser parser, QualifiedName entity, boolean isType) {
         String pattern = "^" + (isType ? "type\\s+" : "") + Pattern.quote(entity.getValue()) + "\\s";
         Element def = parser.getShortDefinitions().get(entity.getKey()).getElementsMatchingText(pattern).last();
 
@@ -116,7 +119,7 @@ class HaskellConcreteType extends HaskellType {
         TypeConstructor type = null;
         if (!typeDef.isEmpty()) {
             String packName = HaskellParser.getPackageName(typeDef.get(0).attr("href"));
-            HaskellParser.QualifiedName qualifiedName = new HaskellParser.QualifiedName(packName, name);
+            QualifiedName qualifiedName = new QualifiedName(packName, name);
             type = parser.getClasses().get(qualifiedName);
             if (type == null) {
                 type = parser.getAliases().get(qualifiedName);

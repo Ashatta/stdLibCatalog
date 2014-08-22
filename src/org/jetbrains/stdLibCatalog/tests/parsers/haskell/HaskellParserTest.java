@@ -3,6 +3,7 @@ package org.jetbrains.stdLibCatalog.tests.parsers.haskell;
 import org.apache.commons.io.FileUtils;
 import org.jetbrains.stdLibCatalog.domain.PackageEntity;
 import org.jetbrains.stdLibCatalog.parsers.haskell.HaskellParser;
+import org.jetbrains.stdLibCatalog.parsers.utils.ParserUtils;
 import org.jsoup.helper.StringUtil;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -220,18 +221,18 @@ public class HaskellParserTest {
 
     private void testClassifier(String packageName, String entityName) throws IOException {
         Assert.assertEquals(FileUtils.readFileToString(new File(TEST_FOLDER + packageName + "." + entityName + ".txt")),
-                parser.getClasses().get(new HaskellParser.QualifiedName(packageName, entityName)).toString());
+                parser.getClasses().get(new ParserUtils.QualifiedName(packageName, entityName)).toString());
     }
 
     private void testFunction(String packageName, String entityName) throws IOException {
         Assert.assertEquals(FileUtils.readFileToString(new File(TEST_FOLDER + packageName + "." + entityName + ".txt")),
-                parser.getFunctions().get(new HaskellParser.QualifiedName(packageName, entityName)).toString());
+                parser.getFunctions().get(new ParserUtils.QualifiedName(packageName, entityName)).toString());
     }
 
     private void testAlias(String packageName, String entityName) throws IOException {
         Assert.assertEquals(
                 FileUtils.readFileToString(new File(TEST_FOLDER + packageName + "." + entityName + ".txt")),
-                parser.getAliases().get(new HaskellParser.QualifiedName(packageName, entityName)).toString());
+                parser.getAliases().get(new ParserUtils.QualifiedName(packageName, entityName)).toString());
     }
 
     public void testPackageChilden(PackageEntity pack, String expectedChildrenString) {
