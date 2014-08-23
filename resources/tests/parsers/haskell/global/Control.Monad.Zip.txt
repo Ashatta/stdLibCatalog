@@ -1,0 +1,138 @@
+[Package]
+Name: Control.Monad.Zip
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Monad-Zip.html
+Containing package: Control.Monad
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+class Monad m => MonadZip m where mzip :: m a -> m b -> m (a, b) mzipWith :: (a -> b -> c) -> m a -> m b -> m c munzip :: m (a, b) -> (m a, m b)
+Name: MonadZip
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Monad-Zip.html#t:MonadZip
+Containing package: Control.Monad.Zip
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	other::Control.Monad.Zip.MonadZip_List<curriedParam<>>
+}
+supertypes {
+	Control.Monad::Monad
+}
+members {
+
+	[Function]
+	mzip :: m a -> m b -> m (a, b)
+	Name: mzip
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Monad-Zip.html#v:mzip
+	Containing package: Control.Monad.Zip
+	attributes {
+		memberType=function
+	}
+	Containing type: MonadZip
+	parameters {
+		m: (MonadZip m; m; Control.Monad.Zip::MonadZip)
+		a
+		b
+	}
+	Signature = <function> {
+		[parameters]
+		null::m {
+			null::a
+		}
+		null::m {
+			null::b
+		}
+	
+		[result]
+		null::m {
+			GHC.Tuple::(,) {
+				null::a
+				null::b
+			}
+		}
+	}
+
+	[Function]
+	mzipWith :: (a -> b -> c) -> m a -> m b -> m c
+	Name: mzipWith
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Monad-Zip.html#v:mzipWith
+	Containing package: Control.Monad.Zip
+	attributes {
+		memberType=function
+	}
+	Containing type: MonadZip
+	parameters {
+		a
+		b
+		c
+		m: (MonadZip m; m; Control.Monad.Zip::MonadZip)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+			null::b
+		
+			[result]
+			null::c
+		}
+		null::m {
+			null::a
+		}
+		null::m {
+			null::b
+		}
+	
+		[result]
+		null::m {
+			null::c
+		}
+	}
+
+	[Function]
+	munzip :: m (a, b) -> (m a, m b)
+	Name: munzip
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Monad-Zip.html#v:munzip
+	Containing package: Control.Monad.Zip
+	attributes {
+		memberType=function
+	}
+	Containing type: MonadZip
+	parameters {
+		m: (MonadZip m; m; Control.Monad.Zip::MonadZip)
+		a
+		b
+	}
+	Signature = <function> {
+		[parameters]
+		null::m {
+			GHC.Tuple::(,) {
+				null::a
+				null::b
+			}
+		}
+	
+		[result]
+		GHC.Tuple::(,) {
+			null::m {
+				null::a
+			}
+			null::m {
+				null::b
+			}
+		}
+	}
+}

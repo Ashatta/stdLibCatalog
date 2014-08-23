@@ -1,0 +1,229 @@
+[Package]
+Name: Data.Time.Format
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Format.html
+Containing package: Data.Time
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+class FormatTime t where formatCharacter :: Char -> Maybe (TimeLocale -> Maybe NumericPadOption -> t -> String)
+Name: FormatTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Format.html#t:FormatTime
+Containing package: Data.Time.Format
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Data.Time.Calendar::Data.Time.Format.FormatTime_Day<>
+	Data.Time.Clock::Data.Time.Format.FormatTime_UTCTime<>
+	Data.Time.LocalTime::Data.Time.Format.FormatTime_TimeZone<>
+	Data.Time.LocalTime::Data.Time.Format.FormatTime_TimeOfDay<>
+	Data.Time.LocalTime::Data.Time.Format.FormatTime_ZonedTime<>
+	Data.Time.LocalTime::Data.Time.Format.FormatTime_LocalTime<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	formatCharacter :: Char -> Maybe (TimeLocale -> Maybe NumericPadOption -> t -> String)
+	Name: formatCharacter
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Format.html#v:formatCharacter
+	Containing package: Data.Time.Format
+	attributes {
+		memberType=function
+	}
+	Containing type: FormatTime
+	parameters {
+		t: (FormatTime t; t; Data.Time.Format::FormatTime)
+	}
+	Signature = <function> {
+		[parameters]
+		Data.Char::Char
+	
+		[result]
+		Data.Maybe::Maybe {
+			<function> {
+				[parameters]
+				System.Locale::TimeLocale
+				Data.Maybe::Maybe {
+					Data.Time.Format::NumericPadOption
+				}
+				null::t
+			
+				[result]
+				Data.String::String
+			}
+		}
+	}
+}
+
+[Classifier]
+class ParseTime t where buildTime :: TimeLocale -> [(Char, String)] -> t
+Name: ParseTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Format.html#t:ParseTime
+Containing package: Data.Time.Format
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Data.Time.Calendar::Data.Time.Format.ParseTime_Day<>
+	Data.Time.Clock::Data.Time.Format.ParseTime_UTCTime<>
+	Data.Time.LocalTime::Data.Time.Format.ParseTime_TimeZone<>
+	Data.Time.LocalTime::Data.Time.Format.ParseTime_TimeOfDay<>
+	Data.Time.LocalTime::Data.Time.Format.ParseTime_ZonedTime<>
+	Data.Time.LocalTime::Data.Time.Format.ParseTime_LocalTime<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	buildTime :: TimeLocale -> [(Char, String)] -> t
+	Name: buildTime
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Format.html#v:buildTime
+	Containing package: Data.Time.Format
+	attributes {
+		memberType=function
+	}
+	Containing type: ParseTime
+	parameters {
+		t: (ParseTime t; t; Data.Time.Format::ParseTime)
+	}
+	Signature = <function> {
+		[parameters]
+		System.Locale::TimeLocale
+		other::List {
+			GHC.Tuple::(,) {
+				Data.Char::Char
+				Data.String::String
+			}
+		}
+	
+		[result]
+		null::t
+	}
+}
+
+[Alias]
+type NumericPadOption = Maybe Char
+Name: NumericPadOption
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Format.html#t:NumericPadOption
+Containing package: Data.Time.Format
+attributes {
+}
+parameters {
+}
+Aliased type = Data.Maybe::Maybe {
+	Data.Char::Char
+}
+
+[Function]
+parseTime :: ParseTime t => TimeLocale -> String -> String -> Maybe t
+Name: parseTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Format.html#v:parseTime
+Containing package: Data.Time.Format
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (ParseTime t; t; Data.Time.Format::ParseTime)
+}
+Signature = <function> {
+	[parameters]
+	System.Locale::TimeLocale
+	Data.String::String
+	Data.String::String
+
+	[result]
+	Data.Maybe::Maybe {
+		null::t
+	}
+}
+
+[Function]
+readsTime :: ParseTime t => TimeLocale -> String -> ReadS t
+Name: readsTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Format.html#v:readsTime
+Containing package: Data.Time.Format
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (ParseTime t; t; Data.Time.Format::ParseTime)
+}
+Signature = <function> {
+	[parameters]
+	System.Locale::TimeLocale
+	Data.String::String
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadS {
+		null::t
+	}
+}
+
+[Function]
+readTime :: ParseTime t => TimeLocale -> String -> String -> t
+Name: readTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Format.html#v:readTime
+Containing package: Data.Time.Format
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (ParseTime t; t; Data.Time.Format::ParseTime)
+}
+Signature = <function> {
+	[parameters]
+	System.Locale::TimeLocale
+	Data.String::String
+	Data.String::String
+
+	[result]
+	null::t
+}
+
+[Function]
+formatTime :: FormatTime t => TimeLocale -> String -> t -> String
+Name: formatTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Format.html#v:formatTime
+Containing package: Data.Time.Format
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (FormatTime t; t; Data.Time.Format::FormatTime)
+}
+Signature = <function> {
+	[parameters]
+	System.Locale::TimeLocale
+	Data.String::String
+	null::t
+
+	[result]
+	Data.String::String
+}

@@ -1,0 +1,97 @@
+[Package]
+Name: Distribution.Simple.CCompiler
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-CCompiler.html
+Containing package: Distribution.Simple
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data CDialect = C | ObjectiveC | CPlusPlus | ObjectiveCPlusPlus
+Name: CDialect
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-CCompiler.html#t:CDialect
+Containing package: Distribution.Simple.CCompiler
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+cSourceExtensions :: [String]
+Name: cSourceExtensions
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-CCompiler.html#v:cSourceExtensions
+Containing package: Distribution.Simple.CCompiler
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		Data.String::String
+	}
+}
+
+[Function]
+filenameCDialect :: String -> Maybe (CDialect, Bool)
+Name: filenameCDialect
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-CCompiler.html#v:filenameCDialect
+Containing package: Distribution.Simple.CCompiler
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Data.Maybe::Maybe {
+		GHC.Tuple::(,) {
+			Distribution.Simple.CCompiler::CDialect
+			Data.Bool::Bool
+		}
+	}
+}
+
+[Function]
+cDialectFilenameExtension :: CDialect -> Bool -> String
+Name: cDialectFilenameExtension
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-CCompiler.html#v:cDialectFilenameExtension
+Containing package: Distribution.Simple.CCompiler
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.CCompiler::CDialect
+	Data.Bool::Bool
+
+	[result]
+	Data.String::String
+}

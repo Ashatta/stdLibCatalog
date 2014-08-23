@@ -1,0 +1,184 @@
+[Package]
+Name: System.Console.GetOpt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-Console-GetOpt.html
+Containing package: Console
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data ArgOrder a = RequireOrder | Permute | ReturnInOrder (String -> a)
+Name: ArgOrder
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-Console-GetOpt.html#t:ArgOrder
+Containing package: System.Console.GetOpt
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ArgDescr a = NoArg a | ReqArg (String -> a) String | OptArg (Maybe String -> a) String
+Name: ArgDescr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-Console-GetOpt.html#t:ArgDescr
+Containing package: System.Console.GetOpt
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data OptDescr a = Option [Char] [String] (ArgDescr a) String
+Name: OptDescr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-Console-GetOpt.html#t:OptDescr
+Containing package: System.Console.GetOpt
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+getOpt' :: ArgOrder a -> [OptDescr a] -> [String] -> ([a], [String], [String], [String])
+Name: getOpt'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-Console-GetOpt.html#v:getOpt'
+Containing package: System.Console.GetOpt
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Console.GetOpt::ArgOrder {
+		null::a
+	}
+	other::List {
+		System.Console.GetOpt::OptDescr {
+			null::a
+		}
+	}
+	other::List {
+		Data.String::String
+	}
+
+	[result]
+	GHC.Tuple::(,,,) {
+		other::List {
+			null::a
+		}
+		other::List {
+			Data.String::String
+		}
+		other::List {
+			Data.String::String
+		}
+		other::List {
+			Data.String::String
+		}
+	}
+}
+
+[Function]
+getOpt :: ArgOrder a -> [OptDescr a] -> [String] -> ([a], [String], [String])
+Name: getOpt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-Console-GetOpt.html#v:getOpt
+Containing package: System.Console.GetOpt
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Console.GetOpt::ArgOrder {
+		null::a
+	}
+	other::List {
+		System.Console.GetOpt::OptDescr {
+			null::a
+		}
+	}
+	other::List {
+		Data.String::String
+	}
+
+	[result]
+	GHC.Tuple::(,,) {
+		other::List {
+			null::a
+		}
+		other::List {
+			Data.String::String
+		}
+		other::List {
+			Data.String::String
+		}
+	}
+}
+
+[Function]
+usageInfo :: String -> [OptDescr a] -> String
+Name: usageInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-Console-GetOpt.html#v:usageInfo
+Containing package: System.Console.GetOpt
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	other::List {
+		System.Console.GetOpt::OptDescr {
+			null::a
+		}
+	}
+
+	[result]
+	Data.String::String
+}

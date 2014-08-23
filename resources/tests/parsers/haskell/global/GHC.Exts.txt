@@ -1,0 +1,925 @@
+[Package]
+Name: GHC.Exts
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html
+Containing package: GHC
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data Word :: * = W# Word#
+Name: Word
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#t:Word
+Containing package: GHC.Exts
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Int :: * = I# Int#
+Name: Int
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#t:Int
+Containing package: GHC.Exts
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class IsList l where type Item l fromList :: [Item l] -> l fromListN :: Int -> [Item l] -> l toList :: l -> [Item l]
+Name: IsList
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#t:IsList
+Containing package: GHC.Exts
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	other::GHC.Exts.IsList_List<a<>>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	fromList :: [Item l] -> l
+	Name: fromList
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#v:fromList
+	Containing package: GHC.Exts
+	attributes {
+		memberType=function
+	}
+	Containing type: IsList
+	parameters {
+		l: (IsList l; l; GHC.Exts::IsList)
+	}
+	Signature = <function> {
+		[parameters]
+		other::List {
+			null::Item {
+				null::l
+			}
+		}
+	
+		[result]
+		null::l
+	}
+
+	[Function]
+	fromListN :: Int -> [Item l] -> l
+	Name: fromListN
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#v:fromListN
+	Containing package: GHC.Exts
+	attributes {
+		memberType=function
+	}
+	Containing type: IsList
+	parameters {
+		l: (IsList l; l; GHC.Exts::IsList)
+	}
+	Signature = <function> {
+		[parameters]
+		GHC.Exts::Int
+		other::List {
+			null::Item {
+				null::l
+			}
+		}
+	
+		[result]
+		null::l
+	}
+
+	[Function]
+	toList :: l -> [Item l]
+	Name: toList
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#v:toList
+	Containing package: GHC.Exts
+	attributes {
+		memberType=function
+	}
+	Containing type: IsList
+	parameters {
+		l: (IsList l; l; GHC.Exts::IsList)
+	}
+	Signature = <function> {
+		[parameters]
+		null::l
+	
+		[result]
+		other::List {
+			null::Item {
+				null::l
+			}
+		}
+	}
+}
+
+[Classifier]
+newtype Down a = Down a
+Name: Down
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#t:Down
+Containing package: GHC.Exts
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Float :: * = F# Float#
+Name: Float
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#t:Float
+Containing package: GHC.Exts
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data FunPtr a = FunPtr Addr#
+Name: FunPtr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#t:FunPtr
+Containing package: GHC.Exts
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Double :: * = D# Double#
+Name: Double
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#t:Double
+Containing package: GHC.Exts
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class Coercible a b
+Name: Coercible
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#t:Coercible
+Containing package: GHC.Exts
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Constraint :: BOX
+Name: Constraint
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#t:Constraint
+Containing package: GHC.Exts
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data SpecConstrAnnotation = NoSpecConstr | ForceSpecConstr
+Name: SpecConstrAnnotation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#t:SpecConstrAnnotation
+Containing package: GHC.Exts
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Ptr a = Ptr Addr#
+Name: Ptr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#t:Ptr
+Containing package: GHC.Exts
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Char :: * = C# Char#
+Name: Char
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#t:Char
+Containing package: GHC.Exts
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class IsString a where fromString :: String -> a
+Name: IsString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#t:IsString
+Containing package: GHC.Exts
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	other::GHC.Exts.IsString_List<Char<>>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	fromString :: String -> a
+	Name: fromString
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#v:fromString
+	Containing package: GHC.Exts
+	attributes {
+		memberType=function
+	}
+	Containing type: IsString
+	parameters {
+		a: (IsString a; a; GHC.Exts::IsString)
+	}
+	Signature = <function> {
+		[parameters]
+		Data.String::String
+	
+		[result]
+		null::a
+	}
+}
+
+[Function]
+isTrue# :: Int# -> Bool
+Name: isTrue#
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#v:isTrue#
+Containing package: GHC.Exts
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Prim::Int#
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+inline :: a -> a
+Name: inline
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#v:inline
+Containing package: GHC.Exts
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	null::a
+}
+
+[Function]
+shiftL# :: Word# -> Int# -> Word#
+Name: shiftL#
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#v:shiftL#
+Containing package: GHC.Exts
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Prim::Word#
+	GHC.Prim::Int#
+
+	[result]
+	GHC.Prim::Word#
+}
+
+[Function]
+uncheckedIShiftL64# :: Int# -> Int# -> Int#
+Name: uncheckedIShiftL64#
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#v:uncheckedIShiftL64#
+Containing package: GHC.Exts
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Prim::Int#
+	GHC.Prim::Int#
+
+	[result]
+	GHC.Prim::Int#
+}
+
+[Function]
+build :: forall a. (forall b. (a -> b -> b) -> b -> b) -> [a]
+Name: build
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#v:build
+Containing package: GHC.Exts
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+			null::b
+		
+			[result]
+			null::b
+		}
+		null::b
+	
+		[result]
+		null::b
+	}
+
+	[result]
+	other::List {
+		null::a
+	}
+}
+
+[Function]
+iShiftL# :: Int# -> Int# -> Int#
+Name: iShiftL#
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#v:iShiftL#
+Containing package: GHC.Exts
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Prim::Int#
+	GHC.Prim::Int#
+
+	[result]
+	GHC.Prim::Int#
+}
+
+[Function]
+breakpointCond :: Bool -> a -> a
+Name: breakpointCond
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#v:breakpointCond
+Containing package: GHC.Exts
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Bool::Bool
+	null::a
+
+	[result]
+	null::a
+}
+
+[Function]
+the :: Eq a => [a] -> a
+Name: the
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#v:the
+Containing package: GHC.Exts
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Eq a; a; Data.Eq::Eq)
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::a
+	}
+
+	[result]
+	null::a
+}
+
+[Function]
+uncheckedShiftL64# :: Word# -> Int# -> Word#
+Name: uncheckedShiftL64#
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#v:uncheckedShiftL64#
+Containing package: GHC.Exts
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Prim::Word#
+	GHC.Prim::Int#
+
+	[result]
+	GHC.Prim::Word#
+}
+
+[Function]
+augment :: forall a. (forall b. (a -> b -> b) -> b -> b) -> [a] -> [a]
+Name: augment
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#v:augment
+Containing package: GHC.Exts
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+			null::b
+		
+			[result]
+			null::b
+		}
+		null::b
+	
+		[result]
+		null::b
+	}
+	other::List {
+		null::a
+	}
+
+	[result]
+	other::List {
+		null::a
+	}
+}
+
+[Function]
+shiftRL# :: Word# -> Int# -> Word#
+Name: shiftRL#
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#v:shiftRL#
+Containing package: GHC.Exts
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Prim::Word#
+	GHC.Prim::Int#
+
+	[result]
+	GHC.Prim::Word#
+}
+
+[Function]
+lazy :: a -> a
+Name: lazy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#v:lazy
+Containing package: GHC.Exts
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	null::a
+}
+
+[Function]
+currentCallStack :: IO [String]
+Name: currentCallStack
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#v:currentCallStack
+Containing package: GHC.Exts
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		other::List {
+			Data.String::String
+		}
+	}
+}
+
+[Function]
+breakpoint :: a -> a
+Name: breakpoint
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#v:breakpoint
+Containing package: GHC.Exts
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	null::a
+}
+
+[Function]
+maxTupleSize :: Int
+Name: maxTupleSize
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#v:maxTupleSize
+Containing package: GHC.Exts
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	GHC.Exts::Int
+}
+
+[Function]
+uncheckedShiftRL64# :: Word# -> Int# -> Word#
+Name: uncheckedShiftRL64#
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#v:uncheckedShiftRL64#
+Containing package: GHC.Exts
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Prim::Word#
+	GHC.Prim::Int#
+
+	[result]
+	GHC.Prim::Word#
+}
+
+[Function]
+uncheckedIShiftRA64# :: Int# -> Int# -> Int#
+Name: uncheckedIShiftRA64#
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#v:uncheckedIShiftRA64#
+Containing package: GHC.Exts
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Prim::Int#
+	GHC.Prim::Int#
+
+	[result]
+	GHC.Prim::Int#
+}
+
+[Function]
+traceEvent :: String -> IO ()
+Name: traceEvent
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#v:traceEvent
+Containing package: GHC.Exts
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+iShiftRA# :: Int# -> Int# -> Int#
+Name: iShiftRA#
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#v:iShiftRA#
+Containing package: GHC.Exts
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Prim::Int#
+	GHC.Prim::Int#
+
+	[result]
+	GHC.Prim::Int#
+}
+
+[Function]
+sortWith :: Ord b => (a -> b) -> [a] -> [a]
+Name: sortWith
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#v:sortWith
+Containing package: GHC.Exts
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	b: (Ord b; b; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::b
+	}
+	other::List {
+		null::a
+	}
+
+	[result]
+	other::List {
+		null::a
+	}
+}
+
+[Function]
+iShiftRL# :: Int# -> Int# -> Int#
+Name: iShiftRL#
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#v:iShiftRL#
+Containing package: GHC.Exts
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Prim::Int#
+	GHC.Prim::Int#
+
+	[result]
+	GHC.Prim::Int#
+}
+
+[Function]
+coerce :: Coercible k a b => a -> b
+Name: coerce
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#v:coerce
+Containing package: GHC.Exts
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a: (Coercible k a b; a, b; GHC.Exts::Coercible)
+	b: (Coercible k a b; a, b; GHC.Exts::Coercible)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	null::b
+}
+
+[Function]
+groupWith :: Ord b => (a -> b) -> [a] -> [[a]]
+Name: groupWith
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Exts.html#v:groupWith
+Containing package: GHC.Exts
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	b: (Ord b; b; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::b
+	}
+	other::List {
+		null::a
+	}
+
+	[result]
+	other::List {
+		<function> {
+			[parameters]
+		
+			[result]
+			other::List {
+				null::a
+			}
+		}
+	}
+}

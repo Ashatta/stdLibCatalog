@@ -1,0 +1,592 @@
+[Package]
+Name: Control.Monad.Trans.Writer.Lazy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Writer-Lazy.html
+Containing package: Control.Monad.Trans.Writer
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+newtype WriterT w m a = WriterT { runWriterT :: m (a, w)}
+Name: WriterT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Writer-Lazy.html#t:WriterT
+Containing package: Control.Monad.Trans.Writer.Lazy
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	w
+	m
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type Writer w = WriterT w Identity
+Name: Writer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Writer-Lazy.html#t:Writer
+Containing package: Control.Monad.Trans.Writer.Lazy
+attributes {
+}
+parameters {
+	w
+}
+Aliased type = Control.Monad.Trans.Writer.Lazy::WriterT {
+	null::w
+	Data.Functor.Identity::Identity
+}
+
+[Function]
+pass :: (Monoid w, Monad m) => WriterT w m (a, w -> w) -> WriterT w m a
+Name: pass
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Writer-Lazy.html#v:pass
+Containing package: Control.Monad.Trans.Writer.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	w: (Monoid w; w; Data.Monoid::Monoid)
+	m: (Monad m; m; Control.Monad::Monad)
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Monad.Trans.Writer.Lazy::WriterT {
+		null::w
+		null::m
+		GHC.Tuple::(,) {
+			null::a
+			<function> {
+				[parameters]
+				null::w
+			
+				[result]
+				null::w
+			}
+		}
+	}
+
+	[result]
+	Control.Monad.Trans.Writer.Lazy::WriterT {
+		null::w
+		null::m
+		null::a
+	}
+}
+
+[Function]
+listen :: (Monoid w, Monad m) => WriterT w m a -> WriterT w m (a, w)
+Name: listen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Writer-Lazy.html#v:listen
+Containing package: Control.Monad.Trans.Writer.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	w: (Monoid w; w; Data.Monoid::Monoid)
+	m: (Monad m; m; Control.Monad::Monad)
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Monad.Trans.Writer.Lazy::WriterT {
+		null::w
+		null::m
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.Writer.Lazy::WriterT {
+		null::w
+		null::m
+		GHC.Tuple::(,) {
+			null::a
+			null::w
+		}
+	}
+}
+
+[Function]
+runWriter :: Writer w a -> (a, w)
+Name: runWriter
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Writer-Lazy.html#v:runWriter
+Containing package: Control.Monad.Trans.Writer.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	w
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Monad.Trans.Writer.Lazy::Writer {
+		null::w
+		null::a
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		null::a
+		null::w
+	}
+}
+
+[Function]
+mapWriterT :: (m (a, w) -> n (b, w')) -> WriterT w m a -> WriterT w' n b
+Name: mapWriterT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Writer-Lazy.html#v:mapWriterT
+Containing package: Control.Monad.Trans.Writer.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m
+	a
+	w
+	n
+	b
+	w'
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::m {
+			GHC.Tuple::(,) {
+				null::a
+				null::w
+			}
+		}
+	
+		[result]
+		null::n {
+			GHC.Tuple::(,) {
+				null::b
+				null::w'
+			}
+		}
+	}
+	Control.Monad.Trans.Writer.Lazy::WriterT {
+		null::w
+		null::m
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.Writer.Lazy::WriterT {
+		null::w'
+		null::n
+		null::b
+	}
+}
+
+[Function]
+execWriterT :: Monad m => WriterT w m a -> m w
+Name: execWriterT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Writer-Lazy.html#v:execWriterT
+Containing package: Control.Monad.Trans.Writer.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	w
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Monad.Trans.Writer.Lazy::WriterT {
+		null::w
+		null::m
+		null::a
+	}
+
+	[result]
+	null::m {
+		null::w
+	}
+}
+
+[Function]
+tell :: (Monoid w, Monad m) => w -> WriterT w m ()
+Name: tell
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Writer-Lazy.html#v:tell
+Containing package: Control.Monad.Trans.Writer.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	w: (Monoid w; w; Data.Monoid::Monoid)
+	m: (Monad m; m; Control.Monad::Monad)
+}
+Signature = <function> {
+	[parameters]
+	null::w
+
+	[result]
+	Control.Monad.Trans.Writer.Lazy::WriterT {
+		null::w
+		null::m
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+execWriter :: Writer w a -> w
+Name: execWriter
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Writer-Lazy.html#v:execWriter
+Containing package: Control.Monad.Trans.Writer.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	w
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Monad.Trans.Writer.Lazy::Writer {
+		null::w
+		null::a
+	}
+
+	[result]
+	null::w
+}
+
+[Function]
+writer :: Monad m => (a, w) -> WriterT w m a
+Name: writer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Writer-Lazy.html#v:writer
+Containing package: Control.Monad.Trans.Writer.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	a
+	w
+}
+Signature = <function> {
+	[parameters]
+	GHC.Tuple::(,) {
+		null::a
+		null::w
+	}
+
+	[result]
+	Control.Monad.Trans.Writer.Lazy::WriterT {
+		null::w
+		null::m
+		null::a
+	}
+}
+
+[Function]
+mapWriter :: ((a, w) -> (b, w')) -> Writer w a -> Writer w' b
+Name: mapWriter
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Writer-Lazy.html#v:mapWriter
+Containing package: Control.Monad.Trans.Writer.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	w
+	b
+	w'
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		GHC.Tuple::(,) {
+			null::a
+			null::w
+		}
+	
+		[result]
+		GHC.Tuple::(,) {
+			null::b
+			null::w'
+		}
+	}
+	Control.Monad.Trans.Writer.Lazy::Writer {
+		null::w
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.Writer.Lazy::Writer {
+		null::w'
+		null::b
+	}
+}
+
+[Function]
+liftCatch :: (m (a, w) -> (e -> m (a, w)) -> m (a, w)) -> WriterT w m a -> (e -> WriterT w m a) -> WriterT w m a
+Name: liftCatch
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Writer-Lazy.html#v:liftCatch
+Containing package: Control.Monad.Trans.Writer.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m
+	a
+	w
+	e
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::m {
+			GHC.Tuple::(,) {
+				null::a
+				null::w
+			}
+		}
+		<function> {
+			[parameters]
+			null::e
+		
+			[result]
+			null::m {
+				GHC.Tuple::(,) {
+					null::a
+					null::w
+				}
+			}
+		}
+	
+		[result]
+		null::m {
+			GHC.Tuple::(,) {
+				null::a
+				null::w
+			}
+		}
+	}
+	Control.Monad.Trans.Writer.Lazy::WriterT {
+		null::w
+		null::m
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::e
+	
+		[result]
+		Control.Monad.Trans.Writer.Lazy::WriterT {
+			null::w
+			null::m
+			null::a
+		}
+	}
+
+	[result]
+	Control.Monad.Trans.Writer.Lazy::WriterT {
+		null::w
+		null::m
+		null::a
+	}
+}
+
+[Function]
+liftCallCC :: Monoid w => ((((a, w) -> m (b, w)) -> m (a, w)) -> m (a, w)) -> ((a -> WriterT w m b) -> WriterT w m a) -> WriterT w m a
+Name: liftCallCC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Writer-Lazy.html#v:liftCallCC
+Containing package: Control.Monad.Trans.Writer.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	w: (Monoid w; w; Data.Monoid::Monoid)
+	a
+	m
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			<function> {
+				[parameters]
+				GHC.Tuple::(,) {
+					null::a
+					null::w
+				}
+			
+				[result]
+				null::m {
+					GHC.Tuple::(,) {
+						null::b
+						null::w
+					}
+				}
+			}
+		
+			[result]
+			null::m {
+				GHC.Tuple::(,) {
+					null::a
+					null::w
+				}
+			}
+		}
+	
+		[result]
+		null::m {
+			GHC.Tuple::(,) {
+				null::a
+				null::w
+			}
+		}
+	}
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			Control.Monad.Trans.Writer.Lazy::WriterT {
+				null::w
+				null::m
+				null::b
+			}
+		}
+	
+		[result]
+		Control.Monad.Trans.Writer.Lazy::WriterT {
+			null::w
+			null::m
+			null::a
+		}
+	}
+
+	[result]
+	Control.Monad.Trans.Writer.Lazy::WriterT {
+		null::w
+		null::m
+		null::a
+	}
+}
+
+[Function]
+censor :: (Monoid w, Monad m) => (w -> w) -> WriterT w m a -> WriterT w m a
+Name: censor
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Writer-Lazy.html#v:censor
+Containing package: Control.Monad.Trans.Writer.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	w: (Monoid w; w; Data.Monoid::Monoid)
+	m: (Monad m; m; Control.Monad::Monad)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::w
+	
+		[result]
+		null::w
+	}
+	Control.Monad.Trans.Writer.Lazy::WriterT {
+		null::w
+		null::m
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.Writer.Lazy::WriterT {
+		null::w
+		null::m
+		null::a
+	}
+}
+
+[Function]
+listens :: (Monoid w, Monad m) => (w -> b) -> WriterT w m a -> WriterT w m (a, b)
+Name: listens
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Writer-Lazy.html#v:listens
+Containing package: Control.Monad.Trans.Writer.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	w: (Monoid w; w; Data.Monoid::Monoid)
+	m: (Monad m; m; Control.Monad::Monad)
+	b
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::w
+	
+		[result]
+		null::b
+	}
+	Control.Monad.Trans.Writer.Lazy::WriterT {
+		null::w
+		null::m
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.Writer.Lazy::WriterT {
+		null::w
+		null::m
+		GHC.Tuple::(,) {
+			null::a
+			null::b
+		}
+	}
+}

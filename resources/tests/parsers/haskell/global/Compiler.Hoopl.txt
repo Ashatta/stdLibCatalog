@@ -1,0 +1,8153 @@
+[Package]
+Name: Compiler.Hoopl
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html
+Containing package: Compiler
+attributes {
+}
+
+Subpackages {
+	Compiler.Hoopl.Internals
+	Passes
+	Compiler.Hoopl.Wrappers
+}
+
+[Classifier]
+class Monad m => UniqueMonad m where freshUnique :: m Unique
+Name: UniqueMonad
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:UniqueMonad
+Containing package: Compiler.Hoopl
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Compiler.Hoopl::Compiler.Hoopl.UniqueMonad_CheckingFuelMonad<m<>>
+	Compiler.Hoopl::Compiler.Hoopl.UniqueMonad_InfiniteFuelMonad<m<>>
+	Compiler.Hoopl::Compiler.Hoopl.UniqueMonad_SimpleUniqueMonad<>
+	Compiler.Hoopl::Compiler.Hoopl.UniqueMonad_UniqueMonadT<m<>>
+}
+supertypes {
+	Control.Monad::Monad
+}
+members {
+
+	[Function]
+	freshUnique :: m Unique
+	Name: freshUnique
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:freshUnique
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: UniqueMonad
+	parameters {
+		m: (UniqueMonad m; m; Compiler.Hoopl::UniqueMonad)
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		null::m {
+			Compiler.Hoopl::Unique
+		}
+	}
+}
+
+[Classifier]
+data MaybeC ex t where JustC :: t -> MaybeC C t NothingC :: MaybeC O t
+Name: MaybeC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:MaybeC
+Containing package: Compiler.Hoopl
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	ex
+	t
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data CheckingFuelMonad m a
+Name: CheckingFuelMonad
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:CheckingFuelMonad
+Containing package: Compiler.Hoopl
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	m
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ChangeFlag = NoChange | SomeChange
+Name: ChangeFlag
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:ChangeFlag
+Containing package: Compiler.Hoopl
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype FwdRewrite m n f = FwdRewrite3 { getFRewrite3 :: (n C O -> f -> m (Maybe (Graph n C O, FwdRewrite m n f)), n O O -> f -> m (Maybe (Graph n O O, FwdRewrite m n f)), n O C -> f -> m (Maybe (Graph n O C, FwdRewrite m n f)))}
+Name: FwdRewrite
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:FwdRewrite
+Containing package: Compiler.Hoopl
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	m
+	n
+	f
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data UniqueSet
+Name: UniqueSet
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:UniqueSet
+Containing package: Compiler.Hoopl
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class LabelsPtr l where targetLabels :: l -> [Label]
+Name: LabelsPtr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:LabelsPtr
+Containing package: Compiler.Hoopl
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Compiler.Hoopl::Compiler.Hoopl.LabelsPtr_LabelSet<>
+	Compiler.Hoopl::Compiler.Hoopl.LabelsPtr_Label<>
+	other::Compiler.Hoopl.LabelsPtr_List<l<>>
+	other::Compiler.Hoopl.LabelsPtr_n<e<>,C<>>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	targetLabels :: l -> [Label]
+	Name: targetLabels
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:targetLabels
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: LabelsPtr
+	parameters {
+		l: (LabelsPtr l; l; Compiler.Hoopl::LabelsPtr)
+	}
+	Signature = <function> {
+		[parameters]
+		null::l
+	
+		[result]
+		other::List {
+			Compiler.Hoopl::Label
+		}
+	}
+}
+
+[Classifier]
+class Monad m => FuelMonad m where getFuel :: m Fuel setFuel :: Fuel -> m ()
+Name: FuelMonad
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:FuelMonad
+Containing package: Compiler.Hoopl
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	other::Compiler.Hoopl.FuelMonad_Infinitem<>
+	other::Compiler.Hoopl.FuelMonad_Checkingm<>
+}
+supertypes {
+	Control.Monad::Monad
+}
+members {
+
+	[Function]
+	getFuel :: m Fuel
+	Name: getFuel
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:getFuel
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: FuelMonad
+	parameters {
+		m: (FuelMonad m; m; Compiler.Hoopl::FuelMonad)
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		null::m {
+			Compiler.Hoopl::Fuel
+		}
+	}
+
+	[Function]
+	setFuel :: Fuel -> m ()
+	Name: setFuel
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:setFuel
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: FuelMonad
+	parameters {
+		m: (FuelMonad m; m; Compiler.Hoopl::FuelMonad)
+	}
+	Signature = <function> {
+		[parameters]
+		Compiler.Hoopl::Fuel
+	
+		[result]
+		null::m {
+			GHC.Tuple::()
+		}
+	}
+}
+
+[Classifier]
+data MaybeO ex t where JustO :: t -> MaybeO O t NothingO :: MaybeO C t
+Name: MaybeO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:MaybeO
+Containing package: Compiler.Hoopl
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	ex
+	t
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype BwdRewrite m n f = BwdRewrite3 { getBRewrite3 :: (n C O -> f -> m (Maybe (Graph n C O, BwdRewrite m n f)), n O O -> f -> m (Maybe (Graph n O O, BwdRewrite m n f)), n O C -> FactBase f -> m (Maybe (Graph n O C, BwdRewrite m n f)))}
+Name: BwdRewrite
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:BwdRewrite
+Containing package: Compiler.Hoopl
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	m
+	n
+	f
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class IfThenElseable x where mkIfThenElse :: HooplNode n => (Label -> Label -> AGraph n O C) -> AGraph n O x -> AGraph n O x -> AGraph n O x
+Name: IfThenElseable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:IfThenElseable
+Containing package: Compiler.Hoopl
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Compiler.Hoopl.Internals::Compiler.Hoopl.IfThenElseable_O<>
+	Compiler.Hoopl.Internals::Compiler.Hoopl.IfThenElseable_C<>
+	Compiler.Hoopl::Compiler.Hoopl.IfThenElseable_O<>
+	Compiler.Hoopl::Compiler.Hoopl.IfThenElseable_C<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	mkIfThenElse :: HooplNode n => (Label -> Label -> AGraph n O C) -> AGraph n O x -> AGraph n O x -> AGraph n O x
+	Name: mkIfThenElse
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mkIfThenElse
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IfThenElseable
+	parameters {
+		n: (HooplNode n; n; Compiler.Hoopl::HooplNode)
+		x: (IfThenElseable x; x; Compiler.Hoopl::IfThenElseable)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			Compiler.Hoopl::Label
+			Compiler.Hoopl::Label
+		
+			[result]
+			Compiler.Hoopl::AGraph {
+				null::n
+				Compiler.Hoopl::O
+				Compiler.Hoopl::C
+			}
+		}
+		Compiler.Hoopl::AGraph {
+			null::n
+			Compiler.Hoopl::O
+			null::x
+		}
+		Compiler.Hoopl::AGraph {
+			null::n
+			Compiler.Hoopl::O
+			null::x
+		}
+	
+		[result]
+		Compiler.Hoopl::AGraph {
+			null::n
+			Compiler.Hoopl::O
+			null::x
+		}
+	}
+}
+
+[Classifier]
+data UniqueMap v
+Name: UniqueMap
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:UniqueMap
+Containing package: Compiler.Hoopl
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	v
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Pointed t b a where Bot :: Pointed t C a PElem :: a -> Pointed t b a Top :: Pointed C b a
+Name: Pointed
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:Pointed
+Containing package: Compiler.Hoopl
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	t
+	b
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype FwdTransfer n f = FwdTransfer3 { getFTransfer3 :: (n C O -> f -> f, n O O -> f -> f, n O C -> f -> FactBase f)}
+Name: FwdTransfer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:FwdTransfer
+Containing package: Compiler.Hoopl
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	n
+	f
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data LabelMap v
+Name: LabelMap
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:LabelMap
+Containing package: Compiler.Hoopl
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	v
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype NewFact a = NewFact a
+Name: NewFact
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:NewFact
+Containing package: Compiler.Hoopl
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype OldFact a = OldFact a
+Name: O
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:O
+Containing package: Compiler.Hoopl
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data LabelMap v
+Name: Label
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:Label
+Containing package: Compiler.Hoopl
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data BwdPass m n f = BwdPass { bp_lattice :: DataflowLattice f bp_transfer :: BwdTransfer n f bp_rewrite :: BwdRewrite m n f}
+Name: BwdPass
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:BwdPass
+Containing package: Compiler.Hoopl
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	m
+	n
+	f
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Shape ex where Closed :: Shape C Open :: Shape O
+Name: Shape
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:Shape
+Containing package: Compiler.Hoopl
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	ex
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class NonLocal n => HooplNode n where mkBranchNode :: Label -> n O C mkLabelNode :: Label -> n C O
+Name: HooplNode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:HooplNode
+Containing package: Compiler.Hoopl
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	Compiler.Hoopl::NonLocal
+}
+members {
+
+	[Function]
+	mkBranchNode :: Label -> n O C
+	Name: mkBranchNode
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mkBranchNode
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: HooplNode
+	parameters {
+		n: (HooplNode n; n; Compiler.Hoopl::HooplNode)
+	}
+	Signature = <function> {
+		[parameters]
+		Compiler.Hoopl::Label
+	
+		[result]
+		null::n {
+			Compiler.Hoopl::O
+			Compiler.Hoopl::C
+		}
+	}
+
+	[Function]
+	mkLabelNode :: Label -> n C O
+	Name: mkLabelNode
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mkLabelNode
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: HooplNode
+	parameters {
+		n: (HooplNode n; n; Compiler.Hoopl::HooplNode)
+	}
+	Signature = <function> {
+		[parameters]
+		Compiler.Hoopl::Label
+	
+		[result]
+		null::n {
+			Compiler.Hoopl::C
+			Compiler.Hoopl::O
+		}
+	}
+}
+
+[Classifier]
+class FuelMonadT fm where runWithFuel :: (Monad m, FuelMonad (fm m)) => Fuel -> fm m a -> m a liftFuel :: (Monad m, FuelMonad (fm m)) => m a -> fm m a
+Name: FuelMonadT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:FuelMonadT
+Containing package: Compiler.Hoopl
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Compiler.Hoopl::Compiler.Hoopl.FuelMonadT_InfiniteFuelMonad<>
+	Compiler.Hoopl::Compiler.Hoopl.FuelMonadT_CheckingFuelMonad<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	runWithFuel :: (Monad m, FuelMonad (fm m)) => Fuel -> fm m a -> m a
+	Name: runWithFuel
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:runWithFuel
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: FuelMonadT
+	parameters {
+		m: (Monad m; m; Control.Monad::Monad), (FuelMonad (fm m); m, fm; Compiler.Hoopl::FuelMonad)
+		fm: (FuelMonad (fm m); m, fm; Compiler.Hoopl::FuelMonad), (FuelMonadT fm; fm; Compiler.Hoopl::FuelMonadT)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		Compiler.Hoopl::Fuel
+		null::fm {
+			null::m
+			null::a
+		}
+	
+		[result]
+		null::m {
+			null::a
+		}
+	}
+
+	[Function]
+	liftFuel :: (Monad m, FuelMonad (fm m)) => m a -> fm m a
+	Name: liftFuel
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:liftFuel
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: FuelMonadT
+	parameters {
+		m: (Monad m; m; Control.Monad::Monad), (FuelMonad (fm m); m, fm; Compiler.Hoopl::FuelMonad)
+		fm: (FuelMonad (fm m); m, fm; Compiler.Hoopl::FuelMonad), (FuelMonadT fm; fm; Compiler.Hoopl::FuelMonadT)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::m {
+			null::a
+		}
+	
+		[result]
+		null::fm {
+			null::m
+			null::a
+		}
+	}
+}
+
+[Classifier]
+data CheckingFuelMonad m a
+Name: C
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:C
+Containing package: Compiler.Hoopl
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data LabelSet
+Name: LabelSet
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:LabelSet
+Containing package: Compiler.Hoopl
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype BwdTransfer n f = BwdTransfer3 { getBTransfer3 :: (n C O -> f -> f, n O O -> f -> f, n O C -> FactBase f -> f)}
+Name: BwdTransfer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:BwdTransfer
+Containing package: Compiler.Hoopl
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	n
+	f
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype OldFact a = OldFact a
+Name: OldFact
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:OldFact
+Containing package: Compiler.Hoopl
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data SimpleUniqueMonad a
+Name: SimpleUniqueMonad
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:SimpleUniqueMonad
+Containing package: Compiler.Hoopl
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Graph' block n e x where GNil :: Graph' block n O O GUnit :: block n O O -> Graph' block n O O GMany :: MaybeO e (block n O C) -> Body' block n -> MaybeO x (block n C O) -> Graph' block n e x
+Name: Graph'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:Graph'
+Containing package: Compiler.Hoopl
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	block
+	n
+	e
+	x
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class IsSet set where type ElemOf set setNull :: set -> Bool setSize :: set -> Int setMember :: ElemOf set -> set -> Bool setEmpty :: set setSingleton :: ElemOf set -> set setInsert :: ElemOf set -> set -> set setDelete :: ElemOf set -> set -> set setUnion :: set -> set -> set setDifference :: set -> set -> set setIntersection :: set -> set -> set setIsSubsetOf :: set -> set -> Bool setFold :: (ElemOf set -> b -> b) -> b -> set -> b setElems :: set -> [ElemOf set] setFromList :: [ElemOf set] -> set
+Name: IsSet
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:IsSet
+Containing package: Compiler.Hoopl
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Compiler.Hoopl.Internals::Compiler.Hoopl.IsSet_LabelSet<>
+	Compiler.Hoopl::Compiler.Hoopl.IsSet_UniqueSet<>
+	Compiler.Hoopl::Compiler.Hoopl.IsSet_LabelSet<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	setNull :: set -> Bool
+	Name: setNull
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:setNull
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsSet
+	parameters {
+		set: (IsSet set; set; Compiler.Hoopl::IsSet)
+	}
+	Signature = <function> {
+		[parameters]
+		null::set
+	
+		[result]
+		Data.Bool::Bool
+	}
+
+	[Function]
+	setSize :: set -> Int
+	Name: setSize
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:setSize
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsSet
+	parameters {
+		set: (IsSet set; set; Compiler.Hoopl::IsSet)
+	}
+	Signature = <function> {
+		[parameters]
+		null::set
+	
+		[result]
+		Data.Int::Int
+	}
+
+	[Function]
+	setMember :: ElemOf set -> set -> Bool
+	Name: setMember
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:setMember
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsSet
+	parameters {
+		set: (IsSet set; set; Compiler.Hoopl::IsSet)
+	}
+	Signature = <function> {
+		[parameters]
+		null::ElemOf {
+			null::set
+		}
+		null::set
+	
+		[result]
+		Data.Bool::Bool
+	}
+
+	[Function]
+	setEmpty :: set
+	Name: setEmpty
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:setEmpty
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsSet
+	parameters {
+		set: (IsSet set; set; Compiler.Hoopl::IsSet)
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		null::set
+	}
+
+	[Function]
+	setSingleton :: ElemOf set -> set
+	Name: setSingleton
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:setSingleton
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsSet
+	parameters {
+		set: (IsSet set; set; Compiler.Hoopl::IsSet)
+	}
+	Signature = <function> {
+		[parameters]
+		null::ElemOf {
+			null::set
+		}
+	
+		[result]
+		null::set
+	}
+
+	[Function]
+	setInsert :: ElemOf set -> set -> set
+	Name: setInsert
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:setInsert
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsSet
+	parameters {
+		set: (IsSet set; set; Compiler.Hoopl::IsSet)
+	}
+	Signature = <function> {
+		[parameters]
+		null::ElemOf {
+			null::set
+		}
+		null::set
+	
+		[result]
+		null::set
+	}
+
+	[Function]
+	setDelete :: ElemOf set -> set -> set
+	Name: setDelete
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:setDelete
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsSet
+	parameters {
+		set: (IsSet set; set; Compiler.Hoopl::IsSet)
+	}
+	Signature = <function> {
+		[parameters]
+		null::ElemOf {
+			null::set
+		}
+		null::set
+	
+		[result]
+		null::set
+	}
+
+	[Function]
+	setUnion :: set -> set -> set
+	Name: setUnion
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:setUnion
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsSet
+	parameters {
+		set: (IsSet set; set; Compiler.Hoopl::IsSet)
+	}
+	Signature = <function> {
+		[parameters]
+		null::set
+		null::set
+	
+		[result]
+		null::set
+	}
+
+	[Function]
+	setDifference :: set -> set -> set
+	Name: setDifference
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:setDifference
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsSet
+	parameters {
+		set: (IsSet set; set; Compiler.Hoopl::IsSet)
+	}
+	Signature = <function> {
+		[parameters]
+		null::set
+		null::set
+	
+		[result]
+		null::set
+	}
+
+	[Function]
+	setIntersection :: set -> set -> set
+	Name: setIntersection
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:setIntersection
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsSet
+	parameters {
+		set: (IsSet set; set; Compiler.Hoopl::IsSet)
+	}
+	Signature = <function> {
+		[parameters]
+		null::set
+		null::set
+	
+		[result]
+		null::set
+	}
+
+	[Function]
+	setIsSubsetOf :: set -> set -> Bool
+	Name: setIsSubsetOf
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:setIsSubsetOf
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsSet
+	parameters {
+		set: (IsSet set; set; Compiler.Hoopl::IsSet)
+	}
+	Signature = <function> {
+		[parameters]
+		null::set
+		null::set
+	
+		[result]
+		Data.Bool::Bool
+	}
+
+	[Function]
+	setFold :: (ElemOf set -> b -> b) -> b -> set -> b
+	Name: setFold
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:setFold
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsSet
+	parameters {
+		set: (IsSet set; set; Compiler.Hoopl::IsSet)
+		b
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::ElemOf {
+				null::set
+			}
+			null::b
+		
+			[result]
+			null::b
+		}
+		null::b
+		null::set
+	
+		[result]
+		null::b
+	}
+
+	[Function]
+	setElems :: set -> [ElemOf set]
+	Name: setElems
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:setElems
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsSet
+	parameters {
+		set: (IsSet set; set; Compiler.Hoopl::IsSet)
+	}
+	Signature = <function> {
+		[parameters]
+		null::set
+	
+		[result]
+		other::List {
+			null::ElemOf {
+				null::set
+			}
+		}
+	}
+
+	[Function]
+	setFromList :: [ElemOf set] -> set
+	Name: setFromList
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:setFromList
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsSet
+	parameters {
+		set: (IsSet set; set; Compiler.Hoopl::IsSet)
+	}
+	Signature = <function> {
+		[parameters]
+		other::List {
+			null::ElemOf {
+				null::set
+			}
+		}
+	
+		[result]
+		null::set
+	}
+}
+
+[Classifier]
+class IsMap map where type KeyOf map mapNull :: map a -> Bool mapSize :: map a -> Int mapMember :: KeyOf map -> map a -> Bool mapLookup :: KeyOf map -> map a -> Maybe a mapFindWithDefault :: a -> KeyOf map -> map a -> a mapEmpty :: map a mapSingleton :: KeyOf map -> a -> map a mapInsert :: KeyOf map -> a -> map a -> map a mapInsertWith :: (a -> a -> a) -> KeyOf map -> a -> map a -> map a mapDelete :: KeyOf map -> map a -> map a mapUnion :: map a -> map a -> map a mapUnionWithKey :: (KeyOf map -> a -> a -> a) -> map a -> map a -> map a mapDifference :: map a -> map a -> map a mapIntersection :: map a -> map a -> map a mapIsSubmapOf :: Eq a => map a -> map a -> Bool mapMap :: (a -> b) -> map a -> map b mapMapWithKey :: (KeyOf map -> a -> b) -> map a -> map b mapFold :: (a -> b -> b) -> b -> map a -> b mapFoldWithKey :: (KeyOf map -> a -> b -> b) -> b -> map a -> b mapFilter :: (a -> Bool) -> map a -> map a mapElems :: map a -> [a] mapKeys :: map a -> [KeyOf map] mapToList :: map a -> [(KeyOf map, a)] mapFromList :: [(KeyOf map, a)] -> map a mapFromListWith :: (a -> a -> a) -> [(KeyOf map, a)] -> map a
+Name: IsMap
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:IsMap
+Containing package: Compiler.Hoopl
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Compiler.Hoopl.Internals::Compiler.Hoopl.IsMap_LabelMap<>
+	Compiler.Hoopl::Compiler.Hoopl.IsMap_UniqueMap<>
+	Compiler.Hoopl::Compiler.Hoopl.IsMap_LabelMap<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	mapNull :: map a -> Bool
+	Name: mapNull
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapNull
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsMap
+	parameters {
+		map: (IsMap map; map; Compiler.Hoopl::IsMap)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::map {
+			null::a
+		}
+	
+		[result]
+		Data.Bool::Bool
+	}
+
+	[Function]
+	mapSize :: map a -> Int
+	Name: mapSize
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapSize
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsMap
+	parameters {
+		map: (IsMap map; map; Compiler.Hoopl::IsMap)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::map {
+			null::a
+		}
+	
+		[result]
+		Data.Int::Int
+	}
+
+	[Function]
+	mapMember :: KeyOf map -> map a -> Bool
+	Name: mapMember
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapMember
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsMap
+	parameters {
+		map: (IsMap map; map; Compiler.Hoopl::IsMap)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::KeyOf {
+			null::map
+		}
+		null::map {
+			null::a
+		}
+	
+		[result]
+		Data.Bool::Bool
+	}
+
+	[Function]
+	mapLookup :: KeyOf map -> map a -> Maybe a
+	Name: mapLookup
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapLookup
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsMap
+	parameters {
+		map: (IsMap map; map; Compiler.Hoopl::IsMap)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::KeyOf {
+			null::map
+		}
+		null::map {
+			null::a
+		}
+	
+		[result]
+		Data.Maybe::Maybe {
+			null::a
+		}
+	}
+
+	[Function]
+	mapFindWithDefault :: a -> KeyOf map -> map a -> a
+	Name: mapFindWithDefault
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapFindWithDefault
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsMap
+	parameters {
+		a
+		map: (IsMap map; map; Compiler.Hoopl::IsMap)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		null::KeyOf {
+			null::map
+		}
+		null::map {
+			null::a
+		}
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	mapEmpty :: map a
+	Name: mapEmpty
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapEmpty
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsMap
+	parameters {
+		map: (IsMap map; map; Compiler.Hoopl::IsMap)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		null::map {
+			null::a
+		}
+	}
+
+	[Function]
+	mapSingleton :: KeyOf map -> a -> map a
+	Name: mapSingleton
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapSingleton
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsMap
+	parameters {
+		map: (IsMap map; map; Compiler.Hoopl::IsMap)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::KeyOf {
+			null::map
+		}
+		null::a
+	
+		[result]
+		null::map {
+			null::a
+		}
+	}
+
+	[Function]
+	mapInsert :: KeyOf map -> a -> map a -> map a
+	Name: mapInsert
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapInsert
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsMap
+	parameters {
+		map: (IsMap map; map; Compiler.Hoopl::IsMap)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::KeyOf {
+			null::map
+		}
+		null::a
+		null::map {
+			null::a
+		}
+	
+		[result]
+		null::map {
+			null::a
+		}
+	}
+
+	[Function]
+	mapInsertWith :: (a -> a -> a) -> KeyOf map -> a -> map a -> map a
+	Name: mapInsertWith
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapInsertWith
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsMap
+	parameters {
+		a
+		map: (IsMap map; map; Compiler.Hoopl::IsMap)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+			null::a
+		
+			[result]
+			null::a
+		}
+		null::KeyOf {
+			null::map
+		}
+		null::a
+		null::map {
+			null::a
+		}
+	
+		[result]
+		null::map {
+			null::a
+		}
+	}
+
+	[Function]
+	mapDelete :: KeyOf map -> map a -> map a
+	Name: mapDelete
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapDelete
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsMap
+	parameters {
+		map: (IsMap map; map; Compiler.Hoopl::IsMap)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::KeyOf {
+			null::map
+		}
+		null::map {
+			null::a
+		}
+	
+		[result]
+		null::map {
+			null::a
+		}
+	}
+
+	[Function]
+	mapUnion :: map a -> map a -> map a
+	Name: mapUnion
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapUnion
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsMap
+	parameters {
+		map: (IsMap map; map; Compiler.Hoopl::IsMap)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::map {
+			null::a
+		}
+		null::map {
+			null::a
+		}
+	
+		[result]
+		null::map {
+			null::a
+		}
+	}
+
+	[Function]
+	mapUnionWithKey :: (KeyOf map -> a -> a -> a) -> map a -> map a -> map a
+	Name: mapUnionWithKey
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapUnionWithKey
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsMap
+	parameters {
+		map: (IsMap map; map; Compiler.Hoopl::IsMap)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::KeyOf {
+				null::map
+			}
+			null::a
+			null::a
+		
+			[result]
+			null::a
+		}
+		null::map {
+			null::a
+		}
+		null::map {
+			null::a
+		}
+	
+		[result]
+		null::map {
+			null::a
+		}
+	}
+
+	[Function]
+	mapDifference :: map a -> map a -> map a
+	Name: mapDifference
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapDifference
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsMap
+	parameters {
+		map: (IsMap map; map; Compiler.Hoopl::IsMap)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::map {
+			null::a
+		}
+		null::map {
+			null::a
+		}
+	
+		[result]
+		null::map {
+			null::a
+		}
+	}
+
+	[Function]
+	mapIntersection :: map a -> map a -> map a
+	Name: mapIntersection
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapIntersection
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsMap
+	parameters {
+		map: (IsMap map; map; Compiler.Hoopl::IsMap)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::map {
+			null::a
+		}
+		null::map {
+			null::a
+		}
+	
+		[result]
+		null::map {
+			null::a
+		}
+	}
+
+	[Function]
+	mapIsSubmapOf :: Eq a => map a -> map a -> Bool
+	Name: mapIsSubmapOf
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapIsSubmapOf
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsMap
+	parameters {
+		a: (Eq a; a; Data.Eq::Eq)
+		map: (IsMap map; map; Compiler.Hoopl::IsMap)
+	}
+	Signature = <function> {
+		[parameters]
+		null::map {
+			null::a
+		}
+		null::map {
+			null::a
+		}
+	
+		[result]
+		Data.Bool::Bool
+	}
+
+	[Function]
+	mapMap :: (a -> b) -> map a -> map b
+	Name: mapMap
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapMap
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsMap
+	parameters {
+		a
+		b
+		map: (IsMap map; map; Compiler.Hoopl::IsMap)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			null::b
+		}
+		null::map {
+			null::a
+		}
+	
+		[result]
+		null::map {
+			null::b
+		}
+	}
+
+	[Function]
+	mapMapWithKey :: (KeyOf map -> a -> b) -> map a -> map b
+	Name: mapMapWithKey
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapMapWithKey
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsMap
+	parameters {
+		map: (IsMap map; map; Compiler.Hoopl::IsMap)
+		a
+		b
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::KeyOf {
+				null::map
+			}
+			null::a
+		
+			[result]
+			null::b
+		}
+		null::map {
+			null::a
+		}
+	
+		[result]
+		null::map {
+			null::b
+		}
+	}
+
+	[Function]
+	mapFold :: (a -> b -> b) -> b -> map a -> b
+	Name: mapFold
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapFold
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsMap
+	parameters {
+		a
+		b
+		map: (IsMap map; map; Compiler.Hoopl::IsMap)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+			null::b
+		
+			[result]
+			null::b
+		}
+		null::b
+		null::map {
+			null::a
+		}
+	
+		[result]
+		null::b
+	}
+
+	[Function]
+	mapFoldWithKey :: (KeyOf map -> a -> b -> b) -> b -> map a -> b
+	Name: mapFoldWithKey
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapFoldWithKey
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsMap
+	parameters {
+		map: (IsMap map; map; Compiler.Hoopl::IsMap)
+		a
+		b
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::KeyOf {
+				null::map
+			}
+			null::a
+			null::b
+		
+			[result]
+			null::b
+		}
+		null::b
+		null::map {
+			null::a
+		}
+	
+		[result]
+		null::b
+	}
+
+	[Function]
+	mapFilter :: (a -> Bool) -> map a -> map a
+	Name: mapFilter
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapFilter
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsMap
+	parameters {
+		a
+		map: (IsMap map; map; Compiler.Hoopl::IsMap)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			Data.Bool::Bool
+		}
+		null::map {
+			null::a
+		}
+	
+		[result]
+		null::map {
+			null::a
+		}
+	}
+
+	[Function]
+	mapElems :: map a -> [a]
+	Name: mapElems
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapElems
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsMap
+	parameters {
+		map: (IsMap map; map; Compiler.Hoopl::IsMap)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::map {
+			null::a
+		}
+	
+		[result]
+		other::List {
+			null::a
+		}
+	}
+
+	[Function]
+	mapKeys :: map a -> [KeyOf map]
+	Name: mapKeys
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapKeys
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsMap
+	parameters {
+		map: (IsMap map; map; Compiler.Hoopl::IsMap)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::map {
+			null::a
+		}
+	
+		[result]
+		other::List {
+			null::KeyOf {
+				null::map
+			}
+		}
+	}
+
+	[Function]
+	mapToList :: map a -> [(KeyOf map, a)]
+	Name: mapToList
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapToList
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsMap
+	parameters {
+		map: (IsMap map; map; Compiler.Hoopl::IsMap)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::map {
+			null::a
+		}
+	
+		[result]
+		other::List {
+			GHC.Tuple::(,) {
+				null::KeyOf {
+					null::map
+				}
+				null::a
+			}
+		}
+	}
+
+	[Function]
+	mapFromList :: [(KeyOf map, a)] -> map a
+	Name: mapFromList
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapFromList
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsMap
+	parameters {
+		map: (IsMap map; map; Compiler.Hoopl::IsMap)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		other::List {
+			GHC.Tuple::(,) {
+				null::KeyOf {
+					null::map
+				}
+				null::a
+			}
+		}
+	
+		[result]
+		null::map {
+			null::a
+		}
+	}
+
+	[Function]
+	mapFromListWith :: (a -> a -> a) -> [(KeyOf map, a)] -> map a
+	Name: mapFromListWith
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapFromListWith
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: IsMap
+	parameters {
+		a
+		map: (IsMap map; map; Compiler.Hoopl::IsMap)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+			null::a
+		
+			[result]
+			null::a
+		}
+		other::List {
+			GHC.Tuple::(,) {
+				null::KeyOf {
+					null::map
+				}
+				null::a
+			}
+		}
+	
+		[result]
+		null::map {
+			null::a
+		}
+	}
+}
+
+[Classifier]
+class NonLocal thing where entryLabel :: thing C x -> Label successors :: thing e C -> [Label]
+Name: NonLocal
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:NonLocal
+Containing package: Compiler.Hoopl
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Compiler.Hoopl::HooplNode
+	Compiler.Hoopl::Compiler.Hoopl.NonLocal_Block<n<>>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	entryLabel :: thing C x -> Label
+	Name: entryLabel
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:entryLabel
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: NonLocal
+	parameters {
+		thing: (NonLocal thing; thing; Compiler.Hoopl::NonLocal)
+		x
+	}
+	Signature = <function> {
+		[parameters]
+		null::thing {
+			Compiler.Hoopl::C
+			null::x
+		}
+	
+		[result]
+		Compiler.Hoopl::Label
+	}
+
+	[Function]
+	successors :: thing e C -> [Label]
+	Name: successors
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:successors
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: NonLocal
+	parameters {
+		thing: (NonLocal thing; thing; Compiler.Hoopl::NonLocal)
+		e
+	}
+	Signature = <function> {
+		[parameters]
+		null::thing {
+			null::e
+			Compiler.Hoopl::C
+		}
+	
+		[result]
+		other::List {
+			Compiler.Hoopl::Label
+		}
+	}
+}
+
+[Classifier]
+data AGraph n e x
+Name: AGraph
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:AGraph
+Containing package: Compiler.Hoopl
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	n
+	e
+	x
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Block n e x where BlockCO :: n C O -> Block n O O -> Block n C O BlockCC :: n C O -> Block n O O -> n O C -> Block n C C BlockOC :: Block n O O -> n O C -> Block n O C BNil :: Block n O O BMiddle :: n O O -> Block n O O BCat :: Block n O O -> Block n O O -> Block n O O BSnoc :: Block n O O -> n O O -> Block n O O BCons :: n O O -> Block n O O -> Block n O O
+Name: Block
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:Block
+Containing package: Compiler.Hoopl
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	n
+	e
+	x
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data FwdPass m n f = FwdPass { fp_lattice :: DataflowLattice f fp_transfer :: FwdTransfer n f fp_rewrite :: FwdRewrite m n f}
+Name: FwdPass
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:FwdPass
+Containing package: Compiler.Hoopl
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	m
+	n
+	f
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data InfiniteFuelMonad m a
+Name: InfiniteFuelMonad
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:InfiniteFuelMonad
+Containing package: Compiler.Hoopl
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	m
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data UniqueMonadT m a
+Name: UniqueMonadT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:UniqueMonadT
+Containing package: Compiler.Hoopl
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	m
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class Monad m => CheckpointMonad m where type Checkpoint m checkpoint :: m (Checkpoint m) restart :: Checkpoint m -> m ()
+Name: CheckpointMonad
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:CheckpointMonad
+Containing package: Compiler.Hoopl
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Compiler.Hoopl::Compiler.Hoopl.CheckpointMonad_SimpleUniqueMonad<>
+	Compiler.Hoopl::Compiler.Hoopl.CheckpointMonad_InfiniteFuelMonad<m<>>
+	Compiler.Hoopl::Compiler.Hoopl.CheckpointMonad_CheckingFuelMonad<m<>>
+}
+supertypes {
+	Control.Monad::Monad
+}
+members {
+
+	[Function]
+	checkpoint :: m (Checkpoint m)
+	Name: checkpoint
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:checkpoint
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: CheckpointMonad
+	parameters {
+		m: (CheckpointMonad m; m; Compiler.Hoopl::CheckpointMonad)
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		null::m {
+			null::Checkpoint {
+				null::m
+			}
+		}
+	}
+
+	[Function]
+	restart :: Checkpoint m -> m ()
+	Name: restart
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:restart
+	Containing package: Compiler.Hoopl
+	attributes {
+		memberType=function
+	}
+	Containing type: CheckpointMonad
+	parameters {
+		m: (CheckpointMonad m; m; Compiler.Hoopl::CheckpointMonad)
+	}
+	Signature = <function> {
+		[parameters]
+		null::Checkpoint {
+			null::m
+		}
+	
+		[result]
+		null::m {
+			GHC.Tuple::()
+		}
+	}
+}
+
+[Classifier]
+data DataflowLattice a = DataflowLattice { fact_name :: String fact_bot :: a fact_join :: JoinFun a}
+Name: DataflowLattice
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:DataflowLattice
+Containing package: Compiler.Hoopl
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type SimpleFuelMonad = CheckingFuelMonad SimpleUniqueMonad
+Name: SimpleFuelMonad
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:SimpleFuelMonad
+Containing package: Compiler.Hoopl
+attributes {
+}
+parameters {
+}
+Aliased type = Compiler.Hoopl::CheckingFuelMonad {
+	Compiler.Hoopl::SimpleUniqueMonad
+}
+
+[Alias]
+type JoinFun a = Label -> OldFact a -> NewFact a -> (ChangeFlag, a)
+Name: JoinFun
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:JoinFun
+Containing package: Compiler.Hoopl
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = <function> {
+	[parameters]
+	Compiler.Hoopl::Label
+	Compiler.Hoopl::OldFact {
+		null::a
+	}
+	Compiler.Hoopl::NewFact {
+		null::a
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		Compiler.Hoopl::ChangeFlag
+		null::a
+	}
+}
+
+[Alias]
+type WithBot a = Pointed O C a
+Name: WithBot
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:WithBot
+Containing package: Compiler.Hoopl
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = Compiler.Hoopl::Pointed {
+	Compiler.Hoopl::O
+	Compiler.Hoopl::C
+	null::a
+}
+
+[Alias]
+type Unique = Int
+Name: Unique
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:Unique
+Containing package: Compiler.Hoopl
+attributes {
+}
+parameters {
+}
+Aliased type = Data.Int::Int
+
+[Alias]
+type TraceFn = forall a. String -> a -> a
+Name: TraceFn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:TraceFn
+Containing package: Compiler.Hoopl
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = <function> {
+	[parameters]
+	Data.String::String
+	null::a
+
+	[result]
+	null::a
+}
+
+[Alias]
+type FactBase f = LabelMap f
+Name: FactBase
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:FactBase
+Containing package: Compiler.Hoopl
+attributes {
+}
+parameters {
+	f
+}
+Aliased type = Compiler.Hoopl::LabelMap {
+	null::f
+}
+
+[Alias]
+type Body' block n = LabelMap (block n C C)
+Name: Body'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:Body'
+Containing package: Compiler.Hoopl
+attributes {
+}
+parameters {
+	block
+	n
+}
+Aliased type = Compiler.Hoopl::LabelMap {
+	null::block {
+		null::n
+		Compiler.Hoopl::C
+		Compiler.Hoopl::C
+	}
+}
+
+[Alias]
+type Fuel = Int
+Name: Fuel
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:Fuel
+Containing package: Compiler.Hoopl
+attributes {
+}
+parameters {
+}
+Aliased type = Data.Int::Int
+
+[Alias]
+type Graph = Graph' Block
+Name: Graph
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:Graph
+Containing package: Compiler.Hoopl
+attributes {
+}
+parameters {
+}
+Aliased type = Compiler.Hoopl::Graph' {
+	Compiler.Hoopl::Block
+}
+
+[Alias]
+type Body' block n = LabelMap (block n C C)
+Name: Body
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:Body
+Containing package: Compiler.Hoopl
+attributes {
+}
+parameters {
+	block
+	n
+}
+Aliased type = Compiler.Hoopl::LabelMap {
+	null::block {
+		null::n
+		Compiler.Hoopl::C
+		Compiler.Hoopl::C
+	}
+}
+
+[Alias]
+type WithTopAndBot a = Pointed C C a
+Name: WithTopAndBot
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:WithTopAndBot
+Containing package: Compiler.Hoopl
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = Compiler.Hoopl::Pointed {
+	Compiler.Hoopl::C
+	Compiler.Hoopl::C
+	null::a
+}
+
+[Alias]
+type WithTopAndBot a = Pointed C C a
+Name: WithTop
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#t:WithTop
+Containing package: Compiler.Hoopl
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = Compiler.Hoopl::Pointed {
+	Compiler.Hoopl::C
+	Compiler.Hoopl::C
+	null::a
+}
+
+[Function]
+uniqueToInt :: Unique -> Int
+Name: uniqueToInt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:uniqueToInt
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Unique
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+addPoints :: String -> JoinFun a -> DataflowLattice (Pointed t C a)
+Name: addPoints
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:addPoints
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	t
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Compiler.Hoopl::JoinFun {
+		null::a
+	}
+
+	[result]
+	Compiler.Hoopl::DataflowLattice {
+		Compiler.Hoopl::Pointed {
+			null::t
+			Compiler.Hoopl::C
+			null::a
+		}
+	}
+}
+
+[Function]
+analyzeAndRewriteFwdBody :: forall m n f entries. (CheckpointMonad m, NonLocal n, LabelsPtr entries) => FwdPass m n f -> entries -> Body n -> FactBase f -> m (Body n, FactBase f)
+Name: analyzeAndRewriteFwdBody
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:analyzeAndRewriteFwdBody
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (CheckpointMonad m; m; Compiler.Hoopl::CheckpointMonad)
+	n: (NonLocal n; n; Compiler.Hoopl::NonLocal)
+	entries: (LabelsPtr entries; entries; Compiler.Hoopl::LabelsPtr)
+	f
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::FwdPass {
+		null::m
+		null::n
+		null::f
+	}
+	null::entries
+	Compiler.Hoopl::Body {
+		null::n
+	}
+	Compiler.Hoopl::FactBase {
+		null::f
+	}
+
+	[result]
+	null::m {
+		GHC.Tuple::(,) {
+			Compiler.Hoopl::Body {
+				null::n
+			}
+			Compiler.Hoopl::FactBase {
+				null::f
+			}
+		}
+	}
+}
+
+[Function]
+extendJoinDomain :: forall a. (Label -> OldFact a -> NewFact a -> (ChangeFlag, WithTop a)) -> JoinFun (WithTop a)
+Name: extendJoinDomain
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:extendJoinDomain
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Compiler.Hoopl::Label
+		Compiler.Hoopl::OldFact {
+			null::a
+		}
+		Compiler.Hoopl::NewFact {
+			null::a
+		}
+	
+		[result]
+		GHC.Tuple::(,) {
+			Compiler.Hoopl::ChangeFlag
+			Compiler.Hoopl::WithTop {
+				null::a
+			}
+		}
+	}
+
+	[result]
+	Compiler.Hoopl::JoinFun {
+		Compiler.Hoopl::WithTop {
+			null::a
+		}
+	}
+}
+
+[Function]
+analyzeAndRewriteFwd :: forall m n f e x entries. (CheckpointMonad m, NonLocal n, LabelsPtr entries) => FwdPass m n f -> MaybeC e entries -> Graph n e x -> Fact e f -> m (Graph n e x, FactBase f, MaybeO x f)
+Name: analyzeAndRewriteFwd
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:analyzeAndRewriteFwd
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (CheckpointMonad m; m; Compiler.Hoopl::CheckpointMonad)
+	n: (NonLocal n; n; Compiler.Hoopl::NonLocal)
+	entries: (LabelsPtr entries; entries; Compiler.Hoopl::LabelsPtr)
+	f
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::FwdPass {
+		null::m
+		null::n
+		null::f
+	}
+	Compiler.Hoopl::MaybeC {
+		null::e
+		null::entries
+	}
+	null::Graph {
+		null::n
+		null::e
+		null::x
+	}
+	null::Fact {
+		null::e
+		null::f
+	}
+
+	[result]
+	null::m {
+		GHC.Tuple::(,,) {
+			null::Graph {
+				null::n
+				null::e
+				null::x
+			}
+			Compiler.Hoopl::FactBase {
+				null::f
+			}
+			Compiler.Hoopl::MaybeO {
+				null::x
+				null::f
+			}
+		}
+	}
+}
+
+[Function]
+gSplice :: NonLocal n => Graph n e a -> Graph n a x -> Graph n e x
+Name: gSplice
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:gSplice
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n: (NonLocal n; n; Compiler.Hoopl::NonLocal)
+	e
+	a
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Graph {
+		null::n
+		null::e
+		null::a
+	}
+	Compiler.Hoopl::Graph {
+		null::n
+		null::a
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl::Graph {
+		null::n
+		null::e
+		null::x
+	}
+}
+
+[Function]
+thenBwdRw :: forall m n f. Monad m => BwdRewrite m n f -> BwdRewrite m n f -> BwdRewrite m n f
+Name: thenBwdRw
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:thenBwdRw
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	n
+	f
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::BwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+	Compiler.Hoopl::BwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+
+	[result]
+	Compiler.Hoopl::BwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+}
+
+[Function]
+mapGraph :: (forall e x. n e x -> n' e x) -> Graph n e x -> Graph n' e x
+Name: mapGraph
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapGraph
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+	n'
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			null::e
+			null::x
+		}
+	
+		[result]
+		null::n' {
+			null::e
+			null::x
+		}
+	}
+	Compiler.Hoopl::Graph {
+		null::n
+		null::e
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl::Graph {
+		null::n'
+		null::e
+		null::x
+	}
+}
+
+[Function]
+endNodes :: Block n C C -> (n C O, n O C)
+Name: endNodes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:endNodes
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Block {
+		null::n
+		Compiler.Hoopl::C
+		Compiler.Hoopl::C
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		null::n {
+			Compiler.Hoopl::C
+			Compiler.Hoopl::O
+		}
+		null::n {
+			Compiler.Hoopl::O
+			Compiler.Hoopl::C
+		}
+	}
+}
+
+[Function]
+mkBTransfer3 :: (n C O -> f -> f) -> (n O O -> f -> f) -> (n O C -> FactBase f -> f) -> BwdTransfer n f
+Name: mkBTransfer3
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mkBTransfer3
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	f
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl::C
+			Compiler.Hoopl::O
+		}
+		null::f
+	
+		[result]
+		null::f
+	}
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl::O
+			Compiler.Hoopl::O
+		}
+		null::f
+	
+		[result]
+		null::f
+	}
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl::O
+			Compiler.Hoopl::C
+		}
+		Compiler.Hoopl::FactBase {
+			null::f
+		}
+	
+		[result]
+		null::f
+	}
+
+	[result]
+	Compiler.Hoopl::BwdTransfer {
+		null::n
+		null::f
+	}
+}
+
+[Function]
+mkBTransfer :: (forall e x. n e x -> Fact x f -> f) -> BwdTransfer n f
+Name: mkBTransfer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mkBTransfer
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+	f
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			null::e
+			null::x
+		}
+		null::Fact {
+			null::x
+			null::f
+		}
+	
+		[result]
+		null::f
+	}
+
+	[result]
+	Compiler.Hoopl::BwdTransfer {
+		null::n
+		null::f
+	}
+}
+
+[Function]
+mapBlock :: (forall e x. n e x -> n' e x) -> Block n e x -> Block n' e x
+Name: mapBlock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapBlock
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+	n'
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			null::e
+			null::x
+		}
+	
+		[result]
+		null::n' {
+			null::e
+			null::x
+		}
+	}
+	Compiler.Hoopl::Block {
+		null::n
+		null::e
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl::Block {
+		null::n'
+		null::e
+		null::x
+	}
+}
+
+[Function]
+distributeFact :: NonLocal n => n O C -> f -> FactBase f
+Name: distributeFact
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:distributeFact
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n: (NonLocal n; n; Compiler.Hoopl::NonLocal)
+	f
+}
+Signature = <function> {
+	[parameters]
+	null::n {
+		Compiler.Hoopl::O
+		Compiler.Hoopl::C
+	}
+	null::f
+
+	[result]
+	Compiler.Hoopl::FactBase {
+		null::f
+	}
+}
+
+[Function]
+mapDeleteList :: IsMap map => [KeyOf map] -> map a -> map a
+Name: mapDeleteList
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapDeleteList
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	map: (IsMap map; map; Compiler.Hoopl::IsMap)
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::KeyOf {
+			null::map
+		}
+	}
+	null::map {
+		null::a
+	}
+
+	[result]
+	null::map {
+		null::a
+	}
+}
+
+[Function]
+(<*>) :: (GraphRep g, NonLocal n) => g n e O -> g n O x -> g n e x
+Name: (<*>)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:(<*>)
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	g: (GraphRep g; g; )
+	n: (NonLocal n; n; Compiler.Hoopl::NonLocal)
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	null::g {
+		null::n
+		null::e
+		Compiler.Hoopl::O
+	}
+	null::g {
+		null::n
+		Compiler.Hoopl::O
+		null::x
+	}
+
+	[result]
+	null::g {
+		null::n
+		null::e
+		null::x
+	}
+}
+
+[Function]
+foldBlockNodesB3 :: forall n a b c. (n C O -> b -> c, n O O -> b -> b, n O C -> a -> b) -> forall e x. Block n e x -> IndexedCO x a b -> IndexedCO e c b
+Name: foldBlockNodesB3
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:foldBlockNodesB3
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	b
+	c
+	a
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	GHC.Tuple::(,,) {
+		<function> {
+			[parameters]
+			null::n {
+				Compiler.Hoopl::C
+				Compiler.Hoopl::O
+			}
+			null::b
+		
+			[result]
+			null::c
+		}
+		<function> {
+			[parameters]
+			null::n {
+				Compiler.Hoopl::O
+				Compiler.Hoopl::O
+			}
+			null::b
+		
+			[result]
+			null::b
+		}
+		<function> {
+			[parameters]
+			null::n {
+				Compiler.Hoopl::O
+				Compiler.Hoopl::C
+			}
+			null::a
+		
+			[result]
+			null::b
+		}
+	}
+	Compiler.Hoopl::Block {
+		null::n
+		null::e
+		null::x
+	}
+	null::IndexedCO {
+		null::x
+		null::a
+		null::b
+	}
+
+	[result]
+	null::IndexedCO {
+		null::e
+		null::c
+		null::b
+	}
+}
+
+[Function]
+mkWhileDo :: HooplNode n => (Label -> Label -> AGraph n O C) -> AGraph n O O -> AGraph n O O
+Name: mkWhileDo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mkWhileDo
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n: (HooplNode n; n; Compiler.Hoopl::HooplNode)
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Compiler.Hoopl::Label
+		Compiler.Hoopl::Label
+	
+		[result]
+		Compiler.Hoopl::AGraph {
+			null::n
+			Compiler.Hoopl::O
+			Compiler.Hoopl::C
+		}
+	}
+	Compiler.Hoopl::AGraph {
+		null::n
+		Compiler.Hoopl::O
+		Compiler.Hoopl::O
+	}
+
+	[result]
+	Compiler.Hoopl::AGraph {
+		null::n
+		Compiler.Hoopl::O
+		Compiler.Hoopl::O
+	}
+}
+
+[Function]
+deepFwdRw3 :: FuelMonad m => (n C O -> f -> m (Maybe (Graph n C O))) -> (n O O -> f -> m (Maybe (Graph n O O))) -> (n O C -> f -> m (Maybe (Graph n O C))) -> FwdRewrite m n f
+Name: deepFwdRw3
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:deepFwdRw3
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (FuelMonad m; m; Compiler.Hoopl::FuelMonad)
+	n
+	f
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl::C
+			Compiler.Hoopl::O
+		}
+		null::f
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				Compiler.Hoopl::Graph {
+					null::n
+					Compiler.Hoopl::C
+					Compiler.Hoopl::O
+				}
+			}
+		}
+	}
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl::O
+			Compiler.Hoopl::O
+		}
+		null::f
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				Compiler.Hoopl::Graph {
+					null::n
+					Compiler.Hoopl::O
+					Compiler.Hoopl::O
+				}
+			}
+		}
+	}
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl::O
+			Compiler.Hoopl::C
+		}
+		null::f
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				Compiler.Hoopl::Graph {
+					null::n
+					Compiler.Hoopl::O
+					Compiler.Hoopl::C
+				}
+			}
+		}
+	}
+
+	[result]
+	Compiler.Hoopl::FwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+}
+
+[Function]
+addEntrySeq :: NonLocal n => AGraph n O C -> AGraph n C x -> AGraph n O x
+Name: addEntrySeq
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:addEntrySeq
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n: (NonLocal n; n; Compiler.Hoopl::NonLocal)
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::AGraph {
+		null::n
+		Compiler.Hoopl::O
+		Compiler.Hoopl::C
+	}
+	Compiler.Hoopl::AGraph {
+		null::n
+		Compiler.Hoopl::C
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl::AGraph {
+		null::n
+		Compiler.Hoopl::O
+		null::x
+	}
+}
+
+[Function]
+joinFacts :: DataflowLattice f -> Label -> [f] -> f
+Name: joinFacts
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:joinFacts
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	f
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::DataflowLattice {
+		null::f
+	}
+	Compiler.Hoopl::Label
+	other::List {
+		null::f
+	}
+
+	[result]
+	null::f
+}
+
+[Function]
+bodyList :: NonLocal (block n) => Body' block n -> [(Label, block n C C)]
+Name: bodyList
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:bodyList
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block: (NonLocal (block n); block, n; Compiler.Hoopl::NonLocal)
+	n: (NonLocal (block n); block, n; Compiler.Hoopl::NonLocal)
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Body' {
+		null::block
+		null::n
+	}
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			Compiler.Hoopl::Label
+			null::block {
+				null::n
+				Compiler.Hoopl::C
+				Compiler.Hoopl::C
+			}
+		}
+	}
+}
+
+[Function]
+graphOfAGraph :: AGraph n e x -> forall m. UniqueMonad m => m (Graph n e x)
+Name: graphOfAGraph
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:graphOfAGraph
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n: (AGraph n e x -> UniqueMonad m; n, e, x, m; Compiler.Hoopl::AGraph, Compiler.Hoopl::UniqueMonad)
+	e: (AGraph n e x -> UniqueMonad m; n, e, x, m; Compiler.Hoopl::AGraph, Compiler.Hoopl::UniqueMonad)
+	x: (AGraph n e x -> UniqueMonad m; n, e, x, m; Compiler.Hoopl::AGraph, Compiler.Hoopl::UniqueMonad)
+	m: (AGraph n e x -> UniqueMonad m; n, e, x, m; Compiler.Hoopl::AGraph, Compiler.Hoopl::UniqueMonad)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	null::m {
+		Compiler.Hoopl::Graph {
+			null::n
+			null::e
+			null::x
+		}
+	}
+}
+
+[Function]
+mapInsertList :: IsMap map => [(KeyOf map, a)] -> map a -> map a
+Name: mapInsertList
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapInsertList
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	map: (IsMap map; map; Compiler.Hoopl::IsMap)
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		GHC.Tuple::(,) {
+			null::KeyOf {
+				null::map
+			}
+			null::a
+		}
+	}
+	null::map {
+		null::a
+	}
+
+	[result]
+	null::map {
+		null::a
+	}
+}
+
+[Function]
+deepBwdRw3 :: FuelMonad m => (n C O -> f -> m (Maybe (Graph n C O))) -> (n O O -> f -> m (Maybe (Graph n O O))) -> (n O C -> FactBase f -> m (Maybe (Graph n O C))) -> BwdRewrite m n f
+Name: deepBwdRw3
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:deepBwdRw3
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (FuelMonad m; m; Compiler.Hoopl::FuelMonad)
+	n
+	f
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl::C
+			Compiler.Hoopl::O
+		}
+		null::f
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				Compiler.Hoopl::Graph {
+					null::n
+					Compiler.Hoopl::C
+					Compiler.Hoopl::O
+				}
+			}
+		}
+	}
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl::O
+			Compiler.Hoopl::O
+		}
+		null::f
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				Compiler.Hoopl::Graph {
+					null::n
+					Compiler.Hoopl::O
+					Compiler.Hoopl::O
+				}
+			}
+		}
+	}
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl::O
+			Compiler.Hoopl::C
+		}
+		Compiler.Hoopl::FactBase {
+			null::f
+		}
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				Compiler.Hoopl::Graph {
+					null::n
+					Compiler.Hoopl::O
+					Compiler.Hoopl::C
+				}
+			}
+		}
+	}
+
+	[result]
+	Compiler.Hoopl::BwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+}
+
+[Function]
+splice :: forall block n e a x. NonLocal (block n) => (forall e x. block n e O -> block n O x -> block n e x) -> Graph' block n e a -> Graph' block n a x -> Graph' block n e x
+Name: splice
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:splice
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block: (NonLocal (block n); block, n; Compiler.Hoopl::NonLocal)
+	n: (NonLocal (block n); block, n; Compiler.Hoopl::NonLocal)
+	e
+	x
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::block {
+			null::n
+			null::e
+			Compiler.Hoopl::O
+		}
+		null::block {
+			null::n
+			Compiler.Hoopl::O
+			null::x
+		}
+	
+		[result]
+		null::block {
+			null::n
+			null::e
+			null::x
+		}
+	}
+	Compiler.Hoopl::Graph' {
+		null::block
+		null::n
+		null::e
+		null::a
+	}
+	Compiler.Hoopl::Graph' {
+		null::block
+		null::n
+		null::a
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl::Graph' {
+		null::block
+		null::n
+		null::e
+		null::x
+	}
+}
+
+[Function]
+setDeleteList :: IsSet set => [ElemOf set] -> set -> set
+Name: setDeleteList
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:setDeleteList
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	set: (IsSet set; set; Compiler.Hoopl::IsSet)
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::ElemOf {
+			null::set
+		}
+	}
+	null::set
+
+	[result]
+	null::set
+}
+
+[Function]
+analyzeAndRewriteFwdOx :: forall m n f x. (CheckpointMonad m, NonLocal n) => FwdPass m n f -> Graph n O x -> f -> m (Graph n O x, FactBase f, MaybeO x f)
+Name: analyzeAndRewriteFwdOx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:analyzeAndRewriteFwdOx
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (CheckpointMonad m; m; Compiler.Hoopl::CheckpointMonad)
+	n: (NonLocal n; n; Compiler.Hoopl::NonLocal)
+	f
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::FwdPass {
+		null::m
+		null::n
+		null::f
+	}
+	Compiler.Hoopl::Graph {
+		null::n
+		Compiler.Hoopl::O
+		null::x
+	}
+	null::f
+
+	[result]
+	null::m {
+		GHC.Tuple::(,,) {
+			Compiler.Hoopl::Graph {
+				null::n
+				Compiler.Hoopl::O
+				null::x
+			}
+			Compiler.Hoopl::FactBase {
+				null::f
+			}
+			Compiler.Hoopl::MaybeO {
+				null::x
+				null::f
+			}
+		}
+	}
+}
+
+[Function]
+debugBwdTransfers :: forall m n f. Show f => TraceFn -> ShowN n -> BPred n f -> BwdPass m n f -> BwdPass m n f
+Name: debugBwdTransfers
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:debugBwdTransfers
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	f: (Show f; f; Text.Show::Show)
+	n
+	m
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::TraceFn
+	null::ShowN {
+		null::n
+	}
+	null::BPred {
+		null::n
+		null::f
+	}
+	Compiler.Hoopl::BwdPass {
+		null::m
+		null::n
+		null::f
+	}
+
+	[result]
+	Compiler.Hoopl::BwdPass {
+		null::m
+		null::n
+		null::f
+	}
+}
+
+[Function]
+blockSplitTail :: Block n e C -> (Block n e O, n O C)
+Name: blockSplitTail
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:blockSplitTail
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Block {
+		null::n
+		null::e
+		Compiler.Hoopl::C
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		Compiler.Hoopl::Block {
+			null::n
+			null::e
+			Compiler.Hoopl::O
+		}
+		null::n {
+			Compiler.Hoopl::O
+			Compiler.Hoopl::C
+		}
+	}
+}
+
+[Function]
+mkFirst :: GraphRep g => n C O -> g n C O
+Name: mkFirst
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mkFirst
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	g: (GraphRep g; g; )
+	n
+}
+Signature = <function> {
+	[parameters]
+	null::n {
+		Compiler.Hoopl::C
+		Compiler.Hoopl::O
+	}
+
+	[result]
+	null::g {
+		null::n
+		Compiler.Hoopl::C
+		Compiler.Hoopl::O
+	}
+}
+
+[Function]
+mapBlock' :: (forall e x. n e x -> n' e x) -> Block n e x -> Block n' e x
+Name: mapBlock'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapBlock'
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+	n'
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			null::e
+			null::x
+		}
+	
+		[result]
+		null::n' {
+			null::e
+			null::x
+		}
+	}
+	Compiler.Hoopl::Block {
+		null::n
+		null::e
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl::Block {
+		null::n'
+		null::e
+		null::x
+	}
+}
+
+[Function]
+addBlocks :: HooplNode n => AGraph n e x -> AGraph n C C -> AGraph n e x
+Name: addBlocks
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:addBlocks
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n: (HooplNode n; n; Compiler.Hoopl::HooplNode)
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::AGraph {
+		null::n
+		null::e
+		null::x
+	}
+	Compiler.Hoopl::AGraph {
+		null::n
+		Compiler.Hoopl::C
+		Compiler.Hoopl::C
+	}
+
+	[result]
+	Compiler.Hoopl::AGraph {
+		null::n
+		null::e
+		null::x
+	}
+}
+
+[Function]
+mapGraphBlocks :: forall block n block' n' e x. (forall e x. block n e x -> block' n' e x) -> Graph' block n e x -> Graph' block' n' e x
+Name: mapGraphBlocks
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapGraphBlocks
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block
+	n
+	e
+	x
+	block'
+	n'
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::block {
+			null::n
+			null::e
+			null::x
+		}
+	
+		[result]
+		null::block' {
+			null::n'
+			null::e
+			null::x
+		}
+	}
+	Compiler.Hoopl::Graph' {
+		null::block
+		null::n
+		null::e
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl::Graph' {
+		null::block'
+		null::n'
+		null::e
+		null::x
+	}
+}
+
+[Function]
+blockGraph :: NonLocal n => Block n e x -> Graph n e x
+Name: blockGraph
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:blockGraph
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n: (NonLocal n; n; Compiler.Hoopl::NonLocal)
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Block {
+		null::n
+		null::e
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl::Graph {
+		null::n
+		null::e
+		null::x
+	}
+}
+
+[Function]
+addExitSeq :: NonLocal n => AGraph n e C -> AGraph n C O -> AGraph n e O
+Name: addExitSeq
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:addExitSeq
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n: (NonLocal n; n; Compiler.Hoopl::NonLocal)
+	e
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::AGraph {
+		null::n
+		null::e
+		Compiler.Hoopl::C
+	}
+	Compiler.Hoopl::AGraph {
+		null::n
+		Compiler.Hoopl::C
+		Compiler.Hoopl::O
+	}
+
+	[result]
+	Compiler.Hoopl::AGraph {
+		null::n
+		null::e
+		Compiler.Hoopl::O
+	}
+}
+
+[Function]
+runUniqueMonadT :: Monad m => UniqueMonadT m a -> m a
+Name: runUniqueMonadT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:runUniqueMonadT
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	a
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::UniqueMonadT {
+		null::m
+		null::a
+	}
+
+	[result]
+	null::m {
+		null::a
+	}
+}
+
+[Function]
+addTop' :: forall a. String -> a -> (Label -> OldFact a -> NewFact a -> (ChangeFlag, WithTop a)) -> DataflowLattice (WithTop a)
+Name: addTop'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:addTop'
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	null::a
+	<function> {
+		[parameters]
+		Compiler.Hoopl::Label
+		Compiler.Hoopl::OldFact {
+			null::a
+		}
+		Compiler.Hoopl::NewFact {
+			null::a
+		}
+	
+		[result]
+		GHC.Tuple::(,) {
+			Compiler.Hoopl::ChangeFlag
+			Compiler.Hoopl::WithTop {
+				null::a
+			}
+		}
+	}
+
+	[result]
+	Compiler.Hoopl::DataflowLattice {
+		Compiler.Hoopl::WithTop {
+			null::a
+		}
+	}
+}
+
+[Function]
+postorder_dfs_from_except :: forall block e. (NonLocal block, LabelsPtr e) => LabelMap (block C C) -> e -> LabelSet -> [block C C]
+Name: postorder_dfs_from_except
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:postorder_dfs_from_except
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block: (NonLocal block; block; Compiler.Hoopl::NonLocal)
+	e: (LabelsPtr e; e; Compiler.Hoopl::LabelsPtr)
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::LabelMap {
+		null::block {
+			Compiler.Hoopl::C
+			Compiler.Hoopl::C
+		}
+	}
+	null::e
+	Compiler.Hoopl::LabelSet
+
+	[result]
+	other::List {
+		null::block {
+			Compiler.Hoopl::C
+			Compiler.Hoopl::C
+		}
+	}
+}
+
+[Function]
+blockAppend :: Block n e O -> Block n O x -> Block n e x
+Name: blockAppend
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:blockAppend
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Block {
+		null::n
+		null::e
+		Compiler.Hoopl::O
+	}
+	Compiler.Hoopl::Block {
+		null::n
+		Compiler.Hoopl::O
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl::Block {
+		null::n
+		null::e
+		null::x
+	}
+}
+
+[Function]
+withFuel :: FuelMonad m => Maybe a -> m (Maybe a)
+Name: withFuel
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:withFuel
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (FuelMonad m; m; Compiler.Hoopl::FuelMonad)
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Maybe::Maybe {
+		null::a
+	}
+
+	[result]
+	null::m {
+		Data.Maybe::Maybe {
+			null::a
+		}
+	}
+}
+
+[Function]
+firstXfer :: NonLocal n => (n C O -> f -> f) -> n C O -> FactBase f -> f
+Name: firstXfer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:firstXfer
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n: (NonLocal n; n; Compiler.Hoopl::NonLocal)
+	f
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl::C
+			Compiler.Hoopl::O
+		}
+		null::f
+	
+		[result]
+		null::f
+	}
+	null::n {
+		Compiler.Hoopl::C
+		Compiler.Hoopl::O
+	}
+	Compiler.Hoopl::FactBase {
+		null::f
+	}
+
+	[result]
+	null::f
+}
+
+[Function]
+mkEntry :: GraphRep g => Block n O C -> g n O C
+Name: mkEntry
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mkEntry
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	g: (GraphRep g; g; )
+	n
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Block {
+		null::n
+		Compiler.Hoopl::O
+		Compiler.Hoopl::C
+	}
+
+	[result]
+	null::g {
+		null::n
+		Compiler.Hoopl::O
+		Compiler.Hoopl::C
+	}
+}
+
+[Function]
+addPoints' :: forall a t. String -> (Label -> OldFact a -> NewFact a -> (ChangeFlag, Pointed t C a)) -> DataflowLattice (Pointed t C a)
+Name: addPoints'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:addPoints'
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	t
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	<function> {
+		[parameters]
+		Compiler.Hoopl::Label
+		Compiler.Hoopl::OldFact {
+			null::a
+		}
+		Compiler.Hoopl::NewFact {
+			null::a
+		}
+	
+		[result]
+		GHC.Tuple::(,) {
+			Compiler.Hoopl::ChangeFlag
+			Compiler.Hoopl::Pointed {
+				null::t
+				Compiler.Hoopl::C
+				null::a
+			}
+		}
+	}
+
+	[result]
+	Compiler.Hoopl::DataflowLattice {
+		Compiler.Hoopl::Pointed {
+			null::t
+			Compiler.Hoopl::C
+			null::a
+		}
+	}
+}
+
+[Function]
+noFwdRewrite :: Monad m => FwdRewrite m n f
+Name: noFwdRewrite
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:noFwdRewrite
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	n
+	f
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Compiler.Hoopl::FwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+}
+
+[Function]
+iterFwdRw :: forall m n f. Monad m => FwdRewrite m n f -> FwdRewrite m n f
+Name: iterFwdRw
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:iterFwdRw
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	n
+	f
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::FwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+
+	[result]
+	Compiler.Hoopl::FwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+}
+
+[Function]
+pairLattice :: forall f f'. DataflowLattice f -> DataflowLattice f' -> DataflowLattice (f, f')
+Name: pairLattice
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:pairLattice
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	f
+	f'
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::DataflowLattice {
+		null::f
+	}
+	Compiler.Hoopl::DataflowLattice {
+		null::f'
+	}
+
+	[result]
+	Compiler.Hoopl::DataflowLattice {
+		GHC.Tuple::(,) {
+			null::f
+			null::f'
+		}
+	}
+}
+
+[Function]
+showFactBase :: Show f => FactBase f -> String
+Name: showFactBase
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:showFactBase
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	f: (Show f; f; Text.Show::Show)
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::FactBase {
+		null::f
+	}
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+mkFRewrite :: FuelMonad m => (forall e x. n e x -> f -> m (Maybe (Graph n e x))) -> FwdRewrite m n f
+Name: mkFRewrite
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mkFRewrite
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (FuelMonad m; m; Compiler.Hoopl::FuelMonad)
+	n
+	e
+	x
+	f
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			null::e
+			null::x
+		}
+		null::f
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				null::Graph {
+					null::n
+					null::e
+					null::x
+				}
+			}
+		}
+	}
+
+	[result]
+	Compiler.Hoopl::FwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+}
+
+[Function]
+blockJoin :: n C O -> Block n O O -> n O C -> Block n C C
+Name: blockJoin
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:blockJoin
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+}
+Signature = <function> {
+	[parameters]
+	null::n {
+		Compiler.Hoopl::C
+		Compiler.Hoopl::O
+	}
+	Compiler.Hoopl::Block {
+		null::n
+		Compiler.Hoopl::O
+		Compiler.Hoopl::O
+	}
+	null::n {
+		Compiler.Hoopl::O
+		Compiler.Hoopl::C
+	}
+
+	[result]
+	Compiler.Hoopl::Block {
+		null::n
+		Compiler.Hoopl::C
+		Compiler.Hoopl::C
+	}
+}
+
+[Function]
+showGraph :: forall n e x. NonLocal n => Showing n -> Graph n e x -> String
+Name: showGraph
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:showGraph
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n: (NonLocal n; n; Compiler.Hoopl::NonLocal)
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	null::Showing {
+		null::n
+	}
+	Compiler.Hoopl::Graph {
+		null::n
+		null::e
+		null::x
+	}
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+distributeXfer :: NonLocal n => DataflowLattice f -> (n O C -> f -> f) -> n O C -> f -> FactBase f
+Name: distributeXfer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:distributeXfer
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n: (NonLocal n; n; Compiler.Hoopl::NonLocal)
+	f
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::DataflowLattice {
+		null::f
+	}
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl::O
+			Compiler.Hoopl::C
+		}
+		null::f
+	
+		[result]
+		null::f
+	}
+	null::n {
+		Compiler.Hoopl::O
+		Compiler.Hoopl::C
+	}
+	null::f
+
+	[result]
+	Compiler.Hoopl::FactBase {
+		null::f
+	}
+}
+
+[Function]
+infiniteFuel :: Fuel
+Name: infiniteFuel
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:infiniteFuel
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Compiler.Hoopl::Fuel
+}
+
+[Function]
+pairBwd :: forall m n f f'. Monad m => BwdPass m n f -> BwdPass m n f' -> BwdPass m n (f, f')
+Name: pairBwd
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:pairBwd
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	n
+	f
+	f'
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::BwdPass {
+		null::m
+		null::n
+		null::f
+	}
+	Compiler.Hoopl::BwdPass {
+		null::m
+		null::n
+		null::f'
+	}
+
+	[result]
+	Compiler.Hoopl::BwdPass {
+		null::m
+		null::n
+		GHC.Tuple::(,) {
+			null::f
+			null::f'
+		}
+	}
+}
+
+[Function]
+analyzeAndRewriteBwd :: (CheckpointMonad m, NonLocal n, LabelsPtr entries) => BwdPass m n f -> MaybeC e entries -> Graph n e x -> Fact x f -> m (Graph n e x, FactBase f, MaybeO e f)
+Name: analyzeAndRewriteBwd
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:analyzeAndRewriteBwd
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (CheckpointMonad m; m; Compiler.Hoopl::CheckpointMonad)
+	n: (NonLocal n; n; Compiler.Hoopl::NonLocal)
+	entries: (LabelsPtr entries; entries; Compiler.Hoopl::LabelsPtr)
+	f
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::BwdPass {
+		null::m
+		null::n
+		null::f
+	}
+	Compiler.Hoopl::MaybeC {
+		null::e
+		null::entries
+	}
+	null::Graph {
+		null::n
+		null::e
+		null::x
+	}
+	null::Fact {
+		null::x
+		null::f
+	}
+
+	[result]
+	null::m {
+		GHC.Tuple::(,,) {
+			null::Graph {
+				null::n
+				null::e
+				null::x
+			}
+			Compiler.Hoopl::FactBase {
+				null::f
+			}
+			Compiler.Hoopl::MaybeO {
+				null::e
+				null::f
+			}
+		}
+	}
+}
+
+[Function]
+foldBlockNodesB :: forall n a. (forall e x. n e x -> a -> a) -> forall e x. Block n e x -> IndexedCO x a a -> IndexedCO e a a
+Name: foldBlockNodesB
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:foldBlockNodesB
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			null::e
+			null::x
+		}
+		null::a
+	
+		[result]
+		null::a
+	}
+	Compiler.Hoopl::Block {
+		null::n
+		null::e
+		null::x
+	}
+	null::IndexedCO {
+		null::x
+		null::a
+		null::a
+	}
+
+	[result]
+	null::IndexedCO {
+		null::e
+		null::a
+		null::a
+	}
+}
+
+[Function]
+blockSplitAny :: Block n e x -> (MaybeC e (n C O), Block n O O, MaybeC x (n O C))
+Name: blockSplitAny
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:blockSplitAny
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Block {
+		null::n
+		null::e
+		null::x
+	}
+
+	[result]
+	GHC.Tuple::(,,) {
+		Compiler.Hoopl::MaybeC {
+			null::e
+			null::n {
+				Compiler.Hoopl::C
+				Compiler.Hoopl::O
+			}
+		}
+		Compiler.Hoopl::Block {
+			null::n
+			Compiler.Hoopl::O
+			Compiler.Hoopl::O
+		}
+		Compiler.Hoopl::MaybeC {
+			null::x
+			null::n {
+				Compiler.Hoopl::O
+				Compiler.Hoopl::C
+			}
+		}
+	}
+}
+
+[Function]
+pairFwd :: forall m n f f'. Monad m => FwdPass m n f -> FwdPass m n f' -> FwdPass m n (f, f')
+Name: pairFwd
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:pairFwd
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	n
+	f
+	f'
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::FwdPass {
+		null::m
+		null::n
+		null::f
+	}
+	Compiler.Hoopl::FwdPass {
+		null::m
+		null::n
+		null::f'
+	}
+
+	[result]
+	Compiler.Hoopl::FwdPass {
+		null::m
+		null::n
+		GHC.Tuple::(,) {
+			null::f
+			null::f'
+		}
+	}
+}
+
+[Function]
+thenFwdRw :: forall m n f. Monad m => FwdRewrite m n f -> FwdRewrite m n f -> FwdRewrite m n f
+Name: thenFwdRw
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:thenFwdRw
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	n
+	f
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::FwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+	Compiler.Hoopl::FwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+
+	[result]
+	Compiler.Hoopl::FwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+}
+
+[Function]
+blockJoinAny :: (MaybeC e (n C O), Block n O O, MaybeC x (n O C)) -> Block n e x
+Name: blockJoinAny
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:blockJoinAny
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e
+	n
+	x
+}
+Signature = <function> {
+	[parameters]
+	GHC.Tuple::(,,) {
+		Compiler.Hoopl::MaybeC {
+			null::e
+			null::n {
+				Compiler.Hoopl::C
+				Compiler.Hoopl::O
+			}
+		}
+		Compiler.Hoopl::Block {
+			null::n
+			Compiler.Hoopl::O
+			Compiler.Hoopl::O
+		}
+		Compiler.Hoopl::MaybeC {
+			null::x
+			null::n {
+				Compiler.Hoopl::O
+				Compiler.Hoopl::C
+			}
+		}
+	}
+
+	[result]
+	Compiler.Hoopl::Block {
+		null::n
+		null::e
+		null::x
+	}
+}
+
+[Function]
+foldBlockNodesF :: forall n a. (forall e x. n e x -> a -> a) -> forall e x. Block n e x -> IndexedCO e a a -> IndexedCO x a a
+Name: foldBlockNodesF
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:foldBlockNodesF
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			null::e
+			null::x
+		}
+		null::a
+	
+		[result]
+		null::a
+	}
+	Compiler.Hoopl::Block {
+		null::n
+		null::e
+		null::x
+	}
+	null::IndexedCO {
+		null::e
+		null::a
+		null::a
+	}
+
+	[result]
+	null::IndexedCO {
+		null::x
+		null::a
+		null::a
+	}
+}
+
+[Function]
+blockCons :: n O O -> Block n O x -> Block n O x
+Name: blockCons
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:blockCons
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	x
+}
+Signature = <function> {
+	[parameters]
+	null::n {
+		Compiler.Hoopl::O
+		Compiler.Hoopl::O
+	}
+	Compiler.Hoopl::Block {
+		null::n
+		Compiler.Hoopl::O
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl::Block {
+		null::n
+		Compiler.Hoopl::O
+		null::x
+	}
+}
+
+[Function]
+firstNode :: Block n C x -> n C O
+Name: firstNode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:firstNode
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Block {
+		null::n
+		Compiler.Hoopl::C
+		null::x
+	}
+
+	[result]
+	null::n {
+		Compiler.Hoopl::C
+		Compiler.Hoopl::O
+	}
+}
+
+[Function]
+preorder_dfs :: NonLocal (block n) => Graph' block n O x -> [block n C C]
+Name: preorder_dfs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:preorder_dfs
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block: (NonLocal (block n); block, n; Compiler.Hoopl::NonLocal)
+	n: (NonLocal (block n); block, n; Compiler.Hoopl::NonLocal)
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Graph' {
+		null::block
+		null::n
+		Compiler.Hoopl::O
+		null::x
+	}
+
+	[result]
+	other::List {
+		null::block {
+			null::n
+			Compiler.Hoopl::C
+			Compiler.Hoopl::C
+		}
+	}
+}
+
+[Function]
+mkFactBase :: forall f. DataflowLattice f -> [(Label, f)] -> FactBase f
+Name: mkFactBase
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mkFactBase
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	f
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::DataflowLattice {
+		null::f
+	}
+	other::List {
+		GHC.Tuple::(,) {
+			Compiler.Hoopl::Label
+			null::f
+		}
+	}
+
+	[result]
+	Compiler.Hoopl::FactBase {
+		null::f
+	}
+}
+
+[Function]
+addBlock :: NonLocal thing => thing C C -> LabelMap (thing C C) -> LabelMap (thing C C)
+Name: addBlock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:addBlock
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	thing: (NonLocal thing; thing; Compiler.Hoopl::NonLocal)
+}
+Signature = <function> {
+	[parameters]
+	null::thing {
+		Compiler.Hoopl::C
+		Compiler.Hoopl::C
+	}
+	Compiler.Hoopl::LabelMap {
+		null::thing {
+			Compiler.Hoopl::C
+			Compiler.Hoopl::C
+		}
+	}
+
+	[result]
+	Compiler.Hoopl::LabelMap {
+		null::thing {
+			Compiler.Hoopl::C
+			Compiler.Hoopl::C
+		}
+	}
+}
+
+[Function]
+wrapFR :: (forall e x. (n e x -> f -> m (Maybe (Graph n e x, FwdRewrite m n f))) -> n' e x -> f' -> m' (Maybe (Graph n' e x, FwdRewrite m' n' f'))) -> FwdRewrite m n f -> FwdRewrite m' n' f'
+Name: wrapFR
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:wrapFR
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+	f
+	m
+	n'
+	f'
+	m'
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::n {
+				null::e
+				null::x
+			}
+			null::f
+		
+			[result]
+			null::m {
+				Data.Maybe::Maybe {
+					GHC.Tuple::(,) {
+						null::Graph {
+							null::n
+							null::e
+							null::x
+						}
+						Compiler.Hoopl::FwdRewrite {
+							null::m
+							null::n
+							null::f
+						}
+					}
+				}
+			}
+		}
+		null::n' {
+			null::e
+			null::x
+		}
+		null::f'
+	
+		[result]
+		null::m' {
+			Data.Maybe::Maybe {
+				GHC.Tuple::(,) {
+					null::Graph {
+						null::n'
+						null::e
+						null::x
+					}
+					Compiler.Hoopl::FwdRewrite {
+						null::m'
+						null::n'
+						null::f'
+					}
+				}
+			}
+		}
+	}
+	Compiler.Hoopl::FwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+
+	[result]
+	Compiler.Hoopl::FwdRewrite {
+		null::m'
+		null::n'
+		null::f'
+	}
+}
+
+[Function]
+labelsUsed :: forall block n e x. NonLocal (block n) => Graph' block n e x -> LabelSet
+Name: labelsUsed
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:labelsUsed
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block: (NonLocal (block n); block, n; Compiler.Hoopl::NonLocal)
+	n: (NonLocal (block n); block, n; Compiler.Hoopl::NonLocal)
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Graph' {
+		null::block
+		null::n
+		null::e
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl::LabelSet
+}
+
+[Function]
+setInsertList :: IsSet set => [ElemOf set] -> set -> set
+Name: setInsertList
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:setInsertList
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	set: (IsSet set; set; Compiler.Hoopl::IsSet)
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::ElemOf {
+			null::set
+		}
+	}
+	null::set
+
+	[result]
+	null::set
+}
+
+[Function]
+blockFromList :: [n O O] -> Block n O O
+Name: blockFromList
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:blockFromList
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::n {
+			Compiler.Hoopl::O
+			Compiler.Hoopl::O
+		}
+	}
+
+	[result]
+	Compiler.Hoopl::Block {
+		null::n
+		Compiler.Hoopl::O
+		Compiler.Hoopl::O
+	}
+}
+
+[Function]
+wrapBR2 :: (forall e x. Shape x -> (n1 e x -> Fact x f1 -> m1 (Maybe (Graph n1 e x, BwdRewrite m1 n1 f1))) -> (n2 e x -> Fact x f2 -> m2 (Maybe (Graph n2 e x, BwdRewrite m2 n2 f2))) -> n3 e x -> Fact x f3 -> m3 (Maybe (Graph n3 e x, BwdRewrite m3 n3 f3))) -> BwdRewrite m1 n1 f1 -> BwdRewrite m2 n2 f2 -> BwdRewrite m3 n3 f3
+Name: wrapBR2
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:wrapBR2
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	x
+	n1
+	e
+	f1
+	m1
+	n2
+	f2
+	m2
+	n3
+	f3
+	m3
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Compiler.Hoopl::Shape {
+			null::x
+		}
+		<function> {
+			[parameters]
+			null::n1 {
+				null::e
+				null::x
+			}
+			null::Fact {
+				null::x
+				null::f1
+			}
+		
+			[result]
+			null::m1 {
+				Data.Maybe::Maybe {
+					GHC.Tuple::(,) {
+						null::Graph {
+							null::n1
+							null::e
+							null::x
+						}
+						Compiler.Hoopl::BwdRewrite {
+							null::m1
+							null::n1
+							null::f1
+						}
+					}
+				}
+			}
+		}
+		<function> {
+			[parameters]
+			null::n2 {
+				null::e
+				null::x
+			}
+			null::Fact {
+				null::x
+				null::f2
+			}
+		
+			[result]
+			null::m2 {
+				Data.Maybe::Maybe {
+					GHC.Tuple::(,) {
+						null::Graph {
+							null::n2
+							null::e
+							null::x
+						}
+						Compiler.Hoopl::BwdRewrite {
+							null::m2
+							null::n2
+							null::f2
+						}
+					}
+				}
+			}
+		}
+		null::n3 {
+			null::e
+			null::x
+		}
+		null::Fact {
+			null::x
+			null::f3
+		}
+	
+		[result]
+		null::m3 {
+			Data.Maybe::Maybe {
+				GHC.Tuple::(,) {
+					null::Graph {
+						null::n3
+						null::e
+						null::x
+					}
+					Compiler.Hoopl::BwdRewrite {
+						null::m3
+						null::n3
+						null::f3
+					}
+				}
+			}
+		}
+	}
+	Compiler.Hoopl::BwdRewrite {
+		null::m1
+		null::n1
+		null::f1
+	}
+	Compiler.Hoopl::BwdRewrite {
+		null::m2
+		null::n2
+		null::f2
+	}
+
+	[result]
+	Compiler.Hoopl::BwdRewrite {
+		null::m3
+		null::n3
+		null::f3
+	}
+}
+
+[Function]
+blockJoinHead :: n C O -> Block n O x -> Block n C x
+Name: blockJoinHead
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:blockJoinHead
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	x
+}
+Signature = <function> {
+	[parameters]
+	null::n {
+		Compiler.Hoopl::C
+		Compiler.Hoopl::O
+	}
+	Compiler.Hoopl::Block {
+		null::n
+		Compiler.Hoopl::O
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl::Block {
+		null::n
+		Compiler.Hoopl::C
+		null::x
+	}
+}
+
+[Function]
+lastNode :: Block n x C -> n O C
+Name: lastNode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:lastNode
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Block {
+		null::n
+		null::x
+		Compiler.Hoopl::C
+	}
+
+	[result]
+	null::n {
+		Compiler.Hoopl::O
+		Compiler.Hoopl::C
+	}
+}
+
+[Function]
+(|*><*|) :: (GraphRep g, NonLocal n) => g n e C -> g n C x -> g n e x
+Name: (|*><*|)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:(|*><*|)
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	g: (GraphRep g; g; )
+	n: (NonLocal n; n; Compiler.Hoopl::NonLocal)
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	null::g {
+		null::n
+		null::e
+		Compiler.Hoopl::C
+	}
+	null::g {
+		null::n
+		Compiler.Hoopl::C
+		null::x
+	}
+
+	[result]
+	null::g {
+		null::n
+		null::e
+		null::x
+	}
+}
+
+[Function]
+wrapFR2 :: (forall e x. (n1 e x -> f1 -> m1 (Maybe (Graph n1 e x, FwdRewrite m1 n1 f1))) -> (n2 e x -> f2 -> m2 (Maybe (Graph n2 e x, FwdRewrite m2 n2 f2))) -> n3 e x -> f3 -> m3 (Maybe (Graph n3 e x, FwdRewrite m3 n3 f3))) -> FwdRewrite m1 n1 f1 -> FwdRewrite m2 n2 f2 -> FwdRewrite m3 n3 f3
+Name: wrapFR2
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:wrapFR2
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n1
+	e
+	x
+	f1
+	m1
+	n2
+	f2
+	m2
+	n3
+	f3
+	m3
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::n1 {
+				null::e
+				null::x
+			}
+			null::f1
+		
+			[result]
+			null::m1 {
+				Data.Maybe::Maybe {
+					GHC.Tuple::(,) {
+						null::Graph {
+							null::n1
+							null::e
+							null::x
+						}
+						Compiler.Hoopl::FwdRewrite {
+							null::m1
+							null::n1
+							null::f1
+						}
+					}
+				}
+			}
+		}
+		<function> {
+			[parameters]
+			null::n2 {
+				null::e
+				null::x
+			}
+			null::f2
+		
+			[result]
+			null::m2 {
+				Data.Maybe::Maybe {
+					GHC.Tuple::(,) {
+						null::Graph {
+							null::n2
+							null::e
+							null::x
+						}
+						Compiler.Hoopl::FwdRewrite {
+							null::m2
+							null::n2
+							null::f2
+						}
+					}
+				}
+			}
+		}
+		null::n3 {
+			null::e
+			null::x
+		}
+		null::f3
+	
+		[result]
+		null::m3 {
+			Data.Maybe::Maybe {
+				GHC.Tuple::(,) {
+					null::Graph {
+						null::n3
+						null::e
+						null::x
+					}
+					Compiler.Hoopl::FwdRewrite {
+						null::m3
+						null::n3
+						null::f3
+					}
+				}
+			}
+		}
+	}
+	Compiler.Hoopl::FwdRewrite {
+		null::m1
+		null::n1
+		null::f1
+	}
+	Compiler.Hoopl::FwdRewrite {
+		null::m2
+		null::n2
+		null::f2
+	}
+
+	[result]
+	Compiler.Hoopl::FwdRewrite {
+		null::m3
+		null::n3
+		null::f3
+	}
+}
+
+[Function]
+replaceLastNode :: Block n x C -> n O C -> Block n x C
+Name: replaceLastNode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:replaceLastNode
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Block {
+		null::n
+		null::x
+		Compiler.Hoopl::C
+	}
+	null::n {
+		Compiler.Hoopl::O
+		Compiler.Hoopl::C
+	}
+
+	[result]
+	Compiler.Hoopl::Block {
+		null::n
+		null::x
+		Compiler.Hoopl::C
+	}
+}
+
+[Function]
+debugFwdTransfers :: forall m n f. Show f => TraceFn -> ShowN n -> FPred n f -> FwdPass m n f -> FwdPass m n f
+Name: debugFwdTransfers
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:debugFwdTransfers
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	f: (Show f; f; Text.Show::Show)
+	n
+	m
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::TraceFn
+	null::ShowN {
+		null::n
+	}
+	null::FPred {
+		null::n
+		null::f
+	}
+	Compiler.Hoopl::FwdPass {
+		null::m
+		null::n
+		null::f
+	}
+
+	[result]
+	Compiler.Hoopl::FwdPass {
+		null::m
+		null::n
+		null::f
+	}
+}
+
+[Function]
+blockToList :: Block n O O -> [n O O]
+Name: blockToList
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:blockToList
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Block {
+		null::n
+		Compiler.Hoopl::O
+		Compiler.Hoopl::O
+	}
+
+	[result]
+	other::List {
+		null::n {
+			Compiler.Hoopl::O
+			Compiler.Hoopl::O
+		}
+	}
+}
+
+[Function]
+successorFacts :: NonLocal n => n O C -> FactBase f -> [f]
+Name: successorFacts
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:successorFacts
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n: (NonLocal n; n; Compiler.Hoopl::NonLocal)
+	f
+}
+Signature = <function> {
+	[parameters]
+	null::n {
+		Compiler.Hoopl::O
+		Compiler.Hoopl::C
+	}
+	Compiler.Hoopl::FactBase {
+		null::f
+	}
+
+	[result]
+	other::List {
+		null::f
+	}
+}
+
+[Function]
+uniqueToLbl :: Unique -> Label
+Name: uniqueToLbl
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:uniqueToLbl
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Unique
+
+	[result]
+	Compiler.Hoopl::Label
+}
+
+[Function]
+noFacts :: FactBase f
+Name: noFacts
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:noFacts
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	f
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Compiler.Hoopl::FactBase {
+		null::f
+	}
+}
+
+[Function]
+emptyClosedGraph :: GraphRep g => g n C C
+Name: emptyClosedGraph
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:emptyClosedGraph
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	g: (GraphRep g; g; )
+	n
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	null::g {
+		null::n
+		Compiler.Hoopl::C
+		Compiler.Hoopl::C
+	}
+}
+
+[Function]
+mapBlock3' :: forall n n' e x. (n C O -> n' C O, n O O -> n' O O, n O C -> n' O C) -> Block n e x -> Block n' e x
+Name: mapBlock3'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapBlock3'
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	n'
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	GHC.Tuple::(,,) {
+		<function> {
+			[parameters]
+			null::n {
+				Compiler.Hoopl::C
+				Compiler.Hoopl::O
+			}
+		
+			[result]
+			null::n' {
+				Compiler.Hoopl::C
+				Compiler.Hoopl::O
+			}
+		}
+		<function> {
+			[parameters]
+			null::n {
+				Compiler.Hoopl::O
+				Compiler.Hoopl::O
+			}
+		
+			[result]
+			null::n' {
+				Compiler.Hoopl::O
+				Compiler.Hoopl::O
+			}
+		}
+		<function> {
+			[parameters]
+			null::n {
+				Compiler.Hoopl::O
+				Compiler.Hoopl::C
+			}
+		
+			[result]
+			null::n' {
+				Compiler.Hoopl::O
+				Compiler.Hoopl::C
+			}
+		}
+	}
+	Compiler.Hoopl::Block {
+		null::n
+		null::e
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl::Block {
+		null::n'
+		null::e
+		null::x
+	}
+}
+
+[Function]
+gUnitOC :: block n O C -> Graph' block n O C
+Name: gUnitOC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:gUnitOC
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block
+	n
+}
+Signature = <function> {
+	[parameters]
+	null::block {
+		null::n
+		Compiler.Hoopl::O
+		Compiler.Hoopl::C
+	}
+
+	[result]
+	Compiler.Hoopl::Graph' {
+		null::block
+		null::n
+		Compiler.Hoopl::O
+		Compiler.Hoopl::C
+	}
+}
+
+[Function]
+fuelRemaining :: FuelMonad m => m Fuel
+Name: fuelRemaining
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:fuelRemaining
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (FuelMonad m; m; Compiler.Hoopl::FuelMonad)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	null::m {
+		Compiler.Hoopl::Fuel
+	}
+}
+
+[Function]
+gUnitOO :: block n O O -> Graph' block n O O
+Name: gUnitOO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:gUnitOO
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block
+	n
+}
+Signature = <function> {
+	[parameters]
+	null::block {
+		null::n
+		Compiler.Hoopl::O
+		Compiler.Hoopl::O
+	}
+
+	[result]
+	Compiler.Hoopl::Graph' {
+		null::block
+		null::n
+		Compiler.Hoopl::O
+		Compiler.Hoopl::O
+	}
+}
+
+[Function]
+isEmptyBlock :: Block n e x -> Bool
+Name: isEmptyBlock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:isEmptyBlock
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Block {
+		null::n
+		null::e
+		null::x
+	}
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+frontBiasBlock :: Block n e x -> Block n e x
+Name: frontBiasBlock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:frontBiasBlock
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Block {
+		null::n
+		null::e
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl::Block {
+		null::n
+		null::e
+		null::x
+	}
+}
+
+[Function]
+lookupFact :: Label -> FactBase f -> Maybe f
+Name: lookupFact
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:lookupFact
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	f
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Label
+	Compiler.Hoopl::FactBase {
+		null::f
+	}
+
+	[result]
+	Data.Maybe::Maybe {
+		null::f
+	}
+}
+
+[Function]
+emptyGraph :: GraphRep g => g n O O
+Name: emptyGraph
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:emptyGraph
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	g: (GraphRep g; g; )
+	n
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	null::g {
+		null::n
+		Compiler.Hoopl::O
+		Compiler.Hoopl::O
+	}
+}
+
+[Function]
+lblToUnique :: Label -> Unique
+Name: lblToUnique
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:lblToUnique
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Label
+
+	[result]
+	Compiler.Hoopl::Unique
+}
+
+[Function]
+bodyGraph :: Body n -> Graph n C C
+Name: bodyGraph
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:bodyGraph
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Body {
+		null::n
+	}
+
+	[result]
+	Compiler.Hoopl::Graph {
+		null::n
+		Compiler.Hoopl::C
+		Compiler.Hoopl::C
+	}
+}
+
+[Function]
+mkLabel :: (GraphRep g, HooplNode n) => Label -> g n C O
+Name: mkLabel
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mkLabel
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	g: (GraphRep g; g; )
+	n: (HooplNode n; n; Compiler.Hoopl::HooplNode)
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Label
+
+	[result]
+	null::g {
+		null::n
+		Compiler.Hoopl::C
+		Compiler.Hoopl::O
+	}
+}
+
+[Function]
+labelsDefined :: forall block n e x. NonLocal (block n) => Graph' block n e x -> LabelSet
+Name: labelsDefined
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:labelsDefined
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block: (NonLocal (block n); block, n; Compiler.Hoopl::NonLocal)
+	n: (NonLocal (block n); block, n; Compiler.Hoopl::NonLocal)
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Graph' {
+		null::block
+		null::n
+		null::e
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl::LabelSet
+}
+
+[Function]
+emptyBody :: Body' block n
+Name: emptyBody
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:emptyBody
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block
+	n
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Compiler.Hoopl::Body' {
+		null::block
+		null::n
+	}
+}
+
+[Function]
+catGraphs :: (GraphRep g, NonLocal n) => [g n O O] -> g n O O
+Name: catGraphs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:catGraphs
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	g: (GraphRep g; g; )
+	n: (NonLocal n; n; Compiler.Hoopl::NonLocal)
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::g {
+			null::n
+			Compiler.Hoopl::O
+			Compiler.Hoopl::O
+		}
+	}
+
+	[result]
+	null::g {
+		null::n
+		Compiler.Hoopl::O
+		Compiler.Hoopl::O
+	}
+}
+
+[Function]
+runSimpleUniqueMonad :: SimpleUniqueMonad a -> a
+Name: runSimpleUniqueMonad
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:runSimpleUniqueMonad
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::SimpleUniqueMonad {
+		null::a
+	}
+
+	[result]
+	null::a
+}
+
+[Function]
+mkFRewrite3 :: forall m n f. FuelMonad m => (n C O -> f -> m (Maybe (Graph n C O))) -> (n O O -> f -> m (Maybe (Graph n O O))) -> (n O C -> f -> m (Maybe (Graph n O C))) -> FwdRewrite m n f
+Name: mkFRewrite3
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mkFRewrite3
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (FuelMonad m; m; Compiler.Hoopl::FuelMonad)
+	n
+	f
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl::C
+			Compiler.Hoopl::O
+		}
+		null::f
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				null::Graph {
+					null::n
+					Compiler.Hoopl::C
+					Compiler.Hoopl::O
+				}
+			}
+		}
+	}
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl::O
+			Compiler.Hoopl::O
+		}
+		null::f
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				null::Graph {
+					null::n
+					Compiler.Hoopl::O
+					Compiler.Hoopl::O
+				}
+			}
+		}
+	}
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl::O
+			Compiler.Hoopl::C
+		}
+		null::f
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				null::Graph {
+					null::n
+					Compiler.Hoopl::O
+					Compiler.Hoopl::C
+				}
+			}
+		}
+	}
+
+	[result]
+	Compiler.Hoopl::FwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+}
+
+[Function]
+catNodeOOGraph :: n O O -> Graph n O x -> Graph n O x
+Name: catNodeOOGraph
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:catNodeOOGraph
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	x
+}
+Signature = <function> {
+	[parameters]
+	null::n {
+		Compiler.Hoopl::O
+		Compiler.Hoopl::O
+	}
+	Compiler.Hoopl::Graph {
+		null::n
+		Compiler.Hoopl::O
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl::Graph {
+		null::n
+		Compiler.Hoopl::O
+		null::x
+	}
+}
+
+[Function]
+wrapBR :: (forall e x. Shape x -> (n e x -> Fact x f -> m (Maybe (Graph n e x, BwdRewrite m n f))) -> n' e x -> Fact x f' -> m' (Maybe (Graph n' e x, BwdRewrite m' n' f'))) -> BwdRewrite m n f -> BwdRewrite m' n' f'
+Name: wrapBR
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:wrapBR
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	x
+	n
+	e
+	f
+	m
+	n'
+	f'
+	m'
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Compiler.Hoopl::Shape {
+			null::x
+		}
+		<function> {
+			[parameters]
+			null::n {
+				null::e
+				null::x
+			}
+			null::Fact {
+				null::x
+				null::f
+			}
+		
+			[result]
+			null::m {
+				Data.Maybe::Maybe {
+					GHC.Tuple::(,) {
+						null::Graph {
+							null::n
+							null::e
+							null::x
+						}
+						Compiler.Hoopl::BwdRewrite {
+							null::m
+							null::n
+							null::f
+						}
+					}
+				}
+			}
+		}
+		null::n' {
+			null::e
+			null::x
+		}
+		null::Fact {
+			null::x
+			null::f'
+		}
+	
+		[result]
+		null::m' {
+			Data.Maybe::Maybe {
+				GHC.Tuple::(,) {
+					null::Graph {
+						null::n'
+						null::e
+						null::x
+					}
+					Compiler.Hoopl::BwdRewrite {
+						null::m'
+						null::n'
+						null::f'
+					}
+				}
+			}
+		}
+	}
+	Compiler.Hoopl::BwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+
+	[result]
+	Compiler.Hoopl::BwdRewrite {
+		null::m'
+		null::n'
+		null::f'
+	}
+}
+
+[Function]
+noBwdRewrite :: Monad m => BwdRewrite m n f
+Name: noBwdRewrite
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:noBwdRewrite
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	n
+	f
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Compiler.Hoopl::BwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+}
+
+[Function]
+changeIf :: Bool -> ChangeFlag
+Name: changeIf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:changeIf
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Bool::Bool
+
+	[result]
+	Compiler.Hoopl::ChangeFlag
+}
+
+[Function]
+mkMiddle :: GraphRep g => n O O -> g n O O
+Name: mkMiddle
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mkMiddle
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	g: (GraphRep g; g; )
+	n
+}
+Signature = <function> {
+	[parameters]
+	null::n {
+		Compiler.Hoopl::O
+		Compiler.Hoopl::O
+	}
+
+	[result]
+	null::g {
+		null::n
+		Compiler.Hoopl::O
+		Compiler.Hoopl::O
+	}
+}
+
+[Function]
+deepBwdRw :: FuelMonad m => (forall e x. n e x -> Fact x f -> m (Maybe (Graph n e x))) -> BwdRewrite m n f
+Name: deepBwdRw
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:deepBwdRw
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (FuelMonad m; m; Compiler.Hoopl::FuelMonad)
+	n
+	e
+	x
+	f
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			null::e
+			null::x
+		}
+		null::Fact {
+			null::x
+			null::f
+		}
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				Compiler.Hoopl::Graph {
+					null::n
+					null::e
+					null::x
+				}
+			}
+		}
+	}
+
+	[result]
+	Compiler.Hoopl::BwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+}
+
+[Function]
+freshLabel :: UniqueMonad m => m Label
+Name: freshLabel
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:freshLabel
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (UniqueMonad m; m; Compiler.Hoopl::UniqueMonad)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	null::m {
+		Compiler.Hoopl::Label
+	}
+}
+
+[Function]
+joinMaps :: Ord k => JoinFun v -> JoinFun (Map k v)
+Name: joinMaps
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:joinMaps
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	v
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::JoinFun {
+		null::v
+	}
+
+	[result]
+	Compiler.Hoopl::JoinFun {
+		Data.Map.Lazy::Map {
+			null::k
+			null::v
+		}
+	}
+}
+
+[Function]
+analyzeAndRewriteBwdBody :: forall m n f entries. (CheckpointMonad m, NonLocal n, LabelsPtr entries) => BwdPass m n f -> entries -> Body n -> FactBase f -> m (Body n, FactBase f)
+Name: analyzeAndRewriteBwdBody
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:analyzeAndRewriteBwdBody
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (CheckpointMonad m; m; Compiler.Hoopl::CheckpointMonad)
+	n: (NonLocal n; n; Compiler.Hoopl::NonLocal)
+	entries: (LabelsPtr entries; entries; Compiler.Hoopl::LabelsPtr)
+	f
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::BwdPass {
+		null::m
+		null::n
+		null::f
+	}
+	null::entries
+	Compiler.Hoopl::Body {
+		null::n
+	}
+	Compiler.Hoopl::FactBase {
+		null::f
+	}
+
+	[result]
+	null::m {
+		GHC.Tuple::(,) {
+			Compiler.Hoopl::Body {
+				null::n
+			}
+			Compiler.Hoopl::FactBase {
+				null::f
+			}
+		}
+	}
+}
+
+[Function]
+mkMiddles :: (GraphRep g, NonLocal n) => [n O O] -> g n O O
+Name: mkMiddles
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mkMiddles
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	g: (GraphRep g; g; )
+	n: (NonLocal n; n; Compiler.Hoopl::NonLocal)
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::n {
+			Compiler.Hoopl::O
+			Compiler.Hoopl::O
+		}
+	}
+
+	[result]
+	null::g {
+		null::n
+		Compiler.Hoopl::O
+		Compiler.Hoopl::O
+	}
+}
+
+[Function]
+mkBranch :: (GraphRep g, HooplNode n) => Label -> g n O C
+Name: mkBranch
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mkBranch
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	g: (GraphRep g; g; )
+	n: (HooplNode n; n; Compiler.Hoopl::HooplNode)
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Label
+
+	[result]
+	null::g {
+		null::n
+		Compiler.Hoopl::O
+		Compiler.Hoopl::C
+	}
+}
+
+[Function]
+foldGraphNodes :: forall n a. (forall e x. n e x -> a -> a) -> forall e x. Graph n e x -> a -> a
+Name: foldGraphNodes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:foldGraphNodes
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			null::e
+			null::x
+		}
+		null::a
+	
+		[result]
+		null::a
+	}
+	Compiler.Hoopl::Graph {
+		null::n
+		null::e
+		null::x
+	}
+	null::a
+
+	[result]
+	null::a
+}
+
+[Function]
+mkExit :: GraphRep g => Block n C O -> g n C O
+Name: mkExit
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mkExit
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	g: (GraphRep g; g; )
+	n
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Block {
+		null::n
+		Compiler.Hoopl::C
+		Compiler.Hoopl::O
+	}
+
+	[result]
+	null::g {
+		null::n
+		Compiler.Hoopl::C
+		Compiler.Hoopl::O
+	}
+}
+
+[Function]
+emptyBlock :: Block n O O
+Name: emptyBlock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:emptyBlock
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Compiler.Hoopl::Block {
+		null::n
+		Compiler.Hoopl::O
+		Compiler.Hoopl::O
+	}
+}
+
+[Function]
+liftJoinTop :: JoinFun a -> JoinFun (WithTop a)
+Name: liftJoinTop
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:liftJoinTop
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::JoinFun {
+		null::a
+	}
+
+	[result]
+	Compiler.Hoopl::JoinFun {
+		Compiler.Hoopl::WithTop {
+			null::a
+		}
+	}
+}
+
+[Function]
+mkFTransfer :: (forall e x. n e x -> f -> Fact x f) -> FwdTransfer n f
+Name: mkFTransfer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mkFTransfer
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+	f
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			null::e
+			null::x
+		}
+		null::f
+	
+		[result]
+		null::Fact {
+			null::x
+			null::f
+		}
+	}
+
+	[result]
+	Compiler.Hoopl::FwdTransfer {
+		null::n
+		null::f
+	}
+}
+
+[Function]
+deepFwdRw :: FuelMonad m => (forall e x. n e x -> f -> m (Maybe (Graph n e x))) -> FwdRewrite m n f
+Name: deepFwdRw
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:deepFwdRw
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (FuelMonad m; m; Compiler.Hoopl::FuelMonad)
+	n
+	e
+	x
+	f
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			null::e
+			null::x
+		}
+		null::f
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				Compiler.Hoopl::Graph {
+					null::n
+					null::e
+					null::x
+				}
+			}
+		}
+	}
+
+	[result]
+	Compiler.Hoopl::FwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+}
+
+[Function]
+blockSnoc :: Block n e O -> n O O -> Block n e O
+Name: blockSnoc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:blockSnoc
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Block {
+		null::n
+		null::e
+		Compiler.Hoopl::O
+	}
+	null::n {
+		Compiler.Hoopl::O
+		Compiler.Hoopl::O
+	}
+
+	[result]
+	Compiler.Hoopl::Block {
+		null::n
+		null::e
+		Compiler.Hoopl::O
+	}
+}
+
+[Function]
+mapUnions :: IsMap map => [map a] -> map a
+Name: mapUnions
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mapUnions
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	map: (IsMap map; map; Compiler.Hoopl::IsMap)
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::map {
+			null::a
+		}
+	}
+
+	[result]
+	null::map {
+		null::a
+	}
+}
+
+[Function]
+preorder_dfs_from_except :: forall block e. (NonLocal block, LabelsPtr e) => LabelMap (block C C) -> e -> LabelSet -> [block C C]
+Name: preorder_dfs_from_except
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:preorder_dfs_from_except
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block: (NonLocal block; block; Compiler.Hoopl::NonLocal)
+	e: (LabelsPtr e; e; Compiler.Hoopl::LabelsPtr)
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::LabelMap {
+		null::block {
+			Compiler.Hoopl::C
+			Compiler.Hoopl::C
+		}
+	}
+	null::e
+	Compiler.Hoopl::LabelSet
+
+	[result]
+	other::List {
+		null::block {
+			Compiler.Hoopl::C
+			Compiler.Hoopl::C
+		}
+	}
+}
+
+[Function]
+gUnitCO :: block n C O -> Graph' block n C O
+Name: gUnitCO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:gUnitCO
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block
+	n
+}
+Signature = <function> {
+	[parameters]
+	null::block {
+		null::n
+		Compiler.Hoopl::C
+		Compiler.Hoopl::O
+	}
+
+	[result]
+	Compiler.Hoopl::Graph' {
+		null::block
+		null::n
+		Compiler.Hoopl::C
+		Compiler.Hoopl::O
+	}
+}
+
+[Function]
+addTop :: DataflowLattice a -> DataflowLattice (WithTop a)
+Name: addTop
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:addTop
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::DataflowLattice {
+		null::a
+	}
+
+	[result]
+	Compiler.Hoopl::DataflowLattice {
+		Compiler.Hoopl::WithTop {
+			null::a
+		}
+	}
+}
+
+[Function]
+analyzeAndRewriteBwdOx :: forall m n f x. (CheckpointMonad m, NonLocal n) => BwdPass m n f -> Graph n O x -> Fact x f -> m (Graph n O x, FactBase f, f)
+Name: analyzeAndRewriteBwdOx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:analyzeAndRewriteBwdOx
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (CheckpointMonad m; m; Compiler.Hoopl::CheckpointMonad)
+	n: (NonLocal n; n; Compiler.Hoopl::NonLocal)
+	f
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::BwdPass {
+		null::m
+		null::n
+		null::f
+	}
+	Compiler.Hoopl::Graph {
+		null::n
+		Compiler.Hoopl::O
+		null::x
+	}
+	null::Fact {
+		null::x
+		null::f
+	}
+
+	[result]
+	null::m {
+		GHC.Tuple::(,,) {
+			Compiler.Hoopl::Graph {
+				null::n
+				Compiler.Hoopl::O
+				null::x
+			}
+			Compiler.Hoopl::FactBase {
+				null::f
+			}
+			null::f
+		}
+	}
+}
+
+[Function]
+externalEntryLabels :: forall n. NonLocal n => LabelMap (Block n C C) -> LabelSet
+Name: externalEntryLabels
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:externalEntryLabels
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n: (NonLocal n; n; Compiler.Hoopl::NonLocal)
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::LabelMap {
+		Compiler.Hoopl::Block {
+			null::n
+			Compiler.Hoopl::C
+			Compiler.Hoopl::C
+		}
+	}
+
+	[result]
+	Compiler.Hoopl::LabelSet
+}
+
+[Function]
+catGraphNodeOO :: Graph n e O -> n O O -> Graph n e O
+Name: catGraphNodeOO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:catGraphNodeOO
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Graph {
+		null::n
+		null::e
+		Compiler.Hoopl::O
+	}
+	null::n {
+		Compiler.Hoopl::O
+		Compiler.Hoopl::O
+	}
+
+	[result]
+	Compiler.Hoopl::Graph {
+		null::n
+		null::e
+		Compiler.Hoopl::O
+	}
+}
+
+[Function]
+blockJoinTail :: Block n e O -> n O C -> Block n e C
+Name: blockJoinTail
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:blockJoinTail
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Block {
+		null::n
+		null::e
+		Compiler.Hoopl::O
+	}
+	null::n {
+		Compiler.Hoopl::O
+		Compiler.Hoopl::C
+	}
+
+	[result]
+	Compiler.Hoopl::Block {
+		null::n
+		null::e
+		Compiler.Hoopl::C
+	}
+}
+
+[Function]
+withFresh :: Uniques u => (u -> AGraph n e x) -> AGraph n e x
+Name: withFresh
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:withFresh
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	u: (Uniques u; u; )
+	n
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::u
+	
+		[result]
+		Compiler.Hoopl::AGraph {
+			null::n
+			null::e
+			null::x
+		}
+	}
+
+	[result]
+	Compiler.Hoopl::AGraph {
+		null::n
+		null::e
+		null::x
+	}
+}
+
+[Function]
+bodyUnion :: forall a. LabelMap a -> LabelMap a -> LabelMap a
+Name: bodyUnion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:bodyUnion
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::LabelMap {
+		null::a
+	}
+	Compiler.Hoopl::LabelMap {
+		null::a
+	}
+
+	[result]
+	Compiler.Hoopl::LabelMap {
+		null::a
+	}
+}
+
+[Function]
+replaceFirstNode :: Block n C x -> n C O -> Block n C x
+Name: replaceFirstNode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:replaceFirstNode
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Block {
+		null::n
+		Compiler.Hoopl::C
+		null::x
+	}
+	null::n {
+		Compiler.Hoopl::C
+		Compiler.Hoopl::O
+	}
+
+	[result]
+	Compiler.Hoopl::Block {
+		null::n
+		Compiler.Hoopl::C
+		null::x
+	}
+}
+
+[Function]
+mkFTransfer3 :: (n C O -> f -> f) -> (n O O -> f -> f) -> (n O C -> f -> FactBase f) -> FwdTransfer n f
+Name: mkFTransfer3
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mkFTransfer3
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	f
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl::C
+			Compiler.Hoopl::O
+		}
+		null::f
+	
+		[result]
+		null::f
+	}
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl::O
+			Compiler.Hoopl::O
+		}
+		null::f
+	
+		[result]
+		null::f
+	}
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl::O
+			Compiler.Hoopl::C
+		}
+		null::f
+	
+		[result]
+		Compiler.Hoopl::FactBase {
+			null::f
+		}
+	}
+
+	[result]
+	Compiler.Hoopl::FwdTransfer {
+		null::n
+		null::f
+	}
+}
+
+[Function]
+blockSplitHead :: Block n C x -> (n C O, Block n O x)
+Name: blockSplitHead
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:blockSplitHead
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Block {
+		null::n
+		Compiler.Hoopl::C
+		null::x
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		null::n {
+			Compiler.Hoopl::C
+			Compiler.Hoopl::O
+		}
+		Compiler.Hoopl::Block {
+			null::n
+			Compiler.Hoopl::O
+			null::x
+		}
+	}
+}
+
+[Function]
+foldBlockNodesF3 :: forall n a b c. (n C O -> a -> b, n O O -> b -> b, n O C -> b -> c) -> forall e x. Block n e x -> IndexedCO e a b -> IndexedCO x c b
+Name: foldBlockNodesF3
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:foldBlockNodesF3
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	a
+	b
+	c
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	GHC.Tuple::(,,) {
+		<function> {
+			[parameters]
+			null::n {
+				Compiler.Hoopl::C
+				Compiler.Hoopl::O
+			}
+			null::a
+		
+			[result]
+			null::b
+		}
+		<function> {
+			[parameters]
+			null::n {
+				Compiler.Hoopl::O
+				Compiler.Hoopl::O
+			}
+			null::b
+		
+			[result]
+			null::b
+		}
+		<function> {
+			[parameters]
+			null::n {
+				Compiler.Hoopl::O
+				Compiler.Hoopl::C
+			}
+			null::b
+		
+			[result]
+			null::c
+		}
+	}
+	Compiler.Hoopl::Block {
+		null::n
+		null::e
+		null::x
+	}
+	null::IndexedCO {
+		null::e
+		null::a
+		null::b
+	}
+
+	[result]
+	null::IndexedCO {
+		null::x
+		null::c
+		null::b
+	}
+}
+
+[Function]
+postorder_dfs :: NonLocal (block n) => Graph' block n O x -> [block n C C]
+Name: postorder_dfs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:postorder_dfs
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block: (NonLocal (block n); block, n; Compiler.Hoopl::NonLocal)
+	n: (NonLocal (block n); block, n; Compiler.Hoopl::NonLocal)
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Graph' {
+		null::block
+		null::n
+		Compiler.Hoopl::O
+		null::x
+	}
+
+	[result]
+	other::List {
+		null::block {
+			null::n
+			Compiler.Hoopl::C
+			Compiler.Hoopl::C
+		}
+	}
+}
+
+[Function]
+mkBRewrite3 :: forall m n f. FuelMonad m => (n C O -> f -> m (Maybe (Graph n C O))) -> (n O O -> f -> m (Maybe (Graph n O O))) -> (n O C -> FactBase f -> m (Maybe (Graph n O C))) -> BwdRewrite m n f
+Name: mkBRewrite3
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mkBRewrite3
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (FuelMonad m; m; Compiler.Hoopl::FuelMonad)
+	n
+	f
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl::C
+			Compiler.Hoopl::O
+		}
+		null::f
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				null::Graph {
+					null::n
+					Compiler.Hoopl::C
+					Compiler.Hoopl::O
+				}
+			}
+		}
+	}
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl::O
+			Compiler.Hoopl::O
+		}
+		null::f
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				null::Graph {
+					null::n
+					Compiler.Hoopl::O
+					Compiler.Hoopl::O
+				}
+			}
+		}
+	}
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl::O
+			Compiler.Hoopl::C
+		}
+		Compiler.Hoopl::FactBase {
+			null::f
+		}
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				null::Graph {
+					null::n
+					Compiler.Hoopl::O
+					Compiler.Hoopl::C
+				}
+			}
+		}
+	}
+
+	[result]
+	Compiler.Hoopl::BwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+}
+
+[Function]
+backBiasBlock :: Block n e x -> Block n e x
+Name: backBiasBlock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:backBiasBlock
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Block {
+		null::n
+		null::e
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl::Block {
+		null::n
+		null::e
+		null::x
+	}
+}
+
+[Function]
+gUnitCC :: NonLocal (block n) => block n C C -> Graph' block n C C
+Name: gUnitCC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:gUnitCC
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block: (NonLocal (block n); block, n; Compiler.Hoopl::NonLocal)
+	n: (NonLocal (block n); block, n; Compiler.Hoopl::NonLocal)
+}
+Signature = <function> {
+	[parameters]
+	null::block {
+		null::n
+		Compiler.Hoopl::C
+		Compiler.Hoopl::C
+	}
+
+	[result]
+	Compiler.Hoopl::Graph' {
+		null::block
+		null::n
+		Compiler.Hoopl::C
+		Compiler.Hoopl::C
+	}
+}
+
+[Function]
+catNodeCOGraph :: NonLocal n => n C O -> Graph n O x -> Graph n C x
+Name: catNodeCOGraph
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:catNodeCOGraph
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n: (NonLocal n; n; Compiler.Hoopl::NonLocal)
+	x
+}
+Signature = <function> {
+	[parameters]
+	null::n {
+		Compiler.Hoopl::C
+		Compiler.Hoopl::O
+	}
+	Compiler.Hoopl::Graph {
+		null::n
+		Compiler.Hoopl::O
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl::Graph {
+		null::n
+		Compiler.Hoopl::C
+		null::x
+	}
+}
+
+[Function]
+intToUnique :: Int -> Unique
+Name: intToUnique
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:intToUnique
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Compiler.Hoopl::Unique
+}
+
+[Function]
+debugFwdJoins :: forall m n f. Show f => TraceFn -> ChangePred -> FwdPass m n f -> FwdPass m n f
+Name: debugFwdJoins
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:debugFwdJoins
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	f: (Show f; f; Text.Show::Show)
+	m
+	n
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::TraceFn
+	null::ChangePred
+	Compiler.Hoopl::FwdPass {
+		null::m
+		null::n
+		null::f
+	}
+
+	[result]
+	Compiler.Hoopl::FwdPass {
+		null::m
+		null::n
+		null::f
+	}
+}
+
+[Function]
+mkBRewrite :: FuelMonad m => (forall e x. n e x -> Fact x f -> m (Maybe (Graph n e x))) -> BwdRewrite m n f
+Name: mkBRewrite
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mkBRewrite
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (FuelMonad m; m; Compiler.Hoopl::FuelMonad)
+	n
+	e
+	x
+	f
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			null::e
+			null::x
+		}
+		null::Fact {
+			null::x
+			null::f
+		}
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				null::Graph {
+					null::n
+					null::e
+					null::x
+				}
+			}
+		}
+	}
+
+	[result]
+	Compiler.Hoopl::BwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+}
+
+[Function]
+mkLast :: GraphRep g => n O C -> g n O C
+Name: mkLast
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:mkLast
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	g: (GraphRep g; g; )
+	n
+}
+Signature = <function> {
+	[parameters]
+	null::n {
+		Compiler.Hoopl::O
+		Compiler.Hoopl::C
+	}
+
+	[result]
+	null::g {
+		null::n
+		Compiler.Hoopl::O
+		Compiler.Hoopl::C
+	}
+}
+
+[Function]
+setUnions :: IsSet set => [set] -> set
+Name: setUnions
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:setUnions
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	set: (IsSet set; set; Compiler.Hoopl::IsSet)
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::set
+	}
+
+	[result]
+	null::set
+}
+
+[Function]
+joinOutFacts :: NonLocal node => DataflowLattice f -> node O C -> FactBase f -> f
+Name: joinOutFacts
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:joinOutFacts
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	node: (NonLocal node; node; Compiler.Hoopl::NonLocal)
+	f
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::DataflowLattice {
+		null::f
+	}
+	null::node {
+		Compiler.Hoopl::O
+		Compiler.Hoopl::C
+	}
+	Compiler.Hoopl::FactBase {
+		null::f
+	}
+
+	[result]
+	null::f
+}
+
+[Function]
+blockSplit :: Block n C C -> (n C O, Block n O O, n O C)
+Name: blockSplit
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:blockSplit
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Block {
+		null::n
+		Compiler.Hoopl::C
+		Compiler.Hoopl::C
+	}
+
+	[result]
+	GHC.Tuple::(,,) {
+		null::n {
+			Compiler.Hoopl::C
+			Compiler.Hoopl::O
+		}
+		Compiler.Hoopl::Block {
+			null::n
+			Compiler.Hoopl::O
+			Compiler.Hoopl::O
+		}
+		null::n {
+			Compiler.Hoopl::O
+			Compiler.Hoopl::C
+		}
+	}
+}
+
+[Function]
+iterBwdRw :: forall m n f. Monad m => BwdRewrite m n f -> BwdRewrite m n f
+Name: iterBwdRw
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:iterBwdRw
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	n
+	f
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::BwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+
+	[result]
+	Compiler.Hoopl::BwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+}
+
+[Function]
+catGraphNodeOC :: NonLocal n => Graph n e O -> n O C -> Graph n e C
+Name: catGraphNodeOC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:catGraphNodeOC
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n: (NonLocal n; n; Compiler.Hoopl::NonLocal)
+	e
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Graph {
+		null::n
+		null::e
+		Compiler.Hoopl::O
+	}
+	null::n {
+		Compiler.Hoopl::O
+		Compiler.Hoopl::C
+	}
+
+	[result]
+	Compiler.Hoopl::Graph {
+		null::n
+		null::e
+		Compiler.Hoopl::C
+	}
+}
+
+[Function]
+distributeFactBwd :: NonLocal n => n C O -> f -> FactBase f
+Name: distributeFactBwd
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:distributeFactBwd
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n: (NonLocal n; n; Compiler.Hoopl::NonLocal)
+	f
+}
+Signature = <function> {
+	[parameters]
+	null::n {
+		Compiler.Hoopl::C
+		Compiler.Hoopl::O
+	}
+	null::f
+
+	[result]
+	Compiler.Hoopl::FactBase {
+		null::f
+	}
+}
+
+[Function]
+postorder_dfs_from :: (NonLocal block, LabelsPtr b) => LabelMap (block C C) -> b -> [block C C]
+Name: postorder_dfs_from
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:postorder_dfs_from
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block: (NonLocal block; block; Compiler.Hoopl::NonLocal)
+	b: (LabelsPtr b; b; Compiler.Hoopl::LabelsPtr)
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::LabelMap {
+		null::block {
+			Compiler.Hoopl::C
+			Compiler.Hoopl::C
+		}
+	}
+	null::b
+
+	[result]
+	other::List {
+		null::block {
+			Compiler.Hoopl::C
+			Compiler.Hoopl::C
+		}
+	}
+}
+
+[Function]
+aGraphOfGraph :: Graph n e x -> AGraph n e x
+Name: aGraphOfGraph
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:aGraphOfGraph
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Graph {
+		null::n
+		null::e
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl::AGraph {
+		null::n
+		null::e
+		null::x
+	}
+}
+
+[Function]
+unionBlocks :: NonLocal n => AGraph n C C -> AGraph n C C -> AGraph n C C
+Name: unionBlocks
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:unionBlocks
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n: (NonLocal n; n; Compiler.Hoopl::NonLocal)
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::AGraph {
+		null::n
+		Compiler.Hoopl::C
+		Compiler.Hoopl::C
+	}
+	Compiler.Hoopl::AGraph {
+		null::n
+		Compiler.Hoopl::C
+		Compiler.Hoopl::C
+	}
+
+	[result]
+	Compiler.Hoopl::AGraph {
+		null::n
+		Compiler.Hoopl::C
+		Compiler.Hoopl::C
+	}
+}
+
+[Function]
+debugBwdJoins :: forall m n f. Show f => TraceFn -> ChangePred -> BwdPass m n f -> BwdPass m n f
+Name: debugBwdJoins
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl.html#v:debugBwdJoins
+Containing package: Compiler.Hoopl
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	f: (Show f; f; Text.Show::Show)
+	m
+	n
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::TraceFn
+	null::ChangePred
+	Compiler.Hoopl::BwdPass {
+		null::m
+		null::n
+		null::f
+	}
+
+	[result]
+	Compiler.Hoopl::BwdPass {
+		null::m
+		null::n
+		null::f
+	}
+}

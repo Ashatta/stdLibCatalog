@@ -1,0 +1,91 @@
+[Package]
+Name: Compiler.Hoopl.Passes.DList
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Passes-DList.html
+Containing package: Passes
+attributes {
+}
+
+Subpackages {
+}
+
+[Alias]
+type Doms = WithBot [Label]
+Name: Doms
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Passes-DList.html#t:Doms
+Containing package: Compiler.Hoopl.Passes.DList
+attributes {
+}
+parameters {
+}
+Aliased type = Compiler.Hoopl::WithBot {
+	other::List {
+		Compiler.Hoopl.Internals::Label
+	}
+}
+
+[Function]
+domPass :: (NonLocal n, Monad m) => FwdPass m n Doms
+Name: domPass
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Passes-DList.html#v:domPass
+Containing package: Compiler.Hoopl.Passes.DList
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n: (NonLocal n; n; Compiler.Hoopl.Internals::NonLocal)
+	m: (Monad m; m; Control.Monad::Monad)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Compiler.Hoopl.Internals::FwdPass {
+		null::m
+		null::n
+		Compiler.Hoopl.Passes.DList::Doms
+	}
+}
+
+[Function]
+domEntry :: Doms
+Name: domEntry
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Passes-DList.html#v:domEntry
+Containing package: Compiler.Hoopl.Passes.DList
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Compiler.Hoopl.Passes.DList::Doms
+}
+
+[Function]
+domLattice :: DataflowLattice Doms
+Name: domLattice
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Passes-DList.html#v:domLattice
+Containing package: Compiler.Hoopl.Passes.DList
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Compiler.Hoopl.Internals::DataflowLattice {
+		Compiler.Hoopl.Passes.DList::Doms
+	}
+}

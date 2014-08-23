@@ -1,0 +1,351 @@
+[Package]
+Name: Data.Monoid
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Monoid.html
+Containing package: Data
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+newtype Any = Any { getAny :: Bool}
+Name: Any
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Monoid.html#t:Any
+Containing package: Data.Monoid
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype All = All { getAll :: Bool}
+Name: All
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Monoid.html#t:All
+Containing package: Data.Monoid
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype Sum a = Sum { getSum :: a}
+Name: Sum
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Monoid.html#t:Sum
+Containing package: Data.Monoid
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype Last a = Last { getLast :: Maybe a}
+Name: Last
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Monoid.html#t:Last
+Containing package: Data.Monoid
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype First a = First { getFirst :: Maybe a}
+Name: First
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Monoid.html#t:First
+Containing package: Data.Monoid
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype Product a = Product { getProduct :: a}
+Name: Product
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Monoid.html#t:Product
+Containing package: Data.Monoid
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype Dual a = Dual { getDual :: a}
+Name: Dual
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Monoid.html#t:Dual
+Containing package: Data.Monoid
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class Monoid a where mempty :: a mappend :: a -> a -> a mconcat :: [a] -> a
+Name: Monoid
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Monoid.html#t:Monoid
+Containing package: Data.Monoid
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Control.Applicative::Data.Monoid.Monoid_Const<a<>,b<>>
+	Data.Binary.Builder::Data.Monoid.Monoid_Builder<>
+	Data.ByteString.Builder::Data.Monoid.Monoid_Builder<>
+	Data.ByteString.Char8::Data.Monoid.Monoid_ByteString<>
+	Data.ByteString.Lazy.Char8::Data.Monoid.Monoid_ByteString<>
+	Data.ByteString.Lazy::Data.Monoid.Monoid_ByteString<>
+	Data.ByteString.Short::Data.Monoid.Monoid_ShortByteString<>
+	Data.ByteString::Data.Monoid.Monoid_ByteString<>
+	Data.IntMap.Lazy::Data.Monoid.Monoid_IntMap<a<>>
+	Data.IntMap.Strict::Data.Monoid.Monoid_IntMap<a<>>
+	Data.IntSet::Data.Monoid.Monoid_IntSet<>
+	Data.Map.Lazy::Data.Monoid.Monoid_Map<k<>,v<>>
+	Data.Map.Strict::Data.Monoid.Monoid_Map<k<>,v<>>
+	Data.Maybe::Data.Monoid.Monoid_Maybe<a<>>
+	Data.Ord::Data.Monoid.Monoid_Ordering<>
+	GHC.Tuple::Data.Monoid.Monoid_()<>
+	Data.Monoid::Data.Monoid.Monoid_Any<>
+	Data.Monoid::Data.Monoid.Monoid_All<>
+	GHC.Event::Data.Monoid.Monoid_Event<>
+	other::Data.Monoid.Monoid_List<a<>>
+	Data.Monoid::Data.Monoid.Monoid_Last<a<>>
+	Data.Monoid::Data.Monoid.Monoid_First<a<>>
+	Data.Monoid::Data.Monoid.Monoid_Product<a<>>
+	Data.Monoid::Data.Monoid.Monoid_Sum<a<>>
+	Data.Monoid::Data.Monoid.Monoid_Endo<a<>>
+	Data.Monoid::Data.Monoid.Monoid_Dual<a<>>
+	other::Data.Monoid.Monoid_Function<a<>,b<>>
+	GHC.Tuple::Data.Monoid.Monoid_(,,,)<a<>,b<>>
+	Data.Proxy::Data.Monoid.Monoid_Proxy<s<>>
+	GHC.Tuple::Data.Monoid.Monoid_(,,,,)<a<>,b<>,c<>>
+	GHC.Tuple::Data.Monoid.Monoid_(,,,,,)<a<>,b<>,c<>,d<>>
+	GHC.Tuple::Data.Monoid.Monoid_(,,,,,,)<a<>,b<>,c<>,d<>,e<>>
+	Data.Sequence::Data.Monoid.Monoid_Seq<a<>>
+	Data.Set::Data.Monoid.Monoid_Set<a<>>
+	Data.Typeable.Internal::Data.Monoid.Monoid_Proxy<s<>>
+	Data.Typeable::Data.Monoid.Monoid_Proxy<s<>>
+	Distribution.PackageDescription::Data.Monoid.Monoid_Library<>
+	Distribution.PackageDescription::Data.Monoid.Monoid_Executable<>
+	Distribution.PackageDescription::Data.Monoid.Monoid_TestSuite<>
+	Distribution.PackageDescription::Data.Monoid.Monoid_TestSuiteInterface<>
+	Distribution.PackageDescription::Data.Monoid.Monoid_Benchmark<>
+	Distribution.PackageDescription::Data.Monoid.Monoid_BenchmarkInterface<>
+	Distribution.PackageDescription::Data.Monoid.Monoid_BuildInfo<>
+	Distribution.Simple.CCompiler::Data.Monoid.Monoid_CDialect<>
+	Distribution.Simple.InstallDirs::Data.Monoid.Monoid_InstallDirs<dir<>>
+	Distribution.Simple.PackageIndex::Data.Monoid.Monoid_PackageIndex<>
+	Distribution.Simple.Program.GHC::Data.Monoid.Monoid_GhcOptions<>
+	Distribution.Simple.Setup::Data.Monoid.Monoid_GlobalFlags<>
+	Distribution.Simple.Setup::Data.Monoid.Monoid_ConfigFlags<>
+	Distribution.Simple.Setup::Data.Monoid.Monoid_CopyFlags<>
+	Distribution.Simple.Setup::Data.Monoid.Monoid_InstallFlags<>
+	Distribution.Simple.Setup::Data.Monoid.Monoid_HaddockFlags<>
+	Distribution.Simple.Setup::Data.Monoid.Monoid_HscolourFlags<>
+	Distribution.Simple.Setup::Data.Monoid.Monoid_BuildFlags<>
+	Distribution.Simple.Setup::Data.Monoid.Monoid_ReplFlags<>
+	Distribution.Simple.Setup::Data.Monoid.Monoid_CleanFlags<>
+	Distribution.Simple.Setup::Data.Monoid.Monoid_RegisterFlags<>
+	Distribution.Simple.Setup::Data.Monoid.Monoid_SDistFlags<>
+	Distribution.Simple.Setup::Data.Monoid.Monoid_TestFlags<>
+	Distribution.Simple.Setup::Data.Monoid.Monoid_TestShowDetails<>
+	Distribution.Simple.Setup::Data.Monoid.Monoid_BenchmarkFlags<>
+	Distribution.Simple.Setup::Data.Monoid.Monoid_Flag<a<>>
+	Prelude::Data.Monoid.Monoid_Maybe<a<>>
+	Prelude::Data.Monoid.Monoid_Ordering<>
+	Text.PrettyPrint.HughesPJ::Data.Monoid.Monoid_Doc<>
+	Text.PrettyPrint::Data.Monoid.Monoid_Doc<>
+	Text.XHtml.Frameset::Data.Monoid.Monoid_Html<>
+	Text.XHtml.Strict::Data.Monoid.Monoid_Html<>
+	Text.XHtml.Transitional::Data.Monoid.Monoid_Html<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	mempty :: a
+	Name: mempty
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Monoid.html#v:mempty
+	Containing package: Data.Monoid
+	attributes {
+		memberType=function
+	}
+	Containing type: Monoid
+	parameters {
+		a: (Monoid a; a; Data.Monoid::Monoid)
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	mappend :: a -> a -> a
+	Name: mappend
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Monoid.html#v:mappend
+	Containing package: Data.Monoid
+	attributes {
+		memberType=function
+	}
+	Containing type: Monoid
+	parameters {
+		a: (Monoid a; a; Data.Monoid::Monoid)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	mconcat :: [a] -> a
+	Name: mconcat
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Monoid.html#v:mconcat
+	Containing package: Data.Monoid
+	attributes {
+		memberType=function
+	}
+	Containing type: Monoid
+	parameters {
+		a: (Monoid a; a; Data.Monoid::Monoid)
+	}
+	Signature = <function> {
+		[parameters]
+		other::List {
+			null::a
+		}
+	
+		[result]
+		null::a
+	}
+}
+
+[Classifier]
+newtype Endo a = Endo { appEndo :: a -> a}
+Name: Endo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Monoid.html#t:Endo
+Containing package: Data.Monoid
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+(<>) :: Monoid m => m -> m -> m
+Name: (<>)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Monoid.html#v:(<>)
+Containing package: Data.Monoid
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monoid m; m; Data.Monoid::Monoid)
+}
+Signature = <function> {
+	[parameters]
+	null::m
+	null::m
+
+	[result]
+	null::m
+}

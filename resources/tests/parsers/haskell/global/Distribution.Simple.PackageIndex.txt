@@ -1,0 +1,655 @@
+[Package]
+Name: Distribution.Simple.PackageIndex
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PackageIndex.html
+Containing package: Distribution.Simple
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data SearchResult a = None | Unambiguous a | Ambiguous [a]
+Name: SearchResult
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PackageIndex.html#t:SearchResult
+Containing package: Distribution.Simple.PackageIndex
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data PackageIndex
+Name: PackageIndex
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PackageIndex.html#t:PackageIndex
+Containing package: Distribution.Simple.PackageIndex
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+moduleNameIndex :: PackageIndex -> Map ModuleName [InstalledPackageInfo]
+Name: moduleNameIndex
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PackageIndex.html#v:moduleNameIndex
+Containing package: Distribution.Simple.PackageIndex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.PackageIndex::PackageIndex
+
+	[result]
+	Data.Map.Lazy::Map {
+		Distribution.ModuleName::ModuleName
+		other::List {
+			Distribution.InstalledPackageInfo::InstalledPackageInfo
+		}
+	}
+}
+
+[Function]
+deleteInstalledPackageId :: InstalledPackageId -> PackageIndex -> PackageIndex
+Name: deleteInstalledPackageId
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PackageIndex.html#v:deleteInstalledPackageId
+Containing package: Distribution.Simple.PackageIndex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Package::InstalledPackageId
+	Distribution.Simple.PackageIndex::PackageIndex
+
+	[result]
+	Distribution.Simple.PackageIndex::PackageIndex
+}
+
+[Function]
+dependencyCycles :: PackageIndex -> [[InstalledPackageInfo]]
+Name: dependencyCycles
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PackageIndex.html#v:dependencyCycles
+Containing package: Distribution.Simple.PackageIndex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.PackageIndex::PackageIndex
+
+	[result]
+	other::List {
+		<function> {
+			[parameters]
+		
+			[result]
+			other::List {
+				Distribution.InstalledPackageInfo::InstalledPackageInfo
+			}
+		}
+	}
+}
+
+[Function]
+lookupInstalledPackageId :: PackageIndex -> InstalledPackageId -> Maybe InstalledPackageInfo
+Name: lookupInstalledPackageId
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PackageIndex.html#v:lookupInstalledPackageId
+Containing package: Distribution.Simple.PackageIndex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.PackageIndex::PackageIndex
+	Distribution.Package::InstalledPackageId
+
+	[result]
+	Data.Maybe::Maybe {
+		Distribution.InstalledPackageInfo::InstalledPackageInfo
+	}
+}
+
+[Function]
+reverseDependencyClosure :: PackageIndex -> [InstalledPackageId] -> [InstalledPackageInfo]
+Name: reverseDependencyClosure
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PackageIndex.html#v:reverseDependencyClosure
+Containing package: Distribution.Simple.PackageIndex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.PackageIndex::PackageIndex
+	other::List {
+		Distribution.Package::InstalledPackageId
+	}
+
+	[result]
+	other::List {
+		Distribution.InstalledPackageInfo::InstalledPackageInfo
+	}
+}
+
+[Function]
+deletePackageName :: PackageName -> PackageIndex -> PackageIndex
+Name: deletePackageName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PackageIndex.html#v:deletePackageName
+Containing package: Distribution.Simple.PackageIndex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Package::PackageName
+	Distribution.Simple.PackageIndex::PackageIndex
+
+	[result]
+	Distribution.Simple.PackageIndex::PackageIndex
+}
+
+[Function]
+brokenPackages :: PackageIndex -> [(InstalledPackageInfo, [InstalledPackageId])]
+Name: brokenPackages
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PackageIndex.html#v:brokenPackages
+Containing package: Distribution.Simple.PackageIndex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.PackageIndex::PackageIndex
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			Distribution.InstalledPackageInfo::InstalledPackageInfo
+			other::List {
+				Distribution.Package::InstalledPackageId
+			}
+		}
+	}
+}
+
+[Function]
+allPackagesBySourcePackageId :: PackageIndex -> [(PackageId, [InstalledPackageInfo])]
+Name: allPackagesBySourcePackageId
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PackageIndex.html#v:allPackagesBySourcePackageId
+Containing package: Distribution.Simple.PackageIndex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.PackageIndex::PackageIndex
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			Distribution.Package::PackageId
+			other::List {
+				Distribution.InstalledPackageInfo::InstalledPackageInfo
+			}
+		}
+	}
+}
+
+[Function]
+insert :: InstalledPackageInfo -> PackageIndex -> PackageIndex
+Name: insert
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PackageIndex.html#v:insert
+Containing package: Distribution.Simple.PackageIndex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.InstalledPackageInfo::InstalledPackageInfo
+	Distribution.Simple.PackageIndex::PackageIndex
+
+	[result]
+	Distribution.Simple.PackageIndex::PackageIndex
+}
+
+[Function]
+searchByNameSubstring :: PackageIndex -> String -> [InstalledPackageInfo]
+Name: searchByNameSubstring
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PackageIndex.html#v:searchByNameSubstring
+Containing package: Distribution.Simple.PackageIndex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.PackageIndex::PackageIndex
+	Data.String::String
+
+	[result]
+	other::List {
+		Distribution.InstalledPackageInfo::InstalledPackageInfo
+	}
+}
+
+[Function]
+allPackagesByName :: PackageIndex -> [(PackageName, [InstalledPackageInfo])]
+Name: allPackagesByName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PackageIndex.html#v:allPackagesByName
+Containing package: Distribution.Simple.PackageIndex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.PackageIndex::PackageIndex
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			Distribution.Package::PackageName
+			other::List {
+				Distribution.InstalledPackageInfo::InstalledPackageInfo
+			}
+		}
+	}
+}
+
+[Function]
+reverseTopologicalOrder :: PackageIndex -> [InstalledPackageInfo]
+Name: reverseTopologicalOrder
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PackageIndex.html#v:reverseTopologicalOrder
+Containing package: Distribution.Simple.PackageIndex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.PackageIndex::PackageIndex
+
+	[result]
+	other::List {
+		Distribution.InstalledPackageInfo::InstalledPackageInfo
+	}
+}
+
+[Function]
+deleteSourcePackageId :: PackageId -> PackageIndex -> PackageIndex
+Name: deleteSourcePackageId
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PackageIndex.html#v:deleteSourcePackageId
+Containing package: Distribution.Simple.PackageIndex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Package::PackageId
+	Distribution.Simple.PackageIndex::PackageIndex
+
+	[result]
+	Distribution.Simple.PackageIndex::PackageIndex
+}
+
+[Function]
+lookupPackageName :: PackageIndex -> PackageName -> [(Version, [InstalledPackageInfo])]
+Name: lookupPackageName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PackageIndex.html#v:lookupPackageName
+Containing package: Distribution.Simple.PackageIndex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.PackageIndex::PackageIndex
+	Distribution.Package::PackageName
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			Distribution.Version::Version
+			other::List {
+				Distribution.InstalledPackageInfo::InstalledPackageInfo
+			}
+		}
+	}
+}
+
+[Function]
+dependencyInconsistencies :: PackageIndex -> [(PackageName, [(PackageId, Version)])]
+Name: dependencyInconsistencies
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PackageIndex.html#v:dependencyInconsistencies
+Containing package: Distribution.Simple.PackageIndex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.PackageIndex::PackageIndex
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			Distribution.Package::PackageName
+			other::List {
+				GHC.Tuple::(,) {
+					Distribution.Package::PackageId
+					Distribution.Version::Version
+				}
+			}
+		}
+	}
+}
+
+[Function]
+allPackages :: PackageIndex -> [InstalledPackageInfo]
+Name: allPackages
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PackageIndex.html#v:allPackages
+Containing package: Distribution.Simple.PackageIndex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.PackageIndex::PackageIndex
+
+	[result]
+	other::List {
+		Distribution.InstalledPackageInfo::InstalledPackageInfo
+	}
+}
+
+[Function]
+fromList :: [InstalledPackageInfo] -> PackageIndex
+Name: fromList
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PackageIndex.html#v:fromList
+Containing package: Distribution.Simple.PackageIndex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Distribution.InstalledPackageInfo::InstalledPackageInfo
+	}
+
+	[result]
+	Distribution.Simple.PackageIndex::PackageIndex
+}
+
+[Function]
+topologicalOrder :: PackageIndex -> [InstalledPackageInfo]
+Name: topologicalOrder
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PackageIndex.html#v:topologicalOrder
+Containing package: Distribution.Simple.PackageIndex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.PackageIndex::PackageIndex
+
+	[result]
+	other::List {
+		Distribution.InstalledPackageInfo::InstalledPackageInfo
+	}
+}
+
+[Function]
+lookupSourcePackageId :: PackageIndex -> PackageId -> [InstalledPackageInfo]
+Name: lookupSourcePackageId
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PackageIndex.html#v:lookupSourcePackageId
+Containing package: Distribution.Simple.PackageIndex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.PackageIndex::PackageIndex
+	Distribution.Package::PackageId
+
+	[result]
+	other::List {
+		Distribution.InstalledPackageInfo::InstalledPackageInfo
+	}
+}
+
+[Function]
+dependencyGraph :: PackageIndex -> (Graph, Vertex -> InstalledPackageInfo, InstalledPackageId -> Maybe Vertex)
+Name: dependencyGraph
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PackageIndex.html#v:dependencyGraph
+Containing package: Distribution.Simple.PackageIndex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.PackageIndex::PackageIndex
+
+	[result]
+	GHC.Tuple::(,,) {
+		Data.Graph::Graph
+		<function> {
+			[parameters]
+			Data.Graph::Vertex
+		
+			[result]
+			Distribution.InstalledPackageInfo::InstalledPackageInfo
+		}
+		<function> {
+			[parameters]
+			Distribution.Package::InstalledPackageId
+		
+			[result]
+			Data.Maybe::Maybe {
+				Data.Graph::Vertex
+			}
+		}
+	}
+}
+
+[Function]
+searchByName :: PackageIndex -> String -> SearchResult [InstalledPackageInfo]
+Name: searchByName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PackageIndex.html#v:searchByName
+Containing package: Distribution.Simple.PackageIndex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.PackageIndex::PackageIndex
+	Data.String::String
+
+	[result]
+	Distribution.Simple.PackageIndex::SearchResult {
+		other::List {
+			Distribution.InstalledPackageInfo::InstalledPackageInfo
+		}
+	}
+}
+
+[Function]
+dependencyClosure :: PackageIndex -> [InstalledPackageId] -> Either PackageIndex [(InstalledPackageInfo, [InstalledPackageId])]
+Name: dependencyClosure
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PackageIndex.html#v:dependencyClosure
+Containing package: Distribution.Simple.PackageIndex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.PackageIndex::PackageIndex
+	other::List {
+		Distribution.Package::InstalledPackageId
+	}
+
+	[result]
+	Data.Either::Either {
+		Distribution.Simple.PackageIndex::PackageIndex
+		other::List {
+			GHC.Tuple::(,) {
+				Distribution.InstalledPackageInfo::InstalledPackageInfo
+				other::List {
+					Distribution.Package::InstalledPackageId
+				}
+			}
+		}
+	}
+}
+
+[Function]
+lookupDependency :: PackageIndex -> Dependency -> [(Version, [InstalledPackageInfo])]
+Name: lookupDependency
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PackageIndex.html#v:lookupDependency
+Containing package: Distribution.Simple.PackageIndex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.PackageIndex::PackageIndex
+	Distribution.Package::Dependency
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			Distribution.Version::Version
+			other::List {
+				Distribution.InstalledPackageInfo::InstalledPackageInfo
+			}
+		}
+	}
+}
+
+[Function]
+merge :: PackageIndex -> PackageIndex -> PackageIndex
+Name: merge
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PackageIndex.html#v:merge
+Containing package: Distribution.Simple.PackageIndex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.PackageIndex::PackageIndex
+	Distribution.Simple.PackageIndex::PackageIndex
+
+	[result]
+	Distribution.Simple.PackageIndex::PackageIndex
+}

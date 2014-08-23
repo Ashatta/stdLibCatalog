@@ -1,0 +1,653 @@
+[Package]
+Name: System.Posix.Process
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process.html
+Containing package: System.Posix
+attributes {
+}
+
+Subpackages {
+	System.Posix.Process.ByteString
+	System.Posix.Process.Internals
+}
+
+[Classifier]
+data ProcessStatus = Exited ExitCode | Terminated Signal Bool | Stopped Signal
+Name: ProcessStatus
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process.html#t:ProcessStatus
+Containing package: System.Posix.Process
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ProcessTimes = ProcessTimes { elapsedTime :: ClockTick userTime :: ClockTick systemTime :: ClockTick childUserTime :: ClockTick childSystemTime :: ClockTick}
+Name: ProcessTimes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process.html#t:ProcessTimes
+Containing package: System.Posix.Process
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+getProcessGroupIDOf :: ProcessID -> IO ProcessGroupID
+Name: getProcessGroupIDOf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process.html#v:getProcessGroupIDOf
+Containing package: System.Posix.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::ProcessID
+
+	[result]
+	System.IO::IO {
+		System.Posix.Types::ProcessGroupID
+	}
+}
+
+[Function]
+setProcessGroupPriority :: ProcessGroupID -> Int -> IO ()
+Name: setProcessGroupPriority
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process.html#v:setProcessGroupPriority
+Containing package: System.Posix.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::ProcessGroupID
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+createProcessGroup :: ProcessID -> IO ProcessGroupID
+Name: createProcessGroup
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process.html#v:createProcessGroup
+Containing package: System.Posix.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::ProcessID
+
+	[result]
+	System.IO::IO {
+		System.Posix.Types::ProcessGroupID
+	}
+}
+
+[Function]
+nice :: Int -> IO ()
+Name: nice
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process.html#v:nice
+Containing package: System.Posix.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+getProcessTimes :: IO ProcessTimes
+Name: getProcessTimes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process.html#v:getProcessTimes
+Containing package: System.Posix.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.Posix.Process::ProcessTimes
+	}
+}
+
+[Function]
+setUserPriority :: UserID -> Int -> IO ()
+Name: setUserPriority
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process.html#v:setUserPriority
+Containing package: System.Posix.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::UserID
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+executeFile :: FilePath -> Bool -> [String] -> Maybe [(String, String)] -> IO a
+Name: executeFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process.html#v:executeFile
+Containing package: System.Posix.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	Data.Bool::Bool
+	other::List {
+		Data.String::String
+	}
+	Data.Maybe::Maybe {
+		other::List {
+			GHC.Tuple::(,) {
+				Data.String::String
+				Data.String::String
+			}
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+getProcessID :: IO ProcessID
+Name: getProcessID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process.html#v:getProcessID
+Containing package: System.Posix.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.Posix.Types::ProcessID
+	}
+}
+
+[Function]
+forkProcess :: IO () -> IO ProcessID
+Name: forkProcess
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process.html#v:forkProcess
+Containing package: System.Posix.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+
+	[result]
+	System.IO::IO {
+		System.Posix.Types::ProcessID
+	}
+}
+
+[Function]
+getUserPriority :: UserID -> IO Int
+Name: getUserPriority
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process.html#v:getUserPriority
+Containing package: System.Posix.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::UserID
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}
+
+[Function]
+joinProcessGroup :: ProcessGroupID -> IO ()
+Name: joinProcessGroup
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process.html#v:joinProcessGroup
+Containing package: System.Posix.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::ProcessGroupID
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+createProcessGroupFor :: ProcessID -> IO ProcessGroupID
+Name: createProcessGroupFor
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process.html#v:createProcessGroupFor
+Containing package: System.Posix.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::ProcessID
+
+	[result]
+	System.IO::IO {
+		System.Posix.Types::ProcessGroupID
+	}
+}
+
+[Function]
+setProcessGroupID :: ProcessID -> ProcessGroupID -> IO ()
+Name: setProcessGroupID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process.html#v:setProcessGroupID
+Containing package: System.Posix.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::ProcessID
+	System.Posix.Types::ProcessGroupID
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+getProcessGroupPriority :: ProcessGroupID -> IO Int
+Name: getProcessGroupPriority
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process.html#v:getProcessGroupPriority
+Containing package: System.Posix.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::ProcessGroupID
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}
+
+[Function]
+forkProcessWithUnmask :: ((forall a. IO a -> IO a) -> IO ()) -> IO ProcessID
+Name: forkProcessWithUnmask
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process.html#v:forkProcessWithUnmask
+Containing package: System.Posix.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			System.IO::IO {
+				null::a
+			}
+		
+			[result]
+			System.IO::IO {
+				null::a
+			}
+		}
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		System.Posix.Types::ProcessID
+	}
+}
+
+[Function]
+setProcessGroupIDOf :: ProcessID -> ProcessGroupID -> IO ()
+Name: setProcessGroupIDOf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process.html#v:setProcessGroupIDOf
+Containing package: System.Posix.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::ProcessID
+	System.Posix.Types::ProcessGroupID
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+getAnyProcessStatus :: Bool -> Bool -> IO (Maybe (ProcessID, ProcessStatus))
+Name: getAnyProcessStatus
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process.html#v:getAnyProcessStatus
+Containing package: System.Posix.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Bool::Bool
+	Data.Bool::Bool
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			GHC.Tuple::(,) {
+				System.Posix.Types::ProcessID
+				System.Posix.Process::ProcessStatus
+			}
+		}
+	}
+}
+
+[Function]
+exitImmediately :: ExitCode -> IO ()
+Name: exitImmediately
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process.html#v:exitImmediately
+Containing package: System.Posix.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Exit::ExitCode
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+setProcessPriority :: ProcessID -> Int -> IO ()
+Name: setProcessPriority
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process.html#v:setProcessPriority
+Containing package: System.Posix.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::ProcessID
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+getProcessGroupID :: IO ProcessGroupID
+Name: getProcessGroupID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process.html#v:getProcessGroupID
+Containing package: System.Posix.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.Posix.Types::ProcessGroupID
+	}
+}
+
+[Function]
+getProcessStatus :: Bool -> Bool -> ProcessID -> IO (Maybe ProcessStatus)
+Name: getProcessStatus
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process.html#v:getProcessStatus
+Containing package: System.Posix.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Bool::Bool
+	Data.Bool::Bool
+	System.Posix.Types::ProcessID
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			System.Posix.Process::ProcessStatus
+		}
+	}
+}
+
+[Function]
+getParentProcessID :: IO ProcessID
+Name: getParentProcessID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process.html#v:getParentProcessID
+Containing package: System.Posix.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.Posix.Types::ProcessID
+	}
+}
+
+[Function]
+getProcessPriority :: ProcessID -> IO Int
+Name: getProcessPriority
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process.html#v:getProcessPriority
+Containing package: System.Posix.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::ProcessID
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}
+
+[Function]
+getGroupProcessStatus :: Bool -> Bool -> ProcessGroupID -> IO (Maybe (ProcessID, ProcessStatus))
+Name: getGroupProcessStatus
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process.html#v:getGroupProcessStatus
+Containing package: System.Posix.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Bool::Bool
+	Data.Bool::Bool
+	System.Posix.Types::ProcessGroupID
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			GHC.Tuple::(,) {
+				System.Posix.Types::ProcessID
+				System.Posix.Process::ProcessStatus
+			}
+		}
+	}
+}
+
+[Function]
+createSession :: IO ProcessGroupID
+Name: createSession
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process.html#v:createSession
+Containing package: System.Posix.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.Posix.Types::ProcessGroupID
+	}
+}

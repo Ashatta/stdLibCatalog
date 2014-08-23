@@ -1,0 +1,207 @@
+[Package]
+Name: System.Posix.Semaphore
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Semaphore.html
+Containing package: System.Posix
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data Semaphore
+Name: Semaphore
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Semaphore.html#t:Semaphore
+Containing package: System.Posix.Semaphore
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data OpenSemFlags = OpenSemFlags { semCreate :: Bool semExclusive :: Bool}
+Name: OpenSemFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Semaphore.html#t:OpenSemFlags
+Containing package: System.Posix.Semaphore
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+semTryWait :: Semaphore -> IO Bool
+Name: semTryWait
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Semaphore.html#v:semTryWait
+Containing package: System.Posix.Semaphore
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Semaphore::Semaphore
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+semUnlink :: String -> IO ()
+Name: semUnlink
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Semaphore.html#v:semUnlink
+Containing package: System.Posix.Semaphore
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+semGetValue :: Semaphore -> IO Int
+Name: semGetValue
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Semaphore.html#v:semGetValue
+Containing package: System.Posix.Semaphore
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Semaphore::Semaphore
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}
+
+[Function]
+semWait :: Semaphore -> IO ()
+Name: semWait
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Semaphore.html#v:semWait
+Containing package: System.Posix.Semaphore
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Semaphore::Semaphore
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+semOpen :: String -> OpenSemFlags -> FileMode -> Int -> IO Semaphore
+Name: semOpen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Semaphore.html#v:semOpen
+Containing package: System.Posix.Semaphore
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	System.Posix.Semaphore::OpenSemFlags
+	System.Posix.Types::FileMode
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		System.Posix.Semaphore::Semaphore
+	}
+}
+
+[Function]
+semPost :: Semaphore -> IO ()
+Name: semPost
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Semaphore.html#v:semPost
+Containing package: System.Posix.Semaphore
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Semaphore::Semaphore
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+semThreadWait :: Semaphore -> IO ()
+Name: semThreadWait
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Semaphore.html#v:semThreadWait
+Containing package: System.Posix.Semaphore
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Semaphore::Semaphore
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}

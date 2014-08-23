@@ -1,0 +1,227 @@
+[Package]
+Name: Distribution.Simple.Program.Run
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-Run.html
+Containing package: Distribution.Simple.Program
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data IOEncoding = IOEncodingText | IOEncodingUTF8
+Name: IOEncoding
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-Run.html#t:IOEncoding
+Containing package: Distribution.Simple.Program.Run
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ProgramInvocation = ProgramInvocation { progInvokePath :: FilePath progInvokeArgs :: [String] progInvokeEnv :: [(String, Maybe String)] progInvokeCwd :: Maybe FilePath progInvokeInput :: Maybe String progInvokeInputEncoding :: IOEncoding progInvokeOutputEncoding :: IOEncoding}
+Name: ProgramInvocation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-Run.html#t:ProgramInvocation
+Containing package: Distribution.Simple.Program.Run
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+getProgramInvocationOutput :: Verbosity -> ProgramInvocation -> IO String
+Name: getProgramInvocationOutput
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-Run.html#v:getProgramInvocationOutput
+Containing package: Distribution.Simple.Program.Run
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program.Run::ProgramInvocation
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+runProgramInvocation :: Verbosity -> ProgramInvocation -> IO ()
+Name: runProgramInvocation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-Run.html#v:runProgramInvocation
+Containing package: Distribution.Simple.Program.Run
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program.Run::ProgramInvocation
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+programInvocation :: ConfiguredProgram -> [String] -> ProgramInvocation
+Name: programInvocation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-Run.html#v:programInvocation
+Containing package: Distribution.Simple.Program.Run
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program.Types::ConfiguredProgram
+	other::List {
+		Data.String::String
+	}
+
+	[result]
+	Distribution.Simple.Program.Run::ProgramInvocation
+}
+
+[Function]
+multiStageProgramInvocation :: ProgramInvocation -> (ProgramInvocation, ProgramInvocation, ProgramInvocation) -> [String] -> [ProgramInvocation]
+Name: multiStageProgramInvocation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-Run.html#v:multiStageProgramInvocation
+Containing package: Distribution.Simple.Program.Run
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program.Run::ProgramInvocation
+	GHC.Tuple::(,,) {
+		Distribution.Simple.Program.Run::ProgramInvocation
+		Distribution.Simple.Program.Run::ProgramInvocation
+		Distribution.Simple.Program.Run::ProgramInvocation
+	}
+	other::List {
+		Data.String::String
+	}
+
+	[result]
+	other::List {
+		Distribution.Simple.Program.Run::ProgramInvocation
+	}
+}
+
+[Function]
+simpleProgramInvocation :: FilePath -> [String] -> ProgramInvocation
+Name: simpleProgramInvocation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-Run.html#v:simpleProgramInvocation
+Containing package: Distribution.Simple.Program.Run
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	other::List {
+		Data.String::String
+	}
+
+	[result]
+	Distribution.Simple.Program.Run::ProgramInvocation
+}
+
+[Function]
+emptyProgramInvocation :: ProgramInvocation
+Name: emptyProgramInvocation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-Run.html#v:emptyProgramInvocation
+Containing package: Distribution.Simple.Program.Run
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program.Run::ProgramInvocation
+}
+
+[Function]
+getEffectiveEnvironment :: [(String, Maybe String)] -> IO (Maybe [(String, String)])
+Name: getEffectiveEnvironment
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-Run.html#v:getEffectiveEnvironment
+Containing package: Distribution.Simple.Program.Run
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		GHC.Tuple::(,) {
+			Data.String::String
+			Data.Maybe::Maybe {
+				Data.String::String
+			}
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			other::List {
+				GHC.Tuple::(,) {
+					Data.String::String
+					Data.String::String
+				}
+			}
+		}
+	}
+}

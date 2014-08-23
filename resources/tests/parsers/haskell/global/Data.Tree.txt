@@ -1,0 +1,396 @@
+[Package]
+Name: Data.Tree
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Tree.html
+Containing package: Data
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data Tree a = Node { rootLabel :: a subForest :: Forest a}
+Name: Tree
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Tree.html#t:Tree
+Containing package: Data.Tree
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type Forest a = [Tree a]
+Name: Forest
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Tree.html#t:Forest
+Containing package: Data.Tree
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		Data.Tree::Tree {
+			null::a
+		}
+	}
+}
+
+[Function]
+unfoldForest :: (b -> (a, [b])) -> [b] -> Forest a
+Name: unfoldForest
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Tree.html#v:unfoldForest
+Containing package: Data.Tree
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	b
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::b
+	
+		[result]
+		GHC.Tuple::(,) {
+			null::a
+			other::List {
+				null::b
+			}
+		}
+	}
+	other::List {
+		null::b
+	}
+
+	[result]
+	Data.Tree::Forest {
+		null::a
+	}
+}
+
+[Function]
+levels :: Tree a -> [[a]]
+Name: levels
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Tree.html#v:levels
+Containing package: Data.Tree
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Tree::Tree {
+		null::a
+	}
+
+	[result]
+	other::List {
+		<function> {
+			[parameters]
+		
+			[result]
+			other::List {
+				null::a
+			}
+		}
+	}
+}
+
+[Function]
+unfoldTreeM_BF :: Monad m => (b -> m (a, [b])) -> b -> m (Tree a)
+Name: unfoldTreeM_BF
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Tree.html#v:unfoldTreeM_BF
+Containing package: Data.Tree
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	b
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::b
+	
+		[result]
+		null::m {
+			GHC.Tuple::(,) {
+				null::a
+				other::List {
+					null::b
+				}
+			}
+		}
+	}
+	null::b
+
+	[result]
+	null::m {
+		Data.Tree::Tree {
+			null::a
+		}
+	}
+}
+
+[Function]
+unfoldTree :: (b -> (a, [b])) -> b -> Tree a
+Name: unfoldTree
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Tree.html#v:unfoldTree
+Containing package: Data.Tree
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	b
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::b
+	
+		[result]
+		GHC.Tuple::(,) {
+			null::a
+			other::List {
+				null::b
+			}
+		}
+	}
+	null::b
+
+	[result]
+	Data.Tree::Tree {
+		null::a
+	}
+}
+
+[Function]
+unfoldForestM_BF :: Monad m => (b -> m (a, [b])) -> [b] -> m (Forest a)
+Name: unfoldForestM_BF
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Tree.html#v:unfoldForestM_BF
+Containing package: Data.Tree
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	b
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::b
+	
+		[result]
+		null::m {
+			GHC.Tuple::(,) {
+				null::a
+				other::List {
+					null::b
+				}
+			}
+		}
+	}
+	other::List {
+		null::b
+	}
+
+	[result]
+	null::m {
+		Data.Tree::Forest {
+			null::a
+		}
+	}
+}
+
+[Function]
+unfoldTreeM :: Monad m => (b -> m (a, [b])) -> b -> m (Tree a)
+Name: unfoldTreeM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Tree.html#v:unfoldTreeM
+Containing package: Data.Tree
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	b
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::b
+	
+		[result]
+		null::m {
+			GHC.Tuple::(,) {
+				null::a
+				other::List {
+					null::b
+				}
+			}
+		}
+	}
+	null::b
+
+	[result]
+	null::m {
+		Data.Tree::Tree {
+			null::a
+		}
+	}
+}
+
+[Function]
+drawForest :: Forest String -> String
+Name: drawForest
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Tree.html#v:drawForest
+Containing package: Data.Tree
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Tree::Forest {
+		Data.String::String
+	}
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+drawTree :: Tree String -> String
+Name: drawTree
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Tree.html#v:drawTree
+Containing package: Data.Tree
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Tree::Tree {
+		Data.String::String
+	}
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+unfoldForestM :: Monad m => (b -> m (a, [b])) -> [b] -> m (Forest a)
+Name: unfoldForestM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Tree.html#v:unfoldForestM
+Containing package: Data.Tree
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	b
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::b
+	
+		[result]
+		null::m {
+			GHC.Tuple::(,) {
+				null::a
+				other::List {
+					null::b
+				}
+			}
+		}
+	}
+	other::List {
+		null::b
+	}
+
+	[result]
+	null::m {
+		Data.Tree::Forest {
+			null::a
+		}
+	}
+}
+
+[Function]
+flatten :: Tree a -> [a]
+Name: flatten
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Tree.html#v:flatten
+Containing package: Data.Tree
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Tree::Tree {
+		null::a
+	}
+
+	[result]
+	other::List {
+		null::a
+	}
+}

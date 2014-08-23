@@ -1,0 +1,2049 @@
+[Package]
+Name: Distribution.Simple.Utils
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html
+Containing package: Distribution.Simple
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data TempFileOptions = TempFileOptions { optKeepTempFiles :: Bool}
+Name: TempFileOptions
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#t:TempFileOptions
+Containing package: Distribution.Simple.Utils
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data FileGlob = NoGlob FilePath | FileGlob FilePath String
+Name: FileGlob
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#t:FileGlob
+Containing package: Distribution.Simple.Utils
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+withTempDirectoryEx :: Verbosity -> TempFileOptions -> FilePath -> String -> (FilePath -> IO a) -> IO a
+Name: withTempDirectoryEx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:withTempDirectoryEx
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Utils::TempFileOptions
+	System.IO::FilePath
+	Data.String::String
+	<function> {
+		[parameters]
+		System.IO::FilePath
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+withTempFileEx :: TempFileOptions -> FilePath -> String -> (FilePath -> Handle -> IO a) -> IO a
+Name: withTempFileEx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:withTempFileEx
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Utils::TempFileOptions
+	System.IO::FilePath
+	Data.String::String
+	<function> {
+		[parameters]
+		System.IO::FilePath
+		GHC.IO.Handle::Handle
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+debugNoWrap :: Verbosity -> String -> IO ()
+Name: debugNoWrap
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:debugNoWrap
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+setFileOrdinary :: FilePath -> IO ()
+Name: setFileOrdinary
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:setFileOrdinary
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+intercalate :: [a] -> [[a]] -> [a]
+Name: intercalate
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:intercalate
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::a
+	}
+	other::List {
+		<function> {
+			[parameters]
+		
+			[result]
+			other::List {
+				null::a
+			}
+		}
+	}
+
+	[result]
+	other::List {
+		null::a
+	}
+}
+
+[Function]
+installMaybeExecutableFiles :: Verbosity -> FilePath -> [(FilePath, FilePath)] -> IO ()
+Name: installMaybeExecutableFiles
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:installMaybeExecutableFiles
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	System.IO::FilePath
+	other::List {
+		GHC.Tuple::(,) {
+			System.IO::FilePath
+			System.IO::FilePath
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+notice :: Verbosity -> String -> IO ()
+Name: notice
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:notice
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+topHandlerWith :: (IOException -> IO a) -> IO a -> IO a
+Name: topHandlerWith
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:topHandlerWith
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Control.Exception.Base::IOException
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+findFileWithExtension :: [String] -> [FilePath] -> FilePath -> IO (Maybe FilePath)
+Name: findFileWithExtension
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:findFileWithExtension
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Data.String::String
+	}
+	other::List {
+		System.IO::FilePath
+	}
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			System.IO::FilePath
+		}
+	}
+}
+
+[Function]
+moreRecentFile :: FilePath -> FilePath -> IO Bool
+Name: moreRecentFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:moreRecentFile
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+withUTF8FileContents :: FilePath -> (String -> IO a) -> IO a
+Name: withUTF8FileContents
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:withUTF8FileContents
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	<function> {
+		[parameters]
+		Data.String::String
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+findProgramVersion :: String -> (String -> String) -> Verbosity -> FilePath -> IO (Maybe Version)
+Name: findProgramVersion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:findProgramVersion
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	<function> {
+		[parameters]
+		Data.String::String
+	
+		[result]
+		Data.String::String
+	}
+	Distribution.Verbosity::Verbosity
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			Distribution.Version::Version
+		}
+	}
+}
+
+[Function]
+chattyTry :: String -> IO () -> IO ()
+Name: chattyTry
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:chattyTry
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+rawSystemIOWithEnv :: Verbosity -> FilePath -> [String] -> Maybe FilePath -> Maybe [(String, String)] -> Maybe Handle -> Maybe Handle -> Maybe Handle -> IO ExitCode
+Name: rawSystemIOWithEnv
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:rawSystemIOWithEnv
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	System.IO::FilePath
+	other::List {
+		Data.String::String
+	}
+	Data.Maybe::Maybe {
+		System.IO::FilePath
+	}
+	Data.Maybe::Maybe {
+		other::List {
+			GHC.Tuple::(,) {
+				Data.String::String
+				Data.String::String
+			}
+		}
+	}
+	Data.Maybe::Maybe {
+		GHC.IO.Handle::Handle
+	}
+	Data.Maybe::Maybe {
+		GHC.IO.Handle::Handle
+	}
+	Data.Maybe::Maybe {
+		GHC.IO.Handle::Handle
+	}
+
+	[result]
+	System.IO::IO {
+		System.Exit::ExitCode
+	}
+}
+
+[Function]
+rawSystemStdout :: Verbosity -> FilePath -> [String] -> IO String
+Name: rawSystemStdout
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:rawSystemStdout
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	System.IO::FilePath
+	other::List {
+		Data.String::String
+	}
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+installMaybeExecutableFile :: Verbosity -> FilePath -> FilePath -> IO ()
+Name: installMaybeExecutableFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:installMaybeExecutableFile
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	System.IO::FilePath
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+findModuleFile :: [FilePath] -> [String] -> ModuleName -> IO (FilePath, FilePath)
+Name: findModuleFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:findModuleFile
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		System.IO::FilePath
+	}
+	other::List {
+		Data.String::String
+	}
+	Distribution.ModuleName::ModuleName
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			System.IO::FilePath
+			System.IO::FilePath
+		}
+	}
+}
+
+[Function]
+withTempDirectory :: Verbosity -> FilePath -> String -> (FilePath -> IO a) -> IO a
+Name: withTempDirectory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:withTempDirectory
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	System.IO::FilePath
+	Data.String::String
+	<function> {
+		[parameters]
+		System.IO::FilePath
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+defaultHookedPackageDesc :: IO (Maybe FilePath)
+Name: defaultHookedPackageDesc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:defaultHookedPackageDesc
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			System.IO::FilePath
+		}
+	}
+}
+
+[Function]
+findFirstFile :: (a -> FilePath) -> [a] -> IO (Maybe a)
+Name: findFirstFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:findFirstFile
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		System.IO::FilePath
+	}
+	other::List {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			null::a
+		}
+	}
+}
+
+[Function]
+findFile :: [FilePath] -> FilePath -> IO FilePath
+Name: findFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:findFile
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		System.IO::FilePath
+	}
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		System.IO::FilePath
+	}
+}
+
+[Function]
+xargs :: Int -> ([String] -> IO ()) -> [String] -> [String] -> IO ()
+Name: xargs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:xargs
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	<function> {
+		[parameters]
+		other::List {
+			Data.String::String
+		}
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+	other::List {
+		Data.String::String
+	}
+	other::List {
+		Data.String::String
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+maybeExit :: IO ExitCode -> IO ()
+Name: maybeExit
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:maybeExit
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::IO {
+		System.Exit::ExitCode
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+rawSystemStdInOut :: Verbosity -> FilePath -> [String] -> Maybe FilePath -> Maybe [(String, String)] -> Maybe (String, Bool) -> Bool -> IO (String, String, ExitCode)
+Name: rawSystemStdInOut
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:rawSystemStdInOut
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	System.IO::FilePath
+	other::List {
+		Data.String::String
+	}
+	Data.Maybe::Maybe {
+		System.IO::FilePath
+	}
+	Data.Maybe::Maybe {
+		other::List {
+			GHC.Tuple::(,) {
+				Data.String::String
+				Data.String::String
+			}
+		}
+	}
+	Data.Maybe::Maybe {
+		GHC.Tuple::(,) {
+			Data.String::String
+			Data.Bool::Bool
+		}
+	}
+	Data.Bool::Bool
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,,) {
+			Data.String::String
+			Data.String::String
+			System.Exit::ExitCode
+		}
+	}
+}
+
+[Function]
+defaultTempFileOptions :: TempFileOptions
+Name: defaultTempFileOptions
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:defaultTempFileOptions
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Utils::TempFileOptions
+}
+
+[Function]
+copyFileTo :: Verbosity -> FilePath -> FilePath -> IO ()
+Name: copyFileTo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:copyFileTo
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	System.IO::FilePath
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+isInSearchPath :: FilePath -> IO Bool
+Name: isInSearchPath
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:isInSearchPath
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+findHookedPackageDesc :: FilePath -> IO (Maybe FilePath)
+Name: findHookedPackageDesc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:findHookedPackageDesc
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			System.IO::FilePath
+		}
+	}
+}
+
+[Function]
+topHandler :: IO a -> IO a
+Name: topHandler
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:topHandler
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+normaliseLineEndings :: String -> String
+Name: normaliseLineEndings
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:normaliseLineEndings
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+readUTF8File :: FilePath -> IO String
+Name: readUTF8File
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:readUTF8File
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+wrapText :: String -> String
+Name: wrapText
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:wrapText
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+installOrdinaryFiles :: Verbosity -> FilePath -> [(FilePath, FilePath)] -> IO ()
+Name: installOrdinaryFiles
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:installOrdinaryFiles
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	System.IO::FilePath
+	other::List {
+		GHC.Tuple::(,) {
+			System.IO::FilePath
+			System.IO::FilePath
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+fromUTF8 :: String -> String
+Name: fromUTF8
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:fromUTF8
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+writeFileAtomic :: FilePath -> ByteString -> IO ()
+Name: writeFileAtomic
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:writeFileAtomic
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	Data.ByteString.Lazy::ByteString
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+rewriteFile :: FilePath -> String -> IO ()
+Name: rewriteFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:rewriteFile
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+matchDirFileGlob :: FilePath -> FilePath -> IO [FilePath]
+Name: matchDirFileGlob
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:matchDirFileGlob
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		other::List {
+			System.IO::FilePath
+		}
+	}
+}
+
+[Function]
+findModuleFiles :: [FilePath] -> [String] -> [ModuleName] -> IO [(FilePath, FilePath)]
+Name: findModuleFiles
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:findModuleFiles
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		System.IO::FilePath
+	}
+	other::List {
+		Data.String::String
+	}
+	other::List {
+		Distribution.ModuleName::ModuleName
+	}
+
+	[result]
+	System.IO::IO {
+		other::List {
+			GHC.Tuple::(,) {
+				System.IO::FilePath
+				System.IO::FilePath
+			}
+		}
+	}
+}
+
+[Function]
+dieWithLocation :: FilePath -> Maybe Int -> String -> IO a
+Name: dieWithLocation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:dieWithLocation
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	Data.Maybe::Maybe {
+		Data.Int::Int
+	}
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+wrapLine :: Int -> [String] -> [[String]]
+Name: wrapLine
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:wrapLine
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	other::List {
+		Data.String::String
+	}
+
+	[result]
+	other::List {
+		<function> {
+			[parameters]
+		
+			[result]
+			other::List {
+				Data.String::String
+			}
+		}
+	}
+}
+
+[Function]
+copyFileVerbose :: Verbosity -> FilePath -> FilePath -> IO ()
+Name: copyFileVerbose
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:copyFileVerbose
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	System.IO::FilePath
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+setupMessage :: Verbosity -> String -> PackageIdentifier -> IO ()
+Name: setupMessage
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:setupMessage
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Data.String::String
+	Distribution.Package::PackageIdentifier
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+withFileContents :: FilePath -> (String -> IO a) -> IO a
+Name: withFileContents
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:withFileContents
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	<function> {
+		[parameters]
+		Data.String::String
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+createDirectoryIfMissingVerbose :: Verbosity -> Bool -> FilePath -> IO ()
+Name: createDirectoryIfMissingVerbose
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:createDirectoryIfMissingVerbose
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Data.Bool::Bool
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+isInfixOf :: String -> String -> Bool
+Name: isInfixOf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:isInfixOf
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Data.String::String
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+info :: Verbosity -> String -> IO ()
+Name: info
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:info
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+toUTF8 :: String -> String
+Name: toUTF8
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:toUTF8
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+withTempFile :: FilePath -> String -> (FilePath -> Handle -> IO a) -> IO a
+Name: withTempFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:withTempFile
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	Data.String::String
+	<function> {
+		[parameters]
+		System.IO::FilePath
+		GHC.IO.Handle::Handle
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+installDirectoryContents :: Verbosity -> FilePath -> FilePath -> IO ()
+Name: installDirectoryContents
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:installDirectoryContents
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	System.IO::FilePath
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+matchFileGlob :: FilePath -> IO [FilePath]
+Name: matchFileGlob
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:matchFileGlob
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		other::List {
+			System.IO::FilePath
+		}
+	}
+}
+
+[Function]
+findProgramLocation :: Verbosity -> FilePath -> IO (Maybe FilePath)
+Name: findProgramLocation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:findProgramLocation
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			System.IO::FilePath
+		}
+	}
+}
+
+[Function]
+lowercase :: String -> String
+Name: lowercase
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:lowercase
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+findPackageDesc :: FilePath -> IO FilePath
+Name: findPackageDesc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:findPackageDesc
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		System.IO::FilePath
+	}
+}
+
+[Function]
+rawSystemExitCode :: Verbosity -> FilePath -> [String] -> IO ExitCode
+Name: rawSystemExitCode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:rawSystemExitCode
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	System.IO::FilePath
+	other::List {
+		Data.String::String
+	}
+
+	[result]
+	System.IO::IO {
+		System.Exit::ExitCode
+	}
+}
+
+[Function]
+cabalVersion :: Version
+Name: cabalVersion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:cabalVersion
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Version::Version
+}
+
+[Function]
+installExecutableFiles :: Verbosity -> FilePath -> [(FilePath, FilePath)] -> IO ()
+Name: installExecutableFiles
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:installExecutableFiles
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	System.IO::FilePath
+	other::List {
+		GHC.Tuple::(,) {
+			System.IO::FilePath
+			System.IO::FilePath
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+smartCopySources :: Verbosity -> [FilePath] -> FilePath -> [ModuleName] -> [String] -> IO ()
+Name: smartCopySources
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:smartCopySources
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	other::List {
+		System.IO::FilePath
+	}
+	System.IO::FilePath
+	other::List {
+		Distribution.ModuleName::ModuleName
+	}
+	other::List {
+		Data.String::String
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+parseFileGlob :: FilePath -> Maybe FileGlob
+Name: parseFileGlob
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:parseFileGlob
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	Data.Maybe::Maybe {
+		Distribution.Simple.Utils::FileGlob
+	}
+}
+
+[Function]
+defaultPackageDesc :: Verbosity -> IO FilePath
+Name: defaultPackageDesc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:defaultPackageDesc
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+
+	[result]
+	System.IO::IO {
+		System.IO::FilePath
+	}
+}
+
+[Function]
+installExecutableFile :: Verbosity -> FilePath -> FilePath -> IO ()
+Name: installExecutableFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:installExecutableFile
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	System.IO::FilePath
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+installOrdinaryFile :: Verbosity -> FilePath -> FilePath -> IO ()
+Name: installOrdinaryFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:installOrdinaryFile
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	System.IO::FilePath
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+debug :: Verbosity -> String -> IO ()
+Name: debug
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:debug
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+equating :: Eq a => (b -> a) -> b -> b -> Bool
+Name: equating
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:equating
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Eq a; a; Data.Eq::Eq)
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::b
+	
+		[result]
+		null::a
+	}
+	null::b
+	null::b
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+rawSystemExitWithEnv :: Verbosity -> FilePath -> [String] -> [(String, String)] -> IO ()
+Name: rawSystemExitWithEnv
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:rawSystemExitWithEnv
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	System.IO::FilePath
+	other::List {
+		Data.String::String
+	}
+	other::List {
+		GHC.Tuple::(,) {
+			Data.String::String
+			Data.String::String
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+comparing :: Ord a => (b -> a) -> b -> b -> Ordering
+Name: comparing
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:comparing
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Ord a; a; Data.Ord::Ord)
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::b
+	
+		[result]
+		null::a
+	}
+	null::b
+	null::b
+
+	[result]
+	Data.Ord::Ordering
+}
+
+[Function]
+getDirectoryContentsRecursive :: FilePath -> IO [FilePath]
+Name: getDirectoryContentsRecursive
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:getDirectoryContentsRecursive
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		other::List {
+			System.IO::FilePath
+		}
+	}
+}
+
+[Function]
+copyDirectoryRecursiveVerbose :: Verbosity -> FilePath -> FilePath -> IO ()
+Name: copyDirectoryRecursiveVerbose
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:copyDirectoryRecursiveVerbose
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	System.IO::FilePath
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+writeUTF8File :: FilePath -> String -> IO ()
+Name: writeUTF8File
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:writeUTF8File
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+findFileWithExtension' :: [String] -> [FilePath] -> FilePath -> IO (Maybe (FilePath, FilePath))
+Name: findFileWithExtension'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:findFileWithExtension'
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Data.String::String
+	}
+	other::List {
+		System.IO::FilePath
+	}
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			GHC.Tuple::(,) {
+				System.IO::FilePath
+				System.IO::FilePath
+			}
+		}
+	}
+}
+
+[Function]
+setFileExecutable :: FilePath -> IO ()
+Name: setFileExecutable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:setFileExecutable
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+copyFiles :: Verbosity -> FilePath -> [(FilePath, FilePath)] -> IO ()
+Name: copyFiles
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:copyFiles
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	System.IO::FilePath
+	other::List {
+		GHC.Tuple::(,) {
+			System.IO::FilePath
+			System.IO::FilePath
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+currentDir :: FilePath
+Name: currentDir
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:currentDir
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::FilePath
+}
+
+[Function]
+rawSystemExit :: Verbosity -> FilePath -> [String] -> IO ()
+Name: rawSystemExit
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:rawSystemExit
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	System.IO::FilePath
+	other::List {
+		Data.String::String
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+warn :: Verbosity -> String -> IO ()
+Name: warn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:warn
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+die :: String -> IO a
+Name: die
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Utils.html#v:die
+Containing package: Distribution.Simple.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}

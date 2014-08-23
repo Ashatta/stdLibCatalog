@@ -1,0 +1,431 @@
+[Package]
+Name: Distribution.Simple.Program.HcPkg
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-HcPkg.html
+Containing package: Distribution.Simple.Program
+attributes {
+}
+
+Subpackages {
+}
+
+[Function]
+expose :: Verbosity -> ConfiguredProgram -> PackageDB -> PackageId -> IO ()
+Name: expose
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-HcPkg.html#v:expose
+Containing package: Distribution.Simple.Program.HcPkg
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program.Types::ConfiguredProgram
+	Distribution.Simple.Compiler::PackageDB
+	Distribution.Package::PackageId
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+dump :: Verbosity -> ConfiguredProgram -> PackageDB -> IO [InstalledPackageInfo]
+Name: dump
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-HcPkg.html#v:dump
+Containing package: Distribution.Simple.Program.HcPkg
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program.Types::ConfiguredProgram
+	Distribution.Simple.Compiler::PackageDB
+
+	[result]
+	System.IO::IO {
+		other::List {
+			Distribution.InstalledPackageInfo::InstalledPackageInfo
+		}
+	}
+}
+
+[Function]
+register :: Verbosity -> ConfiguredProgram -> PackageDBStack -> Either FilePath InstalledPackageInfo -> IO ()
+Name: register
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-HcPkg.html#v:register
+Containing package: Distribution.Simple.Program.HcPkg
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program.Types::ConfiguredProgram
+	Distribution.Simple.Compiler::PackageDBStack
+	Data.Either::Either {
+		System.IO::FilePath
+		Distribution.InstalledPackageInfo::InstalledPackageInfo
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+unregister :: Verbosity -> ConfiguredProgram -> PackageDB -> PackageId -> IO ()
+Name: unregister
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-HcPkg.html#v:unregister
+Containing package: Distribution.Simple.Program.HcPkg
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program.Types::ConfiguredProgram
+	Distribution.Simple.Compiler::PackageDB
+	Distribution.Package::PackageId
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+invoke :: Verbosity -> ConfiguredProgram -> PackageDBStack -> [String] -> IO ()
+Name: invoke
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-HcPkg.html#v:invoke
+Containing package: Distribution.Simple.Program.HcPkg
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program.Types::ConfiguredProgram
+	Distribution.Simple.Compiler::PackageDBStack
+	other::List {
+		Data.String::String
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+unregisterInvocation :: ConfiguredProgram -> Verbosity -> PackageDB -> PackageId -> ProgramInvocation
+Name: unregisterInvocation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-HcPkg.html#v:unregisterInvocation
+Containing package: Distribution.Simple.Program.HcPkg
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program.Types::ConfiguredProgram
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Compiler::PackageDB
+	Distribution.Package::PackageId
+
+	[result]
+	Distribution.Simple.Program.Run::ProgramInvocation
+}
+
+[Function]
+registerInvocation :: ConfiguredProgram -> Verbosity -> PackageDBStack -> Either FilePath InstalledPackageInfo -> ProgramInvocation
+Name: registerInvocation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-HcPkg.html#v:registerInvocation
+Containing package: Distribution.Simple.Program.HcPkg
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program.Types::ConfiguredProgram
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Compiler::PackageDBStack
+	Data.Either::Either {
+		System.IO::FilePath
+		Distribution.InstalledPackageInfo::InstalledPackageInfo
+	}
+
+	[result]
+	Distribution.Simple.Program.Run::ProgramInvocation
+}
+
+[Function]
+dumpInvocation :: ConfiguredProgram -> Verbosity -> PackageDB -> ProgramInvocation
+Name: dumpInvocation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-HcPkg.html#v:dumpInvocation
+Containing package: Distribution.Simple.Program.HcPkg
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program.Types::ConfiguredProgram
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Compiler::PackageDB
+
+	[result]
+	Distribution.Simple.Program.Run::ProgramInvocation
+}
+
+[Function]
+exposeInvocation :: ConfiguredProgram -> Verbosity -> PackageDB -> PackageId -> ProgramInvocation
+Name: exposeInvocation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-HcPkg.html#v:exposeInvocation
+Containing package: Distribution.Simple.Program.HcPkg
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program.Types::ConfiguredProgram
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Compiler::PackageDB
+	Distribution.Package::PackageId
+
+	[result]
+	Distribution.Simple.Program.Run::ProgramInvocation
+}
+
+[Function]
+init :: Verbosity -> ConfiguredProgram -> FilePath -> IO ()
+Name: init
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-HcPkg.html#v:init
+Containing package: Distribution.Simple.Program.HcPkg
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program.Types::ConfiguredProgram
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+reregister :: Verbosity -> ConfiguredProgram -> PackageDBStack -> Either FilePath InstalledPackageInfo -> IO ()
+Name: reregister
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-HcPkg.html#v:reregister
+Containing package: Distribution.Simple.Program.HcPkg
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program.Types::ConfiguredProgram
+	Distribution.Simple.Compiler::PackageDBStack
+	Data.Either::Either {
+		System.IO::FilePath
+		Distribution.InstalledPackageInfo::InstalledPackageInfo
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+listInvocation :: ConfiguredProgram -> Verbosity -> PackageDB -> ProgramInvocation
+Name: listInvocation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-HcPkg.html#v:listInvocation
+Containing package: Distribution.Simple.Program.HcPkg
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program.Types::ConfiguredProgram
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Compiler::PackageDB
+
+	[result]
+	Distribution.Simple.Program.Run::ProgramInvocation
+}
+
+[Function]
+reregisterInvocation :: ConfiguredProgram -> Verbosity -> PackageDBStack -> Either FilePath InstalledPackageInfo -> ProgramInvocation
+Name: reregisterInvocation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-HcPkg.html#v:reregisterInvocation
+Containing package: Distribution.Simple.Program.HcPkg
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program.Types::ConfiguredProgram
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Compiler::PackageDBStack
+	Data.Either::Either {
+		System.IO::FilePath
+		Distribution.InstalledPackageInfo::InstalledPackageInfo
+	}
+
+	[result]
+	Distribution.Simple.Program.Run::ProgramInvocation
+}
+
+[Function]
+initInvocation :: ConfiguredProgram -> Verbosity -> FilePath -> ProgramInvocation
+Name: initInvocation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-HcPkg.html#v:initInvocation
+Containing package: Distribution.Simple.Program.HcPkg
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program.Types::ConfiguredProgram
+	Distribution.Verbosity::Verbosity
+	System.IO::FilePath
+
+	[result]
+	Distribution.Simple.Program.Run::ProgramInvocation
+}
+
+[Function]
+hide :: Verbosity -> ConfiguredProgram -> PackageDB -> PackageId -> IO ()
+Name: hide
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-HcPkg.html#v:hide
+Containing package: Distribution.Simple.Program.HcPkg
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program.Types::ConfiguredProgram
+	Distribution.Simple.Compiler::PackageDB
+	Distribution.Package::PackageId
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+hideInvocation :: ConfiguredProgram -> Verbosity -> PackageDB -> PackageId -> ProgramInvocation
+Name: hideInvocation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-HcPkg.html#v:hideInvocation
+Containing package: Distribution.Simple.Program.HcPkg
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program.Types::ConfiguredProgram
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Compiler::PackageDB
+	Distribution.Package::PackageId
+
+	[result]
+	Distribution.Simple.Program.Run::ProgramInvocation
+}
+
+[Function]
+list :: Verbosity -> ConfiguredProgram -> PackageDB -> IO [PackageId]
+Name: list
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-HcPkg.html#v:list
+Containing package: Distribution.Simple.Program.HcPkg
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program.Types::ConfiguredProgram
+	Distribution.Simple.Compiler::PackageDB
+
+	[result]
+	System.IO::IO {
+		other::List {
+			Distribution.Package::PackageId
+		}
+	}
+}

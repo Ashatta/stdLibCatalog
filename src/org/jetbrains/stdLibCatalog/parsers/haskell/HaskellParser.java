@@ -7,6 +7,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -45,7 +47,7 @@ public class HaskellParser {
         HaskellParser parser = new HaskellParser();
         parser.parse();
 /*
-        File dir = new File("/home/ashatta/debug");
+        File dir = new File("resources/tests/parsers/haskell/global");
         if (dir.exists()) {
             dir.delete();
         }
@@ -635,7 +637,7 @@ public class HaskellParser {
         fakeClassifier.setAttr("isInfix", instanceType.classifierName().startsWith("(") ? "true" : "false");
 
         fillConstraints(fakeClassifier, constraints);
-        fakeClassifier.setContainingPackage(packages.get(entityQualifiedName.getKey()));
+        fakeClassifier.setContainingPackage(packages.get(entityQualifiedName.getKey())); // todo maybe separate fake package for them?
 
         QualifiedName fakeClassifierName = new QualifiedName(fakeClassifier.getContainingPackage().getName(),
                 fakeClassifier.getName());

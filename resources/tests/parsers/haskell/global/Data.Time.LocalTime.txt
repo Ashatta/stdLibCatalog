@@ -1,0 +1,591 @@
+[Package]
+Name: Data.Time.LocalTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html
+Containing package: Data.Time
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data ZonedTime = ZonedTime { zonedTimeToLocalTime :: LocalTime zonedTimeZone :: TimeZone}
+Name: ZonedTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html#t:ZonedTime
+Containing package: Data.Time.LocalTime
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TimeZone = TimeZone { timeZoneMinutes :: Int timeZoneSummerOnly :: Bool timeZoneName :: String}
+Name: TimeZone
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html#t:TimeZone
+Containing package: Data.Time.LocalTime
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data LocalTime = LocalTime { localDay :: Day localTimeOfDay :: TimeOfDay}
+Name: LocalTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html#t:LocalTime
+Containing package: Data.Time.LocalTime
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TimeOfDay = TimeOfDay { todHour :: Int todMin :: Int todSec :: Pico}
+Name: TimeOfDay
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html#t:TimeOfDay
+Containing package: Data.Time.LocalTime
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+timeOfDayToDayFraction :: TimeOfDay -> Rational
+Name: timeOfDayToDayFraction
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html#v:timeOfDayToDayFraction
+Containing package: Data.Time.LocalTime
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Time.LocalTime::TimeOfDay
+
+	[result]
+	Prelude::Rational
+}
+
+[Function]
+utcToLocalTime :: TimeZone -> UTCTime -> LocalTime
+Name: utcToLocalTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html#v:utcToLocalTime
+Containing package: Data.Time.LocalTime
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Time.LocalTime::TimeZone
+	Data.Time.Clock::UTCTime
+
+	[result]
+	Data.Time.LocalTime::LocalTime
+}
+
+[Function]
+utcToZonedTime :: TimeZone -> UTCTime -> ZonedTime
+Name: utcToZonedTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html#v:utcToZonedTime
+Containing package: Data.Time.LocalTime
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Time.LocalTime::TimeZone
+	Data.Time.Clock::UTCTime
+
+	[result]
+	Data.Time.LocalTime::ZonedTime
+}
+
+[Function]
+midnight :: TimeOfDay
+Name: midnight
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html#v:midnight
+Containing package: Data.Time.LocalTime
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Time.LocalTime::TimeOfDay
+}
+
+[Function]
+getZonedTime :: IO ZonedTime
+Name: getZonedTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html#v:getZonedTime
+Containing package: Data.Time.LocalTime
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Data.Time.LocalTime::ZonedTime
+	}
+}
+
+[Function]
+utcToLocalZonedTime :: UTCTime -> IO ZonedTime
+Name: utcToLocalZonedTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html#v:utcToLocalZonedTime
+Containing package: Data.Time.LocalTime
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Time.Clock::UTCTime
+
+	[result]
+	System.IO::IO {
+		Data.Time.LocalTime::ZonedTime
+	}
+}
+
+[Function]
+hoursToTimeZone :: Int -> TimeZone
+Name: hoursToTimeZone
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html#v:hoursToTimeZone
+Containing package: Data.Time.LocalTime
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Data.Time.LocalTime::TimeZone
+}
+
+[Function]
+localTimeToUTC :: TimeZone -> LocalTime -> UTCTime
+Name: localTimeToUTC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html#v:localTimeToUTC
+Containing package: Data.Time.LocalTime
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Time.LocalTime::TimeZone
+	Data.Time.LocalTime::LocalTime
+
+	[result]
+	Data.Time.Clock::UTCTime
+}
+
+[Function]
+localToUTCTimeOfDay :: TimeZone -> TimeOfDay -> (Integer, TimeOfDay)
+Name: localToUTCTimeOfDay
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html#v:localToUTCTimeOfDay
+Containing package: Data.Time.LocalTime
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Time.LocalTime::TimeZone
+	Data.Time.LocalTime::TimeOfDay
+
+	[result]
+	GHC.Tuple::(,) {
+		Prelude::Integer
+		Data.Time.LocalTime::TimeOfDay
+	}
+}
+
+[Function]
+minutesToTimeZone :: Int -> TimeZone
+Name: minutesToTimeZone
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html#v:minutesToTimeZone
+Containing package: Data.Time.LocalTime
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Data.Time.LocalTime::TimeZone
+}
+
+[Function]
+timeZoneOffsetString :: TimeZone -> String
+Name: timeZoneOffsetString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html#v:timeZoneOffsetString
+Containing package: Data.Time.LocalTime
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Time.LocalTime::TimeZone
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+dayFractionToTimeOfDay :: Rational -> TimeOfDay
+Name: dayFractionToTimeOfDay
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html#v:dayFractionToTimeOfDay
+Containing package: Data.Time.LocalTime
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Rational
+
+	[result]
+	Data.Time.LocalTime::TimeOfDay
+}
+
+[Function]
+midday :: TimeOfDay
+Name: midday
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html#v:midday
+Containing package: Data.Time.LocalTime
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Time.LocalTime::TimeOfDay
+}
+
+[Function]
+makeTimeOfDayValid :: Int -> Int -> Pico -> Maybe TimeOfDay
+Name: makeTimeOfDayValid
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html#v:makeTimeOfDayValid
+Containing package: Data.Time.LocalTime
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	Data.Int::Int
+	Data.Fixed::Pico
+
+	[result]
+	Data.Maybe::Maybe {
+		Data.Time.LocalTime::TimeOfDay
+	}
+}
+
+[Function]
+timeZoneOffsetString' :: NumericPadOption -> TimeZone -> String
+Name: timeZoneOffsetString'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html#v:timeZoneOffsetString'
+Containing package: Data.Time.LocalTime
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Time.Format::NumericPadOption
+	Data.Time.LocalTime::TimeZone
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+timeToTimeOfDay :: DiffTime -> TimeOfDay
+Name: timeToTimeOfDay
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html#v:timeToTimeOfDay
+Containing package: Data.Time.LocalTime
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Time.Clock::DiffTime
+
+	[result]
+	Data.Time.LocalTime::TimeOfDay
+}
+
+[Function]
+getCurrentTimeZone :: IO TimeZone
+Name: getCurrentTimeZone
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html#v:getCurrentTimeZone
+Containing package: Data.Time.LocalTime
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Data.Time.LocalTime::TimeZone
+	}
+}
+
+[Function]
+zonedTimeToUTC :: ZonedTime -> UTCTime
+Name: zonedTimeToUTC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html#v:zonedTimeToUTC
+Containing package: Data.Time.LocalTime
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Time.LocalTime::ZonedTime
+
+	[result]
+	Data.Time.Clock::UTCTime
+}
+
+[Function]
+getTimeZone :: UTCTime -> IO TimeZone
+Name: getTimeZone
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html#v:getTimeZone
+Containing package: Data.Time.LocalTime
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Time.Clock::UTCTime
+
+	[result]
+	System.IO::IO {
+		Data.Time.LocalTime::TimeZone
+	}
+}
+
+[Function]
+timeOfDayToTime :: TimeOfDay -> DiffTime
+Name: timeOfDayToTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html#v:timeOfDayToTime
+Containing package: Data.Time.LocalTime
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Time.LocalTime::TimeOfDay
+
+	[result]
+	Data.Time.Clock::DiffTime
+}
+
+[Function]
+utc :: TimeZone
+Name: utc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html#v:utc
+Containing package: Data.Time.LocalTime
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Time.LocalTime::TimeZone
+}
+
+[Function]
+localTimeToUT1 :: Rational -> LocalTime -> UniversalTime
+Name: localTimeToUT1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html#v:localTimeToUT1
+Containing package: Data.Time.LocalTime
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Rational
+	Data.Time.LocalTime::LocalTime
+
+	[result]
+	Data.Time.Clock::UniversalTime
+}
+
+[Function]
+utcToLocalTimeOfDay :: TimeZone -> TimeOfDay -> (Integer, TimeOfDay)
+Name: utcToLocalTimeOfDay
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html#v:utcToLocalTimeOfDay
+Containing package: Data.Time.LocalTime
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Time.LocalTime::TimeZone
+	Data.Time.LocalTime::TimeOfDay
+
+	[result]
+	GHC.Tuple::(,) {
+		Prelude::Integer
+		Data.Time.LocalTime::TimeOfDay
+	}
+}
+
+[Function]
+ut1ToLocalTime :: Rational -> UniversalTime -> LocalTime
+Name: ut1ToLocalTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-LocalTime.html#v:ut1ToLocalTime
+Containing package: Data.Time.LocalTime
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Rational
+	Data.Time.Clock::UniversalTime
+
+	[result]
+	Data.Time.LocalTime::LocalTime
+}

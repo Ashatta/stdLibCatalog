@@ -1,0 +1,450 @@
+[Package]
+Name: Foreign.ForeignPtr.Safe
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-ForeignPtr-Safe.html
+Containing package: Foreign.ForeignPtr
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data ForeignPtr a
+Name: ForeignPtr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-ForeignPtr-Safe.html#t:ForeignPtr
+Containing package: Foreign.ForeignPtr.Safe
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type FinalizerEnvPtr env a = FunPtr (Ptr env -> Ptr a -> IO ())
+Name: FinalizerEnvPtr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-ForeignPtr-Safe.html#t:FinalizerEnvPtr
+Containing package: Foreign.ForeignPtr.Safe
+attributes {
+}
+parameters {
+	env
+	a
+}
+Aliased type = Foreign.Ptr::FunPtr {
+	<function> {
+		[parameters]
+		Foreign.Ptr::Ptr {
+			null::env
+		}
+		Foreign.Ptr::Ptr {
+			null::a
+		}
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+}
+
+[Alias]
+type FinalizerPtr a = FunPtr (Ptr a -> IO ())
+Name: FinalizerPtr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-ForeignPtr-Safe.html#t:FinalizerPtr
+Containing package: Foreign.ForeignPtr.Safe
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = Foreign.Ptr::FunPtr {
+	<function> {
+		[parameters]
+		Foreign.Ptr::Ptr {
+			null::a
+		}
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+}
+
+[Function]
+mallocForeignPtrBytes :: Int -> IO (ForeignPtr a)
+Name: mallocForeignPtrBytes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-ForeignPtr-Safe.html#v:mallocForeignPtrBytes
+Containing package: Foreign.ForeignPtr.Safe
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		Foreign.ForeignPtr.Safe::ForeignPtr {
+			null::a
+		}
+	}
+}
+
+[Function]
+touchForeignPtr :: ForeignPtr a -> IO ()
+Name: touchForeignPtr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-ForeignPtr-Safe.html#v:touchForeignPtr
+Containing package: Foreign.ForeignPtr.Safe
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.ForeignPtr.Safe::ForeignPtr {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+withForeignPtr :: ForeignPtr a -> (Ptr a -> IO b) -> IO b
+Name: withForeignPtr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-ForeignPtr-Safe.html#v:withForeignPtr
+Containing package: Foreign.ForeignPtr.Safe
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	Foreign.ForeignPtr.Safe::ForeignPtr {
+		null::a
+	}
+	<function> {
+		[parameters]
+		Foreign.Ptr::Ptr {
+			null::a
+		}
+	
+		[result]
+		System.IO::IO {
+			null::b
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::b
+	}
+}
+
+[Function]
+newForeignPtr_ :: Ptr a -> IO (ForeignPtr a)
+Name: newForeignPtr_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-ForeignPtr-Safe.html#v:newForeignPtr_
+Containing package: Foreign.ForeignPtr.Safe
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		Foreign.ForeignPtr.Safe::ForeignPtr {
+			null::a
+		}
+	}
+}
+
+[Function]
+mallocForeignPtr :: Storable a => IO (ForeignPtr a)
+Name: mallocForeignPtr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-ForeignPtr-Safe.html#v:mallocForeignPtr
+Containing package: Foreign.ForeignPtr.Safe
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Storable a; a; Foreign.Storable::Storable)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Foreign.ForeignPtr.Safe::ForeignPtr {
+			null::a
+		}
+	}
+}
+
+[Function]
+mallocForeignPtrArray0 :: Storable a => Int -> IO (ForeignPtr a)
+Name: mallocForeignPtrArray0
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-ForeignPtr-Safe.html#v:mallocForeignPtrArray0
+Containing package: Foreign.ForeignPtr.Safe
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Storable a; a; Foreign.Storable::Storable)
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		Foreign.ForeignPtr.Safe::ForeignPtr {
+			null::a
+		}
+	}
+}
+
+[Function]
+finalizeForeignPtr :: ForeignPtr a -> IO ()
+Name: finalizeForeignPtr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-ForeignPtr-Safe.html#v:finalizeForeignPtr
+Containing package: Foreign.ForeignPtr.Safe
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.ForeignPtr.Safe::ForeignPtr {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+mallocForeignPtrArray :: Storable a => Int -> IO (ForeignPtr a)
+Name: mallocForeignPtrArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-ForeignPtr-Safe.html#v:mallocForeignPtrArray
+Containing package: Foreign.ForeignPtr.Safe
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Storable a; a; Foreign.Storable::Storable)
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		Foreign.ForeignPtr.Safe::ForeignPtr {
+			null::a
+		}
+	}
+}
+
+[Function]
+newForeignPtrEnv :: FinalizerEnvPtr env a -> Ptr env -> Ptr a -> IO (ForeignPtr a)
+Name: newForeignPtrEnv
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-ForeignPtr-Safe.html#v:newForeignPtrEnv
+Containing package: Foreign.ForeignPtr.Safe
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	env
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.ForeignPtr.Safe::FinalizerEnvPtr {
+		null::env
+		null::a
+	}
+	Foreign.Ptr::Ptr {
+		null::env
+	}
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		Foreign.ForeignPtr.Safe::ForeignPtr {
+			null::a
+		}
+	}
+}
+
+[Function]
+newForeignPtr :: FinalizerPtr a -> Ptr a -> IO (ForeignPtr a)
+Name: newForeignPtr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-ForeignPtr-Safe.html#v:newForeignPtr
+Containing package: Foreign.ForeignPtr.Safe
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.ForeignPtr.Safe::FinalizerPtr {
+		null::a
+	}
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		Foreign.ForeignPtr.Safe::ForeignPtr {
+			null::a
+		}
+	}
+}
+
+[Function]
+addForeignPtrFinalizerEnv :: FinalizerEnvPtr env a -> Ptr env -> ForeignPtr a -> IO ()
+Name: addForeignPtrFinalizerEnv
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-ForeignPtr-Safe.html#v:addForeignPtrFinalizerEnv
+Containing package: Foreign.ForeignPtr.Safe
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	env
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.ForeignPtr.Safe::FinalizerEnvPtr {
+		null::env
+		null::a
+	}
+	Foreign.Ptr::Ptr {
+		null::env
+	}
+	Foreign.ForeignPtr.Safe::ForeignPtr {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+addForeignPtrFinalizer :: FinalizerPtr a -> ForeignPtr a -> IO ()
+Name: addForeignPtrFinalizer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-ForeignPtr-Safe.html#v:addForeignPtrFinalizer
+Containing package: Foreign.ForeignPtr.Safe
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.ForeignPtr.Safe::FinalizerPtr {
+		null::a
+	}
+	Foreign.ForeignPtr.Safe::ForeignPtr {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+castForeignPtr :: ForeignPtr a -> ForeignPtr b
+Name: castForeignPtr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-ForeignPtr-Safe.html#v:castForeignPtr
+Containing package: Foreign.ForeignPtr.Safe
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	Foreign.ForeignPtr.Safe::ForeignPtr {
+		null::a
+	}
+
+	[result]
+	Foreign.ForeignPtr.Safe::ForeignPtr {
+		null::b
+	}
+}

@@ -1,0 +1,172 @@
+[Package]
+Name: GHC.IO.Encoding.Types
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding-Types.html
+Containing package: GHC.IO.Encoding
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data BufferCodec from to state = BufferCodec { encode :: CodeBuffer from to recover :: Buffer from -> Buffer to -> IO (Buffer from, Buffer to) close :: IO () getState :: IO state setState :: state -> IO ()}
+Name: BufferCodec
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding-Types.html#t:BufferCodec
+Containing package: GHC.IO.Encoding.Types
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	from
+	to
+	state
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data CodingProgress = InputUnderflow | OutputUnderflow | InvalidSequence
+Name: CodingProgress
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding-Types.html#t:CodingProgress
+Containing package: GHC.IO.Encoding.Types
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TextEncoding = forall dstate estate . TextEncoding { textEncodingName :: String mkTextDecoder :: IO (TextDecoder dstate) mkTextEncoder :: IO (TextEncoder estate)}
+Name: TextEncoding
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding-Types.html#t:TextEncoding
+Containing package: GHC.IO.Encoding.Types
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type TextDecoder state = BufferCodec Word8 CharBufElem state
+Name: TextDecoder
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding-Types.html#t:TextDecoder
+Containing package: GHC.IO.Encoding.Types
+attributes {
+}
+parameters {
+	state
+}
+Aliased type = GHC.IO.Encoding.Types::BufferCodec {
+	Data.Word::Word8
+	GHC.IO.Buffer::CharBufElem
+	null::state
+}
+
+[Alias]
+type CodeBuffer from to = Buffer from -> Buffer to -> IO (CodingProgress, Buffer from, Buffer to)
+Name: CodeBuffer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding-Types.html#t:CodeBuffer
+Containing package: GHC.IO.Encoding.Types
+attributes {
+}
+parameters {
+	from
+	to
+}
+Aliased type = <function> {
+	[parameters]
+	GHC.IO.Buffer::Buffer {
+		null::from
+	}
+	GHC.IO.Buffer::Buffer {
+		null::to
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,,) {
+			GHC.IO.Encoding.Types::CodingProgress
+			GHC.IO.Buffer::Buffer {
+				null::from
+			}
+			GHC.IO.Buffer::Buffer {
+				null::to
+			}
+		}
+	}
+}
+
+[Alias]
+type TextEncoder state = BufferCodec CharBufElem Word8 state
+Name: TextEncoder
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding-Types.html#t:TextEncoder
+Containing package: GHC.IO.Encoding.Types
+attributes {
+}
+parameters {
+	state
+}
+Aliased type = GHC.IO.Encoding.Types::BufferCodec {
+	GHC.IO.Buffer::CharBufElem
+	Data.Word::Word8
+	null::state
+}
+
+[Alias]
+type DecodeBuffer = CodeBuffer Word8 Char
+Name: DecodeBuffer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding-Types.html#t:DecodeBuffer
+Containing package: GHC.IO.Encoding.Types
+attributes {
+}
+parameters {
+}
+Aliased type = GHC.IO.Encoding.Types::CodeBuffer {
+	Data.Word::Word8
+	Data.Char::Char
+}
+
+[Alias]
+type EncodeBuffer = CodeBuffer Char Word8
+Name: EncodeBuffer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding-Types.html#t:EncodeBuffer
+Containing package: GHC.IO.Encoding.Types
+attributes {
+}
+parameters {
+}
+Aliased type = GHC.IO.Encoding.Types::CodeBuffer {
+	Data.Char::Char
+	Data.Word::Word8
+}

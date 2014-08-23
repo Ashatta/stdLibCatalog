@@ -1,0 +1,84 @@
+[Package]
+Name: System.Posix.Temp
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Temp.html
+Containing package: System.Posix
+attributes {
+}
+
+Subpackages {
+	System.Posix.Temp.ByteString
+}
+
+[Function]
+mkstemp :: String -> IO (FilePath, Handle)
+Name: mkstemp
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Temp.html#v:mkstemp
+Containing package: System.Posix.Temp
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			System.IO::FilePath
+			GHC.IO.Handle::Handle
+		}
+	}
+}
+
+[Function]
+mkstemps :: String -> String -> IO (FilePath, Handle)
+Name: mkstemps
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Temp.html#v:mkstemps
+Containing package: System.Posix.Temp
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			System.IO::FilePath
+			GHC.IO.Handle::Handle
+		}
+	}
+}
+
+[Function]
+mkdtemp :: String -> IO FilePath
+Name: mkdtemp
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Temp.html#v:mkdtemp
+Containing package: System.Posix.Temp
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		System.IO::FilePath
+	}
+}

@@ -1,0 +1,589 @@
+[Package]
+Name: Text.Printf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Printf.html
+Containing package: Text
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data FieldFormat = FieldFormat { fmtWidth :: Maybe Int fmtPrecision :: Maybe Int fmtAdjust :: Maybe FormatAdjustment fmtSign :: Maybe FormatSign fmtAlternate :: Bool fmtModifiers :: String fmtChar :: Char}
+Name: FieldFormat
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Printf.html#t:FieldFormat
+Containing package: Text.Printf
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data FormatSign = SignPlus | SignSpace
+Name: FormatSign
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Printf.html#t:FormatSign
+Containing package: Text.Printf
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class IsChar c where toChar :: c -> Char fromChar :: Char -> c
+Name: IsChar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Printf.html#t:IsChar
+Containing package: Text.Printf
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Data.Char::Text.Printf.IsChar_Char<>
+	GHC.Exts::Text.Printf.IsChar_Char<>
+	Prelude::Text.Printf.IsChar_Char<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	toChar :: c -> Char
+	Name: toChar
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Printf.html#v:toChar
+	Containing package: Text.Printf
+	attributes {
+		memberType=function
+	}
+	Containing type: IsChar
+	parameters {
+		c: (IsChar c; c; Text.Printf::IsChar)
+	}
+	Signature = <function> {
+		[parameters]
+		null::c
+	
+		[result]
+		Data.Char::Char
+	}
+
+	[Function]
+	fromChar :: Char -> c
+	Name: fromChar
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Printf.html#v:fromChar
+	Containing package: Text.Printf
+	attributes {
+		memberType=function
+	}
+	Containing type: IsChar
+	parameters {
+		c: (IsChar c; c; Text.Printf::IsChar)
+	}
+	Signature = <function> {
+		[parameters]
+		Data.Char::Char
+	
+		[result]
+		null::c
+	}
+}
+
+[Classifier]
+data FormatAdjustment = LeftAdjust | ZeroPad
+Name: FormatAdjustment
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Printf.html#t:FormatAdjustment
+Containing package: Text.Printf
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data FormatParse = FormatParse { fpModifiers :: String fpChar :: Char fpRest :: String}
+Name: FormatParse
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Printf.html#t:FormatParse
+Containing package: Text.Printf
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class PrintfArg a where formatArg :: a -> FieldFormatter parseFormat :: a -> ModifierParser
+Name: PrintfArg
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Printf.html#t:PrintfArg
+Containing package: Text.Printf
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Data.Char::Text.Printf.PrintfArg_Char<>
+	Data.Int::Text.Printf.PrintfArg_Int<>
+	Data.Int::Text.Printf.PrintfArg_Int8<>
+	Data.Int::Text.Printf.PrintfArg_Int16<>
+	Data.Int::Text.Printf.PrintfArg_Int32<>
+	Data.Int::Text.Printf.PrintfArg_Int64<>
+	Data.Word::Text.Printf.PrintfArg_Word<>
+	Data.Word::Text.Printf.PrintfArg_Word8<>
+	Data.Word::Text.Printf.PrintfArg_Word16<>
+	Data.Word::Text.Printf.PrintfArg_Word32<>
+	Data.Word::Text.Printf.PrintfArg_Word64<>
+	GHC.Exts::Text.Printf.PrintfArg_Int<>
+	GHC.Exts::Text.Printf.PrintfArg_Word<>
+	GHC.Exts::Text.Printf.PrintfArg_Float<>
+	GHC.Exts::Text.Printf.PrintfArg_Double<>
+	GHC.Exts::Text.Printf.PrintfArg_Char<>
+	Prelude::Text.Printf.PrintfArg_Char<>
+	Prelude::Text.Printf.PrintfArg_Int<>
+	Prelude::Text.Printf.PrintfArg_Integer<>
+	Prelude::Text.Printf.PrintfArg_Float<>
+	Prelude::Text.Printf.PrintfArg_Double<>
+	other::Text.Printf.PrintfArg_List<c<>>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	formatArg :: a -> FieldFormatter
+	Name: formatArg
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Printf.html#v:formatArg
+	Containing package: Text.Printf
+	attributes {
+		memberType=function
+	}
+	Containing type: PrintfArg
+	parameters {
+		a: (PrintfArg a; a; Text.Printf::PrintfArg)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Text.Printf::FieldFormatter
+	}
+
+	[Function]
+	parseFormat :: a -> ModifierParser
+	Name: parseFormat
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Printf.html#v:parseFormat
+	Containing package: Text.Printf
+	attributes {
+		memberType=function
+	}
+	Containing type: PrintfArg
+	parameters {
+		a: (PrintfArg a; a; Text.Printf::PrintfArg)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Text.Printf::ModifierParser
+	}
+}
+
+[Classifier]
+class HPrintfType t
+Name: HPrintfType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Printf.html#t:HPrintfType
+Containing package: Text.Printf
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Prelude::Text.Printf.HPrintfType_IO<a<>>
+	System.IO::Text.Printf.HPrintfType_IO<a<>>
+	other::Text.Printf.HPrintfType_Function<a<>,r<>>
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class PrintfType t
+Name: PrintfType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Printf.html#t:PrintfType
+Containing package: Text.Printf
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Prelude::Text.Printf.PrintfType_IO<a<>>
+	System.IO::Text.Printf.PrintfType_IO<a<>>
+	other::Text.Printf.PrintfType_List<c<>>
+	other::Text.Printf.PrintfType_Function<a<>,r<>>
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type FieldFormatter = FieldFormat -> ShowS
+Name: FieldFormatter
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Printf.html#t:FieldFormatter
+Containing package: Text.Printf
+attributes {
+}
+parameters {
+}
+Aliased type = <function> {
+	[parameters]
+	Text.Printf::FieldFormat
+
+	[result]
+	Text.Show::ShowS
+}
+
+[Alias]
+type ModifierParser = String -> FormatParse
+Name: ModifierParser
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Printf.html#t:ModifierParser
+Containing package: Text.Printf
+attributes {
+}
+parameters {
+}
+Aliased type = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.Printf::FormatParse
+}
+
+[Function]
+formatString :: IsChar a => [a] -> FieldFormatter
+Name: formatString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Printf.html#v:formatString
+Containing package: Text.Printf
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (IsChar a; a; Text.Printf::IsChar)
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::a
+	}
+
+	[result]
+	Text.Printf::FieldFormatter
+}
+
+[Function]
+formatChar :: Char -> FieldFormatter
+Name: formatChar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Printf.html#v:formatChar
+Containing package: Text.Printf
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Char::Char
+
+	[result]
+	Text.Printf::FieldFormatter
+}
+
+[Function]
+vFmt :: Char -> FieldFormat -> FieldFormat
+Name: vFmt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Printf.html#v:vFmt
+Containing package: Text.Printf
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Char::Char
+	Text.Printf::FieldFormat
+
+	[result]
+	Text.Printf::FieldFormat
+}
+
+[Function]
+formatInt :: (Integral a, Bounded a) => a -> FieldFormatter
+Name: formatInt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Printf.html#v:formatInt
+Containing package: Text.Printf
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Integral a; a; Prelude::Integral), (Bounded a; a; Prelude::Bounded)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	Text.Printf::FieldFormatter
+}
+
+[Function]
+printf :: PrintfType r => String -> r
+Name: printf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Printf.html#v:printf
+Containing package: Text.Printf
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r: (PrintfType r; r; Text.Printf::PrintfType)
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	null::r
+}
+
+[Function]
+hPrintf :: HPrintfType r => Handle -> String -> r
+Name: hPrintf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Printf.html#v:hPrintf
+Containing package: Text.Printf
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r: (HPrintfType r; r; Text.Printf::HPrintfType)
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+	Data.String::String
+
+	[result]
+	null::r
+}
+
+[Function]
+errorMissingArgument :: a
+Name: errorMissingArgument
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Printf.html#v:errorMissingArgument
+Containing package: Text.Printf
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	null::a
+}
+
+[Function]
+formatInteger :: Integer -> FieldFormatter
+Name: formatInteger
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Printf.html#v:formatInteger
+Containing package: Text.Printf
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Integer
+
+	[result]
+	Text.Printf::FieldFormatter
+}
+
+[Function]
+errorBadFormat :: Char -> a
+Name: errorBadFormat
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Printf.html#v:errorBadFormat
+Containing package: Text.Printf
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Char::Char
+
+	[result]
+	null::a
+}
+
+[Function]
+errorBadArgument :: a
+Name: errorBadArgument
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Printf.html#v:errorBadArgument
+Containing package: Text.Printf
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	null::a
+}
+
+[Function]
+formatRealFloat :: RealFloat a => a -> FieldFormatter
+Name: formatRealFloat
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Printf.html#v:formatRealFloat
+Containing package: Text.Printf
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (RealFloat a; a; Prelude::RealFloat)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	Text.Printf::FieldFormatter
+}
+
+[Function]
+perror :: String -> a
+Name: perror
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Printf.html#v:perror
+Containing package: Text.Printf
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	null::a
+}
+
+[Function]
+errorShortFormat :: a
+Name: errorShortFormat
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Printf.html#v:errorShortFormat
+Containing package: Text.Printf
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	null::a
+}

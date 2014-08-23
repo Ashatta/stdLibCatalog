@@ -1,0 +1,396 @@
+[Package]
+Name: Control.Monad.Trans.Cont
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Cont.html
+Containing package: Trans
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+newtype ContT r m a = ContT { runContT :: (a -> m r) -> m r}
+Name: ContT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Cont.html#t:ContT
+Containing package: Control.Monad.Trans.Cont
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	r
+	m
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type Cont r = ContT r Identity
+Name: Cont
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Cont.html#t:Cont
+Containing package: Control.Monad.Trans.Cont
+attributes {
+}
+parameters {
+	r
+}
+Aliased type = Control.Monad.Trans.Cont::ContT {
+	null::r
+	Data.Functor.Identity::Identity
+}
+
+[Function]
+runCont :: Cont r a -> (a -> r) -> r
+Name: runCont
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Cont.html#v:runCont
+Containing package: Control.Monad.Trans.Cont
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Monad.Trans.Cont::Cont {
+		null::r
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::r
+	}
+
+	[result]
+	null::r
+}
+
+[Function]
+withContT :: ((b -> m r) -> a -> m r) -> ContT r m a -> ContT r m b
+Name: withContT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Cont.html#v:withContT
+Containing package: Control.Monad.Trans.Cont
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	b
+	m
+	r
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::b
+		
+			[result]
+			null::m {
+				null::r
+			}
+		}
+		null::a
+	
+		[result]
+		null::m {
+			null::r
+		}
+	}
+	Control.Monad.Trans.Cont::ContT {
+		null::r
+		null::m
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.Cont::ContT {
+		null::r
+		null::m
+		null::b
+	}
+}
+
+[Function]
+callCC :: ((a -> ContT r m b) -> ContT r m a) -> ContT r m a
+Name: callCC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Cont.html#v:callCC
+Containing package: Control.Monad.Trans.Cont
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	r
+	m
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			Control.Monad.Trans.Cont::ContT {
+				null::r
+				null::m
+				null::b
+			}
+		}
+	
+		[result]
+		Control.Monad.Trans.Cont::ContT {
+			null::r
+			null::m
+			null::a
+		}
+	}
+
+	[result]
+	Control.Monad.Trans.Cont::ContT {
+		null::r
+		null::m
+		null::a
+	}
+}
+
+[Function]
+mapContT :: (m r -> m r) -> ContT r m a -> ContT r m a
+Name: mapContT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Cont.html#v:mapContT
+Containing package: Control.Monad.Trans.Cont
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m
+	r
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::m {
+			null::r
+		}
+	
+		[result]
+		null::m {
+			null::r
+		}
+	}
+	Control.Monad.Trans.Cont::ContT {
+		null::r
+		null::m
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.Cont::ContT {
+		null::r
+		null::m
+		null::a
+	}
+}
+
+[Function]
+liftLocal :: Monad m => m r' -> ((r' -> r') -> m r -> m r) -> (r' -> r') -> ContT r m a -> ContT r m a
+Name: liftLocal
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Cont.html#v:liftLocal
+Containing package: Control.Monad.Trans.Cont
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	r'
+	r
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::m {
+		null::r'
+	}
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::r'
+		
+			[result]
+			null::r'
+		}
+		null::m {
+			null::r
+		}
+	
+		[result]
+		null::m {
+			null::r
+		}
+	}
+	<function> {
+		[parameters]
+		null::r'
+	
+		[result]
+		null::r'
+	}
+	Control.Monad.Trans.Cont::ContT {
+		null::r
+		null::m
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.Cont::ContT {
+		null::r
+		null::m
+		null::a
+	}
+}
+
+[Function]
+mapCont :: (r -> r) -> Cont r a -> Cont r a
+Name: mapCont
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Cont.html#v:mapCont
+Containing package: Control.Monad.Trans.Cont
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::r
+	
+		[result]
+		null::r
+	}
+	Control.Monad.Trans.Cont::Cont {
+		null::r
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.Cont::Cont {
+		null::r
+		null::a
+	}
+}
+
+[Function]
+cont :: ((a -> r) -> r) -> Cont r a
+Name: cont
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Cont.html#v:cont
+Containing package: Control.Monad.Trans.Cont
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	r
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			null::r
+		}
+	
+		[result]
+		null::r
+	}
+
+	[result]
+	Control.Monad.Trans.Cont::Cont {
+		null::r
+		null::a
+	}
+}
+
+[Function]
+withCont :: ((b -> r) -> a -> r) -> Cont r a -> Cont r b
+Name: withCont
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Cont.html#v:withCont
+Containing package: Control.Monad.Trans.Cont
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	b
+	r
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::b
+		
+			[result]
+			null::r
+		}
+		null::a
+	
+		[result]
+		null::r
+	}
+	Control.Monad.Trans.Cont::Cont {
+		null::r
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.Cont::Cont {
+		null::r
+		null::b
+	}
+}

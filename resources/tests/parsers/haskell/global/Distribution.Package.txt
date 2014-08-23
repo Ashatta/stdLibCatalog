@@ -1,0 +1,292 @@
+[Package]
+Name: Distribution.Package
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Package.html
+Containing package: Distribution
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+newtype PackageName = PackageName String
+Name: PackageName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Package.html#t:PackageName
+Containing package: Distribution.Package
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype InstalledPackageId = InstalledPackageId String
+Name: InstalledPackageId
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Package.html#t:InstalledPackageId
+Containing package: Distribution.Package
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Dependency = Dependency PackageName VersionRange
+Name: Dependency
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Package.html#t:Dependency
+Containing package: Distribution.Package
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class Package pkg where packageId :: pkg -> PackageIdentifier
+Name: Package
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Package.html#t:Package
+Containing package: Distribution.Package
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Distribution.Package::PackageFixedDeps
+	Distribution.InstalledPackageInfo::Distribution.Package.Package_InstalledPackageInfo_<str<>>
+	Distribution.Package::Distribution.Package.Package_PackageIdentifier<>
+	Distribution.PackageDescription::Distribution.Package.Package_GenericPackageDescription<>
+	Distribution.PackageDescription::Distribution.Package.Package_PackageDescription<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	packageId :: pkg -> PackageIdentifier
+	Name: packageId
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Package.html#v:packageId
+	Containing package: Distribution.Package
+	attributes {
+		memberType=function
+	}
+	Containing type: Package
+	parameters {
+		pkg: (Package pkg; pkg; Distribution.Package::Package)
+	}
+	Signature = <function> {
+		[parameters]
+		null::pkg
+	
+		[result]
+		Distribution.Package::PackageIdentifier
+	}
+}
+
+[Classifier]
+data PackageIdentifier = PackageIdentifier { pkgName :: PackageName pkgVersion :: Version}
+Name: PackageIdentifier
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Package.html#t:PackageIdentifier
+Containing package: Distribution.Package
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class Package pkg => PackageFixedDeps pkg where depends :: pkg -> [PackageIdentifier]
+Name: PackageFixedDeps
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Package.html#t:PackageFixedDeps
+Containing package: Distribution.Package
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	Distribution.Package::Package
+}
+members {
+
+	[Function]
+	depends :: pkg -> [PackageIdentifier]
+	Name: depends
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Package.html#v:depends
+	Containing package: Distribution.Package
+	attributes {
+		memberType=function
+	}
+	Containing type: PackageFixedDeps
+	parameters {
+		pkg: (PackageFixedDeps pkg; pkg; Distribution.Package::PackageFixedDeps)
+	}
+	Signature = <function> {
+		[parameters]
+		null::pkg
+	
+		[result]
+		other::List {
+			Distribution.Package::PackageIdentifier
+		}
+	}
+}
+
+[Alias]
+type PackageId = PackageIdentifier
+Name: PackageId
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Package.html#t:PackageId
+Containing package: Distribution.Package
+attributes {
+}
+parameters {
+}
+Aliased type = Distribution.Package::PackageIdentifier
+
+[Function]
+packageVersion :: Package pkg => pkg -> Version
+Name: packageVersion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Package.html#v:packageVersion
+Containing package: Distribution.Package
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	pkg: (Package pkg; pkg; Distribution.Package::Package)
+}
+Signature = <function> {
+	[parameters]
+	null::pkg
+
+	[result]
+	Distribution.Version::Version
+}
+
+[Function]
+simplifyDependency :: Dependency -> Dependency
+Name: simplifyDependency
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Package.html#v:simplifyDependency
+Containing package: Distribution.Package
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Package::Dependency
+
+	[result]
+	Distribution.Package::Dependency
+}
+
+[Function]
+notThisPackageVersion :: PackageIdentifier -> Dependency
+Name: notThisPackageVersion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Package.html#v:notThisPackageVersion
+Containing package: Distribution.Package
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Package::PackageIdentifier
+
+	[result]
+	Distribution.Package::Dependency
+}
+
+[Function]
+packageName :: Package pkg => pkg -> PackageName
+Name: packageName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Package.html#v:packageName
+Containing package: Distribution.Package
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	pkg: (Package pkg; pkg; Distribution.Package::Package)
+}
+Signature = <function> {
+	[parameters]
+	null::pkg
+
+	[result]
+	Distribution.Package::PackageName
+}
+
+[Function]
+thisPackageVersion :: PackageIdentifier -> Dependency
+Name: thisPackageVersion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Package.html#v:thisPackageVersion
+Containing package: Distribution.Package
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Package::PackageIdentifier
+
+	[result]
+	Distribution.Package::Dependency
+}

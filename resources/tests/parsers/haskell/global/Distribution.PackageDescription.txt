@@ -1,0 +1,1218 @@
+[Package]
+Name: Distribution.PackageDescription
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html
+Containing package: Distribution
+attributes {
+}
+
+Subpackages {
+	Distribution.PackageDescription.Check
+	Distribution.PackageDescription.Configuration
+	Distribution.PackageDescription.Parse
+	Distribution.PackageDescription.PrettyPrint
+	Distribution.PackageDescription.Utils
+}
+
+[Classifier]
+data Condition c = Var c | Lit Bool | CNot (Condition c) | COr (Condition c) (Condition c) | CAnd (Condition c) (Condition c)
+Name: Condition
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#t:Condition
+Containing package: Distribution.PackageDescription
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	c
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Executable = Executable { exeName :: String modulePath :: FilePath buildInfo :: BuildInfo}
+Name: Executable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#t:Executable
+Containing package: Distribution.PackageDescription
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data BenchmarkType = BenchmarkTypeExe Version | BenchmarkTypeUnknown String Version
+Name: BenchmarkType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#t:BenchmarkType
+Containing package: Distribution.PackageDescription
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data RepoType = Darcs | Git | SVN | CVS | Mercurial | GnuArch | Bazaar | Monotone | OtherRepoType String
+Name: RepoType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#t:RepoType
+Containing package: Distribution.PackageDescription
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data BuildInfo = BuildInfo { buildable :: Bool buildTools :: [Dependency] cppOptions :: [String] ccOptions :: [String] ldOptions :: [String] pkgconfigDepends :: [Dependency] frameworks :: [String] cSources :: [FilePath] hsSourceDirs :: [FilePath] otherModules :: [ModuleName] defaultLanguage :: Maybe Language otherLanguages :: [Language] defaultExtensions :: [Extension] otherExtensions :: [Extension] oldExtensions :: [Extension] extraLibs :: [String] extraLibDirs :: [String] includeDirs :: [FilePath] includes :: [FilePath] installIncludes :: [FilePath] options :: [(CompilerFlavor, [String])] ghcProfOptions :: [String] ghcSharedOptions :: [String] customFieldsBI :: [(String, String)] targetBuildDepends :: [Dependency]}
+Name: BuildInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#t:BuildInfo
+Containing package: Distribution.PackageDescription
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data PackageDescription = PackageDescription { package :: PackageIdentifier license :: License licenseFile :: FilePath copyright :: String maintainer :: String author :: String stability :: String testedWith :: [(CompilerFlavor, VersionRange)] homepage :: String pkgUrl :: String bugReports :: String sourceRepos :: [SourceRepo] synopsis :: String description :: String category :: String customFieldsPD :: [(String, String)] buildDepends :: [Dependency] specVersionRaw :: Either Version VersionRange buildType :: Maybe BuildType library :: Maybe Library executables :: [Executable] testSuites :: [TestSuite] benchmarks :: [Benchmark] dataFiles :: [FilePath] dataDir :: FilePath extraSrcFiles :: [FilePath] extraTmpFiles :: [FilePath] extraDocFiles :: [FilePath]}
+Name: PackageDescription
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#t:PackageDescription
+Containing package: Distribution.PackageDescription
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TestSuiteInterface = TestSuiteExeV10 Version FilePath | TestSuiteLibV09 Version ModuleName | TestSuiteUnsupported TestType
+Name: TestSuite
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#t:TestSuite
+Containing package: Distribution.PackageDescription
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data CondTree v c a = CondNode { condTreeData :: a condTreeConstraints :: c condTreeComponents :: [(Condition v, CondTree v c a, Maybe (CondTree v c a))]}
+Name: CondTree
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#t:CondTree
+Containing package: Distribution.PackageDescription
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	v
+	c
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Library = Library { exposedModules :: [ModuleName] libExposed :: Bool libBuildInfo :: BuildInfo}
+Name: Library
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#t:Library
+Containing package: Distribution.PackageDescription
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data RepoKind = RepoHead | RepoThis | RepoKindUnknown String
+Name: RepoKind
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#t:RepoKind
+Containing package: Distribution.PackageDescription
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype FlagName = FlagName String
+Name: Flag
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#t:Flag
+Containing package: Distribution.PackageDescription
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data GenericPackageDescription = GenericPackageDescription { packageDescription :: PackageDescription genPackageFlags :: [Flag] condLibrary :: Maybe (CondTree ConfVar [Dependency] Library) condExecutables :: [(String, CondTree ConfVar [Dependency] Executable)] condTestSuites :: [(String, CondTree ConfVar [Dependency] TestSuite)] condBenchmarks :: [(String, CondTree ConfVar [Dependency] Benchmark)]}
+Name: GenericPackageDescription
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#t:GenericPackageDescription
+Containing package: Distribution.PackageDescription
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data BuildType = Simple | Configure | Make | Custom | UnknownBuildType String
+Name: BuildType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#t:BuildType
+Containing package: Distribution.PackageDescription
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data BenchmarkType = BenchmarkTypeExe Version | BenchmarkTypeUnknown String Version
+Name: Benchmark
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#t:Benchmark
+Containing package: Distribution.PackageDescription
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TestSuiteInterface = TestSuiteExeV10 Version FilePath | TestSuiteLibV09 Version ModuleName | TestSuiteUnsupported TestType
+Name: TestSuiteInterface
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#t:TestSuiteInterface
+Containing package: Distribution.PackageDescription
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype FlagName = FlagName String
+Name: FlagName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#t:FlagName
+Containing package: Distribution.PackageDescription
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TestType = TestTypeExe Version | TestTypeLib Version | TestTypeUnknown String Version
+Name: TestType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#t:TestType
+Containing package: Distribution.PackageDescription
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ConfVar = OS OS | Arch Arch | Flag FlagName | Impl CompilerFlavor VersionRange
+Name: ConfVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#t:ConfVar
+Containing package: Distribution.PackageDescription
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data SourceRepo = SourceRepo { repoKind :: RepoKind repoType :: Maybe RepoType repoLocation :: Maybe String repoModule :: Maybe String repoBranch :: Maybe String repoTag :: Maybe String repoSubdir :: Maybe FilePath}
+Name: SourceRepo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#t:SourceRepo
+Containing package: Distribution.PackageDescription
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data BenchmarkInterface = BenchmarkExeV10 Version FilePath | BenchmarkUnsupported BenchmarkType
+Name: BenchmarkInterface
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#t:BenchmarkInterface
+Containing package: Distribution.PackageDescription
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type HookedBuildInfo = (Maybe BuildInfo, [(String, BuildInfo)])
+Name: HookedBuildInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#t:HookedBuildInfo
+Containing package: Distribution.PackageDescription
+attributes {
+}
+parameters {
+}
+Aliased type = null::(Maybe BuildInfo, [(String, BuildInfo)])
+
+[Alias]
+type FlagAssignment = [(FlagName, Bool)]
+Name: FlagAssignment
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#t:FlagAssignment
+Containing package: Distribution.PackageDescription
+attributes {
+}
+parameters {
+}
+Aliased type = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			Distribution.PackageDescription::FlagName
+			Data.Bool::Bool
+		}
+	}
+}
+
+[Function]
+hcOptions :: CompilerFlavor -> BuildInfo -> [String]
+Name: hcOptions
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:hcOptions
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Compiler::CompilerFlavor
+	Distribution.PackageDescription::BuildInfo
+
+	[result]
+	other::List {
+		Data.String::String
+	}
+}
+
+[Function]
+allLanguages :: BuildInfo -> [Language]
+Name: allLanguages
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:allLanguages
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::BuildInfo
+
+	[result]
+	other::List {
+		Language.Haskell.Extension::Language
+	}
+}
+
+[Function]
+allBuildInfo :: PackageDescription -> [BuildInfo]
+Name: allBuildInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:allBuildInfo
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+
+	[result]
+	other::List {
+		Distribution.PackageDescription::BuildInfo
+	}
+}
+
+[Function]
+hasBenchmarks :: PackageDescription -> Bool
+Name: hasBenchmarks
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:hasBenchmarks
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+emptyBenchmark :: Benchmark
+Name: emptyBenchmark
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:emptyBenchmark
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.PackageDescription::Benchmark
+}
+
+[Function]
+withBenchmark :: PackageDescription -> (Benchmark -> IO ()) -> IO ()
+Name: withBenchmark
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:withBenchmark
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+	<function> {
+		[parameters]
+		Distribution.PackageDescription::Benchmark
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+hasTests :: PackageDescription -> Bool
+Name: hasTests
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:hasTests
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+libModules :: Library -> [ModuleName]
+Name: libModules
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:libModules
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::Library
+
+	[result]
+	other::List {
+		Distribution.ModuleName::ModuleName
+	}
+}
+
+[Function]
+testType :: TestSuite -> TestType
+Name: testType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:testType
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::TestSuite
+
+	[result]
+	Distribution.PackageDescription::TestType
+}
+
+[Function]
+knownBenchmarkTypes :: [BenchmarkType]
+Name: knownBenchmarkTypes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:knownBenchmarkTypes
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		Distribution.PackageDescription::BenchmarkType
+	}
+}
+
+[Function]
+emptyBuildInfo :: BuildInfo
+Name: emptyBuildInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:emptyBuildInfo
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.PackageDescription::BuildInfo
+}
+
+[Function]
+usedExtensions :: BuildInfo -> [Extension]
+Name: usedExtensions
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:usedExtensions
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::BuildInfo
+
+	[result]
+	other::List {
+		Language.Haskell.Extension::Extension
+	}
+}
+
+[Function]
+withLib :: PackageDescription -> (Library -> IO ()) -> IO ()
+Name: withLib
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:withLib
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+	<function> {
+		[parameters]
+		Distribution.PackageDescription::Library
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+benchmarkModules :: Benchmark -> [ModuleName]
+Name: benchmarkModules
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:benchmarkModules
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::Benchmark
+
+	[result]
+	other::List {
+		Distribution.ModuleName::ModuleName
+	}
+}
+
+[Function]
+descCabalVersion :: PackageDescription -> VersionRange
+Name: descCabalVersion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:descCabalVersion
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+
+	[result]
+	Distribution.Version::VersionRange
+}
+
+[Function]
+emptyPackageDescription :: PackageDescription
+Name: emptyPackageDescription
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:emptyPackageDescription
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.PackageDescription::PackageDescription
+}
+
+[Function]
+allExtensions :: BuildInfo -> [Extension]
+Name: allExtensions
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:allExtensions
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::BuildInfo
+
+	[result]
+	other::List {
+		Language.Haskell.Extension::Extension
+	}
+}
+
+[Function]
+enabledTests :: PackageDescription -> [TestSuite]
+Name: enabledTests
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:enabledTests
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+
+	[result]
+	other::List {
+		Distribution.PackageDescription::TestSuite
+	}
+}
+
+[Function]
+knownTestTypes :: [TestType]
+Name: knownTestTypes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:knownTestTypes
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		Distribution.PackageDescription::TestType
+	}
+}
+
+[Function]
+knownBuildTypes :: [BuildType]
+Name: knownBuildTypes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:knownBuildTypes
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		Distribution.PackageDescription::BuildType
+	}
+}
+
+[Function]
+enabledBenchmarks :: PackageDescription -> [Benchmark]
+Name: enabledBenchmarks
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:enabledBenchmarks
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+
+	[result]
+	other::List {
+		Distribution.PackageDescription::Benchmark
+	}
+}
+
+[Function]
+benchmarkType :: Benchmark -> BenchmarkType
+Name: benchmarkType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:benchmarkType
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::Benchmark
+
+	[result]
+	Distribution.PackageDescription::BenchmarkType
+}
+
+[Function]
+emptyHookedBuildInfo :: HookedBuildInfo
+Name: emptyHookedBuildInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:emptyHookedBuildInfo
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.PackageDescription::HookedBuildInfo
+}
+
+[Function]
+emptyExecutable :: Executable
+Name: emptyExecutable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:emptyExecutable
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.PackageDescription::Executable
+}
+
+[Function]
+exeModules :: Executable -> [ModuleName]
+Name: exeModules
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:exeModules
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::Executable
+
+	[result]
+	other::List {
+		Distribution.ModuleName::ModuleName
+	}
+}
+
+[Function]
+emptyLibrary :: Library
+Name: emptyLibrary
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:emptyLibrary
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.PackageDescription::Library
+}
+
+[Function]
+specVersion :: PackageDescription -> Version
+Name: specVersion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:specVersion
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+
+	[result]
+	Distribution.Version::Version
+}
+
+[Function]
+withTest :: PackageDescription -> (TestSuite -> IO ()) -> IO ()
+Name: withTest
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:withTest
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+	<function> {
+		[parameters]
+		Distribution.PackageDescription::TestSuite
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+hasExes :: PackageDescription -> Bool
+Name: hasExes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:hasExes
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+withExe :: PackageDescription -> (Executable -> IO ()) -> IO ()
+Name: withExe
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:withExe
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+	<function> {
+		[parameters]
+		Distribution.PackageDescription::Executable
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+hasLibs :: PackageDescription -> Bool
+Name: hasLibs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:hasLibs
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+emptyTestSuite :: TestSuite
+Name: emptyTestSuite
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:emptyTestSuite
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.PackageDescription::TestSuite
+}
+
+[Function]
+updatePackageDescription :: HookedBuildInfo -> PackageDescription -> PackageDescription
+Name: updatePackageDescription
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:updatePackageDescription
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::HookedBuildInfo
+	Distribution.PackageDescription::PackageDescription
+
+	[result]
+	Distribution.PackageDescription::PackageDescription
+}
+
+[Function]
+testModules :: TestSuite -> [ModuleName]
+Name: testModules
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:testModules
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::TestSuite
+
+	[result]
+	other::List {
+		Distribution.ModuleName::ModuleName
+	}
+}
+
+[Function]
+knownRepoTypes :: [RepoType]
+Name: knownRepoTypes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription.html#v:knownRepoTypes
+Containing package: Distribution.PackageDescription
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		Distribution.PackageDescription::RepoType
+	}
+}

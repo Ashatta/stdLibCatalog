@@ -1,0 +1,779 @@
+[Package]
+Name: System.Posix.Terminal.ByteString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html
+Containing package: System.Posix.Terminal
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data BaudRate = B0 | B50 | B75 | B110 | B134 | B150 | B200 | B300 | B600 | B1200 | B1800 | B2400 | B4800 | B9600 | B19200 | B38400 | B57600 | B115200
+Name: BaudRate
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#t:BaudRate
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data QueueSelector = InputQueue | OutputQueue | BothQueues
+Name: QueueSelector
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#t:QueueSelector
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TerminalAttributes
+Name: TerminalAttributes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#t:TerminalAttributes
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TerminalMode = InterruptOnBreak | MapCRtoLF | IgnoreBreak | IgnoreCR | IgnoreParityErrors | MapLFtoCR | CheckParity | StripHighBit | StartStopInput | StartStopOutput | MarkParityErrors | ProcessOutput | LocalMode | ReadEnable | TwoStopBits | HangupOnClose | EnableParity | OddParity | EnableEcho | EchoErase | EchoKill | EchoLF | ProcessInput | ExtendedFunctions | KeyboardInterrupts | NoFlushOnInterrupt | BackgroundWriteInterrupt
+Name: TerminalMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#t:TerminalMode
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ControlCharacter = EndOfFile | EndOfLine | Erase | Interrupt | Kill | Quit | Start | Stop | Suspend
+Name: ControlCharacter
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#t:ControlCharacter
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TerminalState = Immediately | WhenDrained | WhenFlushed
+Name: TerminalState
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#t:TerminalState
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data FlowAction = SuspendOutput | RestartOutput | TransmitStop | TransmitStart
+Name: FlowAction
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#t:FlowAction
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+minInput :: TerminalAttributes -> Int
+Name: minInput
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:minInput
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Terminal.ByteString::TerminalAttributes
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+getControllingTerminalName :: IO RawFilePath
+Name: getControllingTerminalName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:getControllingTerminalName
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.Posix.ByteString.FilePath::RawFilePath
+	}
+}
+
+[Function]
+queryTerminal :: Fd -> IO Bool
+Name: queryTerminal
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:queryTerminal
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+discardData :: Fd -> QueueSelector -> IO ()
+Name: discardData
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:discardData
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+	System.Posix.Terminal.ByteString::QueueSelector
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+inputSpeed :: TerminalAttributes -> BaudRate
+Name: inputSpeed
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:inputSpeed
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Terminal.ByteString::TerminalAttributes
+
+	[result]
+	System.Posix.Terminal.ByteString::BaudRate
+}
+
+[Function]
+controlChar :: TerminalAttributes -> ControlCharacter -> Maybe Char
+Name: controlChar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:controlChar
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Terminal.ByteString::TerminalAttributes
+	System.Posix.Terminal.ByteString::ControlCharacter
+
+	[result]
+	Data.Maybe::Maybe {
+		Data.Char::Char
+	}
+}
+
+[Function]
+withOutputSpeed :: TerminalAttributes -> BaudRate -> TerminalAttributes
+Name: withOutputSpeed
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:withOutputSpeed
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Terminal.ByteString::TerminalAttributes
+	System.Posix.Terminal.ByteString::BaudRate
+
+	[result]
+	System.Posix.Terminal.ByteString::TerminalAttributes
+}
+
+[Function]
+withMinInput :: TerminalAttributes -> Int -> TerminalAttributes
+Name: withMinInput
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:withMinInput
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Terminal.ByteString::TerminalAttributes
+	Data.Int::Int
+
+	[result]
+	System.Posix.Terminal.ByteString::TerminalAttributes
+}
+
+[Function]
+controlFlow :: Fd -> FlowAction -> IO ()
+Name: controlFlow
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:controlFlow
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+	System.Posix.Terminal.ByteString::FlowAction
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+setTerminalAttributes :: Fd -> TerminalAttributes -> TerminalState -> IO ()
+Name: setTerminalAttributes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:setTerminalAttributes
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+	System.Posix.Terminal.ByteString::TerminalAttributes
+	System.Posix.Terminal.ByteString::TerminalState
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+inputTime :: TerminalAttributes -> Int
+Name: inputTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:inputTime
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Terminal.ByteString::TerminalAttributes
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+getTerminalAttributes :: Fd -> IO TerminalAttributes
+Name: getTerminalAttributes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:getTerminalAttributes
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+
+	[result]
+	System.IO::IO {
+		System.Posix.Terminal.ByteString::TerminalAttributes
+	}
+}
+
+[Function]
+drainOutput :: Fd -> IO ()
+Name: drainOutput
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:drainOutput
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+withoutMode :: TerminalAttributes -> TerminalMode -> TerminalAttributes
+Name: withoutMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:withoutMode
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Terminal.ByteString::TerminalAttributes
+	System.Posix.Terminal.ByteString::TerminalMode
+
+	[result]
+	System.Posix.Terminal.ByteString::TerminalAttributes
+}
+
+[Function]
+openPseudoTerminal :: IO (Fd, Fd)
+Name: openPseudoTerminal
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:openPseudoTerminal
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			System.Posix.Types::Fd
+			System.Posix.Types::Fd
+		}
+	}
+}
+
+[Function]
+getTerminalName :: Fd -> IO RawFilePath
+Name: getTerminalName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:getTerminalName
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+
+	[result]
+	System.IO::IO {
+		System.Posix.ByteString.FilePath::RawFilePath
+	}
+}
+
+[Function]
+terminalMode :: TerminalMode -> TerminalAttributes -> Bool
+Name: terminalMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:terminalMode
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Terminal.ByteString::TerminalMode
+	System.Posix.Terminal.ByteString::TerminalAttributes
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+getTerminalProcessGroupID :: Fd -> IO ProcessGroupID
+Name: getTerminalProcessGroupID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:getTerminalProcessGroupID
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+
+	[result]
+	System.IO::IO {
+		System.Posix.Types::ProcessGroupID
+	}
+}
+
+[Function]
+setTerminalProcessGroupID :: Fd -> ProcessGroupID -> IO ()
+Name: setTerminalProcessGroupID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:setTerminalProcessGroupID
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+	System.Posix.Types::ProcessGroupID
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+withInputSpeed :: TerminalAttributes -> BaudRate -> TerminalAttributes
+Name: withInputSpeed
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:withInputSpeed
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Terminal.ByteString::TerminalAttributes
+	System.Posix.Terminal.ByteString::BaudRate
+
+	[result]
+	System.Posix.Terminal.ByteString::TerminalAttributes
+}
+
+[Function]
+withoutCC :: TerminalAttributes -> ControlCharacter -> TerminalAttributes
+Name: withoutCC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:withoutCC
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Terminal.ByteString::TerminalAttributes
+	System.Posix.Terminal.ByteString::ControlCharacter
+
+	[result]
+	System.Posix.Terminal.ByteString::TerminalAttributes
+}
+
+[Function]
+bitsPerByte :: TerminalAttributes -> Int
+Name: bitsPerByte
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:bitsPerByte
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Terminal.ByteString::TerminalAttributes
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+outputSpeed :: TerminalAttributes -> BaudRate
+Name: outputSpeed
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:outputSpeed
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Terminal.ByteString::TerminalAttributes
+
+	[result]
+	System.Posix.Terminal.ByteString::BaudRate
+}
+
+[Function]
+withCC :: TerminalAttributes -> (ControlCharacter, Char) -> TerminalAttributes
+Name: withCC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:withCC
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Terminal.ByteString::TerminalAttributes
+	GHC.Tuple::(,) {
+		System.Posix.Terminal.ByteString::ControlCharacter
+		Data.Char::Char
+	}
+
+	[result]
+	System.Posix.Terminal.ByteString::TerminalAttributes
+}
+
+[Function]
+getSlaveTerminalName :: Fd -> IO RawFilePath
+Name: getSlaveTerminalName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:getSlaveTerminalName
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+
+	[result]
+	System.IO::IO {
+		System.Posix.ByteString.FilePath::RawFilePath
+	}
+}
+
+[Function]
+sendBreak :: Fd -> Int -> IO ()
+Name: sendBreak
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:sendBreak
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+withMode :: TerminalAttributes -> TerminalMode -> TerminalAttributes
+Name: withMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:withMode
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Terminal.ByteString::TerminalAttributes
+	System.Posix.Terminal.ByteString::TerminalMode
+
+	[result]
+	System.Posix.Terminal.ByteString::TerminalAttributes
+}
+
+[Function]
+withTime :: TerminalAttributes -> Int -> TerminalAttributes
+Name: withTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:withTime
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Terminal.ByteString::TerminalAttributes
+	Data.Int::Int
+
+	[result]
+	System.Posix.Terminal.ByteString::TerminalAttributes
+}
+
+[Function]
+withBits :: TerminalAttributes -> Int -> TerminalAttributes
+Name: withBits
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Terminal-ByteString.html#v:withBits
+Containing package: System.Posix.Terminal.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Terminal.ByteString::TerminalAttributes
+	Data.Int::Int
+
+	[result]
+	System.Posix.Terminal.ByteString::TerminalAttributes
+}

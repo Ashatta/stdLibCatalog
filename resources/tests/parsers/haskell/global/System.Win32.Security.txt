@@ -1,0 +1,468 @@
+[Package]
+Name: System.Win32.Security
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Security.html
+Containing package: System.Win32
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data SECURITY_DESCRIPTOR
+Name: SECURITY_DESCRIPTOR
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Security.html#t:SECURITY_DESCRIPTOR
+Containing package: System.Win32.Security
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ACL
+Name: ACL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Security.html#t:ACL
+Containing package: System.Win32.Security
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data SID
+Name: SID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Security.html#t:SID
+Containing package: System.Win32.Security
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type PSID = Ptr SID
+Name: PSID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Security.html#t:PSID
+Containing package: System.Win32.Security
+attributes {
+}
+parameters {
+}
+Aliased type = Foreign.Ptr::Ptr {
+	System.Win32.Security::SID
+}
+
+[Alias]
+type SECURITY_INFORMATION = DWORD
+Name: SECURITY_INFORMATION
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Security.html#t:SECURITY_INFORMATION
+Containing package: System.Win32.Security
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::DWORD
+
+[Alias]
+type PACL = Ptr ACL
+Name: PACL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Security.html#t:PACL
+Containing package: System.Win32.Security
+attributes {
+}
+parameters {
+}
+Aliased type = Foreign.Ptr::Ptr {
+	System.Win32.Security::ACL
+}
+
+[Alias]
+type SECURITY_DESCRIPTOR_CONTROL = WORD
+Name: SECURITY_DESCRIPTOR_CONTROL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Security.html#t:SECURITY_DESCRIPTOR_CONTROL
+Containing package: System.Win32.Security
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::WORD
+
+[Function]
+sACL_SECURITY_INFORMATION :: SECURITY_INFORMATION
+Name: sACL_SECURITY_INFORMATION
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Security.html#v:sACL_SECURITY_INFORMATION
+Containing package: System.Win32.Security
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Security::SECURITY_INFORMATION
+}
+
+[Function]
+getFileSecurity :: String -> SECURITY_INFORMATION -> IO SecurityDescriptor
+Name: getFileSecurity
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Security.html#v:getFileSecurity
+Containing package: System.Win32.Security
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	System.Win32.Security::SECURITY_INFORMATION
+
+	[result]
+	System.IO::IO {
+		null::SecurityDescriptor
+	}
+}
+
+[Function]
+se_DACL_AUTO_INHERITED :: SECURITY_DESCRIPTOR_CONTROL
+Name: se_DACL_AUTO_INHERITED
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Security.html#v:se_DACL_AUTO_INHERITED
+Containing package: System.Win32.Security
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Security::SECURITY_DESCRIPTOR_CONTROL
+}
+
+[Function]
+se_DACL_PRESENT :: SECURITY_DESCRIPTOR_CONTROL
+Name: se_DACL_PRESENT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Security.html#v:se_DACL_PRESENT
+Containing package: System.Win32.Security
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Security::SECURITY_DESCRIPTOR_CONTROL
+}
+
+[Function]
+dACL_SECURITY_INFORMATION :: SECURITY_INFORMATION
+Name: dACL_SECURITY_INFORMATION
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Security.html#v:dACL_SECURITY_INFORMATION
+Containing package: System.Win32.Security
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Security::SECURITY_INFORMATION
+}
+
+[Function]
+se_DACL_DEFAULTED :: SECURITY_DESCRIPTOR_CONTROL
+Name: se_DACL_DEFAULTED
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Security.html#v:se_DACL_DEFAULTED
+Containing package: System.Win32.Security
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Security::SECURITY_DESCRIPTOR_CONTROL
+}
+
+[Function]
+se_SACL_AUTO_INHERIT_REQ :: SECURITY_DESCRIPTOR_CONTROL
+Name: se_SACL_AUTO_INHERIT_REQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Security.html#v:se_SACL_AUTO_INHERIT_REQ
+Containing package: System.Win32.Security
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Security::SECURITY_DESCRIPTOR_CONTROL
+}
+
+[Function]
+se_SELF_RELATIVE :: SECURITY_DESCRIPTOR_CONTROL
+Name: se_SELF_RELATIVE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Security.html#v:se_SELF_RELATIVE
+Containing package: System.Win32.Security
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Security::SECURITY_DESCRIPTOR_CONTROL
+}
+
+[Function]
+se_OWNER_DEFAULTED :: SECURITY_DESCRIPTOR_CONTROL
+Name: se_OWNER_DEFAULTED
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Security.html#v:se_OWNER_DEFAULTED
+Containing package: System.Win32.Security
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Security::SECURITY_DESCRIPTOR_CONTROL
+}
+
+[Function]
+se_SACL_DEFAULTED :: SECURITY_DESCRIPTOR_CONTROL
+Name: se_SACL_DEFAULTED
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Security.html#v:se_SACL_DEFAULTED
+Containing package: System.Win32.Security
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Security::SECURITY_DESCRIPTOR_CONTROL
+}
+
+[Function]
+se_SACL_PROTECTED :: SECURITY_DESCRIPTOR_CONTROL
+Name: se_SACL_PROTECTED
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Security.html#v:se_SACL_PROTECTED
+Containing package: System.Win32.Security
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Security::SECURITY_DESCRIPTOR_CONTROL
+}
+
+[Function]
+se_DACL_AUTO_INHERIT_REQ :: SECURITY_DESCRIPTOR_CONTROL
+Name: se_DACL_AUTO_INHERIT_REQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Security.html#v:se_DACL_AUTO_INHERIT_REQ
+Containing package: System.Win32.Security
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Security::SECURITY_DESCRIPTOR_CONTROL
+}
+
+[Function]
+gROUP_SECURITY_INFORMATION :: SECURITY_INFORMATION
+Name: gROUP_SECURITY_INFORMATION
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Security.html#v:gROUP_SECURITY_INFORMATION
+Containing package: System.Win32.Security
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Security::SECURITY_INFORMATION
+}
+
+[Function]
+se_SACL_PRESENT :: SECURITY_DESCRIPTOR_CONTROL
+Name: se_SACL_PRESENT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Security.html#v:se_SACL_PRESENT
+Containing package: System.Win32.Security
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Security::SECURITY_DESCRIPTOR_CONTROL
+}
+
+[Function]
+se_SACL_AUTO_INHERITED :: SECURITY_DESCRIPTOR_CONTROL
+Name: se_SACL_AUTO_INHERITED
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Security.html#v:se_SACL_AUTO_INHERITED
+Containing package: System.Win32.Security
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Security::SECURITY_DESCRIPTOR_CONTROL
+}
+
+[Function]
+se_DACL_PROTECTED :: SECURITY_DESCRIPTOR_CONTROL
+Name: se_DACL_PROTECTED
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Security.html#v:se_DACL_PROTECTED
+Containing package: System.Win32.Security
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Security::SECURITY_DESCRIPTOR_CONTROL
+}
+
+[Function]
+oWNER_SECURITY_INFORMATION :: SECURITY_INFORMATION
+Name: oWNER_SECURITY_INFORMATION
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Security.html#v:oWNER_SECURITY_INFORMATION
+Containing package: System.Win32.Security
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Security::SECURITY_INFORMATION
+}
+
+[Function]
+se_GROUP_DEFAULTED :: SECURITY_DESCRIPTOR_CONTROL
+Name: se_GROUP_DEFAULTED
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Security.html#v:se_GROUP_DEFAULTED
+Containing package: System.Win32.Security
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Security::SECURITY_DESCRIPTOR_CONTROL
+}

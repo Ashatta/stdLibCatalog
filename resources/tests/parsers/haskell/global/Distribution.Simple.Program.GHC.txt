@@ -1,0 +1,158 @@
+[Package]
+Name: Distribution.Simple.Program.GHC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-GHC.html
+Containing package: Distribution.Simple.Program
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data GhcDynLinkMode = GhcStaticOnly | GhcDynamicOnly | GhcStaticAndDynamic
+Name: GhcDynLinkMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-GHC.html#t:GhcDynLinkMode
+Containing package: Distribution.Simple.Program.GHC
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data GhcOptimisation = GhcNoOptimisation | GhcNormalOptimisation | GhcMaximumOptimisation | GhcSpecialOptimisation String
+Name: GhcOptimisation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-GHC.html#t:GhcOptimisation
+Containing package: Distribution.Simple.Program.GHC
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data GhcOptions = GhcOptions { ghcOptMode :: Flag GhcMode ghcOptExtra :: [String] ghcOptExtraDefault :: [String] ghcOptInputFiles :: [FilePath] ghcOptInputModules :: [ModuleName] ghcOptOutputFile :: Flag FilePath ghcOptOutputDynFile :: Flag FilePath ghcOptSourcePathClear :: Flag Bool ghcOptSourcePath :: [FilePath] ghcOptPackageName :: Flag PackageId ghcOptPackageDBs :: PackageDBStack ghcOptPackages :: [(InstalledPackageId, PackageId)] ghcOptHideAllPackages :: Flag Bool ghcOptNoAutoLinkPackages :: Flag Bool ghcOptLinkLibs :: [FilePath] ghcOptLinkLibPath :: [FilePath] ghcOptLinkOptions :: [String] ghcOptLinkFrameworks :: [String] ghcOptNoLink :: Flag Bool ghcOptLinkNoHsMain :: Flag Bool ghcOptCcOptions :: [String] ghcOptCppOptions :: [String] ghcOptCppIncludePath :: [FilePath] ghcOptCppIncludes :: [FilePath] ghcOptFfiIncludes :: [FilePath] ghcOptLanguage :: Flag Language ghcOptExtensions :: [Extension] ghcOptExtensionMap :: [(Extension, String)] ghcOptOptimisation :: Flag GhcOptimisation ghcOptProfilingMode :: Flag Bool ghcOptSplitObjs :: Flag Bool ghcOptGHCiScripts :: [FilePath] ghcOptHiSuffix :: Flag String ghcOptObjSuffix :: Flag String ghcOptDynHiSuffix :: Flag String ghcOptDynObjSuffix :: Flag String ghcOptHiDir :: Flag FilePath ghcOptObjDir :: Flag FilePath ghcOptOutputDir :: Flag FilePath ghcOptStubDir :: Flag FilePath ghcOptDynLinkMode :: Flag GhcDynLinkMode ghcOptShared :: Flag Bool ghcOptFPic :: Flag Bool ghcOptDylibName :: Flag String ghcOptVerbosity :: Flag Verbosity ghcOptCabal :: Flag Bool}
+Name: GhcOptions
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-GHC.html#t:GhcOptions
+Containing package: Distribution.Simple.Program.GHC
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data GhcMode = GhcModeCompile | GhcModeLink | GhcModeMake | GhcModeInteractive | GhcModeAbiHash
+Name: GhcMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-GHC.html#t:GhcMode
+Containing package: Distribution.Simple.Program.GHC
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+runGHC :: Verbosity -> ConfiguredProgram -> GhcOptions -> IO ()
+Name: runGHC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-GHC.html#v:runGHC
+Containing package: Distribution.Simple.Program.GHC
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program.Types::ConfiguredProgram
+	Distribution.Simple.Program.GHC::GhcOptions
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+ghcInvocation :: ConfiguredProgram -> GhcOptions -> ProgramInvocation
+Name: ghcInvocation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-GHC.html#v:ghcInvocation
+Containing package: Distribution.Simple.Program.GHC
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program.Types::ConfiguredProgram
+	Distribution.Simple.Program.GHC::GhcOptions
+
+	[result]
+	Distribution.Simple.Program.Run::ProgramInvocation
+}
+
+[Function]
+renderGhcOptions :: Version -> GhcOptions -> [String]
+Name: renderGhcOptions
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-GHC.html#v:renderGhcOptions
+Containing package: Distribution.Simple.Program.GHC
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Version::Version
+	Distribution.Simple.Program.GHC::GhcOptions
+
+	[result]
+	other::List {
+		Data.String::String
+	}
+}

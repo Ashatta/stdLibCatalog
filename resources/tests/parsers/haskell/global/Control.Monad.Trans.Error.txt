@@ -1,0 +1,466 @@
+[Package]
+Name: Control.Monad.Trans.Error
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Error.html
+Containing package: Trans
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+class ErrorList a where listMsg :: String -> [a]
+Name: ErrorList
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Error.html#t:ErrorList
+Containing package: Control.Monad.Trans.Error
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Data.Char::Control.Monad.Trans.Error.ErrorList_Char<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	listMsg :: String -> [a]
+	Name: listMsg
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Error.html#v:listMsg
+	Containing package: Control.Monad.Trans.Error
+	attributes {
+		memberType=function
+	}
+	Containing type: ErrorList
+	parameters {
+		a: (ErrorList a; a; Control.Monad.Trans.Error::ErrorList)
+	}
+	Signature = <function> {
+		[parameters]
+		Data.String::String
+	
+		[result]
+		other::List {
+			null::a
+		}
+	}
+}
+
+[Classifier]
+class Error a where noMsg :: a strMsg :: String -> a
+Name: Error
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Error.html#t:Error
+Containing package: Control.Monad.Trans.Error
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Control.Exception.Base::Control.Monad.Trans.Error.Error_IOException<>
+	other::Control.Monad.Trans.Error.Error_List<a<>>
+	System.Console.Haskeline.MonadException::Control.Monad.Trans.Error.Error_IOException<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	noMsg :: a
+	Name: noMsg
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Error.html#v:noMsg
+	Containing package: Control.Monad.Trans.Error
+	attributes {
+		memberType=function
+	}
+	Containing type: Error
+	parameters {
+		a: (Error a; a; Control.Monad.Trans.Error::Error)
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	strMsg :: String -> a
+	Name: strMsg
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Error.html#v:strMsg
+	Containing package: Control.Monad.Trans.Error
+	attributes {
+		memberType=function
+	}
+	Containing type: Error
+	parameters {
+		a: (Error a; a; Control.Monad.Trans.Error::Error)
+	}
+	Signature = <function> {
+		[parameters]
+		Data.String::String
+	
+		[result]
+		null::a
+	}
+}
+
+[Classifier]
+newtype ErrorT e m a = ErrorT { runErrorT :: m (Either e a)}
+Name: ErrorT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Error.html#t:ErrorT
+Containing package: Control.Monad.Trans.Error
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	e
+	m
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+liftListen :: Monad m => (m (Either e a) -> m (Either e a, w)) -> ErrorT e m a -> ErrorT e m (a, w)
+Name: liftListen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Error.html#v:liftListen
+Containing package: Control.Monad.Trans.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	e
+	a
+	w
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::m {
+			Data.Either::Either {
+				null::e
+				null::a
+			}
+		}
+	
+		[result]
+		null::m {
+			GHC.Tuple::(,) {
+				Data.Either::Either {
+					null::e
+					null::a
+				}
+				null::w
+			}
+		}
+	}
+	Control.Monad.Trans.Error::ErrorT {
+		null::e
+		null::m
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.Error::ErrorT {
+		null::e
+		null::m
+		GHC.Tuple::(,) {
+			null::a
+			null::w
+		}
+	}
+}
+
+[Function]
+liftCallCC :: (((Either e a -> m (Either e b)) -> m (Either e a)) -> m (Either e a)) -> ((a -> ErrorT e m b) -> ErrorT e m a) -> ErrorT e m a
+Name: liftCallCC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Error.html#v:liftCallCC
+Containing package: Control.Monad.Trans.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e
+	a
+	m
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			<function> {
+				[parameters]
+				Data.Either::Either {
+					null::e
+					null::a
+				}
+			
+				[result]
+				null::m {
+					Data.Either::Either {
+						null::e
+						null::b
+					}
+				}
+			}
+		
+			[result]
+			null::m {
+				Data.Either::Either {
+					null::e
+					null::a
+				}
+			}
+		}
+	
+		[result]
+		null::m {
+			Data.Either::Either {
+				null::e
+				null::a
+			}
+		}
+	}
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			Control.Monad.Trans.Error::ErrorT {
+				null::e
+				null::m
+				null::b
+			}
+		}
+	
+		[result]
+		Control.Monad.Trans.Error::ErrorT {
+			null::e
+			null::m
+			null::a
+		}
+	}
+
+	[result]
+	Control.Monad.Trans.Error::ErrorT {
+		null::e
+		null::m
+		null::a
+	}
+}
+
+[Function]
+liftPass :: Monad m => (m (Either e a, w -> w) -> m (Either e a)) -> ErrorT e m (a, w -> w) -> ErrorT e m a
+Name: liftPass
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Error.html#v:liftPass
+Containing package: Control.Monad.Trans.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	e
+	a
+	w
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::m {
+			GHC.Tuple::(,) {
+				Data.Either::Either {
+					null::e
+					null::a
+				}
+				<function> {
+					[parameters]
+					null::w
+				
+					[result]
+					null::w
+				}
+			}
+		}
+	
+		[result]
+		null::m {
+			Data.Either::Either {
+				null::e
+				null::a
+			}
+		}
+	}
+	Control.Monad.Trans.Error::ErrorT {
+		null::e
+		null::m
+		GHC.Tuple::(,) {
+			null::a
+			<function> {
+				[parameters]
+				null::w
+			
+				[result]
+				null::w
+			}
+		}
+	}
+
+	[result]
+	Control.Monad.Trans.Error::ErrorT {
+		null::e
+		null::m
+		null::a
+	}
+}
+
+[Function]
+mapErrorT :: (m (Either e a) -> n (Either e' b)) -> ErrorT e m a -> ErrorT e' n b
+Name: mapErrorT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Error.html#v:mapErrorT
+Containing package: Control.Monad.Trans.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m
+	e
+	a
+	n
+	e'
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::m {
+			Data.Either::Either {
+				null::e
+				null::a
+			}
+		}
+	
+		[result]
+		null::n {
+			Data.Either::Either {
+				null::e'
+				null::b
+			}
+		}
+	}
+	Control.Monad.Trans.Error::ErrorT {
+		null::e
+		null::m
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.Error::ErrorT {
+		null::e'
+		null::n
+		null::b
+	}
+}
+
+[Function]
+catchError :: (Monad m, Error e) => ErrorT e m a -> (e -> ErrorT e m a) -> ErrorT e m a
+Name: catchError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Error.html#v:catchError
+Containing package: Control.Monad.Trans.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	e: (Error e; e; Control.Monad.Trans.Error::Error)
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Monad.Trans.Error::ErrorT {
+		null::e
+		null::m
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::e
+	
+		[result]
+		Control.Monad.Trans.Error::ErrorT {
+			null::e
+			null::m
+			null::a
+		}
+	}
+
+	[result]
+	Control.Monad.Trans.Error::ErrorT {
+		null::e
+		null::m
+		null::a
+	}
+}
+
+[Function]
+throwError :: (Monad m, Error e) => e -> ErrorT e m a
+Name: throwError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Error.html#v:throwError
+Containing package: Control.Monad.Trans.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	e: (Error e; e; Control.Monad.Trans.Error::Error)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::e
+
+	[result]
+	Control.Monad.Trans.Error::ErrorT {
+		null::e
+		null::m
+		null::a
+	}
+}

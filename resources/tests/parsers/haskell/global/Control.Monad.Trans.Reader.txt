@@ -1,0 +1,495 @@
+[Package]
+Name: Control.Monad.Trans.Reader
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Reader.html
+Containing package: Trans
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+newtype ReaderT r m a = ReaderT { runReaderT :: r -> m a}
+Name: ReaderT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Reader.html#t:ReaderT
+Containing package: Control.Monad.Trans.Reader
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	r
+	m
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type Reader r = ReaderT r Identity
+Name: Reader
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Reader.html#t:Reader
+Containing package: Control.Monad.Trans.Reader
+attributes {
+}
+parameters {
+	r
+}
+Aliased type = Control.Monad.Trans.Reader::ReaderT {
+	null::r
+	Data.Functor.Identity::Identity
+}
+
+[Function]
+asks :: Monad m => (r -> a) -> ReaderT r m a
+Name: asks
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Reader.html#v:asks
+Containing package: Control.Monad.Trans.Reader
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	r
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::r
+	
+		[result]
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.Reader::ReaderT {
+		null::r
+		null::m
+		null::a
+	}
+}
+
+[Function]
+ask :: Monad m => ReaderT r m r
+Name: ask
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Reader.html#v:ask
+Containing package: Control.Monad.Trans.Reader
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	r
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Control.Monad.Trans.Reader::ReaderT {
+		null::r
+		null::m
+		null::r
+	}
+}
+
+[Function]
+local :: Monad m => (r -> r) -> ReaderT r m a -> ReaderT r m a
+Name: local
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Reader.html#v:local
+Containing package: Control.Monad.Trans.Reader
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	r
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::r
+	
+		[result]
+		null::r
+	}
+	Control.Monad.Trans.Reader::ReaderT {
+		null::r
+		null::m
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.Reader::ReaderT {
+		null::r
+		null::m
+		null::a
+	}
+}
+
+[Function]
+reader :: Monad m => (r -> a) -> ReaderT r m a
+Name: reader
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Reader.html#v:reader
+Containing package: Control.Monad.Trans.Reader
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	r
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::r
+	
+		[result]
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.Reader::ReaderT {
+		null::r
+		null::m
+		null::a
+	}
+}
+
+[Function]
+mapReader :: (a -> b) -> Reader r a -> Reader r b
+Name: mapReader
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Reader.html#v:mapReader
+Containing package: Control.Monad.Trans.Reader
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+	r
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::b
+	}
+	Control.Monad.Trans.Reader::Reader {
+		null::r
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.Reader::Reader {
+		null::r
+		null::b
+	}
+}
+
+[Function]
+withReaderT :: (r' -> r) -> ReaderT r m a -> ReaderT r' m a
+Name: withReaderT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Reader.html#v:withReaderT
+Containing package: Control.Monad.Trans.Reader
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r'
+	r
+	m
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::r'
+	
+		[result]
+		null::r
+	}
+	Control.Monad.Trans.Reader::ReaderT {
+		null::r
+		null::m
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.Reader::ReaderT {
+		null::r'
+		null::m
+		null::a
+	}
+}
+
+[Function]
+runReader :: Reader r a -> r -> a
+Name: runReader
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Reader.html#v:runReader
+Containing package: Control.Monad.Trans.Reader
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Monad.Trans.Reader::Reader {
+		null::r
+		null::a
+	}
+	null::r
+
+	[result]
+	null::a
+}
+
+[Function]
+withReader :: (r' -> r) -> Reader r a -> Reader r' a
+Name: withReader
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Reader.html#v:withReader
+Containing package: Control.Monad.Trans.Reader
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r'
+	r
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::r'
+	
+		[result]
+		null::r
+	}
+	Control.Monad.Trans.Reader::Reader {
+		null::r
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.Reader::Reader {
+		null::r'
+		null::a
+	}
+}
+
+[Function]
+mapReaderT :: (m a -> n b) -> ReaderT r m a -> ReaderT r n b
+Name: mapReaderT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Reader.html#v:mapReaderT
+Containing package: Control.Monad.Trans.Reader
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m
+	a
+	n
+	b
+	r
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::m {
+			null::a
+		}
+	
+		[result]
+		null::n {
+			null::b
+		}
+	}
+	Control.Monad.Trans.Reader::ReaderT {
+		null::r
+		null::m
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.Reader::ReaderT {
+		null::r
+		null::n
+		null::b
+	}
+}
+
+[Function]
+liftCatch :: (m a -> (e -> m a) -> m a) -> ReaderT r m a -> (e -> ReaderT r m a) -> ReaderT r m a
+Name: liftCatch
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Reader.html#v:liftCatch
+Containing package: Control.Monad.Trans.Reader
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m
+	a
+	e
+	r
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::m {
+			null::a
+		}
+		<function> {
+			[parameters]
+			null::e
+		
+			[result]
+			null::m {
+				null::a
+			}
+		}
+	
+		[result]
+		null::m {
+			null::a
+		}
+	}
+	Control.Monad.Trans.Reader::ReaderT {
+		null::r
+		null::m
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::e
+	
+		[result]
+		Control.Monad.Trans.Reader::ReaderT {
+			null::r
+			null::m
+			null::a
+		}
+	}
+
+	[result]
+	Control.Monad.Trans.Reader::ReaderT {
+		null::r
+		null::m
+		null::a
+	}
+}
+
+[Function]
+liftCallCC :: (((a -> m b) -> m a) -> m a) -> ((a -> ReaderT r m b) -> ReaderT r m a) -> ReaderT r m a
+Name: liftCallCC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Reader.html#v:liftCallCC
+Containing package: Control.Monad.Trans.Reader
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	m
+	b
+	r
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			<function> {
+				[parameters]
+				null::a
+			
+				[result]
+				null::m {
+					null::b
+				}
+			}
+		
+			[result]
+			null::m {
+				null::a
+			}
+		}
+	
+		[result]
+		null::m {
+			null::a
+		}
+	}
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			Control.Monad.Trans.Reader::ReaderT {
+				null::r
+				null::m
+				null::b
+			}
+		}
+	
+		[result]
+		Control.Monad.Trans.Reader::ReaderT {
+			null::r
+			null::m
+			null::a
+		}
+	}
+
+	[result]
+	Control.Monad.Trans.Reader::ReaderT {
+		null::r
+		null::m
+		null::a
+	}
+}

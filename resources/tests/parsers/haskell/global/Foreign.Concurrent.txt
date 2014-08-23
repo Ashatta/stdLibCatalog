@@ -1,0 +1,68 @@
+[Package]
+Name: Foreign.Concurrent
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Concurrent.html
+Containing package: Foreign
+attributes {
+}
+
+Subpackages {
+}
+
+[Function]
+newForeignPtr :: Ptr a -> IO () -> IO (ForeignPtr a)
+Name: newForeignPtr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Concurrent.html#v:newForeignPtr
+Containing package: Foreign.Concurrent
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+
+	[result]
+	System.IO::IO {
+		Foreign.ForeignPtr.Safe::ForeignPtr {
+			null::a
+		}
+	}
+}
+
+[Function]
+addForeignPtrFinalizer :: ForeignPtr a -> IO () -> IO ()
+Name: addForeignPtrFinalizer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Concurrent.html#v:addForeignPtrFinalizer
+Containing package: Foreign.Concurrent
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.ForeignPtr.Safe::ForeignPtr {
+		null::a
+	}
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}

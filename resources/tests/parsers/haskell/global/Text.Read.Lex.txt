@@ -1,0 +1,332 @@
+[Package]
+Name: Text.Read.Lex
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read-Lex.html
+Containing package: Text.Read
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data Number
+Name: Number
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read-Lex.html#t:Number
+Containing package: Text.Read.Lex
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Lexeme = Char Char | String String | Punc String | Ident String | Symbol String | Number Number | EOF
+Name: Lexeme
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read-Lex.html#t:Lexeme
+Containing package: Text.Read.Lex
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+readIntP :: Num a => a -> (Char -> Bool) -> (Char -> Int) -> ReadP a
+Name: readIntP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read-Lex.html#v:readIntP
+Containing package: Text.Read.Lex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Num a; a; Prelude::Num)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+	<function> {
+		[parameters]
+		Data.Char::Char
+	
+		[result]
+		Data.Bool::Bool
+	}
+	<function> {
+		[parameters]
+		Data.Char::Char
+	
+		[result]
+		Data.Int::Int
+	}
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+}
+
+[Function]
+numberToFixed :: Integer -> Number -> Maybe (Integer, Integer)
+Name: numberToFixed
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read-Lex.html#v:numberToFixed
+Containing package: Text.Read.Lex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Integer
+	Text.Read.Lex::Number
+
+	[result]
+	Data.Maybe::Maybe {
+		GHC.Tuple::(,) {
+			Prelude::Integer
+			Prelude::Integer
+		}
+	}
+}
+
+[Function]
+expect :: Lexeme -> ReadP ()
+Name: expect
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read-Lex.html#v:expect
+Containing package: Text.Read.Lex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.Read.Lex::Lexeme
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+numberToRational :: Number -> Rational
+Name: numberToRational
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read-Lex.html#v:numberToRational
+Containing package: Text.Read.Lex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.Read.Lex::Number
+
+	[result]
+	Prelude::Rational
+}
+
+[Function]
+lexChar :: ReadP Char
+Name: lexChar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read-Lex.html#v:lexChar
+Containing package: Text.Read.Lex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		Data.Char::Char
+	}
+}
+
+[Function]
+numberToInteger :: Number -> Maybe Integer
+Name: numberToInteger
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read-Lex.html#v:numberToInteger
+Containing package: Text.Read.Lex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.Read.Lex::Number
+
+	[result]
+	Data.Maybe::Maybe {
+		Prelude::Integer
+	}
+}
+
+[Function]
+readHexP :: (Eq a, Num a) => ReadP a
+Name: readHexP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read-Lex.html#v:readHexP
+Containing package: Text.Read.Lex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Eq a; a; Data.Eq::Eq), (Num a; a; Prelude::Num)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+}
+
+[Function]
+numberToRangedRational :: (Int, Int) -> Number -> Maybe Rational
+Name: numberToRangedRational
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read-Lex.html#v:numberToRangedRational
+Containing package: Text.Read.Lex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Tuple::(,) {
+		Data.Int::Int
+		Data.Int::Int
+	}
+	Text.Read.Lex::Number
+
+	[result]
+	Data.Maybe::Maybe {
+		Prelude::Rational
+	}
+}
+
+[Function]
+lex :: ReadP Lexeme
+Name: lex
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read-Lex.html#v:lex
+Containing package: Text.Read.Lex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		Text.Read.Lex::Lexeme
+	}
+}
+
+[Function]
+readOctP :: (Eq a, Num a) => ReadP a
+Name: readOctP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read-Lex.html#v:readOctP
+Containing package: Text.Read.Lex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Eq a; a; Data.Eq::Eq), (Num a; a; Prelude::Num)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+}
+
+[Function]
+hsLex :: ReadP String
+Name: hsLex
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read-Lex.html#v:hsLex
+Containing package: Text.Read.Lex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		Data.String::String
+	}
+}
+
+[Function]
+readDecP :: (Eq a, Num a) => ReadP a
+Name: readDecP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read-Lex.html#v:readDecP
+Containing package: Text.Read.Lex
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Eq a; a; Data.Eq::Eq), (Num a; a; Prelude::Num)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+}

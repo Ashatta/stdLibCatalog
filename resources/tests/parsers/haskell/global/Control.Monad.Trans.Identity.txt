@@ -1,0 +1,201 @@
+[Package]
+Name: Control.Monad.Trans.Identity
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Identity.html
+Containing package: Trans
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+newtype IdentityT m a = IdentityT { runIdentityT :: m a}
+Name: IdentityT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Identity.html#t:IdentityT
+Containing package: Control.Monad.Trans.Identity
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	m
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+liftCatch :: (m a -> (e -> m a) -> m a) -> IdentityT m a -> (e -> IdentityT m a) -> IdentityT m a
+Name: liftCatch
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Identity.html#v:liftCatch
+Containing package: Control.Monad.Trans.Identity
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m
+	a
+	e
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::m {
+			null::a
+		}
+		<function> {
+			[parameters]
+			null::e
+		
+			[result]
+			null::m {
+				null::a
+			}
+		}
+	
+		[result]
+		null::m {
+			null::a
+		}
+	}
+	Control.Monad.Trans.Identity::IdentityT {
+		null::m
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::e
+	
+		[result]
+		Control.Monad.Trans.Identity::IdentityT {
+			null::m
+			null::a
+		}
+	}
+
+	[result]
+	Control.Monad.Trans.Identity::IdentityT {
+		null::m
+		null::a
+	}
+}
+
+[Function]
+mapIdentityT :: (m a -> n b) -> IdentityT m a -> IdentityT n b
+Name: mapIdentityT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Identity.html#v:mapIdentityT
+Containing package: Control.Monad.Trans.Identity
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m
+	a
+	n
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::m {
+			null::a
+		}
+	
+		[result]
+		null::n {
+			null::b
+		}
+	}
+	Control.Monad.Trans.Identity::IdentityT {
+		null::m
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.Identity::IdentityT {
+		null::n
+		null::b
+	}
+}
+
+[Function]
+liftCallCC :: (((a -> m b) -> m a) -> m a) -> ((a -> IdentityT m b) -> IdentityT m a) -> IdentityT m a
+Name: liftCallCC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Identity.html#v:liftCallCC
+Containing package: Control.Monad.Trans.Identity
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	m
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			<function> {
+				[parameters]
+				null::a
+			
+				[result]
+				null::m {
+					null::b
+				}
+			}
+		
+			[result]
+			null::m {
+				null::a
+			}
+		}
+	
+		[result]
+		null::m {
+			null::a
+		}
+	}
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			Control.Monad.Trans.Identity::IdentityT {
+				null::m
+				null::b
+			}
+		}
+	
+		[result]
+		Control.Monad.Trans.Identity::IdentityT {
+			null::m
+			null::a
+		}
+	}
+
+	[result]
+	Control.Monad.Trans.Identity::IdentityT {
+		null::m
+		null::a
+	}
+}

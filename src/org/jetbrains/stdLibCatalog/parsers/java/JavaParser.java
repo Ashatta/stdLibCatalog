@@ -607,5 +607,4 @@ public class JavaParser {
     public Map<String, PackageEntity> getPackages() {
         return packages;
     }
-
 }

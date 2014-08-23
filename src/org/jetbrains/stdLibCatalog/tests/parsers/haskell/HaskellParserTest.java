@@ -1,7 +1,7 @@
 package org.jetbrains.stdLibCatalog.tests.parsers.haskell;
 
 import org.apache.commons.io.FileUtils;
-import org.jetbrains.stdLibCatalog.domain.PackageEntity;
+import org.jetbrains.stdLibCatalog.domain.*;
 import org.jetbrains.stdLibCatalog.parsers.haskell.HaskellParser;
 import org.jetbrains.stdLibCatalog.parsers.utils.ParserUtils;
 import org.jsoup.helper.StringUtil;
@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class HaskellParserTest {
     private final String TEST_FOLDER = "resources/tests/parsers/haskell/";
@@ -212,6 +213,122 @@ public class HaskellParserTest {
         PackageEntity pack = parser.getPackages().get("Control");
         testPackageChilden(pack, "Control.Applicative,Control.Arrow,Control.Category,Control.Concurrent,Control.DeepSeq,Control.Exception,Control.Monad");
         Assert.assertNull(pack.getContainingPackage());
+    }
+
+    @Test
+    public void testAllEntities() throws IOException {
+        for (PackageEntity pack : parser.getPackages().values()) {
+            Assert.assertEquals(
+                    FileUtils.readFileToString(new File(TEST_FOLDER + "global/" + pack.getName() + ".txt")),
+                    pack.toString());
+        }
+    }
+
+    @Test
+    public void testPackageHierarchy() {
+        for (PackageEntity pack : parser.getPackages().values()) {
+            if (pack.getContainingPackage() != null) {
+                Assert.assertTrue(pack.getContainingPackage().getSubPackages().contains(pack));
+            }
+
+            for (PackageEntity sub : pack.getSubPackages()) {
+                Assert.assertSame(pack, sub.getContainingPackage());
+            }
+        }
+    }
+
+    @Test
+    public void testPackageMembersContainingPackage() {
+        for (PackageEntity pack : parser.getPackages().values()) {
+            for (TypeConstructor type : pack.getContainedClasses()) {
+                Assert.assertSame(pack, type.getContainingPackage());
+            }
+        }
+    }
+
+    @Test
+    public void testClassPackageNotNull() {
+        for (Classifier member : parser.getClasses().values()) {
+            Assert.assertNotNull(member.getContainingPackage());
+        }
+    }
+
+    @Test
+    public void testClassPackageContainsClass() {
+        for (Classifier member : parser.getClasses().values()) {
+            Assert.assertTrue(member.getAttr("fakeInstanceClassifier").equals("true")
+                    || member.getContainingPackage().getContainedClasses().contains(member));
+        }
+    }
+
+    @Test
+    public void testAliasPackageNotNull() {
+        for (TypeAlias alias : parser.getAliases().values()) {
+            Assert.assertNotNull(alias.getContainingPackage());
+        }
+    }
+
+    @Test
+    public void testAliasPackageContainsAlias() {
+        for (TypeAlias alias : parser.getAliases().values()) {
+            Assert.assertTrue(alias.getContainingPackage().getContainedClasses().contains(alias));
+        }
+    }
+
+    @Test
+    public void testFunctionPackageNotNull() {
+        for (MemberEntity function : parser.getFunctions().values()) {
+            Assert.assertNotNull(function.getContainingPackage());
+        }
+    }
+
+    @Test
+    public void testFunctionPackageContainsFunction() {
+        for (MemberEntity function : parser.getFunctions().values()) {
+            Assert.assertTrue(function.getContainingPackage().getMembers().contains(function));
+        }
+    }
+
+    @Test
+    public void testClassMembersContainingType() {
+        for (Classifier packageMember : parser.getClasses().values()) {
+            for (MemberEntity classMember : packageMember.getMembers()) {
+                Assert.assertSame(packageMember, classMember.getContainingType());
+            }
+        }
+    }
+
+    @Test
+    public void testClassMemberEnclosingClassContainsClassMember() {
+        for (MemberEntity member : parser.getFunctions().values()) {
+            if (member.getContainingType() != null) {
+                Assert.assertTrue(member.getContainingType().getMembers().contains(member));
+            }
+        }
+    }
+
+    @Test
+    public void testClassMembersContainingPackage() {
+        for (PackageEntity pack : parser.getPackages().values()) {
+            for (TypeConstructor packageMember : pack.getContainedClasses()) {
+                try {
+                    Classifier member = (Classifier) packageMember;  // could be TypeAlias
+                    for (MemberEntity classMember : member.getMembers()) {
+                        Assert.assertSame(pack, classMember.getContainingPackage());
+                    }
+                } catch (ClassCastException ignored) {
+                }
+            }
+        }
+    }
+
+    @Test
+    public void testClassMembersPackageSameAsClassPackage() {
+        for (Classifier packageMember : parser.getClasses().values()) {
+            for (MemberEntity classMember : packageMember.getMembers()) {
+                Assert.assertSame(packageMember.getContainingPackage(), classMember.getContainingPackage());
+            }
+        }
     }
 
     private void testPackage(String packageName) throws IOException {

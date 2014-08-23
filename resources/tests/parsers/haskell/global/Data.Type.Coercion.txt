@@ -1,0 +1,202 @@
+[Package]
+Name: Data.Type.Coercion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Type-Coercion.html
+Containing package: Type
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data Coercion a b where Coercion :: Coercible a b => Coercion a b
+Name: Coercion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Type-Coercion.html#t:Coercion
+Containing package: Data.Type.Coercion
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+	b
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class TestCoercion f where testCoercion :: f a -> f b -> Maybe (Coercion a b)
+Name: TestCoercion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Type-Coercion.html#t:TestCoercion
+Containing package: Data.Type.Coercion
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Data.Type.Coercion::Data.Type.Coercion.TestCoercion_Coercion<a<>>
+	Data.Type.Equality::Data.Type.Coercion.TestCoercion_(:~:)<a<>>
+	Data.Typeable::Data.Type.Coercion.TestCoercion_(:~:)<a<>>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	testCoercion :: f a -> f b -> Maybe (Coercion a b)
+	Name: testCoercion
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Type-Coercion.html#v:testCoercion
+	Containing package: Data.Type.Coercion
+	attributes {
+		memberType=function
+	}
+	Containing type: TestCoercion
+	parameters {
+		f: (TestCoercion f; f; Data.Type.Coercion::TestCoercion)
+		a
+		b
+	}
+	Signature = <function> {
+		[parameters]
+		null::f {
+			null::a
+		}
+		null::f {
+			null::b
+		}
+	
+		[result]
+		Data.Maybe::Maybe {
+			Data.Type.Coercion::Coercion {
+				null::a
+				null::b
+			}
+		}
+	}
+}
+
+[Function]
+coerceWith :: Coercion a b -> a -> b
+Name: coerceWith
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Type-Coercion.html#v:coerceWith
+Containing package: Data.Type.Coercion
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	Data.Type.Coercion::Coercion {
+		null::a
+		null::b
+	}
+	null::a
+
+	[result]
+	null::b
+}
+
+[Function]
+repr :: (a :~: b) -> Coercion a b
+Name: repr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Type-Coercion.html#v:repr
+Containing package: Data.Type.Coercion
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	null::(:~:) {
+		null::a
+		null::b
+	}
+
+	[result]
+	Data.Type.Coercion::Coercion {
+		null::a
+		null::b
+	}
+}
+
+[Function]
+trans :: Coercion a b -> Coercion b c -> Coercion a c
+Name: trans
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Type-Coercion.html#v:trans
+Containing package: Data.Type.Coercion
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	Data.Type.Coercion::Coercion {
+		null::a
+		null::b
+	}
+	Data.Type.Coercion::Coercion {
+		null::b
+		null::c
+	}
+
+	[result]
+	Data.Type.Coercion::Coercion {
+		null::a
+		null::c
+	}
+}
+
+[Function]
+sym :: forall a b. Coercion a b -> Coercion b a
+Name: sym
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Type-Coercion.html#v:sym
+Containing package: Data.Type.Coercion
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	Data.Type.Coercion::Coercion {
+		null::a
+		null::b
+	}
+
+	[result]
+	Data.Type.Coercion::Coercion {
+		null::b
+		null::a
+	}
+}

@@ -1,0 +1,106 @@
+[Package]
+Name: Distribution.Compat.Exception
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-Exception.html
+Containing package: Compat
+attributes {
+}
+
+Subpackages {
+}
+
+[Function]
+tryIO :: IO a -> IO (Either IOException a)
+Name: tryIO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-Exception.html#v:tryIO
+Containing package: Distribution.Compat.Exception
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		Data.Either::Either {
+			Control.Exception.Base::IOException
+			null::a
+		}
+	}
+}
+
+[Function]
+catchIO :: IO a -> (IOException -> IO a) -> IO a
+Name: catchIO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-Exception.html#v:catchIO
+Containing package: Distribution.Compat.Exception
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.IO::IO {
+		null::a
+	}
+	<function> {
+		[parameters]
+		Control.Exception.Base::IOException
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+catchExit :: IO a -> (ExitCode -> IO a) -> IO a
+Name: catchExit
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-Exception.html#v:catchExit
+Containing package: Distribution.Compat.Exception
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.IO::IO {
+		null::a
+	}
+	<function> {
+		[parameters]
+		System.Exit::ExitCode
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}

@@ -1,0 +1,403 @@
+[Package]
+Name: Data.Array
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array.html
+Containing package: Data
+attributes {
+}
+
+Subpackages {
+	Data.Array.IArray
+	Data.Array.IO
+	Data.Array.MArray
+	Data.Array.ST
+	Data.Array.Storable
+	Data.Array.Unboxed
+	Data.Array.Unsafe
+}
+
+[Classifier]
+data Array i e :: * -> * -> *
+Name: Array
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array.html#t:Array
+Containing package: Data.Array
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	i
+	e
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+elems :: Ix i => Array i e -> [e]
+Name: elems
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array.html#v:elems
+Containing package: Data.Array
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	i: (Ix i; i; Data.Ix::Ix)
+	e
+}
+Signature = <function> {
+	[parameters]
+	Data.Array::Array {
+		null::i
+		null::e
+	}
+
+	[result]
+	other::List {
+		null::e
+	}
+}
+
+[Function]
+accum :: Ix i => (e -> a -> e) -> Array i e -> [(i, a)] -> Array i e
+Name: accum
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array.html#v:accum
+Containing package: Data.Array
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	i: (Ix i; i; Data.Ix::Ix)
+	e
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::e
+		null::a
+	
+		[result]
+		null::e
+	}
+	Data.Array::Array {
+		null::i
+		null::e
+	}
+	other::List {
+		GHC.Tuple::(,) {
+			null::i
+			null::a
+		}
+	}
+
+	[result]
+	Data.Array::Array {
+		null::i
+		null::e
+	}
+}
+
+[Function]
+bounds :: Ix i => Array i e -> (i, i)
+Name: bounds
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array.html#v:bounds
+Containing package: Data.Array
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	i: (Ix i; i; Data.Ix::Ix)
+	e
+}
+Signature = <function> {
+	[parameters]
+	Data.Array::Array {
+		null::i
+		null::e
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		null::i
+		null::i
+	}
+}
+
+[Function]
+assocs :: Ix i => Array i e -> [(i, e)]
+Name: assocs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array.html#v:assocs
+Containing package: Data.Array
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	i: (Ix i; i; Data.Ix::Ix)
+	e
+}
+Signature = <function> {
+	[parameters]
+	Data.Array::Array {
+		null::i
+		null::e
+	}
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			null::i
+			null::e
+		}
+	}
+}
+
+[Function]
+accumArray :: Ix i => (e -> a -> e) -> e -> (i, i) -> [(i, a)] -> Array i e
+Name: accumArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array.html#v:accumArray
+Containing package: Data.Array
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	i: (Ix i; i; Data.Ix::Ix)
+	e
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::e
+		null::a
+	
+		[result]
+		null::e
+	}
+	null::e
+	GHC.Tuple::(,) {
+		null::i
+		null::i
+	}
+	other::List {
+		GHC.Tuple::(,) {
+			null::i
+			null::a
+		}
+	}
+
+	[result]
+	Data.Array::Array {
+		null::i
+		null::e
+	}
+}
+
+[Function]
+ixmap :: (Ix i, Ix j) => (i, i) -> (i -> j) -> Array j e -> Array i e
+Name: ixmap
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array.html#v:ixmap
+Containing package: Data.Array
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	i: (Ix i; i; Data.Ix::Ix)
+	j: (Ix j; j; Data.Ix::Ix)
+	e
+}
+Signature = <function> {
+	[parameters]
+	GHC.Tuple::(,) {
+		null::i
+		null::i
+	}
+	<function> {
+		[parameters]
+		null::i
+	
+		[result]
+		null::j
+	}
+	Data.Array::Array {
+		null::j
+		null::e
+	}
+
+	[result]
+	Data.Array::Array {
+		null::i
+		null::e
+	}
+}
+
+[Function]
+(!) :: Ix i => Array i e -> i -> e
+Name: (!)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array.html#v:(!)
+Containing package: Data.Array
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	i: (Ix i; i; Data.Ix::Ix)
+	e
+}
+Signature = <function> {
+	[parameters]
+	Data.Array::Array {
+		null::i
+		null::e
+	}
+	null::i
+
+	[result]
+	null::e
+}
+
+[Function]
+array :: Ix i => (i, i) -> [(i, e)] -> Array i e
+Name: array
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array.html#v:array
+Containing package: Data.Array
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	i: (Ix i; i; Data.Ix::Ix)
+	e
+}
+Signature = <function> {
+	[parameters]
+	GHC.Tuple::(,) {
+		null::i
+		null::i
+	}
+	other::List {
+		GHC.Tuple::(,) {
+			null::i
+			null::e
+		}
+	}
+
+	[result]
+	Data.Array::Array {
+		null::i
+		null::e
+	}
+}
+
+[Function]
+listArray :: Ix i => (i, i) -> [e] -> Array i e
+Name: listArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array.html#v:listArray
+Containing package: Data.Array
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	i: (Ix i; i; Data.Ix::Ix)
+	e
+}
+Signature = <function> {
+	[parameters]
+	GHC.Tuple::(,) {
+		null::i
+		null::i
+	}
+	other::List {
+		null::e
+	}
+
+	[result]
+	Data.Array::Array {
+		null::i
+		null::e
+	}
+}
+
+[Function]
+indices :: Ix i => Array i e -> [i]
+Name: indices
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array.html#v:indices
+Containing package: Data.Array
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	i: (Ix i; i; Data.Ix::Ix)
+	e
+}
+Signature = <function> {
+	[parameters]
+	Data.Array::Array {
+		null::i
+		null::e
+	}
+
+	[result]
+	other::List {
+		null::i
+	}
+}
+
+[Function]
+(//) :: Ix i => Array i e -> [(i, e)] -> Array i e
+Name: (//)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array.html#v:(//)
+Containing package: Data.Array
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	i: (Ix i; i; Data.Ix::Ix)
+	e
+}
+Signature = <function> {
+	[parameters]
+	Data.Array::Array {
+		null::i
+		null::e
+	}
+	other::List {
+		GHC.Tuple::(,) {
+			null::i
+			null::e
+		}
+	}
+
+	[result]
+	Data.Array::Array {
+		null::i
+		null::e
+	}
+}

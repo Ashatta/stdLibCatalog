@@ -1,0 +1,195 @@
+[Package]
+Name: Data.Time.Clock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Clock.html
+Containing package: Data.Time
+attributes {
+}
+
+Subpackages {
+	Data.Time.Clock.POSIX
+	Data.Time.Clock.TAI
+}
+
+[Classifier]
+data DiffTime
+Name: DiffTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Clock.html#t:DiffTime
+Containing package: Data.Time.Clock
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data NominalDiffTime
+Name: NominalDiffTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Clock.html#t:NominalDiffTime
+Containing package: Data.Time.Clock
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype UniversalTime = ModJulianDate { getModJulianDate :: Rational}
+Name: UniversalTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Clock.html#t:UniversalTime
+Containing package: Data.Time.Clock
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data UTCTime = UTCTime { utctDay :: Day utctDayTime :: DiffTime}
+Name: UTCTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Clock.html#t:UTCTime
+Containing package: Data.Time.Clock
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+getCurrentTime :: IO UTCTime
+Name: getCurrentTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Clock.html#v:getCurrentTime
+Containing package: Data.Time.Clock
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Data.Time.Clock::UTCTime
+	}
+}
+
+[Function]
+picosecondsToDiffTime :: Integer -> DiffTime
+Name: picosecondsToDiffTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Clock.html#v:picosecondsToDiffTime
+Containing package: Data.Time.Clock
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Integer
+
+	[result]
+	Data.Time.Clock::DiffTime
+}
+
+[Function]
+secondsToDiffTime :: Integer -> DiffTime
+Name: secondsToDiffTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Clock.html#v:secondsToDiffTime
+Containing package: Data.Time.Clock
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Integer
+
+	[result]
+	Data.Time.Clock::DiffTime
+}
+
+[Function]
+addUTCTime :: NominalDiffTime -> UTCTime -> UTCTime
+Name: addUTCTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Clock.html#v:addUTCTime
+Containing package: Data.Time.Clock
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Time.Clock::NominalDiffTime
+	Data.Time.Clock::UTCTime
+
+	[result]
+	Data.Time.Clock::UTCTime
+}
+
+[Function]
+diffUTCTime :: UTCTime -> UTCTime -> NominalDiffTime
+Name: diffUTCTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Clock.html#v:diffUTCTime
+Containing package: Data.Time.Clock
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Time.Clock::UTCTime
+	Data.Time.Clock::UTCTime
+
+	[result]
+	Data.Time.Clock::NominalDiffTime
+}

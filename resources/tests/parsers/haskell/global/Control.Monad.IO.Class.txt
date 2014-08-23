@@ -1,0 +1,71 @@
+[Package]
+Name: Control.Monad.IO.Class
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-IO-Class.html
+Containing package: IO
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+class Monad m => MonadIO m where liftIO :: IO a -> m a
+Name: MonadIO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-IO-Class.html#t:MonadIO
+Containing package: Control.Monad.IO.Class
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	System.Console.Haskeline.MonadException::MonadException
+	System.IO::Control.Monad.IO.Class.MonadIO_IO<>
+	Control.Monad.Trans.Identity::Control.Monad.IO.Class.MonadIO_IdentityT<m<>>
+	Control.Monad.Trans.List::Control.Monad.IO.Class.MonadIO_ListT<m<>>
+	Control.Monad.Trans.Maybe::Control.Monad.IO.Class.MonadIO_MaybeT<m<>>
+	Control.Monad.Trans.Cont::Control.Monad.IO.Class.MonadIO_ContT<r<>,m<>>
+	Control.Monad.Trans.Error::Control.Monad.IO.Class.MonadIO_ErrorT<e<>,m<>>
+	Control.Monad.Trans.Reader::Control.Monad.IO.Class.MonadIO_ReaderT<r<>,m<>>
+	Control.Monad.Trans.State.Lazy::Control.Monad.IO.Class.MonadIO_StateT<s<>,m<>>
+	Control.Monad.Trans.State.Strict::Control.Monad.IO.Class.MonadIO_StateT<s<>,m<>>
+	Control.Monad.Trans.Writer.Lazy::Control.Monad.IO.Class.MonadIO_WriterT<w<>,m<>>
+	Control.Monad.Trans.Writer.Strict::Control.Monad.IO.Class.MonadIO_WriterT<w<>,m<>>
+	Control.Monad.Trans.RWS.Lazy::Control.Monad.IO.Class.MonadIO_RWST<r<>,w<>,s<>,m<>>
+	Control.Monad.Trans.RWS.Strict::Control.Monad.IO.Class.MonadIO_RWST<r<>,w<>,s<>,m<>>
+	System.Console.Haskeline::Control.Monad.IO.Class.MonadIO_InputT<m<>>
+}
+supertypes {
+	Control.Monad::Monad
+}
+members {
+
+	[Function]
+	liftIO :: IO a -> m a
+	Name: liftIO
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-IO-Class.html#v:liftIO
+	Containing package: Control.Monad.IO.Class
+	attributes {
+		memberType=function
+	}
+	Containing type: MonadIO
+	parameters {
+		a
+		m: (MonadIO m; m; Control.Monad.IO.Class::MonadIO)
+	}
+	Signature = <function> {
+		[parameters]
+		System.IO::IO {
+			null::a
+		}
+	
+		[result]
+		null::m {
+			null::a
+		}
+	}
+}

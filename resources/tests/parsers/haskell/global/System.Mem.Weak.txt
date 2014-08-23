@@ -1,0 +1,201 @@
+[Package]
+Name: System.Mem.Weak
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-Mem-Weak.html
+Containing package: System.Mem
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data Weak v
+Name: Weak
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-Mem-Weak.html#t:Weak
+Containing package: System.Mem.Weak
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	v
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+deRefWeak :: Weak v -> IO (Maybe v)
+Name: deRefWeak
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-Mem-Weak.html#v:deRefWeak
+Containing package: System.Mem.Weak
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	v
+}
+Signature = <function> {
+	[parameters]
+	System.Mem.Weak::Weak {
+		null::v
+	}
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			null::v
+		}
+	}
+}
+
+[Function]
+addFinalizer :: key -> IO () -> IO ()
+Name: addFinalizer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-Mem-Weak.html#v:addFinalizer
+Containing package: System.Mem.Weak
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	key
+}
+Signature = <function> {
+	[parameters]
+	null::key
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+mkWeak :: k -> v -> Maybe (IO ()) -> IO (Weak v)
+Name: mkWeak
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-Mem-Weak.html#v:mkWeak
+Containing package: System.Mem.Weak
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	v
+}
+Signature = <function> {
+	[parameters]
+	null::k
+	null::v
+	Data.Maybe::Maybe {
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		System.Mem.Weak::Weak {
+			null::v
+		}
+	}
+}
+
+[Function]
+finalize :: Weak v -> IO ()
+Name: finalize
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-Mem-Weak.html#v:finalize
+Containing package: System.Mem.Weak
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	v
+}
+Signature = <function> {
+	[parameters]
+	System.Mem.Weak::Weak {
+		null::v
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+mkWeakPtr :: k -> Maybe (IO ()) -> IO (Weak k)
+Name: mkWeakPtr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-Mem-Weak.html#v:mkWeakPtr
+Containing package: System.Mem.Weak
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+}
+Signature = <function> {
+	[parameters]
+	null::k
+	Data.Maybe::Maybe {
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		System.Mem.Weak::Weak {
+			null::k
+		}
+	}
+}
+
+[Function]
+mkWeakPair :: k -> v -> Maybe (IO ()) -> IO (Weak (k, v))
+Name: mkWeakPair
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-Mem-Weak.html#v:mkWeakPair
+Containing package: System.Mem.Weak
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	v
+}
+Signature = <function> {
+	[parameters]
+	null::k
+	null::v
+	Data.Maybe::Maybe {
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		System.Mem.Weak::Weak
+	}
+}

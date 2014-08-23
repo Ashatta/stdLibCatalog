@@ -1,0 +1,3971 @@
+[Package]
+Name: Compiler.Hoopl.Internals
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html
+Containing package: Compiler.Hoopl
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data LabelMap v
+Name: LabelMap
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#t:LabelMap
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	v
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Graph' block n e x where GNil :: Graph' block n O O GUnit :: block n O O -> Graph' block n O O GMany :: MaybeO e (block n O C) -> Body' block n -> MaybeO x (block n C O) -> Graph' block n e x
+Name: Graph'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#t:Graph'
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	block
+	n
+	e
+	x
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data LabelSet
+Name: LabelSet
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#t:LabelSet
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data DataflowLattice a = DataflowLattice { fact_name :: String fact_bot :: a fact_join :: JoinFun a}
+Name: DataflowLattice
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#t:DataflowLattice
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype OldFact a = OldFact a
+Name: O
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#t:O
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Block n e x where BlockCO :: n C O -> Block n O O -> Block n C O BlockCC :: n C O -> Block n O O -> n O C -> Block n C C BlockOC :: Block n O O -> n O C -> Block n O C BNil :: Block n O O BMiddle :: n O O -> Block n O O BCat :: Block n O O -> Block n O O -> Block n O O BSnoc :: Block n O O -> n O O -> Block n O O BCons :: n O O -> Block n O O -> Block n O O
+Name: Block
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#t:Block
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	n
+	e
+	x
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data MaybeO ex t where JustO :: t -> MaybeO O t NothingO :: MaybeO C t
+Name: MaybeO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#t:MaybeO
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	ex
+	t
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype NewFact a = NewFact a
+Name: NewFact
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#t:NewFact
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data LabelMap v
+Name: Label
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#t:Label
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data FwdPass m n f = FwdPass { fp_lattice :: DataflowLattice f fp_transfer :: FwdTransfer n f fp_rewrite :: FwdRewrite m n f}
+Name: FwdPass
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#t:FwdPass
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	m
+	n
+	f
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype BwdRewrite m n f = BwdRewrite3 { getBRewrite3 :: (n C O -> f -> m (Maybe (Graph n C O, BwdRewrite m n f)), n O O -> f -> m (Maybe (Graph n O O, BwdRewrite m n f)), n O C -> FactBase f -> m (Maybe (Graph n O C, BwdRewrite m n f)))}
+Name: BwdRewrite
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#t:BwdRewrite
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	m
+	n
+	f
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class LabelsPtr l where targetLabels :: l -> [Label]
+Name: LabelsPtr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#t:LabelsPtr
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	other::Compiler.Hoopl.Internals.LabelsPtr_n<e<>,C<>>
+	Compiler.Hoopl.Internals::Compiler.Hoopl.Internals.LabelsPtr_LabelSet<>
+	Compiler.Hoopl.Internals::Compiler.Hoopl.Internals.LabelsPtr_Label<>
+	other::Compiler.Hoopl.Internals.LabelsPtr_List<l<>>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	targetLabels :: l -> [Label]
+	Name: targetLabels
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:targetLabels
+	Containing package: Compiler.Hoopl.Internals
+	attributes {
+		memberType=function
+	}
+	Containing type: LabelsPtr
+	parameters {
+		l: (LabelsPtr l; l; Compiler.Hoopl.Internals::LabelsPtr)
+	}
+	Signature = <function> {
+		[parameters]
+		null::l
+	
+		[result]
+		other::List {
+			Compiler.Hoopl.Internals::Label
+		}
+	}
+}
+
+[Classifier]
+data BwdPass m n f = BwdPass { bp_lattice :: DataflowLattice f bp_transfer :: BwdTransfer n f bp_rewrite :: BwdRewrite m n f}
+Name: BwdPass
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#t:BwdPass
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	m
+	n
+	f
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data MaybeC ex t where JustC :: t -> MaybeC C t NothingC :: MaybeC O t
+Name: MaybeC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#t:MaybeC
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	ex
+	t
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype OldFact a = OldFact a
+Name: OldFact
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#t:OldFact
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype BwdTransfer n f = BwdTransfer3 { getBTransfer3 :: (n C O -> f -> f, n O O -> f -> f, n O C -> FactBase f -> f)}
+Name: BwdTransfer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#t:BwdTransfer
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	n
+	f
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype FwdRewrite m n f = FwdRewrite3 { getFRewrite3 :: (n C O -> f -> m (Maybe (Graph n C O, FwdRewrite m n f)), n O O -> f -> m (Maybe (Graph n O O, FwdRewrite m n f)), n O C -> f -> m (Maybe (Graph n O C, FwdRewrite m n f)))}
+Name: FwdRewrite
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#t:FwdRewrite
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	m
+	n
+	f
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype FwdTransfer n f = FwdTransfer3 { getFTransfer3 :: (n C O -> f -> f, n O O -> f -> f, n O C -> f -> FactBase f)}
+Name: FwdTransfer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#t:FwdTransfer
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	n
+	f
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class NonLocal thing where entryLabel :: thing C x -> Label successors :: thing e C -> [Label]
+Name: NonLocal
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#t:NonLocal
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Compiler.Hoopl.Internals::Compiler.Hoopl.Internals.NonLocal_Block<n<>>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	entryLabel :: thing C x -> Label
+	Name: entryLabel
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:entryLabel
+	Containing package: Compiler.Hoopl.Internals
+	attributes {
+		memberType=function
+	}
+	Containing type: NonLocal
+	parameters {
+		thing: (NonLocal thing; thing; Compiler.Hoopl.Internals::NonLocal)
+		x
+	}
+	Signature = <function> {
+		[parameters]
+		null::thing {
+			Compiler.Hoopl.Internals::C
+			null::x
+		}
+	
+		[result]
+		Compiler.Hoopl.Internals::Label
+	}
+
+	[Function]
+	successors :: thing e C -> [Label]
+	Name: successors
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:successors
+	Containing package: Compiler.Hoopl.Internals
+	attributes {
+		memberType=function
+	}
+	Containing type: NonLocal
+	parameters {
+		thing: (NonLocal thing; thing; Compiler.Hoopl.Internals::NonLocal)
+		e
+	}
+	Signature = <function> {
+		[parameters]
+		null::thing {
+			null::e
+			Compiler.Hoopl.Internals::C
+		}
+	
+		[result]
+		other::List {
+			Compiler.Hoopl.Internals::Label
+		}
+	}
+}
+
+[Classifier]
+data ChangeFlag = NoChange | SomeChange
+Name: ChangeFlag
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#t:ChangeFlag
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ChangeFlag = NoChange | SomeChange
+Name: C
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#t:C
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Shape ex where Closed :: Shape C Open :: Shape O
+Name: Shape
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#t:Shape
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	ex
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type Body' block n = LabelMap (block n C C)
+Name: Body'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#t:Body'
+Containing package: Compiler.Hoopl.Internals
+attributes {
+}
+parameters {
+	block
+	n
+}
+Aliased type = Compiler.Hoopl.Internals::LabelMap {
+	null::block {
+		null::n
+		Compiler.Hoopl.Internals::C
+		Compiler.Hoopl.Internals::C
+	}
+}
+
+[Alias]
+type FactBase f = LabelMap f
+Name: FactBase
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#t:FactBase
+Containing package: Compiler.Hoopl.Internals
+attributes {
+}
+parameters {
+	f
+}
+Aliased type = Compiler.Hoopl.Internals::LabelMap {
+	null::f
+}
+
+[Alias]
+type Graph = Graph' Block
+Name: Graph
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#t:Graph
+Containing package: Compiler.Hoopl.Internals
+attributes {
+}
+parameters {
+}
+Aliased type = Compiler.Hoopl.Internals::Graph' {
+	Compiler.Hoopl.Internals::Block
+}
+
+[Alias]
+type JoinFun a = Label -> OldFact a -> NewFact a -> (ChangeFlag, a)
+Name: JoinFun
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#t:JoinFun
+Containing package: Compiler.Hoopl.Internals
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Label
+	Compiler.Hoopl.Internals::OldFact {
+		null::a
+	}
+	Compiler.Hoopl.Internals::NewFact {
+		null::a
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		Compiler.Hoopl.Internals::ChangeFlag
+		null::a
+	}
+}
+
+[Alias]
+type Body' block n = LabelMap (block n C C)
+Name: Body
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#t:Body
+Containing package: Compiler.Hoopl.Internals
+attributes {
+}
+parameters {
+	block
+	n
+}
+Aliased type = Compiler.Hoopl.Internals::LabelMap {
+	null::block {
+		null::n
+		Compiler.Hoopl.Internals::C
+		Compiler.Hoopl.Internals::C
+	}
+}
+
+[Function]
+splice :: forall block n e a x. NonLocal (block n) => (forall e x. block n e O -> block n O x -> block n e x) -> Graph' block n e a -> Graph' block n a x -> Graph' block n e x
+Name: splice
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:splice
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block: (NonLocal (block n); block, n; Compiler.Hoopl.Internals::NonLocal)
+	n: (NonLocal (block n); block, n; Compiler.Hoopl.Internals::NonLocal)
+	e
+	x
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::block {
+			null::n
+			null::e
+			Compiler.Hoopl.Internals::O
+		}
+		null::block {
+			null::n
+			Compiler.Hoopl.Internals::O
+			null::x
+		}
+	
+		[result]
+		null::block {
+			null::n
+			null::e
+			null::x
+		}
+	}
+	Compiler.Hoopl.Internals::Graph' {
+		null::block
+		null::n
+		null::e
+		null::a
+	}
+	Compiler.Hoopl.Internals::Graph' {
+		null::block
+		null::n
+		null::a
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Graph' {
+		null::block
+		null::n
+		null::e
+		null::x
+	}
+}
+
+[Function]
+noBwdRewrite :: Monad m => BwdRewrite m n f
+Name: noBwdRewrite
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:noBwdRewrite
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	n
+	f
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Compiler.Hoopl.Internals::BwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+}
+
+[Function]
+analyzeAndRewriteBwd :: (CheckpointMonad m, NonLocal n, LabelsPtr entries) => BwdPass m n f -> MaybeC e entries -> Graph n e x -> Fact x f -> m (Graph n e x, FactBase f, MaybeO e f)
+Name: analyzeAndRewriteBwd
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:analyzeAndRewriteBwd
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (CheckpointMonad m; m; Compiler.Hoopl::CheckpointMonad)
+	n: (NonLocal n; n; Compiler.Hoopl.Internals::NonLocal)
+	entries: (LabelsPtr entries; entries; Compiler.Hoopl.Internals::LabelsPtr)
+	f
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::BwdPass {
+		null::m
+		null::n
+		null::f
+	}
+	Compiler.Hoopl.Internals::MaybeC {
+		null::e
+		null::entries
+	}
+	null::Graph {
+		null::n
+		null::e
+		null::x
+	}
+	null::Fact {
+		null::x
+		null::f
+	}
+
+	[result]
+	null::m {
+		GHC.Tuple::(,,) {
+			null::Graph {
+				null::n
+				null::e
+				null::x
+			}
+			Compiler.Hoopl.Internals::FactBase {
+				null::f
+			}
+			Compiler.Hoopl.Internals::MaybeO {
+				null::e
+				null::f
+			}
+		}
+	}
+}
+
+[Function]
+replaceFirstNode :: Block n C x -> n C O -> Block n C x
+Name: replaceFirstNode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:replaceFirstNode
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		Compiler.Hoopl.Internals::C
+		null::x
+	}
+	null::n {
+		Compiler.Hoopl.Internals::C
+		Compiler.Hoopl.Internals::O
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		Compiler.Hoopl.Internals::C
+		null::x
+	}
+}
+
+[Function]
+foldBlockNodesB3 :: forall n a b c. (n C O -> b -> c, n O O -> b -> b, n O C -> a -> b) -> forall e x. Block n e x -> IndexedCO x a b -> IndexedCO e c b
+Name: foldBlockNodesB3
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:foldBlockNodesB3
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	b
+	c
+	a
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	GHC.Tuple::(,,) {
+		<function> {
+			[parameters]
+			null::n {
+				Compiler.Hoopl.Internals::C
+				Compiler.Hoopl.Internals::O
+			}
+			null::b
+		
+			[result]
+			null::c
+		}
+		<function> {
+			[parameters]
+			null::n {
+				Compiler.Hoopl.Internals::O
+				Compiler.Hoopl.Internals::O
+			}
+			null::b
+		
+			[result]
+			null::b
+		}
+		<function> {
+			[parameters]
+			null::n {
+				Compiler.Hoopl.Internals::O
+				Compiler.Hoopl.Internals::C
+			}
+			null::a
+		
+			[result]
+			null::b
+		}
+	}
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		null::e
+		null::x
+	}
+	null::IndexedCO {
+		null::x
+		null::a
+		null::b
+	}
+
+	[result]
+	null::IndexedCO {
+		null::e
+		null::c
+		null::b
+	}
+}
+
+[Function]
+lblToUnique :: Label -> Unique
+Name: lblToUnique
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:lblToUnique
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Label
+
+	[result]
+	Compiler.Hoopl::Unique
+}
+
+[Function]
+bodyList :: NonLocal (block n) => Body' block n -> [(Label, block n C C)]
+Name: bodyList
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:bodyList
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block: (NonLocal (block n); block, n; Compiler.Hoopl.Internals::NonLocal)
+	n: (NonLocal (block n); block, n; Compiler.Hoopl.Internals::NonLocal)
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Body' {
+		null::block
+		null::n
+	}
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			Compiler.Hoopl.Internals::Label
+			null::block {
+				null::n
+				Compiler.Hoopl.Internals::C
+				Compiler.Hoopl.Internals::C
+			}
+		}
+	}
+}
+
+[Function]
+foldGraphNodes :: forall n a. (forall e x. n e x -> a -> a) -> forall e x. Graph n e x -> a -> a
+Name: foldGraphNodes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:foldGraphNodes
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			null::e
+			null::x
+		}
+		null::a
+	
+		[result]
+		null::a
+	}
+	Compiler.Hoopl.Internals::Graph {
+		null::n
+		null::e
+		null::x
+	}
+	null::a
+
+	[result]
+	null::a
+}
+
+[Function]
+blockGraph :: NonLocal n => Block n e x -> Graph n e x
+Name: blockGraph
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:blockGraph
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n: (NonLocal n; n; Compiler.Hoopl.Internals::NonLocal)
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		null::e
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Graph {
+		null::n
+		null::e
+		null::x
+	}
+}
+
+[Function]
+labelsUsed :: forall block n e x. NonLocal (block n) => Graph' block n e x -> LabelSet
+Name: labelsUsed
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:labelsUsed
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block: (NonLocal (block n); block, n; Compiler.Hoopl.Internals::NonLocal)
+	n: (NonLocal (block n); block, n; Compiler.Hoopl.Internals::NonLocal)
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Graph' {
+		null::block
+		null::n
+		null::e
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::LabelSet
+}
+
+[Function]
+blockJoin :: n C O -> Block n O O -> n O C -> Block n C C
+Name: blockJoin
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:blockJoin
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+}
+Signature = <function> {
+	[parameters]
+	null::n {
+		Compiler.Hoopl.Internals::C
+		Compiler.Hoopl.Internals::O
+	}
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		Compiler.Hoopl.Internals::O
+		Compiler.Hoopl.Internals::O
+	}
+	null::n {
+		Compiler.Hoopl.Internals::O
+		Compiler.Hoopl.Internals::C
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		Compiler.Hoopl.Internals::C
+		Compiler.Hoopl.Internals::C
+	}
+}
+
+[Function]
+replaceLastNode :: Block n x C -> n O C -> Block n x C
+Name: replaceLastNode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:replaceLastNode
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		null::x
+		Compiler.Hoopl.Internals::C
+	}
+	null::n {
+		Compiler.Hoopl.Internals::O
+		Compiler.Hoopl.Internals::C
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		null::x
+		Compiler.Hoopl.Internals::C
+	}
+}
+
+[Function]
+bodyUnion :: forall a. LabelMap a -> LabelMap a -> LabelMap a
+Name: bodyUnion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:bodyUnion
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::LabelMap {
+		null::a
+	}
+	Compiler.Hoopl.Internals::LabelMap {
+		null::a
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::LabelMap {
+		null::a
+	}
+}
+
+[Function]
+postorder_dfs_from_except :: forall block e. (NonLocal block, LabelsPtr e) => LabelMap (block C C) -> e -> LabelSet -> [block C C]
+Name: postorder_dfs_from_except
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:postorder_dfs_from_except
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block: (NonLocal block; block; Compiler.Hoopl.Internals::NonLocal)
+	e: (LabelsPtr e; e; Compiler.Hoopl.Internals::LabelsPtr)
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::LabelMap {
+		null::block {
+			Compiler.Hoopl.Internals::C
+			Compiler.Hoopl.Internals::C
+		}
+	}
+	null::e
+	Compiler.Hoopl.Internals::LabelSet
+
+	[result]
+	other::List {
+		null::block {
+			Compiler.Hoopl.Internals::C
+			Compiler.Hoopl.Internals::C
+		}
+	}
+}
+
+[Function]
+noFwdRewrite :: Monad m => FwdRewrite m n f
+Name: noFwdRewrite
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:noFwdRewrite
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	n
+	f
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Compiler.Hoopl.Internals::FwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+}
+
+[Function]
+gUnitCO :: block n C O -> Graph' block n C O
+Name: gUnitCO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:gUnitCO
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block
+	n
+}
+Signature = <function> {
+	[parameters]
+	null::block {
+		null::n
+		Compiler.Hoopl.Internals::C
+		Compiler.Hoopl.Internals::O
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Graph' {
+		null::block
+		null::n
+		Compiler.Hoopl.Internals::C
+		Compiler.Hoopl.Internals::O
+	}
+}
+
+[Function]
+changeIf :: Bool -> ChangeFlag
+Name: changeIf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:changeIf
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Bool::Bool
+
+	[result]
+	Compiler.Hoopl.Internals::ChangeFlag
+}
+
+[Function]
+blockSplit :: Block n C C -> (n C O, Block n O O, n O C)
+Name: blockSplit
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:blockSplit
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		Compiler.Hoopl.Internals::C
+		Compiler.Hoopl.Internals::C
+	}
+
+	[result]
+	GHC.Tuple::(,,) {
+		null::n {
+			Compiler.Hoopl.Internals::C
+			Compiler.Hoopl.Internals::O
+		}
+		Compiler.Hoopl.Internals::Block {
+			null::n
+			Compiler.Hoopl.Internals::O
+			Compiler.Hoopl.Internals::O
+		}
+		null::n {
+			Compiler.Hoopl.Internals::O
+			Compiler.Hoopl.Internals::C
+		}
+	}
+}
+
+[Function]
+gUnitCC :: NonLocal (block n) => block n C C -> Graph' block n C C
+Name: gUnitCC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:gUnitCC
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block: (NonLocal (block n); block, n; Compiler.Hoopl.Internals::NonLocal)
+	n: (NonLocal (block n); block, n; Compiler.Hoopl.Internals::NonLocal)
+}
+Signature = <function> {
+	[parameters]
+	null::block {
+		null::n
+		Compiler.Hoopl.Internals::C
+		Compiler.Hoopl.Internals::C
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Graph' {
+		null::block
+		null::n
+		Compiler.Hoopl.Internals::C
+		Compiler.Hoopl.Internals::C
+	}
+}
+
+[Function]
+blockSplitTail :: Block n e C -> (Block n e O, n O C)
+Name: blockSplitTail
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:blockSplitTail
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		null::e
+		Compiler.Hoopl.Internals::C
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		Compiler.Hoopl.Internals::Block {
+			null::n
+			null::e
+			Compiler.Hoopl.Internals::O
+		}
+		null::n {
+			Compiler.Hoopl.Internals::O
+			Compiler.Hoopl.Internals::C
+		}
+	}
+}
+
+[Function]
+lookupFact :: Label -> FactBase f -> Maybe f
+Name: lookupFact
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:lookupFact
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	f
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Label
+	Compiler.Hoopl.Internals::FactBase {
+		null::f
+	}
+
+	[result]
+	Data.Maybe::Maybe {
+		null::f
+	}
+}
+
+[Function]
+wrapFR2 :: (forall e x. (n1 e x -> f1 -> m1 (Maybe (Graph n1 e x, FwdRewrite m1 n1 f1))) -> (n2 e x -> f2 -> m2 (Maybe (Graph n2 e x, FwdRewrite m2 n2 f2))) -> n3 e x -> f3 -> m3 (Maybe (Graph n3 e x, FwdRewrite m3 n3 f3))) -> FwdRewrite m1 n1 f1 -> FwdRewrite m2 n2 f2 -> FwdRewrite m3 n3 f3
+Name: wrapFR2
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:wrapFR2
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n1
+	e
+	x
+	f1
+	m1
+	n2
+	f2
+	m2
+	n3
+	f3
+	m3
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::n1 {
+				null::e
+				null::x
+			}
+			null::f1
+		
+			[result]
+			null::m1 {
+				Data.Maybe::Maybe {
+					GHC.Tuple::(,) {
+						null::Graph {
+							null::n1
+							null::e
+							null::x
+						}
+						Compiler.Hoopl.Internals::FwdRewrite {
+							null::m1
+							null::n1
+							null::f1
+						}
+					}
+				}
+			}
+		}
+		<function> {
+			[parameters]
+			null::n2 {
+				null::e
+				null::x
+			}
+			null::f2
+		
+			[result]
+			null::m2 {
+				Data.Maybe::Maybe {
+					GHC.Tuple::(,) {
+						null::Graph {
+							null::n2
+							null::e
+							null::x
+						}
+						Compiler.Hoopl.Internals::FwdRewrite {
+							null::m2
+							null::n2
+							null::f2
+						}
+					}
+				}
+			}
+		}
+		null::n3 {
+			null::e
+			null::x
+		}
+		null::f3
+	
+		[result]
+		null::m3 {
+			Data.Maybe::Maybe {
+				GHC.Tuple::(,) {
+					null::Graph {
+						null::n3
+						null::e
+						null::x
+					}
+					Compiler.Hoopl.Internals::FwdRewrite {
+						null::m3
+						null::n3
+						null::f3
+					}
+				}
+			}
+		}
+	}
+	Compiler.Hoopl.Internals::FwdRewrite {
+		null::m1
+		null::n1
+		null::f1
+	}
+	Compiler.Hoopl.Internals::FwdRewrite {
+		null::m2
+		null::n2
+		null::f2
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::FwdRewrite {
+		null::m3
+		null::n3
+		null::f3
+	}
+}
+
+[Function]
+blockSplitHead :: Block n C x -> (n C O, Block n O x)
+Name: blockSplitHead
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:blockSplitHead
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		Compiler.Hoopl.Internals::C
+		null::x
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		null::n {
+			Compiler.Hoopl.Internals::C
+			Compiler.Hoopl.Internals::O
+		}
+		Compiler.Hoopl.Internals::Block {
+			null::n
+			Compiler.Hoopl.Internals::O
+			null::x
+		}
+	}
+}
+
+[Function]
+blockToList :: Block n O O -> [n O O]
+Name: blockToList
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:blockToList
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		Compiler.Hoopl.Internals::O
+		Compiler.Hoopl.Internals::O
+	}
+
+	[result]
+	other::List {
+		null::n {
+			Compiler.Hoopl.Internals::O
+			Compiler.Hoopl.Internals::O
+		}
+	}
+}
+
+[Function]
+catNodeOOGraph :: n O O -> Graph n O x -> Graph n O x
+Name: catNodeOOGraph
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:catNodeOOGraph
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	x
+}
+Signature = <function> {
+	[parameters]
+	null::n {
+		Compiler.Hoopl.Internals::O
+		Compiler.Hoopl.Internals::O
+	}
+	Compiler.Hoopl.Internals::Graph {
+		null::n
+		Compiler.Hoopl.Internals::O
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Graph {
+		null::n
+		Compiler.Hoopl.Internals::O
+		null::x
+	}
+}
+
+[Function]
+mkBRewrite :: FuelMonad m => (forall e x. n e x -> Fact x f -> m (Maybe (Graph n e x))) -> BwdRewrite m n f
+Name: mkBRewrite
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:mkBRewrite
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (FuelMonad m; m; Compiler.Hoopl::FuelMonad)
+	n
+	e
+	x
+	f
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			null::e
+			null::x
+		}
+		null::Fact {
+			null::x
+			null::f
+		}
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				null::Graph {
+					null::n
+					null::e
+					null::x
+				}
+			}
+		}
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::BwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+}
+
+[Function]
+isEmptyBlock :: Block n e x -> Bool
+Name: isEmptyBlock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:isEmptyBlock
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		null::e
+		null::x
+	}
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+mkFTransfer3 :: (n C O -> f -> f) -> (n O O -> f -> f) -> (n O C -> f -> FactBase f) -> FwdTransfer n f
+Name: mkFTransfer3
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:mkFTransfer3
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	f
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl.Internals::C
+			Compiler.Hoopl.Internals::O
+		}
+		null::f
+	
+		[result]
+		null::f
+	}
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl.Internals::O
+			Compiler.Hoopl.Internals::O
+		}
+		null::f
+	
+		[result]
+		null::f
+	}
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl.Internals::O
+			Compiler.Hoopl.Internals::C
+		}
+		null::f
+	
+		[result]
+		Compiler.Hoopl.Internals::FactBase {
+			null::f
+		}
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::FwdTransfer {
+		null::n
+		null::f
+	}
+}
+
+[Function]
+blockAppend :: Block n e O -> Block n O x -> Block n e x
+Name: blockAppend
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:blockAppend
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		null::e
+		Compiler.Hoopl.Internals::O
+	}
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		Compiler.Hoopl.Internals::O
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		null::e
+		null::x
+	}
+}
+
+[Function]
+mkBRewrite3 :: forall m n f. FuelMonad m => (n C O -> f -> m (Maybe (Graph n C O))) -> (n O O -> f -> m (Maybe (Graph n O O))) -> (n O C -> FactBase f -> m (Maybe (Graph n O C))) -> BwdRewrite m n f
+Name: mkBRewrite3
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:mkBRewrite3
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (FuelMonad m; m; Compiler.Hoopl::FuelMonad)
+	n
+	f
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl.Internals::C
+			Compiler.Hoopl.Internals::O
+		}
+		null::f
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				null::Graph {
+					null::n
+					Compiler.Hoopl.Internals::C
+					Compiler.Hoopl.Internals::O
+				}
+			}
+		}
+	}
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl.Internals::O
+			Compiler.Hoopl.Internals::O
+		}
+		null::f
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				null::Graph {
+					null::n
+					Compiler.Hoopl.Internals::O
+					Compiler.Hoopl.Internals::O
+				}
+			}
+		}
+	}
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl.Internals::O
+			Compiler.Hoopl.Internals::C
+		}
+		Compiler.Hoopl.Internals::FactBase {
+			null::f
+		}
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				null::Graph {
+					null::n
+					Compiler.Hoopl.Internals::O
+					Compiler.Hoopl.Internals::C
+				}
+			}
+		}
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::BwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+}
+
+[Function]
+mkFRewrite :: FuelMonad m => (forall e x. n e x -> f -> m (Maybe (Graph n e x))) -> FwdRewrite m n f
+Name: mkFRewrite
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:mkFRewrite
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (FuelMonad m; m; Compiler.Hoopl::FuelMonad)
+	n
+	e
+	x
+	f
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			null::e
+			null::x
+		}
+		null::f
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				null::Graph {
+					null::n
+					null::e
+					null::x
+				}
+			}
+		}
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::FwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+}
+
+[Function]
+catNodeCOGraph :: NonLocal n => n C O -> Graph n O x -> Graph n C x
+Name: catNodeCOGraph
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:catNodeCOGraph
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n: (NonLocal n; n; Compiler.Hoopl.Internals::NonLocal)
+	x
+}
+Signature = <function> {
+	[parameters]
+	null::n {
+		Compiler.Hoopl.Internals::C
+		Compiler.Hoopl.Internals::O
+	}
+	Compiler.Hoopl.Internals::Graph {
+		null::n
+		Compiler.Hoopl.Internals::O
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Graph {
+		null::n
+		Compiler.Hoopl.Internals::C
+		null::x
+	}
+}
+
+[Function]
+bodyGraph :: Body n -> Graph n C C
+Name: bodyGraph
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:bodyGraph
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Body {
+		null::n
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Graph {
+		null::n
+		Compiler.Hoopl.Internals::C
+		Compiler.Hoopl.Internals::C
+	}
+}
+
+[Function]
+postorder_dfs_from :: (NonLocal block, LabelsPtr b) => LabelMap (block C C) -> b -> [block C C]
+Name: postorder_dfs_from
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:postorder_dfs_from
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block: (NonLocal block; block; Compiler.Hoopl.Internals::NonLocal)
+	b: (LabelsPtr b; b; Compiler.Hoopl.Internals::LabelsPtr)
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::LabelMap {
+		null::block {
+			Compiler.Hoopl.Internals::C
+			Compiler.Hoopl.Internals::C
+		}
+	}
+	null::b
+
+	[result]
+	other::List {
+		null::block {
+			Compiler.Hoopl.Internals::C
+			Compiler.Hoopl.Internals::C
+		}
+	}
+}
+
+[Function]
+blockCons :: n O O -> Block n O x -> Block n O x
+Name: blockCons
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:blockCons
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	x
+}
+Signature = <function> {
+	[parameters]
+	null::n {
+		Compiler.Hoopl.Internals::O
+		Compiler.Hoopl.Internals::O
+	}
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		Compiler.Hoopl.Internals::O
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		Compiler.Hoopl.Internals::O
+		null::x
+	}
+}
+
+[Function]
+blockFromList :: [n O O] -> Block n O O
+Name: blockFromList
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:blockFromList
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::n {
+			Compiler.Hoopl.Internals::O
+			Compiler.Hoopl.Internals::O
+		}
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		Compiler.Hoopl.Internals::O
+		Compiler.Hoopl.Internals::O
+	}
+}
+
+[Function]
+mkBTransfer3 :: (n C O -> f -> f) -> (n O O -> f -> f) -> (n O C -> FactBase f -> f) -> BwdTransfer n f
+Name: mkBTransfer3
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:mkBTransfer3
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	f
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl.Internals::C
+			Compiler.Hoopl.Internals::O
+		}
+		null::f
+	
+		[result]
+		null::f
+	}
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl.Internals::O
+			Compiler.Hoopl.Internals::O
+		}
+		null::f
+	
+		[result]
+		null::f
+	}
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl.Internals::O
+			Compiler.Hoopl.Internals::C
+		}
+		Compiler.Hoopl.Internals::FactBase {
+			null::f
+		}
+	
+		[result]
+		null::f
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::BwdTransfer {
+		null::n
+		null::f
+	}
+}
+
+[Function]
+wrapBR :: (forall e x. Shape x -> (n e x -> Fact x f -> m (Maybe (Graph n e x, BwdRewrite m n f))) -> n' e x -> Fact x f' -> m' (Maybe (Graph n' e x, BwdRewrite m' n' f'))) -> BwdRewrite m n f -> BwdRewrite m' n' f'
+Name: wrapBR
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:wrapBR
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	x
+	n
+	e
+	f
+	m
+	n'
+	f'
+	m'
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Compiler.Hoopl.Internals::Shape {
+			null::x
+		}
+		<function> {
+			[parameters]
+			null::n {
+				null::e
+				null::x
+			}
+			null::Fact {
+				null::x
+				null::f
+			}
+		
+			[result]
+			null::m {
+				Data.Maybe::Maybe {
+					GHC.Tuple::(,) {
+						null::Graph {
+							null::n
+							null::e
+							null::x
+						}
+						Compiler.Hoopl.Internals::BwdRewrite {
+							null::m
+							null::n
+							null::f
+						}
+					}
+				}
+			}
+		}
+		null::n' {
+			null::e
+			null::x
+		}
+		null::Fact {
+			null::x
+			null::f'
+		}
+	
+		[result]
+		null::m' {
+			Data.Maybe::Maybe {
+				GHC.Tuple::(,) {
+					null::Graph {
+						null::n'
+						null::e
+						null::x
+					}
+					Compiler.Hoopl.Internals::BwdRewrite {
+						null::m'
+						null::n'
+						null::f'
+					}
+				}
+			}
+		}
+	}
+	Compiler.Hoopl.Internals::BwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::BwdRewrite {
+		null::m'
+		null::n'
+		null::f'
+	}
+}
+
+[Function]
+frontBiasBlock :: Block n e x -> Block n e x
+Name: frontBiasBlock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:frontBiasBlock
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		null::e
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		null::e
+		null::x
+	}
+}
+
+[Function]
+mkFRewrite3 :: forall m n f. FuelMonad m => (n C O -> f -> m (Maybe (Graph n C O))) -> (n O O -> f -> m (Maybe (Graph n O O))) -> (n O C -> f -> m (Maybe (Graph n O C))) -> FwdRewrite m n f
+Name: mkFRewrite3
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:mkFRewrite3
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (FuelMonad m; m; Compiler.Hoopl::FuelMonad)
+	n
+	f
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl.Internals::C
+			Compiler.Hoopl.Internals::O
+		}
+		null::f
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				null::Graph {
+					null::n
+					Compiler.Hoopl.Internals::C
+					Compiler.Hoopl.Internals::O
+				}
+			}
+		}
+	}
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl.Internals::O
+			Compiler.Hoopl.Internals::O
+		}
+		null::f
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				null::Graph {
+					null::n
+					Compiler.Hoopl.Internals::O
+					Compiler.Hoopl.Internals::O
+				}
+			}
+		}
+	}
+	<function> {
+		[parameters]
+		null::n {
+			Compiler.Hoopl.Internals::O
+			Compiler.Hoopl.Internals::C
+		}
+		null::f
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				null::Graph {
+					null::n
+					Compiler.Hoopl.Internals::O
+					Compiler.Hoopl.Internals::C
+				}
+			}
+		}
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::FwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+}
+
+[Function]
+mkFTransfer :: (forall e x. n e x -> f -> Fact x f) -> FwdTransfer n f
+Name: mkFTransfer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:mkFTransfer
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+	f
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			null::e
+			null::x
+		}
+		null::f
+	
+		[result]
+		null::Fact {
+			null::x
+			null::f
+		}
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::FwdTransfer {
+		null::n
+		null::f
+	}
+}
+
+[Function]
+gSplice :: NonLocal n => Graph n e a -> Graph n a x -> Graph n e x
+Name: gSplice
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:gSplice
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n: (NonLocal n; n; Compiler.Hoopl.Internals::NonLocal)
+	e
+	a
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Graph {
+		null::n
+		null::e
+		null::a
+	}
+	Compiler.Hoopl.Internals::Graph {
+		null::n
+		null::a
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Graph {
+		null::n
+		null::e
+		null::x
+	}
+}
+
+[Function]
+mkFactBase :: forall f. DataflowLattice f -> [(Label, f)] -> FactBase f
+Name: mkFactBase
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:mkFactBase
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	f
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::DataflowLattice {
+		null::f
+	}
+	other::List {
+		GHC.Tuple::(,) {
+			Compiler.Hoopl.Internals::Label
+			null::f
+		}
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::FactBase {
+		null::f
+	}
+}
+
+[Function]
+wrapBR2 :: (forall e x. Shape x -> (n1 e x -> Fact x f1 -> m1 (Maybe (Graph n1 e x, BwdRewrite m1 n1 f1))) -> (n2 e x -> Fact x f2 -> m2 (Maybe (Graph n2 e x, BwdRewrite m2 n2 f2))) -> n3 e x -> Fact x f3 -> m3 (Maybe (Graph n3 e x, BwdRewrite m3 n3 f3))) -> BwdRewrite m1 n1 f1 -> BwdRewrite m2 n2 f2 -> BwdRewrite m3 n3 f3
+Name: wrapBR2
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:wrapBR2
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	x
+	n1
+	e
+	f1
+	m1
+	n2
+	f2
+	m2
+	n3
+	f3
+	m3
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Compiler.Hoopl.Internals::Shape {
+			null::x
+		}
+		<function> {
+			[parameters]
+			null::n1 {
+				null::e
+				null::x
+			}
+			null::Fact {
+				null::x
+				null::f1
+			}
+		
+			[result]
+			null::m1 {
+				Data.Maybe::Maybe {
+					GHC.Tuple::(,) {
+						null::Graph {
+							null::n1
+							null::e
+							null::x
+						}
+						Compiler.Hoopl.Internals::BwdRewrite {
+							null::m1
+							null::n1
+							null::f1
+						}
+					}
+				}
+			}
+		}
+		<function> {
+			[parameters]
+			null::n2 {
+				null::e
+				null::x
+			}
+			null::Fact {
+				null::x
+				null::f2
+			}
+		
+			[result]
+			null::m2 {
+				Data.Maybe::Maybe {
+					GHC.Tuple::(,) {
+						null::Graph {
+							null::n2
+							null::e
+							null::x
+						}
+						Compiler.Hoopl.Internals::BwdRewrite {
+							null::m2
+							null::n2
+							null::f2
+						}
+					}
+				}
+			}
+		}
+		null::n3 {
+			null::e
+			null::x
+		}
+		null::Fact {
+			null::x
+			null::f3
+		}
+	
+		[result]
+		null::m3 {
+			Data.Maybe::Maybe {
+				GHC.Tuple::(,) {
+					null::Graph {
+						null::n3
+						null::e
+						null::x
+					}
+					Compiler.Hoopl.Internals::BwdRewrite {
+						null::m3
+						null::n3
+						null::f3
+					}
+				}
+			}
+		}
+	}
+	Compiler.Hoopl.Internals::BwdRewrite {
+		null::m1
+		null::n1
+		null::f1
+	}
+	Compiler.Hoopl.Internals::BwdRewrite {
+		null::m2
+		null::n2
+		null::f2
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::BwdRewrite {
+		null::m3
+		null::n3
+		null::f3
+	}
+}
+
+[Function]
+gUnitOO :: block n O O -> Graph' block n O O
+Name: gUnitOO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:gUnitOO
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block
+	n
+}
+Signature = <function> {
+	[parameters]
+	null::block {
+		null::n
+		Compiler.Hoopl.Internals::O
+		Compiler.Hoopl.Internals::O
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Graph' {
+		null::block
+		null::n
+		Compiler.Hoopl.Internals::O
+		Compiler.Hoopl.Internals::O
+	}
+}
+
+[Function]
+mapGraph :: (forall e x. n e x -> n' e x) -> Graph n e x -> Graph n' e x
+Name: mapGraph
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:mapGraph
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+	n'
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			null::e
+			null::x
+		}
+	
+		[result]
+		null::n' {
+			null::e
+			null::x
+		}
+	}
+	Compiler.Hoopl.Internals::Graph {
+		null::n
+		null::e
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Graph {
+		null::n'
+		null::e
+		null::x
+	}
+}
+
+[Function]
+labelsDefined :: forall block n e x. NonLocal (block n) => Graph' block n e x -> LabelSet
+Name: labelsDefined
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:labelsDefined
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block: (NonLocal (block n); block, n; Compiler.Hoopl.Internals::NonLocal)
+	n: (NonLocal (block n); block, n; Compiler.Hoopl.Internals::NonLocal)
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Graph' {
+		null::block
+		null::n
+		null::e
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::LabelSet
+}
+
+[Function]
+postorder_dfs :: NonLocal (block n) => Graph' block n O x -> [block n C C]
+Name: postorder_dfs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:postorder_dfs
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block: (NonLocal (block n); block, n; Compiler.Hoopl.Internals::NonLocal)
+	n: (NonLocal (block n); block, n; Compiler.Hoopl.Internals::NonLocal)
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Graph' {
+		null::block
+		null::n
+		Compiler.Hoopl.Internals::O
+		null::x
+	}
+
+	[result]
+	other::List {
+		null::block {
+			null::n
+			Compiler.Hoopl.Internals::C
+			Compiler.Hoopl.Internals::C
+		}
+	}
+}
+
+[Function]
+noFacts :: FactBase f
+Name: noFacts
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:noFacts
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	f
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Compiler.Hoopl.Internals::FactBase {
+		null::f
+	}
+}
+
+[Function]
+catGraphNodeOO :: Graph n e O -> n O O -> Graph n e O
+Name: catGraphNodeOO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:catGraphNodeOO
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Graph {
+		null::n
+		null::e
+		Compiler.Hoopl.Internals::O
+	}
+	null::n {
+		Compiler.Hoopl.Internals::O
+		Compiler.Hoopl.Internals::O
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Graph {
+		null::n
+		null::e
+		Compiler.Hoopl.Internals::O
+	}
+}
+
+[Function]
+backBiasBlock :: Block n e x -> Block n e x
+Name: backBiasBlock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:backBiasBlock
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		null::e
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		null::e
+		null::x
+	}
+}
+
+[Function]
+foldBlockNodesF3 :: forall n a b c. (n C O -> a -> b, n O O -> b -> b, n O C -> b -> c) -> forall e x. Block n e x -> IndexedCO e a b -> IndexedCO x c b
+Name: foldBlockNodesF3
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:foldBlockNodesF3
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	a
+	b
+	c
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	GHC.Tuple::(,,) {
+		<function> {
+			[parameters]
+			null::n {
+				Compiler.Hoopl.Internals::C
+				Compiler.Hoopl.Internals::O
+			}
+			null::a
+		
+			[result]
+			null::b
+		}
+		<function> {
+			[parameters]
+			null::n {
+				Compiler.Hoopl.Internals::O
+				Compiler.Hoopl.Internals::O
+			}
+			null::b
+		
+			[result]
+			null::b
+		}
+		<function> {
+			[parameters]
+			null::n {
+				Compiler.Hoopl.Internals::O
+				Compiler.Hoopl.Internals::C
+			}
+			null::b
+		
+			[result]
+			null::c
+		}
+	}
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		null::e
+		null::x
+	}
+	null::IndexedCO {
+		null::e
+		null::a
+		null::b
+	}
+
+	[result]
+	null::IndexedCO {
+		null::x
+		null::c
+		null::b
+	}
+}
+
+[Function]
+catGraphNodeOC :: NonLocal n => Graph n e O -> n O C -> Graph n e C
+Name: catGraphNodeOC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:catGraphNodeOC
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n: (NonLocal n; n; Compiler.Hoopl.Internals::NonLocal)
+	e
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Graph {
+		null::n
+		null::e
+		Compiler.Hoopl.Internals::O
+	}
+	null::n {
+		Compiler.Hoopl.Internals::O
+		Compiler.Hoopl.Internals::C
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Graph {
+		null::n
+		null::e
+		Compiler.Hoopl.Internals::C
+	}
+}
+
+[Function]
+blockSplitAny :: Block n e x -> (MaybeC e (n C O), Block n O O, MaybeC x (n O C))
+Name: blockSplitAny
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:blockSplitAny
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		null::e
+		null::x
+	}
+
+	[result]
+	GHC.Tuple::(,,) {
+		Compiler.Hoopl.Internals::MaybeC {
+			null::e
+			null::n {
+				Compiler.Hoopl.Internals::C
+				Compiler.Hoopl.Internals::O
+			}
+		}
+		Compiler.Hoopl.Internals::Block {
+			null::n
+			Compiler.Hoopl.Internals::O
+			Compiler.Hoopl.Internals::O
+		}
+		Compiler.Hoopl.Internals::MaybeC {
+			null::x
+			null::n {
+				Compiler.Hoopl.Internals::O
+				Compiler.Hoopl.Internals::C
+			}
+		}
+	}
+}
+
+[Function]
+addBlock :: NonLocal thing => thing C C -> LabelMap (thing C C) -> LabelMap (thing C C)
+Name: addBlock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:addBlock
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	thing: (NonLocal thing; thing; Compiler.Hoopl.Internals::NonLocal)
+}
+Signature = <function> {
+	[parameters]
+	null::thing {
+		Compiler.Hoopl.Internals::C
+		Compiler.Hoopl.Internals::C
+	}
+	Compiler.Hoopl.Internals::LabelMap {
+		null::thing {
+			Compiler.Hoopl.Internals::C
+			Compiler.Hoopl.Internals::C
+		}
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::LabelMap {
+		null::thing {
+			Compiler.Hoopl.Internals::C
+			Compiler.Hoopl.Internals::C
+		}
+	}
+}
+
+[Function]
+preorder_dfs_from_except :: forall block e. (NonLocal block, LabelsPtr e) => LabelMap (block C C) -> e -> LabelSet -> [block C C]
+Name: preorder_dfs_from_except
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:preorder_dfs_from_except
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block: (NonLocal block; block; Compiler.Hoopl.Internals::NonLocal)
+	e: (LabelsPtr e; e; Compiler.Hoopl.Internals::LabelsPtr)
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::LabelMap {
+		null::block {
+			Compiler.Hoopl.Internals::C
+			Compiler.Hoopl.Internals::C
+		}
+	}
+	null::e
+	Compiler.Hoopl.Internals::LabelSet
+
+	[result]
+	other::List {
+		null::block {
+			Compiler.Hoopl.Internals::C
+			Compiler.Hoopl.Internals::C
+		}
+	}
+}
+
+[Function]
+firstNode :: Block n C x -> n C O
+Name: firstNode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:firstNode
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		Compiler.Hoopl.Internals::C
+		null::x
+	}
+
+	[result]
+	null::n {
+		Compiler.Hoopl.Internals::C
+		Compiler.Hoopl.Internals::O
+	}
+}
+
+[Function]
+mapGraphBlocks :: forall block n block' n' e x. (forall e x. block n e x -> block' n' e x) -> Graph' block n e x -> Graph' block' n' e x
+Name: mapGraphBlocks
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:mapGraphBlocks
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block
+	n
+	e
+	x
+	block'
+	n'
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::block {
+			null::n
+			null::e
+			null::x
+		}
+	
+		[result]
+		null::block' {
+			null::n'
+			null::e
+			null::x
+		}
+	}
+	Compiler.Hoopl.Internals::Graph' {
+		null::block
+		null::n
+		null::e
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Graph' {
+		null::block'
+		null::n'
+		null::e
+		null::x
+	}
+}
+
+[Function]
+externalEntryLabels :: forall n. NonLocal n => LabelMap (Block n C C) -> LabelSet
+Name: externalEntryLabels
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:externalEntryLabels
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n: (NonLocal n; n; Compiler.Hoopl.Internals::NonLocal)
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::LabelMap {
+		Compiler.Hoopl.Internals::Block {
+			null::n
+			Compiler.Hoopl.Internals::C
+			Compiler.Hoopl.Internals::C
+		}
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::LabelSet
+}
+
+[Function]
+mkBTransfer :: (forall e x. n e x -> Fact x f -> f) -> BwdTransfer n f
+Name: mkBTransfer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:mkBTransfer
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+	f
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			null::e
+			null::x
+		}
+		null::Fact {
+			null::x
+			null::f
+		}
+	
+		[result]
+		null::f
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::BwdTransfer {
+		null::n
+		null::f
+	}
+}
+
+[Function]
+blockJoinTail :: Block n e O -> n O C -> Block n e C
+Name: blockJoinTail
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:blockJoinTail
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		null::e
+		Compiler.Hoopl.Internals::O
+	}
+	null::n {
+		Compiler.Hoopl.Internals::O
+		Compiler.Hoopl.Internals::C
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		null::e
+		Compiler.Hoopl.Internals::C
+	}
+}
+
+[Function]
+blockJoinHead :: n C O -> Block n O x -> Block n C x
+Name: blockJoinHead
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:blockJoinHead
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	x
+}
+Signature = <function> {
+	[parameters]
+	null::n {
+		Compiler.Hoopl.Internals::C
+		Compiler.Hoopl.Internals::O
+	}
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		Compiler.Hoopl.Internals::O
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		Compiler.Hoopl.Internals::C
+		null::x
+	}
+}
+
+[Function]
+blockSnoc :: Block n e O -> n O O -> Block n e O
+Name: blockSnoc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:blockSnoc
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		null::e
+		Compiler.Hoopl.Internals::O
+	}
+	null::n {
+		Compiler.Hoopl.Internals::O
+		Compiler.Hoopl.Internals::O
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		null::e
+		Compiler.Hoopl.Internals::O
+	}
+}
+
+[Function]
+mapBlock :: (forall e x. n e x -> n' e x) -> Block n e x -> Block n' e x
+Name: mapBlock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:mapBlock
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+	n'
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			null::e
+			null::x
+		}
+	
+		[result]
+		null::n' {
+			null::e
+			null::x
+		}
+	}
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		null::e
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Block {
+		null::n'
+		null::e
+		null::x
+	}
+}
+
+[Function]
+analyzeAndRewriteFwd :: forall m n f e x entries. (CheckpointMonad m, NonLocal n, LabelsPtr entries) => FwdPass m n f -> MaybeC e entries -> Graph n e x -> Fact e f -> m (Graph n e x, FactBase f, MaybeO x f)
+Name: analyzeAndRewriteFwd
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:analyzeAndRewriteFwd
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (CheckpointMonad m; m; Compiler.Hoopl::CheckpointMonad)
+	n: (NonLocal n; n; Compiler.Hoopl.Internals::NonLocal)
+	entries: (LabelsPtr entries; entries; Compiler.Hoopl.Internals::LabelsPtr)
+	f
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::FwdPass {
+		null::m
+		null::n
+		null::f
+	}
+	Compiler.Hoopl.Internals::MaybeC {
+		null::e
+		null::entries
+	}
+	null::Graph {
+		null::n
+		null::e
+		null::x
+	}
+	null::Fact {
+		null::e
+		null::f
+	}
+
+	[result]
+	null::m {
+		GHC.Tuple::(,,) {
+			null::Graph {
+				null::n
+				null::e
+				null::x
+			}
+			Compiler.Hoopl.Internals::FactBase {
+				null::f
+			}
+			Compiler.Hoopl.Internals::MaybeO {
+				null::x
+				null::f
+			}
+		}
+	}
+}
+
+[Function]
+blockJoinAny :: (MaybeC e (n C O), Block n O O, MaybeC x (n O C)) -> Block n e x
+Name: blockJoinAny
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:blockJoinAny
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e
+	n
+	x
+}
+Signature = <function> {
+	[parameters]
+	GHC.Tuple::(,,) {
+		Compiler.Hoopl.Internals::MaybeC {
+			null::e
+			null::n {
+				Compiler.Hoopl.Internals::C
+				Compiler.Hoopl.Internals::O
+			}
+		}
+		Compiler.Hoopl.Internals::Block {
+			null::n
+			Compiler.Hoopl.Internals::O
+			Compiler.Hoopl.Internals::O
+		}
+		Compiler.Hoopl.Internals::MaybeC {
+			null::x
+			null::n {
+				Compiler.Hoopl.Internals::O
+				Compiler.Hoopl.Internals::C
+			}
+		}
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		null::e
+		null::x
+	}
+}
+
+[Function]
+wrapFR :: (forall e x. (n e x -> f -> m (Maybe (Graph n e x, FwdRewrite m n f))) -> n' e x -> f' -> m' (Maybe (Graph n' e x, FwdRewrite m' n' f'))) -> FwdRewrite m n f -> FwdRewrite m' n' f'
+Name: wrapFR
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:wrapFR
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+	f
+	m
+	n'
+	f'
+	m'
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::n {
+				null::e
+				null::x
+			}
+			null::f
+		
+			[result]
+			null::m {
+				Data.Maybe::Maybe {
+					GHC.Tuple::(,) {
+						null::Graph {
+							null::n
+							null::e
+							null::x
+						}
+						Compiler.Hoopl.Internals::FwdRewrite {
+							null::m
+							null::n
+							null::f
+						}
+					}
+				}
+			}
+		}
+		null::n' {
+			null::e
+			null::x
+		}
+		null::f'
+	
+		[result]
+		null::m' {
+			Data.Maybe::Maybe {
+				GHC.Tuple::(,) {
+					null::Graph {
+						null::n'
+						null::e
+						null::x
+					}
+					Compiler.Hoopl.Internals::FwdRewrite {
+						null::m'
+						null::n'
+						null::f'
+					}
+				}
+			}
+		}
+	}
+	Compiler.Hoopl.Internals::FwdRewrite {
+		null::m
+		null::n
+		null::f
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::FwdRewrite {
+		null::m'
+		null::n'
+		null::f'
+	}
+}
+
+[Function]
+preorder_dfs :: NonLocal (block n) => Graph' block n O x -> [block n C C]
+Name: preorder_dfs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:preorder_dfs
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block: (NonLocal (block n); block, n; Compiler.Hoopl.Internals::NonLocal)
+	n: (NonLocal (block n); block, n; Compiler.Hoopl.Internals::NonLocal)
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Graph' {
+		null::block
+		null::n
+		Compiler.Hoopl.Internals::O
+		null::x
+	}
+
+	[result]
+	other::List {
+		null::block {
+			null::n
+			Compiler.Hoopl.Internals::C
+			Compiler.Hoopl.Internals::C
+		}
+	}
+}
+
+[Function]
+endNodes :: Block n C C -> (n C O, n O C)
+Name: endNodes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:endNodes
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		Compiler.Hoopl.Internals::C
+		Compiler.Hoopl.Internals::C
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		null::n {
+			Compiler.Hoopl.Internals::C
+			Compiler.Hoopl.Internals::O
+		}
+		null::n {
+			Compiler.Hoopl.Internals::O
+			Compiler.Hoopl.Internals::C
+		}
+	}
+}
+
+[Function]
+mapBlock' :: (forall e x. n e x -> n' e x) -> Block n e x -> Block n' e x
+Name: mapBlock'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:mapBlock'
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+	n'
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			null::e
+			null::x
+		}
+	
+		[result]
+		null::n' {
+			null::e
+			null::x
+		}
+	}
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		null::e
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Block {
+		null::n'
+		null::e
+		null::x
+	}
+}
+
+[Function]
+mapBlock3' :: forall n n' e x. (n C O -> n' C O, n O O -> n' O O, n O C -> n' O C) -> Block n e x -> Block n' e x
+Name: mapBlock3'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:mapBlock3'
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	n'
+	e
+	x
+}
+Signature = <function> {
+	[parameters]
+	GHC.Tuple::(,,) {
+		<function> {
+			[parameters]
+			null::n {
+				Compiler.Hoopl.Internals::C
+				Compiler.Hoopl.Internals::O
+			}
+		
+			[result]
+			null::n' {
+				Compiler.Hoopl.Internals::C
+				Compiler.Hoopl.Internals::O
+			}
+		}
+		<function> {
+			[parameters]
+			null::n {
+				Compiler.Hoopl.Internals::O
+				Compiler.Hoopl.Internals::O
+			}
+		
+			[result]
+			null::n' {
+				Compiler.Hoopl.Internals::O
+				Compiler.Hoopl.Internals::O
+			}
+		}
+		<function> {
+			[parameters]
+			null::n {
+				Compiler.Hoopl.Internals::O
+				Compiler.Hoopl.Internals::C
+			}
+		
+			[result]
+			null::n' {
+				Compiler.Hoopl.Internals::O
+				Compiler.Hoopl.Internals::C
+			}
+		}
+	}
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		null::e
+		null::x
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Block {
+		null::n'
+		null::e
+		null::x
+	}
+}
+
+[Function]
+gUnitOC :: block n O C -> Graph' block n O C
+Name: gUnitOC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:gUnitOC
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block
+	n
+}
+Signature = <function> {
+	[parameters]
+	null::block {
+		null::n
+		Compiler.Hoopl.Internals::O
+		Compiler.Hoopl.Internals::C
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::Graph' {
+		null::block
+		null::n
+		Compiler.Hoopl.Internals::O
+		Compiler.Hoopl.Internals::C
+	}
+}
+
+[Function]
+foldBlockNodesB :: forall n a. (forall e x. n e x -> a -> a) -> forall e x. Block n e x -> IndexedCO x a a -> IndexedCO e a a
+Name: foldBlockNodesB
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:foldBlockNodesB
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			null::e
+			null::x
+		}
+		null::a
+	
+		[result]
+		null::a
+	}
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		null::e
+		null::x
+	}
+	null::IndexedCO {
+		null::x
+		null::a
+		null::a
+	}
+
+	[result]
+	null::IndexedCO {
+		null::e
+		null::a
+		null::a
+	}
+}
+
+[Function]
+lastNode :: Block n x C -> n O C
+Name: lastNode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:lastNode
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	x
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		null::x
+		Compiler.Hoopl.Internals::C
+	}
+
+	[result]
+	null::n {
+		Compiler.Hoopl.Internals::O
+		Compiler.Hoopl.Internals::C
+	}
+}
+
+[Function]
+emptyBody :: Body' block n
+Name: emptyBody
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:emptyBody
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	block
+	n
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Compiler.Hoopl.Internals::Body' {
+		null::block
+		null::n
+	}
+}
+
+[Function]
+uniqueToLbl :: Unique -> Label
+Name: uniqueToLbl
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:uniqueToLbl
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl::Unique
+
+	[result]
+	Compiler.Hoopl.Internals::Label
+}
+
+[Function]
+emptyBlock :: Block n O O
+Name: emptyBlock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:emptyBlock
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		Compiler.Hoopl.Internals::O
+		Compiler.Hoopl.Internals::O
+	}
+}
+
+[Function]
+foldBlockNodesF :: forall n a. (forall e x. n e x -> a -> a) -> forall e x. Block n e x -> IndexedCO e a a -> IndexedCO x a a
+Name: foldBlockNodesF
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:foldBlockNodesF
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n
+	e
+	x
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::n {
+			null::e
+			null::x
+		}
+		null::a
+	
+		[result]
+		null::a
+	}
+	Compiler.Hoopl.Internals::Block {
+		null::n
+		null::e
+		null::x
+	}
+	null::IndexedCO {
+		null::e
+		null::a
+		null::a
+	}
+
+	[result]
+	null::IndexedCO {
+		null::x
+		null::a
+		null::a
+	}
+}
+
+[Function]
+freshLabel :: UniqueMonad m => m Label
+Name: freshLabel
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Internals.html#v:freshLabel
+Containing package: Compiler.Hoopl.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (UniqueMonad m; m; Compiler.Hoopl::UniqueMonad)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	null::m {
+		Compiler.Hoopl.Internals::Label
+	}
+}

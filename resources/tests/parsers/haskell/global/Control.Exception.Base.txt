@@ -1,0 +1,1459 @@
+[Package]
+Name: Control.Exception.Base
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html
+Containing package: Control.Exception
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data BlockedIndefinitelyOnSTM = BlockedIndefinitelyOnSTM
+Name: BlockedIndefinitelyOnSTM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#t:BlockedIndefinitelyOnSTM
+Containing package: Control.Exception.Base
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data PatternMatchFail = PatternMatchFail String
+Name: PatternMatchFail
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#t:PatternMatchFail
+Containing package: Control.Exception.Base
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data SomeAsyncException = forall e . Exception e => SomeAsyncException e
+Name: SomeAsyncException
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#t:SomeAsyncException
+Containing package: Control.Exception.Base
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data AssertionFailed = AssertionFailed String
+Name: AssertionFailed
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#t:AssertionFailed
+Containing package: Control.Exception.Base
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data SomeException = forall e . Exception e => SomeException e
+Name: SomeException
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#t:SomeException
+Containing package: Control.Exception.Base
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Deadlock = Deadlock
+Name: Deadlock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#t:Deadlock
+Containing package: Control.Exception.Base
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data RecSelError = RecSelError String
+Name: RecSelError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#t:RecSelError
+Containing package: Control.Exception.Base
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data NestedAtomically = NestedAtomically
+Name: NestedAtomically
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#t:NestedAtomically
+Containing package: Control.Exception.Base
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class (Typeable e, Show e) => Exception e where toException :: e -> SomeException fromException :: SomeException -> Maybe e
+Name: Exception
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#t:Exception
+Containing package: Control.Exception.Base
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Control.Exception.Base::Control.Exception.Base.Exception_SomeException<>
+	Control.Exception.Base::Control.Exception.Base.Exception_ArithException<>
+	Control.Exception.Base::Control.Exception.Base.Exception_ErrorCall<>
+	Control.Exception.Base::Control.Exception.Base.Exception_IOException<>
+	Data.Dynamic::Control.Exception.Base.Exception_Dynamic<>
+	System.Exit::Control.Exception.Base.Exception_ExitCode<>
+	Control.Exception.Base::Control.Exception.Base.Exception_ArrayException<>
+	Control.Exception.Base::Control.Exception.Base.Exception_AsyncException<>
+	Control.Exception.Base::Control.Exception.Base.Exception_SomeAsyncException<>
+	Control.Exception.Base::Control.Exception.Base.Exception_AssertionFailed<>
+	Control.Exception.Base::Control.Exception.Base.Exception_Deadlock<>
+	Control.Exception.Base::Control.Exception.Base.Exception_BlockedIndefinitelyOnSTM<>
+	Control.Exception.Base::Control.Exception.Base.Exception_BlockedIndefinitelyOnMVar<>
+	Control.Exception.Base::Control.Exception.Base.Exception_NestedAtomically<>
+	Control.Exception.Base::Control.Exception.Base.Exception_NonTermination<>
+	Control.Exception.Base::Control.Exception.Base.Exception_NoMethodError<>
+	Control.Exception.Base::Control.Exception.Base.Exception_RecUpdError<>
+	Control.Exception.Base::Control.Exception.Base.Exception_RecConError<>
+	Control.Exception.Base::Control.Exception.Base.Exception_RecSelError<>
+	Control.Exception.Base::Control.Exception.Base.Exception_PatternMatchFail<>
+	System.Console.Terminfo.Base::Control.Exception.Base.Exception_SetupTermError<>
+	System::Control.Exception.Base.Exception_ExitCode<>
+}
+supertypes {
+	Data.Typeable.Internal::Typeable
+	Text.Show::Show
+}
+members {
+
+	[Function]
+	toException :: e -> SomeException
+	Name: toException
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:toException
+	Containing package: Control.Exception.Base
+	attributes {
+		memberType=function
+	}
+	Containing type: Exception
+	parameters {
+		e: (Exception e; e; Control.Exception.Base::Exception)
+	}
+	Signature = <function> {
+		[parameters]
+		null::e
+	
+		[result]
+		Control.Exception.Base::SomeException
+	}
+
+	[Function]
+	fromException :: SomeException -> Maybe e
+	Name: fromException
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:fromException
+	Containing package: Control.Exception.Base
+	attributes {
+		memberType=function
+	}
+	Containing type: Exception
+	parameters {
+		e: (Exception e; e; Control.Exception.Base::Exception)
+	}
+	Signature = <function> {
+		[parameters]
+		Control.Exception.Base::SomeException
+	
+		[result]
+		Data.Maybe::Maybe {
+			null::e
+		}
+	}
+}
+
+[Classifier]
+newtype ErrorCall = ErrorCall String
+Name: ErrorCall
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#t:ErrorCall
+Containing package: Control.Exception.Base
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data MaskingState = Unmasked | MaskedInterruptible | MaskedUninterruptible
+Name: MaskingState
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#t:MaskingState
+Containing package: Control.Exception.Base
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data BlockedIndefinitelyOnMVar = BlockedIndefinitelyOnMVar
+Name: BlockedIndefinitelyOnMVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#t:BlockedIndefinitelyOnMVar
+Containing package: Control.Exception.Base
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data AsyncException = StackOverflow | HeapOverflow | ThreadKilled | UserInterrupt
+Name: AsyncException
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#t:AsyncException
+Containing package: Control.Exception.Base
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data IOException
+Name: IOException
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#t:IOException
+Containing package: Control.Exception.Base
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data RecUpdError = RecUpdError String
+Name: RecUpdError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#t:RecUpdError
+Containing package: Control.Exception.Base
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ArithException = Overflow | Underflow | LossOfPrecision | DivideByZero | Denormal | RatioZeroDenominator
+Name: ArithException
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#t:ArithException
+Containing package: Control.Exception.Base
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data NoMethodError = NoMethodError String
+Name: NoMethodError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#t:NoMethodError
+Containing package: Control.Exception.Base
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data RecConError = RecConError String
+Name: RecConError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#t:RecConError
+Containing package: Control.Exception.Base
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data NonTermination = NonTermination
+Name: NonTermination
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#t:NonTermination
+Containing package: Control.Exception.Base
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ArrayException = IndexOutOfBounds String | UndefinedElement String
+Name: ArrayException
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#t:ArrayException
+Containing package: Control.Exception.Base
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+nonTermination :: SomeException
+Name: nonTermination
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:nonTermination
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Control.Exception.Base::SomeException
+}
+
+[Function]
+mask :: ((forall a. IO a -> IO a) -> IO b) -> IO b
+Name: mask
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:mask
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			System.IO::IO {
+				null::a
+			}
+		
+			[result]
+			System.IO::IO {
+				null::a
+			}
+		}
+	
+		[result]
+		System.IO::IO {
+			null::b
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::b
+	}
+}
+
+[Function]
+bracketOnError :: IO a -> (a -> IO b) -> (a -> IO c) -> IO c
+Name: bracketOnError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:bracketOnError
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	System.IO::IO {
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		System.IO::IO {
+			null::b
+		}
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		System.IO::IO {
+			null::c
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::c
+	}
+}
+
+[Function]
+recConError :: Addr# -> a
+Name: recConError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:recConError
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	GHC.Prim::Addr#
+
+	[result]
+	null::a
+}
+
+[Function]
+runtimeError :: Addr# -> a
+Name: runtimeError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:runtimeError
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	GHC.Prim::Addr#
+
+	[result]
+	null::a
+}
+
+[Function]
+uninterruptibleMask_ :: IO a -> IO a
+Name: uninterruptibleMask_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:uninterruptibleMask_
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+mapException :: (Exception e1, Exception e2) => (e1 -> e2) -> a -> a
+Name: mapException
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:mapException
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e1: (Exception e1; e1; Control.Exception.Base::Exception)
+	e2: (Exception e2; e2; Control.Exception.Base::Exception)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::e1
+	
+		[result]
+		null::e2
+	}
+	null::a
+
+	[result]
+	null::a
+}
+
+[Function]
+getMaskingState :: IO MaskingState
+Name: getMaskingState
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:getMaskingState
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Control.Exception.Base::MaskingState
+	}
+}
+
+[Function]
+recSelError :: Addr# -> a
+Name: recSelError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:recSelError
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	GHC.Prim::Addr#
+
+	[result]
+	null::a
+}
+
+[Function]
+nestedAtomically :: SomeException
+Name: nestedAtomically
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:nestedAtomically
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Control.Exception.Base::SomeException
+}
+
+[Function]
+handle :: Exception e => (e -> IO a) -> IO a -> IO a
+Name: handle
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:handle
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e: (Exception e; e; Control.Exception.Base::Exception)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::e
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+onException :: IO a -> IO b -> IO a
+Name: onException
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:onException
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	System.IO::IO {
+		null::a
+	}
+	System.IO::IO {
+		null::b
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+finally :: IO a -> IO b -> IO a
+Name: finally
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:finally
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	System.IO::IO {
+		null::a
+	}
+	System.IO::IO {
+		null::b
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+ioError :: IOError -> IO a
+Name: ioError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:ioError
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOError
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+evaluate :: a -> IO a
+Name: evaluate
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:evaluate
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+mask_ :: IO a -> IO a
+Name: mask_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:mask_
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+try :: Exception e => IO a -> IO (Either e a)
+Name: try
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:try
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e: (Exception e; e; Control.Exception.Base::Exception)
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		Data.Either::Either {
+			null::e
+			null::a
+		}
+	}
+}
+
+[Function]
+catch :: Exception e => IO a -> (e -> IO a) -> IO a
+Name: catch
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:catch
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e: (Exception e; e; Control.Exception.Base::Exception)
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.IO::IO {
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::e
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+asyncExceptionToException :: Exception e => e -> SomeException
+Name: asyncExceptionToException
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:asyncExceptionToException
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e: (Exception e; e; Control.Exception.Base::Exception)
+}
+Signature = <function> {
+	[parameters]
+	null::e
+
+	[result]
+	Control.Exception.Base::SomeException
+}
+
+[Function]
+assert :: Bool -> a -> a
+Name: assert
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:assert
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Bool::Bool
+	null::a
+
+	[result]
+	null::a
+}
+
+[Function]
+uninterruptibleMask :: ((forall a. IO a -> IO a) -> IO b) -> IO b
+Name: uninterruptibleMask
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:uninterruptibleMask
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			System.IO::IO {
+				null::a
+			}
+		
+			[result]
+			System.IO::IO {
+				null::a
+			}
+		}
+	
+		[result]
+		System.IO::IO {
+			null::b
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::b
+	}
+}
+
+[Function]
+noMethodBindingError :: Addr# -> a
+Name: noMethodBindingError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:noMethodBindingError
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	GHC.Prim::Addr#
+
+	[result]
+	null::a
+}
+
+[Function]
+patError :: Addr# -> a
+Name: patError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:patError
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	GHC.Prim::Addr#
+
+	[result]
+	null::a
+}
+
+[Function]
+tryJust :: Exception e => (e -> Maybe b) -> IO a -> IO (Either b a)
+Name: tryJust
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:tryJust
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e: (Exception e; e; Control.Exception.Base::Exception)
+	b
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::e
+	
+		[result]
+		Data.Maybe::Maybe {
+			null::b
+		}
+	}
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		Data.Either::Either {
+			null::b
+			null::a
+		}
+	}
+}
+
+[Function]
+handleJust :: Exception e => (e -> Maybe b) -> (b -> IO a) -> IO a -> IO a
+Name: handleJust
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:handleJust
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e: (Exception e; e; Control.Exception.Base::Exception)
+	b
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::e
+	
+		[result]
+		Data.Maybe::Maybe {
+			null::b
+		}
+	}
+	<function> {
+		[parameters]
+		null::b
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+bracket_ :: IO a -> IO b -> IO c -> IO c
+Name: bracket_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:bracket_
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	System.IO::IO {
+		null::a
+	}
+	System.IO::IO {
+		null::b
+	}
+	System.IO::IO {
+		null::c
+	}
+
+	[result]
+	System.IO::IO {
+		null::c
+	}
+}
+
+[Function]
+throwTo :: Exception e => ThreadId -> e -> IO ()
+Name: throwTo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:throwTo
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e: (Exception e; e; Control.Exception.Base::Exception)
+}
+Signature = <function> {
+	[parameters]
+	Control.Concurrent::ThreadId
+	null::e
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+absentError :: Addr# -> a
+Name: absentError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:absentError
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	GHC.Prim::Addr#
+
+	[result]
+	null::a
+}
+
+[Function]
+nonExhaustiveGuardsError :: Addr# -> a
+Name: nonExhaustiveGuardsError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:nonExhaustiveGuardsError
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	GHC.Prim::Addr#
+
+	[result]
+	null::a
+}
+
+[Function]
+throwIO :: Exception e => e -> IO a
+Name: throwIO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:throwIO
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e: (Exception e; e; Control.Exception.Base::Exception)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::e
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+throw :: Exception e => e -> a
+Name: throw
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:throw
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e: (Exception e; e; Control.Exception.Base::Exception)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::e
+
+	[result]
+	null::a
+}
+
+[Function]
+asyncExceptionFromException :: Exception e => SomeException -> Maybe e
+Name: asyncExceptionFromException
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:asyncExceptionFromException
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e: (Exception e; e; Control.Exception.Base::Exception)
+}
+Signature = <function> {
+	[parameters]
+	Control.Exception.Base::SomeException
+
+	[result]
+	Data.Maybe::Maybe {
+		null::e
+	}
+}
+
+[Function]
+irrefutPatError :: Addr# -> a
+Name: irrefutPatError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:irrefutPatError
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	GHC.Prim::Addr#
+
+	[result]
+	null::a
+}
+
+[Function]
+bracket :: IO a -> (a -> IO b) -> (a -> IO c) -> IO c
+Name: bracket
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:bracket
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	System.IO::IO {
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		System.IO::IO {
+			null::b
+		}
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		System.IO::IO {
+			null::c
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::c
+	}
+}
+
+[Function]
+catchJust :: Exception e => (e -> Maybe b) -> IO a -> (b -> IO a) -> IO a
+Name: catchJust
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Exception-Base.html#v:catchJust
+Containing package: Control.Exception.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e: (Exception e; e; Control.Exception.Base::Exception)
+	b
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::e
+	
+		[result]
+		Data.Maybe::Maybe {
+			null::b
+		}
+	}
+	System.IO::IO {
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::b
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}

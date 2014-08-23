@@ -1,0 +1,243 @@
+[Package]
+Name: Distribution.Simple.Test
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Test.html
+Containing package: Distribution.Simple
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data TestSuiteLog = TestSuiteLog { testSuiteName :: String testLogs :: TestLogs logFile :: FilePath}
+Name: TestSuiteLog
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Test.html#t:TestSuiteLog
+Containing package: Distribution.Simple.Test
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data PackageLog = PackageLog { package :: PackageId compiler :: CompilerId platform :: Platform testSuites :: [TestSuiteLog]}
+Name: PackageLog
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Test.html#t:PackageLog
+Containing package: Distribution.Simple.Test
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TestLogs = TestLog { testName :: String testOptionsReturned :: Options testResult :: Result } | GroupLogs String [TestLogs]
+Name: TestLogs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Test.html#t:TestLogs
+Containing package: Distribution.Simple.Test
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+suiteError :: TestSuiteLog -> Bool
+Name: suiteError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Test.html#v:suiteError
+Containing package: Distribution.Simple.Test
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Test::TestSuiteLog
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+suitePassed :: TestSuiteLog -> Bool
+Name: suitePassed
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Test.html#v:suitePassed
+Containing package: Distribution.Simple.Test
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Test::TestSuiteLog
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+suiteFailed :: TestSuiteLog -> Bool
+Name: suiteFailed
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Test.html#v:suiteFailed
+Containing package: Distribution.Simple.Test
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Test::TestSuiteLog
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+stubMain :: IO [Test] -> IO ()
+Name: stubMain
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Test.html#v:stubMain
+Containing package: Distribution.Simple.Test
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::IO {
+		other::List {
+			Distribution.TestSuite::Test
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+stubName :: TestSuite -> FilePath
+Name: stubName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Test.html#v:stubName
+Containing package: Distribution.Simple.Test
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::TestSuite
+
+	[result]
+	System.IO::FilePath
+}
+
+[Function]
+writeSimpleTestStub :: TestSuite -> FilePath -> IO ()
+Name: writeSimpleTestStub
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Test.html#v:writeSimpleTestStub
+Containing package: Distribution.Simple.Test
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::TestSuite
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+test :: PackageDescription -> LocalBuildInfo -> TestFlags -> IO ()
+Name: test
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Test.html#v:test
+Containing package: Distribution.Simple.Test
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	Distribution.Simple.Setup::TestFlags
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+stubFilePath :: TestSuite -> FilePath
+Name: stubFilePath
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Test.html#v:stubFilePath
+Containing package: Distribution.Simple.Test
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::TestSuite
+
+	[result]
+	System.IO::FilePath
+}

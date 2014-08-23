@@ -1,0 +1,177 @@
+[Package]
+Name: Distribution.Simple.UHC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-UHC.html
+Containing package: Distribution.Simple
+attributes {
+}
+
+Subpackages {
+}
+
+[Function]
+getInstalledPackages :: Verbosity -> Compiler -> PackageDBStack -> ProgramConfiguration -> IO PackageIndex
+Name: getInstalledPackages
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-UHC.html#v:getInstalledPackages
+Containing package: Distribution.Simple.UHC
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Compiler::Compiler
+	Distribution.Simple.Compiler::PackageDBStack
+	Distribution.Simple.Program::ProgramConfiguration
+
+	[result]
+	System.IO::IO {
+		Distribution.Simple.PackageIndex::PackageIndex
+	}
+}
+
+[Function]
+configure :: Verbosity -> Maybe FilePath -> Maybe FilePath -> ProgramConfiguration -> IO (Compiler, Maybe Platform, ProgramConfiguration)
+Name: configure
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-UHC.html#v:configure
+Containing package: Distribution.Simple.UHC
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Data.Maybe::Maybe {
+		System.IO::FilePath
+	}
+	Data.Maybe::Maybe {
+		System.IO::FilePath
+	}
+	Distribution.Simple.Program::ProgramConfiguration
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,,) {
+			Distribution.Simple.Compiler::Compiler
+			Data.Maybe::Maybe {
+				Distribution.System::Platform
+			}
+			Distribution.Simple.Program::ProgramConfiguration
+		}
+	}
+}
+
+[Function]
+buildExe :: Verbosity -> PackageDescription -> LocalBuildInfo -> Executable -> ComponentLocalBuildInfo -> IO ()
+Name: buildExe
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-UHC.html#v:buildExe
+Containing package: Distribution.Simple.UHC
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.PackageDescription::PackageDescription
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	Distribution.PackageDescription::Executable
+	Distribution.Simple.LocalBuildInfo::ComponentLocalBuildInfo
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+registerPackage :: Verbosity -> InstalledPackageInfo -> PackageDescription -> LocalBuildInfo -> Bool -> PackageDBStack -> IO ()
+Name: registerPackage
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-UHC.html#v:registerPackage
+Containing package: Distribution.Simple.UHC
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.InstalledPackageInfo::InstalledPackageInfo
+	Distribution.PackageDescription::PackageDescription
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	Data.Bool::Bool
+	Distribution.Simple.Compiler::PackageDBStack
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+buildLib :: Verbosity -> PackageDescription -> LocalBuildInfo -> Library -> ComponentLocalBuildInfo -> IO ()
+Name: buildLib
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-UHC.html#v:buildLib
+Containing package: Distribution.Simple.UHC
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.PackageDescription::PackageDescription
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	Distribution.PackageDescription::Library
+	Distribution.Simple.LocalBuildInfo::ComponentLocalBuildInfo
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+installLib :: Verbosity -> LocalBuildInfo -> FilePath -> FilePath -> FilePath -> PackageDescription -> Library -> IO ()
+Name: installLib
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-UHC.html#v:installLib
+Containing package: Distribution.Simple.UHC
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	System.IO::FilePath
+	System.IO::FilePath
+	System.IO::FilePath
+	Distribution.PackageDescription::PackageDescription
+	Distribution.PackageDescription::Library
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}

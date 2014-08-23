@@ -1,0 +1,394 @@
+[Package]
+Name: System.Posix.ByteString.FilePath
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-ByteString-FilePath.html
+Containing package: System.Posix.ByteString
+attributes {
+}
+
+Subpackages {
+}
+
+[Alias]
+type RawFilePath = ByteString
+Name: RawFilePath
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-ByteString-FilePath.html#t:RawFilePath
+Containing package: System.Posix.ByteString.FilePath
+attributes {
+}
+parameters {
+}
+Aliased type = Data.ByteString::ByteString
+
+[Function]
+throwErrnoPathIfMinus1Retry :: (Eq a, Num a) => String -> RawFilePath -> IO a -> IO a
+Name: throwErrnoPathIfMinus1Retry
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-ByteString-FilePath.html#v:throwErrnoPathIfMinus1Retry
+Containing package: System.Posix.ByteString.FilePath
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Eq a; a; Data.Eq::Eq), (Num a; a; Prelude::Num)
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	System.Posix.ByteString.FilePath::RawFilePath
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+throwErrnoPathIfMinus1 :: (Eq a, Num a) => String -> RawFilePath -> IO a -> IO a
+Name: throwErrnoPathIfMinus1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-ByteString-FilePath.html#v:throwErrnoPathIfMinus1
+Containing package: System.Posix.ByteString.FilePath
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Eq a; a; Data.Eq::Eq), (Num a; a; Prelude::Num)
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	System.Posix.ByteString.FilePath::RawFilePath
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+peekFilePathLen :: CStringLen -> IO RawFilePath
+Name: peekFilePathLen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-ByteString-FilePath.html#v:peekFilePathLen
+Containing package: System.Posix.ByteString.FilePath
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.C.String::CStringLen
+
+	[result]
+	System.IO::IO {
+		System.Posix.ByteString.FilePath::RawFilePath
+	}
+}
+
+[Function]
+throwErrnoPath :: String -> RawFilePath -> IO a
+Name: throwErrnoPath
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-ByteString-FilePath.html#v:throwErrnoPath
+Containing package: System.Posix.ByteString.FilePath
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	System.Posix.ByteString.FilePath::RawFilePath
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+peekFilePath :: CString -> IO RawFilePath
+Name: peekFilePath
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-ByteString-FilePath.html#v:peekFilePath
+Containing package: System.Posix.ByteString.FilePath
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.C.String::CString
+
+	[result]
+	System.IO::IO {
+		System.Posix.ByteString.FilePath::RawFilePath
+	}
+}
+
+[Function]
+throwErrnoPathIfNull :: String -> RawFilePath -> IO (Ptr a) -> IO (Ptr a)
+Name: throwErrnoPathIfNull
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-ByteString-FilePath.html#v:throwErrnoPathIfNull
+Containing package: System.Posix.ByteString.FilePath
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	System.Posix.ByteString.FilePath::RawFilePath
+	System.IO::IO {
+		Foreign.Ptr::Ptr {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		Foreign.Ptr::Ptr {
+			null::a
+		}
+	}
+}
+
+[Function]
+throwErrnoPathIf :: (a -> Bool) -> String -> RawFilePath -> IO a -> IO a
+Name: throwErrnoPathIf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-ByteString-FilePath.html#v:throwErrnoPathIf
+Containing package: System.Posix.ByteString.FilePath
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Data.Bool::Bool
+	}
+	Data.String::String
+	System.Posix.ByteString.FilePath::RawFilePath
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+throwErrnoPathIfMinus1_ :: (Eq a, Num a) => String -> RawFilePath -> IO a -> IO ()
+Name: throwErrnoPathIfMinus1_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-ByteString-FilePath.html#v:throwErrnoPathIfMinus1_
+Containing package: System.Posix.ByteString.FilePath
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Eq a; a; Data.Eq::Eq), (Num a; a; Prelude::Num)
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	System.Posix.ByteString.FilePath::RawFilePath
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+throwErrnoPathIfNullRetry :: String -> RawFilePath -> IO (Ptr a) -> IO (Ptr a)
+Name: throwErrnoPathIfNullRetry
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-ByteString-FilePath.html#v:throwErrnoPathIfNullRetry
+Containing package: System.Posix.ByteString.FilePath
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	System.Posix.ByteString.FilePath::RawFilePath
+	System.IO::IO {
+		Foreign.Ptr::Ptr {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		Foreign.Ptr::Ptr {
+			null::a
+		}
+	}
+}
+
+[Function]
+throwErrnoPathIfRetry :: (a -> Bool) -> String -> RawFilePath -> IO a -> IO a
+Name: throwErrnoPathIfRetry
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-ByteString-FilePath.html#v:throwErrnoPathIfRetry
+Containing package: System.Posix.ByteString.FilePath
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Data.Bool::Bool
+	}
+	Data.String::String
+	System.Posix.ByteString.FilePath::RawFilePath
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+withFilePath :: RawFilePath -> (CString -> IO a) -> IO a
+Name: withFilePath
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-ByteString-FilePath.html#v:withFilePath
+Containing package: System.Posix.ByteString.FilePath
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.ByteString.FilePath::RawFilePath
+	<function> {
+		[parameters]
+		Foreign.C.String::CString
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+throwErrnoPathIfMinus1Retry_ :: (Eq a, Num a) => String -> RawFilePath -> IO a -> IO ()
+Name: throwErrnoPathIfMinus1Retry_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-ByteString-FilePath.html#v:throwErrnoPathIfMinus1Retry_
+Containing package: System.Posix.ByteString.FilePath
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Eq a; a; Data.Eq::Eq), (Num a; a; Prelude::Num)
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	System.Posix.ByteString.FilePath::RawFilePath
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+throwErrnoPathIf_ :: (a -> Bool) -> String -> RawFilePath -> IO a -> IO ()
+Name: throwErrnoPathIf_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-ByteString-FilePath.html#v:throwErrnoPathIf_
+Containing package: System.Posix.ByteString.FilePath
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Data.Bool::Bool
+	}
+	Data.String::String
+	System.Posix.ByteString.FilePath::RawFilePath
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}

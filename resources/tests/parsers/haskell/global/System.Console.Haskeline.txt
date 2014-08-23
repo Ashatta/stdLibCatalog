@@ -1,0 +1,766 @@
+[Package]
+Name: System.Console.Haskeline
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html
+Containing package: Console
+attributes {
+}
+
+Subpackages {
+	System.Console.Haskeline.Completion
+	System.Console.Haskeline.History
+	System.Console.Haskeline.IO
+	System.Console.Haskeline.MonadException
+}
+
+[Classifier]
+data Prefs
+Name: Prefs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#t:Prefs
+Containing package: System.Console.Haskeline
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data InputT m a
+Name: InputT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#t:InputT
+Containing package: System.Console.Haskeline
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	m
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Behavior
+Name: Behavior
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#t:Behavior
+Containing package: System.Console.Haskeline
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Interrupt = Interrupt
+Name: Interrupt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#t:Interrupt
+Containing package: System.Console.Haskeline
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Settings m = Settings { complete :: CompletionFunc m historyFile :: Maybe FilePath autoAddHistory :: Bool}
+Name: Settings
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#t:Settings
+Containing package: System.Console.Haskeline
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	m
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+getPassword :: MonadException m => Maybe Char -> String -> InputT m (Maybe String)
+Name: getPassword
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#v:getPassword
+Containing package: System.Console.Haskeline
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadException m; m; System.Console.Haskeline.MonadException::MonadException)
+}
+Signature = <function> {
+	[parameters]
+	Data.Maybe::Maybe {
+		Data.Char::Char
+	}
+	Data.String::String
+
+	[result]
+	System.Console.Haskeline::InputT {
+		null::m
+		Data.Maybe::Maybe {
+			Data.String::String
+		}
+	}
+}
+
+[Function]
+useFileHandle :: Handle -> Behavior
+Name: useFileHandle
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#v:useFileHandle
+Containing package: System.Console.Haskeline
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+
+	[result]
+	System.Console.Haskeline::Behavior
+}
+
+[Function]
+runInputTWithPrefs :: MonadException m => Prefs -> Settings m -> InputT m a -> m a
+Name: runInputTWithPrefs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#v:runInputTWithPrefs
+Containing package: System.Console.Haskeline
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadException m; m; System.Console.Haskeline.MonadException::MonadException)
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Console.Haskeline::Prefs
+	System.Console.Haskeline::Settings {
+		null::m
+	}
+	System.Console.Haskeline::InputT {
+		null::m
+		null::a
+	}
+
+	[result]
+	null::m {
+		null::a
+	}
+}
+
+[Function]
+getInputLineWithInitial :: MonadException m => String -> (String, String) -> InputT m (Maybe String)
+Name: getInputLineWithInitial
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#v:getInputLineWithInitial
+Containing package: System.Console.Haskeline
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadException m; m; System.Console.Haskeline.MonadException::MonadException)
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	GHC.Tuple::(,) {
+		Data.String::String
+		Data.String::String
+	}
+
+	[result]
+	System.Console.Haskeline::InputT {
+		null::m
+		Data.Maybe::Maybe {
+			Data.String::String
+		}
+	}
+}
+
+[Function]
+runInputT :: MonadException m => Settings m -> InputT m a -> m a
+Name: runInputT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#v:runInputT
+Containing package: System.Console.Haskeline
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadException m; m; System.Console.Haskeline.MonadException::MonadException)
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Console.Haskeline::Settings {
+		null::m
+	}
+	System.Console.Haskeline::InputT {
+		null::m
+		null::a
+	}
+
+	[result]
+	null::m {
+		null::a
+	}
+}
+
+[Function]
+useFile :: FilePath -> Behavior
+Name: useFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#v:useFile
+Containing package: System.Console.Haskeline
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.Console.Haskeline::Behavior
+}
+
+[Function]
+withInterrupt :: MonadException m => InputT m a -> InputT m a
+Name: withInterrupt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#v:withInterrupt
+Containing package: System.Console.Haskeline
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadException m; m; System.Console.Haskeline.MonadException::MonadException)
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Console.Haskeline::InputT {
+		null::m
+		null::a
+	}
+
+	[result]
+	System.Console.Haskeline::InputT {
+		null::m
+		null::a
+	}
+}
+
+[Function]
+getInputLine :: MonadException m => String -> InputT m (Maybe String)
+Name: getInputLine
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#v:getInputLine
+Containing package: System.Console.Haskeline
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadException m; m; System.Console.Haskeline.MonadException::MonadException)
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.Console.Haskeline::InputT {
+		null::m
+		Data.Maybe::Maybe {
+			Data.String::String
+		}
+	}
+}
+
+[Function]
+defaultSettings :: MonadIO m => Settings m
+Name: defaultSettings
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#v:defaultSettings
+Containing package: System.Console.Haskeline
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadIO m; m; Control.Monad.IO.Class::MonadIO)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Console.Haskeline::Settings {
+		null::m
+	}
+}
+
+[Function]
+readPrefs :: FilePath -> IO Prefs
+Name: readPrefs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#v:readPrefs
+Containing package: System.Console.Haskeline
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		System.Console.Haskeline::Prefs
+	}
+}
+
+[Function]
+getHistory :: MonadIO m => InputT m History
+Name: getHistory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#v:getHistory
+Containing package: System.Console.Haskeline
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadIO m; m; Control.Monad.IO.Class::MonadIO)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Console.Haskeline::InputT {
+		null::m
+		System.Console.Haskeline.History::History
+	}
+}
+
+[Function]
+putHistory :: MonadIO m => History -> InputT m ()
+Name: putHistory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#v:putHistory
+Containing package: System.Console.Haskeline
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadIO m; m; Control.Monad.IO.Class::MonadIO)
+}
+Signature = <function> {
+	[parameters]
+	System.Console.Haskeline.History::History
+
+	[result]
+	System.Console.Haskeline::InputT {
+		null::m
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+runInputTBehaviorWithPrefs :: MonadException m => Behavior -> Prefs -> Settings m -> InputT m a -> m a
+Name: runInputTBehaviorWithPrefs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#v:runInputTBehaviorWithPrefs
+Containing package: System.Console.Haskeline
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadException m; m; System.Console.Haskeline.MonadException::MonadException)
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Console.Haskeline::Behavior
+	System.Console.Haskeline::Prefs
+	System.Console.Haskeline::Settings {
+		null::m
+	}
+	System.Console.Haskeline::InputT {
+		null::m
+		null::a
+	}
+
+	[result]
+	null::m {
+		null::a
+	}
+}
+
+[Function]
+setComplete :: CompletionFunc m -> Settings m -> Settings m
+Name: setComplete
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#v:setComplete
+Containing package: System.Console.Haskeline
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m
+}
+Signature = <function> {
+	[parameters]
+	System.Console.Haskeline.Completion::CompletionFunc {
+		null::m
+	}
+	System.Console.Haskeline::Settings {
+		null::m
+	}
+
+	[result]
+	System.Console.Haskeline::Settings {
+		null::m
+	}
+}
+
+[Function]
+haveTerminalUI :: Monad m => InputT m Bool
+Name: haveTerminalUI
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#v:haveTerminalUI
+Containing package: System.Console.Haskeline
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Console.Haskeline::InputT {
+		null::m
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+outputStrLn :: MonadIO m => String -> InputT m ()
+Name: outputStrLn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#v:outputStrLn
+Containing package: System.Console.Haskeline
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadIO m; m; Control.Monad.IO.Class::MonadIO)
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.Console.Haskeline::InputT {
+		null::m
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+defaultPrefs :: Prefs
+Name: defaultPrefs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#v:defaultPrefs
+Containing package: System.Console.Haskeline
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Console.Haskeline::Prefs
+}
+
+[Function]
+outputStr :: MonadIO m => String -> InputT m ()
+Name: outputStr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#v:outputStr
+Containing package: System.Console.Haskeline
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadIO m; m; Control.Monad.IO.Class::MonadIO)
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.Console.Haskeline::InputT {
+		null::m
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+getInputChar :: MonadException m => String -> InputT m (Maybe Char)
+Name: getInputChar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#v:getInputChar
+Containing package: System.Console.Haskeline
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadException m; m; System.Console.Haskeline.MonadException::MonadException)
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.Console.Haskeline::InputT {
+		null::m
+		Data.Maybe::Maybe {
+			Data.Char::Char
+		}
+	}
+}
+
+[Function]
+handleInterrupt :: MonadException m => m a -> m a -> m a
+Name: handleInterrupt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#v:handleInterrupt
+Containing package: System.Console.Haskeline
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadException m; m; System.Console.Haskeline.MonadException::MonadException)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::m {
+		null::a
+	}
+	null::m {
+		null::a
+	}
+
+	[result]
+	null::m {
+		null::a
+	}
+}
+
+[Function]
+preferTerm :: Behavior
+Name: preferTerm
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#v:preferTerm
+Containing package: System.Console.Haskeline
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Console.Haskeline::Behavior
+}
+
+[Function]
+runInputTBehavior :: MonadException m => Behavior -> Settings m -> InputT m a -> m a
+Name: runInputTBehavior
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#v:runInputTBehavior
+Containing package: System.Console.Haskeline
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadException m; m; System.Console.Haskeline.MonadException::MonadException)
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Console.Haskeline::Behavior
+	System.Console.Haskeline::Settings {
+		null::m
+	}
+	System.Console.Haskeline::InputT {
+		null::m
+		null::a
+	}
+
+	[result]
+	null::m {
+		null::a
+	}
+}
+
+[Function]
+modifyHistory :: MonadIO m => (History -> History) -> InputT m ()
+Name: modifyHistory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#v:modifyHistory
+Containing package: System.Console.Haskeline
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadIO m; m; Control.Monad.IO.Class::MonadIO)
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		System.Console.Haskeline.History::History
+	
+		[result]
+		System.Console.Haskeline.History::History
+	}
+
+	[result]
+	System.Console.Haskeline::InputT {
+		null::m
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+defaultBehavior :: Behavior
+Name: defaultBehavior
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#v:defaultBehavior
+Containing package: System.Console.Haskeline
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Console.Haskeline::Behavior
+}
+
+[Function]
+mapInputT :: (forall b. m b -> m b) -> InputT m a -> InputT m a
+Name: mapInputT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline.html#v:mapInputT
+Containing package: System.Console.Haskeline
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m
+	b
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::m {
+			null::b
+		}
+	
+		[result]
+		null::m {
+			null::b
+		}
+	}
+	System.Console.Haskeline::InputT {
+		null::m
+		null::a
+	}
+
+	[result]
+	System.Console.Haskeline::InputT {
+		null::m
+		null::a
+	}
+}

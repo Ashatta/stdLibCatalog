@@ -1,0 +1,613 @@
+[Package]
+Name: System.Win32.FileMapping
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-FileMapping.html
+Containing package: System.Win32
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data MappedObject = MappedObject HANDLE HANDLE FileMapAccess
+Name: MappedObject
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-FileMapping.html#t:MappedObject
+Containing package: System.Win32.FileMapping
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type FileMapAccess = DWORD
+Name: FileMapAccess
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-FileMapping.html#t:FileMapAccess
+Containing package: System.Win32.FileMapping
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::DWORD
+
+[Alias]
+type ProtectSectionFlags = DWORD
+Name: ProtectSectionFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-FileMapping.html#t:ProtectSectionFlags
+Containing package: System.Win32.FileMapping
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::DWORD
+
+[Function]
+mapFileBs :: FilePath -> IO ByteString
+Name: mapFileBs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-FileMapping.html#v:mapFileBs
+Containing package: System.Win32.FileMapping
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+c_UnmapViewOfFile :: Ptr a -> IO BOOL
+Name: c_UnmapViewOfFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-FileMapping.html#v:c_UnmapViewOfFile
+Containing package: System.Win32.FileMapping
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::BOOL
+	}
+}
+
+[Function]
+c_MapViewOfFileEx :: HANDLE -> DWORD -> DWORD -> DWORD -> SIZE_T -> Ptr a -> IO (Ptr b)
+Name: c_MapViewOfFileEx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-FileMapping.html#v:c_MapViewOfFileEx
+Containing package: System.Win32.FileMapping
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+	System.Win32.Types::DWORD
+	System.Win32.Types::DWORD
+	System.Win32.Types::DWORD
+	System.Win32.Types::SIZE_T
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		Foreign.Ptr::Ptr {
+			null::b
+		}
+	}
+}
+
+[Function]
+sEC_NOCACHE :: ProtectSectionFlags
+Name: sEC_NOCACHE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-FileMapping.html#v:sEC_NOCACHE
+Containing package: System.Win32.FileMapping
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.FileMapping::ProtectSectionFlags
+}
+
+[Function]
+fILE_MAP_READ :: FileMapAccess
+Name: fILE_MAP_READ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-FileMapping.html#v:fILE_MAP_READ
+Containing package: System.Win32.FileMapping
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.FileMapping::FileMapAccess
+}
+
+[Function]
+mapViewOfFile :: HANDLE -> FileMapAccess -> DDWORD -> SIZE_T -> IO (Ptr a)
+Name: mapViewOfFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-FileMapping.html#v:mapViewOfFile
+Containing package: System.Win32.FileMapping
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+	System.Win32.FileMapping::FileMapAccess
+	System.Win32.Types::DDWORD
+	System.Win32.Types::SIZE_T
+
+	[result]
+	System.IO::IO {
+		Foreign.Ptr::Ptr {
+			null::a
+		}
+	}
+}
+
+[Function]
+mapFile :: FilePath -> IO (ForeignPtr a, Int)
+Name: mapFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-FileMapping.html#v:mapFile
+Containing package: System.Win32.FileMapping
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			Foreign.ForeignPtr.Safe::ForeignPtr {
+				null::a
+			}
+			Data.Int::Int
+		}
+	}
+}
+
+[Function]
+c_OpenFileMapping :: DWORD -> BOOL -> LPCTSTR -> IO HANDLE
+Name: c_OpenFileMapping
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-FileMapping.html#v:c_OpenFileMapping
+Containing package: System.Win32.FileMapping
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::DWORD
+	System.Win32.Types::BOOL
+	System.Win32.Types::LPCTSTR
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::HANDLE
+	}
+}
+
+[Function]
+withMappedFile :: FilePath -> Bool -> Maybe Bool -> (Integer -> MappedObject -> IO a) -> IO a
+Name: withMappedFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-FileMapping.html#v:withMappedFile
+Containing package: System.Win32.FileMapping
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	Data.Bool::Bool
+	Data.Maybe::Maybe {
+		Data.Bool::Bool
+	}
+	<function> {
+		[parameters]
+		Prelude::Integer
+		System.Win32.FileMapping::MappedObject
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+fILE_MAP_COPY :: FileMapAccess
+Name: fILE_MAP_COPY
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-FileMapping.html#v:fILE_MAP_COPY
+Containing package: System.Win32.FileMapping
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.FileMapping::FileMapAccess
+}
+
+[Function]
+unmapViewOfFile :: Ptr a -> IO ()
+Name: unmapViewOfFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-FileMapping.html#v:unmapViewOfFile
+Containing package: System.Win32.FileMapping
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+sEC_IMAGE :: ProtectSectionFlags
+Name: sEC_IMAGE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-FileMapping.html#v:sEC_IMAGE
+Containing package: System.Win32.FileMapping
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.FileMapping::ProtectSectionFlags
+}
+
+[Function]
+mapViewOfFileEx :: HANDLE -> FileMapAccess -> DDWORD -> SIZE_T -> Ptr a -> IO (Ptr b)
+Name: mapViewOfFileEx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-FileMapping.html#v:mapViewOfFileEx
+Containing package: System.Win32.FileMapping
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+	System.Win32.FileMapping::FileMapAccess
+	System.Win32.Types::DDWORD
+	System.Win32.Types::SIZE_T
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		Foreign.Ptr::Ptr {
+			null::b
+		}
+	}
+}
+
+[Function]
+c_CreateFileMapping :: HANDLE -> Ptr () -> DWORD -> DWORD -> DWORD -> LPCTSTR -> IO HANDLE
+Name: c_CreateFileMapping
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-FileMapping.html#v:c_CreateFileMapping
+Containing package: System.Win32.FileMapping
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+	Foreign.Ptr::Ptr {
+		GHC.Tuple::()
+	}
+	System.Win32.Types::DWORD
+	System.Win32.Types::DWORD
+	System.Win32.Types::DWORD
+	System.Win32.Types::LPCTSTR
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::HANDLE
+	}
+}
+
+[Function]
+openFileMapping :: FileMapAccess -> BOOL -> Maybe String -> IO HANDLE
+Name: openFileMapping
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-FileMapping.html#v:openFileMapping
+Containing package: System.Win32.FileMapping
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.FileMapping::FileMapAccess
+	System.Win32.Types::BOOL
+	Data.Maybe::Maybe {
+		Data.String::String
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::HANDLE
+	}
+}
+
+[Function]
+sEC_RESERVE :: ProtectSectionFlags
+Name: sEC_RESERVE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-FileMapping.html#v:sEC_RESERVE
+Containing package: System.Win32.FileMapping
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.FileMapping::ProtectSectionFlags
+}
+
+[Function]
+withMappedArea :: MappedObject -> Integer -> Int -> (Ptr a -> IO b) -> IO b
+Name: withMappedArea
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-FileMapping.html#v:withMappedArea
+Containing package: System.Win32.FileMapping
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.FileMapping::MappedObject
+	Prelude::Integer
+	Data.Int::Int
+	<function> {
+		[parameters]
+		Foreign.Ptr::Ptr {
+			null::a
+		}
+	
+		[result]
+		System.IO::IO {
+			null::b
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::b
+	}
+}
+
+[Function]
+sEC_COMMIT :: ProtectSectionFlags
+Name: sEC_COMMIT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-FileMapping.html#v:sEC_COMMIT
+Containing package: System.Win32.FileMapping
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.FileMapping::ProtectSectionFlags
+}
+
+[Function]
+c_UnmapViewOfFileFinaliser :: FunPtr (Ptr a -> IO ())
+Name: c_UnmapViewOfFileFinaliser
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-FileMapping.html#v:c_UnmapViewOfFileFinaliser
+Containing package: System.Win32.FileMapping
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.Ptr::FunPtr {
+		<function> {
+			[parameters]
+			Foreign.Ptr::Ptr {
+				null::a
+			}
+		
+			[result]
+			System.IO::IO {
+				GHC.Tuple::()
+			}
+		}
+	}
+}
+
+[Function]
+createFileMapping :: Maybe HANDLE -> ProtectFlags -> DDWORD -> Maybe String -> IO HANDLE
+Name: createFileMapping
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-FileMapping.html#v:createFileMapping
+Containing package: System.Win32.FileMapping
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Maybe::Maybe {
+		System.Win32.Types::HANDLE
+	}
+	System.Win32.Mem::ProtectFlags
+	System.Win32.Types::DDWORD
+	Data.Maybe::Maybe {
+		Data.String::String
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::HANDLE
+	}
+}
+
+[Function]
+fILE_MAP_ALL_ACCESS :: FileMapAccess
+Name: fILE_MAP_ALL_ACCESS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-FileMapping.html#v:fILE_MAP_ALL_ACCESS
+Containing package: System.Win32.FileMapping
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.FileMapping::FileMapAccess
+}
+
+[Function]
+fILE_MAP_WRITE :: FileMapAccess
+Name: fILE_MAP_WRITE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-FileMapping.html#v:fILE_MAP_WRITE
+Containing package: System.Win32.FileMapping
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.FileMapping::FileMapAccess
+}

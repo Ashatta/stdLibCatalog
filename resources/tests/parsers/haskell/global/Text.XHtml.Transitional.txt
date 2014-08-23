@@ -1,0 +1,4668 @@
+[Package]
+Name: Text.XHtml.Transitional
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html
+Containing package: Text.XHtml
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data HtmlAttr
+Name: Html
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#t:Html
+Containing package: Text.XHtml.Transitional
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data HotLink = HotLink { hotLinkURL :: URL hotLinkContents :: Html hotLinkAttributes :: [HtmlAttr]}
+Name: HotLink
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#t:HotLink
+Containing package: Text.XHtml.Transitional
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class CHANGEATTRS a where changeAttrs :: a -> ([HtmlAttr] -> [HtmlAttr]) -> a
+Name: CHANGEATTRS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#t:CHANGEATTRS
+Containing package: Text.XHtml.Transitional
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Text.XHtml.Transitional::Text.XHtml.Transitional.CHANGEATTRS_Html<>
+	other::Text.XHtml.Transitional.CHANGEATTRS_Function<a<>,b<>>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	changeAttrs :: a -> ([HtmlAttr] -> [HtmlAttr]) -> a
+	Name: changeAttrs
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:changeAttrs
+	Containing package: Text.XHtml.Transitional
+	attributes {
+		memberType=function
+	}
+	Containing type: CHANGEATTRS
+	parameters {
+		a: (CHANGEATTRS a; a; Text.XHtml.Transitional::CHANGEATTRS)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		<function> {
+			[parameters]
+			other::List {
+				Text.XHtml.Transitional::HtmlAttr
+			}
+		
+			[result]
+			other::List {
+				Text.XHtml.Transitional::HtmlAttr
+			}
+		}
+	
+		[result]
+		null::a
+	}
+}
+
+[Classifier]
+class ADDATTRS a where (!) :: a -> [HtmlAttr] -> a
+Name: ADDATTRS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#t:ADDATTRS
+Containing package: Text.XHtml.Transitional
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Text.XHtml.Transitional::Text.XHtml.Transitional.ADDATTRS_Html<>
+	Text.XHtml.Transitional::Text.XHtml.Transitional.ADDATTRS_HotLink<>
+	other::Text.XHtml.Transitional.ADDATTRS_Function<a<>,b<>>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	(!) :: a -> [HtmlAttr] -> a
+	Name: (!)
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:(!)
+	Containing package: Text.XHtml.Transitional
+	attributes {
+		memberType=function
+	}
+	Containing type: ADDATTRS
+	parameters {
+		a: (ADDATTRS a; a; Text.XHtml.Transitional::ADDATTRS)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		other::List {
+			Text.XHtml.Transitional::HtmlAttr
+		}
+	
+		[result]
+		null::a
+	}
+}
+
+[Classifier]
+class HTML a where toHtml :: a -> Html toHtmlFromList :: [a] -> Html
+Name: HTML
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#t:HTML
+Containing package: Text.XHtml.Transitional
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Text.XHtml.Transitional::Text.XHtml.Transitional.HTML_Html<>
+	Data.Char::Text.XHtml.Transitional.HTML_Char<>
+	Text.XHtml.Transitional::Text.XHtml.Transitional.HTML_HotLink<>
+	Text.XHtml.Table::Text.XHtml.Transitional.HTML_HtmlTable<>
+	Text.XHtml::Text.XHtml.Transitional.HTML_HtmlTree<>
+	other::Text.XHtml.Transitional.HTML_List<a<>>
+	Data.Maybe::Text.XHtml.Transitional.HTML_Maybe<a<>>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	toHtml :: a -> Html
+	Name: toHtml
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:toHtml
+	Containing package: Text.XHtml.Transitional
+	attributes {
+		memberType=function
+	}
+	Containing type: HTML
+	parameters {
+		a: (HTML a; a; Text.XHtml.Transitional::HTML)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Text.XHtml.Transitional::Html
+	}
+
+	[Function]
+	toHtmlFromList :: [a] -> Html
+	Name: toHtmlFromList
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:toHtmlFromList
+	Containing package: Text.XHtml.Transitional
+	attributes {
+		memberType=function
+	}
+	Containing type: HTML
+	parameters {
+		a: (HTML a; a; Text.XHtml.Transitional::HTML)
+	}
+	Signature = <function> {
+		[parameters]
+		other::List {
+			null::a
+		}
+	
+		[result]
+		Text.XHtml.Transitional::Html
+	}
+}
+
+[Classifier]
+data HtmlAttr
+Name: HtmlAttr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#t:HtmlAttr
+Containing package: Text.XHtml.Transitional
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type URL = String
+Name: URL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#t:URL
+Containing package: Text.XHtml.Transitional
+attributes {
+}
+parameters {
+}
+Aliased type = Data.String::String
+
+[Function]
+altcode :: String -> HtmlAttr
+Name: altcode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:altcode
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+col :: Html -> Html
+Name: col
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:col
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+basefont :: Html
+Name: basefont
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:basefont
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+noscript :: Html -> Html
+Name: noscript
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:noscript
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+renderHtml :: HTML html => html -> String
+Name: renderHtml
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:renderHtml
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	html: (HTML html; html; Text.XHtml.Transitional::HTML)
+}
+Signature = <function> {
+	[parameters]
+	null::html
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+acronym :: Html -> Html
+Name: acronym
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:acronym
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+disabled :: HtmlAttr
+Name: disabled
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:disabled
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+small :: Html -> Html
+Name: small
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:small
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+noshade :: HtmlAttr
+Name: noshade
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:noshade
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+style :: Html -> Html
+Name: style
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:style
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+thehtml :: Html -> Html
+Name: thehtml
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:thehtml
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+cols :: String -> HtmlAttr
+Name: cols
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:cols
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+gray :: String
+Name: gray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:gray
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+label :: Html -> Html
+Name: label
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:label
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+defList :: (HTML a, HTML b) => [(a, b)] -> Html
+Name: defList
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:defList
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (HTML a; a; Text.XHtml.Transitional::HTML)
+	b: (HTML b; b; Text.XHtml.Transitional::HTML)
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		GHC.Tuple::(,) {
+			null::a
+			null::b
+		}
+	}
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+underline :: Html -> Html
+Name: underline
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:underline
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+yellow :: String
+Name: yellow
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:yellow
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+method :: String -> HtmlAttr
+Name: method
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:method
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+object :: Html -> Html
+Name: object
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:object
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+version :: String -> HtmlAttr
+Name: version
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:version
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+tag :: String -> Html -> Html
+Name: tag
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:tag
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+archive :: String -> HtmlAttr
+Name: archive
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:archive
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+bgcolor :: String -> HtmlAttr
+Name: bgcolor
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:bgcolor
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+clear :: String -> HtmlAttr
+Name: clear
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:clear
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+strong :: Html -> Html
+Name: strong
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:strong
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+dir :: Html -> Html
+Name: dir
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:dir
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+del :: Html -> Html
+Name: del
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:del
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+dterm :: Html -> Html
+Name: dterm
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:dterm
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+password :: String -> Html
+Name: password
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:password
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+green :: String
+Name: green
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:green
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+alt :: String -> HtmlAttr
+Name: alt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:alt
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+sup :: Html -> Html
+Name: sup
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:sup
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+rules :: String -> HtmlAttr
+Name: rules
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:rules
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+sub :: Html -> Html
+Name: sub
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:sub
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+colspan :: Int -> HtmlAttr
+Name: colspan
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:colspan
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+thetype :: String -> HtmlAttr
+Name: thetype
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:thetype
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+src :: String -> HtmlAttr
+Name: src
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:src
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+lime :: String
+Name: lime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:lime
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+frameset :: Html -> Html
+Name: frameset
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:frameset
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+thespan :: Html -> Html
+Name: thespan
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:thespan
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+thecode :: Html -> Html
+Name: thecode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:thecode
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+link :: String -> HtmlAttr
+Name: link
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:link
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+big :: Html -> Html
+Name: big
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:big
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+code :: String -> HtmlAttr
+Name: code
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:code
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+thefor :: String -> HtmlAttr
+Name: thefor
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:thefor
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+showHtml :: HTML html => html -> String
+Name: showHtml
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:showHtml
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	html: (HTML html; html; Text.XHtml.Transitional::HTML)
+}
+Signature = <function> {
+	[parameters]
+	null::html
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+white :: String
+Name: white
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:white
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+enctype :: String -> HtmlAttr
+Name: enctype
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:enctype
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+align :: String -> HtmlAttr
+Name: align
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:align
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+themenu :: Html -> Html
+Name: themenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:themenu
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+copyright :: Html
+Name: copyright
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:copyright
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+alink :: String -> HtmlAttr
+Name: alink
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:alink
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+red :: String
+Name: red
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:red
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+rev :: String -> HtmlAttr
+Name: rev
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:rev
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+rel :: String -> HtmlAttr
+Name: rel
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:rel
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+bdo :: Html -> Html
+Name: bdo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:bdo
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+cellpadding :: Int -> HtmlAttr
+Name: cellpadding
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:cellpadding
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+href :: String -> HtmlAttr
+Name: href
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:href
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+param :: Html
+Name: param
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:param
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+lineToHtml :: String -> Html
+Name: lineToHtml
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:lineToHtml
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+center :: Html -> Html
+Name: center
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:center
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+strike :: Html -> Html
+Name: strike
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:strike
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+isNoHtml :: Html -> Bool
+Name: isNoHtml
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:isNoHtml
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+gui :: String -> Html -> Html
+Name: gui
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:gui
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+value :: String -> HtmlAttr
+Name: value
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:value
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+concatHtml :: HTML a => [a] -> Html
+Name: concatHtml
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:concatHtml
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (HTML a; a; Text.XHtml.Transitional::HTML)
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::a
+	}
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+shape :: String -> HtmlAttr
+Name: shape
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:shape
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+usemap :: String -> HtmlAttr
+Name: usemap
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:usemap
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+emphasize :: Html -> Html
+Name: emphasize
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:emphasize
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+thediv :: Html -> Html
+Name: thediv
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:thediv
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+rowspan :: Int -> HtmlAttr
+Name: rowspan
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:rowspan
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+linesToHtml :: [String] -> Html
+Name: linesToHtml
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:linesToHtml
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Data.String::String
+	}
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+quote :: Html -> Html
+Name: quote
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:quote
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+background :: String -> HtmlAttr
+Name: background
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:background
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+emptyAttr :: String -> HtmlAttr
+Name: emptyAttr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:emptyAttr
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+blue :: String
+Name: blue
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:blue
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+name :: String -> HtmlAttr
+Name: name
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:name
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+(<<) :: HTML a => (Html -> b) -> a -> b
+Name: (<<)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:(<<)
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (HTML a; a; Text.XHtml.Transitional::HTML)
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Text.XHtml.Transitional::Html
+	
+		[result]
+		null::b
+	}
+	null::a
+
+	[result]
+	null::b
+}
+
+[Function]
+table :: Html -> Html
+Name: table
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:table
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+cite :: Html -> Html
+Name: cite
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:cite
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+unordList :: HTML a => [a] -> Html
+Name: unordList
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:unordList
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (HTML a; a; Text.XHtml.Transitional::HTML)
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::a
+	}
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+select :: Html -> Html
+Name: select
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:select
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+nowrap :: HtmlAttr
+Name: nowrap
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:nowrap
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+face :: String -> HtmlAttr
+Name: face
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:face
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+multiple :: HtmlAttr
+Name: multiple
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:multiple
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+cellspacing :: Int -> HtmlAttr
+Name: cellspacing
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:cellspacing
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+color :: String -> HtmlAttr
+Name: color
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:color
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+tfoot :: Html -> Html
+Name: tfoot
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:tfoot
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+dlist :: Html -> Html
+Name: dlist
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:dlist
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+noframes :: Html -> Html
+Name: noframes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:noframes
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+header :: Html -> Html
+Name: header
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:header
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+ulist :: Html -> Html
+Name: ulist
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:ulist
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+fieldset :: Html -> Html
+Name: fieldset
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:fieldset
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+option :: Html -> Html
+Name: option
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:option
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+marginheight :: Int -> HtmlAttr
+Name: marginheight
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:marginheight
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+size :: String -> HtmlAttr
+Name: size
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:size
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+optgroup :: Html -> Html
+Name: optgroup
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:optgroup
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+form :: Html -> Html
+Name: form
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:form
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+iframe :: Html -> Html
+Name: iframe
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:iframe
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+textarea :: Html -> Html
+Name: textarea
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:textarea
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+font :: Html -> Html
+Name: font
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:font
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+navy :: String
+Name: navy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:navy
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+afile :: String -> Html
+Name: afile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:afile
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+purple :: String
+Name: purple
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:purple
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+body :: Html -> Html
+Name: body
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:body
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+tbody :: Html -> Html
+Name: tbody
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:tbody
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+radio :: String -> String -> Html
+Name: radio
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:radio
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+bold :: Html -> Html
+Name: bold
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:bold
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+textfield :: String -> Html
+Name: textfield
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:textfield
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+meta :: Html
+Name: meta
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:meta
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+noresize :: HtmlAttr
+Name: noresize
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:noresize
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+border :: Int -> HtmlAttr
+Name: border
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:border
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+legend :: Html -> Html
+Name: legend
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:legend
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+maxlength :: Int -> HtmlAttr
+Name: maxlength
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:maxlength
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+thelink :: Html -> Html
+Name: thelink
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:thelink
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+start :: Int -> HtmlAttr
+Name: start
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:start
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+showHtmlFragment :: HTML html => html -> String
+Name: showHtmlFragment
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:showHtmlFragment
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	html: (HTML html; html; Text.XHtml.Transitional::HTML)
+}
+Signature = <function> {
+	[parameters]
+	null::html
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+theclass :: String -> HtmlAttr
+Name: theclass
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:theclass
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+prettyHtmlFragment :: HTML html => html -> String
+Name: prettyHtmlFragment
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:prettyHtmlFragment
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	html: (HTML html; html; Text.XHtml.Transitional::HTML)
+}
+Signature = <function> {
+	[parameters]
+	null::html
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+menu :: String -> [Html] -> Html
+Name: menu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:menu
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	other::List {
+		Text.XHtml.Transitional::Html
+	}
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+stringToHtml :: String -> Html
+Name: stringToHtml
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:stringToHtml
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+valign :: String -> HtmlAttr
+Name: valign
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:valign
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+itag :: String -> Html
+Name: itag
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:itag
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+marginwidth :: Int -> HtmlAttr
+Name: marginwidth
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:marginwidth
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+variable :: Html -> Html
+Name: variable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:variable
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+frame :: Html -> Html
+Name: frame
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:frame
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+isindex :: Html
+Name: isindex
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:isindex
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+renderHtmlFragment :: HTML html => html -> String
+Name: renderHtmlFragment
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:renderHtmlFragment
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	html: (HTML html; html; Text.XHtml.Transitional::HTML)
+}
+Signature = <function> {
+	[parameters]
+	null::html
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+width :: String -> HtmlAttr
+Name: width
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:width
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+hspace :: Int -> HtmlAttr
+Name: hspace
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:hspace
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+base :: String -> HtmlAttr
+Name: base
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:base
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+nohref :: HtmlAttr
+Name: nohref
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:nohref
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+thebase :: Html
+Name: thebase
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:thebase
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+ordList :: HTML a => [a] -> Html
+Name: ordList
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:ordList
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (HTML a; a; Text.XHtml.Transitional::HTML)
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::a
+	}
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+intAttr :: String -> Int -> HtmlAttr
+Name: intAttr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:intAttr
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Data.Int::Int
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+black :: String
+Name: black
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:black
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+submit :: String -> String -> Html
+Name: submit
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:submit
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+target :: String -> HtmlAttr
+Name: target
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:target
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+blockquote :: Html -> Html
+Name: blockquote
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:blockquote
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+colgroup :: Html -> Html
+Name: colgroup
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:colgroup
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+prettyHtml :: HTML html => html -> String
+Name: prettyHtml
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:prettyHtml
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	html: (HTML html; html; Text.XHtml.Transitional::HTML)
+}
+Signature = <function> {
+	[parameters]
+	null::html
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+compact :: HtmlAttr
+Name: compact
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:compact
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+fuchsia :: String
+Name: fuchsia
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:fuchsia
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+hidden :: String -> String -> Html
+Name: hidden
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:hidden
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+title :: String -> HtmlAttr
+Name: title
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:title
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+ins :: Html -> Html
+Name: ins
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:ins
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+p :: Html -> Html
+Name: p
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:p
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+input :: Html
+Name: input
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:input
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+lang :: String -> HtmlAttr
+Name: lang
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:lang
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+vspace :: Int -> HtmlAttr
+Name: vspace
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:vspace
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+height :: String -> HtmlAttr
+Name: height
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:height
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+selected :: HtmlAttr
+Name: selected
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:selected
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+primHtmlChar :: String -> Html
+Name: primHtmlChar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:primHtmlChar
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+hotlink :: URL -> Html -> HotLink
+Name: hotlink
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:hotlink
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::URL
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::HotLink
+}
+
+[Function]
+hr :: Html
+Name: hr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:hr
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+checked :: HtmlAttr
+Name: checked
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:checked
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+li :: Html -> Html
+Name: li
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:li
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+bullet :: Html
+Name: bullet
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:bullet
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+olive :: String
+Name: olive
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:olive
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+ismap :: HtmlAttr
+Name: ismap
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:ismap
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+themap :: Html -> Html
+Name: themap
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:themap
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+thetitle :: Html -> Html
+Name: thetitle
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:thetitle
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+httpequiv :: String -> HtmlAttr
+Name: httpequiv
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:httpequiv
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+olist :: Html -> Html
+Name: olist
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:olist
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+td :: Html -> Html
+Name: td
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:td
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+tt :: Html -> Html
+Name: tt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:tt
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+tr :: Html -> Html
+Name: tr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:tr
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+th :: Html -> Html
+Name: th
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:th
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+checkbox :: String -> String -> Html
+Name: checkbox
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:checkbox
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+address :: Html -> Html
+Name: address
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:address
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+caption :: Html -> Html
+Name: caption
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:caption
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+area :: Html
+Name: area
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:area
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+br :: Html
+Name: br
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:br
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+abbr :: Html -> Html
+Name: abbr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:abbr
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+h4 :: Html -> Html
+Name: h4
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:h4
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+h5 :: Html -> Html
+Name: h5
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:h5
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+h6 :: Html -> Html
+Name: h6
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:h6
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+h1 :: Html -> Html
+Name: h1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:h1
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+h2 :: Html -> Html
+Name: h2
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:h2
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+h3 :: Html -> Html
+Name: h3
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:h3
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+silver :: String
+Name: silver
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:silver
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+htmlAttrPair :: HtmlAttr -> (String, String)
+Name: htmlAttrPair
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:htmlAttrPair
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::HtmlAttr
+
+	[result]
+	GHC.Tuple::(,) {
+		Data.String::String
+		Data.String::String
+	}
+}
+
+[Function]
+applet :: Html -> Html
+Name: applet
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:applet
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+maroon :: String
+Name: maroon
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:maroon
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+rows :: String -> HtmlAttr
+Name: rows
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:rows
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+content :: String -> HtmlAttr
+Name: content
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:content
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+bordercolor :: String -> HtmlAttr
+Name: bordercolor
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:bordercolor
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+script :: Html -> Html
+Name: script
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:script
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+ddef :: Html -> Html
+Name: ddef
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:ddef
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+pre :: Html -> Html
+Name: pre
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:pre
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+spaceHtml :: Html
+Name: spaceHtml
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:spaceHtml
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+scrolling :: String -> HtmlAttr
+Name: scrolling
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:scrolling
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+image :: Html
+Name: image
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:image
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+thead :: Html -> Html
+Name: thead
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:thead
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+codebase :: String -> HtmlAttr
+Name: codebase
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:codebase
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+define :: Html -> Html
+Name: define
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:define
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+paragraph :: Html -> Html
+Name: paragraph
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:paragraph
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+teal :: String
+Name: teal
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:teal
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+button :: Html -> Html
+Name: button
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:button
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+reset :: String -> String -> Html
+Name: reset
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:reset
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+vlink :: String -> HtmlAttr
+Name: vlink
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:vlink
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+identifier :: String -> HtmlAttr
+Name: identifier
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:identifier
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+clickmap :: String -> Html
+Name: clickmap
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:clickmap
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+keyboard :: Html -> Html
+Name: keyboard
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:keyboard
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+noHtml :: Html
+Name: noHtml
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:noHtml
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+anchor :: Html -> Html
+Name: anchor
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:anchor
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+thestyle :: String -> HtmlAttr
+Name: thestyle
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:thestyle
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+text :: String -> HtmlAttr
+Name: text
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:text
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+coords :: String -> HtmlAttr
+Name: coords
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:coords
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+action :: String -> HtmlAttr
+Name: action
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:action
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+primHtml :: String -> Html
+Name: primHtml
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:primHtml
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+aqua :: String
+Name: aqua
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:aqua
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+hreflang :: String -> HtmlAttr
+Name: hreflang
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:hreflang
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+frameborder :: Int -> HtmlAttr
+Name: frameborder
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:frameborder
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+sample :: Html -> Html
+Name: sample
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:sample
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+strAttr :: String -> String -> HtmlAttr
+Name: strAttr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:strAttr
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Data.String::String
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}
+
+[Function]
+(+++) :: (HTML a, HTML b) => a -> b -> Html
+Name: (+++)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:(+++)
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (HTML a; a; Text.XHtml.Transitional::HTML)
+	b: (HTML b; b; Text.XHtml.Transitional::HTML)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+	null::b
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+widget :: String -> String -> [HtmlAttr] -> Html
+Name: widget
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:widget
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Data.String::String
+	other::List {
+		Text.XHtml.Transitional::HtmlAttr
+	}
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+italics :: Html -> Html
+Name: italics
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:italics
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::Html
+}
+
+[Function]
+htmlAttr :: String -> Html -> HtmlAttr
+Name: htmlAttr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/xhtml-3000.2.1/Text-XHtml-Transitional.html#v:htmlAttr
+Containing package: Text.XHtml.Transitional
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Text.XHtml.Transitional::Html
+
+	[result]
+	Text.XHtml.Transitional::HtmlAttr
+}

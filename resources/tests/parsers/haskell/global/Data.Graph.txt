@@ -1,0 +1,637 @@
+[Package]
+Name: Data.Graph
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Graph.html
+Containing package: Data
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data SCC vertex = AcyclicSCC vertex | CyclicSCC [vertex]
+Name: SCC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Graph.html#t:SCC
+Containing package: Data.Graph
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	vertex
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type Graph = Table [Vertex]
+Name: Graph
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Graph.html#t:Graph
+Containing package: Data.Graph
+attributes {
+}
+parameters {
+}
+Aliased type = Data.Graph::Table {
+	other::List {
+		Data.Graph::Vertex
+	}
+}
+
+[Alias]
+type Table a = Array Vertex a
+Name: Table
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Graph.html#t:Table
+Containing package: Data.Graph
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = Data.Array::Array {
+	Data.Graph::Vertex
+	null::a
+}
+
+[Alias]
+type Bounds = (Vertex, Vertex)
+Name: Bounds
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Graph.html#t:Bounds
+Containing package: Data.Graph
+attributes {
+}
+parameters {
+}
+Aliased type = null::(Vertex, Vertex)
+
+[Alias]
+type Vertex = Int
+Name: Vertex
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Graph.html#t:Vertex
+Containing package: Data.Graph
+attributes {
+}
+parameters {
+}
+Aliased type = Data.Int::Int
+
+[Alias]
+type Edge = (Vertex, Vertex)
+Name: Edge
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Graph.html#t:Edge
+Containing package: Data.Graph
+attributes {
+}
+parameters {
+}
+Aliased type = null::(Vertex, Vertex)
+
+[Function]
+flattenSCC :: SCC vertex -> [vertex]
+Name: flattenSCC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Graph.html#v:flattenSCC
+Containing package: Data.Graph
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	vertex
+}
+Signature = <function> {
+	[parameters]
+	Data.Graph::SCC {
+		null::vertex
+	}
+
+	[result]
+	other::List {
+		null::vertex
+	}
+}
+
+[Function]
+dff :: Graph -> Forest Vertex
+Name: dff
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Graph.html#v:dff
+Containing package: Data.Graph
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Graph::Graph
+
+	[result]
+	Data.Tree::Forest {
+		Data.Graph::Vertex
+	}
+}
+
+[Function]
+dfs :: Graph -> [Vertex] -> Forest Vertex
+Name: dfs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Graph.html#v:dfs
+Containing package: Data.Graph
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Graph::Graph
+	other::List {
+		Data.Graph::Vertex
+	}
+
+	[result]
+	Data.Tree::Forest {
+		Data.Graph::Vertex
+	}
+}
+
+[Function]
+flattenSCCs :: [SCC a] -> [a]
+Name: flattenSCCs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Graph.html#v:flattenSCCs
+Containing package: Data.Graph
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Data.Graph::SCC {
+			null::a
+		}
+	}
+
+	[result]
+	other::List {
+		null::a
+	}
+}
+
+[Function]
+reachable :: Graph -> Vertex -> [Vertex]
+Name: reachable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Graph.html#v:reachable
+Containing package: Data.Graph
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Graph::Graph
+	Data.Graph::Vertex
+
+	[result]
+	other::List {
+		Data.Graph::Vertex
+	}
+}
+
+[Function]
+bcc :: Graph -> Forest [Vertex]
+Name: bcc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Graph.html#v:bcc
+Containing package: Data.Graph
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Graph::Graph
+
+	[result]
+	Data.Tree::Forest {
+		other::List {
+			Data.Graph::Vertex
+		}
+	}
+}
+
+[Function]
+edges :: Graph -> [Edge]
+Name: edges
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Graph.html#v:edges
+Containing package: Data.Graph
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Graph::Graph
+
+	[result]
+	other::List {
+		Data.Graph::Edge
+	}
+}
+
+[Function]
+buildG :: Bounds -> [Edge] -> Graph
+Name: buildG
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Graph.html#v:buildG
+Containing package: Data.Graph
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Graph::Bounds
+	other::List {
+		Data.Graph::Edge
+	}
+
+	[result]
+	Data.Graph::Graph
+}
+
+[Function]
+stronglyConnComp :: Ord key => [(node, key, [key])] -> [SCC node]
+Name: stronglyConnComp
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Graph.html#v:stronglyConnComp
+Containing package: Data.Graph
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	key: (Ord key; key; Data.Ord::Ord)
+	node
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		GHC.Tuple::(,,) {
+			null::node
+			null::key
+			other::List {
+				null::key
+			}
+		}
+	}
+
+	[result]
+	other::List {
+		Data.Graph::SCC {
+			null::node
+		}
+	}
+}
+
+[Function]
+indegree :: Graph -> Table Int
+Name: indegree
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Graph.html#v:indegree
+Containing package: Data.Graph
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Graph::Graph
+
+	[result]
+	Data.Graph::Table {
+		Data.Int::Int
+	}
+}
+
+[Function]
+graphFromEdges :: Ord key => [(node, key, [key])] -> (Graph, Vertex -> (node, key, [key]), key -> Maybe Vertex)
+Name: graphFromEdges
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Graph.html#v:graphFromEdges
+Containing package: Data.Graph
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	key: (Ord key; key; Data.Ord::Ord)
+	node
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		GHC.Tuple::(,,) {
+			null::node
+			null::key
+			other::List {
+				null::key
+			}
+		}
+	}
+
+	[result]
+	GHC.Tuple::(,,) {
+		Data.Graph::Graph
+		<function> {
+			[parameters]
+			Data.Graph::Vertex
+		
+			[result]
+			GHC.Tuple::(,,) {
+				null::node
+				null::key
+				other::List {
+					null::key
+				}
+			}
+		}
+		<function> {
+			[parameters]
+			null::key
+		
+			[result]
+			Data.Maybe::Maybe {
+				Data.Graph::Vertex
+			}
+		}
+	}
+}
+
+[Function]
+graphFromEdges' :: Ord key => [(node, key, [key])] -> (Graph, Vertex -> (node, key, [key]))
+Name: graphFromEdges'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Graph.html#v:graphFromEdges'
+Containing package: Data.Graph
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	key: (Ord key; key; Data.Ord::Ord)
+	node
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		GHC.Tuple::(,,) {
+			null::node
+			null::key
+			other::List {
+				null::key
+			}
+		}
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		Data.Graph::Graph
+		<function> {
+			[parameters]
+			Data.Graph::Vertex
+		
+			[result]
+			GHC.Tuple::(,,) {
+				null::node
+				null::key
+				other::List {
+					null::key
+				}
+			}
+		}
+	}
+}
+
+[Function]
+outdegree :: Graph -> Table Int
+Name: outdegree
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Graph.html#v:outdegree
+Containing package: Data.Graph
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Graph::Graph
+
+	[result]
+	Data.Graph::Table {
+		Data.Int::Int
+	}
+}
+
+[Function]
+path :: Graph -> Vertex -> Vertex -> Bool
+Name: path
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Graph.html#v:path
+Containing package: Data.Graph
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Graph::Graph
+	Data.Graph::Vertex
+	Data.Graph::Vertex
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+transposeG :: Graph -> Graph
+Name: transposeG
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Graph.html#v:transposeG
+Containing package: Data.Graph
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Graph::Graph
+
+	[result]
+	Data.Graph::Graph
+}
+
+[Function]
+topSort :: Graph -> [Vertex]
+Name: topSort
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Graph.html#v:topSort
+Containing package: Data.Graph
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Graph::Graph
+
+	[result]
+	other::List {
+		Data.Graph::Vertex
+	}
+}
+
+[Function]
+scc :: Graph -> Forest Vertex
+Name: scc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Graph.html#v:scc
+Containing package: Data.Graph
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Graph::Graph
+
+	[result]
+	Data.Tree::Forest {
+		Data.Graph::Vertex
+	}
+}
+
+[Function]
+components :: Graph -> Forest Vertex
+Name: components
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Graph.html#v:components
+Containing package: Data.Graph
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Graph::Graph
+
+	[result]
+	Data.Tree::Forest {
+		Data.Graph::Vertex
+	}
+}
+
+[Function]
+vertices :: Graph -> [Vertex]
+Name: vertices
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Graph.html#v:vertices
+Containing package: Data.Graph
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Graph::Graph
+
+	[result]
+	other::List {
+		Data.Graph::Vertex
+	}
+}
+
+[Function]
+stronglyConnCompR :: Ord key => [(node, key, [key])] -> [SCC (node, key, [key])]
+Name: stronglyConnCompR
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Graph.html#v:stronglyConnCompR
+Containing package: Data.Graph
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	key: (Ord key; key; Data.Ord::Ord)
+	node
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		GHC.Tuple::(,,) {
+			null::node
+			null::key
+			other::List {
+				null::key
+			}
+		}
+	}
+
+	[result]
+	other::List {
+		Data.Graph::SCC {
+			GHC.Tuple::(,,) {
+				null::node
+				null::key
+				other::List {
+					null::key
+				}
+			}
+		}
+	}
+}

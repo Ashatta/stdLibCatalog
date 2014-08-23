@@ -1,0 +1,499 @@
+[Package]
+Name: Distribution.Simple.Configure
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Configure.html
+Containing package: Distribution.Simple
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data ConfigStateFileErrorType = ConfigStateFileCantParse | ConfigStateFileMissing | ConfigStateFileBadVersion
+Name: ConfigStateFileErrorType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Configure.html#t:ConfigStateFileErrorType
+Containing package: Distribution.Simple.Configure
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type ConfigStateFileError = (String, ConfigStateFileErrorType)
+Name: ConfigStateFileError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Configure.html#t:ConfigStateFileError
+Containing package: Distribution.Simple.Configure
+attributes {
+}
+parameters {
+}
+Aliased type = null::(String, ConfigStateFileErrorType)
+
+[Function]
+localBuildInfoFile :: FilePath -> FilePath
+Name: localBuildInfoFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Configure.html#v:localBuildInfoFile
+Containing package: Distribution.Simple.Configure
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::FilePath
+}
+
+[Function]
+getPersistBuildConfig :: FilePath -> IO LocalBuildInfo
+Name: getPersistBuildConfig
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Configure.html#v:getPersistBuildConfig
+Containing package: Distribution.Simple.Configure
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	}
+}
+
+[Function]
+writePersistBuildConfig :: FilePath -> LocalBuildInfo -> IO ()
+Name: writePersistBuildConfig
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Configure.html#v:writePersistBuildConfig
+Containing package: Distribution.Simple.Configure
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+configure :: (GenericPackageDescription, HookedBuildInfo) -> ConfigFlags -> IO LocalBuildInfo
+Name: configure
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Configure.html#v:configure
+Containing package: Distribution.Simple.Configure
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Tuple::(,) {
+		Distribution.PackageDescription::GenericPackageDescription
+		Distribution.PackageDescription::HookedBuildInfo
+	}
+	Distribution.Simple.Setup::ConfigFlags
+
+	[result]
+	System.IO::IO {
+		Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	}
+}
+
+[Function]
+tryGetPersistBuildConfig :: FilePath -> IO (Either ConfigStateFileError LocalBuildInfo)
+Name: tryGetPersistBuildConfig
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Configure.html#v:tryGetPersistBuildConfig
+Containing package: Distribution.Simple.Configure
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		Data.Either::Either {
+			Distribution.Simple.Configure::ConfigStateFileError
+			Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+		}
+	}
+}
+
+[Function]
+getInstalledPackages :: Verbosity -> Compiler -> PackageDBStack -> ProgramConfiguration -> IO PackageIndex
+Name: getInstalledPackages
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Configure.html#v:getInstalledPackages
+Containing package: Distribution.Simple.Configure
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Compiler::Compiler
+	Distribution.Simple.Compiler::PackageDBStack
+	Distribution.Simple.Program::ProgramConfiguration
+
+	[result]
+	System.IO::IO {
+		Distribution.Simple.PackageIndex::PackageIndex
+	}
+}
+
+[Function]
+checkForeignDeps :: PackageDescription -> LocalBuildInfo -> Verbosity -> IO ()
+Name: checkForeignDeps
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Configure.html#v:checkForeignDeps
+Containing package: Distribution.Simple.Configure
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	Distribution.Verbosity::Verbosity
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+ccLdOptionsBuildInfo :: [String] -> [String] -> BuildInfo
+Name: ccLdOptionsBuildInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Configure.html#v:ccLdOptionsBuildInfo
+Containing package: Distribution.Simple.Configure
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Data.String::String
+	}
+	other::List {
+		Data.String::String
+	}
+
+	[result]
+	Distribution.PackageDescription::BuildInfo
+}
+
+[Function]
+configCompilerAux :: ConfigFlags -> IO (Compiler, ProgramConfiguration)
+Name: configCompilerAux
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Configure.html#v:configCompilerAux
+Containing package: Distribution.Simple.Configure
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Setup::ConfigFlags
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			Distribution.Simple.Compiler::Compiler
+			Distribution.Simple.Program::ProgramConfiguration
+		}
+	}
+}
+
+[Function]
+tryGetConfigStateFile :: Read a => FilePath -> IO (Either ConfigStateFileError a)
+Name: tryGetConfigStateFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Configure.html#v:tryGetConfigStateFile
+Containing package: Distribution.Simple.Configure
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Read a; a; Text.Read::Read)
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		Data.Either::Either {
+			Distribution.Simple.Configure::ConfigStateFileError
+			null::a
+		}
+	}
+}
+
+[Function]
+configCompiler :: Maybe CompilerFlavor -> Maybe FilePath -> Maybe FilePath -> ProgramConfiguration -> Verbosity -> IO (Compiler, ProgramConfiguration)
+Name: configCompiler
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Configure.html#v:configCompiler
+Containing package: Distribution.Simple.Configure
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Maybe::Maybe {
+		Distribution.Compiler::CompilerFlavor
+	}
+	Data.Maybe::Maybe {
+		System.IO::FilePath
+	}
+	Data.Maybe::Maybe {
+		System.IO::FilePath
+	}
+	Distribution.Simple.Program::ProgramConfiguration
+	Distribution.Verbosity::Verbosity
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			Distribution.Simple.Compiler::Compiler
+			Distribution.Simple.Program::ProgramConfiguration
+		}
+	}
+}
+
+[Function]
+maybeGetPersistBuildConfig :: FilePath -> IO (Maybe LocalBuildInfo)
+Name: maybeGetPersistBuildConfig
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Configure.html#v:maybeGetPersistBuildConfig
+Containing package: Distribution.Simple.Configure
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+		}
+	}
+}
+
+[Function]
+configCompilerEx :: Maybe CompilerFlavor -> Maybe FilePath -> Maybe FilePath -> ProgramConfiguration -> Verbosity -> IO (Compiler, Platform, ProgramConfiguration)
+Name: configCompilerEx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Configure.html#v:configCompilerEx
+Containing package: Distribution.Simple.Configure
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Maybe::Maybe {
+		Distribution.Compiler::CompilerFlavor
+	}
+	Data.Maybe::Maybe {
+		System.IO::FilePath
+	}
+	Data.Maybe::Maybe {
+		System.IO::FilePath
+	}
+	Distribution.Simple.Program::ProgramConfiguration
+	Distribution.Verbosity::Verbosity
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,,) {
+			Distribution.Simple.Compiler::Compiler
+			Distribution.System::Platform
+			Distribution.Simple.Program::ProgramConfiguration
+		}
+	}
+}
+
+[Function]
+configCompilerAuxEx :: ConfigFlags -> IO (Compiler, Platform, ProgramConfiguration)
+Name: configCompilerAuxEx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Configure.html#v:configCompilerAuxEx
+Containing package: Distribution.Simple.Configure
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Setup::ConfigFlags
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,,) {
+			Distribution.Simple.Compiler::Compiler
+			Distribution.System::Platform
+			Distribution.Simple.Program::ProgramConfiguration
+		}
+	}
+}
+
+[Function]
+getPackageDBContents :: Verbosity -> Compiler -> PackageDB -> ProgramConfiguration -> IO PackageIndex
+Name: getPackageDBContents
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Configure.html#v:getPackageDBContents
+Containing package: Distribution.Simple.Configure
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Compiler::Compiler
+	Distribution.Simple.Compiler::PackageDB
+	Distribution.Simple.Program::ProgramConfiguration
+
+	[result]
+	System.IO::IO {
+		Distribution.Simple.PackageIndex::PackageIndex
+	}
+}
+
+[Function]
+platformDefines :: LocalBuildInfo -> [String]
+Name: platformDefines
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Configure.html#v:platformDefines
+Containing package: Distribution.Simple.Configure
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+
+	[result]
+	other::List {
+		Data.String::String
+	}
+}
+
+[Function]
+interpretPackageDbFlags :: Bool -> [Maybe PackageDB] -> PackageDBStack
+Name: interpretPackageDbFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Configure.html#v:interpretPackageDbFlags
+Containing package: Distribution.Simple.Configure
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Bool::Bool
+	other::List {
+		Data.Maybe::Maybe {
+			Distribution.Simple.Compiler::PackageDB
+		}
+	}
+
+	[result]
+	Distribution.Simple.Compiler::PackageDBStack
+}
+
+[Function]
+checkPersistBuildConfigOutdated :: FilePath -> FilePath -> IO Bool
+Name: checkPersistBuildConfigOutdated
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Configure.html#v:checkPersistBuildConfigOutdated
+Containing package: Distribution.Simple.Configure
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}

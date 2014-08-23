@@ -1,0 +1,331 @@
+[Package]
+Name: Control.Monad.Trans.Maybe
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Maybe.html
+Containing package: Trans
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+newtype MaybeT m a = MaybeT { runMaybeT :: m (Maybe a)}
+Name: MaybeT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Maybe.html#t:MaybeT
+Containing package: Control.Monad.Trans.Maybe
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	m
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+liftListen :: Monad m => (m (Maybe a) -> m (Maybe a, w)) -> MaybeT m a -> MaybeT m (a, w)
+Name: liftListen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Maybe.html#v:liftListen
+Containing package: Control.Monad.Trans.Maybe
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	a
+	w
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::m {
+			Data.Maybe::Maybe {
+				null::a
+			}
+		}
+	
+		[result]
+		null::m {
+			GHC.Tuple::(,) {
+				Data.Maybe::Maybe {
+					null::a
+				}
+				null::w
+			}
+		}
+	}
+	Control.Monad.Trans.Maybe::MaybeT {
+		null::m
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.Maybe::MaybeT {
+		null::m
+		GHC.Tuple::(,) {
+			null::a
+			null::w
+		}
+	}
+}
+
+[Function]
+mapMaybeT :: (m (Maybe a) -> n (Maybe b)) -> MaybeT m a -> MaybeT n b
+Name: mapMaybeT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Maybe.html#v:mapMaybeT
+Containing package: Control.Monad.Trans.Maybe
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m
+	a
+	n
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::m {
+			Data.Maybe::Maybe {
+				null::a
+			}
+		}
+	
+		[result]
+		null::n {
+			Data.Maybe::Maybe {
+				null::b
+			}
+		}
+	}
+	Control.Monad.Trans.Maybe::MaybeT {
+		null::m
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.Maybe::MaybeT {
+		null::n
+		null::b
+	}
+}
+
+[Function]
+liftCallCC :: (((Maybe a -> m (Maybe b)) -> m (Maybe a)) -> m (Maybe a)) -> ((a -> MaybeT m b) -> MaybeT m a) -> MaybeT m a
+Name: liftCallCC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Maybe.html#v:liftCallCC
+Containing package: Control.Monad.Trans.Maybe
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	m
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			<function> {
+				[parameters]
+				Data.Maybe::Maybe {
+					null::a
+				}
+			
+				[result]
+				null::m {
+					Data.Maybe::Maybe {
+						null::b
+					}
+				}
+			}
+		
+			[result]
+			null::m {
+				Data.Maybe::Maybe {
+					null::a
+				}
+			}
+		}
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				null::a
+			}
+		}
+	}
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			Control.Monad.Trans.Maybe::MaybeT {
+				null::m
+				null::b
+			}
+		}
+	
+		[result]
+		Control.Monad.Trans.Maybe::MaybeT {
+			null::m
+			null::a
+		}
+	}
+
+	[result]
+	Control.Monad.Trans.Maybe::MaybeT {
+		null::m
+		null::a
+	}
+}
+
+[Function]
+liftCatch :: (m (Maybe a) -> (e -> m (Maybe a)) -> m (Maybe a)) -> MaybeT m a -> (e -> MaybeT m a) -> MaybeT m a
+Name: liftCatch
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Maybe.html#v:liftCatch
+Containing package: Control.Monad.Trans.Maybe
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m
+	a
+	e
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::m {
+			Data.Maybe::Maybe {
+				null::a
+			}
+		}
+		<function> {
+			[parameters]
+			null::e
+		
+			[result]
+			null::m {
+				Data.Maybe::Maybe {
+					null::a
+				}
+			}
+		}
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				null::a
+			}
+		}
+	}
+	Control.Monad.Trans.Maybe::MaybeT {
+		null::m
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::e
+	
+		[result]
+		Control.Monad.Trans.Maybe::MaybeT {
+			null::m
+			null::a
+		}
+	}
+
+	[result]
+	Control.Monad.Trans.Maybe::MaybeT {
+		null::m
+		null::a
+	}
+}
+
+[Function]
+liftPass :: Monad m => (m (Maybe a, w -> w) -> m (Maybe a)) -> MaybeT m (a, w -> w) -> MaybeT m a
+Name: liftPass
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Maybe.html#v:liftPass
+Containing package: Control.Monad.Trans.Maybe
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	a
+	w
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::m {
+			GHC.Tuple::(,) {
+				Data.Maybe::Maybe {
+					null::a
+				}
+				<function> {
+					[parameters]
+					null::w
+				
+					[result]
+					null::w
+				}
+			}
+		}
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				null::a
+			}
+		}
+	}
+	Control.Monad.Trans.Maybe::MaybeT {
+		null::m
+		GHC.Tuple::(,) {
+			null::a
+			<function> {
+				[parameters]
+				null::w
+			
+				[result]
+				null::w
+			}
+		}
+	}
+
+	[result]
+	Control.Monad.Trans.Maybe::MaybeT {
+		null::m
+		null::a
+	}
+}

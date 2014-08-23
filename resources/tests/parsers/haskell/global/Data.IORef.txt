@@ -1,0 +1,301 @@
+[Package]
+Name: Data.IORef
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-IORef.html
+Containing package: Data
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data IORef a
+Name: IORef
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-IORef.html#t:IORef
+Containing package: Data.IORef
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+modifyIORef' :: IORef a -> (a -> a) -> IO ()
+Name: modifyIORef'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-IORef.html#v:modifyIORef'
+Containing package: Data.IORef
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.IORef::IORef {
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+atomicModifyIORef :: IORef a -> (a -> (a, b)) -> IO b
+Name: atomicModifyIORef
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-IORef.html#v:atomicModifyIORef
+Containing package: Data.IORef
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	Data.IORef::IORef {
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		GHC.Tuple::(,) {
+			null::a
+			null::b
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::b
+	}
+}
+
+[Function]
+readIORef :: IORef a -> IO a
+Name: readIORef
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-IORef.html#v:readIORef
+Containing package: Data.IORef
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.IORef::IORef {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+modifyIORef :: IORef a -> (a -> a) -> IO ()
+Name: modifyIORef
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-IORef.html#v:modifyIORef
+Containing package: Data.IORef
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.IORef::IORef {
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+writeIORef :: IORef a -> a -> IO ()
+Name: writeIORef
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-IORef.html#v:writeIORef
+Containing package: Data.IORef
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.IORef::IORef {
+		null::a
+	}
+	null::a
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+atomicModifyIORef' :: IORef a -> (a -> (a, b)) -> IO b
+Name: atomicModifyIORef'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-IORef.html#v:atomicModifyIORef'
+Containing package: Data.IORef
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	Data.IORef::IORef {
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		GHC.Tuple::(,) {
+			null::a
+			null::b
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::b
+	}
+}
+
+[Function]
+newIORef :: a -> IO (IORef a)
+Name: newIORef
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-IORef.html#v:newIORef
+Containing package: Data.IORef
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	System.IO::IO {
+		Data.IORef::IORef {
+			null::a
+		}
+	}
+}
+
+[Function]
+mkWeakIORef :: IORef a -> IO () -> IO (Weak (IORef a))
+Name: mkWeakIORef
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-IORef.html#v:mkWeakIORef
+Containing package: Data.IORef
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.IORef::IORef {
+		null::a
+	}
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+
+	[result]
+	System.IO::IO {
+		System.Mem.Weak::Weak {
+			Data.IORef::IORef {
+				null::a
+			}
+		}
+	}
+}
+
+[Function]
+atomicWriteIORef :: IORef a -> a -> IO ()
+Name: atomicWriteIORef
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-IORef.html#v:atomicWriteIORef
+Containing package: Data.IORef
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.IORef::IORef {
+		null::a
+	}
+	null::a
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}

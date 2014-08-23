@@ -1,0 +1,101 @@
+[Package]
+Name: Control.Applicative.Lift
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Applicative-Lift.html
+Containing package: Control.Applicative
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data Lift f a = Pure a | Other (f a)
+Name: Lift
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Applicative-Lift.html#t:Lift
+Containing package: Control.Applicative.Lift
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	f
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type Errors e = Lift (Constant e)
+Name: Errors
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Applicative-Lift.html#t:Errors
+Containing package: Control.Applicative.Lift
+attributes {
+}
+parameters {
+	e
+}
+Aliased type = Control.Applicative.Lift::Lift {
+	Data.Functor.Constant::Constant {
+		null::e
+	}
+}
+
+[Function]
+unLift :: Applicative f => Lift f a -> f a
+Name: unLift
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Applicative-Lift.html#v:unLift
+Containing package: Control.Applicative.Lift
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	f: (Applicative f; f; Control.Applicative::Applicative)
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Applicative.Lift::Lift {
+		null::f
+		null::a
+	}
+
+	[result]
+	null::f {
+		null::a
+	}
+}
+
+[Function]
+failure :: Monoid e => e -> Errors e a
+Name: failure
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Applicative-Lift.html#v:failure
+Containing package: Control.Applicative.Lift
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e: (Monoid e; e; Data.Monoid::Monoid)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::e
+
+	[result]
+	Control.Applicative.Lift::Errors {
+		null::e
+		null::a
+	}
+}

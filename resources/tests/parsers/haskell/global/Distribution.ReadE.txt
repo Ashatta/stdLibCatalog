@@ -1,0 +1,167 @@
+[Package]
+Name: Distribution.ReadE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-ReadE.html
+Containing package: Distribution
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+newtype ReadE a = ReadE { runReadE :: String -> Either ErrorMsg a}
+Name: ReadE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-ReadE.html#t:ReadE
+Containing package: Distribution.ReadE
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+readEOrFail :: ReadE a -> String -> a
+Name: readEOrFail
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-ReadE.html#v:readEOrFail
+Containing package: Distribution.ReadE
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.ReadE::ReadE {
+		null::a
+	}
+	Data.String::String
+
+	[result]
+	null::a
+}
+
+[Function]
+readP_to_E :: (String -> ErrorMsg) -> ReadP a a -> ReadE a
+Name: readP_to_E
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-ReadE.html#v:readP_to_E
+Containing package: Distribution.ReadE
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.String::String
+	
+		[result]
+		null::ErrorMsg
+	}
+	Distribution.Compat.ReadP::ReadP {
+		null::a
+		null::a
+	}
+
+	[result]
+	Distribution.ReadE::ReadE {
+		null::a
+	}
+}
+
+[Function]
+failReadE :: ErrorMsg -> ReadE a
+Name: failReadE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-ReadE.html#v:failReadE
+Containing package: Distribution.ReadE
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::ErrorMsg
+
+	[result]
+	Distribution.ReadE::ReadE {
+		null::a
+	}
+}
+
+[Function]
+succeedReadE :: (String -> a) -> ReadE a
+Name: succeedReadE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-ReadE.html#v:succeedReadE
+Containing package: Distribution.ReadE
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.String::String
+	
+		[result]
+		null::a
+	}
+
+	[result]
+	Distribution.ReadE::ReadE {
+		null::a
+	}
+}
+
+[Function]
+parseReadE :: ReadE a -> ReadP r a
+Name: parseReadE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-ReadE.html#v:parseReadE
+Containing package: Distribution.ReadE
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	r
+}
+Signature = <function> {
+	[parameters]
+	Distribution.ReadE::ReadE {
+		null::a
+	}
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+}

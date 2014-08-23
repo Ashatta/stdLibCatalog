@@ -1,0 +1,1317 @@
+[Package]
+Name: Control.Monad.Trans.RWS.Lazy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html
+Containing package: Control.Monad.Trans.RWS
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+newtype RWST r w s m a = RWST { runRWST :: r -> s -> m (a, s, w)}
+Name: RWST
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#t:RWST
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	r
+	w
+	s
+	m
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type RWS r w s = RWST r w s Identity
+Name: RWS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#t:RWS
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+}
+parameters {
+	r
+	w
+	s
+}
+Aliased type = Control.Monad.Trans.RWS.Lazy::RWST {
+	null::r
+	null::w
+	null::s
+	Data.Functor.Identity::Identity
+}
+
+[Function]
+writer :: Monad m => (a, w) -> RWST r w s m a
+Name: writer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#v:writer
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	a
+	w
+	r
+	s
+}
+Signature = <function> {
+	[parameters]
+	GHC.Tuple::(,) {
+		null::a
+		null::w
+	}
+
+	[result]
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::r
+		null::w
+		null::s
+		null::m
+		null::a
+	}
+}
+
+[Function]
+mapRWS :: ((a, s, w) -> (b, s, w')) -> RWS r w s a -> RWS r w' s b
+Name: mapRWS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#v:mapRWS
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	s
+	w
+	b
+	w'
+	r
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		GHC.Tuple::(,,) {
+			null::a
+			null::s
+			null::w
+		}
+	
+		[result]
+		GHC.Tuple::(,,) {
+			null::b
+			null::s
+			null::w'
+		}
+	}
+	Control.Monad.Trans.RWS.Lazy::RWS {
+		null::r
+		null::w
+		null::s
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.RWS.Lazy::RWS {
+		null::r
+		null::w'
+		null::s
+		null::b
+	}
+}
+
+[Function]
+mapRWST :: (m (a, s, w) -> n (b, s, w')) -> RWST r w s m a -> RWST r w' s n b
+Name: mapRWST
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#v:mapRWST
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m
+	a
+	s
+	w
+	n
+	b
+	w'
+	r
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::m {
+			GHC.Tuple::(,,) {
+				null::a
+				null::s
+				null::w
+			}
+		}
+	
+		[result]
+		null::n {
+			GHC.Tuple::(,,) {
+				null::b
+				null::s
+				null::w'
+			}
+		}
+	}
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::r
+		null::w
+		null::s
+		null::m
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::r
+		null::w'
+		null::s
+		null::n
+		null::b
+	}
+}
+
+[Function]
+withRWST :: (r' -> s -> (r, s)) -> RWST r w s m a -> RWST r' w s m a
+Name: withRWST
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#v:withRWST
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r'
+	s
+	r
+	w
+	m
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::r'
+		null::s
+	
+		[result]
+		GHC.Tuple::(,) {
+			null::r
+			null::s
+		}
+	}
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::r
+		null::w
+		null::s
+		null::m
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::r'
+		null::w
+		null::s
+		null::m
+		null::a
+	}
+}
+
+[Function]
+censor :: (Monoid w, Monad m) => (w -> w) -> RWST r w s m a -> RWST r w s m a
+Name: censor
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#v:censor
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	w: (Monoid w; w; Data.Monoid::Monoid)
+	m: (Monad m; m; Control.Monad::Monad)
+	r
+	s
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::w
+	
+		[result]
+		null::w
+	}
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::r
+		null::w
+		null::s
+		null::m
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::r
+		null::w
+		null::s
+		null::m
+		null::a
+	}
+}
+
+[Function]
+ask :: (Monoid w, Monad m) => RWST r w s m r
+Name: ask
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#v:ask
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	w: (Monoid w; w; Data.Monoid::Monoid)
+	m: (Monad m; m; Control.Monad::Monad)
+	r
+	s
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::r
+		null::w
+		null::s
+		null::m
+		null::r
+	}
+}
+
+[Function]
+rws :: (r -> s -> (a, s, w)) -> RWS r w s a
+Name: rws
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#v:rws
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+	s
+	a
+	w
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::r
+		null::s
+	
+		[result]
+		GHC.Tuple::(,,) {
+			null::a
+			null::s
+			null::w
+		}
+	}
+
+	[result]
+	Control.Monad.Trans.RWS.Lazy::RWS {
+		null::r
+		null::w
+		null::s
+		null::a
+	}
+}
+
+[Function]
+liftCatch :: (m (a, s, w) -> (e -> m (a, s, w)) -> m (a, s, w)) -> RWST l w s m a -> (e -> RWST l w s m a) -> RWST l w s m a
+Name: liftCatch
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#v:liftCatch
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m
+	a
+	s
+	w
+	e
+	l
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::m {
+			GHC.Tuple::(,,) {
+				null::a
+				null::s
+				null::w
+			}
+		}
+		<function> {
+			[parameters]
+			null::e
+		
+			[result]
+			null::m {
+				GHC.Tuple::(,,) {
+					null::a
+					null::s
+					null::w
+				}
+			}
+		}
+	
+		[result]
+		null::m {
+			GHC.Tuple::(,,) {
+				null::a
+				null::s
+				null::w
+			}
+		}
+	}
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::l
+		null::w
+		null::s
+		null::m
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::e
+	
+		[result]
+		Control.Monad.Trans.RWS.Lazy::RWST {
+			null::l
+			null::w
+			null::s
+			null::m
+			null::a
+		}
+	}
+
+	[result]
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::l
+		null::w
+		null::s
+		null::m
+		null::a
+	}
+}
+
+[Function]
+runRWS :: RWS r w s a -> r -> s -> (a, s, w)
+Name: runRWS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#v:runRWS
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+	w
+	s
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Monad.Trans.RWS.Lazy::RWS {
+		null::r
+		null::w
+		null::s
+		null::a
+	}
+	null::r
+	null::s
+
+	[result]
+	GHC.Tuple::(,,) {
+		null::a
+		null::s
+		null::w
+	}
+}
+
+[Function]
+gets :: (Monoid w, Monad m) => (s -> a) -> RWST r w s m a
+Name: gets
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#v:gets
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	w: (Monoid w; w; Data.Monoid::Monoid)
+	m: (Monad m; m; Control.Monad::Monad)
+	s
+	a
+	r
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::s
+	
+		[result]
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::r
+		null::w
+		null::s
+		null::m
+		null::a
+	}
+}
+
+[Function]
+execRWS :: RWS r w s a -> r -> s -> (s, w)
+Name: execRWS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#v:execRWS
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+	w
+	s
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Monad.Trans.RWS.Lazy::RWS {
+		null::r
+		null::w
+		null::s
+		null::a
+	}
+	null::r
+	null::s
+
+	[result]
+	GHC.Tuple::(,) {
+		null::s
+		null::w
+	}
+}
+
+[Function]
+get :: (Monoid w, Monad m) => RWST r w s m s
+Name: get
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#v:get
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	w: (Monoid w; w; Data.Monoid::Monoid)
+	m: (Monad m; m; Control.Monad::Monad)
+	r
+	s
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::r
+		null::w
+		null::s
+		null::m
+		null::s
+	}
+}
+
+[Function]
+pass :: (Monoid w, Monad m) => RWST r w s m (a, w -> w) -> RWST r w s m a
+Name: pass
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#v:pass
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	w: (Monoid w; w; Data.Monoid::Monoid)
+	m: (Monad m; m; Control.Monad::Monad)
+	r
+	s
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::r
+		null::w
+		null::s
+		null::m
+		GHC.Tuple::(,) {
+			null::a
+			<function> {
+				[parameters]
+				null::w
+			
+				[result]
+				null::w
+			}
+		}
+	}
+
+	[result]
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::r
+		null::w
+		null::s
+		null::m
+		null::a
+	}
+}
+
+[Function]
+put :: (Monoid w, Monad m) => s -> RWST r w s m ()
+Name: put
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#v:put
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	w: (Monoid w; w; Data.Monoid::Monoid)
+	m: (Monad m; m; Control.Monad::Monad)
+	s
+	r
+}
+Signature = <function> {
+	[parameters]
+	null::s
+
+	[result]
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::r
+		null::w
+		null::s
+		null::m
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+reader :: (Monoid w, Monad m) => (r -> a) -> RWST r w s m a
+Name: reader
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#v:reader
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	w: (Monoid w; w; Data.Monoid::Monoid)
+	m: (Monad m; m; Control.Monad::Monad)
+	r
+	a
+	s
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::r
+	
+		[result]
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::r
+		null::w
+		null::s
+		null::m
+		null::a
+	}
+}
+
+[Function]
+liftCallCC' :: Monoid w => ((((a, s, w) -> m (b, s, w)) -> m (a, s, w)) -> m (a, s, w)) -> ((a -> RWST r w s m b) -> RWST r w s m a) -> RWST r w s m a
+Name: liftCallCC'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#v:liftCallCC'
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	w: (Monoid w; w; Data.Monoid::Monoid)
+	a
+	s
+	m
+	b
+	r
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			<function> {
+				[parameters]
+				GHC.Tuple::(,,) {
+					null::a
+					null::s
+					null::w
+				}
+			
+				[result]
+				null::m {
+					GHC.Tuple::(,,) {
+						null::b
+						null::s
+						null::w
+					}
+				}
+			}
+		
+			[result]
+			null::m {
+				GHC.Tuple::(,,) {
+					null::a
+					null::s
+					null::w
+				}
+			}
+		}
+	
+		[result]
+		null::m {
+			GHC.Tuple::(,,) {
+				null::a
+				null::s
+				null::w
+			}
+		}
+	}
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			Control.Monad.Trans.RWS.Lazy::RWST {
+				null::r
+				null::w
+				null::s
+				null::m
+				null::b
+			}
+		}
+	
+		[result]
+		Control.Monad.Trans.RWS.Lazy::RWST {
+			null::r
+			null::w
+			null::s
+			null::m
+			null::a
+		}
+	}
+
+	[result]
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::r
+		null::w
+		null::s
+		null::m
+		null::a
+	}
+}
+
+[Function]
+listens :: (Monoid w, Monad m) => (w -> b) -> RWST r w s m a -> RWST r w s m (a, b)
+Name: listens
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#v:listens
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	w: (Monoid w; w; Data.Monoid::Monoid)
+	m: (Monad m; m; Control.Monad::Monad)
+	b
+	r
+	s
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::w
+	
+		[result]
+		null::b
+	}
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::r
+		null::w
+		null::s
+		null::m
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::r
+		null::w
+		null::s
+		null::m
+		GHC.Tuple::(,) {
+			null::a
+			null::b
+		}
+	}
+}
+
+[Function]
+withRWS :: (r' -> s -> (r, s)) -> RWS r w s a -> RWS r' w s a
+Name: withRWS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#v:withRWS
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r'
+	s
+	r
+	w
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::r'
+		null::s
+	
+		[result]
+		GHC.Tuple::(,) {
+			null::r
+			null::s
+		}
+	}
+	Control.Monad.Trans.RWS.Lazy::RWS {
+		null::r
+		null::w
+		null::s
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.RWS.Lazy::RWS {
+		null::r'
+		null::w
+		null::s
+		null::a
+	}
+}
+
+[Function]
+local :: (Monoid w, Monad m) => (r -> r) -> RWST r w s m a -> RWST r w s m a
+Name: local
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#v:local
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	w: (Monoid w; w; Data.Monoid::Monoid)
+	m: (Monad m; m; Control.Monad::Monad)
+	r
+	s
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::r
+	
+		[result]
+		null::r
+	}
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::r
+		null::w
+		null::s
+		null::m
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::r
+		null::w
+		null::s
+		null::m
+		null::a
+	}
+}
+
+[Function]
+evalRWS :: RWS r w s a -> r -> s -> (a, w)
+Name: evalRWS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#v:evalRWS
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+	w
+	s
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Monad.Trans.RWS.Lazy::RWS {
+		null::r
+		null::w
+		null::s
+		null::a
+	}
+	null::r
+	null::s
+
+	[result]
+	GHC.Tuple::(,) {
+		null::a
+		null::w
+	}
+}
+
+[Function]
+evalRWST :: Monad m => RWST r w s m a -> r -> s -> m (a, w)
+Name: evalRWST
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#v:evalRWST
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	r
+	w
+	s
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::r
+		null::w
+		null::s
+		null::m
+		null::a
+	}
+	null::r
+	null::s
+
+	[result]
+	null::m {
+		GHC.Tuple::(,) {
+			null::a
+			null::w
+		}
+	}
+}
+
+[Function]
+modify :: (Monoid w, Monad m) => (s -> s) -> RWST r w s m ()
+Name: modify
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#v:modify
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	w: (Monoid w; w; Data.Monoid::Monoid)
+	m: (Monad m; m; Control.Monad::Monad)
+	s
+	r
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::s
+	
+		[result]
+		null::s
+	}
+
+	[result]
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::r
+		null::w
+		null::s
+		null::m
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+tell :: (Monoid w, Monad m) => w -> RWST r w s m ()
+Name: tell
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#v:tell
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	w: (Monoid w; w; Data.Monoid::Monoid)
+	m: (Monad m; m; Control.Monad::Monad)
+	r
+	s
+}
+Signature = <function> {
+	[parameters]
+	null::w
+
+	[result]
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::r
+		null::w
+		null::s
+		null::m
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+listen :: (Monoid w, Monad m) => RWST r w s m a -> RWST r w s m (a, w)
+Name: listen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#v:listen
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	w: (Monoid w; w; Data.Monoid::Monoid)
+	m: (Monad m; m; Control.Monad::Monad)
+	r
+	s
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::r
+		null::w
+		null::s
+		null::m
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::r
+		null::w
+		null::s
+		null::m
+		GHC.Tuple::(,) {
+			null::a
+			null::w
+		}
+	}
+}
+
+[Function]
+asks :: (Monoid w, Monad m) => (r -> a) -> RWST r w s m a
+Name: asks
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#v:asks
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	w: (Monoid w; w; Data.Monoid::Monoid)
+	m: (Monad m; m; Control.Monad::Monad)
+	r
+	a
+	s
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::r
+	
+		[result]
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::r
+		null::w
+		null::s
+		null::m
+		null::a
+	}
+}
+
+[Function]
+liftCallCC :: Monoid w => ((((a, s, w) -> m (b, s, w)) -> m (a, s, w)) -> m (a, s, w)) -> ((a -> RWST r w s m b) -> RWST r w s m a) -> RWST r w s m a
+Name: liftCallCC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#v:liftCallCC
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	w: (Monoid w; w; Data.Monoid::Monoid)
+	a
+	s
+	m
+	b
+	r
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			<function> {
+				[parameters]
+				GHC.Tuple::(,,) {
+					null::a
+					null::s
+					null::w
+				}
+			
+				[result]
+				null::m {
+					GHC.Tuple::(,,) {
+						null::b
+						null::s
+						null::w
+					}
+				}
+			}
+		
+			[result]
+			null::m {
+				GHC.Tuple::(,,) {
+					null::a
+					null::s
+					null::w
+				}
+			}
+		}
+	
+		[result]
+		null::m {
+			GHC.Tuple::(,,) {
+				null::a
+				null::s
+				null::w
+			}
+		}
+	}
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			Control.Monad.Trans.RWS.Lazy::RWST {
+				null::r
+				null::w
+				null::s
+				null::m
+				null::b
+			}
+		}
+	
+		[result]
+		Control.Monad.Trans.RWS.Lazy::RWST {
+			null::r
+			null::w
+			null::s
+			null::m
+			null::a
+		}
+	}
+
+	[result]
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::r
+		null::w
+		null::s
+		null::m
+		null::a
+	}
+}
+
+[Function]
+state :: (Monoid w, Monad m) => (s -> (a, s)) -> RWST r w s m a
+Name: state
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#v:state
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	w: (Monoid w; w; Data.Monoid::Monoid)
+	m: (Monad m; m; Control.Monad::Monad)
+	s
+	a
+	r
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::s
+	
+		[result]
+		GHC.Tuple::(,) {
+			null::a
+			null::s
+		}
+	}
+
+	[result]
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::r
+		null::w
+		null::s
+		null::m
+		null::a
+	}
+}
+
+[Function]
+execRWST :: Monad m => RWST r w s m a -> r -> s -> m (s, w)
+Name: execRWST
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-RWS-Lazy.html#v:execRWST
+Containing package: Control.Monad.Trans.RWS.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	r
+	w
+	s
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Monad.Trans.RWS.Lazy::RWST {
+		null::r
+		null::w
+		null::s
+		null::m
+		null::a
+	}
+	null::r
+	null::s
+
+	[result]
+	null::m {
+		GHC.Tuple::(,) {
+			null::s
+			null::w
+		}
+	}
+}

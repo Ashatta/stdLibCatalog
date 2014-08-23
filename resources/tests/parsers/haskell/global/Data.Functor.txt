@@ -1,0 +1,205 @@
+[Package]
+Name: Data.Functor
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Functor.html
+Containing package: Data
+attributes {
+}
+
+Subpackages {
+	Data.Functor.Compose
+	Data.Functor.Constant
+	Data.Functor.Identity
+	Data.Functor.Product
+	Data.Functor.Reverse
+}
+
+[Classifier]
+class Functor f where fmap :: (a -> b) -> f a -> f b (<$) :: a -> f b -> f a
+Name: Functor
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Functor.html#t:Functor
+Containing package: Data.Functor
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	other::Data.Functor.Functor_List<curriedParam<>>
+	System.IO::Data.Functor.Functor_IO<>
+	Data.Maybe::Data.Functor.Functor_Maybe<>
+	Text.ParserCombinators.ReadP::Data.Functor.Functor_ReadP<>
+	Text.ParserCombinators.ReadPrec::Data.Functor.Functor_ReadPrec<>
+	GHC.Conc::Data.Functor.Functor_STM<>
+	Control.Exception::Data.Functor.Functor_Handler<>
+	Control.Applicative::Data.Functor.Functor_ZipList<>
+	System.Console.GetOpt::Data.Functor.Functor_ArgDescr<>
+	System.Console.GetOpt::Data.Functor.Functor_OptDescr<>
+	System.Console.GetOpt::Data.Functor.Functor_ArgOrder<>
+	other::Data.Functor.Functor_(->)<r<>>
+	Data.Either::Data.Functor.Functor_Either<a<>>
+	GHC.Tuple::Data.Functor.Functor_(,)<a<>>
+	Control.Monad.ST.Safe::Data.Functor.Functor_ST<s<>>
+	Data.Proxy::Data.Functor.Functor_Proxy<>
+	Control.Arrow::Data.Functor.Functor_ArrowMonad<a<>>
+	Control.Monad.ST.Lazy.Safe::Data.Functor.Functor_ST<s<>>
+	Control.Applicative::Data.Functor.Functor_WrappedMonad<m<>>
+	Control.Applicative::Data.Functor.Functor_Const<m<>>
+	Control.Applicative::Data.Functor.Functor_WrappedArrow<a<>,b<>>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	fmap :: (a -> b) -> f a -> f b
+	Name: fmap
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Functor.html#v:fmap
+	Containing package: Data.Functor
+	attributes {
+		memberType=function
+	}
+	Containing type: Functor
+	parameters {
+		a
+		b
+		f: (Functor f; f; Data.Functor::Functor)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			null::b
+		}
+		null::f {
+			null::a
+		}
+	
+		[result]
+		null::f {
+			null::b
+		}
+	}
+
+	[Function]
+	(<$) :: a -> f b -> f a
+	Name: (<$)
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Functor.html#v:(<$)
+	Containing package: Data.Functor
+	attributes {
+		memberType=function
+	}
+	Containing type: Functor
+	parameters {
+		a
+		f: (Functor f; f; Data.Functor::Functor)
+		b
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		null::f {
+			null::b
+		}
+	
+		[result]
+		null::f {
+			null::a
+		}
+	}
+}
+
+[Function]
+($>) :: Functor f => f a -> b -> f b
+Name: ($>)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Functor.html#v:($>)
+Containing package: Data.Functor
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	f: (Functor f; f; Data.Functor::Functor)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	null::f {
+		null::a
+	}
+	null::b
+
+	[result]
+	null::f {
+		null::b
+	}
+}
+
+[Function]
+void :: Functor f => f a -> f ()
+Name: void
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Functor.html#v:void
+Containing package: Data.Functor
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	f: (Functor f; f; Data.Functor::Functor)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::f {
+		null::a
+	}
+
+	[result]
+	null::f {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+(<$>) :: Functor f => (a -> b) -> f a -> f b
+Name: (<$>)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Functor.html#v:(<$>)
+Containing package: Data.Functor
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	f: (Functor f; f; Data.Functor::Functor)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::b
+	}
+	null::f {
+		null::a
+	}
+
+	[result]
+	null::f {
+		null::b
+	}
+}

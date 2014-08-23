@@ -1,0 +1,175 @@
+[Package]
+Name: Distribution.TestSuite
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-TestSuite.html
+Containing package: Distribution
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data Test = Test TestInstance | Group { groupName :: String concurrently :: Bool groupTests :: [Test] } | ExtraOptions [OptionDescr] Test
+Name: Test
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-TestSuite.html#t:Test
+Containing package: Distribution.TestSuite
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Result = Pass | Fail String | Error String
+Name: Result
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-TestSuite.html#t:Result
+Containing package: Distribution.TestSuite
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Progress = Finished Result | Progress String (IO Progress)
+Name: Progress
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-TestSuite.html#t:Progress
+Containing package: Distribution.TestSuite
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TestInstance = TestInstance { run :: IO Progress name :: String tags :: [String] options :: [OptionDescr] setOption :: String -> String -> Either String TestInstance}
+Name: TestInstance
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-TestSuite.html#t:TestInstance
+Containing package: Distribution.TestSuite
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data OptionType = OptionFile { optionFileMustExist :: Bool optionFileIsDir :: Bool optionFileExtensions :: [String] } | OptionString { optionStringMultiline :: Bool } | OptionNumber { optionNumberIsInt :: Bool optionNumberBounds :: (Maybe String, Maybe String) } | OptionBool | OptionEnum [String] | OptionSet [String] | OptionRngSeed
+Name: OptionType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-TestSuite.html#t:OptionType
+Containing package: Distribution.TestSuite
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data OptionDescr = OptionDescr { optionName :: String optionDescription :: String optionType :: OptionType optionDefault :: Maybe String}
+Name: OptionDescr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-TestSuite.html#t:OptionDescr
+Containing package: Distribution.TestSuite
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type Options = [(String, String)]
+Name: Options
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-TestSuite.html#t:Options
+Containing package: Distribution.TestSuite
+attributes {
+}
+parameters {
+}
+Aliased type = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			Data.String::String
+			Data.String::String
+		}
+	}
+}
+
+[Function]
+testGroup :: String -> [Test] -> Test
+Name: testGroup
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-TestSuite.html#v:testGroup
+Containing package: Distribution.TestSuite
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	other::List {
+		Distribution.TestSuite::Test
+	}
+
+	[result]
+	Distribution.TestSuite::Test
+}

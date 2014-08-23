@@ -1,0 +1,6222 @@
+[Package]
+Name: Prelude
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html
+Containing package: null
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data Either a b = Left a | Right b
+Name: Either
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:Either
+Containing package: Prelude
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+	b
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Bool :: * = False | True
+Name: Bool
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:Bool
+Containing package: Prelude
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class Eq a => Ord a where compare :: a -> a -> Ordering (<) :: a -> a -> Bool (>=) :: a -> a -> Bool (>) :: a -> a -> Bool (<=) :: a -> a -> Bool max :: a -> a -> a min :: a -> a -> a
+Name: Ord
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:Ord
+Containing package: Prelude
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Ix::Ix
+	Prelude::Real
+	Array::Prelude.Ord_Array<i<>,e<>>
+	Char::Prelude.Ord_Char<>
+	Directory::Prelude.Ord_Permissions<>
+	IO::Prelude.Ord_IOMode<>
+	IO::Prelude.Ord_BufferMode<>
+	IO::Prelude.Ord_SeekMode<>
+	Locale::Prelude.Ord_TimeLocale<>
+	Maybe::Prelude.Ord_Maybe<a<>>
+	Prelude::Prelude.Ord_Bool<>
+	Prelude::Prelude.Ord_Maybe<a<>>
+	Prelude::Prelude.Ord_Either<a<>,b<>>
+	Prelude::Prelude.Ord_Ordering<>
+	Prelude::Prelude.Ord_Char<>
+	Prelude::Prelude.Ord_Double<>
+	Prelude::Prelude.Ord_Float<>
+	Prelude::Prelude.Ord_Int<>
+	Data.Int::Prelude.Ord_Int8<>
+	Data.Int::Prelude.Ord_Int16<>
+	Data.Int::Prelude.Ord_Int32<>
+	Data.Int::Prelude.Ord_Int64<>
+	Prelude::Prelude.Ord_Integer<>
+	Data.Word::Prelude.Ord_Word<>
+	Data.Word::Prelude.Ord_Word8<>
+	Data.Word::Prelude.Ord_Word16<>
+	Data.Word::Prelude.Ord_Word32<>
+	Data.Word::Prelude.Ord_Word64<>
+	GHC.Tuple::Prelude.Ord_()<>
+	GHC.Fingerprint.Type::Prelude.Ord_Fingerprint<>
+	Data.Typeable.Internal::Prelude.Ord_TyCon<>
+	Data.Typeable.Internal::Prelude.Ord_TypeRep<>
+	GHC.Generics::Prelude.Ord_Associativity<>
+	GHC.Generics::Prelude.Ord_Fixity<>
+	GHC.Generics::Prelude.Ord_Arity<>
+	Data.Monoid::Prelude.Ord_Any<>
+	Data.Monoid::Prelude.Ord_All<>
+	Control.Exception.Base::Prelude.Ord_ArithException<>
+	Control.Exception.Base::Prelude.Ord_ErrorCall<>
+	Foreign.C.Types::Prelude.Ord_CUIntMax<>
+	Foreign.C.Types::Prelude.Ord_CIntMax<>
+	Foreign.C.Types::Prelude.Ord_CUIntPtr<>
+	Foreign.C.Types::Prelude.Ord_CIntPtr<>
+	Foreign.C.Types::Prelude.Ord_CSUSeconds<>
+	Foreign.C.Types::Prelude.Ord_CUSeconds<>
+	Foreign.C.Types::Prelude.Ord_CTime<>
+	Foreign.C.Types::Prelude.Ord_CClock<>
+	Foreign.C.Types::Prelude.Ord_CSigAtomic<>
+	Foreign.C.Types::Prelude.Ord_CWchar<>
+	Foreign.C.Types::Prelude.Ord_CSize<>
+	Foreign.C.Types::Prelude.Ord_CPtrdiff<>
+	Foreign.C.Types::Prelude.Ord_CDouble<>
+	Foreign.C.Types::Prelude.Ord_CFloat<>
+	Foreign.C.Types::Prelude.Ord_CULLong<>
+	Foreign.C.Types::Prelude.Ord_CLLong<>
+	Foreign.C.Types::Prelude.Ord_CULong<>
+	Foreign.C.Types::Prelude.Ord_CLong<>
+	Foreign.C.Types::Prelude.Ord_CUInt<>
+	Foreign.C.Types::Prelude.Ord_CInt<>
+	Foreign.C.Types::Prelude.Ord_CUShort<>
+	Foreign.C.Types::Prelude.Ord_CShort<>
+	Foreign.C.Types::Prelude.Ord_CUChar<>
+	Foreign.C.Types::Prelude.Ord_CSChar<>
+	Foreign.C.Types::Prelude.Ord_CChar<>
+	Data.Char::Prelude.Ord_GeneralCategory<>
+	Foreign.Ptr::Prelude.Ord_IntPtr<>
+	Foreign.Ptr::Prelude.Ord_WordPtr<>
+	GHC.IO.Device::Prelude.Ord_SeekMode<>
+	GHC.IO.Handle::Prelude.Ord_NewlineMode<>
+	GHC.IO.Handle::Prelude.Ord_Newline<>
+	GHC.IO.Handle::Prelude.Ord_BufferMode<>
+	System.Exit::Prelude.Ord_ExitCode<>
+	Control.Exception.Base::Prelude.Ord_ArrayException<>
+	Control.Exception.Base::Prelude.Ord_AsyncException<>
+	System.Posix.Types::Prelude.Ord_Fd<>
+	System.Posix.Types::Prelude.Ord_CRLim<>
+	System.Posix.Types::Prelude.Ord_CTcflag<>
+	System.Posix.Types::Prelude.Ord_CSpeed<>
+	System.Posix.Types::Prelude.Ord_CCc<>
+	System.Posix.Types::Prelude.Ord_CUid<>
+	System.Posix.Types::Prelude.Ord_CNlink<>
+	System.Posix.Types::Prelude.Ord_CGid<>
+	System.Posix.Types::Prelude.Ord_CSsize<>
+	System.Posix.Types::Prelude.Ord_CPid<>
+	System.Posix.Types::Prelude.Ord_COff<>
+	System.Posix.Types::Prelude.Ord_CMode<>
+	System.Posix.Types::Prelude.Ord_CIno<>
+	System.Posix.Types::Prelude.Ord_CDev<>
+	GHC.Conc::Prelude.Ord_ThreadStatus<>
+	GHC.Conc::Prelude.Ord_BlockReason<>
+	Control.Concurrent::Prelude.Ord_ThreadId<>
+	System.IO::Prelude.Ord_IOMode<>
+	Data.OldTypeable.Internal::Prelude.Ord_TyCon<>
+	Data.OldTypeable.Internal::Prelude.Ord_TypeRep<>
+	Data.OldTypeable::Prelude.Ord_TypeRepKey<>
+	GHC.TypeLits::Prelude.Ord_SomeSymbol<>
+	GHC.TypeLits::Prelude.Ord_SomeNat<>
+	Data.Version::Prelude.Ord_Version<>
+	Data.Unique::Prelude.Ord_Unique<>
+	other::Prelude.Ord_List<a<>>
+	Data.Ratio::Prelude.Ord_Ratio<a<>>
+	Foreign.Ptr::Prelude.Ord_Ptr<a<>>
+	Foreign.Ptr::Prelude.Ord_FunPtr<a<>>
+	GHC.Generics::Prelude.Ord_U1<p<>>
+	GHC.Generics::Prelude.Ord_Par1<p<>>
+	Data.Ord::Prelude.Ord_Down<a<>>
+	Data.Monoid::Prelude.Ord_Last<a<>>
+	Data.Monoid::Prelude.Ord_First<a<>>
+	Data.Monoid::Prelude.Ord_Product<a<>>
+	Data.Monoid::Prelude.Ord_Sum<a<>>
+	Data.Monoid::Prelude.Ord_Dual<a<>>
+	Foreign.ForeignPtr.Safe::Prelude.Ord_ForeignPtr<a<>>
+	Control.Applicative::Prelude.Ord_ZipList<a<>>
+	Data.Fixed::Prelude.Ord_Fixed<a<>>
+	GHC.Generics::Prelude.Ord_Rec1<f<>,p<>>
+	GHC.Tuple::Prelude.Ord_(,,,)<a<>,b<>>
+	Data.Proxy::Prelude.Ord_Proxy<s<>>
+	GHC.Generics::Prelude.Ord_K1<i<>,c<>,p<>>
+	GHC.Generics::Prelude.Ord_(:+:)<f<>,g<>,p<>>
+	GHC.Generics::Prelude.Ord_(:*:)<f<>,g<>,p<>>
+	GHC.Generics::Prelude.Ord_(:.:)<f<>,g<>,p<>>
+	GHC.Tuple::Prelude.Ord_(,,,,)<a<>,b<>,c<>>
+	Data.Type.Equality::Prelude.Ord_(:~:)<a<>,b<>>
+	Data.Type.Coercion::Prelude.Ord_Coercion<a<>,b<>>
+	GHC.Generics::Prelude.Ord_M1<i<>,c<>,f<>,p<>>
+	GHC.Tuple::Prelude.Ord_(,,,,,)<a<>,b<>,c<>,d<>>
+	GHC.Tuple::Prelude.Ord_(,,,,,,)<a<>,b<>,c<>,d<>,e<>>
+	GHC.Tuple::Prelude.Ord_(,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>>
+	GHC.Tuple::Prelude.Ord_(,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>>
+	GHC.Tuple::Prelude.Ord_(,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>>
+	GHC.Tuple::Prelude.Ord_(,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>>
+	GHC.Tuple::Prelude.Ord_(,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>>
+	GHC.Tuple::Prelude.Ord_(,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>>
+	GHC.Tuple::Prelude.Ord_(,,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>,l<>>
+	GHC.Tuple::Prelude.Ord_(,,,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>,l<>,m<>>
+	GHC.Tuple::Prelude.Ord_(,,,,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>,l<>,m<>,n<>>
+	GHC.Tuple::Prelude.Ord_(,,,,,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>,l<>,m<>,n<>,o<>>
+	Ratio::Prelude.Ord_Ratio<a<>>
+	System::Prelude.Ord_ExitCode<>
+	Time::Prelude.Ord_ClockTime<>
+	Time::Prelude.Ord_Month<>
+	Time::Prelude.Ord_Day<>
+	Time::Prelude.Ord_CalendarTime<>
+	Time::Prelude.Ord_TimeDiff<>
+}
+supertypes {
+	Prelude::Eq
+}
+members {
+
+	[Function]
+	compare :: a -> a -> Ordering
+	Name: compare
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:compare
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Ord
+	parameters {
+		a: (Ord a; a; Prelude::Ord)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		Prelude::Ordering
+	}
+
+	[Function]
+	(<) :: a -> a -> Bool
+	Name: (<)
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:(<)
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Ord
+	parameters {
+		a: (Ord a; a; Prelude::Ord)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		Prelude::Bool
+	}
+
+	[Function]
+	(>=) :: a -> a -> Bool
+	Name: (>=)
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:(>=)
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Ord
+	parameters {
+		a: (Ord a; a; Prelude::Ord)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		Prelude::Bool
+	}
+
+	[Function]
+	(>) :: a -> a -> Bool
+	Name: (>)
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:(>)
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Ord
+	parameters {
+		a: (Ord a; a; Prelude::Ord)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		Prelude::Bool
+	}
+
+	[Function]
+	(<=) :: a -> a -> Bool
+	Name: (<=)
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:(<=)
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Ord
+	parameters {
+		a: (Ord a; a; Prelude::Ord)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		Prelude::Bool
+	}
+
+	[Function]
+	max :: a -> a -> a
+	Name: max
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:max
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Ord
+	parameters {
+		a: (Ord a; a; Prelude::Ord)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	min :: a -> a -> a
+	Name: min
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:min
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Ord
+	parameters {
+		a: (Ord a; a; Prelude::Ord)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+}
+
+[Classifier]
+data Integer :: *
+Name: Int
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:Int
+Containing package: Prelude
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class (RealFrac a, Floating a) => RealFloat a where floatRadix :: a -> Integer floatDigits :: a -> Int floatRange :: a -> (Int, Int) decodeFloat :: a -> (Integer, Int) encodeFloat :: Integer -> Int -> a exponent :: a -> Int significand :: a -> a scaleFloat :: Int -> a -> a isNaN :: a -> Bool isInfinite :: a -> Bool isDenormalized :: a -> Bool isNegativeZero :: a -> Bool isIEEE :: a -> Bool atan2 :: a -> a -> a
+Name: RealFloat
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:RealFloat
+Containing package: Prelude
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Foreign.C.Types::Prelude.RealFloat_CFloat<>
+	Foreign.C.Types::Prelude.RealFloat_CDouble<>
+	GHC.Exts::Prelude.RealFloat_Float<>
+	GHC.Exts::Prelude.RealFloat_Double<>
+	Prelude::Prelude.RealFloat_Float<>
+	Prelude::Prelude.RealFloat_Double<>
+}
+supertypes {
+	Prelude::RealFrac
+	Prelude::Floating
+}
+members {
+
+	[Function]
+	floatRadix :: a -> Integer
+	Name: floatRadix
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:floatRadix
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: RealFloat
+	parameters {
+		a: (RealFloat a; a; Prelude::RealFloat)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Prelude::Integer
+	}
+
+	[Function]
+	floatDigits :: a -> Int
+	Name: floatDigits
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:floatDigits
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: RealFloat
+	parameters {
+		a: (RealFloat a; a; Prelude::RealFloat)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Prelude::Int
+	}
+
+	[Function]
+	floatRange :: a -> (Int, Int)
+	Name: floatRange
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:floatRange
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: RealFloat
+	parameters {
+		a: (RealFloat a; a; Prelude::RealFloat)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		GHC.Tuple::(,) {
+			Prelude::Int
+			Prelude::Int
+		}
+	}
+
+	[Function]
+	decodeFloat :: a -> (Integer, Int)
+	Name: decodeFloat
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:decodeFloat
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: RealFloat
+	parameters {
+		a: (RealFloat a; a; Prelude::RealFloat)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		GHC.Tuple::(,) {
+			Prelude::Integer
+			Prelude::Int
+		}
+	}
+
+	[Function]
+	encodeFloat :: Integer -> Int -> a
+	Name: encodeFloat
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:encodeFloat
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: RealFloat
+	parameters {
+		a: (RealFloat a; a; Prelude::RealFloat)
+	}
+	Signature = <function> {
+		[parameters]
+		Prelude::Integer
+		Prelude::Int
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	exponent :: a -> Int
+	Name: exponent
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:exponent
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: RealFloat
+	parameters {
+		a: (RealFloat a; a; Prelude::RealFloat)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Prelude::Int
+	}
+
+	[Function]
+	significand :: a -> a
+	Name: significand
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:significand
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: RealFloat
+	parameters {
+		a: (RealFloat a; a; Prelude::RealFloat)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	scaleFloat :: Int -> a -> a
+	Name: scaleFloat
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:scaleFloat
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: RealFloat
+	parameters {
+		a: (RealFloat a; a; Prelude::RealFloat)
+	}
+	Signature = <function> {
+		[parameters]
+		Prelude::Int
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	isNaN :: a -> Bool
+	Name: isNaN
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:isNaN
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: RealFloat
+	parameters {
+		a: (RealFloat a; a; Prelude::RealFloat)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Prelude::Bool
+	}
+
+	[Function]
+	isInfinite :: a -> Bool
+	Name: isInfinite
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:isInfinite
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: RealFloat
+	parameters {
+		a: (RealFloat a; a; Prelude::RealFloat)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Prelude::Bool
+	}
+
+	[Function]
+	isDenormalized :: a -> Bool
+	Name: isDenormalized
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:isDenormalized
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: RealFloat
+	parameters {
+		a: (RealFloat a; a; Prelude::RealFloat)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Prelude::Bool
+	}
+
+	[Function]
+	isNegativeZero :: a -> Bool
+	Name: isNegativeZero
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:isNegativeZero
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: RealFloat
+	parameters {
+		a: (RealFloat a; a; Prelude::RealFloat)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Prelude::Bool
+	}
+
+	[Function]
+	isIEEE :: a -> Bool
+	Name: isIEEE
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:isIEEE
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: RealFloat
+	parameters {
+		a: (RealFloat a; a; Prelude::RealFloat)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Prelude::Bool
+	}
+
+	[Function]
+	atan2 :: a -> a -> a
+	Name: atan2
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:atan2
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: RealFloat
+	parameters {
+		a: (RealFloat a; a; Prelude::RealFloat)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+}
+
+[Classifier]
+data Maybe a = Nothing | Just a
+Name: Maybe
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:Maybe
+Containing package: Prelude
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Float :: *
+Name: Float
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:Float
+Containing package: Prelude
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class Functor f where fmap :: (a -> b) -> f a -> f b
+Name: Functor
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:Functor
+Containing package: Prelude
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Array::Prelude.Functor_Array<i<>>
+	IO::Prelude.Functor_IO<>
+	Maybe::Prelude.Functor_Maybe<>
+	Prelude::Prelude.Functor_Maybe<>
+	Prelude::Prelude.Functor_Either<a<>>
+	other::Prelude.Functor_List<curriedParam<>>
+	Prelude::Prelude.Functor_IO<>
+	Text.ParserCombinators.ReadP::Prelude.Functor_ReadP<>
+	Text.ParserCombinators.ReadPrec::Prelude.Functor_ReadPrec<>
+	GHC.Conc::Prelude.Functor_STM<>
+	Control.Exception::Prelude.Functor_Handler<>
+	Control.Applicative::Prelude.Functor_ZipList<>
+	System.Console.GetOpt::Prelude.Functor_ArgDescr<>
+	System.Console.GetOpt::Prelude.Functor_OptDescr<>
+	System.Console.GetOpt::Prelude.Functor_ArgOrder<>
+	other::Prelude.Functor_(->)<r<>>
+	GHC.Tuple::Prelude.Functor_(,)<a<>>
+	Control.Monad.ST.Safe::Prelude.Functor_ST<s<>>
+	Data.Proxy::Prelude.Functor_Proxy<>
+	Control.Arrow::Prelude.Functor_ArrowMonad<a<>>
+	Control.Monad.ST.Lazy.Safe::Prelude.Functor_ST<s<>>
+	Control.Applicative::Prelude.Functor_WrappedMonad<m<>>
+	Control.Applicative::Prelude.Functor_Const<m<>>
+	Control.Applicative::Prelude.Functor_WrappedArrow<a<>,b<>>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	fmap :: (a -> b) -> f a -> f b
+	Name: fmap
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:fmap
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Functor
+	parameters {
+		a
+		b
+		f: (Functor f; f; Prelude::Functor)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			null::b
+		}
+		null::f {
+			null::a
+		}
+	
+		[result]
+		null::f {
+			null::b
+		}
+	}
+}
+
+[Classifier]
+class (Real a, Fractional a) => RealFrac a where properFraction :: Integral b => a -> (b, a) truncate :: Integral b => a -> b round :: Integral b => a -> b ceiling :: Integral b => a -> b floor :: Integral b => a -> b
+Name: RealFrac
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:RealFrac
+Containing package: Prelude
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Prelude::RealFloat
+	Data.Fixed::Prelude.RealFrac_Fixed<a<>>
+	Data.Ratio::Prelude.RealFrac_Ratio<a<>>
+	Data.Time.Clock::Prelude.RealFrac_DiffTime<>
+	Data.Time.Clock::Prelude.RealFrac_NominalDiffTime<>
+	Foreign.C.Types::Prelude.RealFrac_CFloat<>
+	Foreign.C.Types::Prelude.RealFrac_CDouble<>
+	GHC.Exts::Prelude.RealFrac_Float<>
+	GHC.Exts::Prelude.RealFrac_Double<>
+	Prelude::Prelude.RealFrac_Float<>
+	Prelude::Prelude.RealFrac_Double<>
+	Ratio::Prelude.RealFrac_Ratio<a<>>
+}
+supertypes {
+	Prelude::Real
+	Prelude::Fractional
+}
+members {
+
+	[Function]
+	properFraction :: Integral b => a -> (b, a)
+	Name: properFraction
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:properFraction
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: RealFrac
+	parameters {
+		b: (Integral b; b; Prelude::Integral)
+		a: (RealFrac a; a; Prelude::RealFrac)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		GHC.Tuple::(,) {
+			null::b
+			null::a
+		}
+	}
+
+	[Function]
+	truncate :: Integral b => a -> b
+	Name: truncate
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:truncate
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: RealFrac
+	parameters {
+		b: (Integral b; b; Prelude::Integral)
+		a: (RealFrac a; a; Prelude::RealFrac)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::b
+	}
+
+	[Function]
+	round :: Integral b => a -> b
+	Name: round
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:round
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: RealFrac
+	parameters {
+		b: (Integral b; b; Prelude::Integral)
+		a: (RealFrac a; a; Prelude::RealFrac)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::b
+	}
+
+	[Function]
+	ceiling :: Integral b => a -> b
+	Name: ceiling
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:ceiling
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: RealFrac
+	parameters {
+		b: (Integral b; b; Prelude::Integral)
+		a: (RealFrac a; a; Prelude::RealFrac)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::b
+	}
+
+	[Function]
+	floor :: Integral b => a -> b
+	Name: floor
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:floor
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: RealFrac
+	parameters {
+		b: (Integral b; b; Prelude::Integral)
+		a: (RealFrac a; a; Prelude::RealFrac)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::b
+	}
+}
+
+[Classifier]
+data Ordering :: * = LT | EQ | GT
+Name: Ordering
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:Ordering
+Containing package: Prelude
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class Num a => Fractional a where (/) :: a -> a -> a recip :: a -> a fromRational :: Rational -> a
+Name: Fractional
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:Fractional
+Containing package: Prelude
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Prelude::Floating
+	Prelude::RealFrac
+	Complex::Prelude.Fractional_Complex<a<>>
+	Data.Complex::Prelude.Fractional_Complex<a<>>
+	Data.Fixed::Prelude.Fractional_Fixed<a<>>
+	Data.Ratio::Prelude.Fractional_Ratio<a<>>
+	Data.Time.Clock::Prelude.Fractional_DiffTime<>
+	Data.Time.Clock::Prelude.Fractional_NominalDiffTime<>
+	Foreign.C.Types::Prelude.Fractional_CFloat<>
+	Foreign.C.Types::Prelude.Fractional_CDouble<>
+	GHC.Exts::Prelude.Fractional_Float<>
+	GHC.Exts::Prelude.Fractional_Double<>
+	Prelude::Prelude.Fractional_Float<>
+	Prelude::Prelude.Fractional_Double<>
+	Ratio::Prelude.Fractional_Ratio<a<>>
+}
+supertypes {
+	Prelude::Num
+}
+members {
+
+	[Function]
+	(/) :: a -> a -> a
+	Name: (/)
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:(/)
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Fractional
+	parameters {
+		a: (Fractional a; a; Prelude::Fractional)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	recip :: a -> a
+	Name: recip
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:recip
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Fractional
+	parameters {
+		a: (Fractional a; a; Prelude::Fractional)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	fromRational :: Rational -> a
+	Name: fromRational
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:fromRational
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Fractional
+	parameters {
+		a: (Fractional a; a; Prelude::Fractional)
+	}
+	Signature = <function> {
+		[parameters]
+		Prelude::Rational
+	
+		[result]
+		null::a
+	}
+}
+
+[Classifier]
+data Char :: *
+Name: Char
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:Char
+Containing package: Prelude
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class Enum a where succ :: a -> a pred :: a -> a toEnum :: Int -> a fromEnum :: a -> Int enumFrom :: a -> [a] enumFromThen :: a -> a -> [a] enumFromTo :: a -> a -> [a] enumFromThenTo :: a -> a -> a -> [a]
+Name: Enum
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:Enum
+Containing package: Prelude
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Prelude::Integral
+	Char::Prelude.Enum_Char<>
+	Data.Bool::Prelude.Enum_Bool<>
+	Data.Char::Prelude.Enum_Char<>
+	Data.Char::Prelude.Enum_GeneralCategory<>
+	Data.Fixed::Prelude.Enum_Fixed<a<>>
+	Data.Int::Prelude.Enum_Int<>
+	Data.Int::Prelude.Enum_Int8<>
+	Data.Int::Prelude.Enum_Int16<>
+	Data.Int::Prelude.Enum_Int32<>
+	Data.Int::Prelude.Enum_Int64<>
+	Data.Ord::Prelude.Enum_Ordering<>
+	Data.Proxy::Prelude.Enum_Proxy<s<>>
+	Data.Ratio::Prelude.Enum_Ratio<a<>>
+	Data.Time.Calendar::Prelude.Enum_Day<>
+	Data.Time.Clock::Prelude.Enum_DiffTime<>
+	Data.Time.Clock::Prelude.Enum_NominalDiffTime<>
+	Data.Type.Coercion::Prelude.Enum_Coercion<a<>,b<>>
+	Data.Type.Equality::Prelude.Enum_(:~:)<a<>,b<>>
+	Data.Typeable.Internal::Prelude.Enum_Proxy<s<>>
+	Data.Typeable::Prelude.Enum_(:~:)<a<>,b<>>
+	Data.Typeable::Prelude.Enum_Proxy<s<>>
+	Data.Word::Prelude.Enum_Word<>
+	Data.Word::Prelude.Enum_Word8<>
+	Data.Word::Prelude.Enum_Word16<>
+	Data.Word::Prelude.Enum_Word32<>
+	Data.Word::Prelude.Enum_Word64<>
+	Distribution.Simple.Compiler::Prelude.Enum_OptimisationLevel<>
+	Distribution.Simple.Setup::Prelude.Enum_TestShowDetails<>
+	Distribution.Simple.Setup::Prelude.Enum_Flag<a<>>
+	Distribution.Verbosity::Prelude.Enum_Verbosity<>
+	Foreign.C.Types::Prelude.Enum_CChar<>
+	Foreign.C.Types::Prelude.Enum_CSChar<>
+	Foreign.C.Types::Prelude.Enum_CUChar<>
+	Foreign.C.Types::Prelude.Enum_CShort<>
+	Foreign.C.Types::Prelude.Enum_CUShort<>
+	Foreign.C.Types::Prelude.Enum_CInt<>
+	Foreign.C.Types::Prelude.Enum_CUInt<>
+	Foreign.C.Types::Prelude.Enum_CLong<>
+	Foreign.C.Types::Prelude.Enum_CULong<>
+	Foreign.C.Types::Prelude.Enum_CPtrdiff<>
+	Foreign.C.Types::Prelude.Enum_CSize<>
+	Foreign.C.Types::Prelude.Enum_CWchar<>
+	Foreign.C.Types::Prelude.Enum_CSigAtomic<>
+	Foreign.C.Types::Prelude.Enum_CLLong<>
+	Foreign.C.Types::Prelude.Enum_CULLong<>
+	Foreign.C.Types::Prelude.Enum_CIntPtr<>
+	Foreign.C.Types::Prelude.Enum_CUIntPtr<>
+	Foreign.C.Types::Prelude.Enum_CIntMax<>
+	Foreign.C.Types::Prelude.Enum_CUIntMax<>
+	Foreign.C.Types::Prelude.Enum_CClock<>
+	Foreign.C.Types::Prelude.Enum_CTime<>
+	Foreign.C.Types::Prelude.Enum_CUSeconds<>
+	Foreign.C.Types::Prelude.Enum_CSUSeconds<>
+	Foreign.C.Types::Prelude.Enum_CFloat<>
+	Foreign.C.Types::Prelude.Enum_CDouble<>
+	Foreign.Ptr::Prelude.Enum_IntPtr<>
+	Foreign.Ptr::Prelude.Enum_WordPtr<>
+	GHC.Exts::Prelude.Enum_Int<>
+	GHC.Exts::Prelude.Enum_Word<>
+	GHC.Exts::Prelude.Enum_Float<>
+	GHC.Exts::Prelude.Enum_Double<>
+	GHC.Exts::Prelude.Enum_Char<>
+	GHC.IO.Device::Prelude.Enum_SeekMode<>
+	GHC.IO.Handle::Prelude.Enum_SeekMode<>
+	IO::Prelude.Enum_IOMode<>
+	IO::Prelude.Enum_SeekMode<>
+	Language.Haskell.Extension::Prelude.Enum_KnownExtension<>
+	Prelude::Prelude.Enum_Bool<>
+	Prelude::Prelude.Enum_Ordering<>
+	Prelude::Prelude.Enum_Char<>
+	Prelude::Prelude.Enum_Double<>
+	Prelude::Prelude.Enum_Float<>
+	Prelude::Prelude.Enum_Int<>
+	Prelude::Prelude.Enum_Integer<>
+	GHC.Tuple::Prelude.Enum_()<>
+	System.Posix.Types::Prelude.Enum_Fd<>
+	System.Posix.Types::Prelude.Enum_CRLim<>
+	System.Posix.Types::Prelude.Enum_CTcflag<>
+	System.Posix.Types::Prelude.Enum_CSpeed<>
+	System.Posix.Types::Prelude.Enum_CCc<>
+	System.Posix.Types::Prelude.Enum_CUid<>
+	System.Posix.Types::Prelude.Enum_CNlink<>
+	System.Posix.Types::Prelude.Enum_CGid<>
+	System.Posix.Types::Prelude.Enum_CSsize<>
+	System.Posix.Types::Prelude.Enum_CPid<>
+	System.Posix.Types::Prelude.Enum_COff<>
+	System.Posix.Types::Prelude.Enum_CMode<>
+	System.Posix.Types::Prelude.Enum_CIno<>
+	System.Posix.Types::Prelude.Enum_CDev<>
+	System.IO::Prelude.Enum_IOMode<>
+	Ratio::Prelude.Enum_Ratio<a<>>
+	System.IO::Prelude.Enum_SeekMode<>
+	System.Time::Prelude.Enum_Month<>
+	System.Time::Prelude.Enum_Day<>
+	System.Win32.SimpleMAPI::Prelude.Enum_RecipientClass<>
+	Time::Prelude.Enum_Month<>
+	Time::Prelude.Enum_Day<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	succ :: a -> a
+	Name: succ
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:succ
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Enum
+	parameters {
+		a: (Enum a; a; Prelude::Enum)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	pred :: a -> a
+	Name: pred
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:pred
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Enum
+	parameters {
+		a: (Enum a; a; Prelude::Enum)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	toEnum :: Int -> a
+	Name: toEnum
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:toEnum
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Enum
+	parameters {
+		a: (Enum a; a; Prelude::Enum)
+	}
+	Signature = <function> {
+		[parameters]
+		Prelude::Int
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	fromEnum :: a -> Int
+	Name: fromEnum
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:fromEnum
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Enum
+	parameters {
+		a: (Enum a; a; Prelude::Enum)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Prelude::Int
+	}
+
+	[Function]
+	enumFrom :: a -> [a]
+	Name: enumFrom
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:enumFrom
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Enum
+	parameters {
+		a: (Enum a; a; Prelude::Enum)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		other::List {
+			null::a
+		}
+	}
+
+	[Function]
+	enumFromThen :: a -> a -> [a]
+	Name: enumFromThen
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:enumFromThen
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Enum
+	parameters {
+		a: (Enum a; a; Prelude::Enum)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		other::List {
+			null::a
+		}
+	}
+
+	[Function]
+	enumFromTo :: a -> a -> [a]
+	Name: enumFromTo
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:enumFromTo
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Enum
+	parameters {
+		a: (Enum a; a; Prelude::Enum)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		other::List {
+			null::a
+		}
+	}
+
+	[Function]
+	enumFromThenTo :: a -> a -> a -> [a]
+	Name: enumFromThenTo
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:enumFromThenTo
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Enum
+	parameters {
+		a: (Enum a; a; Prelude::Enum)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		null::a
+		null::a
+	
+		[result]
+		other::List {
+			null::a
+		}
+	}
+}
+
+[Classifier]
+data IO a :: * -> *
+Name: IO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:IO
+Containing package: Prelude
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class Eq a where (==) :: a -> a -> Bool (/=) :: a -> a -> Bool
+Name: Eq
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:Eq
+Containing package: Prelude
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Prelude::Ord
+	Array::Prelude.Eq_Array<i<>,e<>>
+	Char::Prelude.Eq_Char<>
+	Complex::Prelude.Eq_Complex<a<>>
+	Directory::Prelude.Eq_Permissions<>
+	IO::Prelude.Eq_Handle<>
+	IO::Prelude.Eq_HandlePosn<>
+	IO::Prelude.Eq_IOMode<>
+	IO::Prelude.Eq_BufferMode<>
+	IO::Prelude.Eq_SeekMode<>
+	Locale::Prelude.Eq_TimeLocale<>
+	MarshalError::Prelude.Eq_IOErrorType<>
+	Maybe::Prelude.Eq_Maybe<a<>>
+	Prelude::Prelude.Eq_Bool<>
+	Prelude::Prelude.Eq_Maybe<a<>>
+	Prelude::Prelude.Eq_Either<a<>,b<>>
+	Prelude::Prelude.Eq_Ordering<>
+	Prelude::Prelude.Eq_Char<>
+	Prelude::Prelude.Eq_Double<>
+	Prelude::Prelude.Eq_Float<>
+	Prelude::Prelude.Eq_Int<>
+	Data.Int::Prelude.Eq_Int8<>
+	Data.Int::Prelude.Eq_Int16<>
+	Data.Int::Prelude.Eq_Int32<>
+	Data.Int::Prelude.Eq_Int64<>
+	Prelude::Prelude.Eq_Integer<>
+	Data.Word::Prelude.Eq_Word<>
+	Data.Word::Prelude.Eq_Word8<>
+	Data.Word::Prelude.Eq_Word16<>
+	Data.Word::Prelude.Eq_Word32<>
+	Data.Word::Prelude.Eq_Word64<>
+	GHC.Tuple::Prelude.Eq_()<>
+	Text.Read.Lex::Prelude.Eq_Number<>
+	Text.Read.Lex::Prelude.Eq_Lexeme<>
+	GHC.Fingerprint.Type::Prelude.Eq_Fingerprint<>
+	Data.Typeable.Internal::Prelude.Eq_TyCon<>
+	Data.Typeable.Internal::Prelude.Eq_TypeRep<>
+	GHC.Generics::Prelude.Eq_Associativity<>
+	GHC.Generics::Prelude.Eq_Fixity<>
+	GHC.Generics::Prelude.Eq_Arity<>
+	Data.Monoid::Prelude.Eq_Any<>
+	Data.Monoid::Prelude.Eq_All<>
+	Control.Exception.Base::Prelude.Eq_ArithException<>
+	Control.Exception.Base::Prelude.Eq_ErrorCall<>
+	Control.Exception.Base::Prelude.Eq_IOException<>
+	Control.Exception.Base::Prelude.Eq_MaskingState<>
+	Foreign.C.Types::Prelude.Eq_CUIntMax<>
+	Foreign.C.Types::Prelude.Eq_CIntMax<>
+	Foreign.C.Types::Prelude.Eq_CUIntPtr<>
+	Foreign.C.Types::Prelude.Eq_CIntPtr<>
+	Foreign.C.Types::Prelude.Eq_CSUSeconds<>
+	Foreign.C.Types::Prelude.Eq_CUSeconds<>
+	Foreign.C.Types::Prelude.Eq_CTime<>
+	Foreign.C.Types::Prelude.Eq_CClock<>
+	Foreign.C.Types::Prelude.Eq_CSigAtomic<>
+	Foreign.C.Types::Prelude.Eq_CWchar<>
+	Foreign.C.Types::Prelude.Eq_CSize<>
+	Foreign.C.Types::Prelude.Eq_CPtrdiff<>
+	Foreign.C.Types::Prelude.Eq_CDouble<>
+	Foreign.C.Types::Prelude.Eq_CFloat<>
+	Foreign.C.Types::Prelude.Eq_CULLong<>
+	Foreign.C.Types::Prelude.Eq_CLLong<>
+	Foreign.C.Types::Prelude.Eq_CULong<>
+	Foreign.C.Types::Prelude.Eq_CLong<>
+	Foreign.C.Types::Prelude.Eq_CUInt<>
+	Foreign.C.Types::Prelude.Eq_CInt<>
+	Foreign.C.Types::Prelude.Eq_CUShort<>
+	Foreign.C.Types::Prelude.Eq_CShort<>
+	Foreign.C.Types::Prelude.Eq_CUChar<>
+	Foreign.C.Types::Prelude.Eq_CSChar<>
+	Foreign.C.Types::Prelude.Eq_CChar<>
+	Data.Char::Prelude.Eq_GeneralCategory<>
+	Foreign.Ptr::Prelude.Eq_IntPtr<>
+	Foreign.Ptr::Prelude.Eq_WordPtr<>
+	GHC.IO.Buffer::Prelude.Eq_BufferState<>
+	GHC.IO.Encoding.Types::Prelude.Eq_CodingProgress<>
+	GHC.IO.Device::Prelude.Eq_SeekMode<>
+	GHC.IO.Device::Prelude.Eq_IODeviceType<>
+	GHC.IO.Handle::Prelude.Eq_NewlineMode<>
+	GHC.IO.Handle::Prelude.Eq_Newline<>
+	GHC.IO.Handle::Prelude.Eq_BufferMode<>
+	GHC.IO.Handle::Prelude.Eq_Handle<>
+	System.IO.Error::Prelude.Eq_IOErrorType<>
+	System.Exit::Prelude.Eq_ExitCode<>
+	Control.Exception.Base::Prelude.Eq_ArrayException<>
+	Control.Exception.Base::Prelude.Eq_AsyncException<>
+	Foreign.C.Error::Prelude.Eq_Errno<>
+	System.Posix.Types::Prelude.Eq_Fd<>
+	System.Posix.Types::Prelude.Eq_CRLim<>
+	System.Posix.Types::Prelude.Eq_CTcflag<>
+	System.Posix.Types::Prelude.Eq_CSpeed<>
+	System.Posix.Types::Prelude.Eq_CCc<>
+	System.Posix.Types::Prelude.Eq_CUid<>
+	System.Posix.Types::Prelude.Eq_CNlink<>
+	System.Posix.Types::Prelude.Eq_CGid<>
+	System.Posix.Types::Prelude.Eq_CSsize<>
+	System.Posix.Types::Prelude.Eq_CPid<>
+	System.Posix.Types::Prelude.Eq_COff<>
+	System.Posix.Types::Prelude.Eq_CMode<>
+	System.Posix.Types::Prelude.Eq_CIno<>
+	System.Posix.Types::Prelude.Eq_CDev<>
+	GHC.Conc::Prelude.Eq_ThreadStatus<>
+	GHC.Conc::Prelude.Eq_BlockReason<>
+	Control.Concurrent::Prelude.Eq_ThreadId<>
+	System.IO::Prelude.Eq_IOMode<>
+	GHC.Event::Prelude.Eq_Event<>
+	GHC.Event::Prelude.Eq_FdKey<>
+	GHC.Event::Prelude.Eq_TimeoutKey<>
+	GHC.IO.Handle::Prelude.Eq_HandlePosn<>
+	Data.OldTypeable.Internal::Prelude.Eq_TyCon<>
+	Data.OldTypeable.Internal::Prelude.Eq_TypeRep<>
+	Data.OldTypeable::Prelude.Eq_TypeRepKey<>
+	GHC.TypeLits::Prelude.Eq_SomeSymbol<>
+	GHC.TypeLits::Prelude.Eq_SomeNat<>
+	Data.Version::Prelude.Eq_Version<>
+	Data.Data::Prelude.Eq_Fixity<>
+	Data.Data::Prelude.Eq_ConstrRep<>
+	Data.Data::Prelude.Eq_DataRep<>
+	Data.Data::Prelude.Eq_Constr<>
+	Data.Unique::Prelude.Eq_Unique<>
+	GHC.Exts::Prelude.Eq_SpecConstrAnnotation<>
+	other::Prelude.Eq_List<a<>>
+	Data.Ratio::Prelude.Eq_Ratio<a<>>
+	Foreign.StablePtr::Prelude.Eq_StablePtr<a<>>
+	Foreign.Ptr::Prelude.Eq_Ptr<a<>>
+	Foreign.Ptr::Prelude.Eq_FunPtr<a<>>
+	GHC.Generics::Prelude.Eq_U1<p<>>
+	GHC.Generics::Prelude.Eq_Par1<p<>>
+	Data.Ord::Prelude.Eq_Down<a<>>
+	Data.Monoid::Prelude.Eq_Last<a<>>
+	Data.Monoid::Prelude.Eq_First<a<>>
+	Data.Monoid::Prelude.Eq_Product<a<>>
+	Data.Monoid::Prelude.Eq_Sum<a<>>
+	Data.Monoid::Prelude.Eq_Dual<a<>>
+	Data.IORef::Prelude.Eq_IORef<a<>>
+	Control.Concurrent.MVar::Prelude.Eq_MVar<a<>>
+	Foreign.ForeignPtr.Safe::Prelude.Eq_ForeignPtr<a<>>
+	GHC.Conc::Prelude.Eq_TVar<a<>>
+	Control.Concurrent.Chan::Prelude.Eq_Chan<a<>>
+	Control.Applicative::Prelude.Eq_ZipList<a<>>
+	Data.Complex::Prelude.Eq_Complex<a<>>
+	Data.Fixed::Prelude.Eq_Fixed<a<>>
+	System.Mem.StableName::Prelude.Eq_StableName<a<>>
+	GHC.Generics::Prelude.Eq_Rec1<f<>,p<>>
+	GHC.Tuple::Prelude.Eq_(,,,)<a<>,b<>>
+	Data.STRef::Prelude.Eq_STRef<s<>,a<>>
+	Data.Proxy::Prelude.Eq_Proxy<s<>>
+	GHC.Generics::Prelude.Eq_K1<i<>,c<>,p<>>
+	GHC.Generics::Prelude.Eq_(:+:)<f<>,g<>,p<>>
+	GHC.Generics::Prelude.Eq_(:*:)<f<>,g<>,p<>>
+	GHC.Generics::Prelude.Eq_(:.:)<f<>,g<>,p<>>
+	GHC.Tuple::Prelude.Eq_(,,,,)<a<>,b<>,c<>>
+	Data.Type.Equality::Prelude.Eq_(:~:)<a<>,b<>>
+	Data.Type.Coercion::Prelude.Eq_Coercion<a<>,b<>>
+	GHC.Generics::Prelude.Eq_M1<i<>,c<>,f<>,p<>>
+	GHC.Tuple::Prelude.Eq_(,,,,,)<a<>,b<>,c<>,d<>>
+	GHC.Tuple::Prelude.Eq_(,,,,,,)<a<>,b<>,c<>,d<>,e<>>
+	GHC.Tuple::Prelude.Eq_(,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>>
+	GHC.Tuple::Prelude.Eq_(,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>>
+	GHC.Tuple::Prelude.Eq_(,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>>
+	GHC.Tuple::Prelude.Eq_(,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>>
+	GHC.Tuple::Prelude.Eq_(,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>>
+	GHC.Tuple::Prelude.Eq_(,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>>
+	GHC.Tuple::Prelude.Eq_(,,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>,l<>>
+	GHC.Tuple::Prelude.Eq_(,,,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>,l<>,m<>>
+	GHC.Tuple::Prelude.Eq_(,,,,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>,l<>,m<>,n<>>
+	GHC.Tuple::Prelude.Eq_(,,,,,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>,l<>,m<>,n<>,o<>>
+	Ratio::Prelude.Eq_Ratio<a<>>
+	System::Prelude.Eq_ExitCode<>
+	Time::Prelude.Eq_ClockTime<>
+	Time::Prelude.Eq_Month<>
+	Time::Prelude.Eq_Day<>
+	Time::Prelude.Eq_CalendarTime<>
+	Time::Prelude.Eq_TimeDiff<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	(==) :: a -> a -> Bool
+	Name: (==)
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:(==)
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Eq
+	parameters {
+		a: (Eq a; a; Prelude::Eq)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		Prelude::Bool
+	}
+
+	[Function]
+	(/=) :: a -> a -> Bool
+	Name: (/=)
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:(/=)
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Eq
+	parameters {
+		a: (Eq a; a; Prelude::Eq)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		Prelude::Bool
+	}
+}
+
+[Classifier]
+class Num a where (+), (*), (-) :: a -> a -> a negate :: a -> a abs :: a -> a signum :: a -> a fromInteger :: Integer -> a
+Name: Num
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:Num
+Containing package: Prelude
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Prelude::Real
+	Prelude::Fractional
+	Complex::Prelude.Num_Complex<a<>>
+	Data.Complex::Prelude.Num_Complex<a<>>
+	Data.Fixed::Prelude.Num_Fixed<a<>>
+	Data.Int::Prelude.Num_Int<>
+	Data.Int::Prelude.Num_Int8<>
+	Data.Int::Prelude.Num_Int16<>
+	Data.Int::Prelude.Num_Int32<>
+	Data.Int::Prelude.Num_Int64<>
+	Data.Monoid::Prelude.Num_Sum<a<>>
+	Data.Monoid::Prelude.Num_Product<a<>>
+	Data.Ratio::Prelude.Num_Ratio<a<>>
+	Data.Time.Clock::Prelude.Num_DiffTime<>
+	Data.Time.Clock::Prelude.Num_NominalDiffTime<>
+	Data.Word::Prelude.Num_Word<>
+	Data.Word::Prelude.Num_Word8<>
+	Data.Word::Prelude.Num_Word16<>
+	Data.Word::Prelude.Num_Word32<>
+	Data.Word::Prelude.Num_Word64<>
+	Foreign.C.Types::Prelude.Num_CChar<>
+	Foreign.C.Types::Prelude.Num_CSChar<>
+	Foreign.C.Types::Prelude.Num_CUChar<>
+	Foreign.C.Types::Prelude.Num_CShort<>
+	Foreign.C.Types::Prelude.Num_CUShort<>
+	Foreign.C.Types::Prelude.Num_CInt<>
+	Foreign.C.Types::Prelude.Num_CUInt<>
+	Foreign.C.Types::Prelude.Num_CLong<>
+	Foreign.C.Types::Prelude.Num_CULong<>
+	Foreign.C.Types::Prelude.Num_CPtrdiff<>
+	Foreign.C.Types::Prelude.Num_CSize<>
+	Foreign.C.Types::Prelude.Num_CWchar<>
+	Foreign.C.Types::Prelude.Num_CSigAtomic<>
+	Foreign.C.Types::Prelude.Num_CLLong<>
+	Foreign.C.Types::Prelude.Num_CULLong<>
+	Foreign.C.Types::Prelude.Num_CIntPtr<>
+	Foreign.C.Types::Prelude.Num_CUIntPtr<>
+	Foreign.C.Types::Prelude.Num_CIntMax<>
+	Foreign.C.Types::Prelude.Num_CUIntMax<>
+	Foreign.C.Types::Prelude.Num_CClock<>
+	Foreign.C.Types::Prelude.Num_CTime<>
+	Foreign.C.Types::Prelude.Num_CUSeconds<>
+	Foreign.C.Types::Prelude.Num_CSUSeconds<>
+	Foreign.C.Types::Prelude.Num_CFloat<>
+	Foreign.C.Types::Prelude.Num_CDouble<>
+	Foreign.Ptr::Prelude.Num_IntPtr<>
+	Foreign.Ptr::Prelude.Num_WordPtr<>
+	GHC.Exts::Prelude.Num_Int<>
+	GHC.Exts::Prelude.Num_Word<>
+	GHC.Exts::Prelude.Num_Float<>
+	GHC.Exts::Prelude.Num_Double<>
+	Prelude::Prelude.Num_Int<>
+	Prelude::Prelude.Num_Integer<>
+	Prelude::Prelude.Num_Float<>
+	Prelude::Prelude.Num_Double<>
+	System.Posix.Types::Prelude.Num_Fd<>
+	System.Posix.Types::Prelude.Num_CRLim<>
+	System.Posix.Types::Prelude.Num_CTcflag<>
+	System.Posix.Types::Prelude.Num_CSpeed<>
+	System.Posix.Types::Prelude.Num_CCc<>
+	System.Posix.Types::Prelude.Num_CUid<>
+	System.Posix.Types::Prelude.Num_CNlink<>
+	System.Posix.Types::Prelude.Num_CGid<>
+	System.Posix.Types::Prelude.Num_CSsize<>
+	System.Posix.Types::Prelude.Num_CPid<>
+	System.Posix.Types::Prelude.Num_COff<>
+	System.Posix.Types::Prelude.Num_CMode<>
+	System.Posix.Types::Prelude.Num_CIno<>
+	System.Posix.Types::Prelude.Num_CDev<>
+	Ratio::Prelude.Num_Ratio<a<>>
+	Trace.Hpc.Util::Prelude.Num_Hash<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	(+), (*), (-) :: a -> a -> a
+	Name: (+)
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:(+)
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Num
+	parameters {
+		a: (Num a; a; Prelude::Num)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	negate :: a -> a
+	Name: negate
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:negate
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Num
+	parameters {
+		a: (Num a; a; Prelude::Num)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	abs :: a -> a
+	Name: abs
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:abs
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Num
+	parameters {
+		a: (Num a; a; Prelude::Num)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	signum :: a -> a
+	Name: signum
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:signum
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Num
+	parameters {
+		a: (Num a; a; Prelude::Num)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	fromInteger :: Integer -> a
+	Name: fromInteger
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:fromInteger
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Num
+	parameters {
+		a: (Num a; a; Prelude::Num)
+	}
+	Signature = <function> {
+		[parameters]
+		Prelude::Integer
+	
+		[result]
+		null::a
+	}
+}
+
+[Classifier]
+data Double :: *
+Name: Double
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:Double
+Containing package: Prelude
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class Fractional a => Floating a where pi :: a exp, sqrt, log :: a -> a (**), logBase :: a -> a -> a sin, tan, cos :: a -> a asin, atan, acos :: a -> a sinh, tanh, cosh :: a -> a asinh, atanh, acosh :: a -> a
+Name: Floating
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:Floating
+Containing package: Prelude
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Prelude::RealFloat
+	Complex::Prelude.Floating_Complex<a<>>
+	Data.Complex::Prelude.Floating_Complex<a<>>
+	Foreign.C.Types::Prelude.Floating_CFloat<>
+	Foreign.C.Types::Prelude.Floating_CDouble<>
+	GHC.Exts::Prelude.Floating_Float<>
+	GHC.Exts::Prelude.Floating_Double<>
+	Prelude::Prelude.Floating_Float<>
+	Prelude::Prelude.Floating_Double<>
+}
+supertypes {
+	Prelude::Fractional
+}
+members {
+
+	[Function]
+	pi :: a
+	Name: pi
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:pi
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Floating
+	parameters {
+		a: (Floating a; a; Prelude::Floating)
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	exp, sqrt, log :: a -> a
+	Name: exp
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:exp
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Floating
+	parameters {
+		a: (Floating a; a; Prelude::Floating)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	(**), logBase :: a -> a -> a
+	Name: (**)
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:(**)
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Floating
+	parameters {
+		a: (Floating a; a; Prelude::Floating)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	sin, tan, cos :: a -> a
+	Name: sin
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:sin
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Floating
+	parameters {
+		a: (Floating a; a; Prelude::Floating)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	asin, atan, acos :: a -> a
+	Name: asin
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:asin
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Floating
+	parameters {
+		a: (Floating a; a; Prelude::Floating)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	sinh, tanh, cosh :: a -> a
+	Name: sinh
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:sinh
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Floating
+	parameters {
+		a: (Floating a; a; Prelude::Floating)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	asinh, atanh, acosh :: a -> a
+	Name: asinh
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:asinh
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Floating
+	parameters {
+		a: (Floating a; a; Prelude::Floating)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::a
+	}
+}
+
+[Classifier]
+class Show a where showsPrec :: Int -> a -> ShowS show :: a -> String showList :: [a] -> ShowS
+Name: Show
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:Show
+Containing package: Prelude
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Array::Prelude.Show_Array<a<>,b<>>
+	Char::Prelude.Show_Char<>
+	Complex::Prelude.Show_Complex<a<>>
+	Directory::Prelude.Show_Permissions<>
+	IO::Prelude.Show_Handle<>
+	IO::Prelude.Show_HandlePosn<>
+	IO::Prelude.Show_IOMode<>
+	IO::Prelude.Show_BufferMode<>
+	IO::Prelude.Show_SeekMode<>
+	Locale::Prelude.Show_TimeLocale<>
+	MarshalError::Prelude.Show_IOErrorType<>
+	Maybe::Prelude.Show_Maybe<a<>>
+	Prelude::Prelude.Show_Bool<>
+	Prelude::Prelude.Show_Maybe<a<>>
+	Prelude::Prelude.Show_Either<a<>,b<>>
+	Prelude::Prelude.Show_Ordering<>
+	Prelude::Prelude.Show_Char<>
+	Prelude::Prelude.Show_Int<>
+	Prelude::Prelude.Show_Integer<>
+	Prelude::Prelude.Show_Float<>
+	Prelude::Prelude.Show_Double<>
+	Data.Int::Prelude.Show_Int8<>
+	Data.Int::Prelude.Show_Int16<>
+	Data.Int::Prelude.Show_Int32<>
+	Data.Int::Prelude.Show_Int64<>
+	Data.Word::Prelude.Show_Word<>
+	Data.Word::Prelude.Show_Word8<>
+	Data.Word::Prelude.Show_Word16<>
+	Data.Word::Prelude.Show_Word32<>
+	Data.Word::Prelude.Show_Word64<>
+	GHC.Tuple::Prelude.Show_()<>
+	Control.Exception.Base::Prelude.Show_SomeException<>
+	Text.Read.Lex::Prelude.Show_Number<>
+	Text.Read.Lex::Prelude.Show_Lexeme<>
+	GHC.Fingerprint.Type::Prelude.Show_Fingerprint<>
+	Data.Typeable.Internal::Prelude.Show_TyCon<>
+	Data.Typeable.Internal::Prelude.Show_TypeRep<>
+	GHC.Generics::Prelude.Show_Associativity<>
+	GHC.Generics::Prelude.Show_Fixity<>
+	GHC.Generics::Prelude.Show_Arity<>
+	Data.Monoid::Prelude.Show_Any<>
+	Data.Monoid::Prelude.Show_All<>
+	Control.Exception.Base::Prelude.Show_ArithException<>
+	Control.Exception.Base::Prelude.Show_ErrorCall<>
+	Control.Exception.Base::Prelude.Show_IOException<>
+	Control.Exception.Base::Prelude.Show_MaskingState<>
+	Data.Dynamic::Prelude.Show_Dynamic<>
+	Foreign.C.Types::Prelude.Show_CUIntMax<>
+	Foreign.C.Types::Prelude.Show_CIntMax<>
+	Foreign.C.Types::Prelude.Show_CUIntPtr<>
+	Foreign.C.Types::Prelude.Show_CIntPtr<>
+	Foreign.C.Types::Prelude.Show_CSUSeconds<>
+	Foreign.C.Types::Prelude.Show_CUSeconds<>
+	Foreign.C.Types::Prelude.Show_CTime<>
+	Foreign.C.Types::Prelude.Show_CClock<>
+	Foreign.C.Types::Prelude.Show_CSigAtomic<>
+	Foreign.C.Types::Prelude.Show_CWchar<>
+	Foreign.C.Types::Prelude.Show_CSize<>
+	Foreign.C.Types::Prelude.Show_CPtrdiff<>
+	Foreign.C.Types::Prelude.Show_CDouble<>
+	Foreign.C.Types::Prelude.Show_CFloat<>
+	Foreign.C.Types::Prelude.Show_CULLong<>
+	Foreign.C.Types::Prelude.Show_CLLong<>
+	Foreign.C.Types::Prelude.Show_CULong<>
+	Foreign.C.Types::Prelude.Show_CLong<>
+	Foreign.C.Types::Prelude.Show_CUInt<>
+	Foreign.C.Types::Prelude.Show_CInt<>
+	Foreign.C.Types::Prelude.Show_CUShort<>
+	Foreign.C.Types::Prelude.Show_CShort<>
+	Foreign.C.Types::Prelude.Show_CUChar<>
+	Foreign.C.Types::Prelude.Show_CSChar<>
+	Foreign.C.Types::Prelude.Show_CChar<>
+	Data.Char::Prelude.Show_GeneralCategory<>
+	Foreign.Ptr::Prelude.Show_IntPtr<>
+	Foreign.Ptr::Prelude.Show_WordPtr<>
+	GHC.IO.Encoding.Types::Prelude.Show_CodingProgress<>
+	GHC.IO.Encoding.Types::Prelude.Show_TextEncoding<>
+	GHC.IO.Device::Prelude.Show_SeekMode<>
+	GHC.IO.Handle::Prelude.Show_NewlineMode<>
+	GHC.IO.Handle::Prelude.Show_Newline<>
+	GHC.IO.Handle::Prelude.Show_BufferMode<>
+	GHC.IO.Handle::Prelude.Show_Handle<>
+	System.IO.Error::Prelude.Show_IOErrorType<>
+	System.Exit::Prelude.Show_ExitCode<>
+	Control.Exception.Base::Prelude.Show_ArrayException<>
+	Control.Exception.Base::Prelude.Show_AsyncException<>
+	Control.Exception.Base::Prelude.Show_SomeAsyncException<>
+	Control.Exception.Base::Prelude.Show_AssertionFailed<>
+	Control.Exception.Base::Prelude.Show_Deadlock<>
+	Control.Exception.Base::Prelude.Show_BlockedIndefinitelyOnSTM<>
+	Control.Exception.Base::Prelude.Show_BlockedIndefinitelyOnMVar<>
+	System.Posix.Types::Prelude.Show_Fd<>
+	System.Posix.Types::Prelude.Show_CRLim<>
+	System.Posix.Types::Prelude.Show_CTcflag<>
+	System.Posix.Types::Prelude.Show_CSpeed<>
+	System.Posix.Types::Prelude.Show_CCc<>
+	System.Posix.Types::Prelude.Show_CUid<>
+	System.Posix.Types::Prelude.Show_CNlink<>
+	System.Posix.Types::Prelude.Show_CGid<>
+	System.Posix.Types::Prelude.Show_CSsize<>
+	System.Posix.Types::Prelude.Show_CPid<>
+	System.Posix.Types::Prelude.Show_COff<>
+	System.Posix.Types::Prelude.Show_CMode<>
+	System.Posix.Types::Prelude.Show_CIno<>
+	System.Posix.Types::Prelude.Show_CDev<>
+	GHC.IO.Encoding.Failure::Prelude.Show_CodingFailureMode<>
+	GHC.Conc::Prelude.Show_ThreadStatus<>
+	GHC.Conc::Prelude.Show_BlockReason<>
+	Control.Concurrent::Prelude.Show_ThreadId<>
+	Control.Exception.Base::Prelude.Show_NestedAtomically<>
+	Control.Exception.Base::Prelude.Show_NonTermination<>
+	Control.Exception.Base::Prelude.Show_NoMethodError<>
+	Control.Exception.Base::Prelude.Show_RecUpdError<>
+	Control.Exception.Base::Prelude.Show_RecConError<>
+	Control.Exception.Base::Prelude.Show_RecSelError<>
+	Control.Exception.Base::Prelude.Show_PatternMatchFail<>
+	System.IO::Prelude.Show_IOMode<>
+	GHC.Event::Prelude.Show_Event<>
+	GHC.Event::Prelude.Show_FdKey<>
+	GHC.IO.Handle::Prelude.Show_HandlePosn<>
+	Data.OldTypeable.Internal::Prelude.Show_TyCon<>
+	Data.OldTypeable.Internal::Prelude.Show_TypeRep<>
+	GHC.TypeLits::Prelude.Show_SomeSymbol<>
+	GHC.TypeLits::Prelude.Show_SomeNat<>
+	Data.Version::Prelude.Show_Version<>
+	Data.Data::Prelude.Show_Fixity<>
+	Data.Data::Prelude.Show_ConstrRep<>
+	Data.Data::Prelude.Show_DataRep<>
+	Data.Data::Prelude.Show_Constr<>
+	Data.Data::Prelude.Show_DataType<>
+	GHC.Stats::Prelude.Show_GCStats<>
+	other::Prelude.Show_List<a<>>
+	Data.Ratio::Prelude.Show_Ratio<a<>>
+	Foreign.Ptr::Prelude.Show_Ptr<a<>>
+	Foreign.Ptr::Prelude.Show_FunPtr<a<>>
+	GHC.Generics::Prelude.Show_U1<p<>>
+	GHC.Generics::Prelude.Show_Par1<p<>>
+	Data.Ord::Prelude.Show_Down<a<>>
+	Data.Monoid::Prelude.Show_Last<a<>>
+	Data.Monoid::Prelude.Show_First<a<>>
+	Data.Monoid::Prelude.Show_Product<a<>>
+	Data.Monoid::Prelude.Show_Sum<a<>>
+	Data.Monoid::Prelude.Show_Dual<a<>>
+	Foreign.ForeignPtr.Safe::Prelude.Show_ForeignPtr<a<>>
+	Control.Applicative::Prelude.Show_ZipList<a<>>
+	Data.Complex::Prelude.Show_Complex<a<>>
+	Data.Fixed::Prelude.Show_Fixed<a<>>
+	other::Prelude.Show_Function<a<>,b<>>
+	GHC.Generics::Prelude.Show_Rec1<f<>,p<>>
+	GHC.Tuple::Prelude.Show_(,,,)<a<>,b<>>
+	Control.Monad.ST.Safe::Prelude.Show_ST<s<>,a<>>
+	Data.Proxy::Prelude.Show_Proxy<s<>>
+	GHC.Generics::Prelude.Show_K1<i<>,c<>,p<>>
+	GHC.Generics::Prelude.Show_(:+:)<f<>,g<>,p<>>
+	GHC.Generics::Prelude.Show_(:*:)<f<>,g<>,p<>>
+	GHC.Generics::Prelude.Show_(:.:)<f<>,g<>,p<>>
+	GHC.Tuple::Prelude.Show_(,,,,)<a<>,b<>,c<>>
+	Data.Type.Equality::Prelude.Show_(:~:)<a<>,b<>>
+	Data.Type.Coercion::Prelude.Show_Coercion<a<>,b<>>
+	GHC.Generics::Prelude.Show_M1<i<>,c<>,f<>,p<>>
+	GHC.Tuple::Prelude.Show_(,,,,,)<a<>,b<>,c<>,d<>>
+	GHC.Tuple::Prelude.Show_(,,,,,,)<a<>,b<>,c<>,d<>,e<>>
+	GHC.Tuple::Prelude.Show_(,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>>
+	GHC.Tuple::Prelude.Show_(,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>>
+	GHC.Tuple::Prelude.Show_(,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>>
+	GHC.Tuple::Prelude.Show_(,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>>
+	GHC.Tuple::Prelude.Show_(,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>>
+	GHC.Tuple::Prelude.Show_(,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>>
+	GHC.Tuple::Prelude.Show_(,,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>,l<>>
+	GHC.Tuple::Prelude.Show_(,,,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>,l<>,m<>>
+	GHC.Tuple::Prelude.Show_(,,,,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>,l<>,m<>,n<>>
+	GHC.Tuple::Prelude.Show_(,,,,,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>,l<>,m<>,n<>,o<>>
+	Random::Prelude.Show_StdGen<>
+	Ratio::Prelude.Show_Ratio<a<>>
+	System::Prelude.Show_ExitCode<>
+	Time::Prelude.Show_ClockTime<>
+	Time::Prelude.Show_Month<>
+	Time::Prelude.Show_Day<>
+	Time::Prelude.Show_CalendarTime<>
+	Time::Prelude.Show_TimeDiff<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	showsPrec :: Int -> a -> ShowS
+	Name: showsPrec
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:showsPrec
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Show
+	parameters {
+		a: (Show a; a; Prelude::Show)
+	}
+	Signature = <function> {
+		[parameters]
+		Prelude::Int
+		null::a
+	
+		[result]
+		Prelude::ShowS
+	}
+
+	[Function]
+	show :: a -> String
+	Name: show
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:show
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Show
+	parameters {
+		a: (Show a; a; Prelude::Show)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Prelude::String
+	}
+
+	[Function]
+	showList :: [a] -> ShowS
+	Name: showList
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:showList
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Show
+	parameters {
+		a: (Show a; a; Prelude::Show)
+	}
+	Signature = <function> {
+		[parameters]
+		other::List {
+			null::a
+		}
+	
+		[result]
+		Prelude::ShowS
+	}
+}
+
+[Classifier]
+data Integer :: *
+Name: Integer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:Integer
+Containing package: Prelude
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class Read a where readsPrec :: Int -> ReadS a readList :: ReadS [a]
+Name: Read
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:Read
+Containing package: Prelude
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Array::Prelude.Read_Array<a<>,b<>>
+	Char::Prelude.Read_Char<>
+	Complex::Prelude.Read_Complex<a<>>
+	Directory::Prelude.Read_Permissions<>
+	IO::Prelude.Read_IOMode<>
+	IO::Prelude.Read_BufferMode<>
+	IO::Prelude.Read_SeekMode<>
+	Maybe::Prelude.Read_Maybe<a<>>
+	Prelude::Prelude.Read_Bool<>
+	Prelude::Prelude.Read_Maybe<a<>>
+	Prelude::Prelude.Read_Either<a<>,b<>>
+	Prelude::Prelude.Read_Ordering<>
+	Prelude::Prelude.Read_Char<>
+	Prelude::Prelude.Read_Int<>
+	Prelude::Prelude.Read_Integer<>
+	Prelude::Prelude.Read_Float<>
+	Prelude::Prelude.Read_Double<>
+	Data.Int::Prelude.Read_Int8<>
+	Data.Int::Prelude.Read_Int16<>
+	Data.Int::Prelude.Read_Int32<>
+	Data.Int::Prelude.Read_Int64<>
+	Data.Word::Prelude.Read_Word<>
+	Data.Word::Prelude.Read_Word8<>
+	Data.Word::Prelude.Read_Word16<>
+	Data.Word::Prelude.Read_Word32<>
+	Data.Word::Prelude.Read_Word64<>
+	GHC.Tuple::Prelude.Read_()<>
+	Text.Read.Lex::Prelude.Read_Lexeme<>
+	GHC.Generics::Prelude.Read_Associativity<>
+	GHC.Generics::Prelude.Read_Fixity<>
+	GHC.Generics::Prelude.Read_Arity<>
+	Data.Monoid::Prelude.Read_Any<>
+	Data.Monoid::Prelude.Read_All<>
+	Foreign.C.Types::Prelude.Read_CUIntMax<>
+	Foreign.C.Types::Prelude.Read_CIntMax<>
+	Foreign.C.Types::Prelude.Read_CUIntPtr<>
+	Foreign.C.Types::Prelude.Read_CIntPtr<>
+	Foreign.C.Types::Prelude.Read_CSUSeconds<>
+	Foreign.C.Types::Prelude.Read_CUSeconds<>
+	Foreign.C.Types::Prelude.Read_CTime<>
+	Foreign.C.Types::Prelude.Read_CClock<>
+	Foreign.C.Types::Prelude.Read_CSigAtomic<>
+	Foreign.C.Types::Prelude.Read_CWchar<>
+	Foreign.C.Types::Prelude.Read_CSize<>
+	Foreign.C.Types::Prelude.Read_CPtrdiff<>
+	Foreign.C.Types::Prelude.Read_CDouble<>
+	Foreign.C.Types::Prelude.Read_CFloat<>
+	Foreign.C.Types::Prelude.Read_CULLong<>
+	Foreign.C.Types::Prelude.Read_CLLong<>
+	Foreign.C.Types::Prelude.Read_CULong<>
+	Foreign.C.Types::Prelude.Read_CLong<>
+	Foreign.C.Types::Prelude.Read_CUInt<>
+	Foreign.C.Types::Prelude.Read_CInt<>
+	Foreign.C.Types::Prelude.Read_CUShort<>
+	Foreign.C.Types::Prelude.Read_CShort<>
+	Foreign.C.Types::Prelude.Read_CUChar<>
+	Foreign.C.Types::Prelude.Read_CSChar<>
+	Foreign.C.Types::Prelude.Read_CChar<>
+	Data.Char::Prelude.Read_GeneralCategory<>
+	Foreign.Ptr::Prelude.Read_IntPtr<>
+	Foreign.Ptr::Prelude.Read_WordPtr<>
+	GHC.IO.Device::Prelude.Read_SeekMode<>
+	GHC.IO.Handle::Prelude.Read_NewlineMode<>
+	GHC.IO.Handle::Prelude.Read_Newline<>
+	GHC.IO.Handle::Prelude.Read_BufferMode<>
+	System.Exit::Prelude.Read_ExitCode<>
+	System.Posix.Types::Prelude.Read_Fd<>
+	System.Posix.Types::Prelude.Read_CRLim<>
+	System.Posix.Types::Prelude.Read_CTcflag<>
+	System.Posix.Types::Prelude.Read_CSpeed<>
+	System.Posix.Types::Prelude.Read_CCc<>
+	System.Posix.Types::Prelude.Read_CUid<>
+	System.Posix.Types::Prelude.Read_CNlink<>
+	System.Posix.Types::Prelude.Read_CGid<>
+	System.Posix.Types::Prelude.Read_CSsize<>
+	System.Posix.Types::Prelude.Read_CPid<>
+	System.Posix.Types::Prelude.Read_COff<>
+	System.Posix.Types::Prelude.Read_CMode<>
+	System.Posix.Types::Prelude.Read_CIno<>
+	System.Posix.Types::Prelude.Read_CDev<>
+	System.IO::Prelude.Read_IOMode<>
+	GHC.TypeLits::Prelude.Read_SomeSymbol<>
+	GHC.TypeLits::Prelude.Read_SomeNat<>
+	Data.Version::Prelude.Read_Version<>
+	GHC.Stats::Prelude.Read_GCStats<>
+	other::Prelude.Read_List<a<>>
+	Data.Ratio::Prelude.Read_Ratio<a<>>
+	GHC.Generics::Prelude.Read_U1<p<>>
+	GHC.Generics::Prelude.Read_Par1<p<>>
+	Data.Ord::Prelude.Read_Down<a<>>
+	Data.Monoid::Prelude.Read_Last<a<>>
+	Data.Monoid::Prelude.Read_First<a<>>
+	Data.Monoid::Prelude.Read_Product<a<>>
+	Data.Monoid::Prelude.Read_Sum<a<>>
+	Data.Monoid::Prelude.Read_Dual<a<>>
+	Control.Applicative::Prelude.Read_ZipList<a<>>
+	Data.Complex::Prelude.Read_Complex<a<>>
+	Data.Fixed::Prelude.Read_Fixed<a<>>
+	GHC.Generics::Prelude.Read_Rec1<f<>,p<>>
+	GHC.Tuple::Prelude.Read_(,,,)<a<>,b<>>
+	Data.Proxy::Prelude.Read_Proxy<s<>>
+	GHC.Generics::Prelude.Read_K1<i<>,c<>,p<>>
+	GHC.Generics::Prelude.Read_(:+:)<f<>,g<>,p<>>
+	GHC.Generics::Prelude.Read_(:*:)<f<>,g<>,p<>>
+	GHC.Generics::Prelude.Read_(:.:)<f<>,g<>,p<>>
+	GHC.Tuple::Prelude.Read_(,,,,)<a<>,b<>,c<>>
+	Data.Type.Equality::Prelude.Read_(:~:)<a<>,b<>>
+	Data.Type.Coercion::Prelude.Read_Coercion<a<>,b<>>
+	GHC.Generics::Prelude.Read_M1<i<>,c<>,f<>,p<>>
+	GHC.Tuple::Prelude.Read_(,,,,,)<a<>,b<>,c<>,d<>>
+	GHC.Tuple::Prelude.Read_(,,,,,,)<a<>,b<>,c<>,d<>,e<>>
+	GHC.Tuple::Prelude.Read_(,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>>
+	GHC.Tuple::Prelude.Read_(,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>>
+	GHC.Tuple::Prelude.Read_(,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>>
+	GHC.Tuple::Prelude.Read_(,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>>
+	GHC.Tuple::Prelude.Read_(,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>>
+	GHC.Tuple::Prelude.Read_(,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>>
+	GHC.Tuple::Prelude.Read_(,,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>,l<>>
+	GHC.Tuple::Prelude.Read_(,,,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>,l<>,m<>>
+	GHC.Tuple::Prelude.Read_(,,,,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>,l<>,m<>,n<>>
+	GHC.Tuple::Prelude.Read_(,,,,,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>,l<>,m<>,n<>,o<>>
+	Random::Prelude.Read_StdGen<>
+	Ratio::Prelude.Read_Ratio<a<>>
+	System::Prelude.Read_ExitCode<>
+	Time::Prelude.Read_Month<>
+	Time::Prelude.Read_Day<>
+	Time::Prelude.Read_CalendarTime<>
+	Time::Prelude.Read_TimeDiff<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	readsPrec :: Int -> ReadS a
+	Name: readsPrec
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:readsPrec
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Read
+	parameters {
+		a: (Read a; a; Prelude::Read)
+	}
+	Signature = <function> {
+		[parameters]
+		Prelude::Int
+	
+		[result]
+		Prelude::ReadS {
+			null::a
+		}
+	}
+
+	[Function]
+	readList :: ReadS [a]
+	Name: readList
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:readList
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Read
+	parameters {
+		a: (Read a; a; Prelude::Read)
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		Prelude::ReadS {
+			other::List {
+				null::a
+			}
+		}
+	}
+}
+
+[Classifier]
+class (Real a, Enum a) => Integral a where quot :: a -> a -> a rem :: a -> a -> a div :: a -> a -> a mod :: a -> a -> a quotRem :: a -> a -> (a, a) divMod :: a -> a -> (a, a) toInteger :: a -> Integer
+Name: Integral
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:Integral
+Containing package: Prelude
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Data.Int::Prelude.Integral_Int<>
+	Data.Int::Prelude.Integral_Int8<>
+	Data.Int::Prelude.Integral_Int16<>
+	Data.Int::Prelude.Integral_Int32<>
+	Data.Int::Prelude.Integral_Int64<>
+	Data.Word::Prelude.Integral_Word<>
+	Data.Word::Prelude.Integral_Word8<>
+	Data.Word::Prelude.Integral_Word16<>
+	Data.Word::Prelude.Integral_Word32<>
+	Data.Word::Prelude.Integral_Word64<>
+	Foreign.C.Types::Prelude.Integral_CChar<>
+	Foreign.C.Types::Prelude.Integral_CSChar<>
+	Foreign.C.Types::Prelude.Integral_CUChar<>
+	Foreign.C.Types::Prelude.Integral_CShort<>
+	Foreign.C.Types::Prelude.Integral_CUShort<>
+	Foreign.C.Types::Prelude.Integral_CInt<>
+	Foreign.C.Types::Prelude.Integral_CUInt<>
+	Foreign.C.Types::Prelude.Integral_CLong<>
+	Foreign.C.Types::Prelude.Integral_CULong<>
+	Foreign.C.Types::Prelude.Integral_CPtrdiff<>
+	Foreign.C.Types::Prelude.Integral_CSize<>
+	Foreign.C.Types::Prelude.Integral_CWchar<>
+	Foreign.C.Types::Prelude.Integral_CSigAtomic<>
+	Foreign.C.Types::Prelude.Integral_CLLong<>
+	Foreign.C.Types::Prelude.Integral_CULLong<>
+	Foreign.C.Types::Prelude.Integral_CIntPtr<>
+	Foreign.C.Types::Prelude.Integral_CUIntPtr<>
+	Foreign.C.Types::Prelude.Integral_CIntMax<>
+	Foreign.C.Types::Prelude.Integral_CUIntMax<>
+	Foreign.Ptr::Prelude.Integral_IntPtr<>
+	Foreign.Ptr::Prelude.Integral_WordPtr<>
+	GHC.Exts::Prelude.Integral_Int<>
+	GHC.Exts::Prelude.Integral_Word<>
+	Prelude::Prelude.Integral_Int<>
+	Prelude::Prelude.Integral_Integer<>
+	System.Posix.Types::Prelude.Integral_Fd<>
+	System.Posix.Types::Prelude.Integral_CRLim<>
+	System.Posix.Types::Prelude.Integral_CTcflag<>
+	System.Posix.Types::Prelude.Integral_CUid<>
+	System.Posix.Types::Prelude.Integral_CNlink<>
+	System.Posix.Types::Prelude.Integral_CGid<>
+	System.Posix.Types::Prelude.Integral_CSsize<>
+	System.Posix.Types::Prelude.Integral_CPid<>
+	System.Posix.Types::Prelude.Integral_COff<>
+	System.Posix.Types::Prelude.Integral_CMode<>
+	System.Posix.Types::Prelude.Integral_CIno<>
+	System.Posix.Types::Prelude.Integral_CDev<>
+}
+supertypes {
+	Prelude::Real
+	Prelude::Enum
+}
+members {
+
+	[Function]
+	quot :: a -> a -> a
+	Name: quot
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:quot
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Integral
+	parameters {
+		a: (Integral a; a; Prelude::Integral)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	rem :: a -> a -> a
+	Name: rem
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:rem
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Integral
+	parameters {
+		a: (Integral a; a; Prelude::Integral)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	div :: a -> a -> a
+	Name: div
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:div
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Integral
+	parameters {
+		a: (Integral a; a; Prelude::Integral)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	mod :: a -> a -> a
+	Name: mod
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:mod
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Integral
+	parameters {
+		a: (Integral a; a; Prelude::Integral)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	quotRem :: a -> a -> (a, a)
+	Name: quotRem
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:quotRem
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Integral
+	parameters {
+		a: (Integral a; a; Prelude::Integral)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		GHC.Tuple::(,) {
+			null::a
+			null::a
+		}
+	}
+
+	[Function]
+	divMod :: a -> a -> (a, a)
+	Name: divMod
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:divMod
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Integral
+	parameters {
+		a: (Integral a; a; Prelude::Integral)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		GHC.Tuple::(,) {
+			null::a
+			null::a
+		}
+	}
+
+	[Function]
+	toInteger :: a -> Integer
+	Name: toInteger
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:toInteger
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Integral
+	parameters {
+		a: (Integral a; a; Prelude::Integral)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Prelude::Integer
+	}
+}
+
+[Classifier]
+class (Num a, Ord a) => Real a where toRational :: a -> Rational
+Name: Real
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:Real
+Containing package: Prelude
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Prelude::Integral
+	Prelude::RealFrac
+	Data.Fixed::Prelude.Real_Fixed<a<>>
+	Data.Int::Prelude.Real_Int<>
+	Data.Int::Prelude.Real_Int8<>
+	Data.Int::Prelude.Real_Int16<>
+	Data.Int::Prelude.Real_Int32<>
+	Data.Int::Prelude.Real_Int64<>
+	Data.Ratio::Prelude.Real_Ratio<a<>>
+	Data.Time.Clock::Prelude.Real_DiffTime<>
+	Data.Time.Clock::Prelude.Real_NominalDiffTime<>
+	Data.Word::Prelude.Real_Word<>
+	Data.Word::Prelude.Real_Word8<>
+	Data.Word::Prelude.Real_Word16<>
+	Data.Word::Prelude.Real_Word32<>
+	Data.Word::Prelude.Real_Word64<>
+	Foreign.C.Types::Prelude.Real_CChar<>
+	Foreign.C.Types::Prelude.Real_CSChar<>
+	Foreign.C.Types::Prelude.Real_CUChar<>
+	Foreign.C.Types::Prelude.Real_CShort<>
+	Foreign.C.Types::Prelude.Real_CUShort<>
+	Foreign.C.Types::Prelude.Real_CInt<>
+	Foreign.C.Types::Prelude.Real_CUInt<>
+	Foreign.C.Types::Prelude.Real_CLong<>
+	Foreign.C.Types::Prelude.Real_CULong<>
+	Foreign.C.Types::Prelude.Real_CPtrdiff<>
+	Foreign.C.Types::Prelude.Real_CSize<>
+	Foreign.C.Types::Prelude.Real_CWchar<>
+	Foreign.C.Types::Prelude.Real_CSigAtomic<>
+	Foreign.C.Types::Prelude.Real_CLLong<>
+	Foreign.C.Types::Prelude.Real_CULLong<>
+	Foreign.C.Types::Prelude.Real_CIntPtr<>
+	Foreign.C.Types::Prelude.Real_CUIntPtr<>
+	Foreign.C.Types::Prelude.Real_CIntMax<>
+	Foreign.C.Types::Prelude.Real_CUIntMax<>
+	Foreign.C.Types::Prelude.Real_CClock<>
+	Foreign.C.Types::Prelude.Real_CTime<>
+	Foreign.C.Types::Prelude.Real_CUSeconds<>
+	Foreign.C.Types::Prelude.Real_CSUSeconds<>
+	Foreign.C.Types::Prelude.Real_CFloat<>
+	Foreign.C.Types::Prelude.Real_CDouble<>
+	Foreign.Ptr::Prelude.Real_IntPtr<>
+	Foreign.Ptr::Prelude.Real_WordPtr<>
+	GHC.Exts::Prelude.Real_Int<>
+	GHC.Exts::Prelude.Real_Word<>
+	GHC.Exts::Prelude.Real_Float<>
+	GHC.Exts::Prelude.Real_Double<>
+	Prelude::Prelude.Real_Int<>
+	Prelude::Prelude.Real_Integer<>
+	Prelude::Prelude.Real_Float<>
+	Prelude::Prelude.Real_Double<>
+	System.Posix.Types::Prelude.Real_Fd<>
+	System.Posix.Types::Prelude.Real_CRLim<>
+	System.Posix.Types::Prelude.Real_CTcflag<>
+	System.Posix.Types::Prelude.Real_CSpeed<>
+	System.Posix.Types::Prelude.Real_CCc<>
+	System.Posix.Types::Prelude.Real_CUid<>
+	System.Posix.Types::Prelude.Real_CNlink<>
+	System.Posix.Types::Prelude.Real_CGid<>
+	System.Posix.Types::Prelude.Real_CSsize<>
+	System.Posix.Types::Prelude.Real_CPid<>
+	System.Posix.Types::Prelude.Real_COff<>
+	System.Posix.Types::Prelude.Real_CMode<>
+	System.Posix.Types::Prelude.Real_CIno<>
+	System.Posix.Types::Prelude.Real_CDev<>
+	Ratio::Prelude.Real_Ratio<a<>>
+}
+supertypes {
+	Prelude::Num
+	Prelude::Ord
+}
+members {
+
+	[Function]
+	toRational :: a -> Rational
+	Name: toRational
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:toRational
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Real
+	parameters {
+		a: (Real a; a; Prelude::Real)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Prelude::Rational
+	}
+}
+
+[Classifier]
+class Bounded a where minBound, maxBound :: a
+Name: Bounded
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:Bounded
+Containing package: Prelude
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Char::Prelude.Bounded_Char<>
+	Data.Bool::Prelude.Bounded_Bool<>
+	Data.Char::Prelude.Bounded_Char<>
+	Data.Char::Prelude.Bounded_GeneralCategory<>
+	Data.Int::Prelude.Bounded_Int<>
+	Data.Int::Prelude.Bounded_Int8<>
+	Data.Int::Prelude.Bounded_Int16<>
+	Data.Int::Prelude.Bounded_Int32<>
+	Data.Int::Prelude.Bounded_Int64<>
+	Data.Monoid::Prelude.Bounded_Dual<a<>>
+	Data.Monoid::Prelude.Bounded_All<>
+	Data.Monoid::Prelude.Bounded_Any<>
+	Data.Monoid::Prelude.Bounded_Sum<a<>>
+	Data.Monoid::Prelude.Bounded_Product<a<>>
+	Data.Ord::Prelude.Bounded_Ordering<>
+	Data.Proxy::Prelude.Bounded_Proxy<s<>>
+	Data.Type.Coercion::Prelude.Bounded_Coercion<a<>,b<>>
+	Data.Type.Equality::Prelude.Bounded_(:~:)<a<>,b<>>
+	Data.Typeable.Internal::Prelude.Bounded_Proxy<s<>>
+	Data.Typeable::Prelude.Bounded_(:~:)<a<>,b<>>
+	Data.Typeable::Prelude.Bounded_Proxy<s<>>
+	Data.Word::Prelude.Bounded_Word<>
+	Data.Word::Prelude.Bounded_Word8<>
+	Data.Word::Prelude.Bounded_Word16<>
+	Data.Word::Prelude.Bounded_Word32<>
+	Data.Word::Prelude.Bounded_Word64<>
+	Distribution.Simple.Compiler::Prelude.Bounded_OptimisationLevel<>
+	Distribution.Simple.Setup::Prelude.Bounded_TestShowDetails<>
+	Distribution.Simple.Setup::Prelude.Bounded_Flag<a<>>
+	Distribution.Verbosity::Prelude.Bounded_Verbosity<>
+	Foreign.C.Types::Prelude.Bounded_CChar<>
+	Foreign.C.Types::Prelude.Bounded_CSChar<>
+	Foreign.C.Types::Prelude.Bounded_CUChar<>
+	Foreign.C.Types::Prelude.Bounded_CShort<>
+	Foreign.C.Types::Prelude.Bounded_CUShort<>
+	Foreign.C.Types::Prelude.Bounded_CInt<>
+	Foreign.C.Types::Prelude.Bounded_CUInt<>
+	Foreign.C.Types::Prelude.Bounded_CLong<>
+	Foreign.C.Types::Prelude.Bounded_CULong<>
+	Foreign.C.Types::Prelude.Bounded_CPtrdiff<>
+	Foreign.C.Types::Prelude.Bounded_CSize<>
+	Foreign.C.Types::Prelude.Bounded_CWchar<>
+	Foreign.C.Types::Prelude.Bounded_CSigAtomic<>
+	Foreign.C.Types::Prelude.Bounded_CLLong<>
+	Foreign.C.Types::Prelude.Bounded_CULLong<>
+	Foreign.C.Types::Prelude.Bounded_CIntPtr<>
+	Foreign.C.Types::Prelude.Bounded_CUIntPtr<>
+	Foreign.C.Types::Prelude.Bounded_CIntMax<>
+	Foreign.C.Types::Prelude.Bounded_CUIntMax<>
+	Foreign.Ptr::Prelude.Bounded_IntPtr<>
+	Foreign.Ptr::Prelude.Bounded_WordPtr<>
+	GHC.Exts::Prelude.Bounded_Int<>
+	GHC.Exts::Prelude.Bounded_Word<>
+	GHC.Exts::Prelude.Bounded_Char<>
+	Language.Haskell.Extension::Prelude.Bounded_KnownExtension<>
+	Prelude::Prelude.Bounded_Bool<>
+	Prelude::Prelude.Bounded_Ordering<>
+	Prelude::Prelude.Bounded_Char<>
+	Prelude::Prelude.Bounded_Int<>
+	GHC.Tuple::Prelude.Bounded_()<>
+	System.Posix.Types::Prelude.Bounded_Fd<>
+	System.Posix.Types::Prelude.Bounded_CRLim<>
+	System.Posix.Types::Prelude.Bounded_CTcflag<>
+	System.Posix.Types::Prelude.Bounded_CUid<>
+	System.Posix.Types::Prelude.Bounded_CNlink<>
+	System.Posix.Types::Prelude.Bounded_CGid<>
+	System.Posix.Types::Prelude.Bounded_CSsize<>
+	System.Posix.Types::Prelude.Bounded_CPid<>
+	System.Posix.Types::Prelude.Bounded_COff<>
+	System.Posix.Types::Prelude.Bounded_CMode<>
+	System.Posix.Types::Prelude.Bounded_CIno<>
+	System.Posix.Types::Prelude.Bounded_CDev<>
+	GHC.Tuple::Prelude.Bounded_(,,,)<a<>,b<>>
+	GHC.Tuple::Prelude.Bounded_(,,,,)<a<>,b<>,c<>>
+	GHC.Tuple::Prelude.Bounded_(,,,,,)<a<>,b<>,c<>,d<>>
+	GHC.Tuple::Prelude.Bounded_(,,,,,,)<a<>,b<>,c<>,d<>,e<>>
+	GHC.Tuple::Prelude.Bounded_(,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>>
+	GHC.Tuple::Prelude.Bounded_(,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>>
+	GHC.Tuple::Prelude.Bounded_(,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>>
+	GHC.Tuple::Prelude.Bounded_(,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>>
+	GHC.Tuple::Prelude.Bounded_(,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>>
+	GHC.Tuple::Prelude.Bounded_(,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>>
+	GHC.Tuple::Prelude.Bounded_(,,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>,l<>>
+	GHC.Tuple::Prelude.Bounded_(,,,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>,l<>,m<>>
+	GHC.Tuple::Prelude.Bounded_(,,,,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>,l<>,m<>,n<>>
+	GHC.Tuple::Prelude.Bounded_(,,,,,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>,l<>,m<>,n<>,o<>>
+	System.Time::Prelude.Bounded_Month<>
+	System.Time::Prelude.Bounded_Day<>
+	Time::Prelude.Bounded_Month<>
+	Time::Prelude.Bounded_Day<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	minBound, maxBound :: a
+	Name: minBound
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:minBound
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Bounded
+	parameters {
+		a: (Bounded a; a; Prelude::Bounded)
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		null::a
+	}
+}
+
+[Classifier]
+class Monad m where (>>=) :: forall a b. m a -> (a -> m b) -> m b (>>) :: forall a b. m a -> m b -> m b return :: a -> m a fail :: String -> m a
+Name: Monad
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:Monad
+Containing package: Prelude
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	IO::Prelude.Monad_IO<>
+	Maybe::Prelude.Monad_Maybe<>
+	Prelude::Prelude.Monad_Maybe<>
+	Prelude::Prelude.Monad_Either<e<>>
+	other::Prelude.Monad_List<curriedParam<>>
+	Prelude::Prelude.Monad_IO<>
+	Text.ParserCombinators.ReadP::Prelude.Monad_ReadP<>
+	Text.ParserCombinators.ReadPrec::Prelude.Monad_ReadPrec<>
+	GHC.Conc::Prelude.Monad_STM<>
+	other::Prelude.Monad_(->)<r<>>
+	Control.Monad.ST.Safe::Prelude.Monad_ST<s<>>
+	Data.Proxy::Prelude.Monad_Proxy<>
+	other::Prelude.Monad_Arrowa<>
+	Control.Monad.ST.Lazy.Safe::Prelude.Monad_ST<s<>>
+	other::Prelude.Monad_Wrappedm<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	(>>=) :: forall a b. m a -> (a -> m b) -> m b
+	Name: (>>=)
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:(>>=)
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Monad
+	parameters {
+		m: (Monad m; m; Prelude::Monad)
+		a
+		b
+	}
+	Signature = <function> {
+		[parameters]
+		null::m {
+			null::a
+		}
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			null::m {
+				null::b
+			}
+		}
+	
+		[result]
+		null::m {
+			null::b
+		}
+	}
+
+	[Function]
+	(>>) :: forall a b. m a -> m b -> m b
+	Name: (>>)
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:(>>)
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Monad
+	parameters {
+		m: (Monad m; m; Prelude::Monad)
+		a
+		b
+	}
+	Signature = <function> {
+		[parameters]
+		null::m {
+			null::a
+		}
+		null::m {
+			null::b
+		}
+	
+		[result]
+		null::m {
+			null::b
+		}
+	}
+
+	[Function]
+	return :: a -> m a
+	Name: return
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:return
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Monad
+	parameters {
+		a
+		m: (Monad m; m; Prelude::Monad)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::m {
+			null::a
+		}
+	}
+
+	[Function]
+	fail :: String -> m a
+	Name: fail
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:fail
+	Containing package: Prelude
+	attributes {
+		memberType=function
+	}
+	Containing type: Monad
+	parameters {
+		m: (Monad m; m; Prelude::Monad)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		Prelude::String
+	
+		[result]
+		null::m {
+			null::a
+		}
+	}
+}
+
+[Alias]
+type ShowS = String -> String
+Name: ShowS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:ShowS
+Containing package: Prelude
+attributes {
+}
+parameters {
+}
+Aliased type = <function> {
+	[parameters]
+	Prelude::String
+
+	[result]
+	Prelude::String
+}
+
+[Alias]
+type ReadS a = String -> [(a, String)]
+Name: ReadS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:ReadS
+Containing package: Prelude
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = <function> {
+	[parameters]
+	Prelude::String
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			null::a
+			Prelude::String
+		}
+	}
+}
+
+[Alias]
+type FilePath = String
+Name: FilePath
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:FilePath
+Containing package: Prelude
+attributes {
+}
+parameters {
+}
+Aliased type = Prelude::String
+
+[Alias]
+type IOError = IOException
+Name: IOError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:IOError
+Containing package: Prelude
+attributes {
+}
+parameters {
+}
+Aliased type = Control.Exception.Base::IOException
+
+[Alias]
+type String = [Char]
+Name: String
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:String
+Containing package: Prelude
+attributes {
+}
+parameters {
+}
+Aliased type = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		Prelude::Char
+	}
+}
+
+[Alias]
+type Rational = Ratio Integer
+Name: Rational
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#t:Rational
+Containing package: Prelude
+attributes {
+}
+parameters {
+}
+Aliased type = Data.Ratio::Ratio {
+	Prelude::Integer
+}
+
+[Function]
+lcm :: Integral a => a -> a -> a
+Name: lcm
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:lcm
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Integral a; a; Prelude::Integral)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+	null::a
+
+	[result]
+	null::a
+}
+
+[Function]
+lex :: ReadS String
+Name: lex
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:lex
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Prelude::ReadS {
+		Prelude::String
+	}
+}
+
+[Function]
+head :: [a] -> a
+Name: head
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:head
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::a
+	}
+
+	[result]
+	null::a
+}
+
+[Function]
+unzip :: [(a, b)] -> ([a], [b])
+Name: unzip
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:unzip
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		GHC.Tuple::(,) {
+			null::a
+			null::b
+		}
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		other::List {
+			null::a
+		}
+		other::List {
+			null::b
+		}
+	}
+}
+
+[Function]
+ioError :: IOError -> IO a
+Name: ioError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:ioError
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Prelude::IOError
+
+	[result]
+	Prelude::IO {
+		null::a
+	}
+}
+
+[Function]
+map :: (a -> b) -> [a] -> [b]
+Name: map
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:map
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::b
+	}
+	other::List {
+		null::a
+	}
+
+	[result]
+	other::List {
+		null::b
+	}
+}
+
+[Function]
+sequence :: Monad m => [m a] -> m [a]
+Name: sequence
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:sequence
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Prelude::Monad)
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::m {
+			null::a
+		}
+	}
+
+	[result]
+	null::m {
+		other::List {
+			null::a
+		}
+	}
+}
+
+[Function]
+appendFile :: FilePath -> String -> IO ()
+Name: appendFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:appendFile
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::FilePath
+	Prelude::String
+
+	[result]
+	Prelude::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+zipWith3 :: (a -> b -> c -> d) -> [a] -> [b] -> [c] -> [d]
+Name: zipWith3
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:zipWith3
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+	c
+	d
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::b
+		null::c
+	
+		[result]
+		null::d
+	}
+	other::List {
+		null::a
+	}
+	other::List {
+		null::b
+	}
+	other::List {
+		null::c
+	}
+
+	[result]
+	other::List {
+		null::d
+	}
+}
+
+[Function]
+sequence_ :: Monad m => [m a] -> m ()
+Name: sequence_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:sequence_
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Prelude::Monad)
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::m {
+			null::a
+		}
+	}
+
+	[result]
+	null::m {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+replicate :: Int -> a -> [a]
+Name: replicate
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:replicate
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Int
+	null::a
+
+	[result]
+	other::List {
+		null::a
+	}
+}
+
+[Function]
+reverse :: [a] -> [a]
+Name: reverse
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:reverse
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::a
+	}
+
+	[result]
+	other::List {
+		null::a
+	}
+}
+
+[Function]
+splitAt :: Int -> [a] -> ([a], [a])
+Name: splitAt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:splitAt
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Int
+	other::List {
+		null::a
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		other::List {
+			null::a
+		}
+		other::List {
+			null::a
+		}
+	}
+}
+
+[Function]
+read :: Read a => String -> a
+Name: read
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:read
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Read a; a; Prelude::Read)
+}
+Signature = <function> {
+	[parameters]
+	Prelude::String
+
+	[result]
+	null::a
+}
+
+[Function]
+drop :: Int -> [a] -> [a]
+Name: drop
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:drop
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Int
+	other::List {
+		null::a
+	}
+
+	[result]
+	other::List {
+		null::a
+	}
+}
+
+[Function]
+uncurry :: (a -> b -> c) -> (a, b) -> c
+Name: uncurry
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:uncurry
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::b
+	
+		[result]
+		null::c
+	}
+	GHC.Tuple::(,) {
+		null::a
+		null::b
+	}
+
+	[result]
+	null::c
+}
+
+[Function]
+(^^) :: (Fractional a, Integral b) => a -> b -> a
+Name: (^^)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:(^^)
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Fractional a; a; Prelude::Fractional)
+	b: (Integral b; b; Prelude::Integral)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+	null::b
+
+	[result]
+	null::a
+}
+
+[Function]
+lookup :: Eq a => a -> [(a, b)] -> Maybe b
+Name: lookup
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:lookup
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Eq a; a; Prelude::Eq)
+	b
+}
+Signature = <function> {
+	[parameters]
+	null::a
+	other::List {
+		GHC.Tuple::(,) {
+			null::a
+			null::b
+		}
+	}
+
+	[result]
+	Prelude::Maybe {
+		null::b
+	}
+}
+
+[Function]
+minimum :: Ord a => [a] -> a
+Name: minimum
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:minimum
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Ord a; a; Prelude::Ord)
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::a
+	}
+
+	[result]
+	null::a
+}
+
+[Function]
+showString :: String -> ShowS
+Name: showString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:showString
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::String
+
+	[result]
+	Prelude::ShowS
+}
+
+[Function]
+(!!) :: [a] -> Int -> a
+Name: (!!)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:(!!)
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::a
+	}
+	Prelude::Int
+
+	[result]
+	null::a
+}
+
+[Function]
+scanl :: (b -> a -> b) -> b -> [a] -> [b]
+Name: scanl
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:scanl
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	b
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::b
+		null::a
+	
+		[result]
+		null::b
+	}
+	null::b
+	other::List {
+		null::a
+	}
+
+	[result]
+	other::List {
+		null::b
+	}
+}
+
+[Function]
+scanr :: (a -> b -> b) -> b -> [a] -> [b]
+Name: scanr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:scanr
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::b
+	
+		[result]
+		null::b
+	}
+	null::b
+	other::List {
+		null::a
+	}
+
+	[result]
+	other::List {
+		null::b
+	}
+}
+
+[Function]
+zip :: [a] -> [b] -> [(a, b)]
+Name: zip
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:zip
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::a
+	}
+	other::List {
+		null::b
+	}
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			null::a
+			null::b
+		}
+	}
+}
+
+[Function]
+elem :: Eq a => a -> [a] -> Bool
+Name: elem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:elem
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Eq a; a; Prelude::Eq)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+	other::List {
+		null::a
+	}
+
+	[result]
+	Prelude::Bool
+}
+
+[Function]
+filter :: (a -> Bool) -> [a] -> [a]
+Name: filter
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:filter
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Prelude::Bool
+	}
+	other::List {
+		null::a
+	}
+
+	[result]
+	other::List {
+		null::a
+	}
+}
+
+[Function]
+(||) :: Bool -> Bool -> Bool
+Name: (||)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:(||)
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Bool
+	Prelude::Bool
+
+	[result]
+	Prelude::Bool
+}
+
+[Function]
+concatMap :: (a -> [b]) -> [a] -> [b]
+Name: concatMap
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:concatMap
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		other::List {
+			null::b
+		}
+	}
+	other::List {
+		null::a
+	}
+
+	[result]
+	other::List {
+		null::b
+	}
+}
+
+[Function]
+(&&) :: Bool -> Bool -> Bool
+Name: (&&)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:(&&)
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Bool
+	Prelude::Bool
+
+	[result]
+	Prelude::Bool
+}
+
+[Function]
+zipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
+Name: zipWith
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:zipWith
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::b
+	
+		[result]
+		null::c
+	}
+	other::List {
+		null::a
+	}
+	other::List {
+		null::b
+	}
+
+	[result]
+	other::List {
+		null::c
+	}
+}
+
+[Function]
+mapM :: Monad m => (a -> m b) -> [a] -> m [b]
+Name: mapM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:mapM
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Prelude::Monad)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::m {
+			null::b
+		}
+	}
+	other::List {
+		null::a
+	}
+
+	[result]
+	null::m {
+		other::List {
+			null::b
+		}
+	}
+}
+
+[Function]
+error :: [Char] -> a
+Name: error
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:error
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Prelude::Char
+	}
+
+	[result]
+	null::a
+}
+
+[Function]
+init :: [a] -> [a]
+Name: init
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:init
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::a
+	}
+
+	[result]
+	other::List {
+		null::a
+	}
+}
+
+[Function]
+subtract :: Num a => a -> a -> a
+Name: subtract
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:subtract
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Num a; a; Prelude::Num)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+	null::a
+
+	[result]
+	null::a
+}
+
+[Function]
+putChar :: Char -> IO ()
+Name: putChar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:putChar
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Char
+
+	[result]
+	Prelude::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+foldl :: (b -> a -> b) -> b -> [a] -> b
+Name: foldl
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:foldl
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	b
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::b
+		null::a
+	
+		[result]
+		null::b
+	}
+	null::b
+	other::List {
+		null::a
+	}
+
+	[result]
+	null::b
+}
+
+[Function]
+foldr :: (a -> b -> b) -> b -> [a] -> b
+Name: foldr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:foldr
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::b
+	
+		[result]
+		null::b
+	}
+	null::b
+	other::List {
+		null::a
+	}
+
+	[result]
+	null::b
+}
+
+[Function]
+notElem :: Eq a => a -> [a] -> Bool
+Name: notElem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:notElem
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Eq a; a; Prelude::Eq)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+	other::List {
+		null::a
+	}
+
+	[result]
+	Prelude::Bool
+}
+
+[Function]
+maximum :: Ord a => [a] -> a
+Name: maximum
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:maximum
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Ord a; a; Prelude::Ord)
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::a
+	}
+
+	[result]
+	null::a
+}
+
+[Function]
+all :: (a -> Bool) -> [a] -> Bool
+Name: all
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:all
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Prelude::Bool
+	}
+	other::List {
+		null::a
+	}
+
+	[result]
+	Prelude::Bool
+}
+
+[Function]
+getLine :: IO String
+Name: getLine
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:getLine
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Prelude::IO {
+		Prelude::String
+	}
+}
+
+[Function]
+and :: [Bool] -> Bool
+Name: and
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:and
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Prelude::Bool
+	}
+
+	[result]
+	Prelude::Bool
+}
+
+[Function]
+any :: (a -> Bool) -> [a] -> Bool
+Name: any
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:any
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Prelude::Bool
+	}
+	other::List {
+		null::a
+	}
+
+	[result]
+	Prelude::Bool
+}
+
+[Function]
+readFile :: FilePath -> IO String
+Name: readFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:readFile
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::FilePath
+
+	[result]
+	Prelude::IO {
+		Prelude::String
+	}
+}
+
+[Function]
+words :: String -> [String]
+Name: words
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:words
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::String
+
+	[result]
+	other::List {
+		Prelude::String
+	}
+}
+
+[Function]
+fst :: (a, b) -> a
+Name: fst
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:fst
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	GHC.Tuple::(,) {
+		null::a
+		null::b
+	}
+
+	[result]
+	null::a
+}
+
+[Function]
+showChar :: Char -> ShowS
+Name: showChar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:showChar
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Char
+
+	[result]
+	Prelude::ShowS
+}
+
+[Function]
+($!) :: (a -> b) -> a -> b
+Name: ($!)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:($!)
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::b
+	}
+	null::a
+
+	[result]
+	null::b
+}
+
+[Function]
+gcd :: Integral a => a -> a -> a
+Name: gcd
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:gcd
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Integral a; a; Prelude::Integral)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+	null::a
+
+	[result]
+	null::a
+}
+
+[Function]
+unwords :: [String] -> String
+Name: unwords
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:unwords
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Prelude::String
+	}
+
+	[result]
+	Prelude::String
+}
+
+[Function]
+otherwise :: Bool
+Name: otherwise
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:otherwise
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Prelude::Bool
+}
+
+[Function]
+product :: Num a => [a] -> a
+Name: product
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:product
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Num a; a; Prelude::Num)
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::a
+	}
+
+	[result]
+	null::a
+}
+
+[Function]
+null :: [a] -> Bool
+Name: null
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:null
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::a
+	}
+
+	[result]
+	Prelude::Bool
+}
+
+[Function]
+(++) :: [a] -> [a] -> [a]
+Name: (++)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:(++)
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::a
+	}
+	other::List {
+		null::a
+	}
+
+	[result]
+	other::List {
+		null::a
+	}
+}
+
+[Function]
+takeWhile :: (a -> Bool) -> [a] -> [a]
+Name: takeWhile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:takeWhile
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Prelude::Bool
+	}
+	other::List {
+		null::a
+	}
+
+	[result]
+	other::List {
+		null::a
+	}
+}
+
+[Function]
+realToFrac :: (Real a, Fractional b) => a -> b
+Name: realToFrac
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:realToFrac
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Real a; a; Prelude::Real)
+	b: (Fractional b; b; Prelude::Fractional)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	null::b
+}
+
+[Function]
+foldl1 :: (a -> a -> a) -> [a] -> a
+Name: foldl1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:foldl1
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+	other::List {
+		null::a
+	}
+
+	[result]
+	null::a
+}
+
+[Function]
+flip :: (a -> b -> c) -> b -> a -> c
+Name: flip
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:flip
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::b
+	
+		[result]
+		null::c
+	}
+	null::b
+	null::a
+
+	[result]
+	null::c
+}
+
+[Function]
+const :: a -> b -> a
+Name: const
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:const
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	null::a
+	null::b
+
+	[result]
+	null::a
+}
+
+[Function]
+mapM_ :: Monad m => (a -> m b) -> [a] -> m ()
+Name: mapM_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:mapM_
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Prelude::Monad)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::m {
+			null::b
+		}
+	}
+	other::List {
+		null::a
+	}
+
+	[result]
+	null::m {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+scanr1 :: (a -> a -> a) -> [a] -> [a]
+Name: scanr1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:scanr1
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+	other::List {
+		null::a
+	}
+
+	[result]
+	other::List {
+		null::a
+	}
+}
+
+[Function]
+getChar :: IO Char
+Name: getChar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:getChar
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Prelude::IO {
+		Prelude::Char
+	}
+}
+
+[Function]
+scanl1 :: (a -> a -> a) -> [a] -> [a]
+Name: scanl1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:scanl1
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+	other::List {
+		null::a
+	}
+
+	[result]
+	other::List {
+		null::a
+	}
+}
+
+[Function]
+take :: Int -> [a] -> [a]
+Name: take
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:take
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Int
+	other::List {
+		null::a
+	}
+
+	[result]
+	other::List {
+		null::a
+	}
+}
+
+[Function]
+tail :: [a] -> [a]
+Name: tail
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:tail
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::a
+	}
+
+	[result]
+	other::List {
+		null::a
+	}
+}
+
+[Function]
+foldr1 :: (a -> a -> a) -> [a] -> a
+Name: foldr1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:foldr1
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+	other::List {
+		null::a
+	}
+
+	[result]
+	null::a
+}
+
+[Function]
+unzip3 :: [(a, b, c)] -> ([a], [b], [c])
+Name: unzip3
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:unzip3
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		GHC.Tuple::(,,) {
+			null::a
+			null::b
+			null::c
+		}
+	}
+
+	[result]
+	GHC.Tuple::(,,) {
+		other::List {
+			null::a
+		}
+		other::List {
+			null::b
+		}
+		other::List {
+			null::c
+		}
+	}
+}
+
+[Function]
+last :: [a] -> a
+Name: last
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:last
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::a
+	}
+
+	[result]
+	null::a
+}
+
+[Function]
+either :: (a -> c) -> (b -> c) -> Either a b -> c
+Name: either
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:either
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	c
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::c
+	}
+	<function> {
+		[parameters]
+		null::b
+	
+		[result]
+		null::c
+	}
+	Prelude::Either {
+		null::a
+		null::b
+	}
+
+	[result]
+	null::c
+}
+
+[Function]
+until :: (a -> Bool) -> (a -> a) -> a -> a
+Name: until
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:until
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Prelude::Bool
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::a
+	}
+	null::a
+
+	[result]
+	null::a
+}
+
+[Function]
+unlines :: [String] -> String
+Name: unlines
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:unlines
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Prelude::String
+	}
+
+	[result]
+	Prelude::String
+}
+
+[Function]
+seq :: a -> b -> b
+Name: seq
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:seq
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	null::a
+	null::b
+
+	[result]
+	null::b
+}
+
+[Function]
+undefined :: a
+Name: undefined
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:undefined
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	null::a
+}
+
+[Function]
+snd :: (a, b) -> b
+Name: snd
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:snd
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	GHC.Tuple::(,) {
+		null::a
+		null::b
+	}
+
+	[result]
+	null::b
+}
+
+[Function]
+lines :: String -> [String]
+Name: lines
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:lines
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::String
+
+	[result]
+	other::List {
+		Prelude::String
+	}
+}
+
+[Function]
+sum :: Num a => [a] -> a
+Name: sum
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:sum
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Num a; a; Prelude::Num)
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::a
+	}
+
+	[result]
+	null::a
+}
+
+[Function]
+iterate :: (a -> a) -> a -> [a]
+Name: iterate
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:iterate
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::a
+	}
+	null::a
+
+	[result]
+	other::List {
+		null::a
+	}
+}
+
+[Function]
+span :: (a -> Bool) -> [a] -> ([a], [a])
+Name: span
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:span
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Prelude::Bool
+	}
+	other::List {
+		null::a
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		other::List {
+			null::a
+		}
+		other::List {
+			null::a
+		}
+	}
+}
+
+[Function]
+curry :: ((a, b) -> c) -> a -> b -> c
+Name: curry
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:curry
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		GHC.Tuple::(,) {
+			null::a
+			null::b
+		}
+	
+		[result]
+		null::c
+	}
+	null::a
+	null::b
+
+	[result]
+	null::c
+}
+
+[Function]
+readIO :: Read a => String -> IO a
+Name: readIO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:readIO
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Read a; a; Prelude::Read)
+}
+Signature = <function> {
+	[parameters]
+	Prelude::String
+
+	[result]
+	Prelude::IO {
+		null::a
+	}
+}
+
+[Function]
+showParen :: Bool -> ShowS -> ShowS
+Name: showParen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:showParen
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Bool
+	Prelude::ShowS
+
+	[result]
+	Prelude::ShowS
+}
+
+[Function]
+getContents :: IO String
+Name: getContents
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:getContents
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Prelude::IO {
+		Prelude::String
+	}
+}
+
+[Function]
+concat :: [[a]] -> [a]
+Name: concat
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:concat
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		<function> {
+			[parameters]
+		
+			[result]
+			other::List {
+				null::a
+			}
+		}
+	}
+
+	[result]
+	other::List {
+		null::a
+	}
+}
+
+[Function]
+print :: Show a => a -> IO ()
+Name: print
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:print
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Show a; a; Prelude::Show)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	Prelude::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+(.) :: (b -> c) -> (a -> b) -> a -> c
+Name: (.)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:(.)
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	b
+	c
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::b
+	
+		[result]
+		null::c
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::b
+	}
+	null::a
+
+	[result]
+	null::c
+}
+
+[Function]
+even :: Integral a => a -> Bool
+Name: even
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:even
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Integral a; a; Prelude::Integral)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	Prelude::Bool
+}
+
+[Function]
+cycle :: [a] -> [a]
+Name: cycle
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:cycle
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::a
+	}
+
+	[result]
+	other::List {
+		null::a
+	}
+}
+
+[Function]
+writeFile :: FilePath -> String -> IO ()
+Name: writeFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:writeFile
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::FilePath
+	Prelude::String
+
+	[result]
+	Prelude::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+reads :: Read a => ReadS a
+Name: reads
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:reads
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Read a; a; Prelude::Read)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Prelude::ReadS {
+		null::a
+	}
+}
+
+[Function]
+readLn :: Read a => IO a
+Name: readLn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:readLn
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Read a; a; Prelude::Read)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Prelude::IO {
+		null::a
+	}
+}
+
+[Function]
+($) :: (a -> b) -> a -> b
+Name: ($)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:($)
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::b
+	}
+	null::a
+
+	[result]
+	null::b
+}
+
+[Function]
+repeat :: a -> [a]
+Name: repeat
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:repeat
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	other::List {
+		null::a
+	}
+}
+
+[Function]
+putStr :: String -> IO ()
+Name: putStr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:putStr
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::String
+
+	[result]
+	Prelude::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+odd :: Integral a => a -> Bool
+Name: odd
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:odd
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Integral a; a; Prelude::Integral)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	Prelude::Bool
+}
+
+[Function]
+or :: [Bool] -> Bool
+Name: or
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:or
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Prelude::Bool
+	}
+
+	[result]
+	Prelude::Bool
+}
+
+[Function]
+interact :: (String -> String) -> IO ()
+Name: interact
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:interact
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Prelude::String
+	
+		[result]
+		Prelude::String
+	}
+
+	[result]
+	Prelude::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+zip3 :: [a] -> [b] -> [c] -> [(a, b, c)]
+Name: zip3
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:zip3
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::a
+	}
+	other::List {
+		null::b
+	}
+	other::List {
+		null::c
+	}
+
+	[result]
+	other::List {
+		GHC.Tuple::(,,) {
+			null::a
+			null::b
+			null::c
+		}
+	}
+}
+
+[Function]
+dropWhile :: (a -> Bool) -> [a] -> [a]
+Name: dropWhile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:dropWhile
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Prelude::Bool
+	}
+	other::List {
+		null::a
+	}
+
+	[result]
+	other::List {
+		null::a
+	}
+}
+
+[Function]
+shows :: Show a => a -> ShowS
+Name: shows
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:shows
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Show a; a; Prelude::Show)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	Prelude::ShowS
+}
+
+[Function]
+not :: Bool -> Bool
+Name: not
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:not
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Bool
+
+	[result]
+	Prelude::Bool
+}
+
+[Function]
+maybe :: b -> (a -> b) -> Maybe a -> b
+Name: maybe
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:maybe
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	b
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::b
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::b
+	}
+	Prelude::Maybe {
+		null::a
+	}
+
+	[result]
+	null::b
+}
+
+[Function]
+break :: (a -> Bool) -> [a] -> ([a], [a])
+Name: break
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:break
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Prelude::Bool
+	}
+	other::List {
+		null::a
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		other::List {
+			null::a
+		}
+		other::List {
+			null::a
+		}
+	}
+}
+
+[Function]
+readParen :: Bool -> ReadS a -> ReadS a
+Name: readParen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:readParen
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Bool
+	Prelude::ReadS {
+		null::a
+	}
+
+	[result]
+	Prelude::ReadS {
+		null::a
+	}
+}
+
+[Function]
+(=<<) :: Monad m => (a -> m b) -> m a -> m b
+Name: (=<<)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:(=<<)
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Prelude::Monad)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::m {
+			null::b
+		}
+	}
+	null::m {
+		null::a
+	}
+
+	[result]
+	null::m {
+		null::b
+	}
+}
+
+[Function]
+putStrLn :: String -> IO ()
+Name: putStrLn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:putStrLn
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::String
+
+	[result]
+	Prelude::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+fromIntegral :: (Integral a, Num b) => a -> b
+Name: fromIntegral
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:fromIntegral
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Integral a; a; Prelude::Integral)
+	b: (Num b; b; Prelude::Num)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	null::b
+}
+
+[Function]
+(^) :: (Num a, Integral b) => a -> b -> a
+Name: (^)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:(^)
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Num a; a; Prelude::Num)
+	b: (Integral b; b; Prelude::Integral)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+	null::b
+
+	[result]
+	null::a
+}
+
+[Function]
+asTypeOf :: a -> a -> a
+Name: asTypeOf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:asTypeOf
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::a
+	null::a
+
+	[result]
+	null::a
+}
+
+[Function]
+id :: a -> a
+Name: id
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:id
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	null::a
+}
+
+[Function]
+length :: [a] -> Int
+Name: length
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:length
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::a
+	}
+
+	[result]
+	Prelude::Int
+}
+
+[Function]
+userError :: String -> IOError
+Name: userError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Prelude.html#v:userError
+Containing package: Prelude
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::String
+
+	[result]
+	Prelude::IOError
+}

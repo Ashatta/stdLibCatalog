@@ -1,0 +1,140 @@
+[Package]
+Name: GHC.IO.Encoding.Failure
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding-Failure.html
+Containing package: GHC.IO.Encoding
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data CodingFailureMode = ErrorOnCodingFailure | IgnoreCodingFailure | TransliterateCodingFailure | RoundtripFailure
+Name: CodingFailureMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding-Failure.html#t:CodingFailureMode
+Containing package: GHC.IO.Encoding.Failure
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+codingFailureModeSuffix :: CodingFailureMode -> String
+Name: codingFailureModeSuffix
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding-Failure.html#v:codingFailureModeSuffix
+Containing package: GHC.IO.Encoding.Failure
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Encoding.Failure::CodingFailureMode
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+recoverDecode :: CodingFailureMode -> Buffer Word8 -> Buffer Char -> IO (Buffer Word8, Buffer Char)
+Name: recoverDecode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding-Failure.html#v:recoverDecode
+Containing package: GHC.IO.Encoding.Failure
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Encoding.Failure::CodingFailureMode
+	GHC.IO.Buffer::Buffer {
+		Data.Word::Word8
+	}
+	GHC.IO.Buffer::Buffer {
+		Data.Char::Char
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			GHC.IO.Buffer::Buffer {
+				Data.Word::Word8
+			}
+			GHC.IO.Buffer::Buffer {
+				Data.Char::Char
+			}
+		}
+	}
+}
+
+[Function]
+isSurrogate :: Char -> Bool
+Name: isSurrogate
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding-Failure.html#v:isSurrogate
+Containing package: GHC.IO.Encoding.Failure
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Char::Char
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+recoverEncode :: CodingFailureMode -> Buffer Char -> Buffer Word8 -> IO (Buffer Char, Buffer Word8)
+Name: recoverEncode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding-Failure.html#v:recoverEncode
+Containing package: GHC.IO.Encoding.Failure
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Encoding.Failure::CodingFailureMode
+	GHC.IO.Buffer::Buffer {
+		Data.Char::Char
+	}
+	GHC.IO.Buffer::Buffer {
+		Data.Word::Word8
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			GHC.IO.Buffer::Buffer {
+				Data.Char::Char
+			}
+			GHC.IO.Buffer::Buffer {
+				Data.Word::Word8
+			}
+		}
+	}
+}

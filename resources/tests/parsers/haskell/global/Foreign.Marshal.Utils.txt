@@ -1,0 +1,354 @@
+[Package]
+Name: Foreign.Marshal.Utils
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Marshal-Utils.html
+Containing package: Foreign.Marshal
+attributes {
+}
+
+Subpackages {
+}
+
+[Function]
+withMany :: (a -> (b -> res) -> res) -> [a] -> ([b] -> res) -> res
+Name: withMany
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Marshal-Utils.html#v:withMany
+Containing package: Foreign.Marshal.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+	res
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		<function> {
+			[parameters]
+			null::b
+		
+			[result]
+			null::res
+		}
+	
+		[result]
+		null::res
+	}
+	other::List {
+		null::a
+	}
+	<function> {
+		[parameters]
+		other::List {
+			null::b
+		}
+	
+		[result]
+		null::res
+	}
+
+	[result]
+	null::res
+}
+
+[Function]
+copyBytes :: Ptr a -> Ptr a -> Int -> IO ()
+Name: copyBytes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Marshal-Utils.html#v:copyBytes
+Containing package: Foreign.Marshal.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+new :: Storable a => a -> IO (Ptr a)
+Name: new
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Marshal-Utils.html#v:new
+Containing package: Foreign.Marshal.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Storable a; a; Foreign.Storable::Storable)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	System.IO::IO {
+		Foreign.Ptr::Ptr {
+			null::a
+		}
+	}
+}
+
+[Function]
+fromBool :: Num a => Bool -> a
+Name: fromBool
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Marshal-Utils.html#v:fromBool
+Containing package: Foreign.Marshal.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Num a; a; Prelude::Num)
+}
+Signature = <function> {
+	[parameters]
+	Data.Bool::Bool
+
+	[result]
+	null::a
+}
+
+[Function]
+maybeNew :: (a -> IO (Ptr b)) -> Maybe a -> IO (Ptr b)
+Name: maybeNew
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Marshal-Utils.html#v:maybeNew
+Containing package: Foreign.Marshal.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		System.IO::IO {
+			Foreign.Ptr::Ptr {
+				null::b
+			}
+		}
+	}
+	Data.Maybe::Maybe {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		Foreign.Ptr::Ptr {
+			null::b
+		}
+	}
+}
+
+[Function]
+toBool :: (Eq a, Num a) => a -> Bool
+Name: toBool
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Marshal-Utils.html#v:toBool
+Containing package: Foreign.Marshal.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Eq a; a; Data.Eq::Eq), (Num a; a; Prelude::Num)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+maybePeek :: (Ptr a -> IO b) -> Ptr a -> IO (Maybe b)
+Name: maybePeek
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Marshal-Utils.html#v:maybePeek
+Containing package: Foreign.Marshal.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Foreign.Ptr::Ptr {
+			null::a
+		}
+	
+		[result]
+		System.IO::IO {
+			null::b
+		}
+	}
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			null::b
+		}
+	}
+}
+
+[Function]
+moveBytes :: Ptr a -> Ptr a -> Int -> IO ()
+Name: moveBytes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Marshal-Utils.html#v:moveBytes
+Containing package: Foreign.Marshal.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+with :: Storable a => a -> (Ptr a -> IO b) -> IO b
+Name: with
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Marshal-Utils.html#v:with
+Containing package: Foreign.Marshal.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Storable a; a; Foreign.Storable::Storable)
+	b
+}
+Signature = <function> {
+	[parameters]
+	null::a
+	<function> {
+		[parameters]
+		Foreign.Ptr::Ptr {
+			null::a
+		}
+	
+		[result]
+		System.IO::IO {
+			null::b
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::b
+	}
+}
+
+[Function]
+maybeWith :: (a -> (Ptr b -> IO c) -> IO c) -> Maybe a -> (Ptr b -> IO c) -> IO c
+Name: maybeWith
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Marshal-Utils.html#v:maybeWith
+Containing package: Foreign.Marshal.Utils
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		<function> {
+			[parameters]
+			Foreign.Ptr::Ptr {
+				null::b
+			}
+		
+			[result]
+			System.IO::IO {
+				null::c
+			}
+		}
+	
+		[result]
+		System.IO::IO {
+			null::c
+		}
+	}
+	Data.Maybe::Maybe {
+		null::a
+	}
+	<function> {
+		[parameters]
+		Foreign.Ptr::Ptr {
+			null::b
+		}
+	
+		[result]
+		System.IO::IO {
+			null::c
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::c
+	}
+}

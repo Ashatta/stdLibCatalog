@@ -1,0 +1,656 @@
+[Package]
+Name: Foreign.C.String
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html
+Containing package: Foreign.C
+attributes {
+}
+
+Subpackages {
+}
+
+[Alias]
+type CStringLen = (Ptr CChar, Int)
+Name: CStringLen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#t:CStringLen
+Containing package: Foreign.C.String
+attributes {
+}
+parameters {
+}
+Aliased type = null::(Ptr CChar, Int)
+
+[Alias]
+type CWStringLen = (Ptr CWchar, Int)
+Name: CWString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#t:CWString
+Containing package: Foreign.C.String
+attributes {
+}
+parameters {
+}
+Aliased type = null::(Ptr CWchar, Int)
+
+[Alias]
+type CWStringLen = (Ptr CWchar, Int)
+Name: CWStringLen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#t:CWStringLen
+Containing package: Foreign.C.String
+attributes {
+}
+parameters {
+}
+Aliased type = null::(Ptr CWchar, Int)
+
+[Alias]
+type CStringLen = (Ptr CChar, Int)
+Name: CString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#t:CString
+Containing package: Foreign.C.String
+attributes {
+}
+parameters {
+}
+Aliased type = null::(Ptr CChar, Int)
+
+[Function]
+castCharToCChar :: Char -> CChar
+Name: castCharToCChar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#v:castCharToCChar
+Containing package: Foreign.C.String
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Char::Char
+
+	[result]
+	Foreign.C.Types::CChar
+}
+
+[Function]
+peekCString :: CString -> IO String
+Name: peekCString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#v:peekCString
+Containing package: Foreign.C.String
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.C.String::CString
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+newCStringLen :: String -> IO CStringLen
+Name: newCStringLen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#v:newCStringLen
+Containing package: Foreign.C.String
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		Foreign.C.String::CStringLen
+	}
+}
+
+[Function]
+withCString :: String -> (CString -> IO a) -> IO a
+Name: withCString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#v:withCString
+Containing package: Foreign.C.String
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	<function> {
+		[parameters]
+		Foreign.C.String::CString
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+castCharToCUChar :: Char -> CUChar
+Name: castCharToCUChar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#v:castCharToCUChar
+Containing package: Foreign.C.String
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Char::Char
+
+	[result]
+	Foreign.C.Types::CUChar
+}
+
+[Function]
+peekCAString :: CString -> IO String
+Name: peekCAString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#v:peekCAString
+Containing package: Foreign.C.String
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.C.String::CString
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+newCAString :: String -> IO CString
+Name: newCAString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#v:newCAString
+Containing package: Foreign.C.String
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		Foreign.C.String::CString
+	}
+}
+
+[Function]
+newCString :: String -> IO CString
+Name: newCString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#v:newCString
+Containing package: Foreign.C.String
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		Foreign.C.String::CString
+	}
+}
+
+[Function]
+withCWString :: String -> (CWString -> IO a) -> IO a
+Name: withCWString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#v:withCWString
+Containing package: Foreign.C.String
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	<function> {
+		[parameters]
+		Foreign.C.String::CWString
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+newCWStringLen :: String -> IO CWStringLen
+Name: newCWStringLen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#v:newCWStringLen
+Containing package: Foreign.C.String
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		Foreign.C.String::CWStringLen
+	}
+}
+
+[Function]
+withCStringLen :: String -> (CStringLen -> IO a) -> IO a
+Name: withCStringLen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#v:withCStringLen
+Containing package: Foreign.C.String
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	<function> {
+		[parameters]
+		Foreign.C.String::CStringLen
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+withCWStringLen :: String -> (CWStringLen -> IO a) -> IO a
+Name: withCWStringLen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#v:withCWStringLen
+Containing package: Foreign.C.String
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	<function> {
+		[parameters]
+		Foreign.C.String::CWStringLen
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+peekCWString :: CWString -> IO String
+Name: peekCWString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#v:peekCWString
+Containing package: Foreign.C.String
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.C.String::CWString
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+withCAString :: String -> (CString -> IO a) -> IO a
+Name: withCAString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#v:withCAString
+Containing package: Foreign.C.String
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	<function> {
+		[parameters]
+		Foreign.C.String::CString
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+withCAStringLen :: String -> (CStringLen -> IO a) -> IO a
+Name: withCAStringLen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#v:withCAStringLen
+Containing package: Foreign.C.String
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	<function> {
+		[parameters]
+		Foreign.C.String::CStringLen
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+charIsRepresentable :: Char -> IO Bool
+Name: charIsRepresentable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#v:charIsRepresentable
+Containing package: Foreign.C.String
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Char::Char
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+castCUCharToChar :: CUChar -> Char
+Name: castCUCharToChar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#v:castCUCharToChar
+Containing package: Foreign.C.String
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.C.Types::CUChar
+
+	[result]
+	Data.Char::Char
+}
+
+[Function]
+castCharToCSChar :: Char -> CSChar
+Name: castCharToCSChar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#v:castCharToCSChar
+Containing package: Foreign.C.String
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Char::Char
+
+	[result]
+	Foreign.C.Types::CSChar
+}
+
+[Function]
+peekCAStringLen :: CStringLen -> IO String
+Name: peekCAStringLen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#v:peekCAStringLen
+Containing package: Foreign.C.String
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.C.String::CStringLen
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+castCCharToChar :: CChar -> Char
+Name: castCCharToChar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#v:castCCharToChar
+Containing package: Foreign.C.String
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.C.Types::CChar
+
+	[result]
+	Data.Char::Char
+}
+
+[Function]
+peekCWStringLen :: CWStringLen -> IO String
+Name: peekCWStringLen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#v:peekCWStringLen
+Containing package: Foreign.C.String
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.C.String::CWStringLen
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+newCAStringLen :: String -> IO CStringLen
+Name: newCAStringLen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#v:newCAStringLen
+Containing package: Foreign.C.String
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		Foreign.C.String::CStringLen
+	}
+}
+
+[Function]
+newCWString :: String -> IO CWString
+Name: newCWString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#v:newCWString
+Containing package: Foreign.C.String
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		Foreign.C.String::CWString
+	}
+}
+
+[Function]
+castCSCharToChar :: CSChar -> Char
+Name: castCSCharToChar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#v:castCSCharToChar
+Containing package: Foreign.C.String
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.C.Types::CSChar
+
+	[result]
+	Data.Char::Char
+}
+
+[Function]
+peekCStringLen :: CStringLen -> IO String
+Name: peekCStringLen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-C-String.html#v:peekCStringLen
+Containing package: Foreign.C.String
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.C.String::CStringLen
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}

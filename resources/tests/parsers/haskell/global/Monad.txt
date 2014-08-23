@@ -1,0 +1,1058 @@
+[Package]
+Name: Monad
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html
+Containing package: null
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+class Functor f where fmap :: (a -> b) -> f a -> f b
+Name: Functor
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#t:Functor
+Containing package: Monad
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	other::Monad.Functor_List<curriedParam<>>
+	Prelude::Monad.Functor_IO<>
+	Control.Applicative::Monad.Functor_ZipList<>
+	Text.ParserCombinators.ReadPrec::Monad.Functor_ReadPrec<>
+	Text.ParserCombinators.ReadP::Monad.Functor_ReadP<>
+	Prelude::Monad.Functor_Maybe<>
+	other::Monad.Functor_(->)<r<>>
+	Prelude::Monad.Functor_Either<a<>>
+	GHC.Tuple::Monad.Functor_(,)<a<>>
+	Array::Monad.Functor_Array<i<>>
+	Control.Applicative::Monad.Functor_Const<m<>>
+	Control.Applicative::Monad.Functor_WrappedMonad<m<>>
+	Control.Applicative::Monad.Functor_WrappedArrow<a<>,b<>>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	fmap :: (a -> b) -> f a -> f b
+	Name: fmap
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#v:fmap
+	Containing package: Monad
+	attributes {
+		memberType=function
+	}
+	Containing type: Functor
+	parameters {
+		a
+		b
+		f: (Functor f; f; Monad::Functor)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			null::b
+		}
+		null::f {
+			null::a
+		}
+	
+		[result]
+		null::f {
+			null::b
+		}
+	}
+}
+
+[Classifier]
+class Monad m => MonadPlus m where mzero :: m a mplus :: m a -> m a -> m a
+Name: MonadPlus
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#t:MonadPlus
+Containing package: Monad
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Maybe::Monad.MonadPlus_Maybe<>
+	other::Monad.MonadPlus_List<curriedParam<>>
+	other::Monad.MonadPlus_P<>
+	Text.ParserCombinators.ReadPrec::Monad.MonadPlus_ReadPrec<>
+	Text.ParserCombinators.ReadP::Monad.MonadPlus_ReadP<>
+	Prelude::Monad.MonadPlus_Maybe<>
+}
+supertypes {
+	Monad::Monad
+}
+members {
+
+	[Function]
+	mzero :: m a
+	Name: mzero
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#v:mzero
+	Containing package: Monad
+	attributes {
+		memberType=function
+	}
+	Containing type: MonadPlus
+	parameters {
+		m: (MonadPlus m; m; Monad::MonadPlus)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		null::m {
+			null::a
+		}
+	}
+
+	[Function]
+	mplus :: m a -> m a -> m a
+	Name: mplus
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#v:mplus
+	Containing package: Monad
+	attributes {
+		memberType=function
+	}
+	Containing type: MonadPlus
+	parameters {
+		m: (MonadPlus m; m; Monad::MonadPlus)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::m {
+			null::a
+		}
+		null::m {
+			null::a
+		}
+	
+		[result]
+		null::m {
+			null::a
+		}
+	}
+}
+
+[Classifier]
+class Monad m where (>>=) :: m a -> (a -> m b) -> m b (>>) :: m a -> m b -> m b return :: a -> m a fail :: String -> m a
+Name: Monad
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#t:Monad
+Containing package: Monad
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Monad::MonadPlus
+	other::Monad.Monad_List<curriedParam<>>
+	Prelude::Monad.Monad_IO<>
+	other::Monad.Monad_P<>
+	Text.ParserCombinators.ReadPrec::Monad.Monad_ReadPrec<>
+	Text.ParserCombinators.ReadP::Monad.Monad_ReadP<>
+	Prelude::Monad.Monad_Maybe<>
+	other::Monad.Monad_(->)<r<>>
+	Prelude::Monad.Monad_Either<e<>>
+	other::Monad.Monad_Wrappedm<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	(>>=) :: m a -> (a -> m b) -> m b
+	Name: (>>=)
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#v:(>>=)
+	Containing package: Monad
+	attributes {
+		memberType=function
+	}
+	Containing type: Monad
+	parameters {
+		m: (Monad m; m; Monad::Monad)
+		a
+		b
+	}
+	Signature = <function> {
+		[parameters]
+		null::m {
+			null::a
+		}
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			null::m {
+				null::b
+			}
+		}
+	
+		[result]
+		null::m {
+			null::b
+		}
+	}
+
+	[Function]
+	(>>) :: m a -> m b -> m b
+	Name: (>>)
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#v:(>>)
+	Containing package: Monad
+	attributes {
+		memberType=function
+	}
+	Containing type: Monad
+	parameters {
+		m: (Monad m; m; Monad::Monad)
+		a
+		b
+	}
+	Signature = <function> {
+		[parameters]
+		null::m {
+			null::a
+		}
+		null::m {
+			null::b
+		}
+	
+		[result]
+		null::m {
+			null::b
+		}
+	}
+
+	[Function]
+	return :: a -> m a
+	Name: return
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#v:return
+	Containing package: Monad
+	attributes {
+		memberType=function
+	}
+	Containing type: Monad
+	parameters {
+		a
+		m: (Monad m; m; Monad::Monad)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::m {
+			null::a
+		}
+	}
+
+	[Function]
+	fail :: String -> m a
+	Name: fail
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#v:fail
+	Containing package: Monad
+	attributes {
+		memberType=function
+	}
+	Containing type: Monad
+	parameters {
+		m: (Monad m; m; Monad::Monad)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		Prelude::String
+	
+		[result]
+		null::m {
+			null::a
+		}
+	}
+}
+
+[Function]
+sequence_ :: Monad m => [m a] -> m ()
+Name: sequence_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#v:sequence_
+Containing package: Monad
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Monad::Monad)
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::m {
+			null::a
+		}
+	}
+
+	[result]
+	null::m {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+foldM :: Monad m => (a -> b -> m a) -> a -> [b] -> m a
+Name: foldM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#v:foldM
+Containing package: Monad
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Monad::Monad)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::b
+	
+		[result]
+		null::m {
+			null::a
+		}
+	}
+	null::a
+	other::List {
+		null::b
+	}
+
+	[result]
+	null::m {
+		null::a
+	}
+}
+
+[Function]
+liftM :: Monad m => (a1 -> r) -> m a1 -> m r
+Name: liftM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#v:liftM
+Containing package: Monad
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Monad::Monad)
+	a1
+	r
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a1
+	
+		[result]
+		null::r
+	}
+	null::m {
+		null::a1
+	}
+
+	[result]
+	null::m {
+		null::r
+	}
+}
+
+[Function]
+ap :: Monad m => m (a -> b) -> m a -> m b
+Name: ap
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#v:ap
+Containing package: Monad
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Monad::Monad)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	null::m {
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			null::b
+		}
+	}
+	null::m {
+		null::a
+	}
+
+	[result]
+	null::m {
+		null::b
+	}
+}
+
+[Function]
+guard :: MonadPlus m => Bool -> m ()
+Name: guard
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#v:guard
+Containing package: Monad
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadPlus m; m; Monad::MonadPlus)
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Bool
+
+	[result]
+	null::m {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+liftM2 :: Monad m => (a1 -> a2 -> r) -> m a1 -> m a2 -> m r
+Name: liftM2
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#v:liftM2
+Containing package: Monad
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Monad::Monad)
+	a1
+	a2
+	r
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a1
+		null::a2
+	
+		[result]
+		null::r
+	}
+	null::m {
+		null::a1
+	}
+	null::m {
+		null::a2
+	}
+
+	[result]
+	null::m {
+		null::r
+	}
+}
+
+[Function]
+liftM3 :: Monad m => (a1 -> a2 -> a3 -> r) -> m a1 -> m a2 -> m a3 -> m r
+Name: liftM3
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#v:liftM3
+Containing package: Monad
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Monad::Monad)
+	a1
+	a2
+	a3
+	r
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a1
+		null::a2
+		null::a3
+	
+		[result]
+		null::r
+	}
+	null::m {
+		null::a1
+	}
+	null::m {
+		null::a2
+	}
+	null::m {
+		null::a3
+	}
+
+	[result]
+	null::m {
+		null::r
+	}
+}
+
+[Function]
+liftM4 :: Monad m => (a1 -> a2 -> a3 -> a4 -> r) -> m a1 -> m a2 -> m a3 -> m a4 -> m r
+Name: liftM4
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#v:liftM4
+Containing package: Monad
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Monad::Monad)
+	a1
+	a2
+	a3
+	a4
+	r
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a1
+		null::a2
+		null::a3
+		null::a4
+	
+		[result]
+		null::r
+	}
+	null::m {
+		null::a1
+	}
+	null::m {
+		null::a2
+	}
+	null::m {
+		null::a3
+	}
+	null::m {
+		null::a4
+	}
+
+	[result]
+	null::m {
+		null::r
+	}
+}
+
+[Function]
+liftM5 :: Monad m => (a1 -> a2 -> a3 -> a4 -> a5 -> r) -> m a1 -> m a2 -> m a3 -> m a4 -> m a5 -> m r
+Name: liftM5
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#v:liftM5
+Containing package: Monad
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Monad::Monad)
+	a1
+	a2
+	a3
+	a4
+	a5
+	r
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a1
+		null::a2
+		null::a3
+		null::a4
+		null::a5
+	
+		[result]
+		null::r
+	}
+	null::m {
+		null::a1
+	}
+	null::m {
+		null::a2
+	}
+	null::m {
+		null::a3
+	}
+	null::m {
+		null::a4
+	}
+	null::m {
+		null::a5
+	}
+
+	[result]
+	null::m {
+		null::r
+	}
+}
+
+[Function]
+mapM :: Monad m => (a -> m b) -> [a] -> m [b]
+Name: mapM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#v:mapM
+Containing package: Monad
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Monad::Monad)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::m {
+			null::b
+		}
+	}
+	other::List {
+		null::a
+	}
+
+	[result]
+	null::m {
+		other::List {
+			null::b
+		}
+	}
+}
+
+[Function]
+msum :: MonadPlus m => [m a] -> m a
+Name: msum
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#v:msum
+Containing package: Monad
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadPlus m; m; Monad::MonadPlus)
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::m {
+			null::a
+		}
+	}
+
+	[result]
+	null::m {
+		null::a
+	}
+}
+
+[Function]
+zipWithM_ :: Monad m => (a -> b -> m c) -> [a] -> [b] -> m ()
+Name: zipWithM_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#v:zipWithM_
+Containing package: Monad
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Monad::Monad)
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::b
+	
+		[result]
+		null::m {
+			null::c
+		}
+	}
+	other::List {
+		null::a
+	}
+	other::List {
+		null::b
+	}
+
+	[result]
+	null::m {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+join :: Monad m => m (m a) -> m a
+Name: join
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#v:join
+Containing package: Monad
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Monad::Monad)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::m {
+		null::m {
+			null::a
+		}
+	}
+
+	[result]
+	null::m {
+		null::a
+	}
+}
+
+[Function]
+(=<<) :: Monad m => (a -> m b) -> m a -> m b
+Name: (=<<)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#v:(=<<)
+Containing package: Monad
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Monad::Monad)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::m {
+			null::b
+		}
+	}
+	null::m {
+		null::a
+	}
+
+	[result]
+	null::m {
+		null::b
+	}
+}
+
+[Function]
+filterM :: Monad m => (a -> m Bool) -> [a] -> m [a]
+Name: filterM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#v:filterM
+Containing package: Monad
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Monad::Monad)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::m {
+			Prelude::Bool
+		}
+	}
+	other::List {
+		null::a
+	}
+
+	[result]
+	null::m {
+		other::List {
+			null::a
+		}
+	}
+}
+
+[Function]
+when :: Monad m => Bool -> m () -> m ()
+Name: when
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#v:when
+Containing package: Monad
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Monad::Monad)
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Bool
+	null::m {
+		GHC.Tuple::()
+	}
+
+	[result]
+	null::m {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+zipWithM :: Monad m => (a -> b -> m c) -> [a] -> [b] -> m [c]
+Name: zipWithM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#v:zipWithM
+Containing package: Monad
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Monad::Monad)
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::b
+	
+		[result]
+		null::m {
+			null::c
+		}
+	}
+	other::List {
+		null::a
+	}
+	other::List {
+		null::b
+	}
+
+	[result]
+	null::m {
+		other::List {
+			null::c
+		}
+	}
+}
+
+[Function]
+unless :: Monad m => Bool -> m () -> m ()
+Name: unless
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#v:unless
+Containing package: Monad
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Monad::Monad)
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Bool
+	null::m {
+		GHC.Tuple::()
+	}
+
+	[result]
+	null::m {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+mapAndUnzipM :: Monad m => (a -> m (b, c)) -> [a] -> m ([b], [c])
+Name: mapAndUnzipM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#v:mapAndUnzipM
+Containing package: Monad
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Monad::Monad)
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::m {
+			GHC.Tuple::(,) {
+				null::b
+				null::c
+			}
+		}
+	}
+	other::List {
+		null::a
+	}
+
+	[result]
+	null::m {
+		GHC.Tuple::(,) {
+			other::List {
+				null::b
+			}
+			other::List {
+				null::c
+			}
+		}
+	}
+}
+
+[Function]
+mapM_ :: Monad m => (a -> m b) -> [a] -> m ()
+Name: mapM_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#v:mapM_
+Containing package: Monad
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Monad::Monad)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::m {
+			null::b
+		}
+	}
+	other::List {
+		null::a
+	}
+
+	[result]
+	null::m {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+sequence :: Monad m => [m a] -> m [a]
+Name: sequence
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Monad.html#v:sequence
+Containing package: Monad
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Monad::Monad)
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		null::m {
+			null::a
+		}
+	}
+
+	[result]
+	null::m {
+		other::List {
+			null::a
+		}
+	}
+}

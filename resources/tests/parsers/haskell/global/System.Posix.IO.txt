@@ -1,0 +1,610 @@
+[Package]
+Name: System.Posix.IO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-IO.html
+Containing package: System.Posix
+attributes {
+}
+
+Subpackages {
+	System.Posix.IO.ByteString
+}
+
+[Classifier]
+data LockRequest = ReadLock | WriteLock | Unlock
+Name: LockRequest
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-IO.html#t:LockRequest
+Containing package: System.Posix.IO
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data OpenFileFlags = OpenFileFlags { append :: Bool exclusive :: Bool noctty :: Bool nonBlock :: Bool trunc :: Bool}
+Name: OpenFileFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-IO.html#t:OpenFileFlags
+Containing package: System.Posix.IO
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data FdOption = AppendOnWrite | CloseOnExec | NonBlockingRead | SynchronousWrites
+Name: FdOption
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-IO.html#t:FdOption
+Containing package: System.Posix.IO
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data OpenMode = ReadOnly | WriteOnly | ReadWrite
+Name: OpenMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-IO.html#t:OpenMode
+Containing package: System.Posix.IO
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type FileLock = (LockRequest, SeekMode, FileOffset, FileOffset)
+Name: FileLock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-IO.html#t:FileLock
+Containing package: System.Posix.IO
+attributes {
+}
+parameters {
+}
+Aliased type = null::(LockRequest, SeekMode, FileOffset, FileOffset)
+
+[Function]
+stdInput :: Fd
+Name: stdInput
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-IO.html#v:stdInput
+Containing package: System.Posix.IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Types::Fd
+}
+
+[Function]
+setFdOption :: Fd -> FdOption -> Bool -> IO ()
+Name: setFdOption
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-IO.html#v:setFdOption
+Containing package: System.Posix.IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+	System.Posix.IO::FdOption
+	Data.Bool::Bool
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+fdRead :: Fd -> ByteCount -> IO (String, ByteCount)
+Name: fdRead
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-IO.html#v:fdRead
+Containing package: System.Posix.IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+	System.Posix.Types::ByteCount
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			Data.String::String
+			System.Posix.Types::ByteCount
+		}
+	}
+}
+
+[Function]
+waitToSetLock :: Fd -> FileLock -> IO ()
+Name: waitToSetLock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-IO.html#v:waitToSetLock
+Containing package: System.Posix.IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+	System.Posix.IO::FileLock
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+stdOutput :: Fd
+Name: stdOutput
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-IO.html#v:stdOutput
+Containing package: System.Posix.IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Types::Fd
+}
+
+[Function]
+dup :: Fd -> IO Fd
+Name: dup
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-IO.html#v:dup
+Containing package: System.Posix.IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+
+	[result]
+	System.IO::IO {
+		System.Posix.Types::Fd
+	}
+}
+
+[Function]
+stdError :: Fd
+Name: stdError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-IO.html#v:stdError
+Containing package: System.Posix.IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Types::Fd
+}
+
+[Function]
+queryFdOption :: Fd -> FdOption -> IO Bool
+Name: queryFdOption
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-IO.html#v:queryFdOption
+Containing package: System.Posix.IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+	System.Posix.IO::FdOption
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+fdWrite :: Fd -> String -> IO ByteCount
+Name: fdWrite
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-IO.html#v:fdWrite
+Containing package: System.Posix.IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		System.Posix.Types::ByteCount
+	}
+}
+
+[Function]
+setLock :: Fd -> FileLock -> IO ()
+Name: setLock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-IO.html#v:setLock
+Containing package: System.Posix.IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+	System.Posix.IO::FileLock
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+defaultFileFlags :: OpenFileFlags
+Name: defaultFileFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-IO.html#v:defaultFileFlags
+Containing package: System.Posix.IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.IO::OpenFileFlags
+}
+
+[Function]
+fdWriteBuf :: Fd -> Ptr Word8 -> ByteCount -> IO ByteCount
+Name: fdWriteBuf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-IO.html#v:fdWriteBuf
+Containing package: System.Posix.IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+	Foreign.Ptr::Ptr {
+		Data.Word::Word8
+	}
+	System.Posix.Types::ByteCount
+
+	[result]
+	System.IO::IO {
+		System.Posix.Types::ByteCount
+	}
+}
+
+[Function]
+closeFd :: Fd -> IO ()
+Name: closeFd
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-IO.html#v:closeFd
+Containing package: System.Posix.IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+handleToFd :: Handle -> IO Fd
+Name: handleToFd
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-IO.html#v:handleToFd
+Containing package: System.Posix.IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+
+	[result]
+	System.IO::IO {
+		System.Posix.Types::Fd
+	}
+}
+
+[Function]
+openFd :: FilePath -> OpenMode -> Maybe FileMode -> OpenFileFlags -> IO Fd
+Name: openFd
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-IO.html#v:openFd
+Containing package: System.Posix.IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	System.Posix.IO::OpenMode
+	Data.Maybe::Maybe {
+		System.Posix.Types::FileMode
+	}
+	System.Posix.IO::OpenFileFlags
+
+	[result]
+	System.IO::IO {
+		System.Posix.Types::Fd
+	}
+}
+
+[Function]
+getLock :: Fd -> FileLock -> IO (Maybe (ProcessID, FileLock))
+Name: getLock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-IO.html#v:getLock
+Containing package: System.Posix.IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+	System.Posix.IO::FileLock
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			GHC.Tuple::(,) {
+				System.Posix.Types::ProcessID
+				System.Posix.IO::FileLock
+			}
+		}
+	}
+}
+
+[Function]
+fdToHandle :: Fd -> IO Handle
+Name: fdToHandle
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-IO.html#v:fdToHandle
+Containing package: System.Posix.IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+
+	[result]
+	System.IO::IO {
+		GHC.IO.Handle::Handle
+	}
+}
+
+[Function]
+dupTo :: Fd -> Fd -> IO Fd
+Name: dupTo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-IO.html#v:dupTo
+Containing package: System.Posix.IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+	System.Posix.Types::Fd
+
+	[result]
+	System.IO::IO {
+		System.Posix.Types::Fd
+	}
+}
+
+[Function]
+createFile :: FilePath -> FileMode -> IO Fd
+Name: createFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-IO.html#v:createFile
+Containing package: System.Posix.IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	System.Posix.Types::FileMode
+
+	[result]
+	System.IO::IO {
+		System.Posix.Types::Fd
+	}
+}
+
+[Function]
+fdSeek :: Fd -> SeekMode -> FileOffset -> IO FileOffset
+Name: fdSeek
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-IO.html#v:fdSeek
+Containing package: System.Posix.IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+	GHC.IO.Device::SeekMode
+	System.Posix.Types::FileOffset
+
+	[result]
+	System.IO::IO {
+		System.Posix.Types::FileOffset
+	}
+}
+
+[Function]
+createPipe :: IO (Fd, Fd)
+Name: createPipe
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-IO.html#v:createPipe
+Containing package: System.Posix.IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			System.Posix.Types::Fd
+			System.Posix.Types::Fd
+		}
+	}
+}
+
+[Function]
+fdReadBuf :: Fd -> Ptr Word8 -> ByteCount -> IO ByteCount
+Name: fdReadBuf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-IO.html#v:fdReadBuf
+Containing package: System.Posix.IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+	Foreign.Ptr::Ptr {
+		Data.Word::Word8
+	}
+	System.Posix.Types::ByteCount
+
+	[result]
+	System.IO::IO {
+		System.Posix.Types::ByteCount
+	}
+}

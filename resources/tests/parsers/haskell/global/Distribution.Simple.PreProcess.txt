@@ -1,0 +1,374 @@
+[Package]
+Name: Distribution.Simple.PreProcess
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PreProcess.html
+Containing package: Distribution.Simple
+attributes {
+}
+
+Subpackages {
+	Distribution.Simple.PreProcess.Unlit
+}
+
+[Classifier]
+data PreProcessor = PreProcessor { platformIndependent :: Bool runPreProcessor :: (FilePath, FilePath) -> (FilePath, FilePath) -> Verbosity -> IO ()}
+Name: PreProcessor
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PreProcess.html#t:PreProcessor
+Containing package: Distribution.Simple.PreProcess
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type PPSuffixHandler = (String, BuildInfo -> LocalBuildInfo -> PreProcessor)
+Name: PPSuffixHandler
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PreProcess.html#t:PPSuffixHandler
+Containing package: Distribution.Simple.PreProcess
+attributes {
+}
+parameters {
+}
+Aliased type = null::(String, BuildInfo -> LocalBuildInfo -> PreProcessor)
+
+[Function]
+ppC2hs :: BuildInfo -> LocalBuildInfo -> PreProcessor
+Name: ppC2hs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PreProcess.html#v:ppC2hs
+Containing package: Distribution.Simple.PreProcess
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::BuildInfo
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+
+	[result]
+	Distribution.Simple.PreProcess::PreProcessor
+}
+
+[Function]
+ppAlex :: BuildInfo -> LocalBuildInfo -> PreProcessor
+Name: ppAlex
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PreProcess.html#v:ppAlex
+Containing package: Distribution.Simple.PreProcess
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::BuildInfo
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+
+	[result]
+	Distribution.Simple.PreProcess::PreProcessor
+}
+
+[Function]
+ppCpp :: BuildInfo -> LocalBuildInfo -> PreProcessor
+Name: ppCpp
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PreProcess.html#v:ppCpp
+Containing package: Distribution.Simple.PreProcess
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::BuildInfo
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+
+	[result]
+	Distribution.Simple.PreProcess::PreProcessor
+}
+
+[Function]
+ppHappy :: BuildInfo -> LocalBuildInfo -> PreProcessor
+Name: ppHappy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PreProcess.html#v:ppHappy
+Containing package: Distribution.Simple.PreProcess
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::BuildInfo
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+
+	[result]
+	Distribution.Simple.PreProcess::PreProcessor
+}
+
+[Function]
+ppSuffixes :: [PPSuffixHandler] -> [String]
+Name: ppSuffixes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PreProcess.html#v:ppSuffixes
+Containing package: Distribution.Simple.PreProcess
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Distribution.Simple.PreProcess::PPSuffixHandler
+	}
+
+	[result]
+	other::List {
+		Data.String::String
+	}
+}
+
+[Function]
+preprocessComponent :: PackageDescription -> Component -> LocalBuildInfo -> Bool -> Verbosity -> [PPSuffixHandler] -> IO ()
+Name: preprocessComponent
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PreProcess.html#v:preprocessComponent
+Containing package: Distribution.Simple.PreProcess
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+	Distribution.Simple.LocalBuildInfo::Component
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	Data.Bool::Bool
+	Distribution.Verbosity::Verbosity
+	other::List {
+		Distribution.Simple.PreProcess::PPSuffixHandler
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+mkSimplePreProcessor :: (FilePath -> FilePath -> Verbosity -> IO ()) -> (FilePath, FilePath) -> (FilePath, FilePath) -> Verbosity -> IO ()
+Name: mkSimplePreProcessor
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PreProcess.html#v:mkSimplePreProcessor
+Containing package: Distribution.Simple.PreProcess
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		System.IO::FilePath
+		System.IO::FilePath
+		Distribution.Verbosity::Verbosity
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+	GHC.Tuple::(,) {
+		System.IO::FilePath
+		System.IO::FilePath
+	}
+	GHC.Tuple::(,) {
+		System.IO::FilePath
+		System.IO::FilePath
+	}
+	Distribution.Verbosity::Verbosity
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+ppCpp' :: [String] -> BuildInfo -> LocalBuildInfo -> PreProcessor
+Name: ppCpp'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PreProcess.html#v:ppCpp'
+Containing package: Distribution.Simple.PreProcess
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Data.String::String
+	}
+	Distribution.PackageDescription::BuildInfo
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+
+	[result]
+	Distribution.Simple.PreProcess::PreProcessor
+}
+
+[Function]
+runSimplePreProcessor :: PreProcessor -> FilePath -> FilePath -> Verbosity -> IO ()
+Name: runSimplePreProcessor
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PreProcess.html#v:runSimplePreProcessor
+Containing package: Distribution.Simple.PreProcess
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.PreProcess::PreProcessor
+	System.IO::FilePath
+	System.IO::FilePath
+	Distribution.Verbosity::Verbosity
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+platformDefines :: LocalBuildInfo -> [String]
+Name: platformDefines
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PreProcess.html#v:platformDefines
+Containing package: Distribution.Simple.PreProcess
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+
+	[result]
+	other::List {
+		Data.String::String
+	}
+}
+
+[Function]
+knownSuffixHandlers :: [PPSuffixHandler]
+Name: knownSuffixHandlers
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PreProcess.html#v:knownSuffixHandlers
+Containing package: Distribution.Simple.PreProcess
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		Distribution.Simple.PreProcess::PPSuffixHandler
+	}
+}
+
+[Function]
+ppHsc2hs :: BuildInfo -> LocalBuildInfo -> PreProcessor
+Name: ppHsc2hs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PreProcess.html#v:ppHsc2hs
+Containing package: Distribution.Simple.PreProcess
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::BuildInfo
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+
+	[result]
+	Distribution.Simple.PreProcess::PreProcessor
+}
+
+[Function]
+ppGreenCard :: BuildInfo -> LocalBuildInfo -> PreProcessor
+Name: ppGreenCard
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PreProcess.html#v:ppGreenCard
+Containing package: Distribution.Simple.PreProcess
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::BuildInfo
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+
+	[result]
+	Distribution.Simple.PreProcess::PreProcessor
+}
+
+[Function]
+ppUnlit :: PreProcessor
+Name: ppUnlit
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-PreProcess.html#v:ppUnlit
+Containing package: Distribution.Simple.PreProcess
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.PreProcess::PreProcessor
+}

@@ -1,0 +1,719 @@
+[Package]
+Name: System.Win32.Process
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html
+Containing package: System.Win32
+attributes {
+}
+
+Subpackages {
+}
+
+[Alias]
+type ProcessId = DWORD
+Name: ProcessId
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#t:ProcessId
+Containing package: System.Win32.Process
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::DWORD
+
+[Alias]
+type ProcessEntry32 = (ProcessId, Int, ProcessId, LONG, String)
+Name: ProcessEntry32
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#t:ProcessEntry32
+Containing package: System.Win32.Process
+attributes {
+}
+parameters {
+}
+Aliased type = null::(ProcessId, Int, ProcessId, LONG, String)
+
+[Alias]
+type Th32SnapFlags = DWORD
+Name: Th32SnapFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#t:Th32SnapFlags
+Containing package: System.Win32.Process
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::DWORD
+
+[Alias]
+type Th32SnapHandle = HANDLE
+Name: Th32SnapHandle
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#t:Th32SnapHandle
+Containing package: System.Win32.Process
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::HANDLE
+
+[Alias]
+type ProcessAccessRights = DWORD
+Name: ProcessAccessRights
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#t:ProcessAccessRights
+Containing package: System.Win32.Process
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::DWORD
+
+[Alias]
+type ProcessHandle = HANDLE
+Name: ProcessHandle
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#t:ProcessHandle
+Containing package: System.Win32.Process
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::HANDLE
+
+[Function]
+pROCESS_CREATE_PROCESS :: ProcessAccessRights
+Name: pROCESS_CREATE_PROCESS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:pROCESS_CREATE_PROCESS
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Process::ProcessAccessRights
+}
+
+[Function]
+tH32CS_SNAPTHREAD :: Th32SnapFlags
+Name: tH32CS_SNAPTHREAD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:tH32CS_SNAPTHREAD
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Process::Th32SnapFlags
+}
+
+[Function]
+pROCESS_SET_INFORMATION :: ProcessAccessRights
+Name: pROCESS_SET_INFORMATION
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:pROCESS_SET_INFORMATION
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Process::ProcessAccessRights
+}
+
+[Function]
+c_OpenProcess :: ProcessAccessRights -> BOOL -> ProcessId -> IO ProcessHandle
+Name: c_OpenProcess
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:c_OpenProcess
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Process::ProcessAccessRights
+	System.Win32.Types::BOOL
+	System.Win32.Process::ProcessId
+
+	[result]
+	System.IO::IO {
+		System.Win32.Process::ProcessHandle
+	}
+}
+
+[Function]
+c_Process32Next :: Th32SnapHandle -> Ptr ProcessEntry32 -> IO BOOL
+Name: c_Process32Next
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:c_Process32Next
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Process::Th32SnapHandle
+	Foreign.Ptr::Ptr {
+		System.Win32.Process::ProcessEntry32
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::BOOL
+	}
+}
+
+[Function]
+pROCESS_TERMINATE :: ProcessAccessRights
+Name: pROCESS_TERMINATE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:pROCESS_TERMINATE
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Process::ProcessAccessRights
+}
+
+[Function]
+c_CreateToolhelp32Snapshot :: Th32SnapFlags -> ProcessId -> IO Th32SnapHandle
+Name: c_CreateToolhelp32Snapshot
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:c_CreateToolhelp32Snapshot
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Process::Th32SnapFlags
+	System.Win32.Process::ProcessId
+
+	[result]
+	System.IO::IO {
+		System.Win32.Process::Th32SnapHandle
+	}
+}
+
+[Function]
+pROCESS_CREATE_THREAD :: ProcessAccessRights
+Name: pROCESS_CREATE_THREAD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:pROCESS_CREATE_THREAD
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Process::ProcessAccessRights
+}
+
+[Function]
+withTh32Snap :: Th32SnapFlags -> Maybe ProcessId -> (Th32SnapHandle -> IO a) -> IO a
+Name: withTh32Snap
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:withTh32Snap
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Process::Th32SnapFlags
+	Data.Maybe::Maybe {
+		System.Win32.Process::ProcessId
+	}
+	<function> {
+		[parameters]
+		System.Win32.Process::Th32SnapHandle
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+createToolhelp32Snapshot :: Th32SnapFlags -> Maybe ProcessId -> IO Th32SnapHandle
+Name: createToolhelp32Snapshot
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:createToolhelp32Snapshot
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Process::Th32SnapFlags
+	Data.Maybe::Maybe {
+		System.Win32.Process::ProcessId
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Process::Th32SnapHandle
+	}
+}
+
+[Function]
+tH32CS_SNAPPROCESS :: Th32SnapFlags
+Name: tH32CS_SNAPPROCESS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:tH32CS_SNAPPROCESS
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Process::Th32SnapFlags
+}
+
+[Function]
+c_GetProcessId :: ProcessHandle -> IO ProcessId
+Name: c_GetProcessId
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:c_GetProcessId
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Process::ProcessHandle
+
+	[result]
+	System.IO::IO {
+		System.Win32.Process::ProcessId
+	}
+}
+
+[Function]
+pROCESS_ALL_ACCESS :: ProcessAccessRights
+Name: pROCESS_ALL_ACCESS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:pROCESS_ALL_ACCESS
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Process::ProcessAccessRights
+}
+
+[Function]
+peekProcessEntry32 :: Ptr ProcessEntry32 -> IO ProcessEntry32
+Name: peekProcessEntry32
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:peekProcessEntry32
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		System.Win32.Process::ProcessEntry32
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Process::ProcessEntry32
+	}
+}
+
+[Function]
+c_Process32First :: Th32SnapHandle -> Ptr ProcessEntry32 -> IO BOOL
+Name: c_Process32First
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:c_Process32First
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Process::Th32SnapHandle
+	Foreign.Ptr::Ptr {
+		System.Win32.Process::ProcessEntry32
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::BOOL
+	}
+}
+
+[Function]
+pROCESS_VM_OPERATION :: ProcessAccessRights
+Name: pROCESS_VM_OPERATION
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:pROCESS_VM_OPERATION
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Process::ProcessAccessRights
+}
+
+[Function]
+tH32CS_SNAPHEAPLIST :: Th32SnapFlags
+Name: tH32CS_SNAPHEAPLIST
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:tH32CS_SNAPHEAPLIST
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Process::Th32SnapFlags
+}
+
+[Function]
+iNFINITE :: DWORD
+Name: iNFINITE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:iNFINITE
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Types::DWORD
+}
+
+[Function]
+pROCESS_VM_READ :: ProcessAccessRights
+Name: pROCESS_VM_READ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:pROCESS_VM_READ
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Process::ProcessAccessRights
+}
+
+[Function]
+getProcessId :: ProcessHandle -> IO ProcessId
+Name: getProcessId
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:getProcessId
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Process::ProcessHandle
+
+	[result]
+	System.IO::IO {
+		System.Win32.Process::ProcessId
+	}
+}
+
+[Function]
+sYNCHORNIZE :: ProcessAccessRights
+Name: sYNCHORNIZE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:sYNCHORNIZE
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Process::ProcessAccessRights
+}
+
+[Function]
+sleep :: DWORD -> IO ()
+Name: sleep
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:sleep
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::DWORD
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+tH32CS_SNAPMODULE :: Th32SnapFlags
+Name: tH32CS_SNAPMODULE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:tH32CS_SNAPMODULE
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Process::Th32SnapFlags
+}
+
+[Function]
+pROCESS_VM_WRITE :: ProcessAccessRights
+Name: pROCESS_VM_WRITE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:pROCESS_VM_WRITE
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Process::ProcessAccessRights
+}
+
+[Function]
+pROCESS_DUP_HANDLE :: ProcessAccessRights
+Name: pROCESS_DUP_HANDLE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:pROCESS_DUP_HANDLE
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Process::ProcessAccessRights
+}
+
+[Function]
+pROCESS_QUERY_INFORMATION :: ProcessAccessRights
+Name: pROCESS_QUERY_INFORMATION
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:pROCESS_QUERY_INFORMATION
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Process::ProcessAccessRights
+}
+
+[Function]
+pROCESS_SET_QUOTA :: ProcessAccessRights
+Name: pROCESS_SET_QUOTA
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:pROCESS_SET_QUOTA
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Process::ProcessAccessRights
+}
+
+[Function]
+openProcess :: ProcessAccessRights -> BOOL -> ProcessId -> IO ProcessHandle
+Name: openProcess
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:openProcess
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Process::ProcessAccessRights
+	System.Win32.Types::BOOL
+	System.Win32.Process::ProcessId
+
+	[result]
+	System.IO::IO {
+		System.Win32.Process::ProcessHandle
+	}
+}
+
+[Function]
+th32SnapEnumProcesses :: Th32SnapHandle -> IO [ProcessEntry32]
+Name: th32SnapEnumProcesses
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:th32SnapEnumProcesses
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Process::Th32SnapHandle
+
+	[result]
+	System.IO::IO {
+		other::List {
+			System.Win32.Process::ProcessEntry32
+		}
+	}
+}
+
+[Function]
+tH32CS_SNAPALL :: Th32SnapFlags
+Name: tH32CS_SNAPALL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Process.html#v:tH32CS_SNAPALL
+Containing package: System.Win32.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Process::Th32SnapFlags
+}

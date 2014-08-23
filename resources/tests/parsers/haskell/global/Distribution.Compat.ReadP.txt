@@ -1,0 +1,1047 @@
+[Package]
+Name: Distribution.Compat.ReadP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html
+Containing package: Compat
+attributes {
+}
+
+Subpackages {
+}
+
+[Alias]
+type ReadP r a = Parser r Char a
+Name: ReadP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#t:ReadP
+Containing package: Distribution.Compat.ReadP
+attributes {
+}
+parameters {
+	r
+	a
+}
+Aliased type = null::Parser {
+	null::r
+	Data.Char::Char
+	null::a
+}
+
+[Alias]
+type ReadS a = String -> [(a, String)]
+Name: ReadS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#t:ReadS
+Containing package: Distribution.Compat.ReadP
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			null::a
+			Data.String::String
+		}
+	}
+}
+
+[Function]
+skipSpaces :: ReadP r ()
+Name: skipSpaces
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:skipSpaces
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+satisfy :: (Char -> Bool) -> ReadP r Char
+Name: satisfy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:satisfy
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Char::Char
+	
+		[result]
+		Data.Bool::Bool
+	}
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		Data.Char::Char
+	}
+}
+
+[Function]
+get :: ReadP r Char
+Name: get
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:get
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		Data.Char::Char
+	}
+}
+
+[Function]
+many :: ReadP r a -> ReadP r [a]
+Name: many
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:many
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		other::List {
+			null::a
+		}
+	}
+}
+
+[Function]
+string :: String -> ReadP r String
+Name: string
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:string
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		Data.String::String
+	}
+}
+
+[Function]
+endBy :: ReadP r a -> ReadP r sep -> ReadP r [a]
+Name: endBy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:endBy
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+	a
+	sep
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::sep
+	}
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		other::List {
+			null::a
+		}
+	}
+}
+
+[Function]
+readS_to_P :: ReadS a -> ReadP r a
+Name: readS_to_P
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:readS_to_P
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	r
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Compat.ReadP::ReadS {
+		null::a
+	}
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+}
+
+[Function]
+skipMany1 :: ReadP r a -> ReadP r ()
+Name: skipMany1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:skipMany1
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+choice :: [ReadP r a] -> ReadP r a
+Name: choice
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:choice
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Distribution.Compat.ReadP::ReadP {
+			null::r
+			null::a
+		}
+	}
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+}
+
+[Function]
+(<++) :: ReadP a a -> ReadP r a -> ReadP r a
+Name: (<++)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:(<++)
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	r
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Compat.ReadP::ReadP {
+		null::a
+		null::a
+	}
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+}
+
+[Function]
+sepBy :: ReadP r a -> ReadP r sep -> ReadP r [a]
+Name: sepBy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:sepBy
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+	a
+	sep
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::sep
+	}
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		other::List {
+			null::a
+		}
+	}
+}
+
+[Function]
+manyTill :: ReadP r a -> ReadP [a] end -> ReadP r [a]
+Name: manyTill
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:manyTill
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+	a
+	end
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+	Distribution.Compat.ReadP::ReadP {
+		other::List {
+			null::a
+		}
+		null::end
+	}
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		other::List {
+			null::a
+		}
+	}
+}
+
+[Function]
+chainr :: ReadP r a -> ReadP r (a -> a -> a) -> a -> ReadP r a
+Name: chainr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:chainr
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		<function> {
+			[parameters]
+			null::a
+			null::a
+		
+			[result]
+			null::a
+		}
+	}
+	null::a
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+}
+
+[Function]
+chainl :: ReadP r a -> ReadP r (a -> a -> a) -> a -> ReadP r a
+Name: chainl
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:chainl
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		<function> {
+			[parameters]
+			null::a
+			null::a
+		
+			[result]
+			null::a
+		}
+	}
+	null::a
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+}
+
+[Function]
+munch :: (Char -> Bool) -> ReadP r String
+Name: munch
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:munch
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Char::Char
+	
+		[result]
+		Data.Bool::Bool
+	}
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		Data.String::String
+	}
+}
+
+[Function]
+chainr1 :: ReadP r a -> ReadP r (a -> a -> a) -> ReadP r a
+Name: chainr1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:chainr1
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		<function> {
+			[parameters]
+			null::a
+			null::a
+		
+			[result]
+			null::a
+		}
+	}
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+}
+
+[Function]
+readP_to_S :: ReadP a a -> ReadS a
+Name: readP_to_S
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:readP_to_S
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Compat.ReadP::ReadP {
+		null::a
+		null::a
+	}
+
+	[result]
+	Distribution.Compat.ReadP::ReadS {
+		null::a
+	}
+}
+
+[Function]
+skipMany :: ReadP r a -> ReadP r ()
+Name: skipMany
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:skipMany
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+char :: Char -> ReadP r Char
+Name: char
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:char
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+}
+Signature = <function> {
+	[parameters]
+	Data.Char::Char
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		Data.Char::Char
+	}
+}
+
+[Function]
+between :: ReadP r open -> ReadP r close -> ReadP r a -> ReadP r a
+Name: between
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:between
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+	open
+	close
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::open
+	}
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::close
+	}
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+}
+
+[Function]
+option :: a -> ReadP r a -> ReadP r a
+Name: option
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:option
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	r
+}
+Signature = <function> {
+	[parameters]
+	null::a
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+}
+
+[Function]
+gather :: ReadP (String -> P Char r) a -> ReadP r (String, a)
+Name: gather
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:gather
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Compat.ReadP::ReadP {
+		<function> {
+			[parameters]
+			Data.String::String
+		
+			[result]
+			null::P {
+				Data.Char::Char
+				null::r
+			}
+		}
+		null::a
+	}
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		GHC.Tuple::(,) {
+			Data.String::String
+			null::a
+		}
+	}
+}
+
+[Function]
+munch1 :: (Char -> Bool) -> ReadP r String
+Name: munch1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:munch1
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Char::Char
+	
+		[result]
+		Data.Bool::Bool
+	}
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		Data.String::String
+	}
+}
+
+[Function]
+pfail :: ReadP r a
+Name: pfail
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:pfail
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+	a
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+}
+
+[Function]
+look :: ReadP r String
+Name: look
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:look
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		Data.String::String
+	}
+}
+
+[Function]
+sepBy1 :: ReadP r a -> ReadP r sep -> ReadP r [a]
+Name: sepBy1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:sepBy1
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+	a
+	sep
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::sep
+	}
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		other::List {
+			null::a
+		}
+	}
+}
+
+[Function]
+count :: Int -> ReadP r a -> ReadP r [a]
+Name: count
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:count
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		other::List {
+			null::a
+		}
+	}
+}
+
+[Function]
+endBy1 :: ReadP r a -> ReadP r sep -> ReadP r [a]
+Name: endBy1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:endBy1
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+	a
+	sep
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::sep
+	}
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		other::List {
+			null::a
+		}
+	}
+}
+
+[Function]
+many1 :: ReadP r a -> ReadP r [a]
+Name: many1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:many1
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		other::List {
+			null::a
+		}
+	}
+}
+
+[Function]
+(+++) :: ReadP r a -> ReadP r a -> ReadP r a
+Name: (+++)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:(+++)
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+}
+
+[Function]
+optional :: ReadP r a -> ReadP r ()
+Name: optional
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:optional
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+chainl1 :: ReadP r a -> ReadP r (a -> a -> a) -> ReadP r a
+Name: chainl1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compat-ReadP.html#v:chainl1
+Containing package: Distribution.Compat.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		<function> {
+			[parameters]
+			null::a
+			null::a
+		
+			[result]
+			null::a
+		}
+	}
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		null::a
+	}
+}

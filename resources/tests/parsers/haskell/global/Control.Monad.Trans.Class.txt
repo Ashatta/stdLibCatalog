@@ -1,0 +1,70 @@
+[Package]
+Name: Control.Monad.Trans.Class
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Class.html
+Containing package: Trans
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+class MonadTrans t where lift :: Monad m => m a -> t m a
+Name: MonadTrans
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Class.html#t:MonadTrans
+Containing package: Control.Monad.Trans.Class
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Control.Monad.Trans.Identity::Control.Monad.Trans.Class.MonadTrans_IdentityT<>
+	Control.Monad.Trans.List::Control.Monad.Trans.Class.MonadTrans_ListT<>
+	Control.Monad.Trans.Maybe::Control.Monad.Trans.Class.MonadTrans_MaybeT<>
+	Control.Monad.Trans.Cont::Control.Monad.Trans.Class.MonadTrans_ContT<r<>>
+	Control.Monad.Trans.Error::Control.Monad.Trans.Class.MonadTrans_ErrorT<e<>>
+	Control.Monad.Trans.Reader::Control.Monad.Trans.Class.MonadTrans_ReaderT<r<>>
+	Control.Monad.Trans.State.Lazy::Control.Monad.Trans.Class.MonadTrans_StateT<s<>>
+	Control.Monad.Trans.State.Strict::Control.Monad.Trans.Class.MonadTrans_StateT<s<>>
+	Control.Monad.Trans.Writer.Lazy::Control.Monad.Trans.Class.MonadTrans_WriterT<w<>>
+	Control.Monad.Trans.Writer.Strict::Control.Monad.Trans.Class.MonadTrans_WriterT<w<>>
+	Control.Monad.Trans.RWS.Lazy::Control.Monad.Trans.Class.MonadTrans_RWST<r<>,w<>,s<>>
+	Control.Monad.Trans.RWS.Strict::Control.Monad.Trans.Class.MonadTrans_RWST<r<>,w<>,s<>>
+	System.Console.Haskeline::Control.Monad.Trans.Class.MonadTrans_InputT<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	lift :: Monad m => m a -> t m a
+	Name: lift
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-Class.html#v:lift
+	Containing package: Control.Monad.Trans.Class
+	attributes {
+		memberType=function
+	}
+	Containing type: MonadTrans
+	parameters {
+		m: (Monad m; m; Control.Monad::Monad)
+		a
+		t: (MonadTrans t; t; Control.Monad.Trans.Class::MonadTrans)
+	}
+	Signature = <function> {
+		[parameters]
+		null::m {
+			null::a
+		}
+	
+		[result]
+		null::t {
+			null::m
+			null::a
+		}
+	}
+}

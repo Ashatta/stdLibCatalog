@@ -1,0 +1,358 @@
+[Package]
+Name: System.Time
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/old-time-1.1.0.2/System-Time.html
+Containing package: System
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data CalendarTime = CalendarTime { ctYear :: Int ctMonth :: Month ctDay :: Int ctHour :: Int ctMin :: Int ctSec :: Int ctPicosec :: Integer ctWDay :: Day ctYDay :: Int ctTZName :: String ctTZ :: Int ctIsDST :: Bool}
+Name: CalendarTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/old-time-1.1.0.2/System-Time.html#t:CalendarTime
+Containing package: System.Time
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Day = Sunday | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday
+Name: Day
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/old-time-1.1.0.2/System-Time.html#t:Day
+Containing package: System.Time
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Month = January | February | March | April | May | June | July | August | September | October | November | December
+Name: Month
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/old-time-1.1.0.2/System-Time.html#t:Month
+Containing package: System.Time
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TimeDiff = TimeDiff { tdYear :: Int tdMonth :: Int tdDay :: Int tdHour :: Int tdMin :: Int tdSec :: Int tdPicosec :: Integer}
+Name: TimeDiff
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/old-time-1.1.0.2/System-Time.html#t:TimeDiff
+Containing package: System.Time
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ClockTime = TOD Integer Integer
+Name: ClockTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/old-time-1.1.0.2/System-Time.html#t:ClockTime
+Containing package: System.Time
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+formatCalendarTime :: TimeLocale -> String -> CalendarTime -> String
+Name: formatCalendarTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/old-time-1.1.0.2/System-Time.html#v:formatCalendarTime
+Containing package: System.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Locale::TimeLocale
+	Data.String::String
+	System.Time::CalendarTime
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+toClockTime :: CalendarTime -> ClockTime
+Name: toClockTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/old-time-1.1.0.2/System-Time.html#v:toClockTime
+Containing package: System.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Time::CalendarTime
+
+	[result]
+	System.Time::ClockTime
+}
+
+[Function]
+formatTimeDiff :: TimeLocale -> String -> TimeDiff -> String
+Name: formatTimeDiff
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/old-time-1.1.0.2/System-Time.html#v:formatTimeDiff
+Containing package: System.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Locale::TimeLocale
+	Data.String::String
+	System.Time::TimeDiff
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+normalizeTimeDiff :: TimeDiff -> TimeDiff
+Name: normalizeTimeDiff
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/old-time-1.1.0.2/System-Time.html#v:normalizeTimeDiff
+Containing package: System.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Time::TimeDiff
+
+	[result]
+	System.Time::TimeDiff
+}
+
+[Function]
+getClockTime :: IO ClockTime
+Name: getClockTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/old-time-1.1.0.2/System-Time.html#v:getClockTime
+Containing package: System.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.Time::ClockTime
+	}
+}
+
+[Function]
+addToClockTime :: TimeDiff -> ClockTime -> ClockTime
+Name: addToClockTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/old-time-1.1.0.2/System-Time.html#v:addToClockTime
+Containing package: System.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Time::TimeDiff
+	System.Time::ClockTime
+
+	[result]
+	System.Time::ClockTime
+}
+
+[Function]
+toCalendarTime :: ClockTime -> IO CalendarTime
+Name: toCalendarTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/old-time-1.1.0.2/System-Time.html#v:toCalendarTime
+Containing package: System.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Time::ClockTime
+
+	[result]
+	System.IO::IO {
+		System.Time::CalendarTime
+	}
+}
+
+[Function]
+calendarTimeToString :: CalendarTime -> String
+Name: calendarTimeToString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/old-time-1.1.0.2/System-Time.html#v:calendarTimeToString
+Containing package: System.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Time::CalendarTime
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+diffClockTimes :: ClockTime -> ClockTime -> TimeDiff
+Name: diffClockTimes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/old-time-1.1.0.2/System-Time.html#v:diffClockTimes
+Containing package: System.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Time::ClockTime
+	System.Time::ClockTime
+
+	[result]
+	System.Time::TimeDiff
+}
+
+[Function]
+toUTCTime :: ClockTime -> CalendarTime
+Name: toUTCTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/old-time-1.1.0.2/System-Time.html#v:toUTCTime
+Containing package: System.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Time::ClockTime
+
+	[result]
+	System.Time::CalendarTime
+}
+
+[Function]
+noTimeDiff :: TimeDiff
+Name: noTimeDiff
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/old-time-1.1.0.2/System-Time.html#v:noTimeDiff
+Containing package: System.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Time::TimeDiff
+}
+
+[Function]
+timeDiffToString :: TimeDiff -> String
+Name: timeDiffToString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/old-time-1.1.0.2/System-Time.html#v:timeDiffToString
+Containing package: System.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Time::TimeDiff
+
+	[result]
+	Data.String::String
+}

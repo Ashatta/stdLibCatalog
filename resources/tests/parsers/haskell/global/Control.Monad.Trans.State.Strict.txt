@@ -1,0 +1,859 @@
+[Package]
+Name: Control.Monad.Trans.State.Strict
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-State-Strict.html
+Containing package: Control.Monad.Trans.State
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+newtype StateT s m a = StateT { runStateT :: s -> m (a, s)}
+Name: StateT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-State-Strict.html#t:StateT
+Containing package: Control.Monad.Trans.State.Strict
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	s
+	m
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type State s = StateT s Identity
+Name: State
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-State-Strict.html#t:State
+Containing package: Control.Monad.Trans.State.Strict
+attributes {
+}
+parameters {
+	s
+}
+Aliased type = Control.Monad.Trans.State.Strict::StateT {
+	null::s
+	Data.Functor.Identity::Identity
+}
+
+[Function]
+runState :: State s a -> s -> (a, s)
+Name: runState
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-State-Strict.html#v:runState
+Containing package: Control.Monad.Trans.State.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Monad.Trans.State.Strict::State {
+		null::s
+		null::a
+	}
+	null::s
+
+	[result]
+	GHC.Tuple::(,) {
+		null::a
+		null::s
+	}
+}
+
+[Function]
+mapState :: ((a, s) -> (b, s)) -> State s a -> State s b
+Name: mapState
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-State-Strict.html#v:mapState
+Containing package: Control.Monad.Trans.State.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	s
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		GHC.Tuple::(,) {
+			null::a
+			null::s
+		}
+	
+		[result]
+		GHC.Tuple::(,) {
+			null::b
+			null::s
+		}
+	}
+	Control.Monad.Trans.State.Strict::State {
+		null::s
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.State.Strict::State {
+		null::s
+		null::b
+	}
+}
+
+[Function]
+evalStateT :: Monad m => StateT s m a -> s -> m a
+Name: evalStateT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-State-Strict.html#v:evalStateT
+Containing package: Control.Monad.Trans.State.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	s
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Monad.Trans.State.Strict::StateT {
+		null::s
+		null::m
+		null::a
+	}
+	null::s
+
+	[result]
+	null::m {
+		null::a
+	}
+}
+
+[Function]
+liftCallCC :: ((((a, s) -> m (b, s)) -> m (a, s)) -> m (a, s)) -> ((a -> StateT s m b) -> StateT s m a) -> StateT s m a
+Name: liftCallCC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-State-Strict.html#v:liftCallCC
+Containing package: Control.Monad.Trans.State.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	s
+	m
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			<function> {
+				[parameters]
+				GHC.Tuple::(,) {
+					null::a
+					null::s
+				}
+			
+				[result]
+				null::m {
+					GHC.Tuple::(,) {
+						null::b
+						null::s
+					}
+				}
+			}
+		
+			[result]
+			null::m {
+				GHC.Tuple::(,) {
+					null::a
+					null::s
+				}
+			}
+		}
+	
+		[result]
+		null::m {
+			GHC.Tuple::(,) {
+				null::a
+				null::s
+			}
+		}
+	}
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			Control.Monad.Trans.State.Strict::StateT {
+				null::s
+				null::m
+				null::b
+			}
+		}
+	
+		[result]
+		Control.Monad.Trans.State.Strict::StateT {
+			null::s
+			null::m
+			null::a
+		}
+	}
+
+	[result]
+	Control.Monad.Trans.State.Strict::StateT {
+		null::s
+		null::m
+		null::a
+	}
+}
+
+[Function]
+mapStateT :: (m (a, s) -> n (b, s)) -> StateT s m a -> StateT s n b
+Name: mapStateT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-State-Strict.html#v:mapStateT
+Containing package: Control.Monad.Trans.State.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m
+	a
+	s
+	n
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::m {
+			GHC.Tuple::(,) {
+				null::a
+				null::s
+			}
+		}
+	
+		[result]
+		null::n {
+			GHC.Tuple::(,) {
+				null::b
+				null::s
+			}
+		}
+	}
+	Control.Monad.Trans.State.Strict::StateT {
+		null::s
+		null::m
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.State.Strict::StateT {
+		null::s
+		null::n
+		null::b
+	}
+}
+
+[Function]
+modify :: Monad m => (s -> s) -> StateT s m ()
+Name: modify
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-State-Strict.html#v:modify
+Containing package: Control.Monad.Trans.State.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	s
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::s
+	
+		[result]
+		null::s
+	}
+
+	[result]
+	Control.Monad.Trans.State.Strict::StateT {
+		null::s
+		null::m
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+liftCallCC' :: ((((a, s) -> m (b, s)) -> m (a, s)) -> m (a, s)) -> ((a -> StateT s m b) -> StateT s m a) -> StateT s m a
+Name: liftCallCC'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-State-Strict.html#v:liftCallCC'
+Containing package: Control.Monad.Trans.State.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	s
+	m
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			<function> {
+				[parameters]
+				GHC.Tuple::(,) {
+					null::a
+					null::s
+				}
+			
+				[result]
+				null::m {
+					GHC.Tuple::(,) {
+						null::b
+						null::s
+					}
+				}
+			}
+		
+			[result]
+			null::m {
+				GHC.Tuple::(,) {
+					null::a
+					null::s
+				}
+			}
+		}
+	
+		[result]
+		null::m {
+			GHC.Tuple::(,) {
+				null::a
+				null::s
+			}
+		}
+	}
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			Control.Monad.Trans.State.Strict::StateT {
+				null::s
+				null::m
+				null::b
+			}
+		}
+	
+		[result]
+		Control.Monad.Trans.State.Strict::StateT {
+			null::s
+			null::m
+			null::a
+		}
+	}
+
+	[result]
+	Control.Monad.Trans.State.Strict::StateT {
+		null::s
+		null::m
+		null::a
+	}
+}
+
+[Function]
+liftPass :: Monad m => (m ((a, s), b) -> m (a, s)) -> StateT s m (a, b) -> StateT s m a
+Name: liftPass
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-State-Strict.html#v:liftPass
+Containing package: Control.Monad.Trans.State.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	a
+	s
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::m {
+			GHC.Tuple::(,) {
+				GHC.Tuple::(,) {
+					null::a
+					null::s
+				}
+				null::b
+			}
+		}
+	
+		[result]
+		null::m {
+			GHC.Tuple::(,) {
+				null::a
+				null::s
+			}
+		}
+	}
+	Control.Monad.Trans.State.Strict::StateT {
+		null::s
+		null::m
+		GHC.Tuple::(,) {
+			null::a
+			null::b
+		}
+	}
+
+	[result]
+	Control.Monad.Trans.State.Strict::StateT {
+		null::s
+		null::m
+		null::a
+	}
+}
+
+[Function]
+withState :: (s -> s) -> State s a -> State s a
+Name: withState
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-State-Strict.html#v:withState
+Containing package: Control.Monad.Trans.State.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::s
+	
+		[result]
+		null::s
+	}
+	Control.Monad.Trans.State.Strict::State {
+		null::s
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.State.Strict::State {
+		null::s
+		null::a
+	}
+}
+
+[Function]
+evalState :: State s a -> s -> a
+Name: evalState
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-State-Strict.html#v:evalState
+Containing package: Control.Monad.Trans.State.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Monad.Trans.State.Strict::State {
+		null::s
+		null::a
+	}
+	null::s
+
+	[result]
+	null::a
+}
+
+[Function]
+execStateT :: Monad m => StateT s m a -> s -> m s
+Name: execStateT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-State-Strict.html#v:execStateT
+Containing package: Control.Monad.Trans.State.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	s
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Monad.Trans.State.Strict::StateT {
+		null::s
+		null::m
+		null::a
+	}
+	null::s
+
+	[result]
+	null::m {
+		null::s
+	}
+}
+
+[Function]
+liftListen :: Monad m => (m (a, s) -> m ((a, s), w)) -> StateT s m a -> StateT s m (a, w)
+Name: liftListen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-State-Strict.html#v:liftListen
+Containing package: Control.Monad.Trans.State.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	a
+	s
+	w
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::m {
+			GHC.Tuple::(,) {
+				null::a
+				null::s
+			}
+		}
+	
+		[result]
+		null::m {
+			GHC.Tuple::(,) {
+				GHC.Tuple::(,) {
+					null::a
+					null::s
+				}
+				null::w
+			}
+		}
+	}
+	Control.Monad.Trans.State.Strict::StateT {
+		null::s
+		null::m
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.State.Strict::StateT {
+		null::s
+		null::m
+		GHC.Tuple::(,) {
+			null::a
+			null::w
+		}
+	}
+}
+
+[Function]
+withStateT :: (s -> s) -> StateT s m a -> StateT s m a
+Name: withStateT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-State-Strict.html#v:withStateT
+Containing package: Control.Monad.Trans.State.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s
+	m
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::s
+	
+		[result]
+		null::s
+	}
+	Control.Monad.Trans.State.Strict::StateT {
+		null::s
+		null::m
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.State.Strict::StateT {
+		null::s
+		null::m
+		null::a
+	}
+}
+
+[Function]
+put :: Monad m => s -> StateT s m ()
+Name: put
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-State-Strict.html#v:put
+Containing package: Control.Monad.Trans.State.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	s
+}
+Signature = <function> {
+	[parameters]
+	null::s
+
+	[result]
+	Control.Monad.Trans.State.Strict::StateT {
+		null::s
+		null::m
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+gets :: Monad m => (s -> a) -> StateT s m a
+Name: gets
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-State-Strict.html#v:gets
+Containing package: Control.Monad.Trans.State.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	s
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::s
+	
+		[result]
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.State.Strict::StateT {
+		null::s
+		null::m
+		null::a
+	}
+}
+
+[Function]
+get :: Monad m => StateT s m s
+Name: get
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-State-Strict.html#v:get
+Containing package: Control.Monad.Trans.State.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	s
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Control.Monad.Trans.State.Strict::StateT {
+		null::s
+		null::m
+		null::s
+	}
+}
+
+[Function]
+execState :: State s a -> s -> s
+Name: execState
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-State-Strict.html#v:execState
+Containing package: Control.Monad.Trans.State.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Monad.Trans.State.Strict::State {
+		null::s
+		null::a
+	}
+	null::s
+
+	[result]
+	null::s
+}
+
+[Function]
+liftCatch :: (m (a, s) -> (e -> m (a, s)) -> m (a, s)) -> StateT s m a -> (e -> StateT s m a) -> StateT s m a
+Name: liftCatch
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-State-Strict.html#v:liftCatch
+Containing package: Control.Monad.Trans.State.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m
+	a
+	s
+	e
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::m {
+			GHC.Tuple::(,) {
+				null::a
+				null::s
+			}
+		}
+		<function> {
+			[parameters]
+			null::e
+		
+			[result]
+			null::m {
+				GHC.Tuple::(,) {
+					null::a
+					null::s
+				}
+			}
+		}
+	
+		[result]
+		null::m {
+			GHC.Tuple::(,) {
+				null::a
+				null::s
+			}
+		}
+	}
+	Control.Monad.Trans.State.Strict::StateT {
+		null::s
+		null::m
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::e
+	
+		[result]
+		Control.Monad.Trans.State.Strict::StateT {
+			null::s
+			null::m
+			null::a
+		}
+	}
+
+	[result]
+	Control.Monad.Trans.State.Strict::StateT {
+		null::s
+		null::m
+		null::a
+	}
+}
+
+[Function]
+state :: Monad m => (s -> (a, s)) -> StateT s m a
+Name: state
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-State-Strict.html#v:state
+Containing package: Control.Monad.Trans.State.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+	s
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::s
+	
+		[result]
+		GHC.Tuple::(,) {
+			null::a
+			null::s
+		}
+	}
+
+	[result]
+	Control.Monad.Trans.State.Strict::StateT {
+		null::s
+		null::m
+		null::a
+	}
+}

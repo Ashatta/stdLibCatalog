@@ -1,0 +1,152 @@
+[Package]
+Name: Data.STRef.Lazy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-STRef-Lazy.html
+Containing package: Data.STRef
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data STRef s a
+Name: STRef
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-STRef-Lazy.html#t:STRef
+Containing package: Data.STRef.Lazy
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	s
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+writeSTRef :: STRef s a -> a -> ST s ()
+Name: writeSTRef
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-STRef-Lazy.html#v:writeSTRef
+Containing package: Data.STRef.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.STRef.Lazy::STRef {
+		null::s
+		null::a
+	}
+	null::a
+
+	[result]
+	Control.Monad.ST.Lazy.Safe::ST {
+		null::s
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+newSTRef :: a -> ST s (STRef s a)
+Name: newSTRef
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-STRef-Lazy.html#v:newSTRef
+Containing package: Data.STRef.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	s
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	Control.Monad.ST.Lazy.Safe::ST {
+		null::s
+		Data.STRef.Lazy::STRef {
+			null::s
+			null::a
+		}
+	}
+}
+
+[Function]
+readSTRef :: STRef s a -> ST s a
+Name: readSTRef
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-STRef-Lazy.html#v:readSTRef
+Containing package: Data.STRef.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.STRef.Lazy::STRef {
+		null::s
+		null::a
+	}
+
+	[result]
+	Control.Monad.ST.Lazy.Safe::ST {
+		null::s
+		null::a
+	}
+}
+
+[Function]
+modifySTRef :: STRef s a -> (a -> a) -> ST s ()
+Name: modifySTRef
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-STRef-Lazy.html#v:modifySTRef
+Containing package: Data.STRef.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.STRef.Lazy::STRef {
+		null::s
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[result]
+	Control.Monad.ST.Lazy.Safe::ST {
+		null::s
+		GHC.Tuple::()
+	}
+}

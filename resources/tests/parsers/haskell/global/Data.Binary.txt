@@ -1,0 +1,415 @@
+[Package]
+Name: Data.Binary
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary.html
+Containing package: Data
+attributes {
+}
+
+Subpackages {
+	Data.Binary.Builder
+	Data.Binary.Get
+	Data.Binary.Put
+}
+
+[Classifier]
+data Get a
+Name: Get
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary.html#t:Get
+Containing package: Data.Binary
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class Binary t where put :: t -> Put get :: Get t
+Name: Binary
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary.html#t:Binary
+Containing package: Data.Binary
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Data.Bool::Data.Binary.Binary_Bool<>
+	Data.Char::Data.Binary.Binary_Char<>
+	Prelude::Data.Binary.Binary_Double<>
+	Prelude::Data.Binary.Binary_Float<>
+	Data.Int::Data.Binary.Binary_Int<>
+	Data.Int::Data.Binary.Binary_Int8<>
+	Data.Int::Data.Binary.Binary_Int16<>
+	Data.Int::Data.Binary.Binary_Int32<>
+	Data.Int::Data.Binary.Binary_Int64<>
+	Prelude::Data.Binary.Binary_Integer<>
+	Data.Ord::Data.Binary.Binary_Ordering<>
+	Data.Word::Data.Binary.Binary_Word<>
+	Data.Word::Data.Binary.Binary_Word8<>
+	Data.Word::Data.Binary.Binary_Word16<>
+	Data.Word::Data.Binary.Binary_Word32<>
+	Data.Word::Data.Binary.Binary_Word64<>
+	GHC.Tuple::Data.Binary.Binary_()<>
+	Data.ByteString.Lazy::Data.Binary.Binary_ByteString<>
+	Data.ByteString::Data.Binary.Binary_ByteString<>
+	Data.IntSet::Data.Binary.Binary_IntSet<>
+	other::Data.Binary.Binary_List<a<>>
+	Data.Ratio::Data.Binary.Binary_Ratio<a<>>
+	Data.Maybe::Data.Binary.Binary_Maybe<a<>>
+	Data.IntMap.Strict::Data.Binary.Binary_IntMap<e<>>
+	Data.Set::Data.Binary.Binary_Set<a<>>
+	Data.Tree::Data.Binary.Binary_Tree<e<>>
+	Data.Sequence::Data.Binary.Binary_Seq<e<>>
+	Data.Either::Data.Binary.Binary_Either<a<>,b<>>
+	GHC.Tuple::Data.Binary.Binary_(,,,)<a<>,b<>>
+	Data.Array.Unboxed::Data.Binary.Binary_UArray<i<>,e<>>
+	Data.Array::Data.Binary.Binary_Array<i<>,e<>>
+	Data.Map.Lazy::Data.Binary.Binary_Map<k<>,e<>>
+	GHC.Tuple::Data.Binary.Binary_(,,,,)<a<>,b<>,c<>>
+	GHC.Tuple::Data.Binary.Binary_(,,,,,)<a<>,b<>,c<>,d<>>
+	GHC.Tuple::Data.Binary.Binary_(,,,,,,)<a<>,b<>,c<>,d<>,e<>>
+	GHC.Tuple::Data.Binary.Binary_(,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>>
+	GHC.Tuple::Data.Binary.Binary_(,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>>
+	GHC.Tuple::Data.Binary.Binary_(,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>>
+	GHC.Tuple::Data.Binary.Binary_(,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>>
+	GHC.Tuple::Data.Binary.Binary_(,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	put :: t -> Put
+	Name: put
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary.html#v:put
+	Containing package: Data.Binary
+	attributes {
+		memberType=function
+	}
+	Containing type: Binary
+	parameters {
+		t: (Binary t; t; Data.Binary::Binary)
+	}
+	Signature = <function> {
+		[parameters]
+		null::t
+	
+		[result]
+		Data.Binary::Put
+	}
+
+	[Function]
+	get :: Get t
+	Name: get
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary.html#v:get
+	Containing package: Data.Binary
+	attributes {
+		memberType=function
+	}
+	Containing type: Binary
+	parameters {
+		t: (Binary t; t; Data.Binary::Binary)
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		Data.Binary::Get {
+			null::t
+		}
+	}
+}
+
+[Classifier]
+class GBinary f where gput :: f t -> Put gget :: Get (f t)
+Name: GBinary
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary.html#t:GBinary
+Containing package: Data.Binary
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	GHC.Generics::Data.Binary.GBinary_V1<>
+	GHC.Generics::Data.Binary.GBinary_U1<>
+	GHC.Generics::Data.Binary.GBinary_K1<i<>,a<>>
+	GHC.Generics::Data.Binary.GBinary_(:+:)<a<>,b<>>
+	GHC.Generics::Data.Binary.GBinary_(:*:)<a<>,b<>>
+	GHC.Generics::Data.Binary.GBinary_M1<i<>,c<>,a<>>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	gput :: f t -> Put
+	Name: gput
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary.html#v:gput
+	Containing package: Data.Binary
+	attributes {
+		memberType=function
+	}
+	Containing type: GBinary
+	parameters {
+		f: (GBinary f; f; Data.Binary::GBinary)
+		t
+	}
+	Signature = <function> {
+		[parameters]
+		null::f {
+			null::t
+		}
+	
+		[result]
+		Data.Binary::Put
+	}
+
+	[Function]
+	gget :: Get (f t)
+	Name: gget
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary.html#v:gget
+	Containing package: Data.Binary
+	attributes {
+		memberType=function
+	}
+	Containing type: GBinary
+	parameters {
+		f: (GBinary f; f; Data.Binary::GBinary)
+		t
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		Data.Binary::Get {
+			null::f {
+				null::t
+			}
+		}
+	}
+}
+
+[Alias]
+type Put = PutM ()
+Name: Put
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary.html#t:Put
+Containing package: Data.Binary
+attributes {
+}
+parameters {
+}
+Aliased type = Data.Binary.Put::PutM {
+	GHC.Tuple::()
+}
+
+[Function]
+decodeFileOrFail :: Binary a => FilePath -> IO (Either (ByteOffset, String) a)
+Name: decodeFileOrFail
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary.html#v:decodeFileOrFail
+Containing package: Data.Binary
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Binary a; a; Data.Binary::Binary)
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		Data.Either::Either {
+			GHC.Tuple::(,) {
+				Data.Binary.Get::ByteOffset
+				Data.String::String
+			}
+			null::a
+		}
+	}
+}
+
+[Function]
+decode :: Binary a => ByteString -> a
+Name: decode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary.html#v:decode
+Containing package: Data.Binary
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Binary a; a; Data.Binary::Binary)
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString.Lazy::ByteString
+
+	[result]
+	null::a
+}
+
+[Function]
+putWord8 :: Word8 -> Put
+Name: putWord8
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary.html#v:putWord8
+Containing package: Data.Binary
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Word::Word8
+
+	[result]
+	Data.Binary::Put
+}
+
+[Function]
+decodeOrFail :: Binary a => ByteString -> Either (ByteString, ByteOffset, String) (ByteString, ByteOffset, a)
+Name: decodeOrFail
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary.html#v:decodeOrFail
+Containing package: Data.Binary
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Binary a; a; Data.Binary::Binary)
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString.Lazy::ByteString
+
+	[result]
+	Data.Either::Either {
+		GHC.Tuple::(,,) {
+			Data.ByteString.Lazy::ByteString
+			Data.Binary.Get::ByteOffset
+			Data.String::String
+		}
+		GHC.Tuple::(,,) {
+			Data.ByteString.Lazy::ByteString
+			Data.Binary.Get::ByteOffset
+			null::a
+		}
+	}
+}
+
+[Function]
+encode :: Binary a => a -> ByteString
+Name: encode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary.html#v:encode
+Containing package: Data.Binary
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Binary a; a; Data.Binary::Binary)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	Data.ByteString.Lazy::ByteString
+}
+
+[Function]
+getWord8 :: Get Word8
+Name: getWord8
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary.html#v:getWord8
+Containing package: Data.Binary
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Binary::Get {
+		Data.Word::Word8
+	}
+}
+
+[Function]
+decodeFile :: Binary a => FilePath -> IO a
+Name: decodeFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary.html#v:decodeFile
+Containing package: Data.Binary
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Binary a; a; Data.Binary::Binary)
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+encodeFile :: Binary a => FilePath -> a -> IO ()
+Name: encodeFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary.html#v:encodeFile
+Containing package: Data.Binary
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Binary a; a; Data.Binary::Binary)
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	null::a
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}

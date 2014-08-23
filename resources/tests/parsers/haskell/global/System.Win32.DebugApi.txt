@@ -1,0 +1,1426 @@
+[Package]
+Name: System.Win32.DebugApi
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html
+Containing package: System.Win32
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data DebugEventInfo = UnknownDebugEvent | Exception ExceptionInfo Exception | CreateThread ThreadInfo | CreateProcess PHANDLE ImageInfo ThreadInfo | ExitThread TID | ExitProcess PID | LoadDll ImageInfo | UnloadDll TID | DebugString ForeignAddress Bool WORD
+Name: DebugEventInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#t:DebugEventInfo
+Containing package: System.Win32.DebugApi
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Exception = UnknownException | AccessViolation Bool ForeignAddress | ArrayBoundsExceeded | Breakpoint | DataTypeMisalignment | FltDenormalOperand | FltDivideByZero | FltInexactResult | FltInvalidOperation | FltOverflow | FltStackCheck | FltUnderflow | IllegalInstruction | InPageError | IntDivideByZero | IntOverflow | InvalidDisposition | NonContinuable | PrivilegedInstruction | SingleStep | StackOverflow
+Name: Exception
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#t:Exception
+Containing package: System.Win32.DebugApi
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type DebugEventId = (PID, TID)
+Name: DebugEventId
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#t:DebugEventId
+Containing package: System.Win32.DebugApi
+attributes {
+}
+parameters {
+}
+Aliased type = null::(PID, TID)
+
+[Alias]
+type PID = DWORD
+Name: PID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#t:PID
+Containing package: System.Win32.DebugApi
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::DWORD
+
+[Alias]
+type TID = DWORD
+Name: TID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#t:TID
+Containing package: System.Win32.DebugApi
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::DWORD
+
+[Alias]
+type THANDLE = Ptr ()
+Name: THANDLE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#t:THANDLE
+Containing package: System.Win32.DebugApi
+attributes {
+}
+parameters {
+}
+Aliased type = Foreign.Ptr::Ptr {
+	GHC.Tuple::()
+}
+
+[Alias]
+type DebugEvent = (DebugEventId, DebugEventInfo)
+Name: DebugEvent
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#t:DebugEvent
+Containing package: System.Win32.DebugApi
+attributes {
+}
+parameters {
+}
+Aliased type = null::(DebugEventId, DebugEventInfo)
+
+[Alias]
+type ExceptionInfo = (Bool, Bool, ForeignAddress)
+Name: ExceptionInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#t:ExceptionInfo
+Containing package: System.Win32.DebugApi
+attributes {
+}
+parameters {
+}
+Aliased type = null::(Bool, Bool, ForeignAddress)
+
+[Alias]
+type ForeignAddress = Word32
+Name: ForeignAddress
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#t:ForeignAddress
+Containing package: System.Win32.DebugApi
+attributes {
+}
+parameters {
+}
+Aliased type = Data.Word::Word32
+
+[Alias]
+type ImageInfo = (HANDLE, ForeignAddress, DWORD, DWORD, ForeignAddress)
+Name: ImageInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#t:ImageInfo
+Containing package: System.Win32.DebugApi
+attributes {
+}
+parameters {
+}
+Aliased type = null::(HANDLE, ForeignAddress, DWORD, DWORD, ForeignAddress)
+
+[Alias]
+type PHANDLE = Ptr ()
+Name: PHANDLE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#t:PHANDLE
+Containing package: System.Win32.DebugApi
+attributes {
+}
+parameters {
+}
+Aliased type = Foreign.Ptr::Ptr {
+	GHC.Tuple::()
+}
+
+[Alias]
+type ThreadInfo = (THANDLE, ForeignAddress, ForeignAddress)
+Name: ThreadInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#t:ThreadInfo
+Containing package: System.Win32.DebugApi
+attributes {
+}
+parameters {
+}
+Aliased type = null::(THANDLE, ForeignAddress, ForeignAddress)
+
+[Function]
+resumeThread :: THANDLE -> IO DWORD
+Name: resumeThread
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:resumeThread
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.DebugApi::THANDLE
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::DWORD
+	}
+}
+
+[Function]
+withProcessMemory :: PHANDLE -> ForeignAddress -> Int -> (Ptr a -> IO b) -> IO b
+Name: withProcessMemory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:withProcessMemory
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.DebugApi::PHANDLE
+	System.Win32.DebugApi::ForeignAddress
+	Data.Int::Int
+	<function> {
+		[parameters]
+		Foreign.Ptr::Ptr {
+			null::a
+		}
+	
+		[result]
+		System.IO::IO {
+			null::b
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::b
+	}
+}
+
+[Function]
+pokeP :: Storable a => PHANDLE -> ForeignAddress -> a -> IO ()
+Name: pokeP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:pokeP
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Storable a; a; Foreign.Storable::Storable)
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.DebugApi::PHANDLE
+	System.Win32.DebugApi::ForeignAddress
+	null::a
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+waitForDebugEvent :: Maybe Int -> IO (Maybe DebugEvent)
+Name: waitForDebugEvent
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:waitForDebugEvent
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Maybe::Maybe {
+		Data.Int::Int
+	}
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			System.Win32.DebugApi::DebugEvent
+		}
+	}
+}
+
+[Function]
+c_SuspendThread :: THANDLE -> IO DWORD
+Name: c_SuspendThread
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:c_SuspendThread
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.DebugApi::THANDLE
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::DWORD
+	}
+}
+
+[Function]
+c_ResumeThread :: THANDLE -> IO DWORD
+Name: c_ResumeThread
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:c_ResumeThread
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.DebugApi::THANDLE
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::DWORD
+	}
+}
+
+[Function]
+c_ReadProcessMemory :: PHANDLE -> Ptr () -> Ptr Word8 -> DWORD -> Ptr DWORD -> IO BOOL
+Name: c_ReadProcessMemory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:c_ReadProcessMemory
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.DebugApi::PHANDLE
+	Foreign.Ptr::Ptr {
+		GHC.Tuple::()
+	}
+	Foreign.Ptr::Ptr {
+		Data.Word::Word8
+	}
+	System.Win32.Types::DWORD
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::BOOL
+	}
+}
+
+[Function]
+debugActiveProcess :: PID -> IO ()
+Name: debugActiveProcess
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:debugActiveProcess
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.DebugApi::PID
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+modifyThreadContext :: THANDLE -> [(Int, DWORD -> DWORD)] -> IO [DWORD]
+Name: modifyThreadContext
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:modifyThreadContext
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.DebugApi::THANDLE
+	other::List {
+		GHC.Tuple::(,) {
+			Data.Int::Int
+			<function> {
+				[parameters]
+				System.Win32.Types::DWORD
+			
+				[result]
+				System.Win32.Types::DWORD
+			}
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		other::List {
+			System.Win32.Types::DWORD
+		}
+	}
+}
+
+[Function]
+eFlags :: Int
+Name: eFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:eFlags
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+getThreadContext :: THANDLE -> Ptr a -> IO ()
+Name: getThreadContext
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:getThreadContext
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.DebugApi::THANDLE
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+readProcessMemory :: PHANDLE -> ForeignAddress -> Int -> IO (ForeignPtr a)
+Name: readProcessMemory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:readProcessMemory
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.DebugApi::PHANDLE
+	System.Win32.DebugApi::ForeignAddress
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		Foreign.ForeignPtr.Safe::ForeignPtr {
+			null::a
+		}
+	}
+}
+
+[Function]
+continueDebugEvent :: DebugEventId -> Bool -> IO ()
+Name: continueDebugEvent
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:continueDebugEvent
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.DebugApi::DebugEventId
+	Data.Bool::Bool
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+withThreadContext :: THANDLE -> (Ptr a -> IO b) -> IO b
+Name: withThreadContext
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:withThreadContext
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.DebugApi::THANDLE
+	<function> {
+		[parameters]
+		Foreign.Ptr::Ptr {
+			null::a
+		}
+	
+		[result]
+		System.IO::IO {
+			null::b
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::b
+	}
+}
+
+[Function]
+getDebugEvents :: Int -> IO [DebugEvent]
+Name: getDebugEvents
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:getDebugEvents
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		other::List {
+			System.Win32.DebugApi::DebugEvent
+		}
+	}
+}
+
+[Function]
+eip :: Int
+Name: eip
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:eip
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+esi :: Int
+Name: esi
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:esi
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+esp :: Int
+Name: esp
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:esp
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+setReg :: Ptr a -> Int -> DWORD -> IO ()
+Name: setReg
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:setReg
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+	Data.Int::Int
+	System.Win32.Types::DWORD
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+peekP :: Storable a => PHANDLE -> ForeignAddress -> IO a
+Name: peekP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:peekP
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Storable a; a; Foreign.Storable::Storable)
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.DebugApi::PHANDLE
+	System.Win32.DebugApi::ForeignAddress
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+c_GetThreadContext :: THANDLE -> Ptr () -> IO BOOL
+Name: c_GetThreadContext
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:c_GetThreadContext
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.DebugApi::THANDLE
+	Foreign.Ptr::Ptr {
+		GHC.Tuple::()
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::BOOL
+	}
+}
+
+[Function]
+withSuspendedThread :: THANDLE -> IO a -> IO a
+Name: withSuspendedThread
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:withSuspendedThread
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.DebugApi::THANDLE
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+modReg :: Ptr a -> Int -> (DWORD -> DWORD) -> IO DWORD
+Name: modReg
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:modReg
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+	Data.Int::Int
+	<function> {
+		[parameters]
+		System.Win32.Types::DWORD
+	
+		[result]
+		System.Win32.Types::DWORD
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::DWORD
+	}
+}
+
+[Function]
+c_WriteProcessMemory :: PHANDLE -> Ptr () -> Ptr Word8 -> DWORD -> Ptr DWORD -> IO BOOL
+Name: c_WriteProcessMemory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:c_WriteProcessMemory
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.DebugApi::PHANDLE
+	Foreign.Ptr::Ptr {
+		GHC.Tuple::()
+	}
+	Foreign.Ptr::Ptr {
+		Data.Word::Word8
+	}
+	System.Win32.Types::DWORD
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::BOOL
+	}
+}
+
+[Function]
+c_WaitForDebugEvent :: Ptr () -> DWORD -> IO BOOL
+Name: c_WaitForDebugEvent
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:c_WaitForDebugEvent
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		GHC.Tuple::()
+	}
+	System.Win32.Types::DWORD
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::BOOL
+	}
+}
+
+[Function]
+edi :: Int
+Name: edi
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:edi
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+edx :: Int
+Name: edx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:edx
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+ebx :: Int
+Name: ebx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:ebx
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+ecx :: Int
+Name: ecx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:ecx
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+eax :: Int
+Name: eax
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:eax
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+ebp :: Int
+Name: ebp
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:ebp
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+pokeProcessMemory :: PHANDLE -> ForeignAddress -> Int -> Ptr a -> IO ()
+Name: pokeProcessMemory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:pokeProcessMemory
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.DebugApi::PHANDLE
+	System.Win32.DebugApi::ForeignAddress
+	Data.Int::Int
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+isDebuggerPresent :: IO BOOL
+Name: isDebuggerPresent
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:isDebuggerPresent
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::BOOL
+	}
+}
+
+[Function]
+makeModThreadContext :: [(Int, DWORD -> DWORD)] -> Ptr a -> IO [DWORD]
+Name: makeModThreadContext
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:makeModThreadContext
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		GHC.Tuple::(,) {
+			Data.Int::Int
+			<function> {
+				[parameters]
+				System.Win32.Types::DWORD
+			
+				[result]
+				System.Win32.Types::DWORD
+			}
+		}
+	}
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		other::List {
+			System.Win32.Types::DWORD
+		}
+	}
+}
+
+[Function]
+peekProcessMemory :: PHANDLE -> ForeignAddress -> Int -> Ptr a -> IO ()
+Name: peekProcessMemory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:peekProcessMemory
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.DebugApi::PHANDLE
+	System.Win32.DebugApi::ForeignAddress
+	Data.Int::Int
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_SetThreadContext :: THANDLE -> Ptr () -> IO BOOL
+Name: c_SetThreadContext
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:c_SetThreadContext
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.DebugApi::THANDLE
+	Foreign.Ptr::Ptr {
+		GHC.Tuple::()
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::BOOL
+	}
+}
+
+[Function]
+c_ContinueDebugEvent :: DWORD -> DWORD -> DWORD -> IO BOOL
+Name: c_ContinueDebugEvent
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:c_ContinueDebugEvent
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::DWORD
+	System.Win32.Types::DWORD
+	System.Win32.Types::DWORD
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::BOOL
+	}
+}
+
+[Function]
+dr :: Int -> Int
+Name: dr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:dr
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+setThreadContext :: THANDLE -> Ptr a -> IO ()
+Name: setThreadContext
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:setThreadContext
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.DebugApi::THANDLE
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_DebugActiveProcess :: DWORD -> IO Bool
+Name: c_DebugActiveProcess
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:c_DebugActiveProcess
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::DWORD
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+useAllRegs :: Ptr a -> IO ()
+Name: useAllRegs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:useAllRegs
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+outputDebugString :: String -> IO ()
+Name: outputDebugString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:outputDebugString
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+debugBreak :: IO ()
+Name: debugBreak
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:debugBreak
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+segGs :: Int
+Name: segGs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:segGs
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+segFs :: Int
+Name: segFs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:segFs
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+segDs :: Int
+Name: segDs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:segDs
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+segEs :: Int
+Name: segEs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:segEs
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+segCs :: Int
+Name: segCs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:segCs
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+peekDebugEvent :: Ptr a -> IO DebugEvent
+Name: peekDebugEvent
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:peekDebugEvent
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.DebugApi::DebugEvent
+	}
+}
+
+[Function]
+getReg :: Ptr a -> Int -> IO DWORD
+Name: getReg
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:getReg
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::DWORD
+	}
+}
+
+[Function]
+c_OutputDebugString :: LPTSTR -> IO ()
+Name: c_OutputDebugString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:c_OutputDebugString
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::LPTSTR
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+suspendThread :: THANDLE -> IO DWORD
+Name: suspendThread
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DebugApi.html#v:suspendThread
+Containing package: System.Win32.DebugApi
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.DebugApi::THANDLE
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::DWORD
+	}
+}

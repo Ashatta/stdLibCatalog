@@ -1,0 +1,475 @@
+[Package]
+Name: System.Console.Terminfo.Effects
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Effects.html
+Containing package: System.Console.Terminfo
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data Attributes = Attributes { standoutAttr :: Bool underlineAttr :: Bool reverseAttr :: Bool blinkAttr :: Bool dimAttr :: Bool boldAttr :: Bool invisibleAttr :: Bool protectedAttr :: Bool}
+Name: Attributes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Effects.html#t:Attributes
+Containing package: System.Console.Terminfo.Effects
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+boldOn :: TermStr s => Capability s
+Name: boldOn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Effects.html#v:boldOn
+Containing package: System.Console.Terminfo.Effects
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s: (TermStr s; s; System.Console.Terminfo.Base::TermStr)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Console.Terminfo.Base::Capability {
+		null::s
+	}
+}
+
+[Function]
+enterUnderlineMode :: TermStr s => Capability s
+Name: enterUnderlineMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Effects.html#v:enterUnderlineMode
+Containing package: System.Console.Terminfo.Effects
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s: (TermStr s; s; System.Console.Terminfo.Base::TermStr)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Console.Terminfo.Base::Capability {
+		null::s
+	}
+}
+
+[Function]
+exitUnderlineMode :: TermStr s => Capability s
+Name: exitUnderlineMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Effects.html#v:exitUnderlineMode
+Containing package: System.Console.Terminfo.Effects
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s: (TermStr s; s; System.Console.Terminfo.Base::TermStr)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Console.Terminfo.Base::Capability {
+		null::s
+	}
+}
+
+[Function]
+visualBell :: Capability TermOutput
+Name: visualBell
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Effects.html#v:visualBell
+Containing package: System.Console.Terminfo.Effects
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Console.Terminfo.Base::Capability {
+		System.Console.Terminfo.Base::TermOutput
+	}
+}
+
+[Function]
+dimOn :: TermStr s => Capability s
+Name: dimOn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Effects.html#v:dimOn
+Containing package: System.Console.Terminfo.Effects
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s: (TermStr s; s; System.Console.Terminfo.Base::TermStr)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Console.Terminfo.Base::Capability {
+		null::s
+	}
+}
+
+[Function]
+defaultAttributes :: Attributes
+Name: defaultAttributes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Effects.html#v:defaultAttributes
+Containing package: System.Console.Terminfo.Effects
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Console.Terminfo.Effects::Attributes
+}
+
+[Function]
+setAttributes :: TermStr s => Capability (Attributes -> s)
+Name: setAttributes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Effects.html#v:setAttributes
+Containing package: System.Console.Terminfo.Effects
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s: (TermStr s; s; System.Console.Terminfo.Base::TermStr)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Console.Terminfo.Base::Capability {
+		<function> {
+			[parameters]
+			System.Console.Terminfo.Effects::Attributes
+		
+			[result]
+			null::s
+		}
+	}
+}
+
+[Function]
+withAttributes :: TermStr s => Capability (Attributes -> s -> s)
+Name: withAttributes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Effects.html#v:withAttributes
+Containing package: System.Console.Terminfo.Effects
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s: (TermStr s; s; System.Console.Terminfo.Base::TermStr)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Console.Terminfo.Base::Capability {
+		<function> {
+			[parameters]
+			System.Console.Terminfo.Effects::Attributes
+			null::s
+		
+			[result]
+			null::s
+		}
+	}
+}
+
+[Function]
+exitStandoutMode :: TermStr s => Capability s
+Name: exitStandoutMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Effects.html#v:exitStandoutMode
+Containing package: System.Console.Terminfo.Effects
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s: (TermStr s; s; System.Console.Terminfo.Base::TermStr)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Console.Terminfo.Base::Capability {
+		null::s
+	}
+}
+
+[Function]
+allAttributesOff :: TermStr s => Capability s
+Name: allAttributesOff
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Effects.html#v:allAttributesOff
+Containing package: System.Console.Terminfo.Effects
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s: (TermStr s; s; System.Console.Terminfo.Base::TermStr)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Console.Terminfo.Base::Capability {
+		null::s
+	}
+}
+
+[Function]
+invisibleOn :: TermStr s => Capability s
+Name: invisibleOn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Effects.html#v:invisibleOn
+Containing package: System.Console.Terminfo.Effects
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s: (TermStr s; s; System.Console.Terminfo.Base::TermStr)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Console.Terminfo.Base::Capability {
+		null::s
+	}
+}
+
+[Function]
+enterStandoutMode :: TermStr s => Capability s
+Name: enterStandoutMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Effects.html#v:enterStandoutMode
+Containing package: System.Console.Terminfo.Effects
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s: (TermStr s; s; System.Console.Terminfo.Base::TermStr)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Console.Terminfo.Base::Capability {
+		null::s
+	}
+}
+
+[Function]
+withStandout :: TermStr s => Capability (s -> s)
+Name: withStandout
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Effects.html#v:withStandout
+Containing package: System.Console.Terminfo.Effects
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s: (TermStr s; s; System.Console.Terminfo.Base::TermStr)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Console.Terminfo.Base::Capability {
+		<function> {
+			[parameters]
+			null::s
+		
+			[result]
+			null::s
+		}
+	}
+}
+
+[Function]
+blinkOn :: TermStr s => Capability s
+Name: blinkOn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Effects.html#v:blinkOn
+Containing package: System.Console.Terminfo.Effects
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s: (TermStr s; s; System.Console.Terminfo.Base::TermStr)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Console.Terminfo.Base::Capability {
+		null::s
+	}
+}
+
+[Function]
+withBold :: TermStr s => Capability (s -> s)
+Name: withBold
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Effects.html#v:withBold
+Containing package: System.Console.Terminfo.Effects
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s: (TermStr s; s; System.Console.Terminfo.Base::TermStr)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Console.Terminfo.Base::Capability {
+		<function> {
+			[parameters]
+			null::s
+		
+			[result]
+			null::s
+		}
+	}
+}
+
+[Function]
+reverseOn :: TermStr s => Capability s
+Name: reverseOn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Effects.html#v:reverseOn
+Containing package: System.Console.Terminfo.Effects
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s: (TermStr s; s; System.Console.Terminfo.Base::TermStr)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Console.Terminfo.Base::Capability {
+		null::s
+	}
+}
+
+[Function]
+withUnderline :: TermStr s => Capability (s -> s)
+Name: withUnderline
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Effects.html#v:withUnderline
+Containing package: System.Console.Terminfo.Effects
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s: (TermStr s; s; System.Console.Terminfo.Base::TermStr)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Console.Terminfo.Base::Capability {
+		<function> {
+			[parameters]
+			null::s
+		
+			[result]
+			null::s
+		}
+	}
+}
+
+[Function]
+protectedOn :: TermStr s => Capability s
+Name: protectedOn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Effects.html#v:protectedOn
+Containing package: System.Console.Terminfo.Effects
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s: (TermStr s; s; System.Console.Terminfo.Base::TermStr)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Console.Terminfo.Base::Capability {
+		null::s
+	}
+}
+
+[Function]
+bell :: TermStr s => Capability s
+Name: bell
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Effects.html#v:bell
+Containing package: System.Console.Terminfo.Effects
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s: (TermStr s; s; System.Console.Terminfo.Base::TermStr)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Console.Terminfo.Base::Capability {
+		null::s
+	}
+}

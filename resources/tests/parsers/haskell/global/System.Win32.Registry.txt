@@ -1,0 +1,2043 @@
+[Package]
+Name: System.Win32.Registry
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html
+Containing package: System.Win32
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data RegInfoKey = RegInfoKey { 
+	class_string :: String
+	class_id :: Int
+	subkeys :: Word32
+	max_subkey_len :: Word32
+	max_class_len :: Word32
+	values :: Word32
+	max_value_name_len :: Word32
+	max_value_len :: Word32
+	sec_len :: Int
+	lastWrite_lo :: Word32
+	lastWrite_hi :: Word32
+} 
+Name: RegInfoKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#t:RegInfoKey
+Containing package: System.Win32.Registry
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type RegRestoreFlags = DWORD
+Name: RegRestoreFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#t:RegRestoreFlags
+Containing package: System.Win32.Registry
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::DWORD
+
+[Alias]
+type REGSAM = Word32
+Name: REGSAM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#t:REGSAM
+Containing package: System.Win32.Registry
+attributes {
+}
+parameters {
+}
+Aliased type = Data.Word::Word32
+
+[Alias]
+type RegNotifyOptions = DWORD
+Name: RegNotifyOptions
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#t:RegNotifyOptions
+Containing package: System.Win32.Registry
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::DWORD
+
+[Alias]
+type RegCreateOptions = DWORD
+Name: RegCreateOptions
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#t:RegCreateOptions
+Containing package: System.Win32.Registry
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::DWORD
+
+[Alias]
+type RegValueType = DWORD
+Name: RegValueType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#t:RegValueType
+Containing package: System.Win32.Registry
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::DWORD
+
+[Function]
+c_RegQueryValueEx :: PKEY -> LPCTSTR -> Ptr DWORD -> Ptr DWORD -> LPBYTE -> Ptr DWORD -> IO ErrCode
+Name: c_RegQueryValueEx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:c_RegQueryValueEx
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::PKEY
+	System.Win32.Types::LPCTSTR
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+	System.Win32.Types::LPBYTE
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::ErrCode
+	}
+}
+
+[Function]
+rEG_OPTION_NON_VOLATILE :: RegCreateOptions
+Name: rEG_OPTION_NON_VOLATILE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:rEG_OPTION_NON_VOLATILE
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::RegCreateOptions
+}
+
+[Function]
+hKEY_USERS :: HKEY
+Name: hKEY_USERS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:hKEY_USERS
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Types::HKEY
+}
+
+[Function]
+rEG_DWORD :: RegValueType
+Name: rEG_DWORD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:rEG_DWORD
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::RegValueType
+}
+
+[Function]
+kEY_ENUMERATE_SUB_KEYS :: REGSAM
+Name: kEY_ENUMERATE_SUB_KEYS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:kEY_ENUMERATE_SUB_KEYS
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::REGSAM
+}
+
+[Function]
+mallocWideChars :: Int -> IO (Ptr a)
+Name: mallocWideChars
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:mallocWideChars
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		Foreign.Ptr::Ptr {
+			null::a
+		}
+	}
+}
+
+[Function]
+kEY_CREATE_LINK :: REGSAM
+Name: kEY_CREATE_LINK
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:kEY_CREATE_LINK
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::REGSAM
+}
+
+[Function]
+rEG_NOTIFY_CHANGE_NAME :: RegNotifyOptions
+Name: rEG_NOTIFY_CHANGE_NAME
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:rEG_NOTIFY_CHANGE_NAME
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::RegNotifyOptions
+}
+
+[Function]
+c_RegQueryValue :: PKEY -> LPCTSTR -> LPTSTR -> Ptr LONG -> IO ErrCode
+Name: c_RegQueryValue
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:c_RegQueryValue
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::PKEY
+	System.Win32.Types::LPCTSTR
+	System.Win32.Types::LPTSTR
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::LONG
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::ErrCode
+	}
+}
+
+[Function]
+regSetStringValue :: HKEY -> String -> String -> IO ()
+Name: regSetStringValue
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:regSetStringValue
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HKEY
+	Data.String::String
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+rEG_BINARY :: RegValueType
+Name: rEG_BINARY
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:rEG_BINARY
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::RegValueType
+}
+
+[Function]
+kEY_NOTIFY :: REGSAM
+Name: kEY_NOTIFY
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:kEY_NOTIFY
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::REGSAM
+}
+
+[Function]
+c_RegConnectRegistry :: LPCTSTR -> PKEY -> Ptr PKEY -> IO ErrCode
+Name: c_RegConnectRegistry
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:c_RegConnectRegistry
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::LPCTSTR
+	System.Win32.Types::PKEY
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::PKEY
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::ErrCode
+	}
+}
+
+[Function]
+c_RegSetValueEx :: PKEY -> LPCTSTR -> DWORD -> RegValueType -> LPTSTR -> Int -> IO ErrCode
+Name: c_RegSetValueEx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:c_RegSetValueEx
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::PKEY
+	System.Win32.Types::LPCTSTR
+	System.Win32.Types::DWORD
+	System.Win32.Registry::RegValueType
+	System.Win32.Types::LPTSTR
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::ErrCode
+	}
+}
+
+[Function]
+c_RegReplaceKey :: PKEY -> LPCTSTR -> LPCTSTR -> LPCTSTR -> IO ErrCode
+Name: c_RegReplaceKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:c_RegReplaceKey
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::PKEY
+	System.Win32.Types::LPCTSTR
+	System.Win32.Types::LPCTSTR
+	System.Win32.Types::LPCTSTR
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::ErrCode
+	}
+}
+
+[Function]
+kEY_WRITE :: REGSAM
+Name: kEY_WRITE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:kEY_WRITE
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::REGSAM
+}
+
+[Function]
+regQueryValue :: HKEY -> Maybe String -> IO String
+Name: regQueryValue
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:regQueryValue
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HKEY
+	Data.Maybe::Maybe {
+		Data.String::String
+	}
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+rEG_OPTION_VOLATILE :: RegCreateOptions
+Name: rEG_OPTION_VOLATILE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:rEG_OPTION_VOLATILE
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::RegCreateOptions
+}
+
+[Function]
+regEnumKey :: HKEY -> DWORD -> LPTSTR -> DWORD -> IO (String, Int)
+Name: regEnumKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:regEnumKey
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HKEY
+	System.Win32.Types::DWORD
+	System.Win32.Types::LPTSTR
+	System.Win32.Types::DWORD
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			Data.String::String
+			Data.Int::Int
+		}
+	}
+}
+
+[Function]
+rEG_EXPAND_SZ :: RegValueType
+Name: rEG_EXPAND_SZ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:rEG_EXPAND_SZ
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::RegValueType
+}
+
+[Function]
+c_RegNotifyChangeKeyValue :: PKEY -> Bool -> RegNotifyOptions -> HANDLE -> Bool -> IO ErrCode
+Name: c_RegNotifyChangeKeyValue
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:c_RegNotifyChangeKeyValue
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::PKEY
+	Data.Bool::Bool
+	System.Win32.Registry::RegNotifyOptions
+	System.Win32.Types::HANDLE
+	Data.Bool::Bool
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::ErrCode
+	}
+}
+
+[Function]
+regCloseKey :: HKEY -> IO ()
+Name: regCloseKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:regCloseKey
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HKEY
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+hKEY_LOCAL_MACHINE :: HKEY
+Name: hKEY_LOCAL_MACHINE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:hKEY_LOCAL_MACHINE
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Types::HKEY
+}
+
+[Function]
+regSaveKey :: HKEY -> String -> Maybe LPSECURITY_ATTRIBUTES -> IO ()
+Name: regSaveKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:regSaveKey
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HKEY
+	Data.String::String
+	Data.Maybe::Maybe {
+		System.Win32.File::LPSECURITY_ATTRIBUTES
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+kEY_EXECUTE :: REGSAM
+Name: kEY_EXECUTE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:kEY_EXECUTE
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::REGSAM
+}
+
+[Function]
+kEY_READ :: REGSAM
+Name: kEY_READ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:kEY_READ
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::REGSAM
+}
+
+[Function]
+rEG_DWORD_BIG_ENDIAN :: RegValueType
+Name: rEG_DWORD_BIG_ENDIAN
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:rEG_DWORD_BIG_ENDIAN
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::RegValueType
+}
+
+[Function]
+regDeleteValue :: HKEY -> String -> IO ()
+Name: regDeleteValue
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:regDeleteValue
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HKEY
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_RegCreateKey :: PKEY -> LPCTSTR -> Ptr PKEY -> IO ErrCode
+Name: c_RegCreateKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:c_RegCreateKey
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::PKEY
+	System.Win32.Types::LPCTSTR
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::PKEY
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::ErrCode
+	}
+}
+
+[Function]
+regCreateKeyEx :: HKEY -> String -> String -> RegCreateOptions -> REGSAM -> Maybe LPSECURITY_ATTRIBUTES -> IO (HKEY, Bool)
+Name: regCreateKeyEx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:regCreateKeyEx
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HKEY
+	Data.String::String
+	Data.String::String
+	System.Win32.Registry::RegCreateOptions
+	System.Win32.Registry::REGSAM
+	Data.Maybe::Maybe {
+		System.Win32.File::LPSECURITY_ATTRIBUTES
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			System.Win32.Types::HKEY
+			Data.Bool::Bool
+		}
+	}
+}
+
+[Function]
+regConnectRegistry :: Maybe String -> HKEY -> IO HKEY
+Name: regConnectRegistry
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:regConnectRegistry
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Maybe::Maybe {
+		Data.String::String
+	}
+	System.Win32.Types::HKEY
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::HKEY
+	}
+}
+
+[Function]
+regSetValueEx :: HKEY -> String -> RegValueType -> LPTSTR -> Int -> IO ()
+Name: regSetValueEx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:regSetValueEx
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HKEY
+	Data.String::String
+	System.Win32.Registry::RegValueType
+	System.Win32.Types::LPTSTR
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_RegQueryInfoKey :: PKEY -> LPTSTR -> Ptr DWORD -> Ptr DWORD -> Ptr DWORD -> Ptr DWORD -> Ptr DWORD -> Ptr DWORD -> Ptr DWORD -> Ptr DWORD -> Ptr DWORD -> Ptr FILETIME -> IO ErrCode
+Name: c_RegQueryInfoKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:c_RegQueryInfoKey
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::PKEY
+	System.Win32.Types::LPTSTR
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+	Foreign.Ptr::Ptr {
+		System.Win32.Time::FILETIME
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::ErrCode
+	}
+}
+
+[Function]
+rEG_NO_LAZY_FLUSH :: RegRestoreFlags
+Name: rEG_NO_LAZY_FLUSH
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:rEG_NO_LAZY_FLUSH
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::RegRestoreFlags
+}
+
+[Function]
+regQueryValueEx :: HKEY -> String -> LPBYTE -> Int -> IO RegValueType
+Name: regQueryValueEx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:regQueryValueEx
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HKEY
+	Data.String::String
+	System.Win32.Types::LPBYTE
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		System.Win32.Registry::RegValueType
+	}
+}
+
+[Function]
+regEnumKeys :: HKEY -> IO [String]
+Name: regEnumKeys
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:regEnumKeys
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HKEY
+
+	[result]
+	System.IO::IO {
+		other::List {
+			Data.String::String
+		}
+	}
+}
+
+[Function]
+c_RegRestoreKey :: PKEY -> LPCTSTR -> RegRestoreFlags -> IO ErrCode
+Name: c_RegRestoreKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:c_RegRestoreKey
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::PKEY
+	System.Win32.Types::LPCTSTR
+	System.Win32.Registry::RegRestoreFlags
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::ErrCode
+	}
+}
+
+[Function]
+regRestoreKey :: HKEY -> String -> RegRestoreFlags -> IO ()
+Name: regRestoreKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:regRestoreKey
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HKEY
+	Data.String::String
+	System.Win32.Registry::RegRestoreFlags
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_RegEnumKey :: PKEY -> DWORD -> LPTSTR -> DWORD -> IO ErrCode
+Name: c_RegEnumKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:c_RegEnumKey
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::PKEY
+	System.Win32.Types::DWORD
+	System.Win32.Types::LPTSTR
+	System.Win32.Types::DWORD
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::ErrCode
+	}
+}
+
+[Function]
+rEG_NOTIFY_CHANGE_SECURITY :: RegNotifyOptions
+Name: rEG_NOTIFY_CHANGE_SECURITY
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:rEG_NOTIFY_CHANGE_SECURITY
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::RegNotifyOptions
+}
+
+[Function]
+kEY_SET_VALUE :: REGSAM
+Name: kEY_SET_VALUE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:kEY_SET_VALUE
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::REGSAM
+}
+
+[Function]
+rEG_NONE :: RegValueType
+Name: rEG_NONE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:rEG_NONE
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::RegValueType
+}
+
+[Function]
+rEG_RESOURCE_LIST :: RegValueType
+Name: rEG_RESOURCE_LIST
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:rEG_RESOURCE_LIST
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::RegValueType
+}
+
+[Function]
+regEnumKeyVals :: HKEY -> IO [(String, String, RegValueType)]
+Name: regEnumKeyVals
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:regEnumKeyVals
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HKEY
+
+	[result]
+	System.IO::IO {
+		other::List {
+			GHC.Tuple::(,,) {
+				Data.String::String
+				Data.String::String
+				System.Win32.Registry::RegValueType
+			}
+		}
+	}
+}
+
+[Function]
+c_RegCreateKeyEx :: PKEY -> LPCTSTR -> DWORD -> LPCTSTR -> RegCreateOptions -> REGSAM -> LPSECURITY_ATTRIBUTES -> Ptr PKEY -> Ptr DWORD -> IO ErrCode
+Name: c_RegCreateKeyEx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:c_RegCreateKeyEx
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::PKEY
+	System.Win32.Types::LPCTSTR
+	System.Win32.Types::DWORD
+	System.Win32.Types::LPCTSTR
+	System.Win32.Registry::RegCreateOptions
+	System.Win32.Registry::REGSAM
+	System.Win32.File::LPSECURITY_ATTRIBUTES
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::PKEY
+	}
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::ErrCode
+	}
+}
+
+[Function]
+hKEY_CLASSES_ROOT :: HKEY
+Name: hKEY_CLASSES_ROOT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:hKEY_CLASSES_ROOT
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Types::HKEY
+}
+
+[Function]
+hKEY_CURRENT_CONFIG :: HKEY
+Name: hKEY_CURRENT_CONFIG
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:hKEY_CURRENT_CONFIG
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Types::HKEY
+}
+
+[Function]
+regSetValue :: HKEY -> String -> String -> IO ()
+Name: regSetValue
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:regSetValue
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HKEY
+	Data.String::String
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_RegSetValue :: PKEY -> LPCTSTR -> DWORD -> LPCTSTR -> Int -> IO ErrCode
+Name: c_RegSetValue
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:c_RegSetValue
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::PKEY
+	System.Win32.Types::LPCTSTR
+	System.Win32.Types::DWORD
+	System.Win32.Types::LPCTSTR
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::ErrCode
+	}
+}
+
+[Function]
+c_RegLoadKey :: PKEY -> LPCTSTR -> LPCTSTR -> IO ErrCode
+Name: c_RegLoadKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:c_RegLoadKey
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::PKEY
+	System.Win32.Types::LPCTSTR
+	System.Win32.Types::LPCTSTR
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::ErrCode
+	}
+}
+
+[Function]
+c_RegCloseKey :: PKEY -> IO ErrCode
+Name: c_RegCloseKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:c_RegCloseKey
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::PKEY
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::ErrCode
+	}
+}
+
+[Function]
+regCreateKey :: HKEY -> String -> IO HKEY
+Name: regCreateKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:regCreateKey
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HKEY
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::HKEY
+	}
+}
+
+[Function]
+regUnLoadKey :: HKEY -> String -> IO ()
+Name: regUnLoadKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:regUnLoadKey
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HKEY
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_RegFlushKey :: PKEY -> IO ErrCode
+Name: c_RegFlushKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:c_RegFlushKey
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::PKEY
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::ErrCode
+	}
+}
+
+[Function]
+regLoadKey :: HKEY -> String -> String -> IO ()
+Name: regLoadKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:regLoadKey
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HKEY
+	Data.String::String
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+kEY_CREATE_SUB_KEY :: REGSAM
+Name: kEY_CREATE_SUB_KEY
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:kEY_CREATE_SUB_KEY
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::REGSAM
+}
+
+[Function]
+regOpenKey :: HKEY -> String -> IO HKEY
+Name: regOpenKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:regOpenKey
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HKEY
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::HKEY
+	}
+}
+
+[Function]
+regDeleteKey :: HKEY -> String -> IO ()
+Name: regDeleteKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:regDeleteKey
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HKEY
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_RegEnumValue :: PKEY -> DWORD -> LPTSTR -> Ptr DWORD -> Ptr DWORD -> Ptr DWORD -> LPBYTE -> Ptr DWORD -> IO ErrCode
+Name: c_RegEnumValue
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:c_RegEnumValue
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::PKEY
+	System.Win32.Types::DWORD
+	System.Win32.Types::LPTSTR
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+	System.Win32.Types::LPBYTE
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::ErrCode
+	}
+}
+
+[Function]
+regReplaceKey :: HKEY -> String -> String -> String -> IO ()
+Name: regReplaceKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:regReplaceKey
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HKEY
+	Data.String::String
+	Data.String::String
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+regFlushKey :: HKEY -> IO ()
+Name: regFlushKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:regFlushKey
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HKEY
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+kEY_ALL_ACCESS :: REGSAM
+Name: kEY_ALL_ACCESS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:kEY_ALL_ACCESS
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::REGSAM
+}
+
+[Function]
+rEG_LINK :: RegValueType
+Name: rEG_LINK
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:rEG_LINK
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::RegValueType
+}
+
+[Function]
+regQueryValueKey :: HKEY -> Maybe String -> IO String
+Name: regQueryValueKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:regQueryValueKey
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HKEY
+	Data.Maybe::Maybe {
+		Data.String::String
+	}
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+eRROR_NO_MORE_ITEMS :: ErrCode
+Name: eRROR_NO_MORE_ITEMS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:eRROR_NO_MORE_ITEMS
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Types::ErrCode
+}
+
+[Function]
+kEY_QUERY_VALUE :: REGSAM
+Name: kEY_QUERY_VALUE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:kEY_QUERY_VALUE
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::REGSAM
+}
+
+[Function]
+regQueryInfoKey :: HKEY -> IO RegInfoKey
+Name: regQueryInfoKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:regQueryInfoKey
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HKEY
+
+	[result]
+	System.IO::IO {
+		System.Win32.Registry::RegInfoKey
+	}
+}
+
+[Function]
+rEG_MULTI_SZ :: RegValueType
+Name: rEG_MULTI_SZ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:rEG_MULTI_SZ
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::RegValueType
+}
+
+[Function]
+c_RegOpenKeyEx :: PKEY -> LPCTSTR -> DWORD -> REGSAM -> Ptr PKEY -> IO ErrCode
+Name: c_RegOpenKeyEx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:c_RegOpenKeyEx
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::PKEY
+	System.Win32.Types::LPCTSTR
+	System.Win32.Types::DWORD
+	System.Win32.Registry::REGSAM
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::PKEY
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::ErrCode
+	}
+}
+
+[Function]
+rEG_REFRESH_HIVE :: RegRestoreFlags
+Name: rEG_REFRESH_HIVE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:rEG_REFRESH_HIVE
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::RegRestoreFlags
+}
+
+[Function]
+c_RegSaveKey :: PKEY -> LPCTSTR -> LPSECURITY_ATTRIBUTES -> IO ErrCode
+Name: c_RegSaveKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:c_RegSaveKey
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::PKEY
+	System.Win32.Types::LPCTSTR
+	System.Win32.File::LPSECURITY_ATTRIBUTES
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::ErrCode
+	}
+}
+
+[Function]
+rEG_WHOLE_HIVE_VOLATILE :: RegRestoreFlags
+Name: rEG_WHOLE_HIVE_VOLATILE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:rEG_WHOLE_HIVE_VOLATILE
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::RegRestoreFlags
+}
+
+[Function]
+regNotifyChangeKeyValue :: HKEY -> Bool -> RegNotifyOptions -> HANDLE -> Bool -> IO ()
+Name: regNotifyChangeKeyValue
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:regNotifyChangeKeyValue
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HKEY
+	Data.Bool::Bool
+	System.Win32.Registry::RegNotifyOptions
+	System.Win32.Types::HANDLE
+	Data.Bool::Bool
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+regEnumValue :: HKEY -> DWORD -> LPTSTR -> DWORD -> LPBYTE -> DWORD -> IO (RegValueType, String, Int)
+Name: regEnumValue
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:regEnumValue
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HKEY
+	System.Win32.Types::DWORD
+	System.Win32.Types::LPTSTR
+	System.Win32.Types::DWORD
+	System.Win32.Types::LPBYTE
+	System.Win32.Types::DWORD
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,,) {
+			System.Win32.Registry::RegValueType
+			Data.String::String
+			Data.Int::Int
+		}
+	}
+}
+
+[Function]
+hKEY_CURRENT_USER :: HKEY
+Name: hKEY_CURRENT_USER
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:hKEY_CURRENT_USER
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Types::HKEY
+}
+
+[Function]
+rEG_NOTIFY_CHANGE_ATTRIBUTES :: RegNotifyOptions
+Name: rEG_NOTIFY_CHANGE_ATTRIBUTES
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:rEG_NOTIFY_CHANGE_ATTRIBUTES
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::RegNotifyOptions
+}
+
+[Function]
+regOpenKeyEx :: HKEY -> String -> REGSAM -> IO HKEY
+Name: regOpenKeyEx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:regOpenKeyEx
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HKEY
+	Data.String::String
+	System.Win32.Registry::REGSAM
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::HKEY
+	}
+}
+
+[Function]
+c_RegDeleteValue :: PKEY -> LPCTSTR -> IO ErrCode
+Name: c_RegDeleteValue
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:c_RegDeleteValue
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::PKEY
+	System.Win32.Types::LPCTSTR
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::ErrCode
+	}
+}
+
+[Function]
+rEG_DWORD_LITTLE_ENDIAN :: RegValueType
+Name: rEG_DWORD_LITTLE_ENDIAN
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:rEG_DWORD_LITTLE_ENDIAN
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::RegValueType
+}
+
+[Function]
+c_RegDeleteKey :: PKEY -> LPCTSTR -> IO ErrCode
+Name: c_RegDeleteKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:c_RegDeleteKey
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::PKEY
+	System.Win32.Types::LPCTSTR
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::ErrCode
+	}
+}
+
+[Function]
+rEG_NOTIFY_CHANGE_LAST_SET :: RegNotifyOptions
+Name: rEG_NOTIFY_CHANGE_LAST_SET
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:rEG_NOTIFY_CHANGE_LAST_SET
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::RegNotifyOptions
+}
+
+[Function]
+c_RegOpenKey :: PKEY -> LPCTSTR -> Ptr PKEY -> IO ErrCode
+Name: c_RegOpenKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:c_RegOpenKey
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::PKEY
+	System.Win32.Types::LPCTSTR
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::PKEY
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::ErrCode
+	}
+}
+
+[Function]
+c_RegUnLoadKey :: PKEY -> LPCTSTR -> IO ErrCode
+Name: c_RegUnLoadKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:c_RegUnLoadKey
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::PKEY
+	System.Win32.Types::LPCTSTR
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::ErrCode
+	}
+}
+
+[Function]
+rEG_SZ :: RegValueType
+Name: rEG_SZ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Registry.html#v:rEG_SZ
+Containing package: System.Win32.Registry
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Registry::RegValueType
+}

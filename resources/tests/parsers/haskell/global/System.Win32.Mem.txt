@@ -1,0 +1,1892 @@
+[Package]
+Name: System.Win32.Mem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html
+Containing package: System.Win32
+attributes {
+}
+
+Subpackages {
+}
+
+[Alias]
+type VirtualAllocFlags = DWORD
+Name: VirtualAllocFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#t:VirtualAllocFlags
+Containing package: System.Win32.Mem
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::DWORD
+
+[Alias]
+type HGLOBAL = Addr
+Name: HGLOBAL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#t:HGLOBAL
+Containing package: System.Win32.Mem
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::Addr
+
+[Alias]
+type HeapAllocFlags = DWORD
+Name: HeapAllocFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#t:HeapAllocFlags
+Containing package: System.Win32.Mem
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::DWORD
+
+[Alias]
+type GlobalAllocFlags = UINT
+Name: GlobalAllocFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#t:GlobalAllocFlags
+Containing package: System.Win32.Mem
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::UINT
+
+[Alias]
+type ProtectFlags = DWORD
+Name: ProtectFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#t:ProtectFlags
+Containing package: System.Win32.Mem
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::DWORD
+
+[Alias]
+type FreeFlags = DWORD
+Name: FreeFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#t:FreeFlags
+Containing package: System.Win32.Mem
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::DWORD
+
+[Function]
+heapAlloc :: HANDLE -> HeapAllocFlags -> DWORD -> IO Addr
+Name: heapAlloc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:heapAlloc
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+	System.Win32.Mem::HeapAllocFlags
+	System.Win32.Types::DWORD
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::Addr
+	}
+}
+
+[Function]
+heapFree :: HANDLE -> HeapAllocFlags -> Addr -> IO ()
+Name: heapFree
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:heapFree
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+	System.Win32.Mem::HeapAllocFlags
+	System.Win32.Types::Addr
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+pAGE_EXECUTE_READ :: ProtectFlags
+Name: pAGE_EXECUTE_READ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:pAGE_EXECUTE_READ
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Mem::ProtectFlags
+}
+
+[Function]
+gMEM_LOWER :: GlobalAllocFlags
+Name: gMEM_LOWER
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:gMEM_LOWER
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Mem::GlobalAllocFlags
+}
+
+[Function]
+virtualProtectEx :: HANDLE -> Addr -> DWORD -> ProtectFlags -> IO ProtectFlags
+Name: virtualProtectEx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:virtualProtectEx
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+	System.Win32.Types::Addr
+	System.Win32.Types::DWORD
+	System.Win32.Mem::ProtectFlags
+
+	[result]
+	System.IO::IO {
+		System.Win32.Mem::ProtectFlags
+	}
+}
+
+[Function]
+gMEM_INVALID_HANDLE :: GlobalAllocFlags
+Name: gMEM_INVALID_HANDLE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:gMEM_INVALID_HANDLE
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Mem::GlobalAllocFlags
+}
+
+[Function]
+c_HeapLock :: HANDLE -> IO Bool
+Name: c_HeapLock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:c_HeapLock
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+globalReAlloc :: HGLOBAL -> DWORD -> GlobalAllocFlags -> IO HGLOBAL
+Name: globalReAlloc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:globalReAlloc
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Mem::HGLOBAL
+	System.Win32.Types::DWORD
+	System.Win32.Mem::GlobalAllocFlags
+
+	[result]
+	System.IO::IO {
+		System.Win32.Mem::HGLOBAL
+	}
+}
+
+[Function]
+c_GlobalLock :: HGLOBAL -> IO Addr
+Name: c_GlobalLock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:c_GlobalLock
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Mem::HGLOBAL
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::Addr
+	}
+}
+
+[Function]
+heapReAlloc :: HANDLE -> HeapAllocFlags -> Addr -> DWORD -> IO Addr
+Name: heapReAlloc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:heapReAlloc
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+	System.Win32.Mem::HeapAllocFlags
+	System.Win32.Types::Addr
+	System.Win32.Types::DWORD
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::Addr
+	}
+}
+
+[Function]
+c_GlobalAlloc :: GlobalAllocFlags -> DWORD -> IO HGLOBAL
+Name: c_GlobalAlloc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:c_GlobalAlloc
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Mem::GlobalAllocFlags
+	System.Win32.Types::DWORD
+
+	[result]
+	System.IO::IO {
+		System.Win32.Mem::HGLOBAL
+	}
+}
+
+[Function]
+gMEM_ZEROINIT :: GlobalAllocFlags
+Name: gMEM_ZEROINIT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:gMEM_ZEROINIT
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Mem::GlobalAllocFlags
+}
+
+[Function]
+pAGE_EXECUTE :: ProtectFlags
+Name: pAGE_EXECUTE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:pAGE_EXECUTE
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Mem::ProtectFlags
+}
+
+[Function]
+pAGE_READONLY :: ProtectFlags
+Name: pAGE_READONLY
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:pAGE_READONLY
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Mem::ProtectFlags
+}
+
+[Function]
+heapLock :: HANDLE -> IO ()
+Name: heapLock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:heapLock
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+globalSize :: HGLOBAL -> IO DWORD
+Name: globalSize
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:globalSize
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Mem::HGLOBAL
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::DWORD
+	}
+}
+
+[Function]
+zeroMemory :: Ptr a -> DWORD -> IO ()
+Name: zeroMemory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:zeroMemory
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+	System.Win32.Types::DWORD
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+pAGE_EXECUTE_READWRITE :: ProtectFlags
+Name: pAGE_EXECUTE_READWRITE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:pAGE_EXECUTE_READWRITE
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Mem::ProtectFlags
+}
+
+[Function]
+hEAP_ZERO_MEMORY :: HeapAllocFlags
+Name: hEAP_ZERO_MEMORY
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:hEAP_ZERO_MEMORY
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Mem::HeapAllocFlags
+}
+
+[Function]
+c_HeapUnlock :: HANDLE -> IO Bool
+Name: c_HeapUnlock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:c_HeapUnlock
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+heapDestroy :: HANDLE -> IO ()
+Name: heapDestroy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:heapDestroy
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_HeapFree :: HANDLE -> HeapAllocFlags -> Addr -> IO Bool
+Name: c_HeapFree
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:c_HeapFree
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+	System.Win32.Mem::HeapAllocFlags
+	System.Win32.Types::Addr
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+gMEM_NOT_BANKED :: GlobalAllocFlags
+Name: gMEM_NOT_BANKED
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:gMEM_NOT_BANKED
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Mem::GlobalAllocFlags
+}
+
+[Function]
+virtualUnlock :: Addr -> DWORD -> IO ()
+Name: virtualUnlock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:virtualUnlock
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::Addr
+	System.Win32.Types::DWORD
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_VirtualLock :: Addr -> DWORD -> IO Bool
+Name: c_VirtualLock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:c_VirtualLock
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::Addr
+	System.Win32.Types::DWORD
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+globalAlloc :: GlobalAllocFlags -> DWORD -> IO HGLOBAL
+Name: globalAlloc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:globalAlloc
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Mem::GlobalAllocFlags
+	System.Win32.Types::DWORD
+
+	[result]
+	System.IO::IO {
+		System.Win32.Mem::HGLOBAL
+	}
+}
+
+[Function]
+c_HeapCreate :: HeapAllocFlags -> DWORD -> DWORD -> IO HANDLE
+Name: c_HeapCreate
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:c_HeapCreate
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Mem::HeapAllocFlags
+	System.Win32.Types::DWORD
+	System.Win32.Types::DWORD
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::HANDLE
+	}
+}
+
+[Function]
+c_GlobalFree :: HGLOBAL -> IO HGLOBAL
+Name: c_GlobalFree
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:c_GlobalFree
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Mem::HGLOBAL
+
+	[result]
+	System.IO::IO {
+		System.Win32.Mem::HGLOBAL
+	}
+}
+
+[Function]
+globalHandle :: Addr -> IO HGLOBAL
+Name: globalHandle
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:globalHandle
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::Addr
+
+	[result]
+	System.IO::IO {
+		System.Win32.Mem::HGLOBAL
+	}
+}
+
+[Function]
+getProcessHeap :: IO HANDLE
+Name: getProcessHeap
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:getProcessHeap
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::HANDLE
+	}
+}
+
+[Function]
+pAGE_READWRITE :: ProtectFlags
+Name: pAGE_READWRITE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:pAGE_READWRITE
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Mem::ProtectFlags
+}
+
+[Function]
+gHND :: GlobalAllocFlags
+Name: gHND
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:gHND
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Mem::GlobalAllocFlags
+}
+
+[Function]
+gMEM_NODISCARD :: GlobalAllocFlags
+Name: gMEM_NODISCARD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:gMEM_NODISCARD
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Mem::GlobalAllocFlags
+}
+
+[Function]
+gMEM_NOTIFY :: GlobalAllocFlags
+Name: gMEM_NOTIFY
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:gMEM_NOTIFY
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Mem::GlobalAllocFlags
+}
+
+[Function]
+globalFlags :: HGLOBAL -> IO GlobalAllocFlags
+Name: globalFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:globalFlags
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Mem::HGLOBAL
+
+	[result]
+	System.IO::IO {
+		System.Win32.Mem::GlobalAllocFlags
+	}
+}
+
+[Function]
+getProcessHeaps :: DWORD -> Addr -> IO DWORD
+Name: getProcessHeaps
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:getProcessHeaps
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::DWORD
+	System.Win32.Types::Addr
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::DWORD
+	}
+}
+
+[Function]
+c_HeapCompact :: HANDLE -> HeapAllocFlags -> IO UINT
+Name: c_HeapCompact
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:c_HeapCompact
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+	System.Win32.Mem::HeapAllocFlags
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::UINT
+	}
+}
+
+[Function]
+gMEM_SHARE :: GlobalAllocFlags
+Name: gMEM_SHARE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:gMEM_SHARE
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Mem::GlobalAllocFlags
+}
+
+[Function]
+c_GlobalFlags :: HGLOBAL -> IO GlobalAllocFlags
+Name: c_GlobalFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:c_GlobalFlags
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Mem::HGLOBAL
+
+	[result]
+	System.IO::IO {
+		System.Win32.Mem::GlobalAllocFlags
+	}
+}
+
+[Function]
+gMEM_FIXED :: GlobalAllocFlags
+Name: gMEM_FIXED
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:gMEM_FIXED
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Mem::GlobalAllocFlags
+}
+
+[Function]
+memset :: Ptr a -> CInt -> CSize -> IO ()
+Name: memset
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:memset
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+	Foreign.C.Types::CInt
+	Foreign.C.Types::CSize
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+virtualAlloc :: Addr -> DWORD -> VirtualAllocFlags -> ProtectFlags -> IO Addr
+Name: virtualAlloc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:virtualAlloc
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::Addr
+	System.Win32.Types::DWORD
+	System.Win32.Mem::VirtualAllocFlags
+	System.Win32.Mem::ProtectFlags
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::Addr
+	}
+}
+
+[Function]
+globalUnlock :: HGLOBAL -> IO ()
+Name: globalUnlock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:globalUnlock
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Mem::HGLOBAL
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+virtualLock :: Addr -> DWORD -> IO ()
+Name: virtualLock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:virtualLock
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::Addr
+	System.Win32.Types::DWORD
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_VirtualProtect :: Addr -> DWORD -> DWORD -> Ptr DWORD -> IO Bool
+Name: c_VirtualProtect
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:c_VirtualProtect
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::Addr
+	System.Win32.Types::DWORD
+	System.Win32.Types::DWORD
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+mEM_DECOMMIT :: FreeFlags
+Name: mEM_DECOMMIT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:mEM_DECOMMIT
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Mem::FreeFlags
+}
+
+[Function]
+c_VirtualAlloc :: Addr -> DWORD -> DWORD -> DWORD -> IO Addr
+Name: c_VirtualAlloc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:c_VirtualAlloc
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::Addr
+	System.Win32.Types::DWORD
+	System.Win32.Types::DWORD
+	System.Win32.Types::DWORD
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::Addr
+	}
+}
+
+[Function]
+fillMemory :: Ptr a -> DWORD -> BYTE -> IO ()
+Name: fillMemory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:fillMemory
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+	System.Win32.Types::DWORD
+	System.Win32.Types::BYTE
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+gMEM_MOVEABLE :: GlobalAllocFlags
+Name: gMEM_MOVEABLE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:gMEM_MOVEABLE
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Mem::GlobalAllocFlags
+}
+
+[Function]
+mEM_RESERVE :: VirtualAllocFlags
+Name: mEM_RESERVE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:mEM_RESERVE
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Mem::VirtualAllocFlags
+}
+
+[Function]
+hEAP_GENERATE_EXCEPTIONS :: HeapAllocFlags
+Name: hEAP_GENERATE_EXCEPTIONS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:hEAP_GENERATE_EXCEPTIONS
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Mem::HeapAllocFlags
+}
+
+[Function]
+heapUnlock :: HANDLE -> IO ()
+Name: heapUnlock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:heapUnlock
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_VirtualFree :: Addr -> DWORD -> FreeFlags -> IO Bool
+Name: c_VirtualFree
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:c_VirtualFree
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::Addr
+	System.Win32.Types::DWORD
+	System.Win32.Mem::FreeFlags
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+gMEM_NOCOMPACT :: GlobalAllocFlags
+Name: gMEM_NOCOMPACT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:gMEM_NOCOMPACT
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Mem::GlobalAllocFlags
+}
+
+[Function]
+heapSize :: HANDLE -> HeapAllocFlags -> Addr -> IO DWORD
+Name: heapSize
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:heapSize
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+	System.Win32.Mem::HeapAllocFlags
+	System.Win32.Types::Addr
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::DWORD
+	}
+}
+
+[Function]
+c_HeapDestroy :: HANDLE -> IO Bool
+Name: c_HeapDestroy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:c_HeapDestroy
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+copyMemory :: Ptr a -> Ptr a -> DWORD -> IO ()
+Name: copyMemory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:copyMemory
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+	System.Win32.Types::DWORD
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+globalLock :: HGLOBAL -> IO Addr
+Name: globalLock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:globalLock
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Mem::HGLOBAL
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::Addr
+	}
+}
+
+[Function]
+c_HeapReAlloc :: HANDLE -> HeapAllocFlags -> Addr -> DWORD -> IO Addr
+Name: c_HeapReAlloc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:c_HeapReAlloc
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+	System.Win32.Mem::HeapAllocFlags
+	System.Win32.Types::Addr
+	System.Win32.Types::DWORD
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::Addr
+	}
+}
+
+[Function]
+c_GlobalSize :: HGLOBAL -> IO DWORD
+Name: c_GlobalSize
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:c_GlobalSize
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Mem::HGLOBAL
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::DWORD
+	}
+}
+
+[Function]
+c_VirtualUnlock :: Addr -> DWORD -> IO Bool
+Name: c_VirtualUnlock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:c_VirtualUnlock
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::Addr
+	System.Win32.Types::DWORD
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+virtualProtect :: Addr -> DWORD -> ProtectFlags -> IO ProtectFlags
+Name: virtualProtect
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:virtualProtect
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::Addr
+	System.Win32.Types::DWORD
+	System.Win32.Mem::ProtectFlags
+
+	[result]
+	System.IO::IO {
+		System.Win32.Mem::ProtectFlags
+	}
+}
+
+[Function]
+moveMemory :: Ptr a -> Ptr a -> DWORD -> IO ()
+Name: moveMemory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:moveMemory
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+	System.Win32.Types::DWORD
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_VirtualProtectEx :: HANDLE -> Addr -> DWORD -> DWORD -> Ptr DWORD -> IO Bool
+Name: c_VirtualProtectEx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:c_VirtualProtectEx
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+	System.Win32.Types::Addr
+	System.Win32.Types::DWORD
+	System.Win32.Types::DWORD
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+gMEM_DDESHARE :: GlobalAllocFlags
+Name: gMEM_DDESHARE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:gMEM_DDESHARE
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Mem::GlobalAllocFlags
+}
+
+[Function]
+heapCreate :: HeapAllocFlags -> DWORD -> DWORD -> IO HANDLE
+Name: heapCreate
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:heapCreate
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Mem::HeapAllocFlags
+	System.Win32.Types::DWORD
+	System.Win32.Types::DWORD
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::HANDLE
+	}
+}
+
+[Function]
+hEAP_NO_SERIALIZE :: HeapAllocFlags
+Name: hEAP_NO_SERIALIZE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:hEAP_NO_SERIALIZE
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Mem::HeapAllocFlags
+}
+
+[Function]
+pAGE_GUARD :: ProtectFlags
+Name: pAGE_GUARD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:pAGE_GUARD
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Mem::ProtectFlags
+}
+
+[Function]
+mEM_COMMIT :: VirtualAllocFlags
+Name: mEM_COMMIT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:mEM_COMMIT
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Mem::VirtualAllocFlags
+}
+
+[Function]
+globalFree :: HGLOBAL -> IO HGLOBAL
+Name: globalFree
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:globalFree
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Mem::HGLOBAL
+
+	[result]
+	System.IO::IO {
+		System.Win32.Mem::HGLOBAL
+	}
+}
+
+[Function]
+gPTR :: GlobalAllocFlags
+Name: gPTR
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:gPTR
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Mem::GlobalAllocFlags
+}
+
+[Function]
+c_GlobalUnlock :: HGLOBAL -> IO Bool
+Name: c_GlobalUnlock
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:c_GlobalUnlock
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Mem::HGLOBAL
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+c_GlobalReAlloc :: HGLOBAL -> DWORD -> GlobalAllocFlags -> IO HGLOBAL
+Name: c_GlobalReAlloc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:c_GlobalReAlloc
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Mem::HGLOBAL
+	System.Win32.Types::DWORD
+	System.Win32.Mem::GlobalAllocFlags
+
+	[result]
+	System.IO::IO {
+		System.Win32.Mem::HGLOBAL
+	}
+}
+
+[Function]
+c_HeapAlloc :: HANDLE -> HeapAllocFlags -> DWORD -> IO Addr
+Name: c_HeapAlloc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:c_HeapAlloc
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+	System.Win32.Mem::HeapAllocFlags
+	System.Win32.Types::DWORD
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::Addr
+	}
+}
+
+[Function]
+c_GlobalHandle :: Addr -> IO HGLOBAL
+Name: c_GlobalHandle
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:c_GlobalHandle
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::Addr
+
+	[result]
+	System.IO::IO {
+		System.Win32.Mem::HGLOBAL
+	}
+}
+
+[Function]
+pAGE_NOACCESS :: ProtectFlags
+Name: pAGE_NOACCESS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:pAGE_NOACCESS
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Mem::ProtectFlags
+}
+
+[Function]
+pAGE_NOCACHE :: ProtectFlags
+Name: pAGE_NOCACHE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:pAGE_NOCACHE
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Mem::ProtectFlags
+}
+
+[Function]
+heapValidate :: HANDLE -> HeapAllocFlags -> Addr -> IO Bool
+Name: heapValidate
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:heapValidate
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+	System.Win32.Mem::HeapAllocFlags
+	System.Win32.Types::Addr
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+virtualFree :: Addr -> DWORD -> FreeFlags -> IO ()
+Name: virtualFree
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:virtualFree
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::Addr
+	System.Win32.Types::DWORD
+	System.Win32.Mem::FreeFlags
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+heapCompact :: HANDLE -> HeapAllocFlags -> IO UINT
+Name: heapCompact
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:heapCompact
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+	System.Win32.Mem::HeapAllocFlags
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::UINT
+	}
+}
+
+[Function]
+mEM_RELEASE :: FreeFlags
+Name: mEM_RELEASE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:mEM_RELEASE
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Mem::FreeFlags
+}
+
+[Function]
+c_HeapSize :: HANDLE -> HeapAllocFlags -> Addr -> IO DWORD
+Name: c_HeapSize
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Mem.html#v:c_HeapSize
+Containing package: System.Win32.Mem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+	System.Win32.Mem::HeapAllocFlags
+	System.Win32.Types::Addr
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::DWORD
+	}
+}

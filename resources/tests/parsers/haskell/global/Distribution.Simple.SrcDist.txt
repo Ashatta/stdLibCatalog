@@ -1,0 +1,243 @@
+[Package]
+Name: Distribution.Simple.SrcDist
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-SrcDist.html
+Containing package: Distribution.Simple
+attributes {
+}
+
+Subpackages {
+}
+
+[Function]
+prepareSnapshotTree :: Verbosity -> PackageDescription -> Maybe LocalBuildInfo -> FilePath -> [PPSuffixHandler] -> IO ()
+Name: prepareSnapshotTree
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-SrcDist.html#v:prepareSnapshotTree
+Containing package: Distribution.Simple.SrcDist
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.PackageDescription::PackageDescription
+	Data.Maybe::Maybe {
+		Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	}
+	System.IO::FilePath
+	other::List {
+		Distribution.Simple.PreProcess::PPSuffixHandler
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+dateToSnapshotNumber :: UTCTime -> Int
+Name: dateToSnapshotNumber
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-SrcDist.html#v:dateToSnapshotNumber
+Containing package: Distribution.Simple.SrcDist
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Time.Clock::UTCTime
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+prepareTree :: Verbosity -> PackageDescription -> Maybe LocalBuildInfo -> FilePath -> [PPSuffixHandler] -> IO ()
+Name: prepareTree
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-SrcDist.html#v:prepareTree
+Containing package: Distribution.Simple.SrcDist
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.PackageDescription::PackageDescription
+	Data.Maybe::Maybe {
+		Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	}
+	System.IO::FilePath
+	other::List {
+		Distribution.Simple.PreProcess::PPSuffixHandler
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+snapshotVersion :: UTCTime -> Version -> Version
+Name: snapshotVersion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-SrcDist.html#v:snapshotVersion
+Containing package: Distribution.Simple.SrcDist
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Time.Clock::UTCTime
+	Distribution.Version::Version
+
+	[result]
+	Distribution.Version::Version
+}
+
+[Function]
+sdist :: PackageDescription -> Maybe LocalBuildInfo -> SDistFlags -> (FilePath -> FilePath) -> [PPSuffixHandler] -> IO ()
+Name: sdist
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-SrcDist.html#v:sdist
+Containing package: Distribution.Simple.SrcDist
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+	Data.Maybe::Maybe {
+		Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	}
+	Distribution.Simple.Setup::SDistFlags
+	<function> {
+		[parameters]
+		System.IO::FilePath
+	
+		[result]
+		System.IO::FilePath
+	}
+	other::List {
+		Distribution.Simple.PreProcess::PPSuffixHandler
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+createArchive :: CreateArchiveFun
+Name: createArchive
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-SrcDist.html#v:createArchive
+Containing package: Distribution.Simple.SrcDist
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	null::CreateArchiveFun
+}
+
+[Function]
+snapshotPackage :: UTCTime -> PackageDescription -> PackageDescription
+Name: snapshotPackage
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-SrcDist.html#v:snapshotPackage
+Containing package: Distribution.Simple.SrcDist
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Time.Clock::UTCTime
+	Distribution.PackageDescription::PackageDescription
+
+	[result]
+	Distribution.PackageDescription::PackageDescription
+}
+
+[Function]
+printPackageProblems :: Verbosity -> PackageDescription -> IO ()
+Name: printPackageProblems
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-SrcDist.html#v:printPackageProblems
+Containing package: Distribution.Simple.SrcDist
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.PackageDescription::PackageDescription
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+listPackageSources :: Verbosity -> PackageDescription -> [PPSuffixHandler] -> IO ([FilePath], [FilePath])
+Name: listPackageSources
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-SrcDist.html#v:listPackageSources
+Containing package: Distribution.Simple.SrcDist
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.PackageDescription::PackageDescription
+	other::List {
+		Distribution.Simple.PreProcess::PPSuffixHandler
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			other::List {
+				System.IO::FilePath
+			}
+			other::List {
+				System.IO::FilePath
+			}
+		}
+	}
+}

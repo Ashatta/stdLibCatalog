@@ -1,0 +1,528 @@
+[Package]
+Name: GHC.IO.Device
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Device.html
+Containing package: IO
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+class IODevice a where ready :: a -> Bool -> Int -> IO Bool close :: a -> IO () isTerminal :: a -> IO Bool isSeekable :: a -> IO Bool seek :: a -> SeekMode -> Integer -> IO () tell :: a -> IO Integer getSize :: a -> IO Integer setSize :: a -> Integer -> IO () setEcho :: a -> Bool -> IO () getEcho :: a -> IO Bool setRaw :: a -> Bool -> IO () devType :: a -> IO IODeviceType dup :: a -> IO a dup2 :: a -> a -> IO a
+Name: IODevice
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Device.html#t:IODevice
+Containing package: GHC.IO.Device
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	ready :: a -> Bool -> Int -> IO Bool
+	Name: ready
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Device.html#v:ready
+	Containing package: GHC.IO.Device
+	attributes {
+		memberType=function
+	}
+	Containing type: IODevice
+	parameters {
+		a: (IODevice a; a; GHC.IO.Device::IODevice)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		Data.Bool::Bool
+		Data.Int::Int
+	
+		[result]
+		System.IO::IO {
+			Data.Bool::Bool
+		}
+	}
+
+	[Function]
+	close :: a -> IO ()
+	Name: close
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Device.html#v:close
+	Containing package: GHC.IO.Device
+	attributes {
+		memberType=function
+	}
+	Containing type: IODevice
+	parameters {
+		a: (IODevice a; a; GHC.IO.Device::IODevice)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+
+	[Function]
+	isTerminal :: a -> IO Bool
+	Name: isTerminal
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Device.html#v:isTerminal
+	Containing package: GHC.IO.Device
+	attributes {
+		memberType=function
+	}
+	Containing type: IODevice
+	parameters {
+		a: (IODevice a; a; GHC.IO.Device::IODevice)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		System.IO::IO {
+			Data.Bool::Bool
+		}
+	}
+
+	[Function]
+	isSeekable :: a -> IO Bool
+	Name: isSeekable
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Device.html#v:isSeekable
+	Containing package: GHC.IO.Device
+	attributes {
+		memberType=function
+	}
+	Containing type: IODevice
+	parameters {
+		a: (IODevice a; a; GHC.IO.Device::IODevice)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		System.IO::IO {
+			Data.Bool::Bool
+		}
+	}
+
+	[Function]
+	seek :: a -> SeekMode -> Integer -> IO ()
+	Name: seek
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Device.html#v:seek
+	Containing package: GHC.IO.Device
+	attributes {
+		memberType=function
+	}
+	Containing type: IODevice
+	parameters {
+		a: (IODevice a; a; GHC.IO.Device::IODevice)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		GHC.IO.Device::SeekMode
+		Prelude::Integer
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+
+	[Function]
+	tell :: a -> IO Integer
+	Name: tell
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Device.html#v:tell
+	Containing package: GHC.IO.Device
+	attributes {
+		memberType=function
+	}
+	Containing type: IODevice
+	parameters {
+		a: (IODevice a; a; GHC.IO.Device::IODevice)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		System.IO::IO {
+			Prelude::Integer
+		}
+	}
+
+	[Function]
+	getSize :: a -> IO Integer
+	Name: getSize
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Device.html#v:getSize
+	Containing package: GHC.IO.Device
+	attributes {
+		memberType=function
+	}
+	Containing type: IODevice
+	parameters {
+		a: (IODevice a; a; GHC.IO.Device::IODevice)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		System.IO::IO {
+			Prelude::Integer
+		}
+	}
+
+	[Function]
+	setSize :: a -> Integer -> IO ()
+	Name: setSize
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Device.html#v:setSize
+	Containing package: GHC.IO.Device
+	attributes {
+		memberType=function
+	}
+	Containing type: IODevice
+	parameters {
+		a: (IODevice a; a; GHC.IO.Device::IODevice)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		Prelude::Integer
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+
+	[Function]
+	setEcho :: a -> Bool -> IO ()
+	Name: setEcho
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Device.html#v:setEcho
+	Containing package: GHC.IO.Device
+	attributes {
+		memberType=function
+	}
+	Containing type: IODevice
+	parameters {
+		a: (IODevice a; a; GHC.IO.Device::IODevice)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		Data.Bool::Bool
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+
+	[Function]
+	getEcho :: a -> IO Bool
+	Name: getEcho
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Device.html#v:getEcho
+	Containing package: GHC.IO.Device
+	attributes {
+		memberType=function
+	}
+	Containing type: IODevice
+	parameters {
+		a: (IODevice a; a; GHC.IO.Device::IODevice)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		System.IO::IO {
+			Data.Bool::Bool
+		}
+	}
+
+	[Function]
+	setRaw :: a -> Bool -> IO ()
+	Name: setRaw
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Device.html#v:setRaw
+	Containing package: GHC.IO.Device
+	attributes {
+		memberType=function
+	}
+	Containing type: IODevice
+	parameters {
+		a: (IODevice a; a; GHC.IO.Device::IODevice)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		Data.Bool::Bool
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+
+	[Function]
+	devType :: a -> IO IODeviceType
+	Name: devType
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Device.html#v:devType
+	Containing package: GHC.IO.Device
+	attributes {
+		memberType=function
+	}
+	Containing type: IODevice
+	parameters {
+		a: (IODevice a; a; GHC.IO.Device::IODevice)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		System.IO::IO {
+			GHC.IO.Device::IODeviceType
+		}
+	}
+
+	[Function]
+	dup :: a -> IO a
+	Name: dup
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Device.html#v:dup
+	Containing package: GHC.IO.Device
+	attributes {
+		memberType=function
+	}
+	Containing type: IODevice
+	parameters {
+		a: (IODevice a; a; GHC.IO.Device::IODevice)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[Function]
+	dup2 :: a -> a -> IO a
+	Name: dup2
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Device.html#v:dup2
+	Containing package: GHC.IO.Device
+	attributes {
+		memberType=function
+	}
+	Containing type: IODevice
+	parameters {
+		a: (IODevice a; a; GHC.IO.Device::IODevice)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+}
+
+[Classifier]
+data SeekMode = AbsoluteSeek | RelativeSeek | SeekFromEnd
+Name: SeekMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Device.html#t:SeekMode
+Containing package: GHC.IO.Device
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class RawIO a where read :: a -> Ptr Word8 -> Int -> IO Int readNonBlocking :: a -> Ptr Word8 -> Int -> IO (Maybe Int) write :: a -> Ptr Word8 -> Int -> IO () writeNonBlocking :: a -> Ptr Word8 -> Int -> IO Int
+Name: RawIO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Device.html#t:RawIO
+Containing package: GHC.IO.Device
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	read :: a -> Ptr Word8 -> Int -> IO Int
+	Name: read
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Device.html#v:read
+	Containing package: GHC.IO.Device
+	attributes {
+		memberType=function
+	}
+	Containing type: RawIO
+	parameters {
+		a: (RawIO a; a; GHC.IO.Device::RawIO)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		Foreign.Ptr::Ptr {
+			Data.Word::Word8
+		}
+		Data.Int::Int
+	
+		[result]
+		System.IO::IO {
+			Data.Int::Int
+		}
+	}
+
+	[Function]
+	readNonBlocking :: a -> Ptr Word8 -> Int -> IO (Maybe Int)
+	Name: readNonBlocking
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Device.html#v:readNonBlocking
+	Containing package: GHC.IO.Device
+	attributes {
+		memberType=function
+	}
+	Containing type: RawIO
+	parameters {
+		a: (RawIO a; a; GHC.IO.Device::RawIO)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		Foreign.Ptr::Ptr {
+			Data.Word::Word8
+		}
+		Data.Int::Int
+	
+		[result]
+		System.IO::IO {
+			Data.Maybe::Maybe {
+				Data.Int::Int
+			}
+		}
+	}
+
+	[Function]
+	write :: a -> Ptr Word8 -> Int -> IO ()
+	Name: write
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Device.html#v:write
+	Containing package: GHC.IO.Device
+	attributes {
+		memberType=function
+	}
+	Containing type: RawIO
+	parameters {
+		a: (RawIO a; a; GHC.IO.Device::RawIO)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		Foreign.Ptr::Ptr {
+			Data.Word::Word8
+		}
+		Data.Int::Int
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+
+	[Function]
+	writeNonBlocking :: a -> Ptr Word8 -> Int -> IO Int
+	Name: writeNonBlocking
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Device.html#v:writeNonBlocking
+	Containing package: GHC.IO.Device
+	attributes {
+		memberType=function
+	}
+	Containing type: RawIO
+	parameters {
+		a: (RawIO a; a; GHC.IO.Device::RawIO)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		Foreign.Ptr::Ptr {
+			Data.Word::Word8
+		}
+		Data.Int::Int
+	
+		[result]
+		System.IO::IO {
+			Data.Int::Int
+		}
+	}
+}
+
+[Classifier]
+data IODeviceType = Directory | Stream | RegularFile | RawDevice
+Name: IODeviceType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Device.html#t:IODeviceType
+Containing package: GHC.IO.Device
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}

@@ -1,0 +1,138 @@
+[Package]
+Name: Language.Haskell.Extension
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Language-Haskell-Extension.html
+Containing package: Haskell
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data Extension = EnableExtension KnownExtension | DisableExtension KnownExtension | UnknownExtension String
+Name: Extension
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Language-Haskell-Extension.html#t:Extension
+Containing package: Language.Haskell.Extension
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Language = Haskell98 | Haskell2010 | UnknownLanguage String
+Name: Language
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Language-Haskell-Extension.html#t:Language
+Containing package: Language.Haskell.Extension
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data KnownExtension = OverlappingInstances | UndecidableInstances | IncoherentInstances | DoRec | RecursiveDo | ParallelListComp | MultiParamTypeClasses | MonomorphismRestriction | FunctionalDependencies | Rank2Types | RankNTypes | PolymorphicComponents | ExistentialQuantification | ScopedTypeVariables | PatternSignatures | ImplicitParams | FlexibleContexts | FlexibleInstances | EmptyDataDecls | CPP | KindSignatures | BangPatterns | TypeSynonymInstances | TemplateHaskell | ForeignFunctionInterface | Arrows | Generics | ImplicitPrelude | NamedFieldPuns | PatternGuards | GeneralizedNewtypeDeriving | ExtensibleRecords | RestrictedTypeSynonyms | HereDocuments | MagicHash | TypeFamilies | StandaloneDeriving | UnicodeSyntax | UnliftedFFITypes | InterruptibleFFI | CApiFFI | LiberalTypeSynonyms | TypeOperators | RecordWildCards | RecordPuns | DisambiguateRecordFields | TraditionalRecordSyntax | OverloadedStrings | GADTs | GADTSyntax | MonoPatBinds | RelaxedPolyRec | ExtendedDefaultRules | UnboxedTuples | DeriveDataTypeable | DeriveGeneric | DefaultSignatures | InstanceSigs | ConstrainedClassMethods | PackageImports | ImpredicativeTypes | NewQualifiedOperators | PostfixOperators | QuasiQuotes | TransformListComp | MonadComprehensions | ViewPatterns | XmlSyntax | RegularPatterns | TupleSections | GHCForeignImportPrim | NPlusKPatterns | DoAndIfThenElse | MultiWayIf | LambdaCase | RebindableSyntax | ExplicitForAll | DatatypeContexts | MonoLocalBinds | DeriveFunctor | DeriveTraversable | DeriveFoldable | NondecreasingIndentation | SafeImports | Safe | Trustworthy | Unsafe | ConstraintKinds | PolyKinds | DataKinds | ParallelArrays | RoleAnnotations | OverloadedLists | EmptyCase | AutoDeriveTypeable | NegativeLiterals | NumDecimals | NullaryTypeClasses | ExplicitNamespaces | AllowAmbiguousTypes
+Name: KnownExtension
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Language-Haskell-Extension.html#t:KnownExtension
+Containing package: Language.Haskell.Extension
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+knownExtensions :: [KnownExtension]
+Name: knownExtensions
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Language-Haskell-Extension.html#v:knownExtensions
+Containing package: Language.Haskell.Extension
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		Language.Haskell.Extension::KnownExtension
+	}
+}
+
+[Function]
+deprecatedExtensions :: [(Extension, Maybe Extension)]
+Name: deprecatedExtensions
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Language-Haskell-Extension.html#v:deprecatedExtensions
+Containing package: Language.Haskell.Extension
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			Language.Haskell.Extension::Extension
+			Data.Maybe::Maybe {
+				Language.Haskell.Extension::Extension
+			}
+		}
+	}
+}
+
+[Function]
+knownLanguages :: [Language]
+Name: knownLanguages
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Language-Haskell-Extension.html#v:knownLanguages
+Containing package: Language.Haskell.Extension
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		Language.Haskell.Extension::Language
+	}
+}

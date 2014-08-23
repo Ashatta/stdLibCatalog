@@ -1,0 +1,230 @@
+[Package]
+Name: System.Posix.DynamicLinker.Prim
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-DynamicLinker-Prim.html
+Containing package: System.Posix.DynamicLinker
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data RTLDFlags = RTLD_LAZY | RTLD_NOW | RTLD_GLOBAL | RTLD_LOCAL
+Name: RTLDFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-DynamicLinker-Prim.html#t:RTLDFlags
+Containing package: System.Posix.DynamicLinker.Prim
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data DL = Null | Next | Default | DLHandle (Ptr ())
+Name: DL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-DynamicLinker-Prim.html#t:DL
+Containing package: System.Posix.DynamicLinker.Prim
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+haveRtldNext :: Bool
+Name: haveRtldNext
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-DynamicLinker-Prim.html#v:haveRtldNext
+Containing package: System.Posix.DynamicLinker.Prim
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+c_dlsym :: Ptr () -> CString -> IO (FunPtr a)
+Name: c_dlsym
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-DynamicLinker-Prim.html#v:c_dlsym
+Containing package: System.Posix.DynamicLinker.Prim
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		GHC.Tuple::()
+	}
+	Foreign.C.String::CString
+
+	[result]
+	System.IO::IO {
+		Foreign.Ptr::FunPtr {
+			null::a
+		}
+	}
+}
+
+[Function]
+haveRtldLocal :: Bool
+Name: haveRtldLocal
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-DynamicLinker-Prim.html#v:haveRtldLocal
+Containing package: System.Posix.DynamicLinker.Prim
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+c_dlclose :: Ptr () -> IO CInt
+Name: c_dlclose
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-DynamicLinker-Prim.html#v:c_dlclose
+Containing package: System.Posix.DynamicLinker.Prim
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		GHC.Tuple::()
+	}
+
+	[result]
+	System.IO::IO {
+		Foreign.C.Types::CInt
+	}
+}
+
+[Function]
+packDL :: DL -> Ptr ()
+Name: packDL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-DynamicLinker-Prim.html#v:packDL
+Containing package: System.Posix.DynamicLinker.Prim
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.DynamicLinker.Prim::DL
+
+	[result]
+	Foreign.Ptr::Ptr {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+packRTLDFlags :: [RTLDFlags] -> CInt
+Name: packRTLDFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-DynamicLinker-Prim.html#v:packRTLDFlags
+Containing package: System.Posix.DynamicLinker.Prim
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		System.Posix.DynamicLinker.Prim::RTLDFlags
+	}
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+c_dlopen :: CString -> CInt -> IO (Ptr ())
+Name: c_dlopen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-DynamicLinker-Prim.html#v:c_dlopen
+Containing package: System.Posix.DynamicLinker.Prim
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.C.String::CString
+	Foreign.C.Types::CInt
+
+	[result]
+	System.IO::IO {
+		Foreign.Ptr::Ptr {
+			GHC.Tuple::()
+		}
+	}
+}
+
+[Function]
+c_dlerror :: IO CString
+Name: c_dlerror
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-DynamicLinker-Prim.html#v:c_dlerror
+Containing package: System.Posix.DynamicLinker.Prim
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Foreign.C.String::CString
+	}
+}

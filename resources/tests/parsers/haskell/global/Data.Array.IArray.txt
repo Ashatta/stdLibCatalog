@@ -1,0 +1,482 @@
+[Package]
+Name: Data.Array.IArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-IArray.html
+Containing package: Data.Array
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data Array i e :: * -> * -> *
+Name: Array
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-IArray.html#t:Array
+Containing package: Data.Array.IArray
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	i
+	e
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class IArray a e where bounds :: Ix i => a i e -> (i, i)
+Name: IArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-IArray.html#t:IArray
+Containing package: Data.Array.IArray
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Data.Array.IArray::Data.Array.IArray.IArray_Array<e<>>
+	Data.Array.Unboxed::Data.Array.IArray.IArray_UArray<Bool<>>
+	Data.Array.Unboxed::Data.Array.IArray.IArray_UArray<Char<>>
+	Data.Array.Unboxed::Data.Array.IArray.IArray_UArray<Double<>>
+	Data.Array.Unboxed::Data.Array.IArray.IArray_UArray<Float<>>
+	Data.Array.Unboxed::Data.Array.IArray.IArray_UArray<Int<>>
+	Data.Array.Unboxed::Data.Array.IArray.IArray_UArray<Int8<>>
+	Data.Array.Unboxed::Data.Array.IArray.IArray_UArray<Int16<>>
+	Data.Array.Unboxed::Data.Array.IArray.IArray_UArray<Int32<>>
+	Data.Array.Unboxed::Data.Array.IArray.IArray_UArray<Int64<>>
+	Data.Array.Unboxed::Data.Array.IArray.IArray_UArray<Word<>>
+	Data.Array.Unboxed::Data.Array.IArray.IArray_UArray<Word8<>>
+	Data.Array.Unboxed::Data.Array.IArray.IArray_UArray<Word16<>>
+	Data.Array.Unboxed::Data.Array.IArray.IArray_UArray<Word32<>>
+	Data.Array.Unboxed::Data.Array.IArray.IArray_UArray<Word64<>>
+	Data.Array.Unboxed::Data.Array.IArray.IArray_UArray<StablePtr<a<>>>
+	Data.Array.Unboxed::Data.Array.IArray.IArray_UArray<Ptr<a<>>>
+	Data.Array.Unboxed::Data.Array.IArray.IArray_UArray<FunPtr<a<>>>
+	Data.Array::Data.Array.IArray.IArray_Array<e<>>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	bounds :: Ix i => a i e -> (i, i)
+	Name: bounds
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-IArray.html#v:bounds
+	Containing package: Data.Array.IArray
+	attributes {
+		memberType=function
+	}
+	Containing type: IArray
+	parameters {
+		i: (Ix i; i; Data.Ix::Ix)
+		a: (IArray a e; a, e; Data.Array.IArray::IArray)
+		e: (IArray a e; a, e; Data.Array.IArray::IArray)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a {
+			null::i
+			null::e
+		}
+	
+		[result]
+		GHC.Tuple::(,) {
+			null::i
+			null::i
+		}
+	}
+}
+
+[Function]
+accum :: (IArray a e, Ix i) => (e -> e' -> e) -> a i e -> [(i, e')] -> a i e
+Name: accum
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-IArray.html#v:accum
+Containing package: Data.Array.IArray
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (IArray a e; a, e; Data.Array.IArray::IArray)
+	e: (IArray a e; a, e; Data.Array.IArray::IArray)
+	i: (Ix i; i; Data.Ix::Ix)
+	e'
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::e
+		null::e'
+	
+		[result]
+		null::e
+	}
+	null::a {
+		null::i
+		null::e
+	}
+	other::List {
+		GHC.Tuple::(,) {
+			null::i
+			null::e'
+		}
+	}
+
+	[result]
+	null::a {
+		null::i
+		null::e
+	}
+}
+
+[Function]
+assocs :: (IArray a e, Ix i) => a i e -> [(i, e)]
+Name: assocs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-IArray.html#v:assocs
+Containing package: Data.Array.IArray
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (IArray a e; a, e; Data.Array.IArray::IArray)
+	e: (IArray a e; a, e; Data.Array.IArray::IArray)
+	i: (Ix i; i; Data.Ix::Ix)
+}
+Signature = <function> {
+	[parameters]
+	null::a {
+		null::i
+		null::e
+	}
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			null::i
+			null::e
+		}
+	}
+}
+
+[Function]
+elems :: (IArray a e, Ix i) => a i e -> [e]
+Name: elems
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-IArray.html#v:elems
+Containing package: Data.Array.IArray
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (IArray a e; a, e; Data.Array.IArray::IArray)
+	e: (IArray a e; a, e; Data.Array.IArray::IArray)
+	i: (Ix i; i; Data.Ix::Ix)
+}
+Signature = <function> {
+	[parameters]
+	null::a {
+		null::i
+		null::e
+	}
+
+	[result]
+	other::List {
+		null::e
+	}
+}
+
+[Function]
+(//) :: (IArray a e, Ix i) => a i e -> [(i, e)] -> a i e
+Name: (//)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-IArray.html#v:(//)
+Containing package: Data.Array.IArray
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (IArray a e; a, e; Data.Array.IArray::IArray)
+	e: (IArray a e; a, e; Data.Array.IArray::IArray)
+	i: (Ix i; i; Data.Ix::Ix)
+}
+Signature = <function> {
+	[parameters]
+	null::a {
+		null::i
+		null::e
+	}
+	other::List {
+		GHC.Tuple::(,) {
+			null::i
+			null::e
+		}
+	}
+
+	[result]
+	null::a {
+		null::i
+		null::e
+	}
+}
+
+[Function]
+ixmap :: (IArray a e, Ix i, Ix j) => (i, i) -> (i -> j) -> a j e -> a i e
+Name: ixmap
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-IArray.html#v:ixmap
+Containing package: Data.Array.IArray
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (IArray a e; a, e; Data.Array.IArray::IArray)
+	e: (IArray a e; a, e; Data.Array.IArray::IArray)
+	i: (Ix i; i; Data.Ix::Ix)
+	j: (Ix j; j; Data.Ix::Ix)
+}
+Signature = <function> {
+	[parameters]
+	GHC.Tuple::(,) {
+		null::i
+		null::i
+	}
+	<function> {
+		[parameters]
+		null::i
+	
+		[result]
+		null::j
+	}
+	null::a {
+		null::j
+		null::e
+	}
+
+	[result]
+	null::a {
+		null::i
+		null::e
+	}
+}
+
+[Function]
+accumArray :: (IArray a e, Ix i) => (e -> e' -> e) -> e -> (i, i) -> [(i, e')] -> a i e
+Name: accumArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-IArray.html#v:accumArray
+Containing package: Data.Array.IArray
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (IArray a e; a, e; Data.Array.IArray::IArray)
+	e: (IArray a e; a, e; Data.Array.IArray::IArray)
+	i: (Ix i; i; Data.Ix::Ix)
+	e'
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::e
+		null::e'
+	
+		[result]
+		null::e
+	}
+	null::e
+	GHC.Tuple::(,) {
+		null::i
+		null::i
+	}
+	other::List {
+		GHC.Tuple::(,) {
+			null::i
+			null::e'
+		}
+	}
+
+	[result]
+	null::a {
+		null::i
+		null::e
+	}
+}
+
+[Function]
+indices :: (IArray a e, Ix i) => a i e -> [i]
+Name: indices
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-IArray.html#v:indices
+Containing package: Data.Array.IArray
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (IArray a e; a, e; Data.Array.IArray::IArray)
+	e: (IArray a e; a, e; Data.Array.IArray::IArray)
+	i: (Ix i; i; Data.Ix::Ix)
+}
+Signature = <function> {
+	[parameters]
+	null::a {
+		null::i
+		null::e
+	}
+
+	[result]
+	other::List {
+		null::i
+	}
+}
+
+[Function]
+amap :: (IArray a e', IArray a e, Ix i) => (e' -> e) -> a i e' -> a i e
+Name: amap
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-IArray.html#v:amap
+Containing package: Data.Array.IArray
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (IArray a e'; a, e'; Data.Array.IArray::IArray), (IArray a e; a, e; Data.Array.IArray::IArray)
+	e': (IArray a e'; a, e'; Data.Array.IArray::IArray)
+	e: (IArray a e; a, e; Data.Array.IArray::IArray)
+	i: (Ix i; i; Data.Ix::Ix)
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::e'
+	
+		[result]
+		null::e
+	}
+	null::a {
+		null::i
+		null::e'
+	}
+
+	[result]
+	null::a {
+		null::i
+		null::e
+	}
+}
+
+[Function]
+array :: (IArray a e, Ix i) => (i, i) -> [(i, e)] -> a i e
+Name: array
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-IArray.html#v:array
+Containing package: Data.Array.IArray
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (IArray a e; a, e; Data.Array.IArray::IArray)
+	e: (IArray a e; a, e; Data.Array.IArray::IArray)
+	i: (Ix i; i; Data.Ix::Ix)
+}
+Signature = <function> {
+	[parameters]
+	GHC.Tuple::(,) {
+		null::i
+		null::i
+	}
+	other::List {
+		GHC.Tuple::(,) {
+			null::i
+			null::e
+		}
+	}
+
+	[result]
+	null::a {
+		null::i
+		null::e
+	}
+}
+
+[Function]
+listArray :: (IArray a e, Ix i) => (i, i) -> [e] -> a i e
+Name: listArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-IArray.html#v:listArray
+Containing package: Data.Array.IArray
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (IArray a e; a, e; Data.Array.IArray::IArray)
+	e: (IArray a e; a, e; Data.Array.IArray::IArray)
+	i: (Ix i; i; Data.Ix::Ix)
+}
+Signature = <function> {
+	[parameters]
+	GHC.Tuple::(,) {
+		null::i
+		null::i
+	}
+	other::List {
+		null::e
+	}
+
+	[result]
+	null::a {
+		null::i
+		null::e
+	}
+}
+
+[Function]
+(!) :: (IArray a e, Ix i) => a i e -> i -> e
+Name: (!)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-IArray.html#v:(!)
+Containing package: Data.Array.IArray
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (IArray a e; a, e; Data.Array.IArray::IArray)
+	e: (IArray a e; a, e; Data.Array.IArray::IArray)
+	i: (Ix i; i; Data.Ix::Ix)
+}
+Signature = <function> {
+	[parameters]
+	null::a {
+		null::i
+		null::e
+	}
+	null::i
+
+	[result]
+	null::e
+}

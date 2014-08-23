@@ -1,0 +1,288 @@
+[Package]
+Name: System.Console.Haskeline.Completion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline-Completion.html
+Containing package: System.Console.Haskeline
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data Completion = Completion { replacement :: String display :: String isFinished :: Bool}
+Name: Completion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline-Completion.html#t:Completion
+Containing package: System.Console.Haskeline.Completion
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type CompletionFunc m = (String, String) -> m (String, [Completion])
+Name: CompletionFunc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline-Completion.html#t:CompletionFunc
+Containing package: System.Console.Haskeline.Completion
+attributes {
+}
+parameters {
+	m
+}
+Aliased type = <function> {
+	[parameters]
+	GHC.Tuple::(,) {
+		Data.String::String
+		Data.String::String
+	}
+
+	[result]
+	null::m {
+		GHC.Tuple::(,) {
+			Data.String::String
+			other::List {
+				System.Console.Haskeline.Completion::Completion
+			}
+		}
+	}
+}
+
+[Function]
+completeWord :: Monad m => Maybe Char -> [Char] -> (String -> m [Completion]) -> CompletionFunc m
+Name: completeWord
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline-Completion.html#v:completeWord
+Containing package: System.Console.Haskeline.Completion
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+}
+Signature = <function> {
+	[parameters]
+	Data.Maybe::Maybe {
+		Data.Char::Char
+	}
+	other::List {
+		Data.Char::Char
+	}
+	<function> {
+		[parameters]
+		Data.String::String
+	
+		[result]
+		null::m {
+			other::List {
+				System.Console.Haskeline.Completion::Completion
+			}
+		}
+	}
+
+	[result]
+	System.Console.Haskeline.Completion::CompletionFunc {
+		null::m
+	}
+}
+
+[Function]
+filenameWordBreakChars :: String
+Name: filenameWordBreakChars
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline-Completion.html#v:filenameWordBreakChars
+Containing package: System.Console.Haskeline.Completion
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+noCompletion :: Monad m => CompletionFunc m
+Name: noCompletion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline-Completion.html#v:noCompletion
+Containing package: System.Console.Haskeline.Completion
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Console.Haskeline.Completion::CompletionFunc {
+		null::m
+	}
+}
+
+[Function]
+simpleCompletion :: String -> Completion
+Name: simpleCompletion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline-Completion.html#v:simpleCompletion
+Containing package: System.Console.Haskeline.Completion
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.Console.Haskeline.Completion::Completion
+}
+
+[Function]
+listFiles :: MonadIO m => FilePath -> m [Completion]
+Name: listFiles
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline-Completion.html#v:listFiles
+Containing package: System.Console.Haskeline.Completion
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadIO m; m; Control.Monad.IO.Class::MonadIO)
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	null::m {
+		other::List {
+			System.Console.Haskeline.Completion::Completion
+		}
+	}
+}
+
+[Function]
+completeWordWithPrev :: Monad m => Maybe Char -> [Char] -> (String -> String -> m [Completion]) -> CompletionFunc m
+Name: completeWordWithPrev
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline-Completion.html#v:completeWordWithPrev
+Containing package: System.Console.Haskeline.Completion
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+}
+Signature = <function> {
+	[parameters]
+	Data.Maybe::Maybe {
+		Data.Char::Char
+	}
+	other::List {
+		Data.Char::Char
+	}
+	<function> {
+		[parameters]
+		Data.String::String
+		Data.String::String
+	
+		[result]
+		null::m {
+			other::List {
+				System.Console.Haskeline.Completion::Completion
+			}
+		}
+	}
+
+	[result]
+	System.Console.Haskeline.Completion::CompletionFunc {
+		null::m
+	}
+}
+
+[Function]
+completeFilename :: MonadIO m => CompletionFunc m
+Name: completeFilename
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline-Completion.html#v:completeFilename
+Containing package: System.Console.Haskeline.Completion
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadIO m; m; Control.Monad.IO.Class::MonadIO)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Console.Haskeline.Completion::CompletionFunc {
+		null::m
+	}
+}
+
+[Function]
+completeQuotedWord :: Monad m => Maybe Char -> [Char] -> (String -> m [Completion]) -> CompletionFunc m -> CompletionFunc m
+Name: completeQuotedWord
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline-Completion.html#v:completeQuotedWord
+Containing package: System.Console.Haskeline.Completion
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+}
+Signature = <function> {
+	[parameters]
+	Data.Maybe::Maybe {
+		Data.Char::Char
+	}
+	other::List {
+		Data.Char::Char
+	}
+	<function> {
+		[parameters]
+		Data.String::String
+	
+		[result]
+		null::m {
+			other::List {
+				System.Console.Haskeline.Completion::Completion
+			}
+		}
+	}
+	System.Console.Haskeline.Completion::CompletionFunc {
+		null::m
+	}
+
+	[result]
+	System.Console.Haskeline.Completion::CompletionFunc {
+		null::m
+	}
+}

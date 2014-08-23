@@ -1,0 +1,341 @@
+[Package]
+Name: GHC.Stack
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Stack.html
+Containing package: GHC
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data CostCentre
+Name: CostCentre
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Stack.html#t:CostCentre
+Containing package: GHC.Stack
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data CostCentreStack
+Name: CostCentreStack
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Stack.html#t:CostCentreStack
+Containing package: GHC.Stack
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+errorWithStackTrace :: String -> a
+Name: errorWithStackTrace
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Stack.html#v:errorWithStackTrace
+Containing package: GHC.Stack
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	null::a
+}
+
+[Function]
+ccModule :: Ptr CostCentre -> IO CString
+Name: ccModule
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Stack.html#v:ccModule
+Containing package: GHC.Stack
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		GHC.Stack::CostCentre
+	}
+
+	[result]
+	System.IO::IO {
+		Foreign.C.String::CString
+	}
+}
+
+[Function]
+ccsCC :: Ptr CostCentreStack -> IO (Ptr CostCentre)
+Name: ccsCC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Stack.html#v:ccsCC
+Containing package: GHC.Stack
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		GHC.Stack::CostCentreStack
+	}
+
+	[result]
+	System.IO::IO {
+		Foreign.Ptr::Ptr {
+			GHC.Stack::CostCentre
+		}
+	}
+}
+
+[Function]
+getCurrentCCS :: dummy -> IO (Ptr CostCentreStack)
+Name: getCurrentCCS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Stack.html#v:getCurrentCCS
+Containing package: GHC.Stack
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	dummy
+}
+Signature = <function> {
+	[parameters]
+	null::dummy
+
+	[result]
+	System.IO::IO {
+		Foreign.Ptr::Ptr {
+			GHC.Stack::CostCentreStack
+		}
+	}
+}
+
+[Function]
+ccSrcSpan :: Ptr CostCentre -> IO CString
+Name: ccSrcSpan
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Stack.html#v:ccSrcSpan
+Containing package: GHC.Stack
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		GHC.Stack::CostCentre
+	}
+
+	[result]
+	System.IO::IO {
+		Foreign.C.String::CString
+	}
+}
+
+[Function]
+ccLabel :: Ptr CostCentre -> IO CString
+Name: ccLabel
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Stack.html#v:ccLabel
+Containing package: GHC.Stack
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		GHC.Stack::CostCentre
+	}
+
+	[result]
+	System.IO::IO {
+		Foreign.C.String::CString
+	}
+}
+
+[Function]
+getCCSOf :: a -> IO (Ptr CostCentreStack)
+Name: getCCSOf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Stack.html#v:getCCSOf
+Containing package: GHC.Stack
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	System.IO::IO {
+		Foreign.Ptr::Ptr {
+			GHC.Stack::CostCentreStack
+		}
+	}
+}
+
+[Function]
+ccsParent :: Ptr CostCentreStack -> IO (Ptr CostCentreStack)
+Name: ccsParent
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Stack.html#v:ccsParent
+Containing package: GHC.Stack
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		GHC.Stack::CostCentreStack
+	}
+
+	[result]
+	System.IO::IO {
+		Foreign.Ptr::Ptr {
+			GHC.Stack::CostCentreStack
+		}
+	}
+}
+
+[Function]
+renderStack :: [String] -> String
+Name: renderStack
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Stack.html#v:renderStack
+Containing package: GHC.Stack
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Data.String::String
+	}
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+whoCreated :: a -> IO [String]
+Name: whoCreated
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Stack.html#v:whoCreated
+Containing package: GHC.Stack
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	System.IO::IO {
+		other::List {
+			Data.String::String
+		}
+	}
+}
+
+[Function]
+ccsToStrings :: Ptr CostCentreStack -> IO [String]
+Name: ccsToStrings
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Stack.html#v:ccsToStrings
+Containing package: GHC.Stack
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		GHC.Stack::CostCentreStack
+	}
+
+	[result]
+	System.IO::IO {
+		other::List {
+			Data.String::String
+		}
+	}
+}
+
+[Function]
+currentCallStack :: IO [String]
+Name: currentCallStack
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Stack.html#v:currentCallStack
+Containing package: GHC.Stack
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		other::List {
+			Data.String::String
+		}
+	}
+}

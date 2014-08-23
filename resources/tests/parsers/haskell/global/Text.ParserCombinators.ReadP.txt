@@ -1,0 +1,963 @@
+[Package]
+Name: Text.ParserCombinators.ReadP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html
+Containing package: ParserCombinators
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data ReadP a
+Name: ReadP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#t:ReadP
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type ReadS a = String -> [(a, String)]
+Name: ReadS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#t:ReadS
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			null::a
+			Data.String::String
+		}
+	}
+}
+
+[Function]
+chainl1 :: ReadP a -> ReadP (a -> a -> a) -> ReadP a
+Name: chainl1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:chainl1
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+	Text.ParserCombinators.ReadP::ReadP {
+		<function> {
+			[parameters]
+			null::a
+			null::a
+		
+			[result]
+			null::a
+		}
+	}
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+}
+
+[Function]
+chainr1 :: ReadP a -> ReadP (a -> a -> a) -> ReadP a
+Name: chainr1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:chainr1
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+	Text.ParserCombinators.ReadP::ReadP {
+		<function> {
+			[parameters]
+			null::a
+			null::a
+		
+			[result]
+			null::a
+		}
+	}
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+}
+
+[Function]
+satisfy :: (Char -> Bool) -> ReadP Char
+Name: satisfy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:satisfy
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Char::Char
+	
+		[result]
+		Data.Bool::Bool
+	}
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		Data.Char::Char
+	}
+}
+
+[Function]
+optional :: ReadP a -> ReadP ()
+Name: optional
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:optional
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+munch1 :: (Char -> Bool) -> ReadP String
+Name: munch1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:munch1
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Char::Char
+	
+		[result]
+		Data.Bool::Bool
+	}
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		Data.String::String
+	}
+}
+
+[Function]
+count :: Int -> ReadP a -> ReadP [a]
+Name: count
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:count
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		other::List {
+			null::a
+		}
+	}
+}
+
+[Function]
+choice :: [ReadP a] -> ReadP a
+Name: choice
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:choice
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Text.ParserCombinators.ReadP::ReadP {
+			null::a
+		}
+	}
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+}
+
+[Function]
+char :: Char -> ReadP Char
+Name: char
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:char
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Char::Char
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		Data.Char::Char
+	}
+}
+
+[Function]
+skipSpaces :: ReadP ()
+Name: skipSpaces
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:skipSpaces
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+gather :: ReadP a -> ReadP (String, a)
+Name: gather
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:gather
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		GHC.Tuple::(,) {
+			Data.String::String
+			null::a
+		}
+	}
+}
+
+[Function]
+many :: ReadP a -> ReadP [a]
+Name: many
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:many
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		other::List {
+			null::a
+		}
+	}
+}
+
+[Function]
+chainr :: ReadP a -> ReadP (a -> a -> a) -> a -> ReadP a
+Name: chainr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:chainr
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+	Text.ParserCombinators.ReadP::ReadP {
+		<function> {
+			[parameters]
+			null::a
+			null::a
+		
+			[result]
+			null::a
+		}
+	}
+	null::a
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+}
+
+[Function]
+chainl :: ReadP a -> ReadP (a -> a -> a) -> a -> ReadP a
+Name: chainl
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:chainl
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+	Text.ParserCombinators.ReadP::ReadP {
+		<function> {
+			[parameters]
+			null::a
+			null::a
+		
+			[result]
+			null::a
+		}
+	}
+	null::a
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+}
+
+[Function]
+readP_to_S :: ReadP a -> ReadS a
+Name: readP_to_S
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:readP_to_S
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadS {
+		null::a
+	}
+}
+
+[Function]
+between :: ReadP open -> ReadP close -> ReadP a -> ReadP a
+Name: between
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:between
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	open
+	close
+	a
+}
+Signature = <function> {
+	[parameters]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::open
+	}
+	Text.ParserCombinators.ReadP::ReadP {
+		null::close
+	}
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+}
+
+[Function]
+endBy1 :: ReadP a -> ReadP sep -> ReadP [a]
+Name: endBy1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:endBy1
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	sep
+}
+Signature = <function> {
+	[parameters]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+	Text.ParserCombinators.ReadP::ReadP {
+		null::sep
+	}
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		other::List {
+			null::a
+		}
+	}
+}
+
+[Function]
+munch :: (Char -> Bool) -> ReadP String
+Name: munch
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:munch
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Char::Char
+	
+		[result]
+		Data.Bool::Bool
+	}
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		Data.String::String
+	}
+}
+
+[Function]
+sepBy1 :: ReadP a -> ReadP sep -> ReadP [a]
+Name: sepBy1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:sepBy1
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	sep
+}
+Signature = <function> {
+	[parameters]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+	Text.ParserCombinators.ReadP::ReadP {
+		null::sep
+	}
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		other::List {
+			null::a
+		}
+	}
+}
+
+[Function]
+endBy :: ReadP a -> ReadP sep -> ReadP [a]
+Name: endBy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:endBy
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	sep
+}
+Signature = <function> {
+	[parameters]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+	Text.ParserCombinators.ReadP::ReadP {
+		null::sep
+	}
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		other::List {
+			null::a
+		}
+	}
+}
+
+[Function]
+skipMany :: ReadP a -> ReadP ()
+Name: skipMany
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:skipMany
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+pfail :: ReadP a
+Name: pfail
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:pfail
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+}
+
+[Function]
+look :: ReadP String
+Name: look
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:look
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		Data.String::String
+	}
+}
+
+[Function]
+(+++) :: ReadP a -> ReadP a -> ReadP a
+Name: (+++)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:(+++)
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+}
+
+[Function]
+sepBy :: ReadP a -> ReadP sep -> ReadP [a]
+Name: sepBy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:sepBy
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	sep
+}
+Signature = <function> {
+	[parameters]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+	Text.ParserCombinators.ReadP::ReadP {
+		null::sep
+	}
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		other::List {
+			null::a
+		}
+	}
+}
+
+[Function]
+readS_to_P :: ReadS a -> ReadP a
+Name: readS_to_P
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:readS_to_P
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Text.ParserCombinators.ReadP::ReadS {
+		null::a
+	}
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+}
+
+[Function]
+many1 :: ReadP a -> ReadP [a]
+Name: many1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:many1
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		other::List {
+			null::a
+		}
+	}
+}
+
+[Function]
+eof :: ReadP ()
+Name: eof
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:eof
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+(<++) :: ReadP a -> ReadP a -> ReadP a
+Name: (<++)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:(<++)
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+}
+
+[Function]
+string :: String -> ReadP String
+Name: string
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:string
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		Data.String::String
+	}
+}
+
+[Function]
+get :: ReadP Char
+Name: get
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:get
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		Data.Char::Char
+	}
+}
+
+[Function]
+manyTill :: ReadP a -> ReadP end -> ReadP [a]
+Name: manyTill
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:manyTill
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	end
+}
+Signature = <function> {
+	[parameters]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+	Text.ParserCombinators.ReadP::ReadP {
+		null::end
+	}
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		other::List {
+			null::a
+		}
+	}
+}
+
+[Function]
+option :: a -> ReadP a -> ReadP a
+Name: option
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:option
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::a
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+}
+
+[Function]
+skipMany1 :: ReadP a -> ReadP ()
+Name: skipMany1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-ParserCombinators-ReadP.html#v:skipMany1
+Containing package: Text.ParserCombinators.ReadP
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Text.ParserCombinators.ReadP::ReadP {
+		null::a
+	}
+
+	[result]
+	Text.ParserCombinators.ReadP::ReadP {
+		GHC.Tuple::()
+	}
+}

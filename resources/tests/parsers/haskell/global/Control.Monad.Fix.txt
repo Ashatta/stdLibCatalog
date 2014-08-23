@@ -1,0 +1,113 @@
+[Package]
+Name: Control.Monad.Fix
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Monad-Fix.html
+Containing package: Control.Monad
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+class Monad m => MonadFix m where mfix :: (a -> m a) -> m a
+Name: MonadFix
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Monad-Fix.html#t:MonadFix
+Containing package: Control.Monad.Fix
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	other::Control.Monad.Fix.MonadFix_List<curriedParam<>>
+	System.IO::Control.Monad.Fix.MonadFix_IO<>
+	Data.Maybe::Control.Monad.Fix.MonadFix_Maybe<>
+	other::Control.Monad.Fix.MonadFix_(->)<r<>>
+	Data.Either::Control.Monad.Fix.MonadFix_Either<e<>>
+	Control.Monad.ST.Safe::Control.Monad.Fix.MonadFix_ST<s<>>
+	Control.Monad.ST.Lazy.Safe::Control.Monad.Fix.MonadFix_ST<s<>>
+	Control.Monad.ST.Lazy::Control.Monad.Fix.MonadFix_ST<s<>>
+	Control.Monad.ST::Control.Monad.Fix.MonadFix_ST<s<>>
+	Control.Monad.Trans.Error::Control.Monad.Fix.MonadFix_ErrorT<e<>,m<>>
+	Control.Monad.Trans.Identity::Control.Monad.Fix.MonadFix_IdentityT<m<>>
+	Control.Monad.Trans.Maybe::Control.Monad.Fix.MonadFix_MaybeT<m<>>
+	Control.Monad.Trans.RWS.Lazy::Control.Monad.Fix.MonadFix_RWST<r<>,w<>,s<>,m<>>
+	Control.Monad.Trans.RWS.Strict::Control.Monad.Fix.MonadFix_RWST<r<>,w<>,s<>,m<>>
+	Control.Monad.Trans.Reader::Control.Monad.Fix.MonadFix_ReaderT<r<>,m<>>
+	Control.Monad.Trans.State.Lazy::Control.Monad.Fix.MonadFix_StateT<s<>,m<>>
+	Control.Monad.Trans.State.Strict::Control.Monad.Fix.MonadFix_StateT<s<>,m<>>
+	Control.Monad.Trans.Writer.Lazy::Control.Monad.Fix.MonadFix_WriterT<w<>,m<>>
+	Control.Monad.Trans.Writer.Strict::Control.Monad.Fix.MonadFix_WriterT<w<>,m<>>
+	Data.Functor.Identity::Control.Monad.Fix.MonadFix_Identity<>
+	Data.Functor.Product::Control.Monad.Fix.MonadFix_Product<f<>,g<>>
+	Prelude::Control.Monad.Fix.MonadFix_Maybe<>
+	Prelude::Control.Monad.Fix.MonadFix_Either<e<>>
+	Prelude::Control.Monad.Fix.MonadFix_IO<>
+}
+supertypes {
+	Control.Monad::Monad
+}
+members {
+
+	[Function]
+	mfix :: (a -> m a) -> m a
+	Name: mfix
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Monad-Fix.html#v:mfix
+	Containing package: Control.Monad.Fix
+	attributes {
+		memberType=function
+	}
+	Containing type: MonadFix
+	parameters {
+		a
+		m: (MonadFix m; m; Control.Monad.Fix::MonadFix)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			null::m {
+				null::a
+			}
+		}
+	
+		[result]
+		null::m {
+			null::a
+		}
+	}
+}
+
+[Function]
+fix :: (a -> a) -> a
+Name: fix
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Monad-Fix.html#v:fix
+Containing package: Control.Monad.Fix
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[result]
+	null::a
+}

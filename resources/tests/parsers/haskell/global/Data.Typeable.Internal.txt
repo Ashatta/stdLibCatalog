@@ -1,0 +1,1107 @@
+[Package]
+Name: Data.Typeable.Internal
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html
+Containing package: Data.Typeable
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data TypeRep = TypeRep !Fingerprint TyCon [TypeRep]
+Name: TypeRep
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#t:TypeRep
+Containing package: Data.Typeable.Internal
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Proxy t = Proxy
+Name: Proxy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#t:Proxy
+Containing package: Data.Typeable.Internal
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	t
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TyCon = TyCon { tyConHash :: !Fingerprint tyConPackage :: String tyConModule :: String tyConName :: String}
+Name: TyCon
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#t:TyCon
+Containing package: Data.Typeable.Internal
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Fingerprint = Fingerprint !Word64 !Word64
+Name: Fingerprint
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#t:Fingerprint
+Containing package: Data.Typeable.Internal
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class Typeable a where typeRep# :: Proxy# a -> TypeRep
+Name: Typeable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#t:Typeable
+Containing package: Data.Typeable.Internal
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Control.Exception.Base::Exception
+	Control.Exception::Exception
+	Data.Data::Data
+	System.Console.Haskeline.MonadException::Exception
+	Complex::Data.Typeable.Internal.Typeable_Complex<>
+	Control.Applicative::Data.Typeable.Internal.Typeable_Applicative<>
+	Control.Applicative::Data.Typeable.Internal.Typeable_Alternative<>
+	Control.Concurrent.Chan::Data.Typeable.Internal.Typeable_Chan<>
+	Control.Concurrent.MVar::Data.Typeable.Internal.Typeable_MVar<>
+	Control.Concurrent.QSemN::Data.Typeable.Internal.Typeable_QSemN<>
+	Control.Concurrent::Data.Typeable.Internal.Typeable_ThreadId<>
+	Control.Exception.Base::Data.Typeable.Internal.Typeable_SomeException<>
+	Control.Exception.Base::Data.Typeable.Internal.Typeable_IOException<>
+	Control.Exception.Base::Data.Typeable.Internal.Typeable_ArithException<>
+	Control.Exception.Base::Data.Typeable.Internal.Typeable_ArrayException<>
+	Control.Exception.Base::Data.Typeable.Internal.Typeable_AssertionFailed<>
+	Control.Exception.Base::Data.Typeable.Internal.Typeable_SomeAsyncException<>
+	Control.Exception.Base::Data.Typeable.Internal.Typeable_AsyncException<>
+	Control.Exception.Base::Data.Typeable.Internal.Typeable_NonTermination<>
+	Control.Exception.Base::Data.Typeable.Internal.Typeable_NestedAtomically<>
+	Control.Exception.Base::Data.Typeable.Internal.Typeable_BlockedIndefinitelyOnMVar<>
+	Control.Exception.Base::Data.Typeable.Internal.Typeable_BlockedIndefinitelyOnSTM<>
+	Control.Exception.Base::Data.Typeable.Internal.Typeable_Deadlock<>
+	Control.Exception.Base::Data.Typeable.Internal.Typeable_NoMethodError<>
+	Control.Exception.Base::Data.Typeable.Internal.Typeable_PatternMatchFail<>
+	Control.Exception.Base::Data.Typeable.Internal.Typeable_RecConError<>
+	Control.Exception.Base::Data.Typeable.Internal.Typeable_RecSelError<>
+	Control.Exception.Base::Data.Typeable.Internal.Typeable_RecUpdError<>
+	Control.Exception.Base::Data.Typeable.Internal.Typeable_ErrorCall<>
+	Control.Exception::Data.Typeable.Internal.Typeable_SomeException<>
+	Control.Exception::Data.Typeable.Internal.Typeable_IOException<>
+	Control.Exception::Data.Typeable.Internal.Typeable_ArithException<>
+	Control.Exception::Data.Typeable.Internal.Typeable_ArrayException<>
+	Control.Exception::Data.Typeable.Internal.Typeable_AssertionFailed<>
+	Control.Exception::Data.Typeable.Internal.Typeable_SomeAsyncException<>
+	Control.Exception::Data.Typeable.Internal.Typeable_AsyncException<>
+	Control.Exception::Data.Typeable.Internal.Typeable_NonTermination<>
+	Control.Exception::Data.Typeable.Internal.Typeable_NestedAtomically<>
+	Control.Exception::Data.Typeable.Internal.Typeable_BlockedIndefinitelyOnMVar<>
+	Control.Exception::Data.Typeable.Internal.Typeable_BlockedIndefinitelyOnSTM<>
+	Control.Exception::Data.Typeable.Internal.Typeable_Deadlock<>
+	Control.Exception::Data.Typeable.Internal.Typeable_NoMethodError<>
+	Control.Exception::Data.Typeable.Internal.Typeable_PatternMatchFail<>
+	Control.Exception::Data.Typeable.Internal.Typeable_RecConError<>
+	Control.Exception::Data.Typeable.Internal.Typeable_RecSelError<>
+	Control.Exception::Data.Typeable.Internal.Typeable_RecUpdError<>
+	Control.Exception::Data.Typeable.Internal.Typeable_ErrorCall<>
+	Control.Monad.ST.Lazy.Safe::Data.Typeable.Internal.Typeable_RealWorld<>
+	Control.Monad.ST.Lazy::Data.Typeable.Internal.Typeable_RealWorld<>
+	Control.Monad.ST.Safe::Data.Typeable.Internal.Typeable_ST<>
+	Control.Monad.ST.Safe::Data.Typeable.Internal.Typeable_RealWorld<>
+	Control.Monad.ST::Data.Typeable.Internal.Typeable_ST<>
+	Control.Monad.ST::Data.Typeable.Internal.Typeable_RealWorld<>
+	Data.Array.IArray::Data.Typeable.Internal.Typeable_Array<>
+	Data.Array.IO.Safe::Data.Typeable.Internal.Typeable_IOArray<>
+	Data.Array.IO.Safe::Data.Typeable.Internal.Typeable_IOUArray<>
+	Data.Array.IO::Data.Typeable.Internal.Typeable_IOArray<>
+	Data.Array.IO::Data.Typeable.Internal.Typeable_IOUArray<>
+	Data.Array.ST.Safe::Data.Typeable.Internal.Typeable_STArray<>
+	Data.Array.ST.Safe::Data.Typeable.Internal.Typeable_STUArray<>
+	Data.Array.ST::Data.Typeable.Internal.Typeable_STArray<>
+	Data.Array.ST::Data.Typeable.Internal.Typeable_STUArray<>
+	Data.Array.Unboxed::Data.Typeable.Internal.Typeable_UArray<>
+	Data.Array::Data.Typeable.Internal.Typeable_Array<>
+	Data.Bool::Data.Typeable.Internal.Typeable_Bool<>
+	Data.ByteString.Char8::Data.Typeable.Internal.Typeable_ByteString<>
+	Data.ByteString.Lazy.Char8::Data.Typeable.Internal.Typeable_ByteString<>
+	Data.ByteString.Lazy::Data.Typeable.Internal.Typeable_ByteString<>
+	Data.ByteString.Short::Data.Typeable.Internal.Typeable_ShortByteString<>
+	Data.ByteString::Data.Typeable.Internal.Typeable_ByteString<>
+	Data.Char::Data.Typeable.Internal.Typeable_Char<>
+	Data.Complex::Data.Typeable.Internal.Typeable_Complex<>
+	Data.Dynamic::Data.Typeable.Internal.Typeable_Dynamic<>
+	Data.Either::Data.Typeable.Internal.Typeable_Either<>
+	Data.Fixed::Data.Typeable.Internal.Typeable_Fixed<>
+	Data.Fixed::Data.Typeable.Internal.Typeable_E0<>
+	Data.Fixed::Data.Typeable.Internal.Typeable_E1<>
+	Data.Fixed::Data.Typeable.Internal.Typeable_E2<>
+	Data.Fixed::Data.Typeable.Internal.Typeable_E3<>
+	Data.Fixed::Data.Typeable.Internal.Typeable_E6<>
+	Data.Fixed::Data.Typeable.Internal.Typeable_E9<>
+	Data.Fixed::Data.Typeable.Internal.Typeable_E12<>
+	Data.IORef::Data.Typeable.Internal.Typeable_IORef<>
+	Data.Int::Data.Typeable.Internal.Typeable_Int<>
+	Data.Int::Data.Typeable.Internal.Typeable_Int8<>
+	Data.Int::Data.Typeable.Internal.Typeable_Int16<>
+	Data.Int::Data.Typeable.Internal.Typeable_Int32<>
+	Data.Int::Data.Typeable.Internal.Typeable_Int64<>
+	Data.IntMap.Lazy::Data.Typeable.Internal.Typeable_IntMap<>
+	Data.IntMap.Strict::Data.Typeable.Internal.Typeable_IntMap<>
+	Data.IntSet::Data.Typeable.Internal.Typeable_IntSet<>
+	Data.Map.Lazy::Data.Typeable.Internal.Typeable_Map<>
+	Data.Map.Strict::Data.Typeable.Internal.Typeable_Map<>
+	Data.Maybe::Data.Typeable.Internal.Typeable_Maybe<>
+	Data.Monoid::Data.Typeable.Internal.Typeable_Monoid<>
+	Data.Ord::Data.Typeable.Internal.Typeable_Ordering<>
+	Data.Proxy::Data.Typeable.Internal.Typeable_Proxy<>
+	Data.Ratio::Data.Typeable.Internal.Typeable_Ratio<>
+	Data.STRef.Lazy::Data.Typeable.Internal.Typeable_STRef<>
+	Data.STRef::Data.Typeable.Internal.Typeable_STRef<>
+	Data.Sequence::Data.Typeable.Internal.Typeable_Seq<>
+	Data.Sequence::Data.Typeable.Internal.Typeable_ViewL<>
+	Data.Sequence::Data.Typeable.Internal.Typeable_ViewR<>
+	Data.Set::Data.Typeable.Internal.Typeable_Set<>
+	Data.Time.Calendar::Data.Typeable.Internal.Typeable_Day<>
+	Data.Time.Clock.TAI::Data.Typeable.Internal.Typeable_AbsoluteTime<>
+	Data.Time.Clock::Data.Typeable.Internal.Typeable_UniversalTime<>
+	Data.Time.Clock::Data.Typeable.Internal.Typeable_DiffTime<>
+	Data.Time.Clock::Data.Typeable.Internal.Typeable_UTCTime<>
+	Data.Time.Clock::Data.Typeable.Internal.Typeable_NominalDiffTime<>
+	Data.Time.LocalTime::Data.Typeable.Internal.Typeable_TimeZone<>
+	Data.Time.LocalTime::Data.Typeable.Internal.Typeable_TimeOfDay<>
+	Data.Time.LocalTime::Data.Typeable.Internal.Typeable_LocalTime<>
+	Data.Time.LocalTime::Data.Typeable.Internal.Typeable_ZonedTime<>
+	Data.Tree::Data.Typeable.Internal.Typeable_Tree<>
+	Data.Type.Coercion::Data.Typeable.Internal.Typeable_Coercion<>
+	Data.Type.Equality::Data.Typeable.Internal.Typeable_(:~:)<>
+	Data.Typeable.Internal::Data.Typeable.Internal.Typeable_Proxy<>
+	Data.Typeable.Internal::Data.Typeable.Internal.Typeable_TypeRep<>
+	Data.Typeable.Internal::Data.Typeable.Internal.Typeable_TyCon<>
+	Prelude::Data.Typeable.Internal.Typeable_Double<>
+	Prelude::Data.Typeable.Internal.Typeable_Float<>
+	Prelude::Data.Typeable.Internal.Typeable_Integer<>
+	Data.Word::Data.Typeable.Internal.Typeable_Word<>
+	Data.Word::Data.Typeable.Internal.Typeable_Word8<>
+	Data.Word::Data.Typeable.Internal.Typeable_Word16<>
+	Data.Word::Data.Typeable.Internal.Typeable_Word32<>
+	Data.Word::Data.Typeable.Internal.Typeable_Word64<>
+	GHC.Tuple::Data.Typeable.Internal.Typeable_()<>
+	Foreign.C.Types::Data.Typeable.Internal.Typeable_CUIntMax<>
+	Foreign.C.Types::Data.Typeable.Internal.Typeable_CIntMax<>
+	Foreign.C.Types::Data.Typeable.Internal.Typeable_CUIntPtr<>
+	Foreign.C.Types::Data.Typeable.Internal.Typeable_CIntPtr<>
+	Foreign.C.Types::Data.Typeable.Internal.Typeable_CSUSeconds<>
+	Foreign.C.Types::Data.Typeable.Internal.Typeable_CUSeconds<>
+	Foreign.C.Types::Data.Typeable.Internal.Typeable_CTime<>
+	Foreign.C.Types::Data.Typeable.Internal.Typeable_CClock<>
+	Foreign.C.Types::Data.Typeable.Internal.Typeable_CSigAtomic<>
+	Foreign.C.Types::Data.Typeable.Internal.Typeable_CWchar<>
+	Foreign.C.Types::Data.Typeable.Internal.Typeable_CSize<>
+	Foreign.C.Types::Data.Typeable.Internal.Typeable_CPtrdiff<>
+	Foreign.C.Types::Data.Typeable.Internal.Typeable_CDouble<>
+	Foreign.C.Types::Data.Typeable.Internal.Typeable_CFloat<>
+	Foreign.C.Types::Data.Typeable.Internal.Typeable_CULLong<>
+	Foreign.C.Types::Data.Typeable.Internal.Typeable_CLLong<>
+	Foreign.C.Types::Data.Typeable.Internal.Typeable_CULong<>
+	Foreign.C.Types::Data.Typeable.Internal.Typeable_CLong<>
+	Foreign.C.Types::Data.Typeable.Internal.Typeable_CUInt<>
+	Foreign.C.Types::Data.Typeable.Internal.Typeable_CInt<>
+	Foreign.C.Types::Data.Typeable.Internal.Typeable_CUShort<>
+	Foreign.C.Types::Data.Typeable.Internal.Typeable_CShort<>
+	Foreign.C.Types::Data.Typeable.Internal.Typeable_CUChar<>
+	Foreign.C.Types::Data.Typeable.Internal.Typeable_CSChar<>
+	Foreign.C.Types::Data.Typeable.Internal.Typeable_CChar<>
+	Foreign.Ptr::Data.Typeable.Internal.Typeable_IntPtr<>
+	Foreign.Ptr::Data.Typeable.Internal.Typeable_WordPtr<>
+	GHC.IO.Handle::Data.Typeable.Internal.Typeable_Handle<>
+	System.Exit::Data.Typeable.Internal.Typeable_ExitCode<>
+	System.Posix.Types::Data.Typeable.Internal.Typeable_Fd<>
+	System.Posix.Types::Data.Typeable.Internal.Typeable_CRLim<>
+	System.Posix.Types::Data.Typeable.Internal.Typeable_CTcflag<>
+	System.Posix.Types::Data.Typeable.Internal.Typeable_CSpeed<>
+	System.Posix.Types::Data.Typeable.Internal.Typeable_CCc<>
+	System.Posix.Types::Data.Typeable.Internal.Typeable_CUid<>
+	System.Posix.Types::Data.Typeable.Internal.Typeable_CNlink<>
+	System.Posix.Types::Data.Typeable.Internal.Typeable_CGid<>
+	System.Posix.Types::Data.Typeable.Internal.Typeable_CSsize<>
+	System.Posix.Types::Data.Typeable.Internal.Typeable_CPid<>
+	System.Posix.Types::Data.Typeable.Internal.Typeable_COff<>
+	System.Posix.Types::Data.Typeable.Internal.Typeable_CMode<>
+	System.Posix.Types::Data.Typeable.Internal.Typeable_CIno<>
+	System.Posix.Types::Data.Typeable.Internal.Typeable_CDev<>
+	Data.Version::Data.Typeable.Internal.Typeable_Version<>
+	Data.Unique::Data.Typeable.Internal.Typeable_Unique<>
+	GHC.Exts::Data.Typeable.Internal.Typeable_SpecConstrAnnotation<>
+	other::Data.Typeable.Internal.Typeable_s<a<>>
+	GHC.Tuple::Data.Typeable.Internal.Typeable_(,,,,,,,)<()<>,()<>,()<>,()<>,()<>,(,)<>>
+	GHC.Tuple::Data.Typeable.Internal.Typeable_(,,,,,,)<()<>,()<>,()<>,()<>,(,)<>>
+	GHC.Tuple::Data.Typeable.Internal.Typeable_(,,,,,)<()<>,()<>,()<>,(,)<>>
+	GHC.Tuple::Data.Typeable.Internal.Typeable_(,,,,)<()<>,()<>,(,)<>>
+	GHC.Tuple::Data.Typeable.Internal.Typeable_(,,,)<()<>,(,)<>>
+	other::Data.Typeable.Internal.Typeable_(->)<>
+	GHC.Tuple::Data.Typeable.Internal.Typeable_(,)<>
+	other::Data.Typeable.Internal.Typeable_List<curriedParam<>>
+	Foreign.StablePtr::Data.Typeable.Internal.Typeable_StablePtr<>
+	System.IO::Data.Typeable.Internal.Typeable_IO<>
+	Foreign.Ptr::Data.Typeable.Internal.Typeable_Ptr<>
+	Foreign.Ptr::Data.Typeable.Internal.Typeable_FunPtr<>
+	System.Mem.Weak::Data.Typeable.Internal.Typeable_Weak<>
+	Foreign.ForeignPtr.Safe::Data.Typeable.Internal.Typeable_ForeignPtr<>
+	GHC.Conc::Data.Typeable.Internal.Typeable_TVar<>
+	GHC.Conc::Data.Typeable.Internal.Typeable_STM<>
+	System.Mem.StableName::Data.Typeable.Internal.Typeable_StableName<>
+	Distribution.Compiler::Data.Typeable.Internal.Typeable_CompilerFlavor<>
+	Distribution.License::Data.Typeable.Internal.Typeable_License<>
+	Distribution.Make::Data.Typeable.Internal.Typeable_License<>
+	Distribution.Make::Data.Typeable.Internal.Typeable_Version<>
+	Distribution.ModuleName::Data.Typeable.Internal.Typeable_ModuleName<>
+	Distribution.Package::Data.Typeable.Internal.Typeable_PackageName<>
+	Distribution.Package::Data.Typeable.Internal.Typeable_PackageIdentifier<>
+	Distribution.Package::Data.Typeable.Internal.Typeable_InstalledPackageId<>
+	Distribution.Package::Data.Typeable.Internal.Typeable_Dependency<>
+	Distribution.PackageDescription::Data.Typeable.Internal.Typeable_PackageDescription<>
+	Distribution.PackageDescription::Data.Typeable.Internal.Typeable_BuildType<>
+	Distribution.PackageDescription::Data.Typeable.Internal.Typeable_Library<>
+	Distribution.PackageDescription::Data.Typeable.Internal.Typeable_Executable<>
+	Distribution.PackageDescription::Data.Typeable.Internal.Typeable_TestSuite<>
+	Distribution.PackageDescription::Data.Typeable.Internal.Typeable_TestSuiteInterface<>
+	Distribution.PackageDescription::Data.Typeable.Internal.Typeable_TestType<>
+	Distribution.PackageDescription::Data.Typeable.Internal.Typeable_Benchmark<>
+	Distribution.PackageDescription::Data.Typeable.Internal.Typeable_BenchmarkInterface<>
+	Distribution.PackageDescription::Data.Typeable.Internal.Typeable_BenchmarkType<>
+	Distribution.PackageDescription::Data.Typeable.Internal.Typeable_BuildInfo<>
+	Distribution.PackageDescription::Data.Typeable.Internal.Typeable_GenericPackageDescription<>
+	Distribution.PackageDescription::Data.Typeable.Internal.Typeable_Flag<>
+	Distribution.PackageDescription::Data.Typeable.Internal.Typeable_FlagName<>
+	Distribution.PackageDescription::Data.Typeable.Internal.Typeable_CondTree<>
+	Distribution.PackageDescription::Data.Typeable.Internal.Typeable_ConfVar<>
+	Distribution.PackageDescription::Data.Typeable.Internal.Typeable_Condition<>
+	Distribution.PackageDescription::Data.Typeable.Internal.Typeable_SourceRepo<>
+	Distribution.PackageDescription::Data.Typeable.Internal.Typeable_RepoKind<>
+	Distribution.PackageDescription::Data.Typeable.Internal.Typeable_RepoType<>
+	Distribution.System::Data.Typeable.Internal.Typeable_OS<>
+	Distribution.System::Data.Typeable.Internal.Typeable_Arch<>
+	Distribution.System::Data.Typeable.Internal.Typeable_Platform<>
+	Distribution.Version::Data.Typeable.Internal.Typeable_Version<>
+	Distribution.Version::Data.Typeable.Internal.Typeable_VersionRange<>
+	Foreign.ForeignPtr::Data.Typeable.Internal.Typeable_ForeignPtr<>
+	GHC.Conc.Sync::Data.Typeable.Internal.Typeable_ThreadId<>
+	GHC.Conc.Sync::Data.Typeable.Internal.Typeable_STM<>
+	GHC.Conc.Sync::Data.Typeable.Internal.Typeable_TVar<>
+	GHC.Conc::Data.Typeable.Internal.Typeable_ThreadId<>
+	GHC.Exts::Data.Typeable.Internal.Typeable_Int<>
+	GHC.Exts::Data.Typeable.Internal.Typeable_Word<>
+	GHC.Exts::Data.Typeable.Internal.Typeable_Float<>
+	GHC.Exts::Data.Typeable.Internal.Typeable_Double<>
+	GHC.Exts::Data.Typeable.Internal.Typeable_Char<>
+	GHC.Exts::Data.Typeable.Internal.Typeable_Ptr<>
+	GHC.Exts::Data.Typeable.Internal.Typeable_FunPtr<>
+	IO::Data.Typeable.Internal.Typeable_Handle<>
+	Language.Haskell.Extension::Data.Typeable.Internal.Typeable_Language<>
+	Language.Haskell.Extension::Data.Typeable.Internal.Typeable_Extension<>
+	Language.Haskell.Extension::Data.Typeable.Internal.Typeable_KnownExtension<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_ModName<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_PkgName<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_Module<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_OccName<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_Name<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_NameFlavour<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_NameSpace<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_Info<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_ModuleInfo<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_Fixity<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_FixityDirection<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_Lit<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_Pat<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_Match<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_Clause<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_Exp<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_Body<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_Guard<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_Stmt<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_Range<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_Dec<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_TySynEqn<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_FunDep<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_FamFlavour<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_Foreign<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_Callconv<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_Safety<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_Pragma<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_Inline<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_RuleMatch<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_Phases<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_RuleBndr<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_AnnTarget<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_Pred<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_Strict<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_Con<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_Type<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_TyVarBndr<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_TyLit<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_Role<>
+	Language.Haskell.TH.Syntax::Data.Typeable.Internal.Typeable_AnnLookup<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_Info<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_ModuleInfo<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_AnnLookup<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_Name<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_NameSpace<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_Dec<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_Con<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_Clause<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_Strict<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_Foreign<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_Callconv<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_Safety<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_Pragma<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_Inline<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_RuleMatch<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_Phases<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_RuleBndr<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_AnnTarget<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_FunDep<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_FamFlavour<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_TySynEqn<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_Fixity<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_FixityDirection<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_Exp<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_Match<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_Body<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_Guard<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_Stmt<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_Range<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_Lit<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_Pat<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_Type<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_TyVarBndr<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_TyLit<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_Pred<>
+	Language.Haskell.TH::Data.Typeable.Internal.Typeable_Role<>
+	Prelude::Data.Typeable.Internal.Typeable_Bool<>
+	Prelude::Data.Typeable.Internal.Typeable_Maybe<>
+	Prelude::Data.Typeable.Internal.Typeable_Either<>
+	Prelude::Data.Typeable.Internal.Typeable_Ordering<>
+	Prelude::Data.Typeable.Internal.Typeable_Char<>
+	Prelude::Data.Typeable.Internal.Typeable_Int<>
+	Prelude::Data.Typeable.Internal.Typeable_IO<>
+	System.Console.Haskeline.MonadException::Data.Typeable.Internal.Typeable_SomeException<>
+	System.Console.Haskeline.MonadException::Data.Typeable.Internal.Typeable_IOException<>
+	System.Console.Haskeline::Data.Typeable.Internal.Typeable_Interrupt<>
+	System.Console.Terminfo.Base::Data.Typeable.Internal.Typeable_SetupTermError<>
+	System.Console.Terminfo.Base::Data.Typeable.Internal.Typeable_Monoid<>
+	System.IO::Data.Typeable.Internal.Typeable_Handle<>
+	System.Posix.Signals::Data.Typeable.Internal.Typeable_Handler<>
+	System::Data.Typeable.Internal.Typeable_ExitCode<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	typeRep# :: Proxy# a -> TypeRep
+	Name: typeRep#
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#v:typeRep#
+	Containing package: Data.Typeable.Internal
+	attributes {
+		memberType=function
+	}
+	Containing type: Typeable
+	parameters {
+		a: (Typeable a; a; Data.Typeable.Internal::Typeable)
+	}
+	Signature = <function> {
+		[parameters]
+		GHC.Prim::Proxy# {
+			null::a
+		}
+	
+		[result]
+		Data.Typeable.Internal::TypeRep
+	}
+}
+
+[Alias]
+type Typeable1 a = Typeable a
+Name: Typeable1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#t:Typeable1
+Containing package: Data.Typeable.Internal
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = Data.Typeable.Internal::Typeable {
+	null::a
+}
+
+[Alias]
+type Typeable2 a = Typeable a
+Name: Typeable2
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#t:Typeable2
+Containing package: Data.Typeable.Internal
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = Data.Typeable.Internal::Typeable {
+	null::a
+}
+
+[Alias]
+type Typeable3 a = Typeable a
+Name: Typeable3
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#t:Typeable3
+Containing package: Data.Typeable.Internal
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = Data.Typeable.Internal::Typeable {
+	null::a
+}
+
+[Alias]
+type Typeable4 a = Typeable a
+Name: Typeable4
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#t:Typeable4
+Containing package: Data.Typeable.Internal
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = Data.Typeable.Internal::Typeable {
+	null::a
+}
+
+[Alias]
+type Typeable5 a = Typeable a
+Name: Typeable5
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#t:Typeable5
+Containing package: Data.Typeable.Internal
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = Data.Typeable.Internal::Typeable {
+	null::a
+}
+
+[Alias]
+type Typeable6 a = Typeable a
+Name: Typeable6
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#t:Typeable6
+Containing package: Data.Typeable.Internal
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = Data.Typeable.Internal::Typeable {
+	null::a
+}
+
+[Alias]
+type Typeable7 a = Typeable a
+Name: Typeable7
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#t:Typeable7
+Containing package: Data.Typeable.Internal
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = Data.Typeable.Internal::Typeable {
+	null::a
+}
+
+[Function]
+typeRepArgs :: TypeRep -> [TypeRep]
+Name: typeRepArgs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#v:typeRepArgs
+Containing package: Data.Typeable.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Typeable.Internal::TypeRep
+
+	[result]
+	other::List {
+		Data.Typeable.Internal::TypeRep
+	}
+}
+
+[Function]
+typeRepTyCon :: TypeRep -> TyCon
+Name: typeRepTyCon
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#v:typeRepTyCon
+Containing package: Data.Typeable.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Typeable.Internal::TypeRep
+
+	[result]
+	Data.Typeable.Internal::TyCon
+}
+
+[Function]
+funResultTy :: TypeRep -> TypeRep -> Maybe TypeRep
+Name: funResultTy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#v:funResultTy
+Containing package: Data.Typeable.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Typeable.Internal::TypeRep
+	Data.Typeable.Internal::TypeRep
+
+	[result]
+	Data.Maybe::Maybe {
+		Data.Typeable.Internal::TypeRep
+	}
+}
+
+[Function]
+mkFunTy :: TypeRep -> TypeRep -> TypeRep
+Name: mkFunTy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#v:mkFunTy
+Containing package: Data.Typeable.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Typeable.Internal::TypeRep
+	Data.Typeable.Internal::TypeRep
+
+	[result]
+	Data.Typeable.Internal::TypeRep
+}
+
+[Function]
+splitTyConApp :: TypeRep -> (TyCon, [TypeRep])
+Name: splitTyConApp
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#v:splitTyConApp
+Containing package: Data.Typeable.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Typeable.Internal::TypeRep
+
+	[result]
+	GHC.Tuple::(,) {
+		Data.Typeable.Internal::TyCon
+		other::List {
+			Data.Typeable.Internal::TypeRep
+		}
+	}
+}
+
+[Function]
+mkTyCon :: Word# -> Word# -> String -> String -> String -> TyCon
+Name: mkTyCon
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#v:mkTyCon
+Containing package: Data.Typeable.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Prim::Word#
+	GHC.Prim::Word#
+	Data.String::String
+	Data.String::String
+	Data.String::String
+
+	[result]
+	Data.Typeable.Internal::TyCon
+}
+
+[Function]
+mkTyConApp :: TyCon -> [TypeRep] -> TypeRep
+Name: mkTyConApp
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#v:mkTyConApp
+Containing package: Data.Typeable.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Typeable.Internal::TyCon
+	other::List {
+		Data.Typeable.Internal::TypeRep
+	}
+
+	[result]
+	Data.Typeable.Internal::TypeRep
+}
+
+[Function]
+listTc :: TyCon
+Name: listTc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#v:listTc
+Containing package: Data.Typeable.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Typeable.Internal::TyCon
+}
+
+[Function]
+typeOf1 :: forall t a. Typeable t => t a -> TypeRep
+Name: typeOf1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#v:typeOf1
+Containing package: Data.Typeable.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Typeable t; t; Data.Typeable.Internal::Typeable)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		null::a
+	}
+
+	[result]
+	Data.Typeable.Internal::TypeRep
+}
+
+[Function]
+typeOf6 :: forall t a b c d e f. Typeable t => t a b c d e f -> TypeRep
+Name: typeOf6
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#v:typeOf6
+Containing package: Data.Typeable.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Typeable t; t; Data.Typeable.Internal::Typeable)
+	a
+	b
+	c
+	d
+	e
+	f
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		null::a
+		null::b
+		null::c
+		null::d
+		null::e
+		null::f
+	}
+
+	[result]
+	Data.Typeable.Internal::TypeRep
+}
+
+[Function]
+typeOf7 :: forall t a b c d e f g. Typeable t => t a b c d e f g -> TypeRep
+Name: typeOf7
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#v:typeOf7
+Containing package: Data.Typeable.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Typeable t; t; Data.Typeable.Internal::Typeable)
+	a
+	b
+	c
+	d
+	e
+	f
+	g
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		null::a
+		null::b
+		null::c
+		null::d
+		null::e
+		null::f
+		null::g
+	}
+
+	[result]
+	Data.Typeable.Internal::TypeRep
+}
+
+[Function]
+typeOf2 :: forall t a b. Typeable t => t a b -> TypeRep
+Name: typeOf2
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#v:typeOf2
+Containing package: Data.Typeable.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Typeable t; t; Data.Typeable.Internal::Typeable)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		null::a
+		null::b
+	}
+
+	[result]
+	Data.Typeable.Internal::TypeRep
+}
+
+[Function]
+typeOf3 :: forall t a b c. Typeable t => t a b c -> TypeRep
+Name: typeOf3
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#v:typeOf3
+Containing package: Data.Typeable.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Typeable t; t; Data.Typeable.Internal::Typeable)
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		null::a
+		null::b
+		null::c
+	}
+
+	[result]
+	Data.Typeable.Internal::TypeRep
+}
+
+[Function]
+typeOf4 :: forall t a b c d. Typeable t => t a b c d -> TypeRep
+Name: typeOf4
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#v:typeOf4
+Containing package: Data.Typeable.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Typeable t; t; Data.Typeable.Internal::Typeable)
+	a
+	b
+	c
+	d
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		null::a
+		null::b
+		null::c
+		null::d
+	}
+
+	[result]
+	Data.Typeable.Internal::TypeRep
+}
+
+[Function]
+typeOf5 :: forall t a b c d e. Typeable t => t a b c d e -> TypeRep
+Name: typeOf5
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#v:typeOf5
+Containing package: Data.Typeable.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Typeable t; t; Data.Typeable.Internal::Typeable)
+	a
+	b
+	c
+	d
+	e
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		null::a
+		null::b
+		null::c
+		null::d
+		null::e
+	}
+
+	[result]
+	Data.Typeable.Internal::TypeRep
+}
+
+[Function]
+mkAppTy :: TypeRep -> TypeRep -> TypeRep
+Name: mkAppTy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#v:mkAppTy
+Containing package: Data.Typeable.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Typeable.Internal::TypeRep
+	Data.Typeable.Internal::TypeRep
+
+	[result]
+	Data.Typeable.Internal::TypeRep
+}
+
+[Function]
+funTc :: TyCon
+Name: funTc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#v:funTc
+Containing package: Data.Typeable.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Typeable.Internal::TyCon
+}
+
+[Function]
+typeOf :: forall a. Typeable a => a -> TypeRep
+Name: typeOf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#v:typeOf
+Containing package: Data.Typeable.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Typeable a; a; Data.Typeable.Internal::Typeable)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	Data.Typeable.Internal::TypeRep
+}
+
+[Function]
+showsTypeRep :: TypeRep -> ShowS
+Name: showsTypeRep
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#v:showsTypeRep
+Containing package: Data.Typeable.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Typeable.Internal::TypeRep
+
+	[result]
+	Text.Show::ShowS
+}
+
+[Function]
+mkTyCon3 :: String -> String -> String -> TyCon
+Name: mkTyCon3
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#v:mkTyCon3
+Containing package: Data.Typeable.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Data.String::String
+	Data.String::String
+
+	[result]
+	Data.Typeable.Internal::TyCon
+}
+
+[Function]
+typeRep :: forall proxy a. Typeable a => proxy a -> TypeRep
+Name: typeRep
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#v:typeRep
+Containing package: Data.Typeable.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Typeable a; a; Data.Typeable.Internal::Typeable)
+	proxy
+}
+Signature = <function> {
+	[parameters]
+	null::proxy {
+		null::a
+	}
+
+	[result]
+	Data.Typeable.Internal::TypeRep
+}
+
+[Function]
+tyConString :: TyCon -> String
+Name: tyConString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable-Internal.html#v:tyConString
+Containing package: Data.Typeable.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Typeable.Internal::TyCon
+
+	[result]
+	Data.String::String
+}

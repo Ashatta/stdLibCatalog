@@ -1,0 +1,1160 @@
+[Package]
+Name: GHC.Conc.Sync
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html
+Containing package: GHC.Conc
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data ThreadId = ThreadId ThreadId#
+Name: ThreadId
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#t:ThreadId
+Containing package: GHC.Conc.Sync
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ThreadStatus = ThreadRunning | ThreadFinished | ThreadBlocked BlockReason | ThreadDied
+Name: ThreadStatus
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#t:ThreadStatus
+Containing package: GHC.Conc.Sync
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype STM a = STM (State# RealWorld -> (#State# RealWorld, a#))
+Name: STM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#t:STM
+Containing package: GHC.Conc.Sync
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data BlockReason = BlockedOnMVar | BlockedOnBlackHole | BlockedOnException | BlockedOnSTM | BlockedOnForeignCall | BlockedOnOther
+Name: BlockReason
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#t:BlockReason
+Containing package: GHC.Conc.Sync
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TVar a = TVar (TVar# RealWorld a)
+Name: TVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#t:TVar
+Containing package: GHC.Conc.Sync
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+forkOnWithUnmask :: Int -> ((forall a. IO a -> IO a) -> IO ()) -> IO ThreadId
+Name: forkOnWithUnmask
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:forkOnWithUnmask
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			System.IO::IO {
+				null::a
+			}
+		
+			[result]
+			System.IO::IO {
+				null::a
+			}
+		}
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Conc.Sync::ThreadId
+	}
+}
+
+[Function]
+getNumCapabilities :: IO Int
+Name: getNumCapabilities
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:getNumCapabilities
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}
+
+[Function]
+mkWeakThreadId :: ThreadId -> IO (Weak ThreadId)
+Name: mkWeakThreadId
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:mkWeakThreadId
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Conc.Sync::ThreadId
+
+	[result]
+	System.IO::IO {
+		System.Mem.Weak::Weak {
+			GHC.Conc.Sync::ThreadId
+		}
+	}
+}
+
+[Function]
+retry :: STM a
+Name: retry
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:retry
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	GHC.Conc.Sync::STM {
+		null::a
+	}
+}
+
+[Function]
+atomically :: STM a -> IO a
+Name: atomically
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:atomically
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	GHC.Conc.Sync::STM {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+reportStackOverflow :: IO ()
+Name: reportStackOverflow
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:reportStackOverflow
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+getUncaughtExceptionHandler :: IO (SomeException -> IO ())
+Name: getUncaughtExceptionHandler
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:getUncaughtExceptionHandler
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		<function> {
+			[parameters]
+			Control.Exception.Base::SomeException
+		
+			[result]
+			System.IO::IO {
+				GHC.Tuple::()
+			}
+		}
+	}
+}
+
+[Function]
+numSparks :: IO Int
+Name: numSparks
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:numSparks
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}
+
+[Function]
+alwaysSucceeds :: STM a -> STM ()
+Name: alwaysSucceeds
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:alwaysSucceeds
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	GHC.Conc.Sync::STM {
+		null::a
+	}
+
+	[result]
+	GHC.Conc.Sync::STM {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+readTVar :: TVar a -> STM a
+Name: readTVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:readTVar
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	GHC.Conc.Sync::TVar {
+		null::a
+	}
+
+	[result]
+	GHC.Conc.Sync::STM {
+		null::a
+	}
+}
+
+[Function]
+setUncaughtExceptionHandler :: (SomeException -> IO ()) -> IO ()
+Name: setUncaughtExceptionHandler
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:setUncaughtExceptionHandler
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Control.Exception.Base::SomeException
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+killThread :: ThreadId -> IO ()
+Name: killThread
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:killThread
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Conc.Sync::ThreadId
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+newTVar :: a -> STM (TVar a)
+Name: newTVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:newTVar
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	GHC.Conc.Sync::STM {
+		GHC.Conc.Sync::TVar {
+			null::a
+		}
+	}
+}
+
+[Function]
+throwTo :: Exception e => ThreadId -> e -> IO ()
+Name: throwTo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:throwTo
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e: (Exception e; e; Control.Exception.Base::Exception)
+}
+Signature = <function> {
+	[parameters]
+	GHC.Conc.Sync::ThreadId
+	null::e
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+sharedCAF :: a -> (Ptr a -> IO (Ptr a)) -> IO a
+Name: sharedCAF
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:sharedCAF
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::a
+	<function> {
+		[parameters]
+		Foreign.Ptr::Ptr {
+			null::a
+		}
+	
+		[result]
+		System.IO::IO {
+			Foreign.Ptr::Ptr {
+				null::a
+			}
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+getNumProcessors :: IO Int
+Name: getNumProcessors
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:getNumProcessors
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}
+
+[Function]
+writeTVar :: TVar a -> a -> STM ()
+Name: writeTVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:writeTVar
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	GHC.Conc.Sync::TVar {
+		null::a
+	}
+	null::a
+
+	[result]
+	GHC.Conc.Sync::STM {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+forkOn :: Int -> IO () -> IO ThreadId
+Name: forkOn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:forkOn
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Conc.Sync::ThreadId
+	}
+}
+
+[Function]
+withMVar :: MVar a -> (a -> IO b) -> IO b
+Name: withMVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:withMVar
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	Control.Concurrent.MVar::MVar {
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		System.IO::IO {
+			null::b
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::b
+	}
+}
+
+[Function]
+forkIO :: IO () -> IO ThreadId
+Name: forkIO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:forkIO
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Conc.Sync::ThreadId
+	}
+}
+
+[Function]
+orElse :: STM a -> STM a -> STM a
+Name: orElse
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:orElse
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	GHC.Conc.Sync::STM {
+		null::a
+	}
+	GHC.Conc.Sync::STM {
+		null::a
+	}
+
+	[result]
+	GHC.Conc.Sync::STM {
+		null::a
+	}
+}
+
+[Function]
+par :: a -> b -> b
+Name: par
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:par
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	null::a
+	null::b
+
+	[result]
+	null::b
+}
+
+[Function]
+readTVarIO :: TVar a -> IO a
+Name: readTVarIO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:readTVarIO
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	GHC.Conc.Sync::TVar {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+setNumCapabilities :: Int -> IO ()
+Name: setNumCapabilities
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:setNumCapabilities
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+pseq :: a -> b -> b
+Name: pseq
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:pseq
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	null::a
+	null::b
+
+	[result]
+	null::b
+}
+
+[Function]
+reportError :: SomeException -> IO ()
+Name: reportError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:reportError
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Control.Exception.Base::SomeException
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+threadStatus :: ThreadId -> IO ThreadStatus
+Name: threadStatus
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:threadStatus
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Conc.Sync::ThreadId
+
+	[result]
+	System.IO::IO {
+		GHC.Conc.Sync::ThreadStatus
+	}
+}
+
+[Function]
+newTVarIO :: a -> IO (TVar a)
+Name: newTVarIO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:newTVarIO
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	System.IO::IO {
+		GHC.Conc.Sync::TVar {
+			null::a
+		}
+	}
+}
+
+[Function]
+myThreadId :: IO ThreadId
+Name: myThreadId
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:myThreadId
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		GHC.Conc.Sync::ThreadId
+	}
+}
+
+[Function]
+forkIOWithUnmask :: ((forall a. IO a -> IO a) -> IO ()) -> IO ThreadId
+Name: forkIOWithUnmask
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:forkIOWithUnmask
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			System.IO::IO {
+				null::a
+			}
+		
+			[result]
+			System.IO::IO {
+				null::a
+			}
+		}
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Conc.Sync::ThreadId
+	}
+}
+
+[Function]
+threadCapability :: ThreadId -> IO (Int, Bool)
+Name: threadCapability
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:threadCapability
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Conc.Sync::ThreadId
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			Data.Int::Int
+			Data.Bool::Bool
+		}
+	}
+}
+
+[Function]
+yield :: IO ()
+Name: yield
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:yield
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+throwSTM :: Exception e => e -> STM a
+Name: throwSTM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:throwSTM
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e: (Exception e; e; Control.Exception.Base::Exception)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::e
+
+	[result]
+	GHC.Conc.Sync::STM {
+		null::a
+	}
+}
+
+[Function]
+modifyMVar_ :: MVar a -> (a -> IO a) -> IO ()
+Name: modifyMVar_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:modifyMVar_
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Concurrent.MVar::MVar {
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+numCapabilities :: Int
+Name: numCapabilities
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:numCapabilities
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+labelThread :: ThreadId -> String -> IO ()
+Name: labelThread
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:labelThread
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Conc.Sync::ThreadId
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+runSparks :: IO ()
+Name: runSparks
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:runSparks
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+unsafeIOToSTM :: IO a -> STM a
+Name: unsafeIOToSTM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:unsafeIOToSTM
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	GHC.Conc.Sync::STM {
+		null::a
+	}
+}
+
+[Function]
+always :: STM Bool -> STM ()
+Name: always
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:always
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Conc.Sync::STM {
+		Data.Bool::Bool
+	}
+
+	[result]
+	GHC.Conc.Sync::STM {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+catchSTM :: Exception e => STM a -> (e -> STM a) -> STM a
+Name: catchSTM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:catchSTM
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e: (Exception e; e; Control.Exception.Base::Exception)
+	a
+}
+Signature = <function> {
+	[parameters]
+	GHC.Conc.Sync::STM {
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::e
+	
+		[result]
+		GHC.Conc.Sync::STM {
+			null::a
+		}
+	}
+
+	[result]
+	GHC.Conc.Sync::STM {
+		null::a
+	}
+}
+
+[Function]
+childHandler :: SomeException -> IO ()
+Name: childHandler
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Sync.html#v:childHandler
+Containing package: GHC.Conc.Sync
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Control.Exception.Base::SomeException
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}

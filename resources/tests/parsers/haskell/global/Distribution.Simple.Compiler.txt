@@ -1,0 +1,347 @@
+[Package]
+Name: Distribution.Simple.Compiler
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Compiler.html
+Containing package: Distribution.Simple
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data OptimisationLevel = NoOptimisation | NormalOptimisation | MaximumOptimisation
+Name: OptimisationLevel
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Compiler.html#t:OptimisationLevel
+Containing package: Distribution.Simple.Compiler
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data PackageDB = GlobalPackageDB | UserPackageDB | SpecificPackageDB FilePath
+Name: PackageDB
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Compiler.html#t:PackageDB
+Containing package: Distribution.Simple.Compiler
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Compiler = Compiler { compilerId :: CompilerId compilerLanguages :: [(Language, Flag)] compilerExtensions :: [(Extension, Flag)]}
+Name: Compiler
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Compiler.html#t:Compiler
+Containing package: Distribution.Simple.Compiler
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type PackageDBStack = [PackageDB]
+Name: PackageDBStack
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Compiler.html#t:PackageDBStack
+Containing package: Distribution.Simple.Compiler
+attributes {
+}
+parameters {
+}
+Aliased type = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		Distribution.Simple.Compiler::PackageDB
+	}
+}
+
+[Alias]
+type Flag = String
+Name: Flag
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Compiler.html#t:Flag
+Containing package: Distribution.Simple.Compiler
+attributes {
+}
+parameters {
+}
+Aliased type = Data.String::String
+
+[Function]
+compilerFlavor :: Compiler -> CompilerFlavor
+Name: compilerFlavor
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Compiler.html#v:compilerFlavor
+Containing package: Distribution.Simple.Compiler
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Compiler::Compiler
+
+	[result]
+	Distribution.Compiler::CompilerFlavor
+}
+
+[Function]
+flagToOptimisationLevel :: Maybe String -> OptimisationLevel
+Name: flagToOptimisationLevel
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Compiler.html#v:flagToOptimisationLevel
+Containing package: Distribution.Simple.Compiler
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Maybe::Maybe {
+		Data.String::String
+	}
+
+	[result]
+	Distribution.Simple.Compiler::OptimisationLevel
+}
+
+[Function]
+absolutePackageDBPaths :: PackageDBStack -> IO PackageDBStack
+Name: absolutePackageDBPaths
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Compiler.html#v:absolutePackageDBPaths
+Containing package: Distribution.Simple.Compiler
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Compiler::PackageDBStack
+
+	[result]
+	System.IO::IO {
+		Distribution.Simple.Compiler::PackageDBStack
+	}
+}
+
+[Function]
+unsupportedLanguages :: Compiler -> [Language] -> [Language]
+Name: unsupportedLanguages
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Compiler.html#v:unsupportedLanguages
+Containing package: Distribution.Simple.Compiler
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Compiler::Compiler
+	other::List {
+		Language.Haskell.Extension::Language
+	}
+
+	[result]
+	other::List {
+		Language.Haskell.Extension::Language
+	}
+}
+
+[Function]
+languageToFlags :: Compiler -> Maybe Language -> [Flag]
+Name: languageToFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Compiler.html#v:languageToFlags
+Containing package: Distribution.Simple.Compiler
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Compiler::Compiler
+	Data.Maybe::Maybe {
+		Language.Haskell.Extension::Language
+	}
+
+	[result]
+	other::List {
+		Distribution.Simple.Compiler::Flag
+	}
+}
+
+[Function]
+registrationPackageDB :: PackageDBStack -> PackageDB
+Name: registrationPackageDB
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Compiler.html#v:registrationPackageDB
+Containing package: Distribution.Simple.Compiler
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Compiler::PackageDBStack
+
+	[result]
+	Distribution.Simple.Compiler::PackageDB
+}
+
+[Function]
+showCompilerId :: Compiler -> String
+Name: showCompilerId
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Compiler.html#v:showCompilerId
+Containing package: Distribution.Simple.Compiler
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Compiler::Compiler
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+extensionsToFlags :: Compiler -> [Extension] -> [Flag]
+Name: extensionsToFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Compiler.html#v:extensionsToFlags
+Containing package: Distribution.Simple.Compiler
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Compiler::Compiler
+	other::List {
+		Language.Haskell.Extension::Extension
+	}
+
+	[result]
+	other::List {
+		Distribution.Simple.Compiler::Flag
+	}
+}
+
+[Function]
+absolutePackageDBPath :: PackageDB -> IO PackageDB
+Name: absolutePackageDBPath
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Compiler.html#v:absolutePackageDBPath
+Containing package: Distribution.Simple.Compiler
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Compiler::PackageDB
+
+	[result]
+	System.IO::IO {
+		Distribution.Simple.Compiler::PackageDB
+	}
+}
+
+[Function]
+unsupportedExtensions :: Compiler -> [Extension] -> [Extension]
+Name: unsupportedExtensions
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Compiler.html#v:unsupportedExtensions
+Containing package: Distribution.Simple.Compiler
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Compiler::Compiler
+	other::List {
+		Language.Haskell.Extension::Extension
+	}
+
+	[result]
+	other::List {
+		Language.Haskell.Extension::Extension
+	}
+}
+
+[Function]
+compilerVersion :: Compiler -> Version
+Name: compilerVersion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Compiler.html#v:compilerVersion
+Containing package: Distribution.Simple.Compiler
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Compiler::Compiler
+
+	[result]
+	Distribution.Version::Version
+}

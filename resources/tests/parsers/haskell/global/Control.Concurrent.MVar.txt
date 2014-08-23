@@ -1,0 +1,561 @@
+[Package]
+Name: Control.Concurrent.MVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent-MVar.html
+Containing package: Control.Concurrent
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data MVar a
+Name: MVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent-MVar.html#t:MVar
+Containing package: Control.Concurrent.MVar
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+tryReadMVar :: MVar a -> IO (Maybe a)
+Name: tryReadMVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent-MVar.html#v:tryReadMVar
+Containing package: Control.Concurrent.MVar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Concurrent.MVar::MVar {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			null::a
+		}
+	}
+}
+
+[Function]
+putMVar :: MVar a -> a -> IO ()
+Name: putMVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent-MVar.html#v:putMVar
+Containing package: Control.Concurrent.MVar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Concurrent.MVar::MVar {
+		null::a
+	}
+	null::a
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+modifyMVarMasked :: MVar a -> (a -> IO (a, b)) -> IO b
+Name: modifyMVarMasked
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent-MVar.html#v:modifyMVarMasked
+Containing package: Control.Concurrent.MVar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	Control.Concurrent.MVar::MVar {
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::(,) {
+				null::a
+				null::b
+			}
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::b
+	}
+}
+
+[Function]
+addMVarFinalizer :: MVar a -> IO () -> IO ()
+Name: addMVarFinalizer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent-MVar.html#v:addMVarFinalizer
+Containing package: Control.Concurrent.MVar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Concurrent.MVar::MVar {
+		null::a
+	}
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+swapMVar :: MVar a -> a -> IO a
+Name: swapMVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent-MVar.html#v:swapMVar
+Containing package: Control.Concurrent.MVar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Concurrent.MVar::MVar {
+		null::a
+	}
+	null::a
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+tryTakeMVar :: MVar a -> IO (Maybe a)
+Name: tryTakeMVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent-MVar.html#v:tryTakeMVar
+Containing package: Control.Concurrent.MVar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Concurrent.MVar::MVar {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			null::a
+		}
+	}
+}
+
+[Function]
+newEmptyMVar :: IO (MVar a)
+Name: newEmptyMVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent-MVar.html#v:newEmptyMVar
+Containing package: Control.Concurrent.MVar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Control.Concurrent.MVar::MVar {
+			null::a
+		}
+	}
+}
+
+[Function]
+withMVar :: MVar a -> (a -> IO b) -> IO b
+Name: withMVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent-MVar.html#v:withMVar
+Containing package: Control.Concurrent.MVar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	Control.Concurrent.MVar::MVar {
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		System.IO::IO {
+			null::b
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::b
+	}
+}
+
+[Function]
+modifyMVarMasked_ :: MVar a -> (a -> IO a) -> IO ()
+Name: modifyMVarMasked_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent-MVar.html#v:modifyMVarMasked_
+Containing package: Control.Concurrent.MVar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Concurrent.MVar::MVar {
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+withMVarMasked :: MVar a -> (a -> IO b) -> IO b
+Name: withMVarMasked
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent-MVar.html#v:withMVarMasked
+Containing package: Control.Concurrent.MVar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	Control.Concurrent.MVar::MVar {
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		System.IO::IO {
+			null::b
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::b
+	}
+}
+
+[Function]
+modifyMVar_ :: MVar a -> (a -> IO a) -> IO ()
+Name: modifyMVar_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent-MVar.html#v:modifyMVar_
+Containing package: Control.Concurrent.MVar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Concurrent.MVar::MVar {
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+mkWeakMVar :: MVar a -> IO () -> IO (Weak (MVar a))
+Name: mkWeakMVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent-MVar.html#v:mkWeakMVar
+Containing package: Control.Concurrent.MVar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Concurrent.MVar::MVar {
+		null::a
+	}
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+
+	[result]
+	System.IO::IO {
+		System.Mem.Weak::Weak {
+			Control.Concurrent.MVar::MVar {
+				null::a
+			}
+		}
+	}
+}
+
+[Function]
+newMVar :: a -> IO (MVar a)
+Name: newMVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent-MVar.html#v:newMVar
+Containing package: Control.Concurrent.MVar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	System.IO::IO {
+		Control.Concurrent.MVar::MVar {
+			null::a
+		}
+	}
+}
+
+[Function]
+readMVar :: MVar a -> IO a
+Name: readMVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent-MVar.html#v:readMVar
+Containing package: Control.Concurrent.MVar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Concurrent.MVar::MVar {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+isEmptyMVar :: MVar a -> IO Bool
+Name: isEmptyMVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent-MVar.html#v:isEmptyMVar
+Containing package: Control.Concurrent.MVar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Concurrent.MVar::MVar {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+takeMVar :: MVar a -> IO a
+Name: takeMVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent-MVar.html#v:takeMVar
+Containing package: Control.Concurrent.MVar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Concurrent.MVar::MVar {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+tryPutMVar :: MVar a -> a -> IO Bool
+Name: tryPutMVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent-MVar.html#v:tryPutMVar
+Containing package: Control.Concurrent.MVar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Concurrent.MVar::MVar {
+		null::a
+	}
+	null::a
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+modifyMVar :: MVar a -> (a -> IO (a, b)) -> IO b
+Name: modifyMVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent-MVar.html#v:modifyMVar
+Containing package: Control.Concurrent.MVar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	Control.Concurrent.MVar::MVar {
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::(,) {
+				null::a
+				null::b
+			}
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::b
+	}
+}

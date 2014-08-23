@@ -1,0 +1,219 @@
+[Package]
+Name: Control.Monad.Trans.List
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-List.html
+Containing package: Trans
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+newtype ListT m a = ListT { runListT :: m [a]}
+Name: ListT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-List.html#t:ListT
+Containing package: Control.Monad.Trans.List
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	m
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+liftCallCC :: ((([a] -> m [b]) -> m [a]) -> m [a]) -> ((a -> ListT m b) -> ListT m a) -> ListT m a
+Name: liftCallCC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-List.html#v:liftCallCC
+Containing package: Control.Monad.Trans.List
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	m
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			<function> {
+				[parameters]
+				other::List {
+					null::a
+				}
+			
+				[result]
+				null::m {
+					other::List {
+						null::b
+					}
+				}
+			}
+		
+			[result]
+			null::m {
+				other::List {
+					null::a
+				}
+			}
+		}
+	
+		[result]
+		null::m {
+			other::List {
+				null::a
+			}
+		}
+	}
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			Control.Monad.Trans.List::ListT {
+				null::m
+				null::b
+			}
+		}
+	
+		[result]
+		Control.Monad.Trans.List::ListT {
+			null::m
+			null::a
+		}
+	}
+
+	[result]
+	Control.Monad.Trans.List::ListT {
+		null::m
+		null::a
+	}
+}
+
+[Function]
+mapListT :: (m [a] -> n [b]) -> ListT m a -> ListT n b
+Name: mapListT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-List.html#v:mapListT
+Containing package: Control.Monad.Trans.List
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m
+	a
+	n
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::m {
+			other::List {
+				null::a
+			}
+		}
+	
+		[result]
+		null::n {
+			other::List {
+				null::b
+			}
+		}
+	}
+	Control.Monad.Trans.List::ListT {
+		null::m
+		null::a
+	}
+
+	[result]
+	Control.Monad.Trans.List::ListT {
+		null::n
+		null::b
+	}
+}
+
+[Function]
+liftCatch :: (m [a] -> (e -> m [a]) -> m [a]) -> ListT m a -> (e -> ListT m a) -> ListT m a
+Name: liftCatch
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/transformers-0.3.0.0/Control-Monad-Trans-List.html#v:liftCatch
+Containing package: Control.Monad.Trans.List
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m
+	a
+	e
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::m {
+			other::List {
+				null::a
+			}
+		}
+		<function> {
+			[parameters]
+			null::e
+		
+			[result]
+			null::m {
+				other::List {
+					null::a
+				}
+			}
+		}
+	
+		[result]
+		null::m {
+			other::List {
+				null::a
+			}
+		}
+	}
+	Control.Monad.Trans.List::ListT {
+		null::m
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::e
+	
+		[result]
+		Control.Monad.Trans.List::ListT {
+			null::m
+			null::a
+		}
+	}
+
+	[result]
+	Control.Monad.Trans.List::ListT {
+		null::m
+		null::a
+	}
+}

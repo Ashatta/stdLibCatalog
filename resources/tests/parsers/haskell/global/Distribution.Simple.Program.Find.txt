@@ -1,0 +1,116 @@
+[Package]
+Name: Distribution.Simple.Program.Find
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-Find.html
+Containing package: Distribution.Simple.Program
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data ProgramSearchPathEntry = ProgramSearchPathDir FilePath | ProgramSearchPathDefault
+Name: ProgramSearchPathEntry
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-Find.html#t:ProgramSearchPathEntry
+Containing package: Distribution.Simple.Program.Find
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type ProgramSearchPath = [ProgramSearchPathEntry]
+Name: ProgramSearchPath
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-Find.html#t:ProgramSearchPath
+Containing package: Distribution.Simple.Program.Find
+attributes {
+}
+parameters {
+}
+Aliased type = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		Distribution.Simple.Program.Find::ProgramSearchPathEntry
+	}
+}
+
+[Function]
+findProgramOnSearchPath :: Verbosity -> ProgramSearchPath -> FilePath -> IO (Maybe FilePath)
+Name: findProgramOnSearchPath
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-Find.html#v:findProgramOnSearchPath
+Containing package: Distribution.Simple.Program.Find
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program.Find::ProgramSearchPath
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			System.IO::FilePath
+		}
+	}
+}
+
+[Function]
+programSearchPathAsPATHVar :: ProgramSearchPath -> IO String
+Name: programSearchPathAsPATHVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-Find.html#v:programSearchPathAsPATHVar
+Containing package: Distribution.Simple.Program.Find
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program.Find::ProgramSearchPath
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+defaultProgramSearchPath :: ProgramSearchPath
+Name: defaultProgramSearchPath
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-Find.html#v:defaultProgramSearchPath
+Containing package: Distribution.Simple.Program.Find
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program.Find::ProgramSearchPath
+}

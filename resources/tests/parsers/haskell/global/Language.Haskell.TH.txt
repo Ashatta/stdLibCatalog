@@ -1,0 +1,5165 @@
+[Package]
+Name: Language.Haskell.TH
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html
+Containing package: Haskell
+attributes {
+}
+
+Subpackages {
+	Language.Haskell.TH.Lib
+	Language.Haskell.TH.Ppr
+	Language.Haskell.TH.PprLib
+	Language.Haskell.TH.Quote
+	Language.Haskell.TH.Syntax
+}
+
+[Classifier]
+data AnnTarget = ModuleAnnotation | TypeAnnotation Name | ValueAnnotation Name
+Name: AnnTarget
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:AnnTarget
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Safety = Unsafe | Safe | Interruptible
+Name: Safety
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Safety
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data NameSpace
+Name: NameSpace
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:NameSpace
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data FamFlavour = TypeFam | DataFam
+Name: FamFlavour
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:FamFlavour
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Range = FromR Exp | FromThenR Exp Exp | FromToR Exp Exp | FromThenToR Exp Exp Exp
+Name: Range
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Range
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Role = NominalR | RepresentationalR | PhantomR | InferR
+Name: Role
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Role
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class Ppr a where ppr :: a -> Doc ppr_list :: [a] -> Doc
+Name: Ppr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Ppr
+Containing package: Language.Haskell.TH
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Language.Haskell.TH::Language.Haskell.TH.Ppr_Info<>
+	Language.Haskell.TH::Language.Haskell.TH.Ppr_ModuleInfo<>
+	Language.Haskell.TH::Language.Haskell.TH.Ppr_Name<>
+	Language.Haskell.TH::Language.Haskell.TH.Ppr_Dec<>
+	Language.Haskell.TH::Language.Haskell.TH.Ppr_Con<>
+	Language.Haskell.TH::Language.Haskell.TH.Ppr_Clause<>
+	Language.Haskell.TH::Language.Haskell.TH.Ppr_Foreign<>
+	Language.Haskell.TH::Language.Haskell.TH.Ppr_Pragma<>
+	Language.Haskell.TH::Language.Haskell.TH.Ppr_Inline<>
+	Language.Haskell.TH::Language.Haskell.TH.Ppr_RuleMatch<>
+	Language.Haskell.TH::Language.Haskell.TH.Ppr_Phases<>
+	Language.Haskell.TH::Language.Haskell.TH.Ppr_RuleBndr<>
+	Language.Haskell.TH::Language.Haskell.TH.Ppr_FunDep<>
+	Language.Haskell.TH::Language.Haskell.TH.Ppr_FamFlavour<>
+	Language.Haskell.TH::Language.Haskell.TH.Ppr_Exp<>
+	Language.Haskell.TH::Language.Haskell.TH.Ppr_Match<>
+	Language.Haskell.TH::Language.Haskell.TH.Ppr_Stmt<>
+	Language.Haskell.TH::Language.Haskell.TH.Ppr_Range<>
+	Language.Haskell.TH::Language.Haskell.TH.Ppr_Pat<>
+	Language.Haskell.TH::Language.Haskell.TH.Ppr_Type<>
+	Language.Haskell.TH::Language.Haskell.TH.Ppr_TyVarBndr<>
+	Language.Haskell.TH::Language.Haskell.TH.Ppr_TyLit<>
+	Language.Haskell.TH::Language.Haskell.TH.Ppr_Pred<>
+	Language.Haskell.TH::Language.Haskell.TH.Ppr_Role<>
+	Language.Haskell.TH.Syntax::Language.Haskell.TH.Ppr_Module<>
+	other::Language.Haskell.TH.Ppr_List<a<>>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	ppr :: a -> Doc
+	Name: ppr
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:ppr
+	Containing package: Language.Haskell.TH
+	attributes {
+		memberType=function
+	}
+	Containing type: Ppr
+	parameters {
+		a: (Ppr a; a; Language.Haskell.TH::Ppr)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Language.Haskell.TH.PprLib::Doc
+	}
+
+	[Function]
+	ppr_list :: [a] -> Doc
+	Name: ppr_list
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:ppr_list
+	Containing package: Language.Haskell.TH
+	attributes {
+		memberType=function
+	}
+	Containing type: Ppr
+	parameters {
+		a: (Ppr a; a; Language.Haskell.TH::Ppr)
+	}
+	Signature = <function> {
+		[parameters]
+		other::List {
+			null::a
+		}
+	
+		[result]
+		Language.Haskell.TH.PprLib::Doc
+	}
+}
+
+[Classifier]
+data FixityDirection = InfixL | InfixR | InfixN
+Name: Fixity
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Fixity
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Foreign = ImportF Callconv Safety String Name Type | ExportF Callconv String Name Type
+Name: Foreign
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Foreign
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Body = GuardedB [(Guard, Exp)] | NormalB Exp
+Name: Body
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Body
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Guard = NormalG Exp | PatG [Stmt]
+Name: Guard
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Guard
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Lit = CharL Char | StringL String | IntegerL Integer | RationalL Rational | IntPrimL Integer | WordPrimL Integer | FloatPrimL Rational | DoublePrimL Rational | StringPrimL [Word8]
+Name: Lit
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Lit
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Exp = VarE Name | ConE Name | LitE Lit | AppE Exp Exp | InfixE (Maybe Exp) Exp (Maybe Exp) | UInfixE Exp Exp Exp | ParensE Exp | LamE [Pat] Exp | LamCaseE [Match] | TupE [Exp] | UnboxedTupE [Exp] | CondE Exp Exp Exp | MultiIfE [(Guard, Exp)] | LetE [Dec] Exp | CaseE Exp [Match] | DoE [Stmt] | CompE [Stmt] | ArithSeqE Range | ListE [Exp] | SigE Exp Type | RecConE Name [FieldExp] | RecUpdE Exp [FieldExp]
+Name: Exp
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Exp
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Pat = LitP Lit | VarP Name | TupP [Pat] | UnboxedTupP [Pat] | ConP Name [Pat] | InfixP Pat Name Pat | UInfixP Pat Name Pat | ParensP Pat | TildeP Pat | BangP Pat | AsP Name Pat | WildP | RecP Name [FieldPat] | ListP [Pat] | SigP Pat Type | ViewP Exp Pat
+Name: Pat
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Pat
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TExp a
+Name: TExp
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:TExp
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TyLit = NumTyLit Integer | StrTyLit String
+Name: TyLit
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:TyLit
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ModuleInfo = ModuleInfo [Module]
+Name: ModuleInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:ModuleInfo
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Strict = IsStrict | NotStrict | Unpacked
+Name: Strict
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Strict
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Q a
+Name: Q
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Q
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data RuleMatch = ConLike | FunLike
+Name: RuleMatch
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:RuleMatch
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data FixityDirection = InfixL | InfixR | InfixN
+Name: FixityDirection
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:FixityDirection
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Info = ClassI Dec [InstanceDec] | ClassOpI Name Type ParentName Fixity | TyConI Dec | FamilyI Dec [InstanceDec] | PrimTyConI Name Arity Unlifted | DataConI Name Type ParentName Fixity | VarI Name Type (Maybe Dec) Fixity | TyVarI Name Type
+Name: Info
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Info
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data RuleBndr = RuleVar Name | TypedRuleVar Name Type
+Name: RuleBndr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:RuleBndr
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Match = Match Pat Body [Dec]
+Name: Match
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Match
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Callconv = CCall | StdCall
+Name: Callconv
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Callconv
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Dec = FunD Name [Clause] | ValD Pat Body [Dec] | DataD Cxt Name [TyVarBndr] [Con] [Name] | NewtypeD Cxt Name [TyVarBndr] Con [Name] | TySynD Name [TyVarBndr] Type | ClassD Cxt Name [TyVarBndr] [FunDep] [Dec] | InstanceD Cxt Type [Dec] | SigD Name Type | ForeignD Foreign | InfixD Fixity Name | PragmaD Pragma | FamilyD FamFlavour Name [TyVarBndr] (Maybe Kind) | DataInstD Cxt Name [Type] [Con] [Name] | NewtypeInstD Cxt Name [Type] Con [Name] | TySynInstD Name TySynEqn | ClosedTypeFamilyD Name [TyVarBndr] (Maybe Kind) [TySynEqn] | RoleAnnotD Name [Role]
+Name: Dec
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Dec
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TySynEqn = TySynEqn [Type] Type
+Name: TySynEqn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:TySynEqn
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data FunDep = FunDep [Name] [Name]
+Name: FunDep
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:FunDep
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Con = NormalC Name [StrictType] | RecC Name [VarStrictType] | InfixC StrictType Name StrictType | ForallC [TyVarBndr] Cxt Con
+Name: Con
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Con
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data AnnLookup = AnnLookupModule Module | AnnLookupName Name
+Name: AnnLookup
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:AnnLookup
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Loc = Loc { loc_filename :: String loc_package :: String loc_module :: String loc_start :: CharPos loc_end :: CharPos}
+Name: Loc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Loc
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Inline = NoInline | Inline | Inlinable
+Name: Inline
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Inline
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Clause = Clause [Pat] Body [Dec]
+Name: Clause
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Clause
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TyVarBndr = PlainTV Name | KindedTV Name Kind
+Name: TyVarBndr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:TyVarBndr
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Pred = ClassP Name [Type] | EqualP Type Type
+Name: Pred
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Pred
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Pragma = InlineP Name Inline RuleMatch Phases | SpecialiseP Name Type (Maybe Inline) Phases | SpecialiseInstP Type | RuleP String [RuleBndr] Exp Exp Phases | AnnP AnnTarget Exp
+Name: Pragma
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Pragma
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Phases = AllPhases | FromPhase Int | BeforePhase Int
+Name: Phases
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Phases
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Type = ForallT [TyVarBndr] Cxt Type | AppT Type Type | SigT Type Kind | VarT Name | ConT Name | PromotedT Name | TupleT Int | UnboxedTupleT Int | ArrowT | ListT | PromotedTupleT Int | PromotedNilT | PromotedConsT | StarT | ConstraintT | LitT TyLit
+Name: Type
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Type
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Stmt = BindS Pat Exp | LetS [Dec] | NoBindS Exp | ParS [[Stmt]]
+Name: Stmt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Stmt
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data NameSpace
+Name: Name
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Name
+Containing package: Language.Haskell.TH
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type StmtQ = Q Stmt
+Name: StmtQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:StmtQ
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = Language.Haskell.TH::Q {
+	Language.Haskell.TH::Stmt
+}
+
+[Alias]
+type RuleBndrQ = Q RuleBndr
+Name: RuleBndrQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:RuleBndrQ
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = Language.Haskell.TH::Q {
+	Language.Haskell.TH::RuleBndr
+}
+
+[Alias]
+type DecQ = Q Dec
+Name: DecQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:DecQ
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = Language.Haskell.TH::Q {
+	Language.Haskell.TH::Dec
+}
+
+[Alias]
+type ClauseQ = Q Clause
+Name: ClauseQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:ClauseQ
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = Language.Haskell.TH::Q {
+	Language.Haskell.TH::Clause
+}
+
+[Alias]
+type TyLitQ = Q TyLit
+Name: TyLitQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:TyLitQ
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = Language.Haskell.TH::Q {
+	Language.Haskell.TH::TyLit
+}
+
+[Alias]
+type VarStrictTypeQ = Q VarStrictType
+Name: VarStrictTypeQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:VarStrictTypeQ
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = Language.Haskell.TH::Q {
+	Language.Haskell.TH.Syntax::VarStrictType
+}
+
+[Alias]
+type InstanceDec = Dec
+Name: InstanceDec
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:InstanceDec
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = Language.Haskell.TH::Dec
+
+[Alias]
+type InfoQ = Q Info
+Name: InfoQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:InfoQ
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = Language.Haskell.TH::Q {
+	Language.Haskell.TH::Info
+}
+
+[Alias]
+type FieldPatQ = Q FieldPat
+Name: FieldPatQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:FieldPatQ
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = Language.Haskell.TH::Q {
+	Language.Haskell.TH::FieldPat
+}
+
+[Alias]
+type CxtQ = Q Cxt
+Name: Cxt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Cxt
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = null::Q {
+	null::Cxt
+}
+
+[Alias]
+type CxtQ = Q Cxt
+Name: CxtQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:CxtQ
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = Language.Haskell.TH::Q {
+	Language.Haskell.TH::Cxt
+}
+
+[Alias]
+type Kind = Type
+Name: Kind
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Kind
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = Language.Haskell.TH::Type
+
+[Alias]
+type GuardQ = Q Guard
+Name: GuardQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:GuardQ
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = Language.Haskell.TH::Q {
+	Language.Haskell.TH::Guard
+}
+
+[Alias]
+type RangeQ = Q Range
+Name: RangeQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:RangeQ
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = Language.Haskell.TH::Q {
+	Language.Haskell.TH::Range
+}
+
+[Alias]
+type MatchQ = Q Match
+Name: MatchQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:MatchQ
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = Language.Haskell.TH::Q {
+	Language.Haskell.TH::Match
+}
+
+[Alias]
+type FieldExp = (Name, Exp)
+Name: FieldExp
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:FieldExp
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = null::(Name, Exp)
+
+[Alias]
+type Arity = Int
+Name: Arity
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Arity
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = Data.Int::Int
+
+[Alias]
+type StrictTypeQ = Q StrictType
+Name: StrictTypeQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:StrictTypeQ
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = Language.Haskell.TH::Q {
+	Language.Haskell.TH.Syntax::StrictType
+}
+
+[Alias]
+type ExpQ = Q Exp
+Name: ExpQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:ExpQ
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = Language.Haskell.TH::Q {
+	Language.Haskell.TH::Exp
+}
+
+[Alias]
+type DecsQ = Q [Dec]
+Name: DecsQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:DecsQ
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = Language.Haskell.TH::Q {
+	other::List {
+		Language.Haskell.TH::Dec
+	}
+}
+
+[Alias]
+type FieldPatQ = Q FieldPat
+Name: FieldPat
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:FieldPat
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = null::Q {
+	null::FieldPat
+}
+
+[Alias]
+type ParentName = Name
+Name: ParentName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:ParentName
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = Language.Haskell.TH::Name
+
+[Alias]
+type PredQ = Q Pred
+Name: PredQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:PredQ
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = Language.Haskell.TH::Q {
+	Language.Haskell.TH::Pred
+}
+
+[Alias]
+type Unlifted = Bool
+Name: Unlifted
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:Unlifted
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = Data.Bool::Bool
+
+[Alias]
+type BodyQ = Q Body
+Name: BodyQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:BodyQ
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = Language.Haskell.TH::Q {
+	Language.Haskell.TH::Body
+}
+
+[Alias]
+type ConQ = Q Con
+Name: ConQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:ConQ
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = Language.Haskell.TH::Q {
+	Language.Haskell.TH::Con
+}
+
+[Alias]
+type TySynEqnQ = Q TySynEqn
+Name: TySynEqnQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:TySynEqnQ
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = Language.Haskell.TH::Q {
+	Language.Haskell.TH::TySynEqn
+}
+
+[Alias]
+type TypeQ = Q Type
+Name: TypeQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:TypeQ
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = Language.Haskell.TH::Q {
+	Language.Haskell.TH::Type
+}
+
+[Alias]
+type PatQ = Q Pat
+Name: PatQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#t:PatQ
+Containing package: Language.Haskell.TH
+attributes {
+}
+parameters {
+}
+Aliased type = Language.Haskell.TH::Q {
+	Language.Haskell.TH::Pat
+}
+
+[Function]
+tupleT :: Int -> TypeQ
+Name: tupleT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:tupleT
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Language.Haskell.TH::TypeQ
+}
+
+[Function]
+pragInlD :: Name -> Inline -> RuleMatch -> Phases -> DecQ
+Name: pragInlD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:pragInlD
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+	Language.Haskell.TH::Inline
+	Language.Haskell.TH::RuleMatch
+	Language.Haskell.TH::Phases
+
+	[result]
+	Language.Haskell.TH::DecQ
+}
+
+[Function]
+tupleK :: Int -> Kind
+Name: tupleK
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:tupleK
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Language.Haskell.TH::Kind
+}
+
+[Function]
+unboxedTupleDataName :: Int -> Name
+Name: unboxedTupleDataName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:unboxedTupleDataName
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Language.Haskell.TH::Name
+}
+
+[Function]
+match :: PatQ -> BodyQ -> [DecQ] -> MatchQ
+Name: match
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:match
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::PatQ
+	Language.Haskell.TH::BodyQ
+	other::List {
+		Language.Haskell.TH::DecQ
+	}
+
+	[result]
+	Language.Haskell.TH::MatchQ
+}
+
+[Function]
+fromR :: ExpQ -> RangeQ
+Name: fromR
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:fromR
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::ExpQ
+
+	[result]
+	Language.Haskell.TH::RangeQ
+}
+
+[Function]
+fromE :: ExpQ -> ExpQ
+Name: fromE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:fromE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::ExpQ
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+appT :: TypeQ -> TypeQ -> TypeQ
+Name: appT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:appT
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::TypeQ
+	Language.Haskell.TH::TypeQ
+
+	[result]
+	Language.Haskell.TH::TypeQ
+}
+
+[Function]
+appE :: ExpQ -> ExpQ -> ExpQ
+Name: appE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:appE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::ExpQ
+	Language.Haskell.TH::ExpQ
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+appK :: Kind -> Kind -> Kind
+Name: appK
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:appK
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Kind
+	Language.Haskell.TH::Kind
+
+	[result]
+	Language.Haskell.TH::Kind
+}
+
+[Function]
+parensP :: PatQ -> PatQ
+Name: parensP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:parensP
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::PatQ
+
+	[result]
+	Language.Haskell.TH::PatQ
+}
+
+[Function]
+parensE :: ExpQ -> ExpQ
+Name: parensE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:parensE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::ExpQ
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+forImpD :: Callconv -> Safety -> String -> Name -> TypeQ -> DecQ
+Name: forImpD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:forImpD
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Callconv
+	Language.Haskell.TH::Safety
+	Data.String::String
+	Language.Haskell.TH::Name
+	Language.Haskell.TH::TypeQ
+
+	[result]
+	Language.Haskell.TH::DecQ
+}
+
+[Function]
+litE :: Lit -> ExpQ
+Name: litE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:litE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Lit
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+litP :: Lit -> PatQ
+Name: litP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:litP
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Lit
+
+	[result]
+	Language.Haskell.TH::PatQ
+}
+
+[Function]
+litT :: TyLitQ -> TypeQ
+Name: litT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:litT
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::TyLitQ
+
+	[result]
+	Language.Haskell.TH::TypeQ
+}
+
+[Function]
+phantomR :: Role
+Name: phantomR
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:phantomR
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH.Lib::Role
+}
+
+[Function]
+patG :: [StmtQ] -> GuardQ
+Name: patG
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:patG
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Language.Haskell.TH::StmtQ
+	}
+
+	[result]
+	Language.Haskell.TH::GuardQ
+}
+
+[Function]
+parS :: [[StmtQ]] -> StmtQ
+Name: parS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:parS
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		<function> {
+			[parameters]
+		
+			[result]
+			other::List {
+				Language.Haskell.TH::StmtQ
+			}
+		}
+	}
+
+	[result]
+	Language.Haskell.TH::StmtQ
+}
+
+[Function]
+mkName :: String -> Name
+Name: mkName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:mkName
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Language.Haskell.TH::Name
+}
+
+[Function]
+typeFam :: FamFlavour
+Name: typeFam
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:typeFam
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH::FamFlavour
+}
+
+[Function]
+listT :: TypeQ
+Name: listT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:listT
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH::TypeQ
+}
+
+[Function]
+listP :: [PatQ] -> PatQ
+Name: listP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:listP
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Language.Haskell.TH::PatQ
+	}
+
+	[result]
+	Language.Haskell.TH::PatQ
+}
+
+[Function]
+listK :: Kind
+Name: listK
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:listK
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH::Kind
+}
+
+[Function]
+listE :: [ExpQ] -> ExpQ
+Name: listE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:listE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Language.Haskell.TH::ExpQ
+	}
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+compE :: [StmtQ] -> ExpQ
+Name: compE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:compE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Language.Haskell.TH::StmtQ
+	}
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+condE :: ExpQ -> ExpQ -> ExpQ -> ExpQ
+Name: condE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:condE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::ExpQ
+	Language.Haskell.TH::ExpQ
+	Language.Haskell.TH::ExpQ
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+promotedNilT :: TypeQ
+Name: promotedNilT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:promotedNilT
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH::TypeQ
+}
+
+[Function]
+conT :: Name -> TypeQ
+Name: conT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:conT
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+
+	[result]
+	Language.Haskell.TH::TypeQ
+}
+
+[Function]
+conP :: Name -> [PatQ] -> PatQ
+Name: conP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:conP
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+	other::List {
+		Language.Haskell.TH::PatQ
+	}
+
+	[result]
+	Language.Haskell.TH::PatQ
+}
+
+[Function]
+conK :: Name -> Kind
+Name: conK
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:conK
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+
+	[result]
+	Language.Haskell.TH::Kind
+}
+
+[Function]
+conE :: Name -> ExpQ
+Name: conE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:conE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+nameModule :: Name -> Maybe String
+Name: nameModule
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:nameModule
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+
+	[result]
+	Data.Maybe::Maybe {
+		Data.String::String
+	}
+}
+
+[Function]
+location :: Q Loc
+Name: location
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:location
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH::Q {
+		Language.Haskell.TH::Loc
+	}
+}
+
+[Function]
+pprExp :: Precedence -> Exp -> Doc
+Name: pprExp
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:pprExp
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Ppr::Precedence
+	Language.Haskell.TH::Exp
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+tySynInstD :: Name -> TySynEqnQ -> DecQ
+Name: tySynInstD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:tySynInstD
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+	Language.Haskell.TH::TySynEqnQ
+
+	[result]
+	Language.Haskell.TH::DecQ
+}
+
+[Function]
+arithSeqE :: RangeQ -> ExpQ
+Name: arithSeqE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:arithSeqE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::RangeQ
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+representationalR :: Role
+Name: representationalR
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:representationalR
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH.Lib::Role
+}
+
+[Function]
+uInfixE :: ExpQ -> ExpQ -> ExpQ -> ExpQ
+Name: uInfixE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:uInfixE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::ExpQ
+	Language.Haskell.TH::ExpQ
+	Language.Haskell.TH::ExpQ
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+reify :: Name -> Q Info
+Name: reify
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:reify
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+
+	[result]
+	Language.Haskell.TH::Q {
+		Language.Haskell.TH::Info
+	}
+}
+
+[Function]
+closedTypeFamilyNoKindD :: Name -> [TyVarBndr] -> [TySynEqnQ] -> DecQ
+Name: closedTypeFamilyNoKindD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:closedTypeFamilyNoKindD
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+	other::List {
+		Language.Haskell.TH::TyVarBndr
+	}
+	other::List {
+		Language.Haskell.TH::TySynEqnQ
+	}
+
+	[result]
+	Language.Haskell.TH::DecQ
+}
+
+[Function]
+uInfixP :: PatQ -> Name -> PatQ -> PatQ
+Name: uInfixP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:uInfixP
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::PatQ
+	Language.Haskell.TH::Name
+	Language.Haskell.TH::PatQ
+
+	[result]
+	Language.Haskell.TH::PatQ
+}
+
+[Function]
+tySynEqn :: [TypeQ] -> TypeQ -> TySynEqnQ
+Name: tySynEqn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:tySynEqn
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Language.Haskell.TH::TypeQ
+	}
+	Language.Haskell.TH::TypeQ
+
+	[result]
+	Language.Haskell.TH::TySynEqnQ
+}
+
+[Function]
+unType :: TExp a -> Exp
+Name: unType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:unType
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::TExp {
+		null::a
+	}
+
+	[result]
+	Language.Haskell.TH::Exp
+}
+
+[Function]
+noBindS :: ExpQ -> StmtQ
+Name: noBindS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:noBindS
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::ExpQ
+
+	[result]
+	Language.Haskell.TH::StmtQ
+}
+
+[Function]
+tupleTypeName :: Int -> Name
+Name: tupleTypeName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:tupleTypeName
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Language.Haskell.TH::Name
+}
+
+[Function]
+funD :: Name -> [ClauseQ] -> DecQ
+Name: funD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:funD
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+	other::List {
+		Language.Haskell.TH::ClauseQ
+	}
+
+	[result]
+	Language.Haskell.TH::DecQ
+}
+
+[Function]
+promotedTupleT :: Int -> TypeQ
+Name: promotedTupleT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:promotedTupleT
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Language.Haskell.TH::TypeQ
+}
+
+[Function]
+tupE :: [ExpQ] -> ExpQ
+Name: tupE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:tupE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Language.Haskell.TH::ExpQ
+	}
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+tupP :: [PatQ] -> PatQ
+Name: tupP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:tupP
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Language.Haskell.TH::PatQ
+	}
+
+	[result]
+	Language.Haskell.TH::PatQ
+}
+
+[Function]
+recConE :: Name -> [Q (Name, Exp)] -> ExpQ
+Name: recConE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:recConE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+	other::List {
+		Language.Haskell.TH::Q {
+			GHC.Tuple::(,) {
+				Language.Haskell.TH::Name
+				Language.Haskell.TH::Exp
+			}
+		}
+	}
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+newtypeD :: CxtQ -> Name -> [TyVarBndr] -> ConQ -> [Name] -> DecQ
+Name: newtypeD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:newtypeD
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::CxtQ
+	Language.Haskell.TH::Name
+	other::List {
+		Language.Haskell.TH::TyVarBndr
+	}
+	Language.Haskell.TH::ConQ
+	other::List {
+		Language.Haskell.TH::Name
+	}
+
+	[result]
+	Language.Haskell.TH::DecQ
+}
+
+[Function]
+tildeP :: PatQ -> PatQ
+Name: tildeP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:tildeP
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::PatQ
+
+	[result]
+	Language.Haskell.TH::PatQ
+}
+
+[Function]
+classD :: CxtQ -> Name -> [TyVarBndr] -> [FunDep] -> [DecQ] -> DecQ
+Name: classD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:classD
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::CxtQ
+	Language.Haskell.TH::Name
+	other::List {
+		Language.Haskell.TH::TyVarBndr
+	}
+	other::List {
+		Language.Haskell.TH::FunDep
+	}
+	other::List {
+		Language.Haskell.TH::DecQ
+	}
+
+	[result]
+	Language.Haskell.TH::DecQ
+}
+
+[Function]
+classP :: Name -> [TypeQ] -> PredQ
+Name: classP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:classP
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+	other::List {
+		Language.Haskell.TH::TypeQ
+	}
+
+	[result]
+	Language.Haskell.TH::PredQ
+}
+
+[Function]
+varStrictType :: Name -> StrictTypeQ -> VarStrictTypeQ
+Name: varStrictType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:varStrictType
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+	Language.Haskell.TH::StrictTypeQ
+
+	[result]
+	Language.Haskell.TH::VarStrictTypeQ
+}
+
+[Function]
+numTyLit :: Integer -> TyLitQ
+Name: numTyLit
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:numTyLit
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Integer
+
+	[result]
+	Language.Haskell.TH::TyLitQ
+}
+
+[Function]
+pprLit :: Precedence -> Lit -> Doc
+Name: pprLit
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:pprLit
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Ppr::Precedence
+	Language.Haskell.TH::Lit
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+reportError :: String -> Q ()
+Name: reportError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:reportError
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Language.Haskell.TH::Q {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+doublePrimL :: Rational -> Lit
+Name: doublePrimL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:doublePrimL
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Rational
+
+	[result]
+	Language.Haskell.TH::Lit
+}
+
+[Function]
+appsE :: [ExpQ] -> ExpQ
+Name: appsE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:appsE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Language.Haskell.TH::ExpQ
+	}
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+reifyInstances :: Name -> [Type] -> Q [InstanceDec]
+Name: reifyInstances
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:reifyInstances
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+	other::List {
+		Language.Haskell.TH::Type
+	}
+
+	[result]
+	Language.Haskell.TH::Q {
+		other::List {
+			Language.Haskell.TH::InstanceDec
+		}
+	}
+}
+
+[Function]
+lamCaseE :: [MatchQ] -> ExpQ
+Name: lamCaseE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:lamCaseE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Language.Haskell.TH::MatchQ
+	}
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+sectionR :: ExpQ -> ExpQ -> ExpQ
+Name: sectionR
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:sectionR
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::ExpQ
+	Language.Haskell.TH::ExpQ
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+sectionL :: ExpQ -> ExpQ -> ExpQ
+Name: sectionL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:sectionL
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::ExpQ
+	Language.Haskell.TH::ExpQ
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+normalB :: ExpQ -> BodyQ
+Name: normalB
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:normalB
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::ExpQ
+
+	[result]
+	Language.Haskell.TH::BodyQ
+}
+
+[Function]
+normalG :: ExpQ -> GuardQ
+Name: normalG
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:normalG
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::ExpQ
+
+	[result]
+	Language.Haskell.TH::GuardQ
+}
+
+[Function]
+normalC :: Name -> [StrictTypeQ] -> ConQ
+Name: normalC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:normalC
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+	other::List {
+		Language.Haskell.TH::StrictTypeQ
+	}
+
+	[result]
+	Language.Haskell.TH::ConQ
+}
+
+[Function]
+viewP :: ExpQ -> PatQ -> PatQ
+Name: viewP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:viewP
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::ExpQ
+	Language.Haskell.TH::PatQ
+
+	[result]
+	Language.Haskell.TH::PatQ
+}
+
+[Function]
+bindS :: PatQ -> ExpQ -> StmtQ
+Name: bindS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:bindS
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::PatQ
+	Language.Haskell.TH::ExpQ
+
+	[result]
+	Language.Haskell.TH::StmtQ
+}
+
+[Function]
+isInstance :: Name -> [Type] -> Q Bool
+Name: isInstance
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:isInstance
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+	other::List {
+		Language.Haskell.TH::Type
+	}
+
+	[result]
+	Language.Haskell.TH::Q {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+newtypeInstD :: CxtQ -> Name -> [TypeQ] -> ConQ -> [Name] -> DecQ
+Name: newtypeInstD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:newtypeInstD
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::CxtQ
+	Language.Haskell.TH::Name
+	other::List {
+		Language.Haskell.TH::TypeQ
+	}
+	Language.Haskell.TH::ConQ
+	other::List {
+		Language.Haskell.TH::Name
+	}
+
+	[result]
+	Language.Haskell.TH::DecQ
+}
+
+[Function]
+safe :: Safety
+Name: safe
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:safe
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH::Safety
+}
+
+[Function]
+unboxedTupleTypeName :: Int -> Name
+Name: unboxedTupleTypeName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:unboxedTupleTypeName
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Language.Haskell.TH::Name
+}
+
+[Function]
+equalP :: TypeQ -> TypeQ -> PredQ
+Name: equalP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:equalP
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::TypeQ
+	Language.Haskell.TH::TypeQ
+
+	[result]
+	Language.Haskell.TH::PredQ
+}
+
+[Function]
+reifyModule :: Module -> Q ModuleInfo
+Name: reifyModule
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:reifyModule
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::Module
+
+	[result]
+	Language.Haskell.TH::Q {
+		Language.Haskell.TH::ModuleInfo
+	}
+}
+
+[Function]
+pprint :: Ppr a => a -> String
+Name: pprint
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:pprint
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Ppr a; a; Language.Haskell.TH::Ppr)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+pragAnnD :: AnnTarget -> ExpQ -> DecQ
+Name: pragAnnD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:pragAnnD
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::AnnTarget
+	Language.Haskell.TH::ExpQ
+
+	[result]
+	Language.Haskell.TH::DecQ
+}
+
+[Function]
+reifyAnnotations :: Data a => AnnLookup -> Q [a]
+Name: reifyAnnotations
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:reifyAnnotations
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Data a; a; Data.Data::Data)
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::AnnLookup
+
+	[result]
+	Language.Haskell.TH::Q {
+		other::List {
+			null::a
+		}
+	}
+}
+
+[Function]
+ruleVar :: Name -> RuleBndrQ
+Name: ruleVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:ruleVar
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+
+	[result]
+	Language.Haskell.TH::RuleBndrQ
+}
+
+[Function]
+fromThenToE :: ExpQ -> ExpQ -> ExpQ -> ExpQ
+Name: fromThenToE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:fromThenToE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::ExpQ
+	Language.Haskell.TH::ExpQ
+	Language.Haskell.TH::ExpQ
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+lam1E :: PatQ -> ExpQ -> ExpQ
+Name: lam1E
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:lam1E
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::PatQ
+	Language.Haskell.TH::ExpQ
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+isStrict :: Q Strict
+Name: isStrict
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:isStrict
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH::Q {
+		Language.Haskell.TH::Strict
+	}
+}
+
+[Function]
+fromThenToR :: ExpQ -> ExpQ -> ExpQ -> RangeQ
+Name: fromThenToR
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:fromThenToR
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::ExpQ
+	Language.Haskell.TH::ExpQ
+	Language.Haskell.TH::ExpQ
+
+	[result]
+	Language.Haskell.TH::RangeQ
+}
+
+[Function]
+pragRuleD :: String -> [RuleBndrQ] -> ExpQ -> ExpQ -> Phases -> DecQ
+Name: pragRuleD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:pragRuleD
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	other::List {
+		Language.Haskell.TH::RuleBndrQ
+	}
+	Language.Haskell.TH::ExpQ
+	Language.Haskell.TH::ExpQ
+	Language.Haskell.TH::Phases
+
+	[result]
+	Language.Haskell.TH::DecQ
+}
+
+[Function]
+defaultFixity :: Fixity
+Name: defaultFixity
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:defaultFixity
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH::Fixity
+}
+
+[Function]
+charL :: Char -> Lit
+Name: charL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:charL
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Char::Char
+
+	[result]
+	Language.Haskell.TH::Lit
+}
+
+[Function]
+patGE :: [StmtQ] -> ExpQ -> Q (Guard, Exp)
+Name: patGE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:patGE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Language.Haskell.TH::StmtQ
+	}
+	Language.Haskell.TH::ExpQ
+
+	[result]
+	Language.Haskell.TH::Q {
+		GHC.Tuple::(,) {
+			Language.Haskell.TH::Guard
+			Language.Haskell.TH::Exp
+		}
+	}
+}
+
+[Function]
+tupleDataName :: Int -> Name
+Name: tupleDataName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:tupleDataName
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Language.Haskell.TH::Name
+}
+
+[Function]
+fieldExp :: Name -> ExpQ -> Q (Name, Exp)
+Name: fieldExp
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:fieldExp
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+	Language.Haskell.TH::ExpQ
+
+	[result]
+	Language.Haskell.TH::Q {
+		GHC.Tuple::(,) {
+			Language.Haskell.TH::Name
+			Language.Haskell.TH::Exp
+		}
+	}
+}
+
+[Function]
+runIO :: IO a -> Q a
+Name: runIO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:runIO
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	Language.Haskell.TH::Q {
+		null::a
+	}
+}
+
+[Function]
+constraintK :: Kind
+Name: constraintK
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:constraintK
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH::Kind
+}
+
+[Function]
+recover :: Q a -> Q a -> Q a
+Name: recover
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:recover
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Q {
+		null::a
+	}
+	Language.Haskell.TH::Q {
+		null::a
+	}
+
+	[result]
+	Language.Haskell.TH::Q {
+		null::a
+	}
+}
+
+[Function]
+strictType :: Q Strict -> TypeQ -> StrictTypeQ
+Name: strictType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:strictType
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Q {
+		Language.Haskell.TH::Strict
+	}
+	Language.Haskell.TH::TypeQ
+
+	[result]
+	Language.Haskell.TH::StrictTypeQ
+}
+
+[Function]
+global :: Name -> ExpQ
+Name: global
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:global
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+runQ :: Quasi m => Q a -> m a
+Name: runQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:runQ
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Quasi m; m; Language.Haskell.TH.Syntax::Quasi)
+	a
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Q {
+		null::a
+	}
+
+	[result]
+	null::m {
+		null::a
+	}
+}
+
+[Function]
+lamE :: [PatQ] -> ExpQ -> ExpQ
+Name: lamE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:lamE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Language.Haskell.TH::PatQ
+	}
+	Language.Haskell.TH::ExpQ
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+cxt :: [PredQ] -> CxtQ
+Name: cxt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:cxt
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Language.Haskell.TH::PredQ
+	}
+
+	[result]
+	Language.Haskell.TH::CxtQ
+}
+
+[Function]
+fieldPat :: Name -> PatQ -> FieldPatQ
+Name: fieldPat
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:fieldPat
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+	Language.Haskell.TH::PatQ
+
+	[result]
+	Language.Haskell.TH::FieldPatQ
+}
+
+[Function]
+pprPat :: Precedence -> Pat -> Doc
+Name: pprPat
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:pprPat
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Ppr::Precedence
+	Language.Haskell.TH::Pat
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+recP :: Name -> [FieldPatQ] -> PatQ
+Name: recP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:recP
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+	other::List {
+		Language.Haskell.TH::FieldPatQ
+	}
+
+	[result]
+	Language.Haskell.TH::PatQ
+}
+
+[Function]
+recC :: Name -> [VarStrictTypeQ] -> ConQ
+Name: recC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:recC
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+	other::List {
+		Language.Haskell.TH::VarStrictTypeQ
+	}
+
+	[result]
+	Language.Haskell.TH::ConQ
+}
+
+[Function]
+promotedT :: Name -> TypeQ
+Name: promotedT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:promotedT
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+
+	[result]
+	Language.Haskell.TH::TypeQ
+}
+
+[Function]
+infixApp :: ExpQ -> ExpQ -> ExpQ -> ExpQ
+Name: infixApp
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:infixApp
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::ExpQ
+	Language.Haskell.TH::ExpQ
+	Language.Haskell.TH::ExpQ
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+cCall :: Callconv
+Name: cCall
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:cCall
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH::Callconv
+}
+
+[Function]
+valD :: PatQ -> BodyQ -> [DecQ] -> DecQ
+Name: valD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:valD
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::PatQ
+	Language.Haskell.TH::BodyQ
+	other::List {
+		Language.Haskell.TH::DecQ
+	}
+
+	[result]
+	Language.Haskell.TH::DecQ
+}
+
+[Function]
+normalGE :: ExpQ -> ExpQ -> Q (Guard, Exp)
+Name: normalGE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:normalGE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::ExpQ
+	Language.Haskell.TH::ExpQ
+
+	[result]
+	Language.Haskell.TH::Q {
+		GHC.Tuple::(,) {
+			Language.Haskell.TH::Guard
+			Language.Haskell.TH::Exp
+		}
+	}
+}
+
+[Function]
+varT :: Name -> TypeQ
+Name: varT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:varT
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+
+	[result]
+	Language.Haskell.TH::TypeQ
+}
+
+[Function]
+stringPrimL :: [Word8] -> Lit
+Name: stringPrimL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:stringPrimL
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Data.Word::Word8
+	}
+
+	[result]
+	Language.Haskell.TH::Lit
+}
+
+[Function]
+stringL :: String -> Lit
+Name: stringL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:stringL
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Language.Haskell.TH::Lit
+}
+
+[Function]
+stringE :: String -> ExpQ
+Name: stringE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:stringE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+varE :: Name -> ExpQ
+Name: varE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:varE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+varP :: Name -> PatQ
+Name: varP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:varP
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+
+	[result]
+	Language.Haskell.TH::PatQ
+}
+
+[Function]
+varK :: Name -> Kind
+Name: varK
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:varK
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+
+	[result]
+	Language.Haskell.TH::Kind
+}
+
+[Function]
+bangP :: PatQ -> PatQ
+Name: bangP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:bangP
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::PatQ
+
+	[result]
+	Language.Haskell.TH::PatQ
+}
+
+[Function]
+nominalR :: Role
+Name: nominalR
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:nominalR
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH.Lib::Role
+}
+
+[Function]
+wildP :: PatQ
+Name: wildP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:wildP
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH::PatQ
+}
+
+[Function]
+nameBase :: Name -> String
+Name: nameBase
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:nameBase
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+starK :: Kind
+Name: starK
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:starK
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH::Kind
+}
+
+[Function]
+roleAnnotD :: Name -> [Role] -> DecQ
+Name: roleAnnotD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:roleAnnotD
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+	other::List {
+		Language.Haskell.TH.Lib::Role
+	}
+
+	[result]
+	Language.Haskell.TH::DecQ
+}
+
+[Function]
+integerL :: Integer -> Lit
+Name: integerL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:integerL
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Integer
+
+	[result]
+	Language.Haskell.TH::Lit
+}
+
+[Function]
+dataFam :: FamFlavour
+Name: dataFam
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:dataFam
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH::FamFlavour
+}
+
+[Function]
+rationalL :: Rational -> Lit
+Name: rationalL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:rationalL
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Rational
+
+	[result]
+	Language.Haskell.TH::Lit
+}
+
+[Function]
+unsafe :: Safety
+Name: unsafe
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:unsafe
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH::Safety
+}
+
+[Function]
+lookupValueName :: String -> Q (Maybe Name)
+Name: lookupValueName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:lookupValueName
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Language.Haskell.TH::Q {
+		Data.Maybe::Maybe {
+			Language.Haskell.TH::Name
+		}
+	}
+}
+
+[Function]
+pragSpecInlD :: Name -> TypeQ -> Inline -> Phases -> DecQ
+Name: pragSpecInlD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:pragSpecInlD
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+	Language.Haskell.TH::TypeQ
+	Language.Haskell.TH::Inline
+	Language.Haskell.TH::Phases
+
+	[result]
+	Language.Haskell.TH::DecQ
+}
+
+[Function]
+multiIfE :: [Q (Guard, Exp)] -> ExpQ
+Name: multiIfE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:multiIfE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Language.Haskell.TH::Q {
+			GHC.Tuple::(,) {
+				Language.Haskell.TH::Guard
+				Language.Haskell.TH::Exp
+			}
+		}
+	}
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+pragSpecInstD :: TypeQ -> DecQ
+Name: pragSpecInstD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:pragSpecInstD
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::TypeQ
+
+	[result]
+	Language.Haskell.TH::DecQ
+}
+
+[Function]
+instanceD :: CxtQ -> TypeQ -> [DecQ] -> DecQ
+Name: instanceD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:instanceD
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::CxtQ
+	Language.Haskell.TH::TypeQ
+	other::List {
+		Language.Haskell.TH::DecQ
+	}
+
+	[result]
+	Language.Haskell.TH::DecQ
+}
+
+[Function]
+newName :: String -> Q Name
+Name: newName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:newName
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Language.Haskell.TH::Q {
+		Language.Haskell.TH::Name
+	}
+}
+
+[Function]
+report :: Bool -> String -> Q ()
+Name: report
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:report
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Bool::Bool
+	Data.String::String
+
+	[result]
+	Language.Haskell.TH::Q {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+dataD :: CxtQ -> Name -> [TyVarBndr] -> [ConQ] -> [Name] -> DecQ
+Name: dataD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:dataD
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::CxtQ
+	Language.Haskell.TH::Name
+	other::List {
+		Language.Haskell.TH::TyVarBndr
+	}
+	other::List {
+		Language.Haskell.TH::ConQ
+	}
+	other::List {
+		Language.Haskell.TH::Name
+	}
+
+	[result]
+	Language.Haskell.TH::DecQ
+}
+
+[Function]
+infixC :: Q (Strict, Type) -> Name -> Q (Strict, Type) -> ConQ
+Name: infixC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:infixC
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Q {
+		GHC.Tuple::(,) {
+			Language.Haskell.TH::Strict
+			Language.Haskell.TH::Type
+		}
+	}
+	Language.Haskell.TH::Name
+	Language.Haskell.TH::Q {
+		GHC.Tuple::(,) {
+			Language.Haskell.TH::Strict
+			Language.Haskell.TH::Type
+		}
+	}
+
+	[result]
+	Language.Haskell.TH::ConQ
+}
+
+[Function]
+infixE :: Maybe ExpQ -> ExpQ -> Maybe ExpQ -> ExpQ
+Name: infixE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:infixE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Maybe::Maybe {
+		Language.Haskell.TH::ExpQ
+	}
+	Language.Haskell.TH::ExpQ
+	Data.Maybe::Maybe {
+		Language.Haskell.TH::ExpQ
+	}
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+infixP :: PatQ -> Name -> PatQ -> PatQ
+Name: infixP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:infixP
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::PatQ
+	Language.Haskell.TH::Name
+	Language.Haskell.TH::PatQ
+
+	[result]
+	Language.Haskell.TH::PatQ
+}
+
+[Function]
+clause :: [PatQ] -> BodyQ -> [DecQ] -> ClauseQ
+Name: clause
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:clause
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Language.Haskell.TH::PatQ
+	}
+	Language.Haskell.TH::BodyQ
+	other::List {
+		Language.Haskell.TH::DecQ
+	}
+
+	[result]
+	Language.Haskell.TH::ClauseQ
+}
+
+[Function]
+doE :: [StmtQ] -> ExpQ
+Name: doE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:doE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Language.Haskell.TH::StmtQ
+	}
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+fromThenE :: ExpQ -> ExpQ -> ExpQ
+Name: fromThenE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:fromThenE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::ExpQ
+	Language.Haskell.TH::ExpQ
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+fromThenR :: ExpQ -> ExpQ -> RangeQ
+Name: fromThenR
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:fromThenR
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::ExpQ
+	Language.Haskell.TH::ExpQ
+
+	[result]
+	Language.Haskell.TH::RangeQ
+}
+
+[Function]
+intPrimL :: Integer -> Lit
+Name: intPrimL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:intPrimL
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Integer
+
+	[result]
+	Language.Haskell.TH::Lit
+}
+
+[Function]
+recUpdE :: ExpQ -> [Q (Name, Exp)] -> ExpQ
+Name: recUpdE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:recUpdE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::ExpQ
+	other::List {
+		Language.Haskell.TH::Q {
+			GHC.Tuple::(,) {
+				Language.Haskell.TH::Name
+				Language.Haskell.TH::Exp
+			}
+		}
+	}
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+tySynD :: Name -> [TyVarBndr] -> TypeQ -> DecQ
+Name: tySynD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:tySynD
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+	other::List {
+		Language.Haskell.TH::TyVarBndr
+	}
+	Language.Haskell.TH::TypeQ
+
+	[result]
+	Language.Haskell.TH::DecQ
+}
+
+[Function]
+dyn :: String -> ExpQ
+Name: dyn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:dyn
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+thisModule :: Q Module
+Name: thisModule
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:thisModule
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH::Q {
+		Language.Haskell.TH.Syntax::Module
+	}
+}
+
+[Function]
+sigE :: ExpQ -> TypeQ -> ExpQ
+Name: sigE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:sigE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::ExpQ
+	Language.Haskell.TH::TypeQ
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+sigD :: Name -> TypeQ -> DecQ
+Name: sigD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:sigD
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+	Language.Haskell.TH::TypeQ
+
+	[result]
+	Language.Haskell.TH::DecQ
+}
+
+[Function]
+sigT :: TypeQ -> Kind -> TypeQ
+Name: sigT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:sigT
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::TypeQ
+	Language.Haskell.TH::Kind
+
+	[result]
+	Language.Haskell.TH::TypeQ
+}
+
+[Function]
+sigP :: PatQ -> TypeQ -> PatQ
+Name: sigP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:sigP
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::PatQ
+	Language.Haskell.TH::TypeQ
+
+	[result]
+	Language.Haskell.TH::PatQ
+}
+
+[Function]
+arrowT :: TypeQ
+Name: arrowT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:arrowT
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH::TypeQ
+}
+
+[Function]
+arrowK :: Kind
+Name: arrowK
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:arrowK
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH::Kind
+}
+
+[Function]
+pragSpecD :: Name -> TypeQ -> Phases -> DecQ
+Name: pragSpecD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:pragSpecD
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+	Language.Haskell.TH::TypeQ
+	Language.Haskell.TH::Phases
+
+	[result]
+	Language.Haskell.TH::DecQ
+}
+
+[Function]
+letS :: [DecQ] -> StmtQ
+Name: letS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:letS
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Language.Haskell.TH::DecQ
+	}
+
+	[result]
+	Language.Haskell.TH::StmtQ
+}
+
+[Function]
+letE :: [DecQ] -> ExpQ -> ExpQ
+Name: letE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:letE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Language.Haskell.TH::DecQ
+	}
+	Language.Haskell.TH::ExpQ
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+strTyLit :: String -> TyLitQ
+Name: strTyLit
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:strTyLit
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Language.Haskell.TH::TyLitQ
+}
+
+[Function]
+wordPrimL :: Integer -> Lit
+Name: wordPrimL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:wordPrimL
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Integer
+
+	[result]
+	Language.Haskell.TH::Lit
+}
+
+[Function]
+fromToE :: ExpQ -> ExpQ -> ExpQ
+Name: fromToE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:fromToE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::ExpQ
+	Language.Haskell.TH::ExpQ
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+fromToR :: ExpQ -> ExpQ -> RangeQ
+Name: fromToR
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:fromToR
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::ExpQ
+	Language.Haskell.TH::ExpQ
+
+	[result]
+	Language.Haskell.TH::RangeQ
+}
+
+[Function]
+guardedB :: [Q (Guard, Exp)] -> BodyQ
+Name: guardedB
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:guardedB
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Language.Haskell.TH::Q {
+			GHC.Tuple::(,) {
+				Language.Haskell.TH::Guard
+				Language.Haskell.TH::Exp
+			}
+		}
+	}
+
+	[result]
+	Language.Haskell.TH::BodyQ
+}
+
+[Function]
+maxPrecedence :: Int
+Name: maxPrecedence
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:maxPrecedence
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+familyKindD :: FamFlavour -> Name -> [TyVarBndr] -> Kind -> DecQ
+Name: familyKindD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:familyKindD
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::FamFlavour
+	Language.Haskell.TH::Name
+	other::List {
+		Language.Haskell.TH::TyVarBndr
+	}
+	Language.Haskell.TH::Kind
+
+	[result]
+	Language.Haskell.TH::DecQ
+}
+
+[Function]
+promotedConsT :: TypeQ
+Name: promotedConsT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:promotedConsT
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH::TypeQ
+}
+
+[Function]
+reifyRoles :: Name -> Q [Role]
+Name: reifyRoles
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:reifyRoles
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+
+	[result]
+	Language.Haskell.TH::Q {
+		other::List {
+			Language.Haskell.TH::Role
+		}
+	}
+}
+
+[Function]
+floatPrimL :: Rational -> Lit
+Name: floatPrimL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:floatPrimL
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Rational
+
+	[result]
+	Language.Haskell.TH::Lit
+}
+
+[Function]
+caseE :: ExpQ -> [MatchQ] -> ExpQ
+Name: caseE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:caseE
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::ExpQ
+	other::List {
+		Language.Haskell.TH::MatchQ
+	}
+
+	[result]
+	Language.Haskell.TH::ExpQ
+}
+
+[Function]
+closedTypeFamilyKindD :: Name -> [TyVarBndr] -> Kind -> [TySynEqnQ] -> DecQ
+Name: closedTypeFamilyKindD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:closedTypeFamilyKindD
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+	other::List {
+		Language.Haskell.TH::TyVarBndr
+	}
+	Language.Haskell.TH::Kind
+	other::List {
+		Language.Haskell.TH::TySynEqnQ
+	}
+
+	[result]
+	Language.Haskell.TH::DecQ
+}
+
+[Function]
+lookupTypeName :: String -> Q (Maybe Name)
+Name: lookupTypeName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:lookupTypeName
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Language.Haskell.TH::Q {
+		Data.Maybe::Maybe {
+			Language.Haskell.TH::Name
+		}
+	}
+}
+
+[Function]
+stdCall :: Callconv
+Name: stdCall
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:stdCall
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH::Callconv
+}
+
+[Function]
+asP :: Name -> PatQ -> PatQ
+Name: asP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:asP
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+	Language.Haskell.TH::PatQ
+
+	[result]
+	Language.Haskell.TH::PatQ
+}
+
+[Function]
+reportWarning :: String -> Q ()
+Name: reportWarning
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:reportWarning
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Language.Haskell.TH::Q {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+pprParendType :: Type -> Doc
+Name: pprParendType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:pprParendType
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Type
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+notStrict :: Q Strict
+Name: notStrict
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:notStrict
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH::Q {
+		Language.Haskell.TH::Strict
+	}
+}
+
+[Function]
+forallC :: [TyVarBndr] -> CxtQ -> ConQ -> ConQ
+Name: forallC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:forallC
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Language.Haskell.TH::TyVarBndr
+	}
+	Language.Haskell.TH::CxtQ
+	Language.Haskell.TH::ConQ
+
+	[result]
+	Language.Haskell.TH::ConQ
+}
+
+[Function]
+forallT :: [TyVarBndr] -> CxtQ -> TypeQ -> TypeQ
+Name: forallT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:forallT
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Language.Haskell.TH::TyVarBndr
+	}
+	Language.Haskell.TH::CxtQ
+	Language.Haskell.TH::TypeQ
+
+	[result]
+	Language.Haskell.TH::TypeQ
+}
+
+[Function]
+familyNoKindD :: FamFlavour -> Name -> [TyVarBndr] -> DecQ
+Name: familyNoKindD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:familyNoKindD
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::FamFlavour
+	Language.Haskell.TH::Name
+	other::List {
+		Language.Haskell.TH::TyVarBndr
+	}
+
+	[result]
+	Language.Haskell.TH::DecQ
+}
+
+[Function]
+dataInstD :: CxtQ -> Name -> [TypeQ] -> [ConQ] -> [Name] -> DecQ
+Name: dataInstD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:dataInstD
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::CxtQ
+	Language.Haskell.TH::Name
+	other::List {
+		Language.Haskell.TH::TypeQ
+	}
+	other::List {
+		Language.Haskell.TH::ConQ
+	}
+	other::List {
+		Language.Haskell.TH::Name
+	}
+
+	[result]
+	Language.Haskell.TH::DecQ
+}
+
+[Function]
+inferR :: Role
+Name: inferR
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:inferR
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH.Lib::Role
+}
+
+[Function]
+typedRuleVar :: Name -> TypeQ -> RuleBndrQ
+Name: typedRuleVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH.html#v:typedRuleVar
+Containing package: Language.Haskell.TH
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH::Name
+	Language.Haskell.TH::TypeQ
+
+	[result]
+	Language.Haskell.TH::RuleBndrQ
+}

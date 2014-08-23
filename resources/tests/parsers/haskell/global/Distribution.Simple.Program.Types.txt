@@ -1,0 +1,202 @@
+[Package]
+Name: Distribution.Simple.Program.Types
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-Types.html
+Containing package: Distribution.Simple.Program
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data ProgramLocation = UserSpecified { locationPath :: FilePath } | FoundOnSystem { locationPath :: FilePath }
+Name: Program
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-Types.html#t:Program
+Containing package: Distribution.Simple.Program.Types
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ConfiguredProgram = ConfiguredProgram { programId :: String programVersion :: Maybe Version programDefaultArgs :: [String] programOverrideArgs :: [String] programOverrideEnv :: [(String, Maybe String)] programLocation :: ProgramLocation}
+Name: ConfiguredProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-Types.html#t:ConfiguredProgram
+Containing package: Distribution.Simple.Program.Types
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ProgramLocation = UserSpecified { locationPath :: FilePath } | FoundOnSystem { locationPath :: FilePath }
+Name: ProgramLocation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-Types.html#t:ProgramLocation
+Containing package: Distribution.Simple.Program.Types
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ProgramSearchPathEntry = ProgramSearchPathDir FilePath | ProgramSearchPathDefault
+Name: ProgramSearchPathEntry
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-Types.html#t:ProgramSearchPathEntry
+Containing package: Distribution.Simple.Program.Types
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type ProgramSearchPath = [ProgramSearchPathEntry]
+Name: ProgramSearchPath
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-Types.html#t:ProgramSearchPath
+Containing package: Distribution.Simple.Program.Types
+attributes {
+}
+parameters {
+}
+Aliased type = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		Distribution.Simple.Program.Types::ProgramSearchPathEntry
+	}
+}
+
+[Alias]
+type ProgArg = String
+Name: ProgArg
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-Types.html#t:ProgArg
+Containing package: Distribution.Simple.Program.Types
+attributes {
+}
+parameters {
+}
+Aliased type = Data.String::String
+
+[Function]
+simpleProgram :: String -> Program
+Name: simpleProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-Types.html#v:simpleProgram
+Containing package: Distribution.Simple.Program.Types
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Distribution.Simple.Program.Types::Program
+}
+
+[Function]
+programPath :: ConfiguredProgram -> FilePath
+Name: programPath
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-Types.html#v:programPath
+Containing package: Distribution.Simple.Program.Types
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program.Types::ConfiguredProgram
+
+	[result]
+	System.IO::FilePath
+}
+
+[Function]
+suppressOverrideArgs :: ConfiguredProgram -> ConfiguredProgram
+Name: suppressOverrideArgs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-Types.html#v:suppressOverrideArgs
+Containing package: Distribution.Simple.Program.Types
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program.Types::ConfiguredProgram
+
+	[result]
+	Distribution.Simple.Program.Types::ConfiguredProgram
+}
+
+[Function]
+simpleConfiguredProgram :: String -> ProgramLocation -> ConfiguredProgram
+Name: simpleConfiguredProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program-Types.html#v:simpleConfiguredProgram
+Containing package: Distribution.Simple.Program.Types
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Distribution.Simple.Program.Types::ProgramLocation
+
+	[result]
+	Distribution.Simple.Program.Types::ConfiguredProgram
+}

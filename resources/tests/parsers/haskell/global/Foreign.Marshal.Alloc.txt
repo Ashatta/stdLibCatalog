@@ -1,0 +1,267 @@
+[Package]
+Name: Foreign.Marshal.Alloc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Marshal-Alloc.html
+Containing package: Foreign.Marshal
+attributes {
+}
+
+Subpackages {
+}
+
+[Function]
+finalizerFree :: FinalizerPtr a
+Name: finalizerFree
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Marshal-Alloc.html#v:finalizerFree
+Containing package: Foreign.Marshal.Alloc
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.ForeignPtr.Safe::FinalizerPtr {
+		null::a
+	}
+}
+
+[Function]
+malloc :: Storable a => IO (Ptr a)
+Name: malloc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Marshal-Alloc.html#v:malloc
+Containing package: Foreign.Marshal.Alloc
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Storable a; a; Foreign.Storable::Storable)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Foreign.Ptr::Ptr {
+			null::a
+		}
+	}
+}
+
+[Function]
+allocaBytesAligned :: Int -> Int -> (Ptr a -> IO b) -> IO b
+Name: allocaBytesAligned
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Marshal-Alloc.html#v:allocaBytesAligned
+Containing package: Foreign.Marshal.Alloc
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	Data.Int::Int
+	<function> {
+		[parameters]
+		Foreign.Ptr::Ptr {
+			null::a
+		}
+	
+		[result]
+		System.IO::IO {
+			null::b
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::b
+	}
+}
+
+[Function]
+alloca :: Storable a => (Ptr a -> IO b) -> IO b
+Name: alloca
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Marshal-Alloc.html#v:alloca
+Containing package: Foreign.Marshal.Alloc
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Storable a; a; Foreign.Storable::Storable)
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Foreign.Ptr::Ptr {
+			null::a
+		}
+	
+		[result]
+		System.IO::IO {
+			null::b
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::b
+	}
+}
+
+[Function]
+mallocBytes :: Int -> IO (Ptr a)
+Name: mallocBytes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Marshal-Alloc.html#v:mallocBytes
+Containing package: Foreign.Marshal.Alloc
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		Foreign.Ptr::Ptr {
+			null::a
+		}
+	}
+}
+
+[Function]
+reallocBytes :: Ptr a -> Int -> IO (Ptr a)
+Name: reallocBytes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Marshal-Alloc.html#v:reallocBytes
+Containing package: Foreign.Marshal.Alloc
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		Foreign.Ptr::Ptr {
+			null::a
+		}
+	}
+}
+
+[Function]
+realloc :: Storable b => Ptr a -> IO (Ptr b)
+Name: realloc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Marshal-Alloc.html#v:realloc
+Containing package: Foreign.Marshal.Alloc
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	b: (Storable b; b; Foreign.Storable::Storable)
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		Foreign.Ptr::Ptr {
+			null::b
+		}
+	}
+}
+
+[Function]
+allocaBytes :: Int -> (Ptr a -> IO b) -> IO b
+Name: allocaBytes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Marshal-Alloc.html#v:allocaBytes
+Containing package: Foreign.Marshal.Alloc
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	<function> {
+		[parameters]
+		Foreign.Ptr::Ptr {
+			null::a
+		}
+	
+		[result]
+		System.IO::IO {
+			null::b
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::b
+	}
+}
+
+[Function]
+free :: Ptr a -> IO ()
+Name: free
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Marshal-Alloc.html#v:free
+Containing package: Foreign.Marshal.Alloc
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}

@@ -1,0 +1,282 @@
+[Package]
+Name: Distribution.InstalledPackageInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-InstalledPackageInfo.html
+Containing package: Distribution
+attributes {
+}
+
+Subpackages {
+	Distribution.InstalledPackageInfo.Binary
+}
+
+[Classifier]
+data PError = AmbiguousParse String LineNo | NoParse String LineNo | TabsError LineNo | FromString String (Maybe LineNo)
+Name: PError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-InstalledPackageInfo.html#t:PError
+Containing package: Distribution.InstalledPackageInfo
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data PWarning
+Name: PWarning
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-InstalledPackageInfo.html#t:PWarning
+Containing package: Distribution.InstalledPackageInfo
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data InstalledPackageInfo_ m = InstalledPackageInfo { 
+	installedPackageId :: InstalledPackageId
+	sourcePackageId :: PackageId
+	license :: License
+	copyright :: String
+	maintainer :: String
+	author :: String
+	stability :: String
+	homepage :: String
+	pkgUrl :: String
+	synopsis :: String
+	description :: String
+	category :: String
+	exposed :: Bool
+	exposedModules :: [m]
+	hiddenModules :: [m]
+	trusted :: Bool
+	importDirs :: [FilePath]
+	libraryDirs :: [FilePath]
+	hsLibraries :: [String]
+	extraLibraries :: [String]
+	extraGHCiLibraries :: [String]
+	includeDirs :: [FilePath]
+	includes :: [String]
+	depends :: [InstalledPackageId]
+	hugsOptions :: [String]
+	ccOptions :: [String]
+	ldOptions :: [String]
+	frameworkDirs :: [FilePath]
+	frameworks :: [String]
+	haddockInterfaces :: [FilePath]
+	haddockHTMLs :: [FilePath]
+} 
+Name: InstalledPackageInfo_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-InstalledPackageInfo.html#t:InstalledPackageInfo_
+Containing package: Distribution.InstalledPackageInfo
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	m
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ParseResult a = ParseFailed PError | ParseOk [PWarning] a
+Name: ParseResult
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-InstalledPackageInfo.html#t:ParseResult
+Containing package: Distribution.InstalledPackageInfo
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type InstalledPackageInfo = InstalledPackageInfo_ ModuleName Source
+Name: InstalledPackageInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-InstalledPackageInfo.html#t:InstalledPackageInfo
+Containing package: Distribution.InstalledPackageInfo
+attributes {
+}
+parameters {
+}
+Aliased type = Distribution.InstalledPackageInfo::InstalledPackageInfo_ {
+	Distribution.ModuleName::ModuleName
+}
+
+[Function]
+emptyInstalledPackageInfo :: InstalledPackageInfo_ m
+Name: emptyInstalledPackageInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-InstalledPackageInfo.html#v:emptyInstalledPackageInfo
+Containing package: Distribution.InstalledPackageInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.InstalledPackageInfo::InstalledPackageInfo_ {
+		null::m
+	}
+}
+
+[Function]
+showSimpleInstalledPackageInfoField :: String -> Maybe (InstalledPackageInfo -> String)
+Name: showSimpleInstalledPackageInfoField
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-InstalledPackageInfo.html#v:showSimpleInstalledPackageInfoField
+Containing package: Distribution.InstalledPackageInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Data.Maybe::Maybe {
+		<function> {
+			[parameters]
+			Distribution.InstalledPackageInfo::InstalledPackageInfo
+		
+			[result]
+			Data.String::String
+		}
+	}
+}
+
+[Function]
+parseInstalledPackageInfo :: String -> ParseResult InstalledPackageInfo
+Name: parseInstalledPackageInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-InstalledPackageInfo.html#v:parseInstalledPackageInfo
+Containing package: Distribution.InstalledPackageInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Distribution.InstalledPackageInfo::ParseResult {
+		Distribution.InstalledPackageInfo::InstalledPackageInfo
+	}
+}
+
+[Function]
+showInstalledPackageInfo :: InstalledPackageInfo -> String
+Name: showInstalledPackageInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-InstalledPackageInfo.html#v:showInstalledPackageInfo
+Containing package: Distribution.InstalledPackageInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.InstalledPackageInfo::InstalledPackageInfo
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+showInstalledPackageInfoField :: String -> Maybe (InstalledPackageInfo -> String)
+Name: showInstalledPackageInfoField
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-InstalledPackageInfo.html#v:showInstalledPackageInfoField
+Containing package: Distribution.InstalledPackageInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Data.Maybe::Maybe {
+		<function> {
+			[parameters]
+			Distribution.InstalledPackageInfo::InstalledPackageInfo
+		
+			[result]
+			Data.String::String
+		}
+	}
+}
+
+[Function]
+fieldsInstalledPackageInfo :: [FieldDescr InstalledPackageInfo]
+Name: fieldsInstalledPackageInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-InstalledPackageInfo.html#v:fieldsInstalledPackageInfo
+Containing package: Distribution.InstalledPackageInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		Distribution.PackageDescription.Parse::FieldDescr {
+			Distribution.InstalledPackageInfo::InstalledPackageInfo
+		}
+	}
+}

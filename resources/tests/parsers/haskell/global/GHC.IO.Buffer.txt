@@ -1,0 +1,769 @@
+[Package]
+Name: GHC.IO.Buffer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html
+Containing package: IO
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data BufferState = ReadBuffer | WriteBuffer
+Name: BufferState
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#t:BufferState
+Containing package: GHC.IO.Buffer
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Buffer e = Buffer { bufRaw :: !(RawBuffer e) bufState :: BufferState bufSize :: !Int bufL :: !Int bufR :: !Int}
+Name: Buffer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#t:Buffer
+Containing package: GHC.IO.Buffer
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	e
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type CharBufElem = Char
+Name: CharBufElem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#t:CharBufElem
+Containing package: GHC.IO.Buffer
+attributes {
+}
+parameters {
+}
+Aliased type = Data.Char::Char
+
+[Alias]
+type RawCharBuffer = RawBuffer CharBufElem
+Name: RawCharBuffer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#t:RawCharBuffer
+Containing package: GHC.IO.Buffer
+attributes {
+}
+parameters {
+}
+Aliased type = GHC.IO.Buffer::RawBuffer {
+	GHC.IO.Buffer::CharBufElem
+}
+
+[Alias]
+type RawBuffer e = ForeignPtr e
+Name: RawBuffer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#t:RawBuffer
+Containing package: GHC.IO.Buffer
+attributes {
+}
+parameters {
+	e
+}
+Aliased type = Foreign.ForeignPtr.Safe::ForeignPtr {
+	null::e
+}
+
+[Alias]
+type CharBuffer = Buffer Char
+Name: CharBuffer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#t:CharBuffer
+Containing package: GHC.IO.Buffer
+attributes {
+}
+parameters {
+}
+Aliased type = GHC.IO.Buffer::Buffer {
+	Data.Char::Char
+}
+
+[Function]
+withBuffer :: Buffer e -> (Ptr e -> IO a) -> IO a
+Name: withBuffer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#v:withBuffer
+Containing package: GHC.IO.Buffer
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e
+	a
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Buffer::Buffer {
+		null::e
+	}
+	<function> {
+		[parameters]
+		Foreign.Ptr::Ptr {
+			null::e
+		}
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+writeCharBuf :: RawCharBuffer -> Int -> Char -> IO Int
+Name: writeCharBuf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#v:writeCharBuf
+Containing package: GHC.IO.Buffer
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Buffer::RawCharBuffer
+	Data.Int::Int
+	Data.Char::Char
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}
+
+[Function]
+newBuffer :: Int -> Int -> BufferState -> IO (Buffer e)
+Name: newBuffer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#v:newBuffer
+Containing package: GHC.IO.Buffer
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	Data.Int::Int
+	GHC.IO.Buffer::BufferState
+
+	[result]
+	System.IO::IO {
+		GHC.IO.Buffer::Buffer {
+			null::e
+		}
+	}
+}
+
+[Function]
+readCharBufPtr :: Ptr CharBufElem -> Int -> IO (Char, Int)
+Name: readCharBufPtr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#v:readCharBufPtr
+Containing package: GHC.IO.Buffer
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		GHC.IO.Buffer::CharBufElem
+	}
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			Data.Char::Char
+			Data.Int::Int
+		}
+	}
+}
+
+[Function]
+writeCharBufPtr :: Ptr CharBufElem -> Int -> Char -> IO Int
+Name: writeCharBufPtr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#v:writeCharBufPtr
+Containing package: GHC.IO.Buffer
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		GHC.IO.Buffer::CharBufElem
+	}
+	Data.Int::Int
+	Data.Char::Char
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}
+
+[Function]
+checkBuffer :: Buffer a -> IO ()
+Name: checkBuffer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#v:checkBuffer
+Containing package: GHC.IO.Buffer
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Buffer::Buffer {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+bufferAvailable :: Buffer e -> Int
+Name: bufferAvailable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#v:bufferAvailable
+Containing package: GHC.IO.Buffer
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Buffer::Buffer {
+		null::e
+	}
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+newByteBuffer :: Int -> BufferState -> IO (Buffer Word8)
+Name: newByteBuffer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#v:newByteBuffer
+Containing package: GHC.IO.Buffer
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	GHC.IO.Buffer::BufferState
+
+	[result]
+	System.IO::IO {
+		GHC.IO.Buffer::Buffer {
+			Data.Word::Word8
+		}
+	}
+}
+
+[Function]
+bufferAdjustL :: Int -> Buffer e -> Buffer e
+Name: bufferAdjustL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#v:bufferAdjustL
+Containing package: GHC.IO.Buffer
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	GHC.IO.Buffer::Buffer {
+		null::e
+	}
+
+	[result]
+	GHC.IO.Buffer::Buffer {
+		null::e
+	}
+}
+
+[Function]
+writeWord8Buf :: RawBuffer Word8 -> Int -> Word8 -> IO ()
+Name: writeWord8Buf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#v:writeWord8Buf
+Containing package: GHC.IO.Buffer
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Buffer::RawBuffer {
+		Data.Word::Word8
+	}
+	Data.Int::Int
+	Data.Word::Word8
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+bufferRemove :: Int -> Buffer e -> Buffer e
+Name: bufferRemove
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#v:bufferRemove
+Containing package: GHC.IO.Buffer
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	GHC.IO.Buffer::Buffer {
+		null::e
+	}
+
+	[result]
+	GHC.IO.Buffer::Buffer {
+		null::e
+	}
+}
+
+[Function]
+readWord8Buf :: RawBuffer Word8 -> Int -> IO Word8
+Name: readWord8Buf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#v:readWord8Buf
+Containing package: GHC.IO.Buffer
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Buffer::RawBuffer {
+		Data.Word::Word8
+	}
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		Data.Word::Word8
+	}
+}
+
+[Function]
+summaryBuffer :: Buffer a -> String
+Name: summaryBuffer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#v:summaryBuffer
+Containing package: GHC.IO.Buffer
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Buffer::Buffer {
+		null::a
+	}
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+bufferAdd :: Int -> Buffer e -> Buffer e
+Name: bufferAdd
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#v:bufferAdd
+Containing package: GHC.IO.Buffer
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	GHC.IO.Buffer::Buffer {
+		null::e
+	}
+
+	[result]
+	GHC.IO.Buffer::Buffer {
+		null::e
+	}
+}
+
+[Function]
+newCharBuffer :: Int -> BufferState -> IO CharBuffer
+Name: newCharBuffer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#v:newCharBuffer
+Containing package: GHC.IO.Buffer
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	GHC.IO.Buffer::BufferState
+
+	[result]
+	System.IO::IO {
+		GHC.IO.Buffer::CharBuffer
+	}
+}
+
+[Function]
+isFullCharBuffer :: Buffer e -> Bool
+Name: isFullCharBuffer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#v:isFullCharBuffer
+Containing package: GHC.IO.Buffer
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Buffer::Buffer {
+		null::e
+	}
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+isFullBuffer :: Buffer e -> Bool
+Name: isFullBuffer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#v:isFullBuffer
+Containing package: GHC.IO.Buffer
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Buffer::Buffer {
+		null::e
+	}
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+emptyBuffer :: RawBuffer e -> Int -> BufferState -> Buffer e
+Name: emptyBuffer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#v:emptyBuffer
+Containing package: GHC.IO.Buffer
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Buffer::RawBuffer {
+		null::e
+	}
+	Data.Int::Int
+	GHC.IO.Buffer::BufferState
+
+	[result]
+	GHC.IO.Buffer::Buffer {
+		null::e
+	}
+}
+
+[Function]
+isWriteBuffer :: Buffer e -> Bool
+Name: isWriteBuffer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#v:isWriteBuffer
+Containing package: GHC.IO.Buffer
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Buffer::Buffer {
+		null::e
+	}
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+charSize :: Int
+Name: charSize
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#v:charSize
+Containing package: GHC.IO.Buffer
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+slideContents :: Buffer Word8 -> IO (Buffer Word8)
+Name: slideContents
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#v:slideContents
+Containing package: GHC.IO.Buffer
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Buffer::Buffer {
+		Data.Word::Word8
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.IO.Buffer::Buffer {
+			Data.Word::Word8
+		}
+	}
+}
+
+[Function]
+peekCharBuf :: RawCharBuffer -> Int -> IO Char
+Name: peekCharBuf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#v:peekCharBuf
+Containing package: GHC.IO.Buffer
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Buffer::RawCharBuffer
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		Data.Char::Char
+	}
+}
+
+[Function]
+withRawBuffer :: RawBuffer e -> (Ptr e -> IO a) -> IO a
+Name: withRawBuffer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#v:withRawBuffer
+Containing package: GHC.IO.Buffer
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e
+	a
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Buffer::RawBuffer {
+		null::e
+	}
+	<function> {
+		[parameters]
+		Foreign.Ptr::Ptr {
+			null::e
+		}
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+isEmptyBuffer :: Buffer e -> Bool
+Name: isEmptyBuffer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#v:isEmptyBuffer
+Containing package: GHC.IO.Buffer
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Buffer::Buffer {
+		null::e
+	}
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+bufferElems :: Buffer e -> Int
+Name: bufferElems
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#v:bufferElems
+Containing package: GHC.IO.Buffer
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Buffer::Buffer {
+		null::e
+	}
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+readCharBuf :: RawCharBuffer -> Int -> IO (Char, Int)
+Name: readCharBuf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Buffer.html#v:readCharBuf
+Containing package: GHC.IO.Buffer
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Buffer::RawCharBuffer
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			Data.Char::Char
+			Data.Int::Int
+		}
+	}
+}

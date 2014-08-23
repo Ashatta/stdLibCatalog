@@ -1,0 +1,159 @@
+[Package]
+Name: System.Posix.Unistd
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Unistd.html
+Containing package: System.Posix
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data SysVar = ArgumentLimit | ChildLimit | ClockTick | GroupLimit | OpenFileLimit | PosixVersion | HasSavedIDs | HasJobControl
+Name: SysVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Unistd.html#t:SysVar
+Containing package: System.Posix.Unistd
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data SystemID = SystemID { systemName :: String nodeName :: String release :: String version :: String machine :: String}
+Name: SystemID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Unistd.html#t:SystemID
+Containing package: System.Posix.Unistd
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+getSystemID :: IO SystemID
+Name: getSystemID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Unistd.html#v:getSystemID
+Containing package: System.Posix.Unistd
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.Posix.Unistd::SystemID
+	}
+}
+
+[Function]
+usleep :: Int -> IO ()
+Name: usleep
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Unistd.html#v:usleep
+Containing package: System.Posix.Unistd
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+sleep :: Int -> IO Int
+Name: sleep
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Unistd.html#v:sleep
+Containing package: System.Posix.Unistd
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}
+
+[Function]
+getSysVar :: SysVar -> IO Integer
+Name: getSysVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Unistd.html#v:getSysVar
+Containing package: System.Posix.Unistd
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Unistd::SysVar
+
+	[result]
+	System.IO::IO {
+		Prelude::Integer
+	}
+}
+
+[Function]
+nanosleep :: Integer -> IO ()
+Name: nanosleep
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Unistd.html#v:nanosleep
+Containing package: System.Posix.Unistd
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Integer
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}

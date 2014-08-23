@@ -1,0 +1,1028 @@
+[Package]
+Name: Data.Typeable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html
+Containing package: Data
+attributes {
+}
+
+Subpackages {
+	Data.Typeable.Internal
+}
+
+[Classifier]
+data TypeRep
+Name: TypeRep
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#t:TypeRep
+Containing package: Data.Typeable
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TyCon
+Name: TyCon
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#t:TyCon
+Containing package: Data.Typeable
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Proxy t = Proxy
+Name: Proxy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#t:Proxy
+Containing package: Data.Typeable
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	t
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class Typeable a
+Name: Typeable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#t:Typeable
+Containing package: Data.Typeable
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Data.Bool::Data.Typeable.Typeable_Bool<>
+	Data.Char::Data.Typeable.Typeable_Char<>
+	Prelude::Data.Typeable.Typeable_Double<>
+	Prelude::Data.Typeable.Typeable_Float<>
+	Data.Int::Data.Typeable.Typeable_Int<>
+	Data.Int::Data.Typeable.Typeable_Int8<>
+	Data.Int::Data.Typeable.Typeable_Int16<>
+	Data.Int::Data.Typeable.Typeable_Int32<>
+	Data.Int::Data.Typeable.Typeable_Int64<>
+	Prelude::Data.Typeable.Typeable_Integer<>
+	Data.Ord::Data.Typeable.Typeable_Ordering<>
+	Control.Monad.ST.Safe::Data.Typeable.Typeable_RealWorld<>
+	Data.Word::Data.Typeable.Typeable_Word<>
+	Data.Word::Data.Typeable.Typeable_Word8<>
+	Data.Word::Data.Typeable.Typeable_Word16<>
+	Data.Word::Data.Typeable.Typeable_Word32<>
+	Data.Word::Data.Typeable.Typeable_Word64<>
+	GHC.Tuple::Data.Typeable.Typeable_()<>
+	Control.Exception.Base::Data.Typeable.Typeable_SomeException<>
+	Data.Typeable::Data.Typeable.Typeable_TyCon<>
+	Data.Typeable::Data.Typeable.Typeable_TypeRep<>
+	Control.Exception.Base::Data.Typeable.Typeable_ArithException<>
+	Control.Exception.Base::Data.Typeable.Typeable_ErrorCall<>
+	Control.Exception.Base::Data.Typeable.Typeable_IOException<>
+	Data.Dynamic::Data.Typeable.Typeable_Dynamic<>
+	Foreign.C.Types::Data.Typeable.Typeable_CUIntMax<>
+	Foreign.C.Types::Data.Typeable.Typeable_CIntMax<>
+	Foreign.C.Types::Data.Typeable.Typeable_CUIntPtr<>
+	Foreign.C.Types::Data.Typeable.Typeable_CIntPtr<>
+	Foreign.C.Types::Data.Typeable.Typeable_CSUSeconds<>
+	Foreign.C.Types::Data.Typeable.Typeable_CUSeconds<>
+	Foreign.C.Types::Data.Typeable.Typeable_CTime<>
+	Foreign.C.Types::Data.Typeable.Typeable_CClock<>
+	Foreign.C.Types::Data.Typeable.Typeable_CSigAtomic<>
+	Foreign.C.Types::Data.Typeable.Typeable_CWchar<>
+	Foreign.C.Types::Data.Typeable.Typeable_CSize<>
+	Foreign.C.Types::Data.Typeable.Typeable_CPtrdiff<>
+	Foreign.C.Types::Data.Typeable.Typeable_CDouble<>
+	Foreign.C.Types::Data.Typeable.Typeable_CFloat<>
+	Foreign.C.Types::Data.Typeable.Typeable_CULLong<>
+	Foreign.C.Types::Data.Typeable.Typeable_CLLong<>
+	Foreign.C.Types::Data.Typeable.Typeable_CULong<>
+	Foreign.C.Types::Data.Typeable.Typeable_CLong<>
+	Foreign.C.Types::Data.Typeable.Typeable_CUInt<>
+	Foreign.C.Types::Data.Typeable.Typeable_CInt<>
+	Foreign.C.Types::Data.Typeable.Typeable_CUShort<>
+	Foreign.C.Types::Data.Typeable.Typeable_CShort<>
+	Foreign.C.Types::Data.Typeable.Typeable_CUChar<>
+	Foreign.C.Types::Data.Typeable.Typeable_CSChar<>
+	Foreign.C.Types::Data.Typeable.Typeable_CChar<>
+	Foreign.Ptr::Data.Typeable.Typeable_IntPtr<>
+	Foreign.Ptr::Data.Typeable.Typeable_WordPtr<>
+	GHC.IO.Handle::Data.Typeable.Typeable_Handle<>
+	System.Exit::Data.Typeable.Typeable_ExitCode<>
+	Control.Exception.Base::Data.Typeable.Typeable_ArrayException<>
+	Control.Exception.Base::Data.Typeable.Typeable_AsyncException<>
+	Control.Exception.Base::Data.Typeable.Typeable_SomeAsyncException<>
+	Control.Exception.Base::Data.Typeable.Typeable_AssertionFailed<>
+	Control.Exception.Base::Data.Typeable.Typeable_Deadlock<>
+	Control.Exception.Base::Data.Typeable.Typeable_BlockedIndefinitelyOnSTM<>
+	Control.Exception.Base::Data.Typeable.Typeable_BlockedIndefinitelyOnMVar<>
+	System.Posix.Types::Data.Typeable.Typeable_Fd<>
+	System.Posix.Types::Data.Typeable.Typeable_CRLim<>
+	System.Posix.Types::Data.Typeable.Typeable_CTcflag<>
+	System.Posix.Types::Data.Typeable.Typeable_CSpeed<>
+	System.Posix.Types::Data.Typeable.Typeable_CCc<>
+	System.Posix.Types::Data.Typeable.Typeable_CUid<>
+	System.Posix.Types::Data.Typeable.Typeable_CNlink<>
+	System.Posix.Types::Data.Typeable.Typeable_CGid<>
+	System.Posix.Types::Data.Typeable.Typeable_CSsize<>
+	System.Posix.Types::Data.Typeable.Typeable_CPid<>
+	System.Posix.Types::Data.Typeable.Typeable_COff<>
+	System.Posix.Types::Data.Typeable.Typeable_CMode<>
+	System.Posix.Types::Data.Typeable.Typeable_CIno<>
+	System.Posix.Types::Data.Typeable.Typeable_CDev<>
+	Control.Concurrent::Data.Typeable.Typeable_ThreadId<>
+	Control.Exception.Base::Data.Typeable.Typeable_NestedAtomically<>
+	Control.Exception.Base::Data.Typeable.Typeable_NonTermination<>
+	Control.Exception.Base::Data.Typeable.Typeable_NoMethodError<>
+	Control.Exception.Base::Data.Typeable.Typeable_RecUpdError<>
+	Control.Exception.Base::Data.Typeable.Typeable_RecConError<>
+	Control.Exception.Base::Data.Typeable.Typeable_RecSelError<>
+	Control.Exception.Base::Data.Typeable.Typeable_PatternMatchFail<>
+	Control.Concurrent.QSemN::Data.Typeable.Typeable_QSemN<>
+	Data.Version::Data.Typeable.Typeable_Version<>
+	Data.Fixed::Data.Typeable.Typeable_E12<>
+	Data.Fixed::Data.Typeable.Typeable_E9<>
+	Data.Fixed::Data.Typeable.Typeable_E6<>
+	Data.Fixed::Data.Typeable.Typeable_E3<>
+	Data.Fixed::Data.Typeable.Typeable_E2<>
+	Data.Fixed::Data.Typeable.Typeable_E1<>
+	Data.Fixed::Data.Typeable.Typeable_E0<>
+	Data.Unique::Data.Typeable.Typeable_Unique<>
+	GHC.Exts::Data.Typeable.Typeable_SpecConstrAnnotation<>
+	other::Data.Typeable.Typeable_s<a<>>
+	Control.Applicative::Data.Typeable.Typeable_Alternative<>
+	Control.Applicative::Data.Typeable.Typeable_Applicative<>
+	GHC.Tuple::Data.Typeable.Typeable_(,,,,,,,)<()<>,()<>,()<>,()<>,()<>,(,)<>>
+	GHC.Tuple::Data.Typeable.Typeable_(,,,,,,)<()<>,()<>,()<>,()<>,(,)<>>
+	GHC.Tuple::Data.Typeable.Typeable_(,,,,,)<()<>,()<>,()<>,(,)<>>
+	GHC.Tuple::Data.Typeable.Typeable_(,,,,)<()<>,()<>,(,)<>>
+	GHC.Tuple::Data.Typeable.Typeable_(,,,)<()<>,(,)<>>
+	other::Data.Typeable.Typeable_(->)<>
+	Data.Either::Data.Typeable.Typeable_Either<>
+	GHC.Tuple::Data.Typeable.Typeable_(,)<>
+	Control.Monad.ST.Safe::Data.Typeable.Typeable_ST<>
+	Data.STRef::Data.Typeable.Typeable_STRef<>
+	other::Data.Typeable.Typeable_List<curriedParam<>>
+	Data.Ratio::Data.Typeable.Typeable_Ratio<>
+	Foreign.StablePtr::Data.Typeable.Typeable_StablePtr<>
+	System.IO::Data.Typeable.Typeable_IO<>
+	Foreign.Ptr::Data.Typeable.Typeable_Ptr<>
+	Foreign.Ptr::Data.Typeable.Typeable_FunPtr<>
+	Data.Maybe::Data.Typeable.Typeable_Maybe<>
+	Data.IORef::Data.Typeable.Typeable_IORef<>
+	Control.Concurrent.MVar::Data.Typeable.Typeable_MVar<>
+	System.Mem.Weak::Data.Typeable.Typeable_Weak<>
+	Foreign.ForeignPtr.Safe::Data.Typeable.Typeable_ForeignPtr<>
+	GHC.Conc::Data.Typeable.Typeable_TVar<>
+	GHC.Conc::Data.Typeable.Typeable_STM<>
+	Control.Concurrent.Chan::Data.Typeable.Typeable_Chan<>
+	Data.Complex::Data.Typeable.Typeable_Complex<>
+	Data.Fixed::Data.Typeable.Typeable_Fixed<>
+	System.Mem.StableName::Data.Typeable.Typeable_StableName<>
+	Data.Monoid::Data.Typeable.Typeable_Monoid<>
+	Data.Type.Coercion::Data.Typeable.Typeable_Coercion<>
+	Data.Typeable::Data.Typeable.Typeable_(:~:)<>
+	Data.Typeable::Data.Typeable.Typeable_Proxy<>
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data a :~: b where Refl :: a :~: a
+Name: (:~:)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#t:(:~:)
+Containing package: Data.Typeable
+attributes {
+	infix=true
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+	b
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type Typeable6 a = Typeable a
+Name: Typeable6
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#t:Typeable6
+Containing package: Data.Typeable
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = Data.Typeable::Typeable {
+	null::a
+}
+
+[Alias]
+type Typeable7 a = Typeable a
+Name: Typeable7
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#t:Typeable7
+Containing package: Data.Typeable
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = Data.Typeable::Typeable {
+	null::a
+}
+
+[Alias]
+type Typeable4 a = Typeable a
+Name: Typeable4
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#t:Typeable4
+Containing package: Data.Typeable
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = Data.Typeable::Typeable {
+	null::a
+}
+
+[Alias]
+type Typeable5 a = Typeable a
+Name: Typeable5
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#t:Typeable5
+Containing package: Data.Typeable
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = Data.Typeable::Typeable {
+	null::a
+}
+
+[Alias]
+type Typeable2 a = Typeable a
+Name: Typeable2
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#t:Typeable2
+Containing package: Data.Typeable
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = Data.Typeable::Typeable {
+	null::a
+}
+
+[Alias]
+type Typeable3 a = Typeable a
+Name: Typeable3
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#t:Typeable3
+Containing package: Data.Typeable
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = Data.Typeable::Typeable {
+	null::a
+}
+
+[Alias]
+type Typeable1 a = Typeable a
+Name: Typeable1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#t:Typeable1
+Containing package: Data.Typeable
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = Data.Typeable::Typeable {
+	null::a
+}
+
+[Function]
+mkTyConApp :: TyCon -> [TypeRep] -> TypeRep
+Name: mkTyConApp
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#v:mkTyConApp
+Containing package: Data.Typeable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Typeable::TyCon
+	other::List {
+		Data.Typeable::TypeRep
+	}
+
+	[result]
+	Data.Typeable::TypeRep
+}
+
+[Function]
+gcast1 :: forall c t t' a. (Typeable t, Typeable t') => c (t a) -> Maybe (c (t' a))
+Name: gcast1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#v:gcast1
+Containing package: Data.Typeable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Typeable t; t; Data.Typeable::Typeable)
+	t': (Typeable t'; t'; Data.Typeable::Typeable)
+	c
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::c {
+		null::t {
+			null::a
+		}
+	}
+
+	[result]
+	Data.Maybe::Maybe {
+		null::c {
+			null::t' {
+				null::a
+			}
+		}
+	}
+}
+
+[Function]
+gcast2 :: forall c t t' a b. (Typeable t, Typeable t') => c (t a b) -> Maybe (c (t' a b))
+Name: gcast2
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#v:gcast2
+Containing package: Data.Typeable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Typeable t; t; Data.Typeable::Typeable)
+	t': (Typeable t'; t'; Data.Typeable::Typeable)
+	c
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	null::c {
+		null::t {
+			null::a
+			null::b
+		}
+	}
+
+	[result]
+	Data.Maybe::Maybe {
+		null::c {
+			null::t' {
+				null::a
+				null::b
+			}
+		}
+	}
+}
+
+[Function]
+mkAppTy :: TypeRep -> TypeRep -> TypeRep
+Name: mkAppTy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#v:mkAppTy
+Containing package: Data.Typeable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Typeable::TypeRep
+	Data.Typeable::TypeRep
+
+	[result]
+	Data.Typeable::TypeRep
+}
+
+[Function]
+cast :: forall a b. (Typeable a, Typeable b) => a -> Maybe b
+Name: cast
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#v:cast
+Containing package: Data.Typeable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Typeable a; a; Data.Typeable::Typeable)
+	b: (Typeable b; b; Data.Typeable::Typeable)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	Data.Maybe::Maybe {
+		null::b
+	}
+}
+
+[Function]
+tyConPackage :: TyCon -> String
+Name: tyConPackage
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#v:tyConPackage
+Containing package: Data.Typeable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Typeable::TyCon
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+eqT :: forall a b. (Typeable a, Typeable b) => Maybe (a :~: b)
+Name: eqT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#v:eqT
+Containing package: Data.Typeable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Typeable a; a; Data.Typeable::Typeable)
+	b: (Typeable b; b; Data.Typeable::Typeable)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Maybe::Maybe {
+		null::(:~:) {
+			null::a
+			null::b
+		}
+	}
+}
+
+[Function]
+typeRep :: forall proxy a. Typeable a => proxy a -> TypeRep
+Name: typeRep
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#v:typeRep
+Containing package: Data.Typeable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Typeable a; a; Data.Typeable::Typeable)
+	proxy
+}
+Signature = <function> {
+	[parameters]
+	null::proxy {
+		null::a
+	}
+
+	[result]
+	Data.Typeable::TypeRep
+}
+
+[Function]
+typeRepTyCon :: TypeRep -> TyCon
+Name: typeRepTyCon
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#v:typeRepTyCon
+Containing package: Data.Typeable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Typeable::TypeRep
+
+	[result]
+	Data.Typeable::TyCon
+}
+
+[Function]
+mkTyCon3 :: String -> String -> String -> TyCon
+Name: mkTyCon3
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#v:mkTyCon3
+Containing package: Data.Typeable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Data.String::String
+	Data.String::String
+
+	[result]
+	Data.Typeable::TyCon
+}
+
+[Function]
+mkFunTy :: TypeRep -> TypeRep -> TypeRep
+Name: mkFunTy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#v:mkFunTy
+Containing package: Data.Typeable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Typeable::TypeRep
+	Data.Typeable::TypeRep
+
+	[result]
+	Data.Typeable::TypeRep
+}
+
+[Function]
+tyConModule :: TyCon -> String
+Name: tyConModule
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#v:tyConModule
+Containing package: Data.Typeable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Typeable::TyCon
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+showsTypeRep :: TypeRep -> ShowS
+Name: showsTypeRep
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#v:showsTypeRep
+Containing package: Data.Typeable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Typeable::TypeRep
+
+	[result]
+	Text.Show::ShowS
+}
+
+[Function]
+typeOf :: forall a. Typeable a => a -> TypeRep
+Name: typeOf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#v:typeOf
+Containing package: Data.Typeable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Typeable a; a; Data.Typeable::Typeable)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	Data.Typeable::TypeRep
+}
+
+[Function]
+funResultTy :: TypeRep -> TypeRep -> Maybe TypeRep
+Name: funResultTy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#v:funResultTy
+Containing package: Data.Typeable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Typeable::TypeRep
+	Data.Typeable::TypeRep
+
+	[result]
+	Data.Maybe::Maybe {
+		Data.Typeable::TypeRep
+	}
+}
+
+[Function]
+typeRepArgs :: TypeRep -> [TypeRep]
+Name: typeRepArgs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#v:typeRepArgs
+Containing package: Data.Typeable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Typeable::TypeRep
+
+	[result]
+	other::List {
+		Data.Typeable::TypeRep
+	}
+}
+
+[Function]
+gcast :: forall a b c. (Typeable a, Typeable b) => c a -> Maybe (c b)
+Name: gcast
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#v:gcast
+Containing package: Data.Typeable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Typeable a; a; Data.Typeable::Typeable)
+	b: (Typeable b; b; Data.Typeable::Typeable)
+	c
+}
+Signature = <function> {
+	[parameters]
+	null::c {
+		null::a
+	}
+
+	[result]
+	Data.Maybe::Maybe {
+		null::c {
+			null::b
+		}
+	}
+}
+
+[Function]
+splitTyConApp :: TypeRep -> (TyCon, [TypeRep])
+Name: splitTyConApp
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#v:splitTyConApp
+Containing package: Data.Typeable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Typeable::TypeRep
+
+	[result]
+	GHC.Tuple::(,) {
+		Data.Typeable::TyCon
+		other::List {
+			Data.Typeable::TypeRep
+		}
+	}
+}
+
+[Function]
+tyConName :: TyCon -> String
+Name: tyConName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#v:tyConName
+Containing package: Data.Typeable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Typeable::TyCon
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+tyConString :: TyCon -> String
+Name: tyConString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#v:tyConString
+Containing package: Data.Typeable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Typeable::TyCon
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+typeOf3 :: forall t a b c. Typeable t => t a b c -> TypeRep
+Name: typeOf3
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#v:typeOf3
+Containing package: Data.Typeable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Typeable t; t; Data.Typeable::Typeable)
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		null::a
+		null::b
+		null::c
+	}
+
+	[result]
+	Data.Typeable::TypeRep
+}
+
+[Function]
+typeOf4 :: forall t a b c d. Typeable t => t a b c d -> TypeRep
+Name: typeOf4
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#v:typeOf4
+Containing package: Data.Typeable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Typeable t; t; Data.Typeable::Typeable)
+	a
+	b
+	c
+	d
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		null::a
+		null::b
+		null::c
+		null::d
+	}
+
+	[result]
+	Data.Typeable::TypeRep
+}
+
+[Function]
+typeOf1 :: forall t a. Typeable t => t a -> TypeRep
+Name: typeOf1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#v:typeOf1
+Containing package: Data.Typeable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Typeable t; t; Data.Typeable::Typeable)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		null::a
+	}
+
+	[result]
+	Data.Typeable::TypeRep
+}
+
+[Function]
+typeOf2 :: forall t a b. Typeable t => t a b -> TypeRep
+Name: typeOf2
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#v:typeOf2
+Containing package: Data.Typeable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Typeable t; t; Data.Typeable::Typeable)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		null::a
+		null::b
+	}
+
+	[result]
+	Data.Typeable::TypeRep
+}
+
+[Function]
+typeOf7 :: forall t a b c d e f g. Typeable t => t a b c d e f g -> TypeRep
+Name: typeOf7
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#v:typeOf7
+Containing package: Data.Typeable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Typeable t; t; Data.Typeable::Typeable)
+	a
+	b
+	c
+	d
+	e
+	f
+	g
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		null::a
+		null::b
+		null::c
+		null::d
+		null::e
+		null::f
+		null::g
+	}
+
+	[result]
+	Data.Typeable::TypeRep
+}
+
+[Function]
+typeOf5 :: forall t a b c d e. Typeable t => t a b c d e -> TypeRep
+Name: typeOf5
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#v:typeOf5
+Containing package: Data.Typeable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Typeable t; t; Data.Typeable::Typeable)
+	a
+	b
+	c
+	d
+	e
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		null::a
+		null::b
+		null::c
+		null::d
+		null::e
+	}
+
+	[result]
+	Data.Typeable::TypeRep
+}
+
+[Function]
+typeOf6 :: forall t a b c d e f. Typeable t => t a b c d e f -> TypeRep
+Name: typeOf6
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Typeable.html#v:typeOf6
+Containing package: Data.Typeable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Typeable t; t; Data.Typeable::Typeable)
+	a
+	b
+	c
+	d
+	e
+	f
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		null::a
+		null::b
+		null::c
+		null::d
+		null::e
+		null::f
+	}
+
+	[result]
+	Data.Typeable::TypeRep
+}

@@ -1,0 +1,3736 @@
+[Package]
+Name: Data.Map.Strict
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html
+Containing package: Data.Map
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data Map k a
+Name: Map
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#t:Map
+Containing package: Data.Map.Strict
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	k
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+foldr' :: (a -> b -> b) -> b -> Map k a -> b
+Name: foldr'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:foldr'
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+	k
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::b
+	
+		[result]
+		null::b
+	}
+	null::b
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	null::b
+}
+
+[Function]
+fromList :: Ord k => [(k, a)] -> Map k a
+Name: fromList
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:fromList
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		GHC.Tuple::(,) {
+			null::k
+			null::a
+		}
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+minViewWithKey :: Map k a -> Maybe ((k, a), Map k a)
+Name: minViewWithKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:minViewWithKey
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Maybe::Maybe {
+		GHC.Tuple::(,) {
+			GHC.Tuple::(,) {
+				null::k
+				null::a
+			}
+			Data.Map.Strict::Map {
+				null::k
+				null::a
+			}
+		}
+	}
+}
+
+[Function]
+foldlWithKey' :: (a -> k -> b -> a) -> a -> Map k b -> a
+Name: foldlWithKey'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:foldlWithKey'
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	k
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::k
+		null::b
+	
+		[result]
+		null::a
+	}
+	null::a
+	Data.Map.Strict::Map {
+		null::k
+		null::b
+	}
+
+	[result]
+	null::a
+}
+
+[Function]
+splitLookup :: Ord k => k -> Map k a -> (Map k a, Maybe a, Map k a)
+Name: splitLookup
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:splitLookup
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::k
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	GHC.Tuple::(,,) {
+		Data.Map.Strict::Map {
+			null::k
+			null::a
+		}
+		Data.Maybe::Maybe {
+			null::a
+		}
+		Data.Map.Strict::Map {
+			null::k
+			null::a
+		}
+	}
+}
+
+[Function]
+keysSet :: Map k a -> Set k
+Name: keysSet
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:keysSet
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Set::Set {
+		null::k
+	}
+}
+
+[Function]
+isProperSubmapOfBy :: Ord k => (a -> b -> Bool) -> Map k a -> Map k b -> Bool
+Name: isProperSubmapOfBy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:isProperSubmapOfBy
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::b
+	
+		[result]
+		Data.Bool::Bool
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::b
+	}
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+foldlWithKey :: (a -> k -> b -> a) -> a -> Map k b -> a
+Name: foldlWithKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:foldlWithKey
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	k
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::k
+		null::b
+	
+		[result]
+		null::a
+	}
+	null::a
+	Data.Map.Strict::Map {
+		null::k
+		null::b
+	}
+
+	[result]
+	null::a
+}
+
+[Function]
+keys :: Map k a -> [k]
+Name: keys
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:keys
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	other::List {
+		null::k
+	}
+}
+
+[Function]
+intersectionWithKey :: Ord k => (k -> a -> b -> c) -> Map k a -> Map k b -> Map k c
+Name: intersectionWithKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:intersectionWithKey
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::k
+		null::a
+		null::b
+	
+		[result]
+		null::c
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::b
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::c
+	}
+}
+
+[Function]
+toAscList :: Map k a -> [(k, a)]
+Name: toAscList
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:toAscList
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			null::k
+			null::a
+		}
+	}
+}
+
+[Function]
+lookupIndex :: Ord k => k -> Map k a -> Maybe Int
+Name: lookupIndex
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:lookupIndex
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::k
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Maybe::Maybe {
+		Data.Int::Int
+	}
+}
+
+[Function]
+foldMapWithKey :: Monoid m => (k -> a -> m) -> Map k a -> m
+Name: foldMapWithKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:foldMapWithKey
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monoid m; m; Data.Monoid::Monoid)
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::k
+		null::a
+	
+		[result]
+		null::m
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	null::m
+}
+
+[Function]
+findWithDefault :: Ord k => a -> k -> Map k a -> a
+Name: findWithDefault
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:findWithDefault
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::a
+	null::k
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	null::a
+}
+
+[Function]
+split :: Ord k => k -> Map k a -> (Map k a, Map k a)
+Name: split
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:split
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::k
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		Data.Map.Strict::Map {
+			null::k
+			null::a
+		}
+		Data.Map.Strict::Map {
+			null::k
+			null::a
+		}
+	}
+}
+
+[Function]
+foldrWithKey :: (k -> a -> b -> b) -> b -> Map k a -> b
+Name: foldrWithKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:foldrWithKey
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::k
+		null::a
+		null::b
+	
+		[result]
+		null::b
+	}
+	null::b
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	null::b
+}
+
+[Function]
+lookup :: Ord k => k -> Map k a -> Maybe a
+Name: lookup
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:lookup
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::k
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Maybe::Maybe {
+		null::a
+	}
+}
+
+[Function]
+fromListWithKey :: Ord k => (k -> a -> a -> a) -> [(k, a)] -> Map k a
+Name: fromListWithKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:fromListWithKey
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::k
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+	other::List {
+		GHC.Tuple::(,) {
+			null::k
+			null::a
+		}
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+unions :: Ord k => [Map k a] -> Map k a
+Name: unions
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:unions
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Data.Map.Strict::Map {
+			null::k
+			null::a
+		}
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+fromAscListWithKey :: Eq k => (k -> a -> a -> a) -> [(k, a)] -> Map k a
+Name: fromAscListWithKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:fromAscListWithKey
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Eq k; k; Data.Eq::Eq)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::k
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+	other::List {
+		GHC.Tuple::(,) {
+			null::k
+			null::a
+		}
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+maxView :: Map k a -> Maybe (a, Map k a)
+Name: maxView
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:maxView
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Maybe::Maybe {
+		GHC.Tuple::(,) {
+			null::a
+			Data.Map.Strict::Map {
+				null::k
+				null::a
+			}
+		}
+	}
+}
+
+[Function]
+elemAt :: Int -> Map k a -> (k, a)
+Name: elemAt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:elemAt
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+mapWithKey :: (k -> a -> b) -> Map k a -> Map k b
+Name: mapWithKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:mapWithKey
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::k
+		null::a
+	
+		[result]
+		null::b
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::b
+	}
+}
+
+[Function]
+differenceWithKey :: Ord k => (k -> a -> b -> Maybe a) -> Map k a -> Map k b -> Map k a
+Name: differenceWithKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:differenceWithKey
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::k
+		null::a
+		null::b
+	
+		[result]
+		Data.Maybe::Maybe {
+			null::a
+		}
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::b
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+delete :: Ord k => k -> Map k a -> Map k a
+Name: delete
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:delete
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::k
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+deleteMax :: Map k a -> Map k a
+Name: deleteMax
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:deleteMax
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+null :: Map k a -> Bool
+Name: null
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:null
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+deleteFindMax :: Map k a -> ((k, a), Map k a)
+Name: deleteFindMax
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:deleteFindMax
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		GHC.Tuple::(,) {
+			null::k
+			null::a
+		}
+		Data.Map.Strict::Map {
+			null::k
+			null::a
+		}
+	}
+}
+
+[Function]
+toDescList :: Map k a -> [(k, a)]
+Name: toDescList
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:toDescList
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			null::k
+			null::a
+		}
+	}
+}
+
+[Function]
+mapKeys :: Ord k2 => (k1 -> k2) -> Map k1 a -> Map k2 a
+Name: mapKeys
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:mapKeys
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k2: (Ord k2; k2; Data.Ord::Ord)
+	k1
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::k1
+	
+		[result]
+		null::k2
+	}
+	Data.Map.Strict::Map {
+		null::k1
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k2
+		null::a
+	}
+}
+
+[Function]
+mapKeysMonotonic :: (k1 -> k2) -> Map k1 a -> Map k2 a
+Name: mapKeysMonotonic
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:mapKeysMonotonic
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k1
+	k2
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::k1
+	
+		[result]
+		null::k2
+	}
+	Data.Map.Strict::Map {
+		null::k1
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k2
+		null::a
+	}
+}
+
+[Function]
+adjustWithKey :: Ord k => (k -> a -> a) -> k -> Map k a -> Map k a
+Name: adjustWithKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:adjustWithKey
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::k
+		null::a
+	
+		[result]
+		null::a
+	}
+	null::k
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+singleton :: k -> a -> Map k a
+Name: singleton
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:singleton
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::k
+	null::a
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+deleteMin :: Map k a -> Map k a
+Name: deleteMin
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:deleteMin
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+empty :: Map k a
+Name: empty
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:empty
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+findMax :: Map k a -> (k, a)
+Name: findMax
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:findMax
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+deleteFindMin :: Map k a -> ((k, a), Map k a)
+Name: deleteFindMin
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:deleteFindMin
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		GHC.Tuple::(,) {
+			null::k
+			null::a
+		}
+		Data.Map.Strict::Map {
+			null::k
+			null::a
+		}
+	}
+}
+
+[Function]
+isSubmapOfBy :: Ord k => (a -> b -> Bool) -> Map k a -> Map k b -> Bool
+Name: isSubmapOfBy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:isSubmapOfBy
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::b
+	
+		[result]
+		Data.Bool::Bool
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::b
+	}
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+fromListWith :: Ord k => (a -> a -> a) -> [(k, a)] -> Map k a
+Name: fromListWith
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:fromListWith
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+	other::List {
+		GHC.Tuple::(,) {
+			null::k
+			null::a
+		}
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+mergeWithKey :: Ord k => (k -> a -> b -> Maybe c) -> (Map k a -> Map k c) -> (Map k b -> Map k c) -> Map k a -> Map k b -> Map k c
+Name: mergeWithKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:mergeWithKey
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::k
+		null::a
+		null::b
+	
+		[result]
+		Data.Maybe::Maybe {
+			null::c
+		}
+	}
+	<function> {
+		[parameters]
+		Data.Map.Strict::Map {
+			null::k
+			null::a
+		}
+	
+		[result]
+		Data.Map.Strict::Map {
+			null::k
+			null::c
+		}
+	}
+	<function> {
+		[parameters]
+		Data.Map.Strict::Map {
+			null::k
+			null::b
+		}
+	
+		[result]
+		Data.Map.Strict::Map {
+			null::k
+			null::c
+		}
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::b
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::c
+	}
+}
+
+[Function]
+updateMax :: (a -> Maybe a) -> Map k a -> Map k a
+Name: updateMax
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:updateMax
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	k
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Data.Maybe::Maybe {
+			null::a
+		}
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+foldr :: (a -> b -> b) -> b -> Map k a -> b
+Name: foldr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:foldr
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+	k
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::b
+	
+		[result]
+		null::b
+	}
+	null::b
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	null::b
+}
+
+[Function]
+intersection :: Ord k => Map k a -> Map k b -> Map k a
+Name: intersection
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:intersection
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::b
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+deleteAt :: Int -> Map k a -> Map k a
+Name: deleteAt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:deleteAt
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+showTree :: (Show k, Show a) => Map k a -> String
+Name: showTree
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:showTree
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Show k; k; Text.Show::Show)
+	a: (Show a; a; Text.Show::Show)
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+foldl :: (a -> b -> a) -> a -> Map k b -> a
+Name: foldl
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:foldl
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+	k
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::b
+	
+		[result]
+		null::a
+	}
+	null::a
+	Data.Map.Strict::Map {
+		null::k
+		null::b
+	}
+
+	[result]
+	null::a
+}
+
+[Function]
+map :: (a -> b) -> Map k a -> Map k b
+Name: map
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:map
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+	k
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::b
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::b
+	}
+}
+
+[Function]
+splitRoot :: Map k b -> [Map k b]
+Name: splitRoot
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:splitRoot
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	b
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::b
+	}
+
+	[result]
+	other::List {
+		Data.Map.Strict::Map {
+			null::k
+			null::b
+		}
+	}
+}
+
+[Function]
+updateMin :: (a -> Maybe a) -> Map k a -> Map k a
+Name: updateMin
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:updateMin
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	k
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Data.Maybe::Maybe {
+			null::a
+		}
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+unionWith :: Ord k => (a -> a -> a) -> Map k a -> Map k a -> Map k a
+Name: unionWith
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:unionWith
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+insertLookupWithKey :: Ord k => (k -> a -> a -> a) -> k -> a -> Map k a -> (Maybe a, Map k a)
+Name: insertLookupWithKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:insertLookupWithKey
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::k
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+	null::k
+	null::a
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		Data.Maybe::Maybe {
+			null::a
+		}
+		Data.Map.Strict::Map {
+			null::k
+			null::a
+		}
+	}
+}
+
+[Function]
+(\\) :: Ord k => Map k a -> Map k b -> Map k a
+Name: (\\)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:(\\)
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::b
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+fromDistinctAscList :: [(k, a)] -> Map k a
+Name: fromDistinctAscList
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:fromDistinctAscList
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		GHC.Tuple::(,) {
+			null::k
+			null::a
+		}
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+fromSet :: (k -> a) -> Set k -> Map k a
+Name: fromSet
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:fromSet
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::k
+	
+		[result]
+		null::a
+	}
+	Data.Set::Set {
+		null::k
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+updateMinWithKey :: (k -> a -> Maybe a) -> Map k a -> Map k a
+Name: updateMinWithKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:updateMinWithKey
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::k
+		null::a
+	
+		[result]
+		Data.Maybe::Maybe {
+			null::a
+		}
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+foldl' :: (a -> b -> a) -> a -> Map k b -> a
+Name: foldl'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:foldl'
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+	k
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::b
+	
+		[result]
+		null::a
+	}
+	null::a
+	Data.Map.Strict::Map {
+		null::k
+		null::b
+	}
+
+	[result]
+	null::a
+}
+
+[Function]
+insertWithKey :: Ord k => (k -> a -> a -> a) -> k -> a -> Map k a -> Map k a
+Name: insertWithKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:insertWithKey
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::k
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+	null::k
+	null::a
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+assocs :: Map k a -> [(k, a)]
+Name: assocs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:assocs
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			null::k
+			null::a
+		}
+	}
+}
+
+[Function]
+unionWithKey :: Ord k => (k -> a -> a -> a) -> Map k a -> Map k a -> Map k a
+Name: unionWithKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:unionWithKey
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::k
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+size :: Map k a -> Int
+Name: size
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:size
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+valid :: Ord k => Map k a -> Bool
+Name: valid
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:valid
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+update :: Ord k => (a -> Maybe a) -> k -> Map k a -> Map k a
+Name: update
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:update
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Data.Maybe::Maybe {
+			null::a
+		}
+	}
+	null::k
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+minView :: Map k a -> Maybe (a, Map k a)
+Name: minView
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:minView
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Maybe::Maybe {
+		GHC.Tuple::(,) {
+			null::a
+			Data.Map.Strict::Map {
+				null::k
+				null::a
+			}
+		}
+	}
+}
+
+[Function]
+alter :: Ord k => (Maybe a -> Maybe a) -> k -> Map k a -> Map k a
+Name: alter
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:alter
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Maybe::Maybe {
+			null::a
+		}
+	
+		[result]
+		Data.Maybe::Maybe {
+			null::a
+		}
+	}
+	null::k
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+fromAscList :: Eq k => [(k, a)] -> Map k a
+Name: fromAscList
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:fromAscList
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Eq k; k; Data.Eq::Eq)
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		GHC.Tuple::(,) {
+			null::k
+			null::a
+		}
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+mapKeysWith :: Ord k2 => (a -> a -> a) -> (k1 -> k2) -> Map k1 a -> Map k2 a
+Name: mapKeysWith
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:mapKeysWith
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k2: (Ord k2; k2; Data.Ord::Ord)
+	a
+	k1
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::k1
+	
+		[result]
+		null::k2
+	}
+	Data.Map.Strict::Map {
+		null::k1
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k2
+		null::a
+	}
+}
+
+[Function]
+updateMaxWithKey :: (k -> a -> Maybe a) -> Map k a -> Map k a
+Name: updateMaxWithKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:updateMaxWithKey
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::k
+		null::a
+	
+		[result]
+		Data.Maybe::Maybe {
+			null::a
+		}
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+isSubmapOf :: (Ord k, Eq a) => Map k a -> Map k a -> Bool
+Name: isSubmapOf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:isSubmapOf
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a: (Eq a; a; Data.Eq::Eq)
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+mapEitherWithKey :: (k -> a -> Either b c) -> Map k a -> (Map k b, Map k c)
+Name: mapEitherWithKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:mapEitherWithKey
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::k
+		null::a
+	
+		[result]
+		Data.Either::Either {
+			null::b
+			null::c
+		}
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		Data.Map.Strict::Map {
+			null::k
+			null::b
+		}
+		Data.Map.Strict::Map {
+			null::k
+			null::c
+		}
+	}
+}
+
+[Function]
+member :: Ord k => k -> Map k a -> Bool
+Name: member
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:member
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::k
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+foldrWithKey' :: (k -> a -> b -> b) -> b -> Map k a -> b
+Name: foldrWithKey'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:foldrWithKey'
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::k
+		null::a
+		null::b
+	
+		[result]
+		null::b
+	}
+	null::b
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	null::b
+}
+
+[Function]
+lookupLT :: Ord k => k -> Map k v -> Maybe (k, v)
+Name: lookupLT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:lookupLT
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	v
+}
+Signature = <function> {
+	[parameters]
+	null::k
+	Data.Map.Strict::Map {
+		null::k
+		null::v
+	}
+
+	[result]
+	Data.Maybe::Maybe
+}
+
+[Function]
+mapAccumWithKey :: (a -> k -> b -> (a, c)) -> a -> Map k b -> (a, Map k c)
+Name: mapAccumWithKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:mapAccumWithKey
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	k
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::k
+		null::b
+	
+		[result]
+		GHC.Tuple::(,) {
+			null::a
+			null::c
+		}
+	}
+	null::a
+	Data.Map.Strict::Map {
+		null::k
+		null::b
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		null::a
+		Data.Map.Strict::Map {
+			null::k
+			null::c
+		}
+	}
+}
+
+[Function]
+lookupLE :: Ord k => k -> Map k v -> Maybe (k, v)
+Name: lookupLE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:lookupLE
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	v
+}
+Signature = <function> {
+	[parameters]
+	null::k
+	Data.Map.Strict::Map {
+		null::k
+		null::v
+	}
+
+	[result]
+	Data.Maybe::Maybe
+}
+
+[Function]
+toList :: Map k a -> [(k, a)]
+Name: toList
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:toList
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			null::k
+			null::a
+		}
+	}
+}
+
+[Function]
+filter :: (a -> Bool) -> Map k a -> Map k a
+Name: filter
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:filter
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	k
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Data.Bool::Bool
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+difference :: Ord k => Map k a -> Map k b -> Map k a
+Name: difference
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:difference
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::b
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+notMember :: Ord k => k -> Map k a -> Bool
+Name: notMember
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:notMember
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::k
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+lookupGT :: Ord k => k -> Map k v -> Maybe (k, v)
+Name: lookupGT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:lookupGT
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	v
+}
+Signature = <function> {
+	[parameters]
+	null::k
+	Data.Map.Strict::Map {
+		null::k
+		null::v
+	}
+
+	[result]
+	Data.Maybe::Maybe
+}
+
+[Function]
+findMin :: Map k a -> (k, a)
+Name: findMin
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:findMin
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+lookupGE :: Ord k => k -> Map k v -> Maybe (k, v)
+Name: lookupGE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:lookupGE
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	v
+}
+Signature = <function> {
+	[parameters]
+	null::k
+	Data.Map.Strict::Map {
+		null::k
+		null::v
+	}
+
+	[result]
+	Data.Maybe::Maybe
+}
+
+[Function]
+showTreeWith :: (k -> a -> String) -> Bool -> Bool -> Map k a -> String
+Name: showTreeWith
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:showTreeWith
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::k
+		null::a
+	
+		[result]
+		Data.String::String
+	}
+	Data.Bool::Bool
+	Data.Bool::Bool
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+mapAccum :: (a -> b -> (a, c)) -> a -> Map k b -> (a, Map k c)
+Name: mapAccum
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:mapAccum
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+	c
+	k
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::b
+	
+		[result]
+		GHC.Tuple::(,) {
+			null::a
+			null::c
+		}
+	}
+	null::a
+	Data.Map.Strict::Map {
+		null::k
+		null::b
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		null::a
+		Data.Map.Strict::Map {
+			null::k
+			null::c
+		}
+	}
+}
+
+[Function]
+mapMaybeWithKey :: (k -> a -> Maybe b) -> Map k a -> Map k b
+Name: mapMaybeWithKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:mapMaybeWithKey
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::k
+		null::a
+	
+		[result]
+		Data.Maybe::Maybe {
+			null::b
+		}
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::b
+	}
+}
+
+[Function]
+mapMaybe :: (a -> Maybe b) -> Map k a -> Map k b
+Name: mapMaybe
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:mapMaybe
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+	k
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Data.Maybe::Maybe {
+			null::b
+		}
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::b
+	}
+}
+
+[Function]
+(!) :: Ord k => Map k a -> k -> a
+Name: (!)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:(!)
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+	null::k
+
+	[result]
+	null::a
+}
+
+[Function]
+traverseWithKey :: Applicative t => (k -> a -> t b) -> Map k a -> t (Map k b)
+Name: traverseWithKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:traverseWithKey
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Applicative t; t; Control.Applicative::Applicative)
+	k
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::k
+		null::a
+	
+		[result]
+		null::t {
+			null::b
+		}
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	null::t {
+		Data.Map.Strict::Map {
+			null::k
+			null::b
+		}
+	}
+}
+
+[Function]
+filterWithKey :: (k -> a -> Bool) -> Map k a -> Map k a
+Name: filterWithKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:filterWithKey
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::k
+		null::a
+	
+		[result]
+		Data.Bool::Bool
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+insert :: Ord k => k -> a -> Map k a -> Map k a
+Name: insert
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:insert
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::k
+	null::a
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+partitionWithKey :: (k -> a -> Bool) -> Map k a -> (Map k a, Map k a)
+Name: partitionWithKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:partitionWithKey
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::k
+		null::a
+	
+		[result]
+		Data.Bool::Bool
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		Data.Map.Strict::Map {
+			null::k
+			null::a
+		}
+		Data.Map.Strict::Map {
+			null::k
+			null::a
+		}
+	}
+}
+
+[Function]
+updateLookupWithKey :: Ord k => (k -> a -> Maybe a) -> k -> Map k a -> (Maybe a, Map k a)
+Name: updateLookupWithKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:updateLookupWithKey
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::k
+		null::a
+	
+		[result]
+		Data.Maybe::Maybe {
+			null::a
+		}
+	}
+	null::k
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		Data.Maybe::Maybe {
+			null::a
+		}
+		Data.Map.Strict::Map {
+			null::k
+			null::a
+		}
+	}
+}
+
+[Function]
+differenceWith :: Ord k => (a -> b -> Maybe a) -> Map k a -> Map k b -> Map k a
+Name: differenceWith
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:differenceWith
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::b
+	
+		[result]
+		Data.Maybe::Maybe {
+			null::a
+		}
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::b
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+elems :: Map k a -> [a]
+Name: elems
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:elems
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	other::List {
+		null::a
+	}
+}
+
+[Function]
+mapEither :: (a -> Either b c) -> Map k a -> (Map k b, Map k c)
+Name: mapEither
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:mapEither
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+	c
+	k
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Data.Either::Either {
+			null::b
+			null::c
+		}
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		Data.Map.Strict::Map {
+			null::k
+			null::b
+		}
+		Data.Map.Strict::Map {
+			null::k
+			null::c
+		}
+	}
+}
+
+[Function]
+adjust :: Ord k => (a -> a) -> k -> Map k a -> Map k a
+Name: adjust
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:adjust
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::a
+	}
+	null::k
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+intersectionWith :: Ord k => (a -> b -> c) -> Map k a -> Map k b -> Map k c
+Name: intersectionWith
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:intersectionWith
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::b
+	
+		[result]
+		null::c
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::b
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::c
+	}
+}
+
+[Function]
+partition :: (a -> Bool) -> Map k a -> (Map k a, Map k a)
+Name: partition
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:partition
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	k
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Data.Bool::Bool
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		Data.Map.Strict::Map {
+			null::k
+			null::a
+		}
+		Data.Map.Strict::Map {
+			null::k
+			null::a
+		}
+	}
+}
+
+[Function]
+union :: Ord k => Map k a -> Map k a -> Map k a
+Name: union
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:union
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+updateAt :: (k -> a -> Maybe a) -> Int -> Map k a -> Map k a
+Name: updateAt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:updateAt
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::k
+		null::a
+	
+		[result]
+		Data.Maybe::Maybe {
+			null::a
+		}
+	}
+	Data.Int::Int
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+findIndex :: Ord k => k -> Map k a -> Int
+Name: findIndex
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:findIndex
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::k
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+mapAccumRWithKey :: (a -> k -> b -> (a, c)) -> a -> Map k b -> (a, Map k c)
+Name: mapAccumRWithKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:mapAccumRWithKey
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	k
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::k
+		null::b
+	
+		[result]
+		GHC.Tuple::(,) {
+			null::a
+			null::c
+		}
+	}
+	null::a
+	Data.Map.Strict::Map {
+		null::k
+		null::b
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		null::a
+		Data.Map.Strict::Map {
+			null::k
+			null::c
+		}
+	}
+}
+
+[Function]
+maxViewWithKey :: Map k a -> Maybe ((k, a), Map k a)
+Name: maxViewWithKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:maxViewWithKey
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Maybe::Maybe {
+		GHC.Tuple::(,) {
+			GHC.Tuple::(,) {
+				null::k
+				null::a
+			}
+			Data.Map.Strict::Map {
+				null::k
+				null::a
+			}
+		}
+	}
+}
+
+[Function]
+isProperSubmapOf :: (Ord k, Eq a) => Map k a -> Map k a -> Bool
+Name: isProperSubmapOf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:isProperSubmapOf
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a: (Eq a; a; Data.Eq::Eq)
+}
+Signature = <function> {
+	[parameters]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+insertWith :: Ord k => (a -> a -> a) -> k -> a -> Map k a -> Map k a
+Name: insertWith
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:insertWith
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+	null::k
+	null::a
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+unionsWith :: Ord k => (a -> a -> a) -> [Map k a] -> Map k a
+Name: unionsWith
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:unionsWith
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+	other::List {
+		Data.Map.Strict::Map {
+			null::k
+			null::a
+		}
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+fromAscListWith :: Eq k => (a -> a -> a) -> [(k, a)] -> Map k a
+Name: fromAscListWith
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:fromAscListWith
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Eq k; k; Data.Eq::Eq)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+	other::List {
+		GHC.Tuple::(,) {
+			null::k
+			null::a
+		}
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}
+
+[Function]
+updateWithKey :: Ord k => (k -> a -> Maybe a) -> k -> Map k a -> Map k a
+Name: updateWithKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/containers-0.5.5.1/Data-Map-Strict.html#v:updateWithKey
+Containing package: Data.Map.Strict
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	k: (Ord k; k; Data.Ord::Ord)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::k
+		null::a
+	
+		[result]
+		Data.Maybe::Maybe {
+			null::a
+		}
+	}
+	null::k
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+
+	[result]
+	Data.Map.Strict::Map {
+		null::k
+		null::a
+	}
+}

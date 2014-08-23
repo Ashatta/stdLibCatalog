@@ -1,0 +1,1507 @@
+[Package]
+Name: System.Win32.SimpleMAPI
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html
+Containing package: System.Win32
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data MapiFuncs = MapiFuncs { mapifLogon :: MapiLogonType mapifLogoff :: MapiLogoffType mapifResolveName :: MapiResolveNameType mapifFreeBuffer :: MapiFreeBufferType mapifSendMail :: MapiSendMailType}
+Name: MapiFuncs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#t:MapiFuncs
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data FileTag = FileTag { ftTag :: Maybe String ftEncoding :: Maybe String}
+Name: FileTag
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#t:FileTag
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Message = Message { msgSubject :: String msgBody :: String msgType :: Maybe String msgDate :: Maybe String msgConversationId :: Maybe String msgFlags :: MapiFlag msgFrom :: Maybe Recipient msgRecips :: Recipients msgAttachments :: Attachments}
+Name: Message
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#t:Message
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Attachment = Attachment { attFlag :: MapiFlag attPosition :: Maybe ULONG attPath :: String attName :: Maybe String attTag :: Maybe FileTag}
+Name: Attachment
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#t:Attachment
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Recipient = RecipResolve (Maybe HWND) MapiFlag String (Maybe Recipient) | Recip String String
+Name: Recipient
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#t:Recipient
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data RecipientClass = RcOriginal | RcTo | RcCc | RcBcc
+Name: RecipientClass
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#t:RecipientClass
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype MapiRecipDesc = MapiRecipDesc ()
+Name: MapiRecipDesc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#t:MapiRecipDesc
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type LHANDLE = ULONG
+Name: LHANDLE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#t:LHANDLE
+Containing package: System.Win32.SimpleMAPI
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.SimpleMAPI::ULONG
+
+[Alias]
+type MapiLogonType = ULONG -> LPSTR -> LPSTR -> MapiFlag -> ULONG -> Ptr LHANDLE -> IO ULONG
+Name: MapiLogonType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#t:MapiLogonType
+Containing package: System.Win32.SimpleMAPI
+attributes {
+}
+parameters {
+}
+Aliased type = <function> {
+	[parameters]
+	System.Win32.SimpleMAPI::ULONG
+	System.Win32.Types::LPSTR
+	System.Win32.Types::LPSTR
+	System.Win32.SimpleMAPI::MapiFlag
+	System.Win32.SimpleMAPI::ULONG
+	Foreign.Ptr::Ptr {
+		System.Win32.SimpleMAPI::LHANDLE
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.SimpleMAPI::ULONG
+	}
+}
+
+[Alias]
+type MapiResolveNameType = LHANDLE -> ULONG -> LPSTR -> MapiFlag -> ULONG -> Ptr (Ptr MapiRecipDesc) -> IO ULONG
+Name: MapiResolveNameType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#t:MapiResolveNameType
+Containing package: System.Win32.SimpleMAPI
+attributes {
+}
+parameters {
+}
+Aliased type = <function> {
+	[parameters]
+	System.Win32.SimpleMAPI::LHANDLE
+	System.Win32.SimpleMAPI::ULONG
+	System.Win32.Types::LPSTR
+	System.Win32.SimpleMAPI::MapiFlag
+	System.Win32.SimpleMAPI::ULONG
+	Foreign.Ptr::Ptr {
+		Foreign.Ptr::Ptr {
+			System.Win32.SimpleMAPI::MapiRecipDesc
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.SimpleMAPI::ULONG
+	}
+}
+
+[Alias]
+type MapiLogoffType = LHANDLE -> ULONG -> MapiFlag -> ULONG -> IO ULONG
+Name: MapiLogoffType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#t:MapiLogoffType
+Containing package: System.Win32.SimpleMAPI
+attributes {
+}
+parameters {
+}
+Aliased type = <function> {
+	[parameters]
+	System.Win32.SimpleMAPI::LHANDLE
+	System.Win32.SimpleMAPI::ULONG
+	System.Win32.SimpleMAPI::MapiFlag
+	System.Win32.SimpleMAPI::ULONG
+
+	[result]
+	System.IO::IO {
+		System.Win32.SimpleMAPI::ULONG
+	}
+}
+
+[Alias]
+type MapiFreeBufferType = Ptr () -> IO ULONG
+Name: MapiFreeBufferType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#t:MapiFreeBufferType
+Containing package: System.Win32.SimpleMAPI
+attributes {
+}
+parameters {
+}
+Aliased type = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		GHC.Tuple::()
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.SimpleMAPI::ULONG
+	}
+}
+
+[Alias]
+type MapiLoaded = (MapiFuncs, ForeignPtr ())
+Name: MapiLoaded
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#t:MapiLoaded
+Containing package: System.Win32.SimpleMAPI
+attributes {
+}
+parameters {
+}
+Aliased type = null::(MapiFuncs, ForeignPtr ())
+
+[Alias]
+type Recipients = [(RecipientClass, Recipient)]
+Name: Recipients
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#t:Recipients
+Containing package: System.Win32.SimpleMAPI
+attributes {
+}
+parameters {
+}
+Aliased type = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			System.Win32.SimpleMAPI::RecipientClass
+			System.Win32.SimpleMAPI::Recipient
+		}
+	}
+}
+
+[Alias]
+type Attachments = [Attachment]
+Name: Attachments
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#t:Attachments
+Containing package: System.Win32.SimpleMAPI
+attributes {
+}
+parameters {
+}
+Aliased type = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		System.Win32.SimpleMAPI::Attachment
+	}
+}
+
+[Alias]
+type MapiSendMailType = LHANDLE -> ULONG -> Ptr Message -> MapiFlag -> ULONG -> IO ULONG
+Name: MapiSendMailType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#t:MapiSendMailType
+Containing package: System.Win32.SimpleMAPI
+attributes {
+}
+parameters {
+}
+Aliased type = <function> {
+	[parameters]
+	System.Win32.SimpleMAPI::LHANDLE
+	System.Win32.SimpleMAPI::ULONG
+	Foreign.Ptr::Ptr {
+		System.Win32.SimpleMAPI::Message
+	}
+	System.Win32.SimpleMAPI::MapiFlag
+	System.Win32.SimpleMAPI::ULONG
+
+	[result]
+	System.IO::IO {
+		System.Win32.SimpleMAPI::ULONG
+	}
+}
+
+[Alias]
+type MapiFlag = ULONG
+Name: MapiFlag
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#t:MapiFlag
+Containing package: System.Win32.SimpleMAPI
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.SimpleMAPI::ULONG
+
+[Alias]
+type ULONG = DWORD
+Name: ULONG
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#t:ULONG
+Containing package: System.Win32.SimpleMAPI
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::DWORD
+
+[Function]
+mapiFail_ :: String -> IO ULONG -> IO ()
+Name: mapiFail_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mapiFail_
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	System.IO::IO {
+		System.Win32.SimpleMAPI::ULONG
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+mAPI_GUARANTEE_FIFO :: MapiFlag
+Name: mAPI_GUARANTEE_FIFO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mAPI_GUARANTEE_FIFO
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.SimpleMAPI::MapiFlag
+}
+
+[Function]
+mAPI_AB_NOMODIFY :: MapiFlag
+Name: mAPI_AB_NOMODIFY
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mAPI_AB_NOMODIFY
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.SimpleMAPI::MapiFlag
+}
+
+[Function]
+withRecipient :: MapiFuncs -> LHANDLE -> RecipientClass -> Recipient -> (Ptr MapiRecipDesc -> IO a) -> IO a
+Name: withRecipient
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:withRecipient
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.SimpleMAPI::MapiFuncs
+	System.Win32.SimpleMAPI::LHANDLE
+	System.Win32.SimpleMAPI::RecipientClass
+	System.Win32.SimpleMAPI::Recipient
+	<function> {
+		[parameters]
+		Foreign.Ptr::Ptr {
+			System.Win32.SimpleMAPI::MapiRecipDesc
+		}
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+mAPI_OLE_STATIC :: MapiFlag
+Name: mAPI_OLE_STATIC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mAPI_OLE_STATIC
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.SimpleMAPI::MapiFlag
+}
+
+[Function]
+mAPI_SENT :: MapiFlag
+Name: mAPI_SENT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mAPI_SENT
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.SimpleMAPI::MapiFlag
+}
+
+[Function]
+mAPI_LOGOFF_SHARED :: MapiFlag
+Name: mAPI_LOGOFF_SHARED
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mAPI_LOGOFF_SHARED
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.SimpleMAPI::MapiFlag
+}
+
+[Function]
+mapiErrorString :: ULONG -> String
+Name: mapiErrorString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mapiErrorString
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.SimpleMAPI::ULONG
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+mAPI_OLE :: MapiFlag
+Name: mAPI_OLE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mAPI_OLE
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.SimpleMAPI::MapiFlag
+}
+
+[Function]
+mkMapiLogoff :: FunPtr MapiLogoffType -> MapiLogoffType
+Name: mkMapiLogoff
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mkMapiLogoff
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::FunPtr {
+		System.Win32.SimpleMAPI::MapiLogoffType
+	}
+
+	[result]
+	System.Win32.SimpleMAPI::MapiLogoffType
+}
+
+[Function]
+withFileTag :: FileTag -> (Ptr FileTag -> IO a) -> IO a
+Name: withFileTag
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:withFileTag
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.SimpleMAPI::FileTag
+	<function> {
+		[parameters]
+		Foreign.Ptr::Ptr {
+			System.Win32.SimpleMAPI::FileTag
+		}
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+mAPI_DIALOG :: MapiFlag
+Name: mAPI_DIALOG
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mAPI_DIALOG
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.SimpleMAPI::MapiFlag
+}
+
+[Function]
+maybeHWND :: Maybe HWND -> ULONG
+Name: maybeHWND
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:maybeHWND
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Maybe::Maybe {
+		Graphics.Win32.GDI.Types::HWND
+	}
+
+	[result]
+	System.Win32.SimpleMAPI::ULONG
+}
+
+[Function]
+mAPI_UNREAD :: MapiFlag
+Name: mAPI_UNREAD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mAPI_UNREAD
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.SimpleMAPI::MapiFlag
+}
+
+[Function]
+defFileTag :: FileTag
+Name: defFileTag
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:defFileTag
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.SimpleMAPI::FileTag
+}
+
+[Function]
+uLONGToRc :: ULONG -> RecipientClass
+Name: uLONGToRc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:uLONGToRc
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.SimpleMAPI::ULONG
+
+	[result]
+	System.Win32.SimpleMAPI::RecipientClass
+}
+
+[Function]
+mapiFail :: String -> IO ULONG -> IO ULONG
+Name: mapiFail
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mapiFail
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	System.IO::IO {
+		System.Win32.SimpleMAPI::ULONG
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.SimpleMAPI::ULONG
+	}
+}
+
+[Function]
+mAPI_SUPPRESS_ATTACH :: MapiFlag
+Name: mAPI_SUPPRESS_ATTACH
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mAPI_SUPPRESS_ATTACH
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.SimpleMAPI::MapiFlag
+}
+
+[Function]
+rcToULONG :: RecipientClass -> ULONG
+Name: rcToULONG
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:rcToULONG
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.SimpleMAPI::RecipientClass
+
+	[result]
+	System.Win32.SimpleMAPI::ULONG
+}
+
+[Function]
+mapiLogoff :: MapiFuncs -> LHANDLE -> Maybe HWND -> IO ()
+Name: mapiLogoff
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mapiLogoff
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.SimpleMAPI::MapiFuncs
+	System.Win32.SimpleMAPI::LHANDLE
+	Data.Maybe::Maybe {
+		Graphics.Win32.GDI.Types::HWND
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+mAPI_RECEIPT_REQUESTED :: MapiFlag
+Name: mAPI_RECEIPT_REQUESTED
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mAPI_RECEIPT_REQUESTED
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.SimpleMAPI::MapiFlag
+}
+
+[Function]
+mapiErrors :: [(ULONG, String)]
+Name: mapiErrors
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mapiErrors
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			System.Win32.SimpleMAPI::ULONG
+			Data.String::String
+		}
+	}
+}
+
+[Function]
+mkMapiSendMail :: FunPtr MapiSendMailType -> MapiSendMailType
+Name: mkMapiSendMail
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mkMapiSendMail
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::FunPtr {
+		System.Win32.SimpleMAPI::MapiSendMailType
+	}
+
+	[result]
+	System.Win32.SimpleMAPI::MapiSendMailType
+}
+
+[Function]
+withRecipients :: MapiFuncs -> LHANDLE -> Recipients -> (Int -> Ptr MapiRecipDesc -> IO a) -> IO a
+Name: withRecipients
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:withRecipients
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.SimpleMAPI::MapiFuncs
+	System.Win32.SimpleMAPI::LHANDLE
+	System.Win32.SimpleMAPI::Recipients
+	<function> {
+		[parameters]
+		Data.Int::Int
+		Foreign.Ptr::Ptr {
+			System.Win32.SimpleMAPI::MapiRecipDesc
+		}
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+mAPI_LOGOFF_UI :: MapiFlag
+Name: mAPI_LOGOFF_UI
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mAPI_LOGOFF_UI
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.SimpleMAPI::MapiFlag
+}
+
+[Function]
+withAttachments :: Attachments -> (Int -> Ptr Attachment -> IO a) -> IO a
+Name: withAttachments
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:withAttachments
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.SimpleMAPI::Attachments
+	<function> {
+		[parameters]
+		Data.Int::Int
+		Foreign.Ptr::Ptr {
+			System.Win32.SimpleMAPI::Attachment
+		}
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+mAPI_LOGON_UI :: MapiFlag
+Name: mAPI_LOGON_UI
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mAPI_LOGON_UI
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.SimpleMAPI::MapiFlag
+}
+
+[Function]
+withMapiLoaded :: MapiLoaded -> (MapiFuncs -> IO a) -> IO a
+Name: withMapiLoaded
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:withMapiLoaded
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.SimpleMAPI::MapiLoaded
+	<function> {
+		[parameters]
+		System.Win32.SimpleMAPI::MapiFuncs
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+loadMapi :: [String] -> IO MapiLoaded
+Name: loadMapi
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:loadMapi
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Data.String::String
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.SimpleMAPI::MapiLoaded
+	}
+}
+
+[Function]
+defMessage :: Message
+Name: defMessage
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:defMessage
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.SimpleMAPI::Message
+}
+
+[Function]
+loadMapiFuncs :: String -> HMODULE -> IO MapiFuncs
+Name: loadMapiFuncs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:loadMapiFuncs
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	System.Win32.Types::HMODULE
+
+	[result]
+	System.IO::IO {
+		System.Win32.SimpleMAPI::MapiFuncs
+	}
+}
+
+[Function]
+mAPI_BODY_AS_FILE :: MapiFlag
+Name: mAPI_BODY_AS_FILE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mAPI_BODY_AS_FILE
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.SimpleMAPI::MapiFlag
+}
+
+[Function]
+mAPI_LONG_MSGID :: MapiFlag
+Name: mAPI_LONG_MSGID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mAPI_LONG_MSGID
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.SimpleMAPI::MapiFlag
+}
+
+[Function]
+mAPI_NEW_SESSION :: MapiFlag
+Name: mAPI_NEW_SESSION
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mAPI_NEW_SESSION
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.SimpleMAPI::MapiFlag
+}
+
+[Function]
+mAPI_UNREAD_ONLY :: MapiFlag
+Name: mAPI_UNREAD_ONLY
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mAPI_UNREAD_ONLY
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.SimpleMAPI::MapiFlag
+}
+
+[Function]
+withMessage :: MapiFuncs -> LHANDLE -> Message -> (Ptr Message -> IO a) -> IO a
+Name: withMessage
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:withMessage
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.SimpleMAPI::MapiFuncs
+	System.Win32.SimpleMAPI::LHANDLE
+	System.Win32.SimpleMAPI::Message
+	<function> {
+		[parameters]
+		Foreign.Ptr::Ptr {
+			System.Win32.SimpleMAPI::Message
+		}
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+defAttachment :: Attachment
+Name: defAttachment
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:defAttachment
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.SimpleMAPI::Attachment
+}
+
+[Function]
+mapiSendMail :: MapiFuncs -> LHANDLE -> Maybe HWND -> Message -> MapiFlag -> IO ()
+Name: mapiSendMail
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mapiSendMail
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.SimpleMAPI::MapiFuncs
+	System.Win32.SimpleMAPI::LHANDLE
+	Data.Maybe::Maybe {
+		Graphics.Win32.GDI.Types::HWND
+	}
+	System.Win32.SimpleMAPI::Message
+	System.Win32.SimpleMAPI::MapiFlag
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+mAPI_PEEK :: MapiFlag
+Name: mAPI_PEEK
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mAPI_PEEK
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.SimpleMAPI::MapiFlag
+}
+
+[Function]
+mkMapiFreeBuffer :: FunPtr MapiFreeBufferType -> MapiFreeBufferType
+Name: mkMapiFreeBuffer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mkMapiFreeBuffer
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::FunPtr {
+		System.Win32.SimpleMAPI::MapiFreeBufferType
+	}
+
+	[result]
+	System.Win32.SimpleMAPI::MapiFreeBufferType
+}
+
+[Function]
+simpleRecip :: String -> Recipient
+Name: simpleRecip
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:simpleRecip
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.Win32.SimpleMAPI::Recipient
+}
+
+[Function]
+mAPI_FORCE_DOWNLOAD :: MapiFlag
+Name: mAPI_FORCE_DOWNLOAD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mAPI_FORCE_DOWNLOAD
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.SimpleMAPI::MapiFlag
+}
+
+[Function]
+withMapiFuncs :: [String] -> (MapiFuncs -> IO a) -> IO a
+Name: withMapiFuncs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:withMapiFuncs
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Data.String::String
+	}
+	<function> {
+		[parameters]
+		System.Win32.SimpleMAPI::MapiFuncs
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+mkMapiLogon :: FunPtr MapiLogonType -> MapiLogonType
+Name: mkMapiLogon
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mkMapiLogon
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::FunPtr {
+		System.Win32.SimpleMAPI::MapiLogonType
+	}
+
+	[result]
+	System.Win32.SimpleMAPI::MapiLogonType
+}
+
+[Function]
+mapiLogon :: MapiFuncs -> Maybe HWND -> Maybe String -> Maybe String -> MapiFlag -> IO LHANDLE
+Name: mapiLogon
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mapiLogon
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.SimpleMAPI::MapiFuncs
+	Data.Maybe::Maybe {
+		Graphics.Win32.GDI.Types::HWND
+	}
+	Data.Maybe::Maybe {
+		Data.String::String
+	}
+	Data.Maybe::Maybe {
+		Data.String::String
+	}
+	System.Win32.SimpleMAPI::MapiFlag
+
+	[result]
+	System.IO::IO {
+		System.Win32.SimpleMAPI::LHANDLE
+	}
+}
+
+[Function]
+mAPI_ENVELOPE_ONLY :: MapiFlag
+Name: mAPI_ENVELOPE_ONLY
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mAPI_ENVELOPE_ONLY
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.SimpleMAPI::MapiFlag
+}
+
+[Function]
+loadMapiDll :: String -> IO (MapiFuncs, HMODULE)
+Name: loadMapiDll
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:loadMapiDll
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			System.Win32.SimpleMAPI::MapiFuncs
+			System.Win32.Types::HMODULE
+		}
+	}
+}
+
+[Function]
+handleIOException :: (IOException -> IO a) -> IO a -> IO a
+Name: handleIOException
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:handleIOException
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Control.Exception.Base::IOException
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+mkMapiResolveName :: FunPtr MapiResolveNameType -> MapiResolveNameType
+Name: mkMapiResolveName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-SimpleMAPI.html#v:mkMapiResolveName
+Containing package: System.Win32.SimpleMAPI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::FunPtr {
+		System.Win32.SimpleMAPI::MapiResolveNameType
+	}
+
+	[result]
+	System.Win32.SimpleMAPI::MapiResolveNameType
+}

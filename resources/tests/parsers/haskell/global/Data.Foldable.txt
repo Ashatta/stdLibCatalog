@@ -1,0 +1,1101 @@
+[Package]
+Name: Data.Foldable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html
+Containing package: Data
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+class Foldable t where fold :: Monoid m => t m -> m foldMap :: Monoid m => (a -> m) -> t a -> m foldr :: (a -> b -> b) -> b -> t a -> b foldr' :: (a -> b -> b) -> b -> t a -> b foldl :: (b -> a -> b) -> b -> t a -> b foldl' :: (b -> a -> b) -> b -> t a -> b foldr1 :: (a -> a -> a) -> t a -> a foldl1 :: (a -> a -> a) -> t a -> a
+Name: Foldable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#t:Foldable
+Containing package: Data.Foldable
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Data.Traversable::Traversable
+	Control.Applicative.Backwards::Data.Foldable.Foldable_Backwards<f<>>
+	Control.Applicative.Lift::Data.Foldable.Foldable_Lift<f<>>
+	Control.Applicative::Data.Foldable.Foldable_Const<m<>>
+	Control.Monad.Trans.Error::Data.Foldable.Foldable_ErrorT<e<>,f<>>
+	Control.Monad.Trans.Identity::Data.Foldable.Foldable_IdentityT<f<>>
+	Control.Monad.Trans.List::Data.Foldable.Foldable_ListT<f<>>
+	Control.Monad.Trans.Maybe::Data.Foldable.Foldable_MaybeT<f<>>
+	Control.Monad.Trans.Writer.Lazy::Data.Foldable.Foldable_WriterT<w<>,f<>>
+	Control.Monad.Trans.Writer.Strict::Data.Foldable.Foldable_WriterT<w<>,f<>>
+	Data.Either::Data.Foldable.Foldable_Either<a<>>
+	other::Data.Foldable.Foldable_List<curriedParam<>>
+	Data.Maybe::Data.Foldable.Foldable_Maybe<>
+	GHC.Tuple::Data.Foldable.Foldable_(,)<a<>>
+	Data.Proxy::Data.Foldable.Foldable_Proxy<>
+	Data.Functor.Compose::Data.Foldable.Foldable_Compose<f<>,g<>>
+	Data.Functor.Constant::Data.Foldable.Foldable_Constant<a<>>
+	Data.Functor.Identity::Data.Foldable.Foldable_Identity<>
+	Data.Functor.Product::Data.Foldable.Foldable_Product<f<>,g<>>
+	Data.Functor.Reverse::Data.Foldable.Foldable_Reverse<f<>>
+	Data.IntMap.Lazy::Data.Foldable.Foldable_IntMap<>
+	Data.IntMap.Strict::Data.Foldable.Foldable_IntMap<>
+	Data.Map.Lazy::Data.Foldable.Foldable_Map<k<>>
+	Data.Map.Strict::Data.Foldable.Foldable_Map<k<>>
+	Data.Sequence::Data.Foldable.Foldable_Seq<>
+	Data.Sequence::Data.Foldable.Foldable_ViewL<>
+	Data.Sequence::Data.Foldable.Foldable_ViewR<>
+	Data.Set::Data.Foldable.Foldable_Set<>
+	Data.Tree::Data.Foldable.Foldable_Tree<>
+	Data.Typeable.Internal::Data.Foldable.Foldable_Proxy<>
+	Data.Typeable::Data.Foldable.Foldable_Proxy<>
+	Prelude::Data.Foldable.Foldable_Maybe<>
+	Prelude::Data.Foldable.Foldable_Either<a<>>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	fold :: Monoid m => t m -> m
+	Name: fold
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:fold
+	Containing package: Data.Foldable
+	attributes {
+		memberType=function
+	}
+	Containing type: Foldable
+	parameters {
+		m: (Monoid m; m; Data.Monoid::Monoid)
+		t: (Foldable t; t; Data.Foldable::Foldable)
+	}
+	Signature = <function> {
+		[parameters]
+		null::t {
+			null::m
+		}
+	
+		[result]
+		null::m
+	}
+
+	[Function]
+	foldMap :: Monoid m => (a -> m) -> t a -> m
+	Name: foldMap
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:foldMap
+	Containing package: Data.Foldable
+	attributes {
+		memberType=function
+	}
+	Containing type: Foldable
+	parameters {
+		m: (Monoid m; m; Data.Monoid::Monoid)
+		a
+		t: (Foldable t; t; Data.Foldable::Foldable)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			null::m
+		}
+		null::t {
+			null::a
+		}
+	
+		[result]
+		null::m
+	}
+
+	[Function]
+	foldr :: (a -> b -> b) -> b -> t a -> b
+	Name: foldr
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:foldr
+	Containing package: Data.Foldable
+	attributes {
+		memberType=function
+	}
+	Containing type: Foldable
+	parameters {
+		a
+		b
+		t: (Foldable t; t; Data.Foldable::Foldable)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+			null::b
+		
+			[result]
+			null::b
+		}
+		null::b
+		null::t {
+			null::a
+		}
+	
+		[result]
+		null::b
+	}
+
+	[Function]
+	foldr' :: (a -> b -> b) -> b -> t a -> b
+	Name: foldr'
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:foldr'
+	Containing package: Data.Foldable
+	attributes {
+		memberType=function
+	}
+	Containing type: Foldable
+	parameters {
+		a
+		b
+		t: (Foldable t; t; Data.Foldable::Foldable)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+			null::b
+		
+			[result]
+			null::b
+		}
+		null::b
+		null::t {
+			null::a
+		}
+	
+		[result]
+		null::b
+	}
+
+	[Function]
+	foldl :: (b -> a -> b) -> b -> t a -> b
+	Name: foldl
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:foldl
+	Containing package: Data.Foldable
+	attributes {
+		memberType=function
+	}
+	Containing type: Foldable
+	parameters {
+		b
+		a
+		t: (Foldable t; t; Data.Foldable::Foldable)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::b
+			null::a
+		
+			[result]
+			null::b
+		}
+		null::b
+		null::t {
+			null::a
+		}
+	
+		[result]
+		null::b
+	}
+
+	[Function]
+	foldl' :: (b -> a -> b) -> b -> t a -> b
+	Name: foldl'
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:foldl'
+	Containing package: Data.Foldable
+	attributes {
+		memberType=function
+	}
+	Containing type: Foldable
+	parameters {
+		b
+		a
+		t: (Foldable t; t; Data.Foldable::Foldable)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::b
+			null::a
+		
+			[result]
+			null::b
+		}
+		null::b
+		null::t {
+			null::a
+		}
+	
+		[result]
+		null::b
+	}
+
+	[Function]
+	foldr1 :: (a -> a -> a) -> t a -> a
+	Name: foldr1
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:foldr1
+	Containing package: Data.Foldable
+	attributes {
+		memberType=function
+	}
+	Containing type: Foldable
+	parameters {
+		a
+		t: (Foldable t; t; Data.Foldable::Foldable)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+			null::a
+		
+			[result]
+			null::a
+		}
+		null::t {
+			null::a
+		}
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	foldl1 :: (a -> a -> a) -> t a -> a
+	Name: foldl1
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:foldl1
+	Containing package: Data.Foldable
+	attributes {
+		memberType=function
+	}
+	Containing type: Foldable
+	parameters {
+		a
+		t: (Foldable t; t; Data.Foldable::Foldable)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+			null::a
+		
+			[result]
+			null::a
+		}
+		null::t {
+			null::a
+		}
+	
+		[result]
+		null::a
+	}
+}
+
+[Function]
+maximumBy :: Foldable t => (a -> a -> Ordering) -> t a -> a
+Name: maximumBy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:maximumBy
+Containing package: Data.Foldable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Foldable t; t; Data.Foldable::Foldable)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		Data.Ord::Ordering
+	}
+	null::t {
+		null::a
+	}
+
+	[result]
+	null::a
+}
+
+[Function]
+sequenceA_ :: (Foldable t, Applicative f) => t (f a) -> f ()
+Name: sequenceA_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:sequenceA_
+Containing package: Data.Foldable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Foldable t; t; Data.Foldable::Foldable)
+	f: (Applicative f; f; Control.Applicative::Applicative)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		null::f {
+			null::a
+		}
+	}
+
+	[result]
+	null::f {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+minimumBy :: Foldable t => (a -> a -> Ordering) -> t a -> a
+Name: minimumBy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:minimumBy
+Containing package: Data.Foldable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Foldable t; t; Data.Foldable::Foldable)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		Data.Ord::Ordering
+	}
+	null::t {
+		null::a
+	}
+
+	[result]
+	null::a
+}
+
+[Function]
+or :: Foldable t => t Bool -> Bool
+Name: or
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:or
+Containing package: Data.Foldable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Foldable t; t; Data.Foldable::Foldable)
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		Data.Bool::Bool
+	}
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+concatMap :: Foldable t => (a -> [b]) -> t a -> [b]
+Name: concatMap
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:concatMap
+Containing package: Data.Foldable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Foldable t; t; Data.Foldable::Foldable)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		other::List {
+			null::b
+		}
+	}
+	null::t {
+		null::a
+	}
+
+	[result]
+	other::List {
+		null::b
+	}
+}
+
+[Function]
+find :: Foldable t => (a -> Bool) -> t a -> Maybe a
+Name: find
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:find
+Containing package: Data.Foldable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Foldable t; t; Data.Foldable::Foldable)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Data.Bool::Bool
+	}
+	null::t {
+		null::a
+	}
+
+	[result]
+	Data.Maybe::Maybe {
+		null::a
+	}
+}
+
+[Function]
+traverse_ :: (Foldable t, Applicative f) => (a -> f b) -> t a -> f ()
+Name: traverse_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:traverse_
+Containing package: Data.Foldable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Foldable t; t; Data.Foldable::Foldable)
+	f: (Applicative f; f; Control.Applicative::Applicative)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::f {
+			null::b
+		}
+	}
+	null::t {
+		null::a
+	}
+
+	[result]
+	null::f {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+for_ :: (Foldable t, Applicative f) => t a -> (a -> f b) -> f ()
+Name: for_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:for_
+Containing package: Data.Foldable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Foldable t; t; Data.Foldable::Foldable)
+	f: (Applicative f; f; Control.Applicative::Applicative)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::f {
+			null::b
+		}
+	}
+
+	[result]
+	null::f {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+concat :: Foldable t => t [a] -> [a]
+Name: concat
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:concat
+Containing package: Data.Foldable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Foldable t; t; Data.Foldable::Foldable)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		other::List {
+			null::a
+		}
+	}
+
+	[result]
+	other::List {
+		null::a
+	}
+}
+
+[Function]
+mapM_ :: (Foldable t, Monad m) => (a -> m b) -> t a -> m ()
+Name: mapM_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:mapM_
+Containing package: Data.Foldable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Foldable t; t; Data.Foldable::Foldable)
+	m: (Monad m; m; Control.Monad::Monad)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::m {
+			null::b
+		}
+	}
+	null::t {
+		null::a
+	}
+
+	[result]
+	null::m {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+foldrM :: (Foldable t, Monad m) => (a -> b -> m b) -> b -> t a -> m b
+Name: foldrM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:foldrM
+Containing package: Data.Foldable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Foldable t; t; Data.Foldable::Foldable)
+	m: (Monad m; m; Control.Monad::Monad)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::b
+	
+		[result]
+		null::m {
+			null::b
+		}
+	}
+	null::b
+	null::t {
+		null::a
+	}
+
+	[result]
+	null::m {
+		null::b
+	}
+}
+
+[Function]
+elem :: (Foldable t, Eq a) => a -> t a -> Bool
+Name: elem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:elem
+Containing package: Data.Foldable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Foldable t; t; Data.Foldable::Foldable)
+	a: (Eq a; a; Data.Eq::Eq)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+	null::t {
+		null::a
+	}
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+foldlM :: (Foldable t, Monad m) => (b -> a -> m b) -> b -> t a -> m b
+Name: foldlM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:foldlM
+Containing package: Data.Foldable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Foldable t; t; Data.Foldable::Foldable)
+	m: (Monad m; m; Control.Monad::Monad)
+	b
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::b
+		null::a
+	
+		[result]
+		null::m {
+			null::b
+		}
+	}
+	null::b
+	null::t {
+		null::a
+	}
+
+	[result]
+	null::m {
+		null::b
+	}
+}
+
+[Function]
+product :: (Foldable t, Num a) => t a -> a
+Name: product
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:product
+Containing package: Data.Foldable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Foldable t; t; Data.Foldable::Foldable)
+	a: (Num a; a; Prelude::Num)
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		null::a
+	}
+
+	[result]
+	null::a
+}
+
+[Function]
+and :: Foldable t => t Bool -> Bool
+Name: and
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:and
+Containing package: Data.Foldable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Foldable t; t; Data.Foldable::Foldable)
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		Data.Bool::Bool
+	}
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+any :: Foldable t => (a -> Bool) -> t a -> Bool
+Name: any
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:any
+Containing package: Data.Foldable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Foldable t; t; Data.Foldable::Foldable)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Data.Bool::Bool
+	}
+	null::t {
+		null::a
+	}
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+sequence_ :: (Foldable t, Monad m) => t (m a) -> m ()
+Name: sequence_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:sequence_
+Containing package: Data.Foldable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Foldable t; t; Data.Foldable::Foldable)
+	m: (Monad m; m; Control.Monad::Monad)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		null::m {
+			null::a
+		}
+	}
+
+	[result]
+	null::m {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+all :: Foldable t => (a -> Bool) -> t a -> Bool
+Name: all
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:all
+Containing package: Data.Foldable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Foldable t; t; Data.Foldable::Foldable)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Data.Bool::Bool
+	}
+	null::t {
+		null::a
+	}
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+notElem :: (Foldable t, Eq a) => a -> t a -> Bool
+Name: notElem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:notElem
+Containing package: Data.Foldable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Foldable t; t; Data.Foldable::Foldable)
+	a: (Eq a; a; Data.Eq::Eq)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+	null::t {
+		null::a
+	}
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+maximum :: (Foldable t, Ord a) => t a -> a
+Name: maximum
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:maximum
+Containing package: Data.Foldable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Foldable t; t; Data.Foldable::Foldable)
+	a: (Ord a; a; Data.Ord::Ord)
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		null::a
+	}
+
+	[result]
+	null::a
+}
+
+[Function]
+sum :: (Foldable t, Num a) => t a -> a
+Name: sum
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:sum
+Containing package: Data.Foldable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Foldable t; t; Data.Foldable::Foldable)
+	a: (Num a; a; Prelude::Num)
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		null::a
+	}
+
+	[result]
+	null::a
+}
+
+[Function]
+msum :: (Foldable t, MonadPlus m) => t (m a) -> m a
+Name: msum
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:msum
+Containing package: Data.Foldable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Foldable t; t; Data.Foldable::Foldable)
+	m: (MonadPlus m; m; Control.Monad::MonadPlus)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		null::m {
+			null::a
+		}
+	}
+
+	[result]
+	null::m {
+		null::a
+	}
+}
+
+[Function]
+asum :: (Foldable t, Alternative f) => t (f a) -> f a
+Name: asum
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:asum
+Containing package: Data.Foldable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Foldable t; t; Data.Foldable::Foldable)
+	f: (Alternative f; f; Control.Applicative::Alternative)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		null::f {
+			null::a
+		}
+	}
+
+	[result]
+	null::f {
+		null::a
+	}
+}
+
+[Function]
+toList :: Foldable t => t a -> [a]
+Name: toList
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:toList
+Containing package: Data.Foldable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Foldable t; t; Data.Foldable::Foldable)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		null::a
+	}
+
+	[result]
+	other::List {
+		null::a
+	}
+}
+
+[Function]
+minimum :: (Foldable t, Ord a) => t a -> a
+Name: minimum
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:minimum
+Containing package: Data.Foldable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Foldable t; t; Data.Foldable::Foldable)
+	a: (Ord a; a; Data.Ord::Ord)
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		null::a
+	}
+
+	[result]
+	null::a
+}
+
+[Function]
+forM_ :: (Foldable t, Monad m) => t a -> (a -> m b) -> m ()
+Name: forM_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Foldable.html#v:forM_
+Containing package: Data.Foldable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Foldable t; t; Data.Foldable::Foldable)
+	m: (Monad m; m; Control.Monad::Monad)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::m {
+			null::b
+		}
+	}
+
+	[result]
+	null::m {
+		GHC.Tuple::()
+	}
+}

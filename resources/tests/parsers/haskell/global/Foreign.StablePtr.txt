@@ -1,0 +1,156 @@
+[Package]
+Name: Foreign.StablePtr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-StablePtr.html
+Containing package: Foreign
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data StablePtr a
+Name: StablePtr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-StablePtr.html#t:StablePtr
+Containing package: Foreign.StablePtr
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+deRefStablePtr :: StablePtr a -> IO a
+Name: deRefStablePtr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-StablePtr.html#v:deRefStablePtr
+Containing package: Foreign.StablePtr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.StablePtr::StablePtr {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+castStablePtrToPtr :: StablePtr a -> Ptr ()
+Name: castStablePtrToPtr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-StablePtr.html#v:castStablePtrToPtr
+Containing package: Foreign.StablePtr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.StablePtr::StablePtr {
+		null::a
+	}
+
+	[result]
+	Foreign.Ptr::Ptr {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+newStablePtr :: a -> IO (StablePtr a)
+Name: newStablePtr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-StablePtr.html#v:newStablePtr
+Containing package: Foreign.StablePtr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	System.IO::IO {
+		Foreign.StablePtr::StablePtr {
+			null::a
+		}
+	}
+}
+
+[Function]
+freeStablePtr :: StablePtr a -> IO ()
+Name: freeStablePtr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-StablePtr.html#v:freeStablePtr
+Containing package: Foreign.StablePtr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.StablePtr::StablePtr {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+castPtrToStablePtr :: Ptr () -> StablePtr a
+Name: castPtrToStablePtr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-StablePtr.html#v:castPtrToStablePtr
+Containing package: Foreign.StablePtr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		GHC.Tuple::()
+	}
+
+	[result]
+	Foreign.StablePtr::StablePtr {
+		null::a
+	}
+}

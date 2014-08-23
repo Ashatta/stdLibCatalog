@@ -1,0 +1,837 @@
+[Package]
+Name: System.Directory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html
+Containing package: System
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data Permissions
+Name: Permissions
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#t:Permissions
+Containing package: System.Directory
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+getHomeDirectory :: IO FilePath
+Name: getHomeDirectory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:getHomeDirectory
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.IO::FilePath
+	}
+}
+
+[Function]
+removeDirectory :: FilePath -> IO ()
+Name: removeDirectory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:removeDirectory
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+getPermissions :: FilePath -> IO Permissions
+Name: getPermissions
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:getPermissions
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		System.Directory::Permissions
+	}
+}
+
+[Function]
+getDirectoryContents :: FilePath -> IO [FilePath]
+Name: getDirectoryContents
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:getDirectoryContents
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		other::List {
+			System.IO::FilePath
+		}
+	}
+}
+
+[Function]
+findFile :: [FilePath] -> String -> IO (Maybe FilePath)
+Name: findFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:findFile
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		System.IO::FilePath
+	}
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			System.IO::FilePath
+		}
+	}
+}
+
+[Function]
+writable :: Permissions -> Bool
+Name: writable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:writable
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Directory::Permissions
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+createDirectory :: FilePath -> IO ()
+Name: createDirectory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:createDirectory
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+canonicalizePath :: FilePath -> IO FilePath
+Name: canonicalizePath
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:canonicalizePath
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		System.IO::FilePath
+	}
+}
+
+[Function]
+copyPermissions :: FilePath -> FilePath -> IO ()
+Name: copyPermissions
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:copyPermissions
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+readable :: Permissions -> Bool
+Name: readable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:readable
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Directory::Permissions
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+doesFileExist :: FilePath -> IO Bool
+Name: doesFileExist
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:doesFileExist
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+getAppUserDataDirectory :: String -> IO FilePath
+Name: getAppUserDataDirectory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:getAppUserDataDirectory
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		System.IO::FilePath
+	}
+}
+
+[Function]
+setCurrentDirectory :: FilePath -> IO ()
+Name: setCurrentDirectory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:setCurrentDirectory
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+removeFile :: FilePath -> IO ()
+Name: removeFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:removeFile
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+makeRelativeToCurrentDirectory :: FilePath -> IO FilePath
+Name: makeRelativeToCurrentDirectory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:makeRelativeToCurrentDirectory
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		System.IO::FilePath
+	}
+}
+
+[Function]
+setPermissions :: FilePath -> Permissions -> IO ()
+Name: setPermissions
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:setPermissions
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	System.Directory::Permissions
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+setOwnerExecutable :: Bool -> Permissions -> Permissions
+Name: setOwnerExecutable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:setOwnerExecutable
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Bool::Bool
+	System.Directory::Permissions
+
+	[result]
+	System.Directory::Permissions
+}
+
+[Function]
+setOwnerSearchable :: Bool -> Permissions -> Permissions
+Name: setOwnerSearchable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:setOwnerSearchable
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Bool::Bool
+	System.Directory::Permissions
+
+	[result]
+	System.Directory::Permissions
+}
+
+[Function]
+setOwnerWritable :: Bool -> Permissions -> Permissions
+Name: setOwnerWritable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:setOwnerWritable
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Bool::Bool
+	System.Directory::Permissions
+
+	[result]
+	System.Directory::Permissions
+}
+
+[Function]
+searchable :: Permissions -> Bool
+Name: searchable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:searchable
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Directory::Permissions
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+renameDirectory :: FilePath -> FilePath -> IO ()
+Name: renameDirectory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:renameDirectory
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+copyFile :: FilePath -> FilePath -> IO ()
+Name: copyFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:copyFile
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+emptyPermissions :: Permissions
+Name: emptyPermissions
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:emptyPermissions
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Directory::Permissions
+}
+
+[Function]
+findFiles :: [FilePath] -> String -> IO [FilePath]
+Name: findFiles
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:findFiles
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		System.IO::FilePath
+	}
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		other::List {
+			System.IO::FilePath
+		}
+	}
+}
+
+[Function]
+findExecutable :: String -> IO (Maybe FilePath)
+Name: findExecutable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:findExecutable
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			System.IO::FilePath
+		}
+	}
+}
+
+[Function]
+createDirectoryIfMissing :: Bool -> FilePath -> IO ()
+Name: createDirectoryIfMissing
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:createDirectoryIfMissing
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Bool::Bool
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+getCurrentDirectory :: IO FilePath
+Name: getCurrentDirectory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:getCurrentDirectory
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.IO::FilePath
+	}
+}
+
+[Function]
+renameFile :: FilePath -> FilePath -> IO ()
+Name: renameFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:renameFile
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+getTemporaryDirectory :: IO FilePath
+Name: getTemporaryDirectory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:getTemporaryDirectory
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.IO::FilePath
+	}
+}
+
+[Function]
+doesDirectoryExist :: FilePath -> IO Bool
+Name: doesDirectoryExist
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:doesDirectoryExist
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+getModificationTime :: FilePath -> IO UTCTime
+Name: getModificationTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:getModificationTime
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		Data.Time.Clock::UTCTime
+	}
+}
+
+[Function]
+getUserDocumentsDirectory :: IO FilePath
+Name: getUserDocumentsDirectory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:getUserDocumentsDirectory
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.IO::FilePath
+	}
+}
+
+[Function]
+executable :: Permissions -> Bool
+Name: executable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:executable
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Directory::Permissions
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+findFilesWith :: (FilePath -> IO Bool) -> [FilePath] -> String -> IO [FilePath]
+Name: findFilesWith
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:findFilesWith
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		System.IO::FilePath
+	
+		[result]
+		System.IO::IO {
+			Data.Bool::Bool
+		}
+	}
+	other::List {
+		System.IO::FilePath
+	}
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		other::List {
+			System.IO::FilePath
+		}
+	}
+}
+
+[Function]
+removeDirectoryRecursive :: FilePath -> IO ()
+Name: removeDirectoryRecursive
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:removeDirectoryRecursive
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+setOwnerReadable :: Bool -> Permissions -> Permissions
+Name: setOwnerReadable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/directory-1.2.1.0/System-Directory.html#v:setOwnerReadable
+Containing package: System.Directory
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Bool::Bool
+	System.Directory::Permissions
+
+	[result]
+	System.Directory::Permissions
+}

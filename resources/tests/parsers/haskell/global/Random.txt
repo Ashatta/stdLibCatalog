@@ -1,0 +1,418 @@
+[Package]
+Name: Random
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Random.html
+Containing package: null
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data StdGen
+Name: StdGen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Random.html#t:StdGen
+Containing package: Random
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class Random a where randomR :: RandomGen g => (a, a) -> g -> (a, g) random :: RandomGen g => g -> (a, g) randomRs :: RandomGen g => (a, a) -> g -> [a] randoms :: RandomGen g => g -> [a] randomRIO :: (a, a) -> IO a randomIO :: IO a
+Name: Random
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Random.html#t:Random
+Containing package: Random
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Char::Random.Random_Char<>
+	Prelude::Random.Random_Bool<>
+	Prelude::Random.Random_Char<>
+	Prelude::Random.Random_Double<>
+	Prelude::Random.Random_Float<>
+	Prelude::Random.Random_Int<>
+	Prelude::Random.Random_Integer<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	randomR :: RandomGen g => (a, a) -> g -> (a, g)
+	Name: randomR
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Random.html#v:randomR
+	Containing package: Random
+	attributes {
+		memberType=function
+	}
+	Containing type: Random
+	parameters {
+		g: (RandomGen g; g; Random::RandomGen)
+		a: (Random a; a; Random::Random)
+	}
+	Signature = <function> {
+		[parameters]
+		GHC.Tuple::(,) {
+			null::a
+			null::a
+		}
+		null::g
+	
+		[result]
+		GHC.Tuple::(,) {
+			null::a
+			null::g
+		}
+	}
+
+	[Function]
+	random :: RandomGen g => g -> (a, g)
+	Name: random
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Random.html#v:random
+	Containing package: Random
+	attributes {
+		memberType=function
+	}
+	Containing type: Random
+	parameters {
+		g: (RandomGen g; g; Random::RandomGen)
+		a: (Random a; a; Random::Random)
+	}
+	Signature = <function> {
+		[parameters]
+		null::g
+	
+		[result]
+		GHC.Tuple::(,) {
+			null::a
+			null::g
+		}
+	}
+
+	[Function]
+	randomRs :: RandomGen g => (a, a) -> g -> [a]
+	Name: randomRs
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Random.html#v:randomRs
+	Containing package: Random
+	attributes {
+		memberType=function
+	}
+	Containing type: Random
+	parameters {
+		g: (RandomGen g; g; Random::RandomGen)
+		a: (Random a; a; Random::Random)
+	}
+	Signature = <function> {
+		[parameters]
+		GHC.Tuple::(,) {
+			null::a
+			null::a
+		}
+		null::g
+	
+		[result]
+		other::List {
+			null::a
+		}
+	}
+
+	[Function]
+	randoms :: RandomGen g => g -> [a]
+	Name: randoms
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Random.html#v:randoms
+	Containing package: Random
+	attributes {
+		memberType=function
+	}
+	Containing type: Random
+	parameters {
+		g: (RandomGen g; g; Random::RandomGen)
+		a: (Random a; a; Random::Random)
+	}
+	Signature = <function> {
+		[parameters]
+		null::g
+	
+		[result]
+		other::List {
+			null::a
+		}
+	}
+
+	[Function]
+	randomRIO :: (a, a) -> IO a
+	Name: randomRIO
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Random.html#v:randomRIO
+	Containing package: Random
+	attributes {
+		memberType=function
+	}
+	Containing type: Random
+	parameters {
+		a: (Random a; a; Random::Random)
+	}
+	Signature = <function> {
+		[parameters]
+		GHC.Tuple::(,) {
+			null::a
+			null::a
+		}
+	
+		[result]
+		Prelude::IO {
+			null::a
+		}
+	}
+
+	[Function]
+	randomIO :: IO a
+	Name: randomIO
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Random.html#v:randomIO
+	Containing package: Random
+	attributes {
+		memberType=function
+	}
+	Containing type: Random
+	parameters {
+		a: (Random a; a; Random::Random)
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		Prelude::IO {
+			null::a
+		}
+	}
+}
+
+[Classifier]
+class RandomGen g where next :: g -> (Int, g) split :: g -> (g, g) genRange :: g -> (Int, Int)
+Name: RandomGen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Random.html#t:RandomGen
+Containing package: Random
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Random::Random.RandomGen_StdGen<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	next :: g -> (Int, g)
+	Name: next
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Random.html#v:next
+	Containing package: Random
+	attributes {
+		memberType=function
+	}
+	Containing type: RandomGen
+	parameters {
+		g: (RandomGen g; g; Random::RandomGen)
+	}
+	Signature = <function> {
+		[parameters]
+		null::g
+	
+		[result]
+		GHC.Tuple::(,) {
+			Prelude::Int
+			null::g
+		}
+	}
+
+	[Function]
+	split :: g -> (g, g)
+	Name: split
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Random.html#v:split
+	Containing package: Random
+	attributes {
+		memberType=function
+	}
+	Containing type: RandomGen
+	parameters {
+		g: (RandomGen g; g; Random::RandomGen)
+	}
+	Signature = <function> {
+		[parameters]
+		null::g
+	
+		[result]
+		GHC.Tuple::(,) {
+			null::g
+			null::g
+		}
+	}
+
+	[Function]
+	genRange :: g -> (Int, Int)
+	Name: genRange
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Random.html#v:genRange
+	Containing package: Random
+	attributes {
+		memberType=function
+	}
+	Containing type: RandomGen
+	parameters {
+		g: (RandomGen g; g; Random::RandomGen)
+	}
+	Signature = <function> {
+		[parameters]
+		null::g
+	
+		[result]
+		GHC.Tuple::(,) {
+			Prelude::Int
+			Prelude::Int
+		}
+	}
+}
+
+[Function]
+getStdGen :: IO StdGen
+Name: getStdGen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Random.html#v:getStdGen
+Containing package: Random
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Prelude::IO {
+		Random::StdGen
+	}
+}
+
+[Function]
+setStdGen :: StdGen -> IO ()
+Name: setStdGen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Random.html#v:setStdGen
+Containing package: Random
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Random::StdGen
+
+	[result]
+	Prelude::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+newStdGen :: IO StdGen
+Name: newStdGen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Random.html#v:newStdGen
+Containing package: Random
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Prelude::IO {
+		Random::StdGen
+	}
+}
+
+[Function]
+mkStdGen :: Int -> StdGen
+Name: mkStdGen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Random.html#v:mkStdGen
+Containing package: Random
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Int
+
+	[result]
+	Random::StdGen
+}
+
+[Function]
+getStdRandom :: (StdGen -> (a, StdGen)) -> IO a
+Name: getStdRandom
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/Random.html#v:getStdRandom
+Containing package: Random
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Random::StdGen
+	
+		[result]
+		GHC.Tuple::(,) {
+			null::a
+			Random::StdGen
+		}
+	}
+
+	[result]
+	Prelude::IO {
+		null::a
+	}
+}

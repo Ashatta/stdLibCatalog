@@ -1,0 +1,534 @@
+[Package]
+Name: GHC.IO.Encoding
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding.html
+Containing package: IO
+attributes {
+}
+
+Subpackages {
+	GHC.IO.Encoding.CodePage
+	GHC.IO.Encoding.Failure
+	GHC.IO.Encoding.Latin1
+	GHC.IO.Encoding.Types
+	GHC.IO.Encoding.UTF16
+	GHC.IO.Encoding.UTF32
+	GHC.IO.Encoding.UTF8
+}
+
+[Classifier]
+data CodingProgress = InputUnderflow | OutputUnderflow | InvalidSequence
+Name: CodingProgress
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding.html#t:CodingProgress
+Containing package: GHC.IO.Encoding
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TextEncoding = forall dstate estate . TextEncoding { textEncodingName :: String mkTextDecoder :: IO (TextDecoder dstate) mkTextEncoder :: IO (TextEncoder estate)}
+Name: TextEncoding
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding.html#t:TextEncoding
+Containing package: GHC.IO.Encoding
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data BufferCodec from to state = BufferCodec { encode :: CodeBuffer from to recover :: Buffer from -> Buffer to -> IO (Buffer from, Buffer to) close :: IO () getState :: IO state setState :: state -> IO ()}
+Name: BufferCodec
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding.html#t:BufferCodec
+Containing package: GHC.IO.Encoding
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	from
+	to
+	state
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type TextEncoder state = BufferCodec CharBufElem Word8 state
+Name: TextEncoder
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding.html#t:TextEncoder
+Containing package: GHC.IO.Encoding
+attributes {
+}
+parameters {
+	state
+}
+Aliased type = GHC.IO.Encoding::BufferCodec {
+	GHC.IO.Buffer::CharBufElem
+	Data.Word::Word8
+	null::state
+}
+
+[Alias]
+type TextDecoder state = BufferCodec Word8 CharBufElem state
+Name: TextDecoder
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding.html#t:TextDecoder
+Containing package: GHC.IO.Encoding
+attributes {
+}
+parameters {
+	state
+}
+Aliased type = GHC.IO.Encoding::BufferCodec {
+	Data.Word::Word8
+	GHC.IO.Buffer::CharBufElem
+	null::state
+}
+
+[Function]
+latin1 :: TextEncoding
+Name: latin1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding.html#v:latin1
+Containing package: GHC.IO.Encoding
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	GHC.IO.Encoding::TextEncoding
+}
+
+[Function]
+utf32be :: TextEncoding
+Name: utf32be
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding.html#v:utf32be
+Containing package: GHC.IO.Encoding
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	GHC.IO.Encoding::TextEncoding
+}
+
+[Function]
+setLocaleEncoding :: TextEncoding -> IO ()
+Name: setLocaleEncoding
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding.html#v:setLocaleEncoding
+Containing package: GHC.IO.Encoding
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Encoding::TextEncoding
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+utf16 :: TextEncoding
+Name: utf16
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding.html#v:utf16
+Containing package: GHC.IO.Encoding
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	GHC.IO.Encoding::TextEncoding
+}
+
+[Function]
+utf32 :: TextEncoding
+Name: utf32
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding.html#v:utf32
+Containing package: GHC.IO.Encoding
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	GHC.IO.Encoding::TextEncoding
+}
+
+[Function]
+latin1_decode :: Buffer Word8 -> CharBuffer -> IO (Buffer Word8, CharBuffer)
+Name: latin1_decode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding.html#v:latin1_decode
+Containing package: GHC.IO.Encoding
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Buffer::Buffer {
+		Data.Word::Word8
+	}
+	GHC.IO.Buffer::CharBuffer
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			GHC.IO.Buffer::Buffer {
+				Data.Word::Word8
+			}
+			GHC.IO.Buffer::CharBuffer
+		}
+	}
+}
+
+[Function]
+utf16le :: TextEncoding
+Name: utf16le
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding.html#v:utf16le
+Containing package: GHC.IO.Encoding
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	GHC.IO.Encoding::TextEncoding
+}
+
+[Function]
+utf16be :: TextEncoding
+Name: utf16be
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding.html#v:utf16be
+Containing package: GHC.IO.Encoding
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	GHC.IO.Encoding::TextEncoding
+}
+
+[Function]
+getForeignEncoding :: IO TextEncoding
+Name: getForeignEncoding
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding.html#v:getForeignEncoding
+Containing package: GHC.IO.Encoding
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		GHC.IO.Encoding::TextEncoding
+	}
+}
+
+[Function]
+getFileSystemEncoding :: IO TextEncoding
+Name: getFileSystemEncoding
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding.html#v:getFileSystemEncoding
+Containing package: GHC.IO.Encoding
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		GHC.IO.Encoding::TextEncoding
+	}
+}
+
+[Function]
+utf32le :: TextEncoding
+Name: utf32le
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding.html#v:utf32le
+Containing package: GHC.IO.Encoding
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	GHC.IO.Encoding::TextEncoding
+}
+
+[Function]
+mkTextEncoding :: String -> IO TextEncoding
+Name: mkTextEncoding
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding.html#v:mkTextEncoding
+Containing package: GHC.IO.Encoding
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.IO.Encoding::TextEncoding
+	}
+}
+
+[Function]
+utf8_bom :: TextEncoding
+Name: utf8_bom
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding.html#v:utf8_bom
+Containing package: GHC.IO.Encoding
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	GHC.IO.Encoding::TextEncoding
+}
+
+[Function]
+char8 :: TextEncoding
+Name: char8
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding.html#v:char8
+Containing package: GHC.IO.Encoding
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	GHC.IO.Encoding::TextEncoding
+}
+
+[Function]
+setForeignEncoding :: TextEncoding -> IO ()
+Name: setForeignEncoding
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding.html#v:setForeignEncoding
+Containing package: GHC.IO.Encoding
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Encoding::TextEncoding
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+utf8 :: TextEncoding
+Name: utf8
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding.html#v:utf8
+Containing package: GHC.IO.Encoding
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	GHC.IO.Encoding::TextEncoding
+}
+
+[Function]
+latin1_encode :: CharBuffer -> Buffer Word8 -> IO (CharBuffer, Buffer Word8)
+Name: latin1_encode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding.html#v:latin1_encode
+Containing package: GHC.IO.Encoding
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Buffer::CharBuffer
+	GHC.IO.Buffer::Buffer {
+		Data.Word::Word8
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			GHC.IO.Buffer::CharBuffer
+			GHC.IO.Buffer::Buffer {
+				Data.Word::Word8
+			}
+		}
+	}
+}
+
+[Function]
+setFileSystemEncoding :: TextEncoding -> IO ()
+Name: setFileSystemEncoding
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding.html#v:setFileSystemEncoding
+Containing package: GHC.IO.Encoding
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Encoding::TextEncoding
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+getLocaleEncoding :: IO TextEncoding
+Name: getLocaleEncoding
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding.html#v:getLocaleEncoding
+Containing package: GHC.IO.Encoding
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		GHC.IO.Encoding::TextEncoding
+	}
+}
+
+[Function]
+initLocaleEncoding :: TextEncoding
+Name: initLocaleEncoding
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Encoding.html#v:initLocaleEncoding
+Containing package: GHC.IO.Encoding
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	GHC.IO.Encoding::TextEncoding
+}

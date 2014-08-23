@@ -1,0 +1,189 @@
+[Package]
+Name: Data.STRef
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-STRef.html
+Containing package: Data
+attributes {
+}
+
+Subpackages {
+	Data.STRef.Lazy
+	Data.STRef.Strict
+}
+
+[Classifier]
+data STRef s a
+Name: STRef
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-STRef.html#t:STRef
+Containing package: Data.STRef
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	s
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+modifySTRef' :: STRef s a -> (a -> a) -> ST s ()
+Name: modifySTRef'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-STRef.html#v:modifySTRef'
+Containing package: Data.STRef
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.STRef::STRef {
+		null::s
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[result]
+	Control.Monad.ST.Safe::ST {
+		null::s
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+modifySTRef :: STRef s a -> (a -> a) -> ST s ()
+Name: modifySTRef
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-STRef.html#v:modifySTRef
+Containing package: Data.STRef
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.STRef::STRef {
+		null::s
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[result]
+	Control.Monad.ST.Safe::ST {
+		null::s
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+newSTRef :: a -> ST s (STRef s a)
+Name: newSTRef
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-STRef.html#v:newSTRef
+Containing package: Data.STRef
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	s
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	Control.Monad.ST.Safe::ST {
+		null::s
+		Data.STRef::STRef {
+			null::s
+			null::a
+		}
+	}
+}
+
+[Function]
+writeSTRef :: STRef s a -> a -> ST s ()
+Name: writeSTRef
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-STRef.html#v:writeSTRef
+Containing package: Data.STRef
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.STRef::STRef {
+		null::s
+		null::a
+	}
+	null::a
+
+	[result]
+	Control.Monad.ST.Safe::ST {
+		null::s
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+readSTRef :: STRef s a -> ST s a
+Name: readSTRef
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-STRef.html#v:readSTRef
+Containing package: Data.STRef
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.STRef::STRef {
+		null::s
+		null::a
+	}
+
+	[result]
+	Control.Monad.ST.Safe::ST {
+		null::s
+		null::a
+	}
+}

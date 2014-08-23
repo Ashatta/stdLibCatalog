@@ -1,0 +1,1499 @@
+[Package]
+Name: IO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html
+Containing package: null
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data IOMode :: * = ReadMode | WriteMode | AppendMode | ReadWriteMode
+Name: IOMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#t:IOMode
+Containing package: IO
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data SeekMode :: * = AbsoluteSeek | RelativeSeek | SeekFromEnd
+Name: SeekMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#t:SeekMode
+Containing package: IO
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data HandlePosn :: *
+Name: Handle
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#t:Handle
+Containing package: IO
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data IO a :: * -> *
+Name: IO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#t:IO
+Containing package: IO
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data HandlePosn :: *
+Name: HandlePosn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#t:HandlePosn
+Containing package: IO
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data BufferMode :: * = NoBuffering | LineBuffering | BlockBuffering (Maybe Int)
+Name: BufferMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#t:BufferMode
+Containing package: IO
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type FilePath = String
+Name: FilePath
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#t:FilePath
+Containing package: IO
+attributes {
+}
+parameters {
+}
+Aliased type = Prelude::String
+
+[Alias]
+type IOError = IOException
+Name: IOError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#t:IOError
+Containing package: IO
+attributes {
+}
+parameters {
+}
+Aliased type = Control.Exception.Base::IOException
+
+[Function]
+isIllegalOperation :: IOError -> Bool
+Name: isIllegalOperation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:isIllegalOperation
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::IOError
+
+	[result]
+	Prelude::Bool
+}
+
+[Function]
+readIO :: Read a => String -> IO a
+Name: readIO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:readIO
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Read a; a; Prelude::Read)
+}
+Signature = <function> {
+	[parameters]
+	Prelude::String
+
+	[result]
+	IO::IO {
+		null::a
+	}
+}
+
+[Function]
+readLn :: Read a => IO a
+Name: readLn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:readLn
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Read a; a; Prelude::Read)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	IO::IO {
+		null::a
+	}
+}
+
+[Function]
+hWaitForInput :: Handle -> Int -> IO Bool
+Name: hWaitForInput
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:hWaitForInput
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::Handle
+	Prelude::Int
+
+	[result]
+	IO::IO {
+		Prelude::Bool
+	}
+}
+
+[Function]
+stdout :: Handle
+Name: stdout
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:stdout
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	IO::Handle
+}
+
+[Function]
+hIsClosed :: Handle -> IO Bool
+Name: hIsClosed
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:hIsClosed
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::Handle
+
+	[result]
+	IO::IO {
+		Prelude::Bool
+	}
+}
+
+[Function]
+hIsSeekable :: Handle -> IO Bool
+Name: hIsSeekable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:hIsSeekable
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::Handle
+
+	[result]
+	IO::IO {
+		Prelude::Bool
+	}
+}
+
+[Function]
+ioError :: IOError -> IO a
+Name: ioError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:ioError
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	IO::IOError
+
+	[result]
+	IO::IO {
+		null::a
+	}
+}
+
+[Function]
+hSeek :: Handle -> SeekMode -> Integer -> IO ()
+Name: hSeek
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:hSeek
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::Handle
+	IO::SeekMode
+	Prelude::Integer
+
+	[result]
+	IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+hReady :: Handle -> IO Bool
+Name: hReady
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:hReady
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::Handle
+
+	[result]
+	IO::IO {
+		Prelude::Bool
+	}
+}
+
+[Function]
+stdin :: Handle
+Name: stdin
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:stdin
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	IO::Handle
+}
+
+[Function]
+hPrint :: Show a => Handle -> a -> IO ()
+Name: hPrint
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:hPrint
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Show a; a; Prelude::Show)
+}
+Signature = <function> {
+	[parameters]
+	IO::Handle
+	null::a
+
+	[result]
+	IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+interact :: (String -> String) -> IO ()
+Name: interact
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:interact
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Prelude::String
+	
+		[result]
+		Prelude::String
+	}
+
+	[result]
+	IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+ioeGetHandle :: IOError -> Maybe Handle
+Name: ioeGetHandle
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:ioeGetHandle
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::IOError
+
+	[result]
+	Prelude::Maybe {
+		IO::Handle
+	}
+}
+
+[Function]
+print :: Show a => a -> IO ()
+Name: print
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:print
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Show a; a; Prelude::Show)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+hIsEOF :: Handle -> IO Bool
+Name: hIsEOF
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:hIsEOF
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::Handle
+
+	[result]
+	IO::IO {
+		Prelude::Bool
+	}
+}
+
+[Function]
+hIsWritable :: Handle -> IO Bool
+Name: hIsWritable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:hIsWritable
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::Handle
+
+	[result]
+	IO::IO {
+		Prelude::Bool
+	}
+}
+
+[Function]
+getContents :: IO String
+Name: getContents
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:getContents
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	IO::IO {
+		Prelude::String
+	}
+}
+
+[Function]
+hFileSize :: Handle -> IO Integer
+Name: hFileSize
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:hFileSize
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::Handle
+
+	[result]
+	IO::IO {
+		Prelude::Integer
+	}
+}
+
+[Function]
+userError :: String -> IOError
+Name: userError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:userError
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::String
+
+	[result]
+	IO::IOError
+}
+
+[Function]
+putChar :: Char -> IO ()
+Name: putChar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:putChar
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Char
+
+	[result]
+	IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+isAlreadyExistsError :: IOError -> Bool
+Name: isAlreadyExistsError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:isAlreadyExistsError
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::IOError
+
+	[result]
+	Prelude::Bool
+}
+
+[Function]
+isAlreadyInUseError :: IOError -> Bool
+Name: isAlreadyInUseError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:isAlreadyInUseError
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::IOError
+
+	[result]
+	Prelude::Bool
+}
+
+[Function]
+hClose :: Handle -> IO ()
+Name: hClose
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:hClose
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::Handle
+
+	[result]
+	IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+isEOF :: IO Bool
+Name: isEOF
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:isEOF
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	IO::IO {
+		Prelude::Bool
+	}
+}
+
+[Function]
+hGetChar :: Handle -> IO Char
+Name: hGetChar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:hGetChar
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::Handle
+
+	[result]
+	IO::IO {
+		Prelude::Char
+	}
+}
+
+[Function]
+bracket :: IO a -> (a -> IO b) -> (a -> IO c) -> IO c
+Name: bracket
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:bracket
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	IO::IO {
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		IO::IO {
+			null::b
+		}
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		IO::IO {
+			null::c
+		}
+	}
+
+	[result]
+	IO::IO {
+		null::c
+	}
+}
+
+[Function]
+ioeGetErrorString :: IOError -> String
+Name: ioeGetErrorString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:ioeGetErrorString
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::IOError
+
+	[result]
+	Prelude::String
+}
+
+[Function]
+hIsOpen :: Handle -> IO Bool
+Name: hIsOpen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:hIsOpen
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::Handle
+
+	[result]
+	IO::IO {
+		Prelude::Bool
+	}
+}
+
+[Function]
+hSetBuffering :: Handle -> BufferMode -> IO ()
+Name: hSetBuffering
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:hSetBuffering
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::Handle
+	IO::BufferMode
+
+	[result]
+	IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+try :: IO a -> IO (Either IOError a)
+Name: try
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:try
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	IO::IO {
+		null::a
+	}
+
+	[result]
+	IO::IO {
+		Prelude::Either {
+			IO::IOError
+			null::a
+		}
+	}
+}
+
+[Function]
+hLookAhead :: Handle -> IO Char
+Name: hLookAhead
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:hLookAhead
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::Handle
+
+	[result]
+	IO::IO {
+		Prelude::Char
+	}
+}
+
+[Function]
+putStr :: String -> IO ()
+Name: putStr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:putStr
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::String
+
+	[result]
+	IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+hIsReadable :: Handle -> IO Bool
+Name: hIsReadable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:hIsReadable
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::Handle
+
+	[result]
+	IO::IO {
+		Prelude::Bool
+	}
+}
+
+[Function]
+hGetContents :: Handle -> IO String
+Name: hGetContents
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:hGetContents
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::Handle
+
+	[result]
+	IO::IO {
+		Prelude::String
+	}
+}
+
+[Function]
+hGetBuffering :: Handle -> IO BufferMode
+Name: hGetBuffering
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:hGetBuffering
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::Handle
+
+	[result]
+	IO::IO {
+		IO::BufferMode
+	}
+}
+
+[Function]
+hFlush :: Handle -> IO ()
+Name: hFlush
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:hFlush
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::Handle
+
+	[result]
+	IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+hPutStrLn :: Handle -> String -> IO ()
+Name: hPutStrLn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:hPutStrLn
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::Handle
+	Prelude::String
+
+	[result]
+	IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+hSetPosn :: HandlePosn -> IO ()
+Name: hSetPosn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:hSetPosn
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::HandlePosn
+
+	[result]
+	IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+isDoesNotExistError :: IOError -> Bool
+Name: isDoesNotExistError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:isDoesNotExistError
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::IOError
+
+	[result]
+	Prelude::Bool
+}
+
+[Function]
+openFile :: FilePath -> IOMode -> IO Handle
+Name: openFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:openFile
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::FilePath
+	IO::IOMode
+
+	[result]
+	IO::IO {
+		IO::Handle
+	}
+}
+
+[Function]
+isEOFError :: IOError -> Bool
+Name: isEOFError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:isEOFError
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::IOError
+
+	[result]
+	Prelude::Bool
+}
+
+[Function]
+readFile :: FilePath -> IO String
+Name: readFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:readFile
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::FilePath
+
+	[result]
+	IO::IO {
+		Prelude::String
+	}
+}
+
+[Function]
+hPutChar :: Handle -> Char -> IO ()
+Name: hPutChar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:hPutChar
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::Handle
+	Prelude::Char
+
+	[result]
+	IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+catch :: IO a -> (IOError -> IO a) -> IO a
+Name: catch
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:catch
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	IO::IO {
+		null::a
+	}
+	<function> {
+		[parameters]
+		IO::IOError
+	
+		[result]
+		IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	IO::IO {
+		null::a
+	}
+}
+
+[Function]
+isFullError :: IOError -> Bool
+Name: isFullError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:isFullError
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::IOError
+
+	[result]
+	Prelude::Bool
+}
+
+[Function]
+stderr :: Handle
+Name: stderr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:stderr
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	IO::Handle
+}
+
+[Function]
+getLine :: IO String
+Name: getLine
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:getLine
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	IO::IO {
+		Prelude::String
+	}
+}
+
+[Function]
+isUserError :: IOError -> Bool
+Name: isUserError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:isUserError
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::IOError
+
+	[result]
+	Prelude::Bool
+}
+
+[Function]
+bracket_ :: IO a -> (a -> IO b) -> IO c -> IO c
+Name: bracket_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:bracket_
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	IO::IO {
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		IO::IO {
+			null::b
+		}
+	}
+	IO::IO {
+		null::c
+	}
+
+	[result]
+	IO::IO {
+		null::c
+	}
+}
+
+[Function]
+getChar :: IO Char
+Name: getChar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:getChar
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	IO::IO {
+		Prelude::Char
+	}
+}
+
+[Function]
+hPutStr :: Handle -> String -> IO ()
+Name: hPutStr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:hPutStr
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::Handle
+	Prelude::String
+
+	[result]
+	IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+hGetLine :: Handle -> IO String
+Name: hGetLine
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:hGetLine
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::Handle
+
+	[result]
+	IO::IO {
+		Prelude::String
+	}
+}
+
+[Function]
+putStrLn :: String -> IO ()
+Name: putStrLn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:putStrLn
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::String
+
+	[result]
+	IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+hGetPosn :: Handle -> IO HandlePosn
+Name: hGetPosn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:hGetPosn
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::Handle
+
+	[result]
+	IO::IO {
+		IO::HandlePosn
+	}
+}
+
+[Function]
+isPermissionError :: IOError -> Bool
+Name: isPermissionError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:isPermissionError
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::IOError
+
+	[result]
+	Prelude::Bool
+}
+
+[Function]
+writeFile :: FilePath -> String -> IO ()
+Name: writeFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:writeFile
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::FilePath
+	Prelude::String
+
+	[result]
+	IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+ioeGetFileName :: IOError -> Maybe FilePath
+Name: ioeGetFileName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:ioeGetFileName
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::IOError
+
+	[result]
+	Prelude::Maybe {
+		IO::FilePath
+	}
+}
+
+[Function]
+appendFile :: FilePath -> String -> IO ()
+Name: appendFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskell98-2.0.0.3/IO.html#v:appendFile
+Containing package: IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	IO::FilePath
+	Prelude::String
+
+	[result]
+	IO::IO {
+		GHC.Tuple::()
+	}
+}

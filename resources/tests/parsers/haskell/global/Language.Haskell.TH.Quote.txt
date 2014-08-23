@@ -1,0 +1,187 @@
+[Package]
+Name: Language.Haskell.TH.Quote
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Quote.html
+Containing package: Language.Haskell.TH
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data QuasiQuoter = QuasiQuoter { quoteExp :: String -> Q Exp quotePat :: String -> Q Pat quoteType :: String -> Q Type quoteDec :: String -> Q [Dec]}
+Name: QuasiQuoter
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Quote.html#t:QuasiQuoter
+Containing package: Language.Haskell.TH.Quote
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+dataToPatQ :: Data a => (forall b. Data b => b -> Maybe (Q Pat)) -> a -> Q Pat
+Name: dataToPatQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Quote.html#v:dataToPatQ
+Containing package: Language.Haskell.TH.Quote
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Data a; a; Data.Data::Data)
+	b: (Data b; b; Data.Data::Data)
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::b
+	
+		[result]
+		Data.Maybe::Maybe {
+			Language.Haskell.TH.Syntax::Q {
+				Language.Haskell.TH.Syntax::Pat
+			}
+		}
+	}
+	null::a
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		Language.Haskell.TH.Syntax::Pat
+	}
+}
+
+[Function]
+dataToExpQ :: Data a => (forall b. Data b => b -> Maybe (Q Exp)) -> a -> Q Exp
+Name: dataToExpQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Quote.html#v:dataToExpQ
+Containing package: Language.Haskell.TH.Quote
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Data a; a; Data.Data::Data)
+	b: (Data b; b; Data.Data::Data)
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::b
+	
+		[result]
+		Data.Maybe::Maybe {
+			Language.Haskell.TH.Syntax::Q {
+				Language.Haskell.TH.Syntax::Exp
+			}
+		}
+	}
+	null::a
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		Language.Haskell.TH.Syntax::Exp
+	}
+}
+
+[Function]
+dataToQa :: forall a k q. Data a => (Name -> k) -> (Lit -> Q q) -> (k -> [Q q] -> Q q) -> (forall b. Data b => b -> Maybe (Q q)) -> a -> Q q
+Name: dataToQa
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Quote.html#v:dataToQa
+Containing package: Language.Haskell.TH.Quote
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Data a; a; Data.Data::Data)
+	k
+	q
+	b: (Data b; b; Data.Data::Data)
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Language.Haskell.TH.Syntax::Name
+	
+		[result]
+		null::k
+	}
+	<function> {
+		[parameters]
+		Language.Haskell.TH.Syntax::Lit
+	
+		[result]
+		Language.Haskell.TH.Syntax::Q {
+			null::q
+		}
+	}
+	<function> {
+		[parameters]
+		null::k
+		other::List {
+			Language.Haskell.TH.Syntax::Q {
+				null::q
+			}
+		}
+	
+		[result]
+		Language.Haskell.TH.Syntax::Q {
+			null::q
+		}
+	}
+	<function> {
+		[parameters]
+		null::b
+	
+		[result]
+		Data.Maybe::Maybe {
+			Language.Haskell.TH.Syntax::Q {
+				null::q
+			}
+		}
+	}
+	null::a
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		null::q
+	}
+}
+
+[Function]
+quoteFile :: QuasiQuoter -> QuasiQuoter
+Name: quoteFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Quote.html#v:quoteFile
+Containing package: Language.Haskell.TH.Quote
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Quote::QuasiQuoter
+
+	[result]
+	Language.Haskell.TH.Quote::QuasiQuoter
+}

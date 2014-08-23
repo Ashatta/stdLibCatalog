@@ -1,0 +1,1173 @@
+[Package]
+Name: GHC.IO.Handle
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html
+Containing package: IO
+attributes {
+}
+
+Subpackages {
+	GHC.IO.Handle.FD
+}
+
+[Classifier]
+data NewlineMode = NewlineMode { inputNL :: Newline outputNL :: Newline}
+Name: NewlineMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#t:NewlineMode
+Containing package: GHC.IO.Handle
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data SeekMode = AbsoluteSeek | RelativeSeek | SeekFromEnd
+Name: SeekMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#t:SeekMode
+Containing package: GHC.IO.Handle
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data HandlePosn = HandlePosn Handle HandlePosition
+Name: HandlePosn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#t:HandlePosn
+Containing package: GHC.IO.Handle
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data NewlineMode = NewlineMode { inputNL :: Newline outputNL :: Newline}
+Name: Newline
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#t:Newline
+Containing package: GHC.IO.Handle
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data BufferMode = NoBuffering | LineBuffering | BlockBuffering (Maybe Int)
+Name: BufferMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#t:BufferMode
+Containing package: GHC.IO.Handle
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data HandlePosn = HandlePosn Handle HandlePosition
+Name: Handle
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#t:Handle
+Containing package: GHC.IO.Handle
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type HandlePosition = Integer
+Name: HandlePosition
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#t:HandlePosition
+Containing package: GHC.IO.Handle
+attributes {
+}
+parameters {
+}
+Aliased type = Prelude::Integer
+
+[Function]
+hSetEncoding :: Handle -> TextEncoding -> IO ()
+Name: hSetEncoding
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hSetEncoding
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+	GHC.IO.Encoding.Types::TextEncoding
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+hIsSeekable :: Handle -> IO Bool
+Name: hIsSeekable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hIsSeekable
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+hClose :: Handle -> IO ()
+Name: hClose
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hClose
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+hSetBinaryMode :: Handle -> Bool -> IO ()
+Name: hSetBinaryMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hSetBinaryMode
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+	Data.Bool::Bool
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+hPutBufNonBlocking :: Handle -> Ptr a -> Int -> IO Int
+Name: hPutBufNonBlocking
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hPutBufNonBlocking
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}
+
+[Function]
+hClose_help :: Handle__ -> IO (Handle__, Maybe SomeException)
+Name: hClose_help
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hClose_help
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	null::Handle__
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			null::Handle__
+			Data.Maybe::Maybe {
+				Control.Exception.Base::SomeException
+			}
+		}
+	}
+}
+
+[Function]
+hFlushAll :: Handle -> IO ()
+Name: hFlushAll
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hFlushAll
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+hIsEOF :: Handle -> IO Bool
+Name: hIsEOF
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hIsEOF
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+nativeNewlineMode :: NewlineMode
+Name: nativeNewlineMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:nativeNewlineMode
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	GHC.IO.Handle::NewlineMode
+}
+
+[Function]
+hIsOpen :: Handle -> IO Bool
+Name: hIsOpen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hIsOpen
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+hFileSize :: Handle -> IO Integer
+Name: hFileSize
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hFileSize
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+
+	[result]
+	System.IO::IO {
+		Prelude::Integer
+	}
+}
+
+[Function]
+hSetEcho :: Handle -> Bool -> IO ()
+Name: hSetEcho
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hSetEcho
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+	Data.Bool::Bool
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+hIsReadable :: Handle -> IO Bool
+Name: hIsReadable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hIsReadable
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+hGetPosn :: Handle -> IO HandlePosn
+Name: hGetPosn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hGetPosn
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+
+	[result]
+	System.IO::IO {
+		GHC.IO.Handle::HandlePosn
+	}
+}
+
+[Function]
+hFlush :: Handle -> IO ()
+Name: hFlush
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hFlush
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+hIsClosed :: Handle -> IO Bool
+Name: hIsClosed
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hIsClosed
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+hGetBufNonBlocking :: Handle -> Ptr a -> Int -> IO Int
+Name: hGetBufNonBlocking
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hGetBufNonBlocking
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}
+
+[Function]
+hWaitForInput :: Handle -> Int -> IO Bool
+Name: hWaitForInput
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hWaitForInput
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+hSetNewlineMode :: Handle -> NewlineMode -> IO ()
+Name: hSetNewlineMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hSetNewlineMode
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+	GHC.IO.Handle::NewlineMode
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+universalNewlineMode :: NewlineMode
+Name: universalNewlineMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:universalNewlineMode
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	GHC.IO.Handle::NewlineMode
+}
+
+[Function]
+hSetFileSize :: Handle -> Integer -> IO ()
+Name: hSetFileSize
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hSetFileSize
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+	Prelude::Integer
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+hSetBuffering :: Handle -> BufferMode -> IO ()
+Name: hSetBuffering
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hSetBuffering
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+	GHC.IO.Handle::BufferMode
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+hIsTerminalDevice :: Handle -> IO Bool
+Name: hIsTerminalDevice
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hIsTerminalDevice
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+hDuplicateTo :: Handle -> Handle -> IO ()
+Name: hDuplicateTo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hDuplicateTo
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+	GHC.IO.Handle::Handle
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+nativeNewline :: Newline
+Name: nativeNewline
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:nativeNewline
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	GHC.IO.Handle::Newline
+}
+
+[Function]
+hPutBuf :: Handle -> Ptr a -> Int -> IO ()
+Name: hPutBuf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hPutBuf
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+hGetChar :: Handle -> IO Char
+Name: hGetChar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hGetChar
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+
+	[result]
+	System.IO::IO {
+		Data.Char::Char
+	}
+}
+
+[Function]
+hDuplicate :: Handle -> IO Handle
+Name: hDuplicate
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hDuplicate
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+
+	[result]
+	System.IO::IO {
+		GHC.IO.Handle::Handle
+	}
+}
+
+[Function]
+hLookAhead :: Handle -> IO Char
+Name: hLookAhead
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hLookAhead
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+
+	[result]
+	System.IO::IO {
+		Data.Char::Char
+	}
+}
+
+[Function]
+noNewlineTranslation :: NewlineMode
+Name: noNewlineTranslation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:noNewlineTranslation
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	GHC.IO.Handle::NewlineMode
+}
+
+[Function]
+hSeek :: Handle -> SeekMode -> Integer -> IO ()
+Name: hSeek
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hSeek
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+	GHC.IO.Handle::SeekMode
+	Prelude::Integer
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+hGetBuf :: Handle -> Ptr a -> Int -> IO Int
+Name: hGetBuf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hGetBuf
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}
+
+[Function]
+mkFileHandle :: (IODevice dev, BufferedIO dev, Typeable dev) => dev -> FilePath -> IOMode -> Maybe TextEncoding -> NewlineMode -> IO Handle
+Name: mkFileHandle
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:mkFileHandle
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	dev: (IODevice dev; dev; GHC.IO.Device::IODevice), (BufferedIO dev; dev; GHC.IO.BufferedIO::BufferedIO), (Typeable dev; dev; Data.Typeable.Internal::Typeable)
+}
+Signature = <function> {
+	[parameters]
+	null::dev
+	System.IO::FilePath
+	System.IO::IOMode
+	Data.Maybe::Maybe {
+		GHC.IO.Encoding.Types::TextEncoding
+	}
+	GHC.IO.Handle::NewlineMode
+
+	[result]
+	System.IO::IO {
+		GHC.IO.Handle::Handle
+	}
+}
+
+[Function]
+hTell :: Handle -> IO Integer
+Name: hTell
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hTell
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+
+	[result]
+	System.IO::IO {
+		Prelude::Integer
+	}
+}
+
+[Function]
+hGetLine :: Handle -> IO String
+Name: hGetLine
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hGetLine
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+hPutChar :: Handle -> Char -> IO ()
+Name: hPutChar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hPutChar
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+	Data.Char::Char
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+hGetBuffering :: Handle -> IO BufferMode
+Name: hGetBuffering
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hGetBuffering
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+
+	[result]
+	System.IO::IO {
+		GHC.IO.Handle::BufferMode
+	}
+}
+
+[Function]
+mkDuplexHandle :: (IODevice dev, BufferedIO dev, Typeable dev) => dev -> FilePath -> Maybe TextEncoding -> NewlineMode -> IO Handle
+Name: mkDuplexHandle
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:mkDuplexHandle
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	dev: (IODevice dev; dev; GHC.IO.Device::IODevice), (BufferedIO dev; dev; GHC.IO.BufferedIO::BufferedIO), (Typeable dev; dev; Data.Typeable.Internal::Typeable)
+}
+Signature = <function> {
+	[parameters]
+	null::dev
+	System.IO::FilePath
+	Data.Maybe::Maybe {
+		GHC.IO.Encoding.Types::TextEncoding
+	}
+	GHC.IO.Handle::NewlineMode
+
+	[result]
+	System.IO::IO {
+		GHC.IO.Handle::Handle
+	}
+}
+
+[Function]
+hGetContents :: Handle -> IO String
+Name: hGetContents
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hGetContents
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+hGetEncoding :: Handle -> IO (Maybe TextEncoding)
+Name: hGetEncoding
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hGetEncoding
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			GHC.IO.Encoding.Types::TextEncoding
+		}
+	}
+}
+
+[Function]
+hSetPosn :: HandlePosn -> IO ()
+Name: hSetPosn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hSetPosn
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::HandlePosn
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+hPutStr :: Handle -> String -> IO ()
+Name: hPutStr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hPutStr
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+hGetEcho :: Handle -> IO Bool
+Name: hGetEcho
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hGetEcho
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+hShow :: Handle -> IO String
+Name: hShow
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hShow
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+hIsWritable :: Handle -> IO Bool
+Name: hIsWritable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-Handle.html#v:hIsWritable
+Containing package: GHC.IO.Handle
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}

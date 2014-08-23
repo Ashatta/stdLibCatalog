@@ -1,0 +1,1597 @@
+[Package]
+Name: System.Posix.Signals
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html
+Containing package: System.Posix
+attributes {
+}
+
+Subpackages {
+	System.Posix.Signals.Exts
+}
+
+[Classifier]
+data SignalSpecificInfo = NoSignalSpecificInfo | SigChldInfo { siginfoPid :: ProcessID siginfoUid :: UserID siginfoStatus :: ProcessStatus }
+Name: SignalSpecificInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#t:SignalSpecificInfo
+Containing package: System.Posix.Signals
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Handler = Default | Ignore | Catch (IO ()) | CatchOnce (IO ()) | CatchInfo (SignalInfo -> IO ()) | CatchInfoOnce (SignalInfo -> IO ())
+Name: Handler
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#t:Handler
+Containing package: System.Posix.Signals
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data SignalSet
+Name: SignalSet
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#t:SignalSet
+Containing package: System.Posix.Signals
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data SignalInfo = SignalInfo { siginfoSignal :: Signal siginfoError :: Errno siginfoSpecific :: SignalSpecificInfo}
+Name: SignalInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#t:SignalInfo
+Containing package: System.Posix.Signals
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type Signal = CInt
+Name: Signal
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#t:Signal
+Containing package: System.Posix.Signals
+attributes {
+}
+parameters {
+}
+Aliased type = Foreign.C.Types::CInt
+
+[Function]
+sigQUIT :: CInt
+Name: sigQUIT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:sigQUIT
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+installHandler :: Signal -> Handler -> Maybe SignalSet -> IO Handler
+Name: installHandler
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:installHandler
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Signals::Signal
+	System.Posix.Signals::Handler
+	Data.Maybe::Maybe {
+		System.Posix.Signals::SignalSet
+	}
+
+	[result]
+	System.IO::IO {
+		System.Posix.Signals::Handler
+	}
+}
+
+[Function]
+lostConnection :: Signal
+Name: lostConnection
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:lostConnection
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+raiseSignal :: Signal -> IO ()
+Name: raiseSignal
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:raiseSignal
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Signals::Signal
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+emptySignalSet :: SignalSet
+Name: emptySignalSet
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:emptySignalSet
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::SignalSet
+}
+
+[Function]
+userDefinedSignal2 :: Signal
+Name: userDefinedSignal2
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:userDefinedSignal2
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+userDefinedSignal1 :: Signal
+Name: userDefinedSignal1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:userDefinedSignal1
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+getSignalMask :: IO SignalSet
+Name: getSignalMask
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:getSignalMask
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.Posix.Signals::SignalSet
+	}
+}
+
+[Function]
+pollableEvent :: Signal
+Name: pollableEvent
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:pollableEvent
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+continueProcess :: Signal
+Name: continueProcess
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:continueProcess
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+sigSEGV :: CInt
+Name: sigSEGV
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:sigSEGV
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+fullSignalSet :: SignalSet
+Name: fullSignalSet
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:fullSignalSet
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::SignalSet
+}
+
+[Function]
+softwareTermination :: Signal
+Name: softwareTermination
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:softwareTermination
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+blockSignals :: SignalSet -> IO ()
+Name: blockSignals
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:blockSignals
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Signals::SignalSet
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+queryStoppedChildFlag :: IO Bool
+Name: queryStoppedChildFlag
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:queryStoppedChildFlag
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+realTimeAlarm :: Signal
+Name: realTimeAlarm
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:realTimeAlarm
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+floatingPointException :: Signal
+Name: floatingPointException
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:floatingPointException
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+signalProcessGroup :: Signal -> ProcessGroupID -> IO ()
+Name: signalProcessGroup
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:signalProcessGroup
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Signals::Signal
+	System.Posix.Types::ProcessGroupID
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+virtualTimerExpired :: Signal
+Name: virtualTimerExpired
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:virtualTimerExpired
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+addSignal :: Signal -> SignalSet -> SignalSet
+Name: addSignal
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:addSignal
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Signals::Signal
+	System.Posix.Signals::SignalSet
+
+	[result]
+	System.Posix.Signals::SignalSet
+}
+
+[Function]
+inSignalSet :: Signal -> SignalSet -> Bool
+Name: inSignalSet
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:inSignalSet
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Signals::Signal
+	System.Posix.Signals::SignalSet
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+processStatusChanged :: Signal
+Name: processStatusChanged
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:processStatusChanged
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+sigVTALRM :: CInt
+Name: sigVTALRM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:sigVTALRM
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+sigUSR2 :: CInt
+Name: sigUSR2
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:sigUSR2
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+sigUSR1 :: CInt
+Name: sigUSR1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:sigUSR1
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+sigBUS :: CInt
+Name: sigBUS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:sigBUS
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+cpuTimeLimitExceeded :: Signal
+Name: cpuTimeLimitExceeded
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:cpuTimeLimitExceeded
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+sigCONT :: CInt
+Name: sigCONT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:sigCONT
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+backgroundWrite :: Signal
+Name: backgroundWrite
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:backgroundWrite
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+sigALRM :: CInt
+Name: sigALRM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:sigALRM
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+backgroundRead :: Signal
+Name: backgroundRead
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:backgroundRead
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+sigPIPE :: CInt
+Name: sigPIPE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:sigPIPE
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+setStoppedChildFlag :: Bool -> IO Bool
+Name: setStoppedChildFlag
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:setStoppedChildFlag
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Bool::Bool
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+sigSYS :: CInt
+Name: sigSYS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:sigSYS
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+sigXFSZ :: CInt
+Name: sigXFSZ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:sigXFSZ
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+unblockSignals :: SignalSet -> IO ()
+Name: unblockSignals
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:unblockSignals
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Signals::SignalSet
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+softwareStop :: Signal
+Name: softwareStop
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:softwareStop
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+awaitSignal :: Maybe SignalSet -> IO ()
+Name: awaitSignal
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:awaitSignal
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Maybe::Maybe {
+		System.Posix.Signals::SignalSet
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+sigABRT :: CInt
+Name: sigABRT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:sigABRT
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+sigPOLL :: CInt
+Name: sigPOLL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:sigPOLL
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+reservedSignals :: SignalSet
+Name: reservedSignals
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:reservedSignals
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::SignalSet
+}
+
+[Function]
+signalProcess :: Signal -> ProcessID -> IO ()
+Name: signalProcess
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:signalProcess
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Signals::Signal
+	System.Posix.Types::ProcessID
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+sigURG :: CInt
+Name: sigURG
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:sigURG
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+nullSignal :: Signal
+Name: nullSignal
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:nullSignal
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+openEndedPipe :: Signal
+Name: openEndedPipe
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:openEndedPipe
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+urgentDataAvailable :: Signal
+Name: urgentDataAvailable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:urgentDataAvailable
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+badSystemCall :: Signal
+Name: badSystemCall
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:badSystemCall
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+sigFPE :: CInt
+Name: sigFPE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:sigFPE
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+segmentationViolation :: Signal
+Name: segmentationViolation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:segmentationViolation
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+sigXCPU :: CInt
+Name: sigXCPU
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:sigXCPU
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+fileSizeLimitExceeded :: Signal
+Name: fileSizeLimitExceeded
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:fileSizeLimitExceeded
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+sigTSTP :: CInt
+Name: sigTSTP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:sigTSTP
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+deleteSignal :: Signal -> SignalSet -> SignalSet
+Name: deleteSignal
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:deleteSignal
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Signals::Signal
+	System.Posix.Signals::SignalSet
+
+	[result]
+	System.Posix.Signals::SignalSet
+}
+
+[Function]
+sigTRAP :: CInt
+Name: sigTRAP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:sigTRAP
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+profilingTimerExpired :: Signal
+Name: profilingTimerExpired
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:profilingTimerExpired
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+sigINT :: CInt
+Name: sigINT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:sigINT
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+internalAbort :: Signal
+Name: internalAbort
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:internalAbort
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+sigILL :: CInt
+Name: sigILL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:sigILL
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+sigKILL :: CInt
+Name: sigKILL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:sigKILL
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+keyboardSignal :: Signal
+Name: keyboardSignal
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:keyboardSignal
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+sigSTOP :: CInt
+Name: sigSTOP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:sigSTOP
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+killProcess :: Signal
+Name: killProcess
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:killProcess
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+sigTERM :: CInt
+Name: sigTERM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:sigTERM
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+sigHUP :: CInt
+Name: sigHUP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:sigHUP
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+sigTTIN :: CInt
+Name: sigTTIN
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:sigTTIN
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+busError :: Signal
+Name: busError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:busError
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+sigPROF :: CInt
+Name: sigPROF
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:sigPROF
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+illegalInstruction :: Signal
+Name: illegalInstruction
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:illegalInstruction
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+sigCHLD :: CInt
+Name: sigCHLD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:sigCHLD
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+sigTTOU :: CInt
+Name: sigTTOU
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:sigTTOU
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.C.Types::CInt
+}
+
+[Function]
+keyboardTermination :: Signal
+Name: keyboardTermination
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:keyboardTermination
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+breakpointTrap :: Signal
+Name: breakpointTrap
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:breakpointTrap
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+scheduleAlarm :: Int -> IO Int
+Name: scheduleAlarm
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:scheduleAlarm
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}
+
+[Function]
+getPendingSignals :: IO SignalSet
+Name: getPendingSignals
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:getPendingSignals
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.Posix.Signals::SignalSet
+	}
+}
+
+[Function]
+keyboardStop :: Signal
+Name: keyboardStop
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:keyboardStop
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Signals::Signal
+}
+
+[Function]
+setSignalMask :: SignalSet -> IO ()
+Name: setSignalMask
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Signals.html#v:setSignalMask
+Containing package: System.Posix.Signals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Signals::SignalSet
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}

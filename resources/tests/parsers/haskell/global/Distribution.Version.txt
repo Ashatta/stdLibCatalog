@@ -1,0 +1,804 @@
+[Package]
+Name: Distribution.Version
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html
+Containing package: Distribution
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data VersionIntervals
+Name: VersionIntervals
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#t:VersionIntervals
+Containing package: Distribution.Version
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data VersionRange = AnyVersion | ThisVersion Version | LaterVersion Version | EarlierVersion Version | WildcardVersion Version | UnionVersionRanges VersionRange VersionRange | IntersectVersionRanges VersionRange VersionRange | VersionRangeParens VersionRange
+Name: VersionRange
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#t:VersionRange
+Containing package: Distribution.Version
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data LowerBound = LowerBound Version !Bound
+Name: LowerBound
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#t:LowerBound
+Containing package: Distribution.Version
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Bound = ExclusiveBound | InclusiveBound
+Name: Bound
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#t:Bound
+Containing package: Distribution.Version
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data VersionIntervals
+Name: Version
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#t:Version
+Containing package: Distribution.Version
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data UpperBound = NoUpperBound | UpperBound Version !Bound
+Name: UpperBound
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#t:UpperBound
+Containing package: Distribution.Version
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type VersionInterval = (LowerBound, UpperBound)
+Name: VersionInterval
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#t:VersionInterval
+Containing package: Distribution.Version
+attributes {
+}
+parameters {
+}
+Aliased type = null::(LowerBound, UpperBound)
+
+[Function]
+isAnyVersion :: VersionRange -> Bool
+Name: isAnyVersion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#v:isAnyVersion
+Containing package: Distribution.Version
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Version::VersionRange
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+toVersionIntervals :: VersionRange -> VersionIntervals
+Name: toVersionIntervals
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#v:toVersionIntervals
+Containing package: Distribution.Version
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Version::VersionRange
+
+	[result]
+	Distribution.Version::VersionIntervals
+}
+
+[Function]
+notThisVersion :: Version -> VersionRange
+Name: notThisVersion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#v:notThisVersion
+Containing package: Distribution.Version
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Version::Version
+
+	[result]
+	Distribution.Version::VersionRange
+}
+
+[Function]
+intersectVersionRanges :: VersionRange -> VersionRange -> VersionRange
+Name: intersectVersionRanges
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#v:intersectVersionRanges
+Containing package: Distribution.Version
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Version::VersionRange
+	Distribution.Version::VersionRange
+
+	[result]
+	Distribution.Version::VersionRange
+}
+
+[Function]
+withinRange :: Version -> VersionRange -> Bool
+Name: withinRange
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#v:withinRange
+Containing package: Distribution.Version
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Version::Version
+	Distribution.Version::VersionRange
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+orEarlierVersion :: Version -> VersionRange
+Name: orEarlierVersion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#v:orEarlierVersion
+Containing package: Distribution.Version
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Version::Version
+
+	[result]
+	Distribution.Version::VersionRange
+}
+
+[Function]
+noVersion :: VersionRange
+Name: noVersion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#v:noVersion
+Containing package: Distribution.Version
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Version::VersionRange
+}
+
+[Function]
+fromVersionIntervals :: VersionIntervals -> VersionRange
+Name: fromVersionIntervals
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#v:fromVersionIntervals
+Containing package: Distribution.Version
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Version::VersionIntervals
+
+	[result]
+	Distribution.Version::VersionRange
+}
+
+[Function]
+unionVersionRanges :: VersionRange -> VersionRange -> VersionRange
+Name: unionVersionRanges
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#v:unionVersionRanges
+Containing package: Distribution.Version
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Version::VersionRange
+	Distribution.Version::VersionRange
+
+	[result]
+	Distribution.Version::VersionRange
+}
+
+[Function]
+versionIntervals :: VersionIntervals -> [VersionInterval]
+Name: versionIntervals
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#v:versionIntervals
+Containing package: Distribution.Version
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Version::VersionIntervals
+
+	[result]
+	other::List {
+		Distribution.Version::VersionInterval
+	}
+}
+
+[Function]
+isNoVersion :: VersionRange -> Bool
+Name: isNoVersion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#v:isNoVersion
+Containing package: Distribution.Version
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Version::VersionRange
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+foldVersionRange :: a -> (Version -> a) -> (Version -> a) -> (Version -> a) -> (a -> a -> a) -> (a -> a -> a) -> VersionRange -> a
+Name: foldVersionRange
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#v:foldVersionRange
+Containing package: Distribution.Version
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::a
+	<function> {
+		[parameters]
+		Distribution.Version::Version
+	
+		[result]
+		null::a
+	}
+	<function> {
+		[parameters]
+		Distribution.Version::Version
+	
+		[result]
+		null::a
+	}
+	<function> {
+		[parameters]
+		Distribution.Version::Version
+	
+		[result]
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+	Distribution.Version::VersionRange
+
+	[result]
+	null::a
+}
+
+[Function]
+isSpecificVersion :: VersionRange -> Maybe Version
+Name: isSpecificVersion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#v:isSpecificVersion
+Containing package: Distribution.Version
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Version::VersionRange
+
+	[result]
+	Data.Maybe::Maybe {
+		Distribution.Version::Version
+	}
+}
+
+[Function]
+asVersionIntervals :: VersionRange -> [VersionInterval]
+Name: asVersionIntervals
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#v:asVersionIntervals
+Containing package: Distribution.Version
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Version::VersionRange
+
+	[result]
+	other::List {
+		Distribution.Version::VersionInterval
+	}
+}
+
+[Function]
+mkVersionIntervals :: [VersionInterval] -> Maybe VersionIntervals
+Name: mkVersionIntervals
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#v:mkVersionIntervals
+Containing package: Distribution.Version
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Distribution.Version::VersionInterval
+	}
+
+	[result]
+	Data.Maybe::Maybe {
+		Distribution.Version::VersionIntervals
+	}
+}
+
+[Function]
+withinIntervals :: Version -> VersionIntervals -> Bool
+Name: withinIntervals
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#v:withinIntervals
+Containing package: Distribution.Version
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Version::Version
+	Distribution.Version::VersionIntervals
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+unionVersionIntervals :: VersionIntervals -> VersionIntervals -> VersionIntervals
+Name: unionVersionIntervals
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#v:unionVersionIntervals
+Containing package: Distribution.Version
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Version::VersionIntervals
+	Distribution.Version::VersionIntervals
+
+	[result]
+	Distribution.Version::VersionIntervals
+}
+
+[Function]
+orLaterVersion :: Version -> VersionRange
+Name: orLaterVersion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#v:orLaterVersion
+Containing package: Distribution.Version
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Version::Version
+
+	[result]
+	Distribution.Version::VersionRange
+}
+
+[Function]
+withinVersion :: Version -> VersionRange
+Name: withinVersion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#v:withinVersion
+Containing package: Distribution.Version
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Version::Version
+
+	[result]
+	Distribution.Version::VersionRange
+}
+
+[Function]
+laterVersion :: Version -> VersionRange
+Name: laterVersion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#v:laterVersion
+Containing package: Distribution.Version
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Version::Version
+
+	[result]
+	Distribution.Version::VersionRange
+}
+
+[Function]
+earlierVersion :: Version -> VersionRange
+Name: earlierVersion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#v:earlierVersion
+Containing package: Distribution.Version
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Version::Version
+
+	[result]
+	Distribution.Version::VersionRange
+}
+
+[Function]
+foldVersionRange' :: a -> (Version -> a) -> (Version -> a) -> (Version -> a) -> (Version -> a) -> (Version -> a) -> (Version -> Version -> a) -> (a -> a -> a) -> (a -> a -> a) -> (a -> a) -> VersionRange -> a
+Name: foldVersionRange'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#v:foldVersionRange'
+Containing package: Distribution.Version
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::a
+	<function> {
+		[parameters]
+		Distribution.Version::Version
+	
+		[result]
+		null::a
+	}
+	<function> {
+		[parameters]
+		Distribution.Version::Version
+	
+		[result]
+		null::a
+	}
+	<function> {
+		[parameters]
+		Distribution.Version::Version
+	
+		[result]
+		null::a
+	}
+	<function> {
+		[parameters]
+		Distribution.Version::Version
+	
+		[result]
+		null::a
+	}
+	<function> {
+		[parameters]
+		Distribution.Version::Version
+	
+		[result]
+		null::a
+	}
+	<function> {
+		[parameters]
+		Distribution.Version::Version
+		Distribution.Version::Version
+	
+		[result]
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::a
+	}
+	Distribution.Version::VersionRange
+
+	[result]
+	null::a
+}
+
+[Function]
+thisVersion :: Version -> VersionRange
+Name: thisVersion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#v:thisVersion
+Containing package: Distribution.Version
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Version::Version
+
+	[result]
+	Distribution.Version::VersionRange
+}
+
+[Function]
+anyVersion :: VersionRange
+Name: anyVersion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#v:anyVersion
+Containing package: Distribution.Version
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Version::VersionRange
+}
+
+[Function]
+betweenVersionsInclusive :: Version -> Version -> VersionRange
+Name: betweenVersionsInclusive
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#v:betweenVersionsInclusive
+Containing package: Distribution.Version
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Version::Version
+	Distribution.Version::Version
+
+	[result]
+	Distribution.Version::VersionRange
+}
+
+[Function]
+simplifyVersionRange :: VersionRange -> VersionRange
+Name: simplifyVersionRange
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#v:simplifyVersionRange
+Containing package: Distribution.Version
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Version::VersionRange
+
+	[result]
+	Distribution.Version::VersionRange
+}
+
+[Function]
+intersectVersionIntervals :: VersionIntervals -> VersionIntervals -> VersionIntervals
+Name: intersectVersionIntervals
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Version.html#v:intersectVersionIntervals
+Containing package: Distribution.Version
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Version::VersionIntervals
+	Distribution.Version::VersionIntervals
+
+	[result]
+	Distribution.Version::VersionIntervals
+}

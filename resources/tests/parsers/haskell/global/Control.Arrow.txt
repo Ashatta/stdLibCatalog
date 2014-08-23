@@ -1,0 +1,923 @@
+[Package]
+Name: Control.Arrow
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html
+Containing package: Control
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+newtype ArrowMonad a b = ArrowMonad (a () b)
+Name: ArrowMonad
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#t:ArrowMonad
+Containing package: Control.Arrow
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+	b
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class ArrowZero a => ArrowPlus a where (<+>) :: a b c -> a b c -> a b c
+Name: ArrowPlus
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#t:ArrowPlus
+Containing package: Control.Arrow
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Control.Arrow::Control.Arrow.ArrowPlus_Kleisli<m<>>
+}
+supertypes {
+	Control.Arrow::ArrowZero
+}
+members {
+
+	[Function]
+	(<+>) :: a b c -> a b c -> a b c
+	Name: (<+>)
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#v:(<+>)
+	Containing package: Control.Arrow
+	attributes {
+		memberType=function
+	}
+	Containing type: ArrowPlus
+	parameters {
+		a: (ArrowPlus a; a; Control.Arrow::ArrowPlus)
+		b
+		c
+	}
+	Signature = <function> {
+		[parameters]
+		null::a {
+			null::b
+			null::c
+		}
+		null::a {
+			null::b
+			null::c
+		}
+	
+		[result]
+		null::a {
+			null::b
+			null::c
+		}
+	}
+}
+
+[Classifier]
+class Arrow a => ArrowLoop a where loop :: a (b, d) (c, d) -> a b c
+Name: ArrowLoop
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#t:ArrowLoop
+Containing package: Control.Arrow
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Control.Arrow::Control.Arrow.ArrowLoop_Kleisli<m<>>
+	other::Control.Arrow.ArrowLoop_(->)<>
+}
+supertypes {
+	Control.Arrow::Arrow
+}
+members {
+
+	[Function]
+	loop :: a (b, d) (c, d) -> a b c
+	Name: loop
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#v:loop
+	Containing package: Control.Arrow
+	attributes {
+		memberType=function
+	}
+	Containing type: ArrowLoop
+	parameters {
+		a: (ArrowLoop a; a; Control.Arrow::ArrowLoop)
+		b
+		d
+		c
+	}
+	Signature = <function> {
+		[parameters]
+		null::a {
+			GHC.Tuple::(,) {
+				null::b
+				null::d
+			}
+			GHC.Tuple::(,) {
+				null::c
+				null::d
+			}
+		}
+	
+		[result]
+		null::a {
+			null::b
+			null::c
+		}
+	}
+}
+
+[Classifier]
+class Arrow a => ArrowZero a where zeroArrow :: a b c
+Name: ArrowZero
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#t:ArrowZero
+Containing package: Control.Arrow
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Control.Arrow::ArrowPlus
+	Control.Arrow::Control.Arrow.ArrowZero_Kleisli<m<>>
+}
+supertypes {
+	Control.Arrow::Arrow
+}
+members {
+
+	[Function]
+	zeroArrow :: a b c
+	Name: zeroArrow
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#v:zeroArrow
+	Containing package: Control.Arrow
+	attributes {
+		memberType=function
+	}
+	Containing type: ArrowZero
+	parameters {
+		a: (ArrowZero a; a; Control.Arrow::ArrowZero)
+		b
+		c
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		null::a {
+			null::b
+			null::c
+		}
+	}
+}
+
+[Classifier]
+class Arrow a => ArrowChoice a where left :: a b c -> a (Either b d) (Either c d) right :: a b c -> a (Either d b) (Either d c) (+++) :: a b c -> a b' c' -> a (Either b b') (Either c c') (|||) :: a b d -> a c d -> a (Either b c) d
+Name: ArrowChoice
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#t:ArrowChoice
+Containing package: Control.Arrow
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Control.Arrow::Control.Arrow.ArrowChoice_Kleisli<m<>>
+	other::Control.Arrow.ArrowChoice_(->)<>
+}
+supertypes {
+	Control.Arrow::Arrow
+}
+members {
+
+	[Function]
+	left :: a b c -> a (Either b d) (Either c d)
+	Name: left
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#v:left
+	Containing package: Control.Arrow
+	attributes {
+		memberType=function
+	}
+	Containing type: ArrowChoice
+	parameters {
+		a: (ArrowChoice a; a; Control.Arrow::ArrowChoice)
+		b
+		c
+		d
+	}
+	Signature = <function> {
+		[parameters]
+		null::a {
+			null::b
+			null::c
+		}
+	
+		[result]
+		null::a {
+			Data.Either::Either {
+				null::b
+				null::d
+			}
+			Data.Either::Either {
+				null::c
+				null::d
+			}
+		}
+	}
+
+	[Function]
+	right :: a b c -> a (Either d b) (Either d c)
+	Name: right
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#v:right
+	Containing package: Control.Arrow
+	attributes {
+		memberType=function
+	}
+	Containing type: ArrowChoice
+	parameters {
+		a: (ArrowChoice a; a; Control.Arrow::ArrowChoice)
+		b
+		c
+		d
+	}
+	Signature = <function> {
+		[parameters]
+		null::a {
+			null::b
+			null::c
+		}
+	
+		[result]
+		null::a {
+			Data.Either::Either {
+				null::d
+				null::b
+			}
+			Data.Either::Either {
+				null::d
+				null::c
+			}
+		}
+	}
+
+	[Function]
+	(+++) :: a b c -> a b' c' -> a (Either b b') (Either c c')
+	Name: (+++)
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#v:(+++)
+	Containing package: Control.Arrow
+	attributes {
+		memberType=function
+	}
+	Containing type: ArrowChoice
+	parameters {
+		a: (ArrowChoice a; a; Control.Arrow::ArrowChoice)
+		b
+		c
+		b'
+		c'
+	}
+	Signature = <function> {
+		[parameters]
+		null::a {
+			null::b
+			null::c
+		}
+		null::a {
+			null::b'
+			null::c'
+		}
+	
+		[result]
+		null::a {
+			Data.Either::Either {
+				null::b
+				null::b'
+			}
+			Data.Either::Either {
+				null::c
+				null::c'
+			}
+		}
+	}
+
+	[Function]
+	(|||) :: a b d -> a c d -> a (Either b c) d
+	Name: (|||)
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#v:(|||)
+	Containing package: Control.Arrow
+	attributes {
+		memberType=function
+	}
+	Containing type: ArrowChoice
+	parameters {
+		a: (ArrowChoice a; a; Control.Arrow::ArrowChoice)
+		b
+		d
+		c
+	}
+	Signature = <function> {
+		[parameters]
+		null::a {
+			null::b
+			null::d
+		}
+		null::a {
+			null::c
+			null::d
+		}
+	
+		[result]
+		null::a {
+			Data.Either::Either {
+				null::b
+				null::c
+			}
+			null::d
+		}
+	}
+}
+
+[Classifier]
+class Arrow a => ArrowApply a where app :: a (a b c, b) c
+Name: ArrowApply
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#t:ArrowApply
+Containing package: Control.Arrow
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Control.Arrow::Control.Arrow.ArrowApply_Kleisli<m<>>
+	other::Control.Arrow.ArrowApply_(->)<>
+}
+supertypes {
+	Control.Arrow::Arrow
+}
+members {
+
+	[Function]
+	app :: a (a b c, b) c
+	Name: app
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#v:app
+	Containing package: Control.Arrow
+	attributes {
+		memberType=function
+	}
+	Containing type: ArrowApply
+	parameters {
+		a: (ArrowApply a; a; Control.Arrow::ArrowApply)
+		b
+		c
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		null::a {
+			GHC.Tuple::(,) {
+				null::a {
+					null::b
+					null::c
+				}
+				null::b
+			}
+			null::c
+		}
+	}
+}
+
+[Classifier]
+class Category a => Arrow a where arr :: (b -> c) -> a b c first :: a b c -> a (b, d) (c, d) second :: a b c -> a (d, b) (d, c) (***) :: a b c -> a b' c' -> a (b, b') (c, c') (&&&) :: a b c -> a b c' -> a b (c, c')
+Name: Arrow
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#t:Arrow
+Containing package: Control.Arrow
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Control.Arrow::ArrowZero
+	Control.Arrow::ArrowChoice
+	Control.Arrow::ArrowApply
+	Control.Arrow::ArrowLoop
+	other::Control.Arrow.Arrow_(->)<>
+	Control.Arrow::Control.Arrow.Arrow_Kleisli<m<>>
+}
+supertypes {
+	Control.Category::Category
+}
+members {
+
+	[Function]
+	arr :: (b -> c) -> a b c
+	Name: arr
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#v:arr
+	Containing package: Control.Arrow
+	attributes {
+		memberType=function
+	}
+	Containing type: Arrow
+	parameters {
+		b
+		c
+		a: (Arrow a; a; Control.Arrow::Arrow)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::b
+		
+			[result]
+			null::c
+		}
+	
+		[result]
+		null::a {
+			null::b
+			null::c
+		}
+	}
+
+	[Function]
+	first :: a b c -> a (b, d) (c, d)
+	Name: first
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#v:first
+	Containing package: Control.Arrow
+	attributes {
+		memberType=function
+	}
+	Containing type: Arrow
+	parameters {
+		a: (Arrow a; a; Control.Arrow::Arrow)
+		b
+		c
+		d
+	}
+	Signature = <function> {
+		[parameters]
+		null::a {
+			null::b
+			null::c
+		}
+	
+		[result]
+		null::a {
+			GHC.Tuple::(,) {
+				null::b
+				null::d
+			}
+			GHC.Tuple::(,) {
+				null::c
+				null::d
+			}
+		}
+	}
+
+	[Function]
+	second :: a b c -> a (d, b) (d, c)
+	Name: second
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#v:second
+	Containing package: Control.Arrow
+	attributes {
+		memberType=function
+	}
+	Containing type: Arrow
+	parameters {
+		a: (Arrow a; a; Control.Arrow::Arrow)
+		b
+		c
+		d
+	}
+	Signature = <function> {
+		[parameters]
+		null::a {
+			null::b
+			null::c
+		}
+	
+		[result]
+		null::a {
+			GHC.Tuple::(,) {
+				null::d
+				null::b
+			}
+			GHC.Tuple::(,) {
+				null::d
+				null::c
+			}
+		}
+	}
+
+	[Function]
+	(***) :: a b c -> a b' c' -> a (b, b') (c, c')
+	Name: (***)
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#v:(***)
+	Containing package: Control.Arrow
+	attributes {
+		memberType=function
+	}
+	Containing type: Arrow
+	parameters {
+		a: (Arrow a; a; Control.Arrow::Arrow)
+		b
+		c
+		b'
+		c'
+	}
+	Signature = <function> {
+		[parameters]
+		null::a {
+			null::b
+			null::c
+		}
+		null::a {
+			null::b'
+			null::c'
+		}
+	
+		[result]
+		null::a {
+			GHC.Tuple::(,) {
+				null::b
+				null::b'
+			}
+			GHC.Tuple::(,) {
+				null::c
+				null::c'
+			}
+		}
+	}
+
+	[Function]
+	(&&&) :: a b c -> a b c' -> a b (c, c')
+	Name: (&&&)
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#v:(&&&)
+	Containing package: Control.Arrow
+	attributes {
+		memberType=function
+	}
+	Containing type: Arrow
+	parameters {
+		a: (Arrow a; a; Control.Arrow::Arrow)
+		b
+		c
+		c'
+	}
+	Signature = <function> {
+		[parameters]
+		null::a {
+			null::b
+			null::c
+		}
+		null::a {
+			null::b
+			null::c'
+		}
+	
+		[result]
+		null::a {
+			null::b
+			GHC.Tuple::(,) {
+				null::c
+				null::c'
+			}
+		}
+	}
+}
+
+[Classifier]
+newtype Kleisli m a b = Kleisli { runKleisli :: a -> m b}
+Name: Kleisli
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#t:Kleisli
+Containing package: Control.Arrow
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	m
+	a
+	b
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+returnA :: Arrow a => a b b
+Name: returnA
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#v:returnA
+Containing package: Control.Arrow
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Arrow a; a; Control.Arrow::Arrow)
+	b
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	null::a {
+		null::b
+		null::b
+	}
+}
+
+[Function]
+leftApp :: ArrowApply a => a b c -> a (Either b d) (Either c d)
+Name: leftApp
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#v:leftApp
+Containing package: Control.Arrow
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (ArrowApply a; a; Control.Arrow::ArrowApply)
+	b
+	c
+	d
+}
+Signature = <function> {
+	[parameters]
+	null::a {
+		null::b
+		null::c
+	}
+
+	[result]
+	null::a {
+		Data.Either::Either {
+			null::b
+			null::d
+		}
+		Data.Either::Either {
+			null::c
+			null::d
+		}
+	}
+}
+
+[Function]
+(^>>) :: Arrow a => (b -> c) -> a c d -> a b d
+Name: (^>>)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#v:(^>>)
+Containing package: Control.Arrow
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Arrow a; a; Control.Arrow::Arrow)
+	b
+	c
+	d
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::b
+	
+		[result]
+		null::c
+	}
+	null::a {
+		null::c
+		null::d
+	}
+
+	[result]
+	null::a {
+		null::b
+		null::d
+	}
+}
+
+[Function]
+(>>^) :: Arrow a => a b c -> (c -> d) -> a b d
+Name: (>>^)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#v:(>>^)
+Containing package: Control.Arrow
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Arrow a; a; Control.Arrow::Arrow)
+	b
+	c
+	d
+}
+Signature = <function> {
+	[parameters]
+	null::a {
+		null::b
+		null::c
+	}
+	<function> {
+		[parameters]
+		null::c
+	
+		[result]
+		null::d
+	}
+
+	[result]
+	null::a {
+		null::b
+		null::d
+	}
+}
+
+[Function]
+(^<<) :: Arrow a => (c -> d) -> a b c -> a b d
+Name: (^<<)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#v:(^<<)
+Containing package: Control.Arrow
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Arrow a; a; Control.Arrow::Arrow)
+	c
+	d
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::c
+	
+		[result]
+		null::d
+	}
+	null::a {
+		null::b
+		null::c
+	}
+
+	[result]
+	null::a {
+		null::b
+		null::d
+	}
+}
+
+[Function]
+(<<<) :: Category cat => cat b c -> cat a b -> cat a c
+Name: (<<<)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#v:(<<<)
+Containing package: Control.Arrow
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	cat: (Category cat; cat; Control.Category::Category)
+	b
+	c
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::cat {
+		null::b
+		null::c
+	}
+	null::cat {
+		null::a
+		null::b
+	}
+
+	[result]
+	null::cat {
+		null::a
+		null::c
+	}
+}
+
+[Function]
+(<<^) :: Arrow a => a c d -> (b -> c) -> a b d
+Name: (<<^)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#v:(<<^)
+Containing package: Control.Arrow
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Arrow a; a; Control.Arrow::Arrow)
+	c
+	d
+	b
+}
+Signature = <function> {
+	[parameters]
+	null::a {
+		null::c
+		null::d
+	}
+	<function> {
+		[parameters]
+		null::b
+	
+		[result]
+		null::c
+	}
+
+	[result]
+	null::a {
+		null::b
+		null::d
+	}
+}
+
+[Function]
+(>>>) :: Category cat => cat a b -> cat b c -> cat a c
+Name: (>>>)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Arrow.html#v:(>>>)
+Containing package: Control.Arrow
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	cat: (Category cat; cat; Control.Category::Category)
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	null::cat {
+		null::a
+		null::b
+	}
+	null::cat {
+		null::b
+		null::c
+	}
+
+	[result]
+	null::cat {
+		null::a
+		null::c
+	}
+}

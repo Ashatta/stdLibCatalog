@@ -1,0 +1,1075 @@
+[Package]
+Name: Distribution.Simple.Command
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html
+Containing package: Distribution.Simple
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data CommandParse flags = CommandHelp (String -> String) | CommandList [String] | CommandErrors [String] | CommandReadyToGo flags
+Name: CommandParse
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#t:CommandParse
+Containing package: Distribution.Simple.Command
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	flags
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data OptDescr a = ReqArg Description OptFlags ArgPlaceHolder (ReadE (a -> a)) (a -> [String]) | OptArg Description OptFlags ArgPlaceHolder (ReadE (a -> a)) (a -> a) (a -> [Maybe String]) | ChoiceOpt [(Description, OptFlags, a -> a, a -> Bool)] | BoolOpt Description OptFlags OptFlags (Bool -> a -> a) (a -> Maybe Bool)
+Name: OptDescr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#t:OptDescr
+Containing package: Distribution.Simple.Command
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ShowOrParseArgs = ShowArgs | ParseArgs
+Name: ShowOrParseArgs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#t:ShowOrParseArgs
+Containing package: Distribution.Simple.Command
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data OptionField a = OptionField { optionName :: Name optionDescr :: [OptDescr a]}
+Name: OptionField
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#t:OptionField
+Containing package: Distribution.Simple.Command
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data CommandUI flags = CommandUI { commandName :: String commandSynopsis :: String commandUsage :: String -> String commandDescription :: Maybe (String -> String) commandDefaultFlags :: flags commandOptions :: ShowOrParseArgs -> [OptionField flags]}
+Name: CommandUI
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#t:CommandUI
+Containing package: Distribution.Simple.Command
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	flags
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Command action
+Name: Command
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#t:Command
+Containing package: Distribution.Simple.Command
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	action
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type Description = String
+Name: Description
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#t:Description
+Containing package: Distribution.Simple.Command
+attributes {
+}
+parameters {
+}
+Aliased type = Data.String::String
+
+[Alias]
+type MkOptDescr get set a = SFlags -> LFlags -> Description -> get -> set -> OptDescr a
+Name: MkOptDescr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#t:MkOptDescr
+Containing package: Distribution.Simple.Command
+attributes {
+}
+parameters {
+	get
+	set
+	a
+}
+Aliased type = <function> {
+	[parameters]
+	Distribution.Simple.Command::SFlags
+	Distribution.Simple.Command::LFlags
+	Distribution.Simple.Command::Description
+	null::get
+	null::set
+
+	[result]
+	Distribution.Simple.Command::OptDescr {
+		null::a
+	}
+}
+
+[Alias]
+type LFlags = [String]
+Name: LFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#t:LFlags
+Containing package: Distribution.Simple.Command
+attributes {
+}
+parameters {
+}
+Aliased type = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		Data.String::String
+	}
+}
+
+[Alias]
+type Name = String
+Name: Name
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#t:Name
+Containing package: Distribution.Simple.Command
+attributes {
+}
+parameters {
+}
+Aliased type = Data.String::String
+
+[Alias]
+type SFlags = [Char]
+Name: SFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#t:SFlags
+Containing package: Distribution.Simple.Command
+attributes {
+}
+parameters {
+}
+Aliased type = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		Data.Char::Char
+	}
+}
+
+[Alias]
+type OptFlags = (SFlags, LFlags)
+Name: OptFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#t:OptFlags
+Containing package: Distribution.Simple.Command
+attributes {
+}
+parameters {
+}
+Aliased type = null::(SFlags, LFlags)
+
+[Alias]
+type ArgPlaceHolder = String
+Name: ArgPlaceHolder
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#t:ArgPlaceHolder
+Containing package: Distribution.Simple.Command
+attributes {
+}
+parameters {
+}
+Aliased type = Data.String::String
+
+[Function]
+hiddenCommand :: Command action -> Command action
+Name: hiddenCommand
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#v:hiddenCommand
+Containing package: Distribution.Simple.Command
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	action
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Command::Command {
+		null::action
+	}
+
+	[result]
+	Distribution.Simple.Command::Command {
+		null::action
+	}
+}
+
+[Function]
+boolOpt :: (b -> Maybe Bool) -> (Bool -> b) -> SFlags -> SFlags -> MkOptDescr (a -> b) (b -> a -> a) a
+Name: boolOpt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#v:boolOpt
+Containing package: Distribution.Simple.Command
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	b
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::b
+	
+		[result]
+		Data.Maybe::Maybe {
+			Data.Bool::Bool
+		}
+	}
+	<function> {
+		[parameters]
+		Data.Bool::Bool
+	
+		[result]
+		null::b
+	}
+	Distribution.Simple.Command::SFlags
+	Distribution.Simple.Command::SFlags
+
+	[result]
+	Distribution.Simple.Command::MkOptDescr {
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			null::b
+		}
+		<function> {
+			[parameters]
+			null::b
+			null::a
+		
+			[result]
+			null::a
+		}
+		null::a
+	}
+}
+
+[Function]
+multiOption :: Name -> get -> set -> [get -> set -> OptDescr a] -> OptionField a
+Name: multiOption
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#v:multiOption
+Containing package: Distribution.Simple.Command
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	get
+	set
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Command::Name
+	null::get
+	null::set
+	other::List {
+		<function> {
+			[parameters]
+			null::get
+			null::set
+		
+			[result]
+			Distribution.Simple.Command::OptDescr {
+				null::a
+			}
+		}
+	}
+
+	[result]
+	Distribution.Simple.Command::OptionField {
+		null::a
+	}
+}
+
+[Function]
+reqArg :: Monoid b => ArgPlaceHolder -> ReadE b -> (b -> [String]) -> MkOptDescr (a -> b) (b -> a -> a) a
+Name: reqArg
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#v:reqArg
+Containing package: Distribution.Simple.Command
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	b: (Monoid b; b; Data.Monoid::Monoid)
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Command::ArgPlaceHolder
+	Distribution.ReadE::ReadE {
+		null::b
+	}
+	<function> {
+		[parameters]
+		null::b
+	
+		[result]
+		other::List {
+			Data.String::String
+		}
+	}
+
+	[result]
+	Distribution.Simple.Command::MkOptDescr {
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			null::b
+		}
+		<function> {
+			[parameters]
+			null::b
+			null::a
+		
+			[result]
+			null::a
+		}
+		null::a
+	}
+}
+
+[Function]
+makeCommand :: String -> String -> Maybe (String -> String) -> flags -> (ShowOrParseArgs -> [OptionField flags]) -> CommandUI flags
+Name: makeCommand
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#v:makeCommand
+Containing package: Distribution.Simple.Command
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	flags
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Data.String::String
+	Data.Maybe::Maybe {
+		<function> {
+			[parameters]
+			Data.String::String
+		
+			[result]
+			Data.String::String
+		}
+	}
+	null::flags
+	<function> {
+		[parameters]
+		Distribution.Simple.Command::ShowOrParseArgs
+	
+		[result]
+		other::List {
+			Distribution.Simple.Command::OptionField {
+				null::flags
+			}
+		}
+	}
+
+	[result]
+	Distribution.Simple.Command::CommandUI {
+		null::flags
+	}
+}
+
+[Function]
+choiceOptFromEnum :: (Bounded b, Enum b, Show b, Eq b) => MkOptDescr (a -> b) (b -> a -> a) a
+Name: choiceOptFromEnum
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#v:choiceOptFromEnum
+Containing package: Distribution.Simple.Command
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	b: (Bounded b; b; Prelude::Bounded), (Enum b; b; Prelude::Enum), (Show b; b; Text.Show::Show), (Eq b; b; Data.Eq::Eq)
+	a
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Command::MkOptDescr {
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			null::b
+		}
+		<function> {
+			[parameters]
+			null::b
+			null::a
+		
+			[result]
+			null::a
+		}
+		null::a
+	}
+}
+
+[Function]
+option :: SFlags -> LFlags -> Description -> get -> set -> MkOptDescr get set a -> OptionField a
+Name: option
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#v:option
+Containing package: Distribution.Simple.Command
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	get
+	set
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Command::SFlags
+	Distribution.Simple.Command::LFlags
+	Distribution.Simple.Command::Description
+	null::get
+	null::set
+	Distribution.Simple.Command::MkOptDescr {
+		null::get
+		null::set
+		null::a
+	}
+
+	[result]
+	Distribution.Simple.Command::OptionField {
+		null::a
+	}
+}
+
+[Function]
+choiceOpt :: Eq b => [(b, OptFlags, Description)] -> MkOptDescr (a -> b) (b -> a -> a) a
+Name: choiceOpt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#v:choiceOpt
+Containing package: Distribution.Simple.Command
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	b: (Eq b; b; Data.Eq::Eq)
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		GHC.Tuple::(,,) {
+			null::b
+			Distribution.Simple.Command::OptFlags
+			Distribution.Simple.Command::Description
+		}
+	}
+
+	[result]
+	Distribution.Simple.Command::MkOptDescr {
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			null::b
+		}
+		<function> {
+			[parameters]
+			null::b
+			null::a
+		
+			[result]
+			null::a
+		}
+		null::a
+	}
+}
+
+[Function]
+commandsRun :: CommandUI a -> [Command action] -> [String] -> CommandParse (a, CommandParse action)
+Name: commandsRun
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#v:commandsRun
+Containing package: Distribution.Simple.Command
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	action
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Command::CommandUI {
+		null::a
+	}
+	other::List {
+		Distribution.Simple.Command::Command {
+			null::action
+		}
+	}
+	other::List {
+		Data.String::String
+	}
+
+	[result]
+	Distribution.Simple.Command::CommandParse {
+		GHC.Tuple::(,) {
+			null::a
+			Distribution.Simple.Command::CommandParse {
+				null::action
+			}
+		}
+	}
+}
+
+[Function]
+commandShowOptions :: CommandUI flags -> flags -> [String]
+Name: commandShowOptions
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#v:commandShowOptions
+Containing package: Distribution.Simple.Command
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	flags
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Command::CommandUI {
+		null::flags
+	}
+	null::flags
+
+	[result]
+	other::List {
+		Data.String::String
+	}
+}
+
+[Function]
+noExtraFlags :: [String] -> IO ()
+Name: noExtraFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#v:noExtraFlags
+Containing package: Distribution.Simple.Command
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Data.String::String
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+commandParseArgs :: CommandUI flags -> Bool -> [String] -> CommandParse (flags -> flags, [String])
+Name: commandParseArgs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#v:commandParseArgs
+Containing package: Distribution.Simple.Command
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	flags
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Command::CommandUI {
+		null::flags
+	}
+	Data.Bool::Bool
+	other::List {
+		Data.String::String
+	}
+
+	[result]
+	Distribution.Simple.Command::CommandParse {
+		GHC.Tuple::(,) {
+			<function> {
+				[parameters]
+				null::flags
+			
+				[result]
+				null::flags
+			}
+			other::List {
+				Data.String::String
+			}
+		}
+	}
+}
+
+[Function]
+liftOption :: (b -> a) -> (a -> b -> b) -> OptionField a -> OptionField b
+Name: liftOption
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#v:liftOption
+Containing package: Distribution.Simple.Command
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	b
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::b
+	
+		[result]
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+		null::b
+	
+		[result]
+		null::b
+	}
+	Distribution.Simple.Command::OptionField {
+		null::a
+	}
+
+	[result]
+	Distribution.Simple.Command::OptionField {
+		null::b
+	}
+}
+
+[Function]
+commandAddAction :: CommandUI flags -> (flags -> [String] -> action) -> Command action
+Name: commandAddAction
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#v:commandAddAction
+Containing package: Distribution.Simple.Command
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	flags
+	action
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Command::CommandUI {
+		null::flags
+	}
+	<function> {
+		[parameters]
+		null::flags
+		other::List {
+			Data.String::String
+		}
+	
+		[result]
+		null::action
+	}
+
+	[result]
+	Distribution.Simple.Command::Command {
+		null::action
+	}
+}
+
+[Function]
+reqArg' :: Monoid b => ArgPlaceHolder -> (String -> b) -> (b -> [String]) -> MkOptDescr (a -> b) (b -> a -> a) a
+Name: reqArg'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#v:reqArg'
+Containing package: Distribution.Simple.Command
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	b: (Monoid b; b; Data.Monoid::Monoid)
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Command::ArgPlaceHolder
+	<function> {
+		[parameters]
+		Data.String::String
+	
+		[result]
+		null::b
+	}
+	<function> {
+		[parameters]
+		null::b
+	
+		[result]
+		other::List {
+			Data.String::String
+		}
+	}
+
+	[result]
+	Distribution.Simple.Command::MkOptDescr {
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			null::b
+		}
+		<function> {
+			[parameters]
+			null::b
+			null::a
+		
+			[result]
+			null::a
+		}
+		null::a
+	}
+}
+
+[Function]
+optArg :: Monoid b => ArgPlaceHolder -> ReadE b -> b -> (b -> [Maybe String]) -> MkOptDescr (a -> b) (b -> a -> a) a
+Name: optArg
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#v:optArg
+Containing package: Distribution.Simple.Command
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	b: (Monoid b; b; Data.Monoid::Monoid)
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Command::ArgPlaceHolder
+	Distribution.ReadE::ReadE {
+		null::b
+	}
+	null::b
+	<function> {
+		[parameters]
+		null::b
+	
+		[result]
+		other::List {
+			Data.Maybe::Maybe {
+				Data.String::String
+			}
+		}
+	}
+
+	[result]
+	Distribution.Simple.Command::MkOptDescr {
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			null::b
+		}
+		<function> {
+			[parameters]
+			null::b
+			null::a
+		
+			[result]
+			null::a
+		}
+		null::a
+	}
+}
+
+[Function]
+noArg :: (Eq b, Monoid b) => b -> MkOptDescr (a -> b) (b -> a -> a) a
+Name: noArg
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#v:noArg
+Containing package: Distribution.Simple.Command
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	b: (Eq b; b; Data.Eq::Eq), (Monoid b; b; Data.Monoid::Monoid)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::b
+
+	[result]
+	Distribution.Simple.Command::MkOptDescr {
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			null::b
+		}
+		<function> {
+			[parameters]
+			null::b
+			null::a
+		
+			[result]
+			null::a
+		}
+		null::a
+	}
+}
+
+[Function]
+viewAsFieldDescr :: OptionField a -> FieldDescr a
+Name: viewAsFieldDescr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#v:viewAsFieldDescr
+Containing package: Distribution.Simple.Command
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Command::OptionField {
+		null::a
+	}
+
+	[result]
+	Distribution.PackageDescription.Parse::FieldDescr {
+		null::a
+	}
+}
+
+[Function]
+optArg' :: Monoid b => ArgPlaceHolder -> (Maybe String -> b) -> (b -> [Maybe String]) -> MkOptDescr (a -> b) (b -> a -> a) a
+Name: optArg'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#v:optArg'
+Containing package: Distribution.Simple.Command
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	b: (Monoid b; b; Data.Monoid::Monoid)
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Command::ArgPlaceHolder
+	<function> {
+		[parameters]
+		Data.Maybe::Maybe {
+			Data.String::String
+		}
+	
+		[result]
+		null::b
+	}
+	<function> {
+		[parameters]
+		null::b
+	
+		[result]
+		other::List {
+			Data.Maybe::Maybe {
+				Data.String::String
+			}
+		}
+	}
+
+	[result]
+	Distribution.Simple.Command::MkOptDescr {
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			null::b
+		}
+		<function> {
+			[parameters]
+			null::b
+			null::a
+		
+			[result]
+			null::a
+		}
+		null::a
+	}
+}
+
+[Function]
+boolOpt' :: (b -> Maybe Bool) -> (Bool -> b) -> OptFlags -> OptFlags -> MkOptDescr (a -> b) (b -> a -> a) a
+Name: boolOpt'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Command.html#v:boolOpt'
+Containing package: Distribution.Simple.Command
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	b
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::b
+	
+		[result]
+		Data.Maybe::Maybe {
+			Data.Bool::Bool
+		}
+	}
+	<function> {
+		[parameters]
+		Data.Bool::Bool
+	
+		[result]
+		null::b
+	}
+	Distribution.Simple.Command::OptFlags
+	Distribution.Simple.Command::OptFlags
+
+	[result]
+	Distribution.Simple.Command::MkOptDescr {
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			null::b
+		}
+		<function> {
+			[parameters]
+			null::b
+			null::a
+		
+			[result]
+			null::a
+		}
+		null::a
+	}
+}

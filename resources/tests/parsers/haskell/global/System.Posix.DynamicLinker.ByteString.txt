@@ -1,0 +1,196 @@
+[Package]
+Name: System.Posix.DynamicLinker.ByteString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-DynamicLinker-ByteString.html
+Containing package: System.Posix.DynamicLinker
+attributes {
+}
+
+Subpackages {
+}
+
+[Function]
+undl :: DL -> Ptr ()
+Name: undl
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-DynamicLinker-ByteString.html#v:undl
+Containing package: System.Posix.DynamicLinker.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.DynamicLinker.Prim::DL
+
+	[result]
+	Foreign.Ptr::Ptr {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+withDL_ :: RawFilePath -> [RTLDFlags] -> (DL -> IO a) -> IO ()
+Name: withDL_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-DynamicLinker-ByteString.html#v:withDL_
+Containing package: System.Posix.DynamicLinker.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.ByteString.FilePath::RawFilePath
+	other::List {
+		System.Posix.DynamicLinker.Prim::RTLDFlags
+	}
+	<function> {
+		[parameters]
+		System.Posix.DynamicLinker.Prim::DL
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+dlsym :: DL -> String -> IO (FunPtr a)
+Name: dlsym
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-DynamicLinker-ByteString.html#v:dlsym
+Containing package: System.Posix.DynamicLinker.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.DynamicLinker.Prim::DL
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		Foreign.Ptr::FunPtr {
+			null::a
+		}
+	}
+}
+
+[Function]
+withDL :: RawFilePath -> [RTLDFlags] -> (DL -> IO a) -> IO a
+Name: withDL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-DynamicLinker-ByteString.html#v:withDL
+Containing package: System.Posix.DynamicLinker.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.ByteString.FilePath::RawFilePath
+	other::List {
+		System.Posix.DynamicLinker.Prim::RTLDFlags
+	}
+	<function> {
+		[parameters]
+		System.Posix.DynamicLinker.Prim::DL
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+dlclose :: DL -> IO ()
+Name: dlclose
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-DynamicLinker-ByteString.html#v:dlclose
+Containing package: System.Posix.DynamicLinker.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.DynamicLinker.Prim::DL
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+dlerror :: IO String
+Name: dlerror
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-DynamicLinker-ByteString.html#v:dlerror
+Containing package: System.Posix.DynamicLinker.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+dlopen :: RawFilePath -> [RTLDFlags] -> IO DL
+Name: dlopen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-DynamicLinker-ByteString.html#v:dlopen
+Containing package: System.Posix.DynamicLinker.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.ByteString.FilePath::RawFilePath
+	other::List {
+		System.Posix.DynamicLinker.Prim::RTLDFlags
+	}
+
+	[result]
+	System.IO::IO {
+		System.Posix.DynamicLinker.Prim::DL
+	}
+}

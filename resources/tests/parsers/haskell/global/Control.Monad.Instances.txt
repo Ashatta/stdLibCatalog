@@ -1,0 +1,230 @@
+[Package]
+Name: Control.Monad.Instances
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Monad-Instances.html
+Containing package: Control.Monad
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+class Monad m where (>>=) :: forall a b. m a -> (a -> m b) -> m b (>>) :: forall a b. m a -> m b -> m b return :: a -> m a fail :: String -> m a
+Name: Monad
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Monad-Instances.html#t:Monad
+Containing package: Control.Monad.Instances
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	other::Control.Monad.Instances.Monad_List<curriedParam<>>
+	System.IO::Control.Monad.Instances.Monad_IO<>
+	Data.Maybe::Control.Monad.Instances.Monad_Maybe<>
+	Text.ParserCombinators.ReadP::Control.Monad.Instances.Monad_ReadP<>
+	Text.ParserCombinators.ReadPrec::Control.Monad.Instances.Monad_ReadPrec<>
+	GHC.Conc::Control.Monad.Instances.Monad_STM<>
+	other::Control.Monad.Instances.Monad_(->)<r<>>
+	Data.Either::Control.Monad.Instances.Monad_Either<e<>>
+	Control.Monad.ST.Safe::Control.Monad.Instances.Monad_ST<s<>>
+	Data.Proxy::Control.Monad.Instances.Monad_Proxy<>
+	other::Control.Monad.Instances.Monad_Arrowa<>
+	Control.Monad.ST.Lazy.Safe::Control.Monad.Instances.Monad_ST<s<>>
+	other::Control.Monad.Instances.Monad_Wrappedm<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	(>>=) :: forall a b. m a -> (a -> m b) -> m b
+	Name: (>>=)
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Monad-Instances.html#v:(>>=)
+	Containing package: Control.Monad.Instances
+	attributes {
+		memberType=function
+	}
+	Containing type: Monad
+	parameters {
+		m: (Monad m; m; Control.Monad.Instances::Monad)
+		a
+		b
+	}
+	Signature = <function> {
+		[parameters]
+		null::m {
+			null::a
+		}
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			null::m {
+				null::b
+			}
+		}
+	
+		[result]
+		null::m {
+			null::b
+		}
+	}
+
+	[Function]
+	(>>) :: forall a b. m a -> m b -> m b
+	Name: (>>)
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Monad-Instances.html#v:(>>)
+	Containing package: Control.Monad.Instances
+	attributes {
+		memberType=function
+	}
+	Containing type: Monad
+	parameters {
+		m: (Monad m; m; Control.Monad.Instances::Monad)
+		a
+		b
+	}
+	Signature = <function> {
+		[parameters]
+		null::m {
+			null::a
+		}
+		null::m {
+			null::b
+		}
+	
+		[result]
+		null::m {
+			null::b
+		}
+	}
+
+	[Function]
+	return :: a -> m a
+	Name: return
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Monad-Instances.html#v:return
+	Containing package: Control.Monad.Instances
+	attributes {
+		memberType=function
+	}
+	Containing type: Monad
+	parameters {
+		a
+		m: (Monad m; m; Control.Monad.Instances::Monad)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::m {
+			null::a
+		}
+	}
+
+	[Function]
+	fail :: String -> m a
+	Name: fail
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Monad-Instances.html#v:fail
+	Containing package: Control.Monad.Instances
+	attributes {
+		memberType=function
+	}
+	Containing type: Monad
+	parameters {
+		m: (Monad m; m; Control.Monad.Instances::Monad)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		Data.String::String
+	
+		[result]
+		null::m {
+			null::a
+		}
+	}
+}
+
+[Classifier]
+class Functor f where fmap :: (a -> b) -> f a -> f b
+Name: Functor
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Monad-Instances.html#t:Functor
+Containing package: Control.Monad.Instances
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	other::Control.Monad.Instances.Functor_List<curriedParam<>>
+	System.IO::Control.Monad.Instances.Functor_IO<>
+	Data.Maybe::Control.Monad.Instances.Functor_Maybe<>
+	Text.ParserCombinators.ReadP::Control.Monad.Instances.Functor_ReadP<>
+	Text.ParserCombinators.ReadPrec::Control.Monad.Instances.Functor_ReadPrec<>
+	GHC.Conc::Control.Monad.Instances.Functor_STM<>
+	Control.Exception::Control.Monad.Instances.Functor_Handler<>
+	Control.Applicative::Control.Monad.Instances.Functor_ZipList<>
+	System.Console.GetOpt::Control.Monad.Instances.Functor_ArgDescr<>
+	System.Console.GetOpt::Control.Monad.Instances.Functor_OptDescr<>
+	System.Console.GetOpt::Control.Monad.Instances.Functor_ArgOrder<>
+	other::Control.Monad.Instances.Functor_(->)<r<>>
+	Data.Either::Control.Monad.Instances.Functor_Either<a<>>
+	GHC.Tuple::Control.Monad.Instances.Functor_(,)<a<>>
+	Control.Monad.ST.Safe::Control.Monad.Instances.Functor_ST<s<>>
+	Data.Proxy::Control.Monad.Instances.Functor_Proxy<>
+	Control.Arrow::Control.Monad.Instances.Functor_ArrowMonad<a<>>
+	Control.Monad.ST.Lazy.Safe::Control.Monad.Instances.Functor_ST<s<>>
+	Control.Applicative::Control.Monad.Instances.Functor_WrappedMonad<m<>>
+	Control.Applicative::Control.Monad.Instances.Functor_Const<m<>>
+	Control.Applicative::Control.Monad.Instances.Functor_WrappedArrow<a<>,b<>>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	fmap :: (a -> b) -> f a -> f b
+	Name: fmap
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Monad-Instances.html#v:fmap
+	Containing package: Control.Monad.Instances
+	attributes {
+		memberType=function
+	}
+	Containing type: Functor
+	parameters {
+		a
+		b
+		f: (Functor f; f; Control.Monad.Instances::Functor)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			null::b
+		}
+		null::f {
+			null::a
+		}
+	
+		[result]
+		null::f {
+			null::b
+		}
+	}
+}

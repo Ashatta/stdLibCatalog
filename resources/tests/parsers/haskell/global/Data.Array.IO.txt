@@ -1,0 +1,109 @@
+[Package]
+Name: Data.Array.IO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-IO.html
+Containing package: Data.Array
+attributes {
+}
+
+Subpackages {
+	Data.Array.IO.Safe
+}
+
+[Classifier]
+data IOArray i e :: * -> * -> *
+Name: IOArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-IO.html#t:IOArray
+Containing package: Data.Array.IO
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	i
+	e
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data IOUArray i e
+Name: IOUArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-IO.html#t:IOUArray
+Containing package: Data.Array.IO
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	i
+	e
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+hGetArray :: Handle -> IOUArray Int Word8 -> Int -> IO Int
+Name: hGetArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-IO.html#v:hGetArray
+Containing package: Data.Array.IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+	Data.Array.IO::IOUArray {
+		Data.Int::Int
+		Data.Word::Word8
+	}
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}
+
+[Function]
+hPutArray :: Handle -> IOUArray Int Word8 -> Int -> IO ()
+Name: hPutArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-IO.html#v:hPutArray
+Containing package: Data.Array.IO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+	Data.Array.IO::IOUArray {
+		Data.Int::Int
+		Data.Word::Word8
+	}
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}

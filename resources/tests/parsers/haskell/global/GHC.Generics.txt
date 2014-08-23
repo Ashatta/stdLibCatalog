@@ -1,0 +1,957 @@
+[Package]
+Name: GHC.Generics
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html
+Containing package: GHC
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data U1 p = U1
+Name: U1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#t:U1
+Containing package: GHC.Generics
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	p
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class Generic1 f where type Rep1 f :: * -> * from1 :: f a -> Rep1 f a to1 :: Rep1 f a -> f a
+Name: Generic1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#t:Generic1
+Containing package: GHC.Generics
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Control.Applicative::GHC.Generics.Generic1_Const<a<>>
+	Control.Applicative::GHC.Generics.Generic1_WrappedMonad<m<>>
+	Control.Applicative::GHC.Generics.Generic1_WrappedArrow<a<>,b<>>
+	Control.Applicative::GHC.Generics.Generic1_ZipList<>
+	Data.Either::GHC.Generics.Generic1_Either<a<>>
+	Data.Maybe::GHC.Generics.Generic1_Maybe<>
+	Data.Monoid::GHC.Generics.Generic1_Dual<>
+	Data.Monoid::GHC.Generics.Generic1_Sum<>
+	Data.Monoid::GHC.Generics.Generic1_Product<>
+	Data.Monoid::GHC.Generics.Generic1_First<>
+	Data.Monoid::GHC.Generics.Generic1_Last<>
+	other::GHC.Generics.Generic1_List<curriedParam<>>
+	GHC.Tuple::GHC.Generics.Generic1_(,)<a<>>
+	GHC.Tuple::GHC.Generics.Generic1_(,,)<a<>,b<>>
+	GHC.Tuple::GHC.Generics.Generic1_(,,,)<a<>,b<>,c<>>
+	GHC.Tuple::GHC.Generics.Generic1_(,,,,)<a<>,b<>,c<>,d<>>
+	GHC.Tuple::GHC.Generics.Generic1_(,,,,,)<a<>,b<>,c<>,d<>,e<>>
+	GHC.Tuple::GHC.Generics.Generic1_(,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>>
+	Prelude::GHC.Generics.Generic1_Maybe<>
+	Prelude::GHC.Generics.Generic1_Either<a<>>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	from1 :: f a -> Rep1 f a
+	Name: from1
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#v:from1
+	Containing package: GHC.Generics
+	attributes {
+		memberType=function
+	}
+	Containing type: Generic1
+	parameters {
+		f: (Generic1 f; f; GHC.Generics::Generic1)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::f {
+			null::a
+		}
+	
+		[result]
+		null::Rep1 {
+			null::f
+			null::a
+		}
+	}
+
+	[Function]
+	to1 :: Rep1 f a -> f a
+	Name: to1
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#v:to1
+	Containing package: GHC.Generics
+	attributes {
+		memberType=function
+	}
+	Containing type: Generic1
+	parameters {
+		f: (Generic1 f; f; GHC.Generics::Generic1)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::Rep1 {
+			null::f
+			null::a
+		}
+	
+		[result]
+		null::f {
+			null::a
+		}
+	}
+}
+
+[Classifier]
+data V1 p
+Name: V1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#t:V1
+Containing package: GHC.Generics
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	p
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype K1 i c p = K1 { unK1 :: c}
+Name: K1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#t:K1
+Containing package: GHC.Generics
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	i
+	c
+	p
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype M1 i c f p = M1 { unM1 :: f p}
+Name: M1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#t:M1
+Containing package: GHC.Generics
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	i
+	c
+	f
+	p
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype (f :.: g) p = Comp1 { unComp1 :: f (g p)}
+Name: (:.:)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#t:(:.:)
+Containing package: GHC.Generics
+attributes {
+	infix=true
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	f
+	g
+	p
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data NoSelector
+Name: NoSelector
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#t:NoSelector
+Containing package: GHC.Generics
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Associativity = LeftAssociative | RightAssociative | NotAssociative
+Name: Associativity
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#t:Associativity
+Containing package: GHC.Generics
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data (f :+: g) p = L1 (f p) | R1 (g p)
+Name: (:+:)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#t:(:+:)
+Containing package: GHC.Generics
+attributes {
+	infix=true
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	f
+	g
+	p
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data (f :*: g) p = (f p) :*: (g p)
+Name: (:*:)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#t:(:*:)
+Containing package: GHC.Generics
+attributes {
+	infix=true
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	f
+	g
+	p
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class Generic a where type Rep a :: * -> * from :: a -> Rep a x to :: Rep a x -> a
+Name: Generic
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#t:Generic
+Containing package: GHC.Generics
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Control.Applicative::GHC.Generics.Generic_Const<a<>,b<>>
+	Control.Applicative::GHC.Generics.Generic_WrappedMonad<m<>,a<>>
+	Control.Applicative::GHC.Generics.Generic_WrappedArrow<a<>,b<>,c<>>
+	Control.Applicative::GHC.Generics.Generic_ZipList<a<>>
+	Data.Bool::GHC.Generics.Generic_Bool<>
+	Data.Char::GHC.Generics.Generic_Char<>
+	Data.Either::GHC.Generics.Generic_Either<a<>,b<>>
+	Data.Int::GHC.Generics.Generic_Int<>
+	Data.Maybe::GHC.Generics.Generic_Maybe<a<>>
+	Data.Monoid::GHC.Generics.Generic_Dual<a<>>
+	Data.Monoid::GHC.Generics.Generic_Endo<a<>>
+	Data.Monoid::GHC.Generics.Generic_All<>
+	Data.Monoid::GHC.Generics.Generic_Any<>
+	Data.Monoid::GHC.Generics.Generic_Sum<a<>>
+	Data.Monoid::GHC.Generics.Generic_Product<a<>>
+	Data.Monoid::GHC.Generics.Generic_First<a<>>
+	Data.Monoid::GHC.Generics.Generic_Last<a<>>
+	Data.Ord::GHC.Generics.Generic_Ordering<>
+	Data.Proxy::GHC.Generics.Generic_Proxy<t<>>
+	Data.Typeable.Internal::GHC.Generics.Generic_Proxy<t<>>
+	Data.Typeable::GHC.Generics.Generic_Proxy<t<>>
+	GHC.Exts::GHC.Generics.Generic_Int<>
+	GHC.Exts::GHC.Generics.Generic_Float<>
+	GHC.Exts::GHC.Generics.Generic_Double<>
+	GHC.Exts::GHC.Generics.Generic_Char<>
+	GHC.Generics::GHC.Generics.Generic_U1<p<>>
+	GHC.Generics::GHC.Generics.Generic_Par1<p<>>
+	GHC.Generics::GHC.Generics.Generic_Rec1<f<>,p<>>
+	GHC.Generics::GHC.Generics.Generic_K1<i<>,c<>,p<>>
+	GHC.Generics::GHC.Generics.Generic_M1<i<>,c<>,f<>,p<>>
+	GHC.Generics::GHC.Generics.Generic_(:+:)<f<>,g<>,p<>>
+	GHC.Generics::GHC.Generics.Generic_(:*:)<f<>,g<>,p<>>
+	GHC.Generics::GHC.Generics.Generic_(:.:)<f<>,g<>,p<>>
+	GHC.Generics::GHC.Generics.Generic_Fixity<>
+	GHC.Generics::GHC.Generics.Generic_Associativity<>
+	GHC.Generics::GHC.Generics.Generic_Arity<>
+	Prelude::GHC.Generics.Generic_Double<>
+	Prelude::GHC.Generics.Generic_Float<>
+	GHC.Tuple::GHC.Generics.Generic_()<>
+	other::GHC.Generics.Generic_List<a<>>
+	GHC.Tuple::GHC.Generics.Generic_(,,,)<a<>,b<>>
+	GHC.Tuple::GHC.Generics.Generic_(,,,,)<a<>,b<>,c<>>
+	GHC.Tuple::GHC.Generics.Generic_(,,,,,)<a<>,b<>,c<>,d<>>
+	GHC.Tuple::GHC.Generics.Generic_(,,,,,,)<a<>,b<>,c<>,d<>,e<>>
+	GHC.Tuple::GHC.Generics.Generic_(,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>>
+	GHC.Tuple::GHC.Generics.Generic_(,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>>
+	Prelude::GHC.Generics.Generic_Bool<>
+	Prelude::GHC.Generics.Generic_Maybe<a<>>
+	Prelude::GHC.Generics.Generic_Either<a<>,b<>>
+	Prelude::GHC.Generics.Generic_Ordering<>
+	Prelude::GHC.Generics.Generic_Char<>
+	Prelude::GHC.Generics.Generic_Int<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	from :: a -> Rep a x
+	Name: from
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#v:from
+	Containing package: GHC.Generics
+	attributes {
+		memberType=function
+	}
+	Containing type: Generic
+	parameters {
+		a: (Generic a; a; GHC.Generics::Generic)
+		x
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::Rep {
+			null::a
+			null::x
+		}
+	}
+
+	[Function]
+	to :: Rep a x -> a
+	Name: to
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#v:to
+	Containing package: GHC.Generics
+	attributes {
+		memberType=function
+	}
+	Containing type: Generic
+	parameters {
+		a: (Generic a; a; GHC.Generics::Generic)
+		x
+	}
+	Signature = <function> {
+		[parameters]
+		null::Rep {
+			null::a
+			null::x
+		}
+	
+		[result]
+		null::a
+	}
+}
+
+[Classifier]
+data Fixity = Prefix | Infix Associativity Int
+Name: Fixity
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#t:Fixity
+Containing package: GHC.Generics
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype Rec1 f p = Rec1 { unRec1 :: f p}
+Name: Rec1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#t:Rec1
+Containing package: GHC.Generics
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	f
+	p
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data C
+Name: C
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#t:C
+Containing package: GHC.Generics
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data D
+Name: D
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#t:D
+Containing package: GHC.Generics
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data P
+Name: P
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#t:P
+Containing package: GHC.Generics
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data S
+Name: S
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#t:S
+Containing package: GHC.Generics
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data R
+Name: R
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#t:R
+Containing package: GHC.Generics
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class Datatype d where datatypeName :: t d (f :: * -> *) a -> [Char] moduleName :: t d (f :: * -> *) a -> [Char] isNewtype :: t d (f :: * -> *) a -> Bool
+Name: Datatype
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#t:Datatype
+Containing package: GHC.Generics
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	datatypeName :: t d (f :: * -> *) a -> [Char]
+	Name: datatypeName
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#v:datatypeName
+	Containing package: GHC.Generics
+	attributes {
+		memberType=function
+	}
+	Containing type: Datatype
+	parameters {
+		t
+		d: (Datatype d; d; GHC.Generics::Datatype)
+		f
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::t {
+			null::d
+			null::f
+			null::a
+		}
+	
+		[result]
+		other::List {
+			Data.Char::Char
+		}
+	}
+
+	[Function]
+	moduleName :: t d (f :: * -> *) a -> [Char]
+	Name: moduleName
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#v:moduleName
+	Containing package: GHC.Generics
+	attributes {
+		memberType=function
+	}
+	Containing type: Datatype
+	parameters {
+		t
+		d: (Datatype d; d; GHC.Generics::Datatype)
+		f
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::t {
+			null::d
+			null::f
+			null::a
+		}
+	
+		[result]
+		other::List {
+			Data.Char::Char
+		}
+	}
+
+	[Function]
+	isNewtype :: t d (f :: * -> *) a -> Bool
+	Name: isNewtype
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#v:isNewtype
+	Containing package: GHC.Generics
+	attributes {
+		memberType=function
+	}
+	Containing type: Datatype
+	parameters {
+		t
+		d: (Datatype d; d; GHC.Generics::Datatype)
+		f
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::t {
+			null::d
+			null::f
+			null::a
+		}
+	
+		[result]
+		Data.Bool::Bool
+	}
+}
+
+[Classifier]
+newtype Par1 p = Par1 { unPar1 :: p}
+Name: Par1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#t:Par1
+Containing package: GHC.Generics
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	p
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Arity = NoArity | Arity Int
+Name: Arity
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#t:Arity
+Containing package: GHC.Generics
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class Selector s where selName :: t s (f :: * -> *) a -> [Char]
+Name: Selector
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#t:Selector
+Containing package: GHC.Generics
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	GHC.Generics::GHC.Generics.Selector_NoSelector<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	selName :: t s (f :: * -> *) a -> [Char]
+	Name: selName
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#v:selName
+	Containing package: GHC.Generics
+	attributes {
+		memberType=function
+	}
+	Containing type: Selector
+	parameters {
+		t
+		s: (Selector s; s; GHC.Generics::Selector)
+		f
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::t {
+			null::s
+			null::f
+			null::a
+		}
+	
+		[result]
+		other::List {
+			Data.Char::Char
+		}
+	}
+}
+
+[Classifier]
+class Constructor c where conName :: t c (f :: * -> *) a -> [Char] conFixity :: t c (f :: * -> *) a -> Fixity conIsRecord :: t c (f :: * -> *) a -> Bool
+Name: Constructor
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#t:Constructor
+Containing package: GHC.Generics
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	conName :: t c (f :: * -> *) a -> [Char]
+	Name: conName
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#v:conName
+	Containing package: GHC.Generics
+	attributes {
+		memberType=function
+	}
+	Containing type: Constructor
+	parameters {
+		t
+		c: (Constructor c; c; GHC.Generics::Constructor)
+		f
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::t {
+			null::c
+			null::f
+			null::a
+		}
+	
+		[result]
+		other::List {
+			Data.Char::Char
+		}
+	}
+
+	[Function]
+	conFixity :: t c (f :: * -> *) a -> Fixity
+	Name: conFixity
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#v:conFixity
+	Containing package: GHC.Generics
+	attributes {
+		memberType=function
+	}
+	Containing type: Constructor
+	parameters {
+		t
+		c: (Constructor c; c; GHC.Generics::Constructor)
+		f
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::t {
+			null::c
+			null::f
+			null::a
+		}
+	
+		[result]
+		GHC.Generics::Fixity
+	}
+
+	[Function]
+	conIsRecord :: t c (f :: * -> *) a -> Bool
+	Name: conIsRecord
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#v:conIsRecord
+	Containing package: GHC.Generics
+	attributes {
+		memberType=function
+	}
+	Containing type: Constructor
+	parameters {
+		t
+		c: (Constructor c; c; GHC.Generics::Constructor)
+		f
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::t {
+			null::c
+			null::f
+			null::a
+		}
+	
+		[result]
+		Data.Bool::Bool
+	}
+}
+
+[Alias]
+type C1 = M1 C
+Name: C1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#t:C1
+Containing package: GHC.Generics
+attributes {
+}
+parameters {
+}
+Aliased type = GHC.Generics::M1 {
+	GHC.Generics::C
+}
+
+[Alias]
+type S1 = M1 S
+Name: S1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#t:S1
+Containing package: GHC.Generics
+attributes {
+}
+parameters {
+}
+Aliased type = GHC.Generics::M1 {
+	GHC.Generics::S
+}
+
+[Alias]
+type Par0 = K1 P
+Name: Par0
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#t:Par0
+Containing package: GHC.Generics
+attributes {
+}
+parameters {
+}
+Aliased type = GHC.Generics::K1 {
+	GHC.Generics::P
+}
+
+[Alias]
+type Rec0 = K1 R
+Name: Rec0
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#t:Rec0
+Containing package: GHC.Generics
+attributes {
+}
+parameters {
+}
+Aliased type = GHC.Generics::K1 {
+	GHC.Generics::R
+}
+
+[Alias]
+type D1 = M1 D
+Name: D1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#t:D1
+Containing package: GHC.Generics
+attributes {
+}
+parameters {
+}
+Aliased type = GHC.Generics::M1 {
+	GHC.Generics::D
+}
+
+[Function]
+prec :: Fixity -> Int
+Name: prec
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Generics.html#v:prec
+Containing package: GHC.Generics
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Generics::Fixity
+
+	[result]
+	Data.Int::Int
+}

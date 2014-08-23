@@ -1,0 +1,2583 @@
+[Package]
+Name: Data.ByteString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html
+Containing package: Data
+attributes {
+}
+
+Subpackages {
+	Data.ByteString.Builder
+	Data.ByteString.Char8
+	Data.ByteString.Lazy
+	Data.ByteString.Short
+	Data.ByteString.Unsafe
+}
+
+[Classifier]
+data ByteString
+Name: ByteString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#t:ByteString
+Containing package: Data.ByteString
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+interact :: (ByteString -> ByteString) -> IO ()
+Name: interact
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:interact
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.ByteString::ByteString
+	
+		[result]
+		Data.ByteString::ByteString
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+hGetLine :: Handle -> IO ByteString
+Name: hGetLine
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:hGetLine
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+
+	[result]
+	System.IO::IO {
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+hGetNonBlocking :: Handle -> Int -> IO ByteString
+Name: hGetNonBlocking
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:hGetNonBlocking
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+partition :: (Word8 -> Bool) -> ByteString -> (ByteString, ByteString)
+Name: partition
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:partition
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Word::Word8
+	
+		[result]
+		Data.Bool::Bool
+	}
+	Data.ByteString::ByteString
+
+	[result]
+	GHC.Tuple::(,) {
+		Data.ByteString::ByteString
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+filter :: (Word8 -> Bool) -> ByteString -> ByteString
+Name: filter
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:filter
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Word::Word8
+	
+		[result]
+		Data.Bool::Bool
+	}
+	Data.ByteString::ByteString
+
+	[result]
+	Data.ByteString::ByteString
+}
+
+[Function]
+packCStringLen :: CStringLen -> IO ByteString
+Name: packCStringLen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:packCStringLen
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.C.String::CStringLen
+
+	[result]
+	System.IO::IO {
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+hGet :: Handle -> Int -> IO ByteString
+Name: hGet
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:hGet
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+breakByte :: Word8 -> ByteString -> (ByteString, ByteString)
+Name: breakByte
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:breakByte
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Word::Word8
+	Data.ByteString::ByteString
+
+	[result]
+	GHC.Tuple::(,) {
+		Data.ByteString::ByteString
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+hPutStrLn :: Handle -> ByteString -> IO ()
+Name: hPutStrLn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:hPutStrLn
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+	Data.ByteString::ByteString
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+unfoldrN :: Int -> (a -> Maybe (Word8, a)) -> a -> (ByteString, Maybe a)
+Name: unfoldrN
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:unfoldrN
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Data.Maybe::Maybe {
+			GHC.Tuple::(,) {
+				Data.Word::Word8
+				null::a
+			}
+		}
+	}
+	null::a
+
+	[result]
+	GHC.Tuple::(,) {
+		Data.ByteString::ByteString
+		Data.Maybe::Maybe {
+			null::a
+		}
+	}
+}
+
+[Function]
+findIndex :: (Word8 -> Bool) -> ByteString -> Maybe Int
+Name: findIndex
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:findIndex
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Word::Word8
+	
+		[result]
+		Data.Bool::Bool
+	}
+	Data.ByteString::ByteString
+
+	[result]
+	Data.Maybe::Maybe {
+		Data.Int::Int
+	}
+}
+
+[Function]
+putStrLn :: ByteString -> IO ()
+Name: putStrLn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:putStrLn
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+isInfixOf :: ByteString -> ByteString -> Bool
+Name: isInfixOf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:isInfixOf
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+	Data.ByteString::ByteString
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+replicate :: Int -> Word8 -> ByteString
+Name: replicate
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:replicate
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	Data.Word::Word8
+
+	[result]
+	Data.ByteString::ByteString
+}
+
+[Function]
+tails :: ByteString -> [ByteString]
+Name: tails
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:tails
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+
+	[result]
+	other::List {
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+foldr1' :: (Word8 -> Word8 -> Word8) -> ByteString -> Word8
+Name: foldr1'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:foldr1'
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Word::Word8
+		Data.Word::Word8
+	
+		[result]
+		Data.Word::Word8
+	}
+	Data.ByteString::ByteString
+
+	[result]
+	Data.Word::Word8
+}
+
+[Function]
+find :: (Word8 -> Bool) -> ByteString -> Maybe Word8
+Name: find
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:find
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Word::Word8
+	
+		[result]
+		Data.Bool::Bool
+	}
+	Data.ByteString::ByteString
+
+	[result]
+	Data.Maybe::Maybe {
+		Data.Word::Word8
+	}
+}
+
+[Function]
+elemIndices :: Word8 -> ByteString -> [Int]
+Name: elemIndices
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:elemIndices
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Word::Word8
+	Data.ByteString::ByteString
+
+	[result]
+	other::List {
+		Data.Int::Int
+	}
+}
+
+[Function]
+readFile :: FilePath -> IO ByteString
+Name: readFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:readFile
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+takeWhile :: (Word8 -> Bool) -> ByteString -> ByteString
+Name: takeWhile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:takeWhile
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Word::Word8
+	
+		[result]
+		Data.Bool::Bool
+	}
+	Data.ByteString::ByteString
+
+	[result]
+	Data.ByteString::ByteString
+}
+
+[Function]
+head :: ByteString -> Word8
+Name: head
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:head
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+
+	[result]
+	Data.Word::Word8
+}
+
+[Function]
+notElem :: Word8 -> ByteString -> Bool
+Name: notElem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:notElem
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Word::Word8
+	Data.ByteString::ByteString
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+findIndices :: (Word8 -> Bool) -> ByteString -> [Int]
+Name: findIndices
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:findIndices
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Word::Word8
+	
+		[result]
+		Data.Bool::Bool
+	}
+	Data.ByteString::ByteString
+
+	[result]
+	other::List {
+		Data.Int::Int
+	}
+}
+
+[Function]
+isSuffixOf :: ByteString -> ByteString -> Bool
+Name: isSuffixOf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:isSuffixOf
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+	Data.ByteString::ByteString
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+hPut :: Handle -> ByteString -> IO ()
+Name: hPut
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:hPut
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+	Data.ByteString::ByteString
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+foldl1' :: (Word8 -> Word8 -> Word8) -> ByteString -> Word8
+Name: foldl1'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:foldl1'
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Word::Word8
+		Data.Word::Word8
+	
+		[result]
+		Data.Word::Word8
+	}
+	Data.ByteString::ByteString
+
+	[result]
+	Data.Word::Word8
+}
+
+[Function]
+init :: ByteString -> ByteString
+Name: init
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:init
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+
+	[result]
+	Data.ByteString::ByteString
+}
+
+[Function]
+dropWhile :: (Word8 -> Bool) -> ByteString -> ByteString
+Name: dropWhile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:dropWhile
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Word::Word8
+	
+		[result]
+		Data.Bool::Bool
+	}
+	Data.ByteString::ByteString
+
+	[result]
+	Data.ByteString::ByteString
+}
+
+[Function]
+map :: (Word8 -> Word8) -> ByteString -> ByteString
+Name: map
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:map
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Word::Word8
+	
+		[result]
+		Data.Word::Word8
+	}
+	Data.ByteString::ByteString
+
+	[result]
+	Data.ByteString::ByteString
+}
+
+[Function]
+mapAccumL :: (acc -> Word8 -> (acc, Word8)) -> acc -> ByteString -> (acc, ByteString)
+Name: mapAccumL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:mapAccumL
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	acc
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::acc
+		Data.Word::Word8
+	
+		[result]
+		GHC.Tuple::(,) {
+			null::acc
+			Data.Word::Word8
+		}
+	}
+	null::acc
+	Data.ByteString::ByteString
+
+	[result]
+	GHC.Tuple::(,) {
+		null::acc
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+concat :: [ByteString] -> ByteString
+Name: concat
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:concat
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Data.ByteString::ByteString
+	}
+
+	[result]
+	Data.ByteString::ByteString
+}
+
+[Function]
+mapAccumR :: (acc -> Word8 -> (acc, Word8)) -> acc -> ByteString -> (acc, ByteString)
+Name: mapAccumR
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:mapAccumR
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	acc
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::acc
+		Data.Word::Word8
+	
+		[result]
+		GHC.Tuple::(,) {
+			null::acc
+			Data.Word::Word8
+		}
+	}
+	null::acc
+	Data.ByteString::ByteString
+
+	[result]
+	GHC.Tuple::(,) {
+		null::acc
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+break :: (Word8 -> Bool) -> ByteString -> (ByteString, ByteString)
+Name: break
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:break
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Word::Word8
+	
+		[result]
+		Data.Bool::Bool
+	}
+	Data.ByteString::ByteString
+
+	[result]
+	GHC.Tuple::(,) {
+		Data.ByteString::ByteString
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+transpose :: [ByteString] -> [ByteString]
+Name: transpose
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:transpose
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Data.ByteString::ByteString
+	}
+
+	[result]
+	other::List {
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+split :: Word8 -> ByteString -> [ByteString]
+Name: split
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:split
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Word::Word8
+	Data.ByteString::ByteString
+
+	[result]
+	other::List {
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+reverse :: ByteString -> ByteString
+Name: reverse
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:reverse
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+
+	[result]
+	Data.ByteString::ByteString
+}
+
+[Function]
+foldl :: (a -> Word8 -> a) -> a -> ByteString -> a
+Name: foldl
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:foldl
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		Data.Word::Word8
+	
+		[result]
+		null::a
+	}
+	null::a
+	Data.ByteString::ByteString
+
+	[result]
+	null::a
+}
+
+[Function]
+foldr :: (Word8 -> a -> a) -> a -> ByteString -> a
+Name: foldr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:foldr
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Word::Word8
+		null::a
+	
+		[result]
+		null::a
+	}
+	null::a
+	Data.ByteString::ByteString
+
+	[result]
+	null::a
+}
+
+[Function]
+group :: ByteString -> [ByteString]
+Name: group
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:group
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+
+	[result]
+	other::List {
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+findSubstring :: ByteString -> ByteString -> Maybe Int
+Name: findSubstring
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:findSubstring
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+	Data.ByteString::ByteString
+
+	[result]
+	Data.Maybe::Maybe {
+		Data.Int::Int
+	}
+}
+
+[Function]
+hPutNonBlocking :: Handle -> ByteString -> IO ByteString
+Name: hPutNonBlocking
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:hPutNonBlocking
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+	Data.ByteString::ByteString
+
+	[result]
+	System.IO::IO {
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+drop :: Int -> ByteString -> ByteString
+Name: drop
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:drop
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	Data.ByteString::ByteString
+
+	[result]
+	Data.ByteString::ByteString
+}
+
+[Function]
+cons :: Word8 -> ByteString -> ByteString
+Name: cons
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:cons
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Word::Word8
+	Data.ByteString::ByteString
+
+	[result]
+	Data.ByteString::ByteString
+}
+
+[Function]
+count :: Word8 -> ByteString -> Int
+Name: count
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:count
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Word::Word8
+	Data.ByteString::ByteString
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+copy :: ByteString -> ByteString
+Name: copy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:copy
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+
+	[result]
+	Data.ByteString::ByteString
+}
+
+[Function]
+last :: ByteString -> Word8
+Name: last
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:last
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+
+	[result]
+	Data.Word::Word8
+}
+
+[Function]
+useAsCString :: ByteString -> (CString -> IO a) -> IO a
+Name: useAsCString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:useAsCString
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+	<function> {
+		[parameters]
+		Foreign.C.String::CString
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+pack :: [Word8] -> ByteString
+Name: pack
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:pack
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Data.Word::Word8
+	}
+
+	[result]
+	Data.ByteString::ByteString
+}
+
+[Function]
+scanl :: (Word8 -> Word8 -> Word8) -> Word8 -> ByteString -> ByteString
+Name: scanl
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:scanl
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Word::Word8
+		Data.Word::Word8
+	
+		[result]
+		Data.Word::Word8
+	}
+	Data.Word::Word8
+	Data.ByteString::ByteString
+
+	[result]
+	Data.ByteString::ByteString
+}
+
+[Function]
+scanr :: (Word8 -> Word8 -> Word8) -> Word8 -> ByteString -> ByteString
+Name: scanr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:scanr
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Word::Word8
+		Data.Word::Word8
+	
+		[result]
+		Data.Word::Word8
+	}
+	Data.Word::Word8
+	Data.ByteString::ByteString
+
+	[result]
+	Data.ByteString::ByteString
+}
+
+[Function]
+null :: ByteString -> Bool
+Name: null
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:null
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+unzip :: [(Word8, Word8)] -> (ByteString, ByteString)
+Name: unzip
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:unzip
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		GHC.Tuple::(,) {
+			Data.Word::Word8
+			Data.Word::Word8
+		}
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		Data.ByteString::ByteString
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+foldr' :: (Word8 -> a -> a) -> a -> ByteString -> a
+Name: foldr'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:foldr'
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Word::Word8
+		null::a
+	
+		[result]
+		null::a
+	}
+	null::a
+	Data.ByteString::ByteString
+
+	[result]
+	null::a
+}
+
+[Function]
+foldr1 :: (Word8 -> Word8 -> Word8) -> ByteString -> Word8
+Name: foldr1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:foldr1
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Word::Word8
+		Data.Word::Word8
+	
+		[result]
+		Data.Word::Word8
+	}
+	Data.ByteString::ByteString
+
+	[result]
+	Data.Word::Word8
+}
+
+[Function]
+minimum :: ByteString -> Word8
+Name: minimum
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:minimum
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+
+	[result]
+	Data.Word::Word8
+}
+
+[Function]
+useAsCStringLen :: ByteString -> (CStringLen -> IO a) -> IO a
+Name: useAsCStringLen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:useAsCStringLen
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+	<function> {
+		[parameters]
+		Foreign.C.String::CStringLen
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+scanl1 :: (Word8 -> Word8 -> Word8) -> ByteString -> ByteString
+Name: scanl1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:scanl1
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Word::Word8
+		Data.Word::Word8
+	
+		[result]
+		Data.Word::Word8
+	}
+	Data.ByteString::ByteString
+
+	[result]
+	Data.ByteString::ByteString
+}
+
+[Function]
+zipWith :: (Word8 -> Word8 -> a) -> ByteString -> ByteString -> [a]
+Name: zipWith
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:zipWith
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Word::Word8
+		Data.Word::Word8
+	
+		[result]
+		null::a
+	}
+	Data.ByteString::ByteString
+	Data.ByteString::ByteString
+
+	[result]
+	other::List {
+		null::a
+	}
+}
+
+[Function]
+findSubstrings :: ByteString -> ByteString -> [Int]
+Name: findSubstrings
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:findSubstrings
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+	Data.ByteString::ByteString
+
+	[result]
+	other::List {
+		Data.Int::Int
+	}
+}
+
+[Function]
+length :: ByteString -> Int
+Name: length
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:length
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+hPutStr :: Handle -> ByteString -> IO ()
+Name: hPutStr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:hPutStr
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+	Data.ByteString::ByteString
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+groupBy :: (Word8 -> Word8 -> Bool) -> ByteString -> [ByteString]
+Name: groupBy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:groupBy
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Word::Word8
+		Data.Word::Word8
+	
+		[result]
+		Data.Bool::Bool
+	}
+	Data.ByteString::ByteString
+
+	[result]
+	other::List {
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+any :: (Word8 -> Bool) -> ByteString -> Bool
+Name: any
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:any
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Word::Word8
+	
+		[result]
+		Data.Bool::Bool
+	}
+	Data.ByteString::ByteString
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+splitWith :: (Word8 -> Bool) -> ByteString -> [ByteString]
+Name: splitWith
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:splitWith
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Word::Word8
+	
+		[result]
+		Data.Bool::Bool
+	}
+	Data.ByteString::ByteString
+
+	[result]
+	other::List {
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+scanr1 :: (Word8 -> Word8 -> Word8) -> ByteString -> ByteString
+Name: scanr1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:scanr1
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Word::Word8
+		Data.Word::Word8
+	
+		[result]
+		Data.Word::Word8
+	}
+	Data.ByteString::ByteString
+
+	[result]
+	Data.ByteString::ByteString
+}
+
+[Function]
+sort :: ByteString -> ByteString
+Name: sort
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:sort
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+
+	[result]
+	Data.ByteString::ByteString
+}
+
+[Function]
+putStr :: ByteString -> IO ()
+Name: putStr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:putStr
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+concatMap :: (Word8 -> ByteString) -> ByteString -> ByteString
+Name: concatMap
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:concatMap
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Word::Word8
+	
+		[result]
+		Data.ByteString::ByteString
+	}
+	Data.ByteString::ByteString
+
+	[result]
+	Data.ByteString::ByteString
+}
+
+[Function]
+zip :: ByteString -> ByteString -> [(Word8, Word8)]
+Name: zip
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:zip
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+	Data.ByteString::ByteString
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			Data.Word::Word8
+			Data.Word::Word8
+		}
+	}
+}
+
+[Function]
+foldl1 :: (Word8 -> Word8 -> Word8) -> ByteString -> Word8
+Name: foldl1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:foldl1
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Word::Word8
+		Data.Word::Word8
+	
+		[result]
+		Data.Word::Word8
+	}
+	Data.ByteString::ByteString
+
+	[result]
+	Data.Word::Word8
+}
+
+[Function]
+foldl' :: (a -> Word8 -> a) -> a -> ByteString -> a
+Name: foldl'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:foldl'
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		Data.Word::Word8
+	
+		[result]
+		null::a
+	}
+	null::a
+	Data.ByteString::ByteString
+
+	[result]
+	null::a
+}
+
+[Function]
+all :: (Word8 -> Bool) -> ByteString -> Bool
+Name: all
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:all
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Word::Word8
+	
+		[result]
+		Data.Bool::Bool
+	}
+	Data.ByteString::ByteString
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+spanEnd :: (Word8 -> Bool) -> ByteString -> (ByteString, ByteString)
+Name: spanEnd
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:spanEnd
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Word::Word8
+	
+		[result]
+		Data.Bool::Bool
+	}
+	Data.ByteString::ByteString
+
+	[result]
+	GHC.Tuple::(,) {
+		Data.ByteString::ByteString
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+singleton :: Word8 -> ByteString
+Name: singleton
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:singleton
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Word::Word8
+
+	[result]
+	Data.ByteString::ByteString
+}
+
+[Function]
+breakEnd :: (Word8 -> Bool) -> ByteString -> (ByteString, ByteString)
+Name: breakEnd
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:breakEnd
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Word::Word8
+	
+		[result]
+		Data.Bool::Bool
+	}
+	Data.ByteString::ByteString
+
+	[result]
+	GHC.Tuple::(,) {
+		Data.ByteString::ByteString
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+hGetContents :: Handle -> IO ByteString
+Name: hGetContents
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:hGetContents
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+
+	[result]
+	System.IO::IO {
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+empty :: ByteString
+Name: empty
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:empty
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.ByteString::ByteString
+}
+
+[Function]
+inits :: ByteString -> [ByteString]
+Name: inits
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:inits
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+
+	[result]
+	other::List {
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+elemIndex :: Word8 -> ByteString -> Maybe Int
+Name: elemIndex
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:elemIndex
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Word::Word8
+	Data.ByteString::ByteString
+
+	[result]
+	Data.Maybe::Maybe {
+		Data.Int::Int
+	}
+}
+
+[Function]
+unpack :: ByteString -> [Word8]
+Name: unpack
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:unpack
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+
+	[result]
+	other::List {
+		Data.Word::Word8
+	}
+}
+
+[Function]
+splitAt :: Int -> ByteString -> (ByteString, ByteString)
+Name: splitAt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:splitAt
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	Data.ByteString::ByteString
+
+	[result]
+	GHC.Tuple::(,) {
+		Data.ByteString::ByteString
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+snoc :: ByteString -> Word8 -> ByteString
+Name: snoc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:snoc
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+	Data.Word::Word8
+
+	[result]
+	Data.ByteString::ByteString
+}
+
+[Function]
+getLine :: IO ByteString
+Name: getLine
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:getLine
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+unfoldr :: (a -> Maybe (Word8, a)) -> a -> ByteString
+Name: unfoldr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:unfoldr
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Data.Maybe::Maybe {
+			GHC.Tuple::(,) {
+				Data.Word::Word8
+				null::a
+			}
+		}
+	}
+	null::a
+
+	[result]
+	Data.ByteString::ByteString
+}
+
+[Function]
+append :: ByteString -> ByteString -> ByteString
+Name: append
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:append
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+	Data.ByteString::ByteString
+
+	[result]
+	Data.ByteString::ByteString
+}
+
+[Function]
+unsnoc :: ByteString -> Maybe (ByteString, Word8)
+Name: unsnoc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:unsnoc
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+
+	[result]
+	Data.Maybe::Maybe {
+		GHC.Tuple::(,) {
+			Data.ByteString::ByteString
+			Data.Word::Word8
+		}
+	}
+}
+
+[Function]
+take :: Int -> ByteString -> ByteString
+Name: take
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:take
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	Data.ByteString::ByteString
+
+	[result]
+	Data.ByteString::ByteString
+}
+
+[Function]
+packCString :: CString -> IO ByteString
+Name: packCString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:packCString
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.C.String::CString
+
+	[result]
+	System.IO::IO {
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+appendFile :: FilePath -> ByteString -> IO ()
+Name: appendFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:appendFile
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	Data.ByteString::ByteString
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+elemIndexEnd :: Word8 -> ByteString -> Maybe Int
+Name: elemIndexEnd
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:elemIndexEnd
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Word::Word8
+	Data.ByteString::ByteString
+
+	[result]
+	Data.Maybe::Maybe {
+		Data.Int::Int
+	}
+}
+
+[Function]
+breakSubstring :: ByteString -> ByteString -> (ByteString, ByteString)
+Name: breakSubstring
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:breakSubstring
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+	Data.ByteString::ByteString
+
+	[result]
+	GHC.Tuple::(,) {
+		Data.ByteString::ByteString
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+intercalate :: ByteString -> [ByteString] -> ByteString
+Name: intercalate
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:intercalate
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+	other::List {
+		Data.ByteString::ByteString
+	}
+
+	[result]
+	Data.ByteString::ByteString
+}
+
+[Function]
+hGetSome :: Handle -> Int -> IO ByteString
+Name: hGetSome
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:hGetSome
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+elem :: Word8 -> ByteString -> Bool
+Name: elem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:elem
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Word::Word8
+	Data.ByteString::ByteString
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+tail :: ByteString -> ByteString
+Name: tail
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:tail
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+
+	[result]
+	Data.ByteString::ByteString
+}
+
+[Function]
+maximum :: ByteString -> Word8
+Name: maximum
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:maximum
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+
+	[result]
+	Data.Word::Word8
+}
+
+[Function]
+writeFile :: FilePath -> ByteString -> IO ()
+Name: writeFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:writeFile
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	Data.ByteString::ByteString
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+getContents :: IO ByteString
+Name: getContents
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:getContents
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+isPrefixOf :: ByteString -> ByteString -> Bool
+Name: isPrefixOf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:isPrefixOf
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+	Data.ByteString::ByteString
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+uncons :: ByteString -> Maybe (Word8, ByteString)
+Name: uncons
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:uncons
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+
+	[result]
+	Data.Maybe::Maybe {
+		GHC.Tuple::(,) {
+			Data.Word::Word8
+			Data.ByteString::ByteString
+		}
+	}
+}
+
+[Function]
+intersperse :: Word8 -> ByteString -> ByteString
+Name: intersperse
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:intersperse
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Word::Word8
+	Data.ByteString::ByteString
+
+	[result]
+	Data.ByteString::ByteString
+}
+
+[Function]
+index :: ByteString -> Int -> Word8
+Name: index
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:index
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+	Data.Int::Int
+
+	[result]
+	Data.Word::Word8
+}
+
+[Function]
+span :: (Word8 -> Bool) -> ByteString -> (ByteString, ByteString)
+Name: span
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString.html#v:span
+Containing package: Data.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.Word::Word8
+	
+		[result]
+		Data.Bool::Bool
+	}
+	Data.ByteString::ByteString
+
+	[result]
+	GHC.Tuple::(,) {
+		Data.ByteString::ByteString
+		Data.ByteString::ByteString
+	}
+}

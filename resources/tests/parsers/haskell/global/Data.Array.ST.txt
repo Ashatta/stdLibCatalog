@@ -1,0 +1,123 @@
+[Package]
+Name: Data.Array.ST
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-ST.html
+Containing package: Data.Array
+attributes {
+}
+
+Subpackages {
+	Data.Array.ST.Safe
+}
+
+[Classifier]
+data STUArray s i e
+Name: STUArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-ST.html#t:STUArray
+Containing package: Data.Array.ST
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	s
+	i
+	e
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data STArray s i e :: * -> * -> * -> *
+Name: STArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-ST.html#t:STArray
+Containing package: Data.Array.ST
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	s
+	i
+	e
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+runSTArray :: Ix i => (forall s. ST s (STArray s i e)) -> Array i e
+Name: runSTArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-ST.html#v:runSTArray
+Containing package: Data.Array.ST
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	i: (Ix i; i; Data.Ix::Ix)
+	s
+	e
+}
+Signature = <function> {
+	[parameters]
+	Control.Monad.ST.Safe::ST {
+		null::s
+		Data.Array.ST::STArray {
+			null::s
+			null::i
+			null::e
+		}
+	}
+
+	[result]
+	Data.Array::Array {
+		null::i
+		null::e
+	}
+}
+
+[Function]
+runSTUArray :: Ix i => (forall s. ST s (STUArray s i e)) -> UArray i e
+Name: runSTUArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-ST.html#v:runSTUArray
+Containing package: Data.Array.ST
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	i: (Ix i; i; Data.Ix::Ix)
+	s
+	e
+}
+Signature = <function> {
+	[parameters]
+	Control.Monad.ST.Safe::ST {
+		null::s
+		Data.Array.ST::STUArray {
+			null::s
+			null::i
+			null::e
+		}
+	}
+
+	[result]
+	Data.Array.Unboxed::UArray {
+		null::i
+		null::e
+	}
+}

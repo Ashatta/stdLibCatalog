@@ -1,0 +1,800 @@
+[Package]
+Name: Distribution.Simple.LocalBuildInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html
+Containing package: Distribution.Simple
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data ComponentDisabledReason = DisabledComponent | DisabledAllTests | DisabledAllBenchmarks
+Name: Component
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#t:Component
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ComponentLocalBuildInfo = LibComponentLocalBuildInfo { componentPackageDeps :: [(InstalledPackageId, PackageId)] componentLibraries :: [LibraryName] } | ExeComponentLocalBuildInfo { componentPackageDeps :: [(InstalledPackageId, PackageId)] } | TestComponentLocalBuildInfo { componentPackageDeps :: [(InstalledPackageId, PackageId)] } | BenchComponentLocalBuildInfo { componentPackageDeps :: [(InstalledPackageId, PackageId)] }
+Name: ComponentLocalBuildInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#t:ComponentLocalBuildInfo
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ComponentDisabledReason = DisabledComponent | DisabledAllTests | DisabledAllBenchmarks
+Name: ComponentDisabledReason
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#t:ComponentDisabledReason
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ComponentName = CLibName | CExeName String | CTestName String | CBenchName String
+Name: ComponentName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#t:ComponentName
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data LocalBuildInfo = LocalBuildInfo { configFlags :: ConfigFlags extraConfigArgs :: [String] installDirTemplates :: InstallDirTemplates compiler :: Compiler hostPlatform :: Platform buildDir :: FilePath scratchDir :: FilePath componentsConfigs :: [(ComponentName, ComponentLocalBuildInfo, [ComponentName])] installedPkgs :: PackageIndex pkgDescrFile :: Maybe FilePath localPkgDescr :: PackageDescription withPrograms :: ProgramConfiguration withPackageDB :: PackageDBStack withVanillaLib :: Bool withProfLib :: Bool withSharedLib :: Bool withDynExe :: Bool withProfExe :: Bool withOptimization :: OptimisationLevel withGHCiLib :: Bool splitObjs :: Bool stripExes :: Bool progPrefix :: PathTemplate progSuffix :: PathTemplate}
+Name: LocalBuildInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#t:LocalBuildInfo
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data LibraryName = LibraryName String
+Name: LibraryName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#t:LibraryName
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+withComponentsLBI :: PackageDescription -> LocalBuildInfo -> (Component -> ComponentLocalBuildInfo -> IO ()) -> IO ()
+Name: withComponentsLBI
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#v:withComponentsLBI
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	<function> {
+		[parameters]
+		Distribution.Simple.LocalBuildInfo::Component
+		Distribution.Simple.LocalBuildInfo::ComponentLocalBuildInfo
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+withComponentsInBuildOrder :: PackageDescription -> LocalBuildInfo -> [ComponentName] -> (Component -> ComponentLocalBuildInfo -> IO ()) -> IO ()
+Name: withComponentsInBuildOrder
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#v:withComponentsInBuildOrder
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	other::List {
+		Distribution.Simple.LocalBuildInfo::ComponentName
+	}
+	<function> {
+		[parameters]
+		Distribution.Simple.LocalBuildInfo::Component
+		Distribution.Simple.LocalBuildInfo::ComponentLocalBuildInfo
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+allComponentsInBuildOrder :: LocalBuildInfo -> [(ComponentName, ComponentLocalBuildInfo)]
+Name: allComponentsInBuildOrder
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#v:allComponentsInBuildOrder
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			Distribution.Simple.LocalBuildInfo::ComponentName
+			Distribution.Simple.LocalBuildInfo::ComponentLocalBuildInfo
+		}
+	}
+}
+
+[Function]
+componentEnabled :: Component -> Bool
+Name: componentEnabled
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#v:componentEnabled
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.LocalBuildInfo::Component
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+componentDisabledReason :: Component -> Maybe ComponentDisabledReason
+Name: componentDisabledReason
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#v:componentDisabledReason
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.LocalBuildInfo::Component
+
+	[result]
+	Data.Maybe::Maybe {
+		Distribution.Simple.LocalBuildInfo::ComponentDisabledReason
+	}
+}
+
+[Function]
+withTestLBI :: PackageDescription -> LocalBuildInfo -> (TestSuite -> ComponentLocalBuildInfo -> IO ()) -> IO ()
+Name: withTestLBI
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#v:withTestLBI
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	<function> {
+		[parameters]
+		Distribution.PackageDescription::TestSuite
+		Distribution.Simple.LocalBuildInfo::ComponentLocalBuildInfo
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+pkgEnabledComponents :: PackageDescription -> [Component]
+Name: pkgEnabledComponents
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#v:pkgEnabledComponents
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+
+	[result]
+	other::List {
+		Distribution.Simple.LocalBuildInfo::Component
+	}
+}
+
+[Function]
+withExeLBI :: PackageDescription -> LocalBuildInfo -> (Executable -> ComponentLocalBuildInfo -> IO ()) -> IO ()
+Name: withExeLBI
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#v:withExeLBI
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	<function> {
+		[parameters]
+		Distribution.PackageDescription::Executable
+		Distribution.Simple.LocalBuildInfo::ComponentLocalBuildInfo
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+lookupComponent :: PackageDescription -> ComponentName -> Maybe Component
+Name: lookupComponent
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#v:lookupComponent
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+	Distribution.Simple.LocalBuildInfo::ComponentName
+
+	[result]
+	Data.Maybe::Maybe {
+		Distribution.Simple.LocalBuildInfo::Component
+	}
+}
+
+[Function]
+getComponent :: PackageDescription -> ComponentName -> Component
+Name: getComponent
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#v:getComponent
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+	Distribution.Simple.LocalBuildInfo::ComponentName
+
+	[result]
+	Distribution.Simple.LocalBuildInfo::Component
+}
+
+[Function]
+pkgComponents :: PackageDescription -> [Component]
+Name: pkgComponents
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#v:pkgComponents
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+
+	[result]
+	other::List {
+		Distribution.Simple.LocalBuildInfo::Component
+	}
+}
+
+[Function]
+substPathTemplate :: PackageId -> LocalBuildInfo -> PathTemplate -> FilePath
+Name: substPathTemplate
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#v:substPathTemplate
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Package::PackageId
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	Distribution.Simple.InstallDirs::PathTemplate
+
+	[result]
+	System.IO::FilePath
+}
+
+[Function]
+inplacePackageId :: PackageId -> InstalledPackageId
+Name: inplacePackageId
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#v:inplacePackageId
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Package::PackageId
+
+	[result]
+	Distribution.Package::InstalledPackageId
+}
+
+[Function]
+absoluteInstallDirs :: PackageDescription -> LocalBuildInfo -> CopyDest -> InstallDirs FilePath
+Name: absoluteInstallDirs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#v:absoluteInstallDirs
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	Distribution.Simple.InstallDirs::CopyDest
+
+	[result]
+	Distribution.Simple.InstallDirs::InstallDirs {
+		System.IO::FilePath
+	}
+}
+
+[Function]
+componentName :: Component -> ComponentName
+Name: componentName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#v:componentName
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.LocalBuildInfo::Component
+
+	[result]
+	Distribution.Simple.LocalBuildInfo::ComponentName
+}
+
+[Function]
+componentBuildInfo :: Component -> BuildInfo
+Name: componentBuildInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#v:componentBuildInfo
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.LocalBuildInfo::Component
+
+	[result]
+	Distribution.PackageDescription::BuildInfo
+}
+
+[Function]
+foldComponent :: (Library -> a) -> (Executable -> a) -> (TestSuite -> a) -> (Benchmark -> a) -> Component -> a
+Name: foldComponent
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#v:foldComponent
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Distribution.PackageDescription::Library
+	
+		[result]
+		null::a
+	}
+	<function> {
+		[parameters]
+		Distribution.PackageDescription::Executable
+	
+		[result]
+		null::a
+	}
+	<function> {
+		[parameters]
+		Distribution.PackageDescription::TestSuite
+	
+		[result]
+		null::a
+	}
+	<function> {
+		[parameters]
+		Distribution.PackageDescription::Benchmark
+	
+		[result]
+		null::a
+	}
+	Distribution.Simple.LocalBuildInfo::Component
+
+	[result]
+	null::a
+}
+
+[Function]
+componentsInBuildOrder :: LocalBuildInfo -> [ComponentName] -> [(ComponentName, ComponentLocalBuildInfo)]
+Name: componentsInBuildOrder
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#v:componentsInBuildOrder
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	other::List {
+		Distribution.Simple.LocalBuildInfo::ComponentName
+	}
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			Distribution.Simple.LocalBuildInfo::ComponentName
+			Distribution.Simple.LocalBuildInfo::ComponentLocalBuildInfo
+		}
+	}
+}
+
+[Function]
+checkComponentsCyclic :: Ord key => [(node, key, [key])] -> Maybe [(node, key, [key])]
+Name: checkComponentsCyclic
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#v:checkComponentsCyclic
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	key: (Ord key; key; Data.Ord::Ord)
+	node
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		GHC.Tuple::(,,) {
+			null::node
+			null::key
+			other::List {
+				null::key
+			}
+		}
+	}
+
+	[result]
+	Data.Maybe::Maybe {
+		other::List {
+			GHC.Tuple::(,,) {
+				null::node
+				null::key
+				other::List {
+					null::key
+				}
+			}
+		}
+	}
+}
+
+[Function]
+showComponentName :: ComponentName -> String
+Name: showComponentName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#v:showComponentName
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.LocalBuildInfo::ComponentName
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+prefixRelativeInstallDirs :: PackageId -> LocalBuildInfo -> InstallDirs (Maybe FilePath)
+Name: prefixRelativeInstallDirs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#v:prefixRelativeInstallDirs
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Package::PackageId
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+
+	[result]
+	Distribution.Simple.InstallDirs::InstallDirs {
+		Data.Maybe::Maybe {
+			System.IO::FilePath
+		}
+	}
+}
+
+[Function]
+withLibLBI :: PackageDescription -> LocalBuildInfo -> (Library -> ComponentLocalBuildInfo -> IO ()) -> IO ()
+Name: withLibLBI
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#v:withLibLBI
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	<function> {
+		[parameters]
+		Distribution.PackageDescription::Library
+		Distribution.Simple.LocalBuildInfo::ComponentLocalBuildInfo
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+withAllComponentsInBuildOrder :: PackageDescription -> LocalBuildInfo -> (Component -> ComponentLocalBuildInfo -> IO ()) -> IO ()
+Name: withAllComponentsInBuildOrder
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#v:withAllComponentsInBuildOrder
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	<function> {
+		[parameters]
+		Distribution.Simple.LocalBuildInfo::Component
+		Distribution.Simple.LocalBuildInfo::ComponentLocalBuildInfo
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+externalPackageDeps :: LocalBuildInfo -> [(InstalledPackageId, PackageId)]
+Name: externalPackageDeps
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#v:externalPackageDeps
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			Distribution.Package::InstalledPackageId
+			Distribution.Package::PackageId
+		}
+	}
+}
+
+[Function]
+getComponentLocalBuildInfo :: LocalBuildInfo -> ComponentName -> ComponentLocalBuildInfo
+Name: getComponentLocalBuildInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-LocalBuildInfo.html#v:getComponentLocalBuildInfo
+Containing package: Distribution.Simple.LocalBuildInfo
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	Distribution.Simple.LocalBuildInfo::ComponentName
+
+	[result]
+	Distribution.Simple.LocalBuildInfo::ComponentLocalBuildInfo
+}

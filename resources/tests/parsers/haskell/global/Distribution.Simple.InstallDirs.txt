@@ -1,0 +1,430 @@
+[Package]
+Name: Distribution.Simple.InstallDirs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-InstallDirs.html
+Containing package: Distribution.Simple
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data PathTemplateVariable = PrefixVar | BindirVar | LibdirVar | LibsubdirVar | DatadirVar | DatasubdirVar | DocdirVar | HtmldirVar | PkgNameVar | PkgVerVar | PkgIdVar | CompilerVar | OSVar | ArchVar | ExecutableNameVar | TestSuiteNameVar | TestSuiteResultVar | BenchmarkNameVar
+Name: PathTemplateVariable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-InstallDirs.html#t:PathTemplateVariable
+Containing package: Distribution.Simple.InstallDirs
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data CopyDest = NoCopyDest | CopyTo FilePath
+Name: CopyDest
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-InstallDirs.html#t:CopyDest
+Containing package: Distribution.Simple.InstallDirs
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data PathTemplateVariable = PrefixVar | BindirVar | LibdirVar | LibsubdirVar | DatadirVar | DatasubdirVar | DocdirVar | HtmldirVar | PkgNameVar | PkgVerVar | PkgIdVar | CompilerVar | OSVar | ArchVar | ExecutableNameVar | TestSuiteNameVar | TestSuiteResultVar | BenchmarkNameVar
+Name: PathTemplate
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-InstallDirs.html#t:PathTemplate
+Containing package: Distribution.Simple.InstallDirs
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data InstallDirs dir = InstallDirs { prefix :: dir bindir :: dir libdir :: dir libsubdir :: dir dynlibdir :: dir libexecdir :: dir progdir :: dir includedir :: dir datadir :: dir datasubdir :: dir docdir :: dir mandir :: dir htmldir :: dir haddockdir :: dir sysconfdir :: dir}
+Name: InstallDirs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-InstallDirs.html#t:InstallDirs
+Containing package: Distribution.Simple.InstallDirs
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	dir
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type InstallDirTemplates = InstallDirs PathTemplate
+Name: InstallDirTemplates
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-InstallDirs.html#t:InstallDirTemplates
+Containing package: Distribution.Simple.InstallDirs
+attributes {
+}
+parameters {
+}
+Aliased type = Distribution.Simple.InstallDirs::InstallDirs {
+	Distribution.Simple.InstallDirs::PathTemplate
+}
+
+[Alias]
+type PathTemplateEnv = [(PathTemplateVariable, PathTemplate)]
+Name: PathTemplateEnv
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-InstallDirs.html#t:PathTemplateEnv
+Containing package: Distribution.Simple.InstallDirs
+attributes {
+}
+parameters {
+}
+Aliased type = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			Distribution.Simple.InstallDirs::PathTemplateVariable
+			Distribution.Simple.InstallDirs::PathTemplate
+		}
+	}
+}
+
+[Function]
+packageTemplateEnv :: PackageIdentifier -> PathTemplateEnv
+Name: packageTemplateEnv
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-InstallDirs.html#v:packageTemplateEnv
+Containing package: Distribution.Simple.InstallDirs
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Package::PackageIdentifier
+
+	[result]
+	Distribution.Simple.InstallDirs::PathTemplateEnv
+}
+
+[Function]
+substPathTemplate :: PathTemplateEnv -> PathTemplate -> PathTemplate
+Name: substPathTemplate
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-InstallDirs.html#v:substPathTemplate
+Containing package: Distribution.Simple.InstallDirs
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.InstallDirs::PathTemplateEnv
+	Distribution.Simple.InstallDirs::PathTemplate
+
+	[result]
+	Distribution.Simple.InstallDirs::PathTemplate
+}
+
+[Function]
+absoluteInstallDirs :: PackageIdentifier -> CompilerId -> CopyDest -> Platform -> InstallDirs PathTemplate -> InstallDirs FilePath
+Name: absoluteInstallDirs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-InstallDirs.html#v:absoluteInstallDirs
+Containing package: Distribution.Simple.InstallDirs
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Package::PackageIdentifier
+	Distribution.Compiler::CompilerId
+	Distribution.Simple.InstallDirs::CopyDest
+	Distribution.System::Platform
+	Distribution.Simple.InstallDirs::InstallDirs {
+		Distribution.Simple.InstallDirs::PathTemplate
+	}
+
+	[result]
+	Distribution.Simple.InstallDirs::InstallDirs {
+		System.IO::FilePath
+	}
+}
+
+[Function]
+compilerTemplateEnv :: CompilerId -> PathTemplateEnv
+Name: compilerTemplateEnv
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-InstallDirs.html#v:compilerTemplateEnv
+Containing package: Distribution.Simple.InstallDirs
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Compiler::CompilerId
+
+	[result]
+	Distribution.Simple.InstallDirs::PathTemplateEnv
+}
+
+[Function]
+substituteInstallDirTemplates :: PathTemplateEnv -> InstallDirTemplates -> InstallDirTemplates
+Name: substituteInstallDirTemplates
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-InstallDirs.html#v:substituteInstallDirTemplates
+Containing package: Distribution.Simple.InstallDirs
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.InstallDirs::PathTemplateEnv
+	Distribution.Simple.InstallDirs::InstallDirTemplates
+
+	[result]
+	Distribution.Simple.InstallDirs::InstallDirTemplates
+}
+
+[Function]
+toPathTemplate :: FilePath -> PathTemplate
+Name: toPathTemplate
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-InstallDirs.html#v:toPathTemplate
+Containing package: Distribution.Simple.InstallDirs
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	Distribution.Simple.InstallDirs::PathTemplate
+}
+
+[Function]
+installDirsTemplateEnv :: InstallDirs PathTemplate -> PathTemplateEnv
+Name: installDirsTemplateEnv
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-InstallDirs.html#v:installDirsTemplateEnv
+Containing package: Distribution.Simple.InstallDirs
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.InstallDirs::InstallDirs {
+		Distribution.Simple.InstallDirs::PathTemplate
+	}
+
+	[result]
+	Distribution.Simple.InstallDirs::PathTemplateEnv
+}
+
+[Function]
+fromPathTemplate :: PathTemplate -> FilePath
+Name: fromPathTemplate
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-InstallDirs.html#v:fromPathTemplate
+Containing package: Distribution.Simple.InstallDirs
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.InstallDirs::PathTemplate
+
+	[result]
+	System.IO::FilePath
+}
+
+[Function]
+combineInstallDirs :: (a -> b -> c) -> InstallDirs a -> InstallDirs b -> InstallDirs c
+Name: combineInstallDirs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-InstallDirs.html#v:combineInstallDirs
+Containing package: Distribution.Simple.InstallDirs
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::b
+	
+		[result]
+		null::c
+	}
+	Distribution.Simple.InstallDirs::InstallDirs {
+		null::a
+	}
+	Distribution.Simple.InstallDirs::InstallDirs {
+		null::b
+	}
+
+	[result]
+	Distribution.Simple.InstallDirs::InstallDirs {
+		null::c
+	}
+}
+
+[Function]
+defaultInstallDirs :: CompilerFlavor -> Bool -> Bool -> IO InstallDirTemplates
+Name: defaultInstallDirs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-InstallDirs.html#v:defaultInstallDirs
+Containing package: Distribution.Simple.InstallDirs
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Compiler::CompilerFlavor
+	Data.Bool::Bool
+	Data.Bool::Bool
+
+	[result]
+	System.IO::IO {
+		Distribution.Simple.InstallDirs::InstallDirTemplates
+	}
+}
+
+[Function]
+prefixRelativeInstallDirs :: PackageIdentifier -> CompilerId -> Platform -> InstallDirTemplates -> InstallDirs (Maybe FilePath)
+Name: prefixRelativeInstallDirs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-InstallDirs.html#v:prefixRelativeInstallDirs
+Containing package: Distribution.Simple.InstallDirs
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Package::PackageIdentifier
+	Distribution.Compiler::CompilerId
+	Distribution.System::Platform
+	Distribution.Simple.InstallDirs::InstallDirTemplates
+
+	[result]
+	Distribution.Simple.InstallDirs::InstallDirs {
+		Data.Maybe::Maybe {
+			System.IO::FilePath
+		}
+	}
+}
+
+[Function]
+initialPathTemplateEnv :: PackageIdentifier -> CompilerId -> Platform -> PathTemplateEnv
+Name: initialPathTemplateEnv
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-InstallDirs.html#v:initialPathTemplateEnv
+Containing package: Distribution.Simple.InstallDirs
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Package::PackageIdentifier
+	Distribution.Compiler::CompilerId
+	Distribution.System::Platform
+
+	[result]
+	Distribution.Simple.InstallDirs::PathTemplateEnv
+}
+
+[Function]
+platformTemplateEnv :: Platform -> PathTemplateEnv
+Name: platformTemplateEnv
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-InstallDirs.html#v:platformTemplateEnv
+Containing package: Distribution.Simple.InstallDirs
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.System::Platform
+
+	[result]
+	Distribution.Simple.InstallDirs::PathTemplateEnv
+}

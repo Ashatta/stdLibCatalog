@@ -1,0 +1,204 @@
+[Package]
+Name: Trace.Hpc.Util
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hpc-0.6.0.1/Trace-Hpc-Util.html
+Containing package: Hpc
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data Hash
+Name: Hash
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hpc-0.6.0.1/Trace-Hpc-Util.html#t:Hash
+Containing package: Trace.Hpc.Util
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data HpcPos
+Name: HpcPos
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hpc-0.6.0.1/Trace-Hpc-Util.html#t:HpcPos
+Containing package: Trace.Hpc.Util
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class HpcHash a where toHash :: a -> Hash
+Name: HpcHash
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hpc-0.6.0.1/Trace-Hpc-Util.html#t:HpcHash
+Containing package: Trace.Hpc.Util
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Trace.Hpc.Mix::Trace.Hpc.Util.HpcHash_BoxLabel<>
+	Trace.Hpc.Mix::Trace.Hpc.Util.HpcHash_CondBox<>
+	Trace.Hpc.Util::Trace.Hpc.Util.HpcHash_HpcPos<>
+	Data.Bool::Trace.Hpc.Util.HpcHash_Bool<>
+	Data.Char::Trace.Hpc.Util.HpcHash_Char<>
+	Data.Int::Trace.Hpc.Util.HpcHash_Int<>
+	Prelude::Trace.Hpc.Util.HpcHash_Integer<>
+	other::Trace.Hpc.Util.HpcHash_List<a<>>
+	GHC.Tuple::Trace.Hpc.Util.HpcHash_(,,,)<a<>,b<>>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	toHash :: a -> Hash
+	Name: toHash
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hpc-0.6.0.1/Trace-Hpc-Util.html#v:toHash
+	Containing package: Trace.Hpc.Util
+	attributes {
+		memberType=function
+	}
+	Containing type: HpcHash
+	parameters {
+		a: (HpcHash a; a; Trace.Hpc.Util::HpcHash)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Trace.Hpc.Util::Hash
+	}
+}
+
+[Function]
+catchIO :: IO a -> (IOException -> IO a) -> IO a
+Name: catchIO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hpc-0.6.0.1/Trace-Hpc-Util.html#v:catchIO
+Containing package: Trace.Hpc.Util
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.IO::IO {
+		null::a
+	}
+	<function> {
+		[parameters]
+		Control.Exception.Base::IOException
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+insideHpcPos :: HpcPos -> HpcPos -> Bool
+Name: insideHpcPos
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hpc-0.6.0.1/Trace-Hpc-Util.html#v:insideHpcPos
+Containing package: Trace.Hpc.Util
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Trace.Hpc.Util::HpcPos
+	Trace.Hpc.Util::HpcPos
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+toHpcPos :: (Int, Int, Int, Int) -> HpcPos
+Name: toHpcPos
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hpc-0.6.0.1/Trace-Hpc-Util.html#v:toHpcPos
+Containing package: Trace.Hpc.Util
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Tuple::(,,,) {
+		Data.Int::Int
+		Data.Int::Int
+		Data.Int::Int
+		Data.Int::Int
+	}
+
+	[result]
+	Trace.Hpc.Util::HpcPos
+}
+
+[Function]
+fromHpcPos :: HpcPos -> (Int, Int, Int, Int)
+Name: fromHpcPos
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hpc-0.6.0.1/Trace-Hpc-Util.html#v:fromHpcPos
+Containing package: Trace.Hpc.Util
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Trace.Hpc.Util::HpcPos
+
+	[result]
+	GHC.Tuple::(,,,) {
+		Data.Int::Int
+		Data.Int::Int
+		Data.Int::Int
+		Data.Int::Int
+	}
+}

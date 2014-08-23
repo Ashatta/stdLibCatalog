@@ -1,0 +1,384 @@
+[Package]
+Name: GHC.Integer.GMP.Internals
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/integer-gmp-0.5.1.0/GHC-Integer-GMP-Internals.html
+Containing package: GMP
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data Integer = S# Int# | J# Int# ByteArray#
+Name: Integer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/integer-gmp-0.5.1.0/GHC-Integer-GMP-Internals.html#t:Integer
+Containing package: GHC.Integer.GMP.Internals
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+exportIntegerToAddr :: Integer -> Addr# -> Int# -> State# s -> (#State# s, Word##)
+Name: exportIntegerToAddr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/integer-gmp-0.5.1.0/GHC-Integer-GMP-Internals.html#v:exportIntegerToAddr
+Containing package: GHC.Integer.GMP.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s
+}
+Signature = <function> {
+	[parameters]
+	GHC.Integer.GMP.Internals::Integer
+	GHC.Prim::Addr#
+	GHC.Prim::Int#
+	GHC.Prim::State# {
+		null::s
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		GHC.Prim::State# {
+			null::s
+		}
+		GHC.Prim::Word#
+	}
+}
+
+[Function]
+powInteger :: Integer -> Word# -> Integer
+Name: powInteger
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/integer-gmp-0.5.1.0/GHC-Integer-GMP-Internals.html#v:powInteger
+Containing package: GHC.Integer.GMP.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Integer.GMP.Internals::Integer
+	GHC.Prim::Word#
+
+	[result]
+	GHC.Integer.GMP.Internals::Integer
+}
+
+[Function]
+sizeInBaseInteger :: Integer -> Int# -> Word#
+Name: sizeInBaseInteger
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/integer-gmp-0.5.1.0/GHC-Integer-GMP-Internals.html#v:sizeInBaseInteger
+Containing package: GHC.Integer.GMP.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Integer.GMP.Internals::Integer
+	GHC.Prim::Int#
+
+	[result]
+	GHC.Prim::Word#
+}
+
+[Function]
+powModSecInteger :: Integer -> Integer -> Integer -> Integer
+Name: powModSecInteger
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/integer-gmp-0.5.1.0/GHC-Integer-GMP-Internals.html#v:powModSecInteger
+Containing package: GHC.Integer.GMP.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Integer.GMP.Internals::Integer
+	GHC.Integer.GMP.Internals::Integer
+	GHC.Integer.GMP.Internals::Integer
+
+	[result]
+	GHC.Integer.GMP.Internals::Integer
+}
+
+[Function]
+gcdExtInteger :: Integer -> Integer -> (#Integer, Integer#)
+Name: gcdExtInteger
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/integer-gmp-0.5.1.0/GHC-Integer-GMP-Internals.html#v:gcdExtInteger
+Containing package: GHC.Integer.GMP.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Integer.GMP.Internals::Integer
+	GHC.Integer.GMP.Internals::Integer
+
+	[result]
+	GHC.Tuple::(,) {
+		GHC.Integer.GMP.Internals::Integer
+		GHC.Integer.GMP.Internals::Integer
+	}
+}
+
+[Function]
+nextPrimeInteger :: Integer -> Integer
+Name: nextPrimeInteger
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/integer-gmp-0.5.1.0/GHC-Integer-GMP-Internals.html#v:nextPrimeInteger
+Containing package: GHC.Integer.GMP.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Integer.GMP.Internals::Integer
+
+	[result]
+	GHC.Integer.GMP.Internals::Integer
+}
+
+[Function]
+powModInteger :: Integer -> Integer -> Integer -> Integer
+Name: powModInteger
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/integer-gmp-0.5.1.0/GHC-Integer-GMP-Internals.html#v:powModInteger
+Containing package: GHC.Integer.GMP.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Integer.GMP.Internals::Integer
+	GHC.Integer.GMP.Internals::Integer
+	GHC.Integer.GMP.Internals::Integer
+
+	[result]
+	GHC.Integer.GMP.Internals::Integer
+}
+
+[Function]
+importIntegerFromAddr :: Addr# -> Word# -> Int# -> State# s -> (#State# s, Integer#)
+Name: importIntegerFromAddr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/integer-gmp-0.5.1.0/GHC-Integer-GMP-Internals.html#v:importIntegerFromAddr
+Containing package: GHC.Integer.GMP.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s
+}
+Signature = <function> {
+	[parameters]
+	GHC.Prim::Addr#
+	GHC.Prim::Word#
+	GHC.Prim::Int#
+	GHC.Prim::State# {
+		null::s
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		GHC.Prim::State# {
+			null::s
+		}
+		GHC.Integer.GMP.Internals::Integer
+	}
+}
+
+[Function]
+exportIntegerToMutableByteArray :: Integer -> MutableByteArray# s -> Word# -> Int# -> State# s -> (#State# s, Word##)
+Name: exportIntegerToMutableByteArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/integer-gmp-0.5.1.0/GHC-Integer-GMP-Internals.html#v:exportIntegerToMutableByteArray
+Containing package: GHC.Integer.GMP.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s
+}
+Signature = <function> {
+	[parameters]
+	GHC.Integer.GMP.Internals::Integer
+	GHC.Prim::MutableByteArray# {
+		null::s
+	}
+	GHC.Prim::Word#
+	GHC.Prim::Int#
+	GHC.Prim::State# {
+		null::s
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		GHC.Prim::State# {
+			null::s
+		}
+		GHC.Prim::Word#
+	}
+}
+
+[Function]
+importIntegerFromByteArray :: ByteArray# -> Word# -> Word# -> Int# -> Integer
+Name: importIntegerFromByteArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/integer-gmp-0.5.1.0/GHC-Integer-GMP-Internals.html#v:importIntegerFromByteArray
+Containing package: GHC.Integer.GMP.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Prim::ByteArray#
+	GHC.Prim::Word#
+	GHC.Prim::Word#
+	GHC.Prim::Int#
+
+	[result]
+	GHC.Integer.GMP.Internals::Integer
+}
+
+[Function]
+gcdInt :: Int# -> Int# -> Int#
+Name: gcdInt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/integer-gmp-0.5.1.0/GHC-Integer-GMP-Internals.html#v:gcdInt
+Containing package: GHC.Integer.GMP.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Prim::Int#
+	GHC.Prim::Int#
+
+	[result]
+	GHC.Prim::Int#
+}
+
+[Function]
+testPrimeInteger :: Integer -> Int# -> Int#
+Name: testPrimeInteger
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/integer-gmp-0.5.1.0/GHC-Integer-GMP-Internals.html#v:testPrimeInteger
+Containing package: GHC.Integer.GMP.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Integer.GMP.Internals::Integer
+	GHC.Prim::Int#
+
+	[result]
+	GHC.Prim::Int#
+}
+
+[Function]
+gcdInteger :: Integer -> Integer -> Integer
+Name: gcdInteger
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/integer-gmp-0.5.1.0/GHC-Integer-GMP-Internals.html#v:gcdInteger
+Containing package: GHC.Integer.GMP.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Integer.GMP.Internals::Integer
+	GHC.Integer.GMP.Internals::Integer
+
+	[result]
+	GHC.Integer.GMP.Internals::Integer
+}
+
+[Function]
+lcmInteger :: Integer -> Integer -> Integer
+Name: lcmInteger
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/integer-gmp-0.5.1.0/GHC-Integer-GMP-Internals.html#v:lcmInteger
+Containing package: GHC.Integer.GMP.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Integer.GMP.Internals::Integer
+	GHC.Integer.GMP.Internals::Integer
+
+	[result]
+	GHC.Integer.GMP.Internals::Integer
+}
+
+[Function]
+recipModInteger :: Integer -> Integer -> Integer
+Name: recipModInteger
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/integer-gmp-0.5.1.0/GHC-Integer-GMP-Internals.html#v:recipModInteger
+Containing package: GHC.Integer.GMP.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Integer.GMP.Internals::Integer
+	GHC.Integer.GMP.Internals::Integer
+
+	[result]
+	GHC.Integer.GMP.Internals::Integer
+}

@@ -1,0 +1,241 @@
+[Package]
+Name: Compiler.Hoopl.Passes.Dominator
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Passes-Dominator.html
+Containing package: Passes
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data DominatorNode = Entry | Labelled Label
+Name: DominatorNode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Passes-Dominator.html#t:DominatorNode
+Containing package: Compiler.Hoopl.Passes.Dominator
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data DominatorTree = Dominates DominatorNode [DominatorTree]
+Name: DominatorTree
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Passes-Dominator.html#t:DominatorTree
+Containing package: Compiler.Hoopl.Passes.Dominator
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype DPath = DPath [Label]
+Name: DPath
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Passes-Dominator.html#t:DPath
+Containing package: Compiler.Hoopl.Passes.Dominator
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type Doms = WithBot DPath
+Name: Doms
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Passes-Dominator.html#t:Doms
+Containing package: Compiler.Hoopl.Passes.Dominator
+attributes {
+}
+parameters {
+}
+Aliased type = Compiler.Hoopl::WithBot {
+	Compiler.Hoopl.Passes.Dominator::DPath
+}
+
+[Function]
+domEntry :: Doms
+Name: domEntry
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Passes-Dominator.html#v:domEntry
+Containing package: Compiler.Hoopl.Passes.Dominator
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Compiler.Hoopl.Passes.Dominator::Doms
+}
+
+[Function]
+extendDom :: Label -> DPath -> DPath
+Name: extendDom
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Passes-Dominator.html#v:extendDom
+Containing package: Compiler.Hoopl.Passes.Dominator
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::Label
+	Compiler.Hoopl.Passes.Dominator::DPath
+
+	[result]
+	Compiler.Hoopl.Passes.Dominator::DPath
+}
+
+[Function]
+immediateDominators :: FactBase Doms -> LabelMap Label
+Name: immediateDominators
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Passes-Dominator.html#v:immediateDominators
+Containing package: Compiler.Hoopl.Passes.Dominator
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Internals::FactBase {
+		Compiler.Hoopl.Passes.Dominator::Doms
+	}
+
+	[result]
+	Compiler.Hoopl.Internals::LabelMap {
+		Compiler.Hoopl.Internals::Label
+	}
+}
+
+[Function]
+domLattice :: DataflowLattice Doms
+Name: domLattice
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Passes-Dominator.html#v:domLattice
+Containing package: Compiler.Hoopl.Passes.Dominator
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Compiler.Hoopl.Internals::DataflowLattice {
+		Compiler.Hoopl.Passes.Dominator::Doms
+	}
+}
+
+[Function]
+domPass :: (NonLocal n, Monad m) => FwdPass m n Doms
+Name: domPass
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Passes-Dominator.html#v:domPass
+Containing package: Compiler.Hoopl.Passes.Dominator
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n: (NonLocal n; n; Compiler.Hoopl.Internals::NonLocal)
+	m: (Monad m; m; Control.Monad::Monad)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Compiler.Hoopl.Internals::FwdPass {
+		null::m
+		null::n
+		Compiler.Hoopl.Passes.Dominator::Doms
+	}
+}
+
+[Function]
+domPath :: Doms -> [Label]
+Name: domPath
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Passes-Dominator.html#v:domPath
+Containing package: Compiler.Hoopl.Passes.Dominator
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Compiler.Hoopl.Passes.Dominator::Doms
+
+	[result]
+	other::List {
+		Compiler.Hoopl.Internals::Label
+	}
+}
+
+[Function]
+tree :: [(Label, Doms)] -> DominatorTree
+Name: tree
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hoopl-3.10.0.1/Compiler-Hoopl-Passes-Dominator.html#v:tree
+Containing package: Compiler.Hoopl.Passes.Dominator
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		GHC.Tuple::(,) {
+			Compiler.Hoopl.Internals::Label
+			Compiler.Hoopl.Passes.Dominator::Doms
+		}
+	}
+
+	[result]
+	Compiler.Hoopl.Passes.Dominator::DominatorTree
+}

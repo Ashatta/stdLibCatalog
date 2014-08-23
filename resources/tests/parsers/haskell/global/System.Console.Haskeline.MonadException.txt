@@ -1,0 +1,527 @@
+[Package]
+Name: System.Console.Haskeline.MonadException
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline-MonadException.html
+Containing package: System.Console.Haskeline
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data IOException :: *
+Name: IOException
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline-MonadException.html#t:IOException
+Containing package: System.Console.Haskeline.MonadException
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class (Typeable * e, Show e) => Exception e
+Name: Exception
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline-MonadException.html#t:Exception
+Containing package: System.Console.Haskeline.MonadException
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Control.Exception.Base::System.Console.Haskeline.MonadException.Exception_PatternMatchFail<>
+	Control.Exception.Base::System.Console.Haskeline.MonadException.Exception_RecSelError<>
+	Control.Exception.Base::System.Console.Haskeline.MonadException.Exception_RecConError<>
+	Control.Exception.Base::System.Console.Haskeline.MonadException.Exception_RecUpdError<>
+	Control.Exception.Base::System.Console.Haskeline.MonadException.Exception_NoMethodError<>
+	Control.Exception.Base::System.Console.Haskeline.MonadException.Exception_NonTermination<>
+	Control.Exception.Base::System.Console.Haskeline.MonadException.Exception_NestedAtomically<>
+	Control.Exception.Base::System.Console.Haskeline.MonadException.Exception_BlockedIndefinitelyOnMVar<>
+	Control.Exception.Base::System.Console.Haskeline.MonadException.Exception_BlockedIndefinitelyOnSTM<>
+	Control.Exception.Base::System.Console.Haskeline.MonadException.Exception_Deadlock<>
+	Control.Exception.Base::System.Console.Haskeline.MonadException.Exception_AssertionFailed<>
+	Control.Exception.Base::System.Console.Haskeline.MonadException.Exception_SomeAsyncException<>
+	Control.Exception.Base::System.Console.Haskeline.MonadException.Exception_AsyncException<>
+	Control.Exception.Base::System.Console.Haskeline.MonadException.Exception_ArrayException<>
+	System.Exit::System.Console.Haskeline.MonadException.Exception_ExitCode<>
+	Data.Dynamic::System.Console.Haskeline.MonadException.Exception_Dynamic<>
+	System.Console.Haskeline.MonadException::System.Console.Haskeline.MonadException.Exception_IOException<>
+	Control.Exception.Base::System.Console.Haskeline.MonadException.Exception_ErrorCall<>
+	Control.Exception.Base::System.Console.Haskeline.MonadException.Exception_ArithException<>
+	System.Console.Haskeline.MonadException::System.Console.Haskeline.MonadException.Exception_SomeException<>
+	System.Console.Terminfo.Base::System.Console.Haskeline.MonadException.Exception_SetupTermError<>
+	System.Console.Haskeline::System.Console.Haskeline.MonadException.Exception_Interrupt<>
+}
+supertypes {
+	Data.Typeable.Internal::Typeable
+	Text.Show::Show
+}
+members {
+}
+
+[Classifier]
+class MonadIO m => MonadException m where controlIO :: (RunIO m -> IO (m a)) -> m a
+Name: MonadException
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline-MonadException.html#t:MonadException
+Containing package: System.Console.Haskeline.MonadException
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	System.IO::System.Console.Haskeline.MonadException.MonadException_IO<>
+	Control.Monad.Trans.Maybe::System.Console.Haskeline.MonadException.MonadException_MaybeT<m<>>
+	Control.Monad.Trans.List::System.Console.Haskeline.MonadException.MonadException_ListT<m<>>
+	System.Console.Haskeline::System.Console.Haskeline.MonadException.MonadException_InputT<m<>>
+	Control.Monad.Trans.Writer.Lazy::System.Console.Haskeline.MonadException.MonadException_WriterT<w<>,m<>>
+	Control.Monad.Trans.State.Strict::System.Console.Haskeline.MonadException.MonadException_StateT<s<>,m<>>
+	Control.Monad.Trans.Reader::System.Console.Haskeline.MonadException.MonadException_ReaderT<r<>,m<>>
+	Control.Monad.Trans.Error::System.Console.Haskeline.MonadException.MonadException_ErrorT<e<>,m<>>
+	Control.Monad.Trans.RWS.Lazy::System.Console.Haskeline.MonadException.MonadException_RWST<r<>,w<>,s<>,m<>>
+}
+supertypes {
+	Control.Monad.IO.Class::MonadIO
+}
+members {
+
+	[Function]
+	controlIO :: (RunIO m -> IO (m a)) -> m a
+	Name: controlIO
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline-MonadException.html#v:controlIO
+	Containing package: System.Console.Haskeline.MonadException
+	attributes {
+		memberType=function
+	}
+	Containing type: MonadException
+	parameters {
+		m: (MonadException m; m; System.Console.Haskeline.MonadException::MonadException)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			System.Console.Haskeline.MonadException::RunIO {
+				null::m
+			}
+		
+			[result]
+			System.IO::IO {
+				null::m {
+					null::a
+				}
+			}
+		}
+	
+		[result]
+		null::m {
+			null::a
+		}
+	}
+}
+
+[Classifier]
+data Handler m a = forall e . Exception e => Handler (e -> m a)
+Name: Handler
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline-MonadException.html#t:Handler
+Containing package: System.Console.Haskeline.MonadException
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	m
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data SomeException :: * where SomeException :: Exception e => e -> SomeException
+Name: SomeException
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline-MonadException.html#t:SomeException
+Containing package: System.Console.Haskeline.MonadException
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype RunIO m = RunIO (forall b. m b -> IO (m b))
+Name: RunIO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline-MonadException.html#t:RunIO
+Containing package: System.Console.Haskeline.MonadException
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	m
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+catches :: MonadException m => m a -> [Handler m a] -> m a
+Name: catches
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline-MonadException.html#v:catches
+Containing package: System.Console.Haskeline.MonadException
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadException m; m; System.Console.Haskeline.MonadException::MonadException)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::m {
+		null::a
+	}
+	other::List {
+		System.Console.Haskeline.MonadException::Handler {
+			null::m
+			null::a
+		}
+	}
+
+	[result]
+	null::m {
+		null::a
+	}
+}
+
+[Function]
+finally :: MonadException m => m a -> m b -> m a
+Name: finally
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline-MonadException.html#v:finally
+Containing package: System.Console.Haskeline.MonadException
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadException m; m; System.Console.Haskeline.MonadException::MonadException)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	null::m {
+		null::a
+	}
+	null::m {
+		null::b
+	}
+
+	[result]
+	null::m {
+		null::a
+	}
+}
+
+[Function]
+liftIOOp_ :: MonadException m => (IO (m a) -> IO (m a)) -> m a -> m a
+Name: liftIOOp_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline-MonadException.html#v:liftIOOp_
+Containing package: System.Console.Haskeline.MonadException
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadException m; m; System.Console.Haskeline.MonadException::MonadException)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		System.IO::IO {
+			null::m {
+				null::a
+			}
+		}
+	
+		[result]
+		System.IO::IO {
+			null::m {
+				null::a
+			}
+		}
+	}
+	null::m {
+		null::a
+	}
+
+	[result]
+	null::m {
+		null::a
+	}
+}
+
+[Function]
+throwIO :: (MonadIO m, Exception e) => e -> m a
+Name: throwIO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline-MonadException.html#v:throwIO
+Containing package: System.Console.Haskeline.MonadException
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadIO m; m; Control.Monad.IO.Class::MonadIO)
+	e: (Exception e; e; System.Console.Haskeline.MonadException::Exception)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::e
+
+	[result]
+	null::m {
+		null::a
+	}
+}
+
+[Function]
+bracket :: MonadException m => m a -> (a -> m b) -> (a -> m c) -> m c
+Name: bracket
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline-MonadException.html#v:bracket
+Containing package: System.Console.Haskeline.MonadException
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadException m; m; System.Console.Haskeline.MonadException::MonadException)
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	null::m {
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::m {
+			null::b
+		}
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::m {
+			null::c
+		}
+	}
+
+	[result]
+	null::m {
+		null::c
+	}
+}
+
+[Function]
+throwTo :: (MonadIO m, Exception e) => ThreadId -> e -> m ()
+Name: throwTo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline-MonadException.html#v:throwTo
+Containing package: System.Console.Haskeline.MonadException
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadIO m; m; Control.Monad.IO.Class::MonadIO)
+	e: (Exception e; e; System.Console.Haskeline.MonadException::Exception)
+}
+Signature = <function> {
+	[parameters]
+	Control.Concurrent::ThreadId
+	null::e
+
+	[result]
+	null::m {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+liftIOOp :: MonadException m => ((a -> IO (m b)) -> IO (m c)) -> (a -> m b) -> m c
+Name: liftIOOp
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline-MonadException.html#v:liftIOOp
+Containing package: System.Console.Haskeline.MonadException
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadException m; m; System.Console.Haskeline.MonadException::MonadException)
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			System.IO::IO {
+				null::m {
+					null::b
+				}
+			}
+		}
+	
+		[result]
+		System.IO::IO {
+			null::m {
+				null::c
+			}
+		}
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::m {
+			null::b
+		}
+	}
+
+	[result]
+	null::m {
+		null::c
+	}
+}
+
+[Function]
+handle :: (MonadException m, Exception e) => (e -> m a) -> m a -> m a
+Name: handle
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline-MonadException.html#v:handle
+Containing package: System.Console.Haskeline.MonadException
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadException m; m; System.Console.Haskeline.MonadException::MonadException)
+	e: (Exception e; e; System.Console.Haskeline.MonadException::Exception)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::e
+	
+		[result]
+		null::m {
+			null::a
+		}
+	}
+	null::m {
+		null::a
+	}
+
+	[result]
+	null::m {
+		null::a
+	}
+}
+
+[Function]
+catch :: (MonadException m, Exception e) => m a -> (e -> m a) -> m a
+Name: catch
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/haskeline-0.7.1.2/System-Console-Haskeline-MonadException.html#v:catch
+Containing package: System.Console.Haskeline.MonadException
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (MonadException m; m; System.Console.Haskeline.MonadException::MonadException)
+	e: (Exception e; e; System.Console.Haskeline.MonadException::Exception)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::m {
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::e
+	
+		[result]
+		null::m {
+			null::a
+		}
+	}
+
+	[result]
+	null::m {
+		null::a
+	}
+}

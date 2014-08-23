@@ -1,0 +1,101 @@
+[Package]
+Name: System.Posix.Process.Internals
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process-Internals.html
+Containing package: System.Posix.Process
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data ProcessStatus = Exited ExitCode | Terminated Signal Bool | Stopped Signal
+Name: ProcessStatus
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process-Internals.html#t:ProcessStatus
+Containing package: System.Posix.Process.Internals
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+pPrPr_disableITimers :: IO ()
+Name: pPrPr_disableITimers
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process-Internals.html#v:pPrPr_disableITimers
+Containing package: System.Posix.Process.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_execvpe :: CString -> Ptr CString -> Ptr CString -> IO CInt
+Name: c_execvpe
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process-Internals.html#v:c_execvpe
+Containing package: System.Posix.Process.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.C.String::CString
+	Foreign.Ptr::Ptr {
+		Foreign.C.String::CString
+	}
+	Foreign.Ptr::Ptr {
+		Foreign.C.String::CString
+	}
+
+	[result]
+	System.IO::IO {
+		Foreign.C.Types::CInt
+	}
+}
+
+[Function]
+decipherWaitStatus :: CInt -> IO ProcessStatus
+Name: decipherWaitStatus
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Process-Internals.html#v:decipherWaitStatus
+Containing package: System.Posix.Process.Internals
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.C.Types::CInt
+
+	[result]
+	System.IO::IO {
+		System.Posix.Process.Internals::ProcessStatus
+	}
+}

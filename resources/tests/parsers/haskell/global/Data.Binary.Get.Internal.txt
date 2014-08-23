@@ -1,0 +1,473 @@
+[Package]
+Name: Data.Binary.Get.Internal
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get-Internal.html
+Containing package: Data.Binary.Get
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data Decoder a = Fail !ByteString String | Partial (Maybe ByteString -> Decoder a) | Done !ByteString a | BytesRead !Int64 (Int64 -> Decoder a)
+Name: Decoder
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get-Internal.html#t:Decoder
+Containing package: Data.Binary.Get.Internal
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Get a
+Name: Get
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get-Internal.html#t:Get
+Containing package: Data.Binary.Get.Internal
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+get :: Get ByteString
+Name: get
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get-Internal.html#v:get
+Containing package: Data.Binary.Get.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Binary.Get.Internal::Get {
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+readN :: Int -> (ByteString -> a) -> Get a
+Name: readN
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get-Internal.html#v:readN
+Containing package: Data.Binary.Get.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	<function> {
+		[parameters]
+		Data.ByteString::ByteString
+	
+		[result]
+		null::a
+	}
+
+	[result]
+	Data.Binary.Get.Internal::Get {
+		null::a
+	}
+}
+
+[Function]
+getBytes :: Int -> Get ByteString
+Name: getBytes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get-Internal.html#v:getBytes
+Containing package: Data.Binary.Get.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Data.Binary.Get.Internal::Get {
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+readNWith :: Int -> (Ptr a -> IO a) -> Get a
+Name: readNWith
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get-Internal.html#v:readNWith
+Containing package: Data.Binary.Get.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	<function> {
+		[parameters]
+		Foreign.Ptr::Ptr {
+			null::a
+		}
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	Data.Binary.Get.Internal::Get {
+		null::a
+	}
+}
+
+[Function]
+remaining :: Get Int64
+Name: remaining
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get-Internal.html#v:remaining
+Containing package: Data.Binary.Get.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Binary.Get.Internal::Get {
+		Data.Int::Int64
+	}
+}
+
+[Function]
+lookAhead :: Get a -> Get a
+Name: lookAhead
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get-Internal.html#v:lookAhead
+Containing package: Data.Binary.Get.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Binary.Get.Internal::Get {
+		null::a
+	}
+
+	[result]
+	Data.Binary.Get.Internal::Get {
+		null::a
+	}
+}
+
+[Function]
+isEmpty :: Get Bool
+Name: isEmpty
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get-Internal.html#v:isEmpty
+Containing package: Data.Binary.Get.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Binary.Get.Internal::Get {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+demandInput :: Get ()
+Name: demandInput
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get-Internal.html#v:demandInput
+Containing package: Data.Binary.Get.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Binary.Get.Internal::Get {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+bytesRead :: Get Int64
+Name: bytesRead
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get-Internal.html#v:bytesRead
+Containing package: Data.Binary.Get.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Binary.Get.Internal::Get {
+		Data.Int::Int64
+	}
+}
+
+[Function]
+lookAheadM :: Get (Maybe a) -> Get (Maybe a)
+Name: lookAheadM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get-Internal.html#v:lookAheadM
+Containing package: Data.Binary.Get.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Binary.Get.Internal::Get {
+		Data.Maybe::Maybe {
+			null::a
+		}
+	}
+
+	[result]
+	Data.Binary.Get.Internal::Get {
+		Data.Maybe::Maybe {
+			null::a
+		}
+	}
+}
+
+[Function]
+lookAheadE :: Get (Either a b) -> Get (Either a b)
+Name: lookAheadE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get-Internal.html#v:lookAheadE
+Containing package: Data.Binary.Get.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	Data.Binary.Get.Internal::Get {
+		Data.Either::Either {
+			null::a
+			null::b
+		}
+	}
+
+	[result]
+	Data.Binary.Get.Internal::Get {
+		Data.Either::Either {
+			null::a
+			null::b
+		}
+	}
+}
+
+[Function]
+ensureN :: Int -> Get ()
+Name: ensureN
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get-Internal.html#v:ensureN
+Containing package: Data.Binary.Get.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Data.Binary.Get.Internal::Get {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+runGetIncremental :: Get a -> Decoder a
+Name: runGetIncremental
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get-Internal.html#v:runGetIncremental
+Containing package: Data.Binary.Get.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Binary.Get.Internal::Get {
+		null::a
+	}
+
+	[result]
+	Data.Binary.Get.Internal::Decoder {
+		null::a
+	}
+}
+
+[Function]
+runCont :: Get a -> forall r. ByteString -> Success a r -> Decoder r
+Name: runCont
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get-Internal.html#v:runCont
+Containing package: Data.Binary.Get.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	r
+}
+Signature = <function> {
+	[parameters]
+	Data.Binary.Get.Internal::Get {
+		null::a
+	}
+	Data.ByteString::ByteString
+	null::Success {
+		null::a
+		null::r
+	}
+
+	[result]
+	Data.Binary.Get.Internal::Decoder {
+		null::r
+	}
+}
+
+[Function]
+put :: ByteString -> Get ()
+Name: put
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get-Internal.html#v:put
+Containing package: Data.Binary.Get.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+
+	[result]
+	Data.Binary.Get.Internal::Get {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+getByteString :: Int -> Get ByteString
+Name: getByteString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get-Internal.html#v:getByteString
+Containing package: Data.Binary.Get.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Data.Binary.Get.Internal::Get {
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+skip :: Int -> Get ()
+Name: skip
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get-Internal.html#v:skip
+Containing package: Data.Binary.Get.Internal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Data.Binary.Get.Internal::Get {
+		GHC.Tuple::()
+	}
+}

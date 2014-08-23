@@ -1,0 +1,461 @@
+[Package]
+Name: Distribution.Simple.GHC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-GHC.html
+Containing package: Distribution.Simple
+attributes {
+}
+
+Subpackages {
+}
+
+[Function]
+libAbiHash :: Verbosity -> PackageDescription -> LocalBuildInfo -> Library -> ComponentLocalBuildInfo -> IO String
+Name: libAbiHash
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-GHC.html#v:libAbiHash
+Containing package: Distribution.Simple.GHC
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.PackageDescription::PackageDescription
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	Distribution.PackageDescription::Library
+	Distribution.Simple.LocalBuildInfo::ComponentLocalBuildInfo
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+replLib :: Verbosity -> PackageDescription -> LocalBuildInfo -> Library -> ComponentLocalBuildInfo -> IO ()
+Name: replLib
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-GHC.html#v:replLib
+Containing package: Distribution.Simple.GHC
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.PackageDescription::PackageDescription
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	Distribution.PackageDescription::Library
+	Distribution.Simple.LocalBuildInfo::ComponentLocalBuildInfo
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+buildLib :: Verbosity -> PackageDescription -> LocalBuildInfo -> Library -> ComponentLocalBuildInfo -> IO ()
+Name: buildLib
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-GHC.html#v:buildLib
+Containing package: Distribution.Simple.GHC
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.PackageDescription::PackageDescription
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	Distribution.PackageDescription::Library
+	Distribution.Simple.LocalBuildInfo::ComponentLocalBuildInfo
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+registerPackage :: Verbosity -> InstalledPackageInfo -> PackageDescription -> LocalBuildInfo -> Bool -> PackageDBStack -> IO ()
+Name: registerPackage
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-GHC.html#v:registerPackage
+Containing package: Distribution.Simple.GHC
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.InstalledPackageInfo::InstalledPackageInfo
+	Distribution.PackageDescription::PackageDescription
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	Data.Bool::Bool
+	Distribution.Simple.Compiler::PackageDBStack
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+componentGhcOptions :: Verbosity -> LocalBuildInfo -> BuildInfo -> ComponentLocalBuildInfo -> FilePath -> GhcOptions
+Name: componentGhcOptions
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-GHC.html#v:componentGhcOptions
+Containing package: Distribution.Simple.GHC
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	Distribution.PackageDescription::BuildInfo
+	Distribution.Simple.LocalBuildInfo::ComponentLocalBuildInfo
+	System.IO::FilePath
+
+	[result]
+	Distribution.Simple.Program.GHC::GhcOptions
+}
+
+[Function]
+configure :: Verbosity -> Maybe FilePath -> Maybe FilePath -> ProgramConfiguration -> IO (Compiler, Maybe Platform, ProgramConfiguration)
+Name: configure
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-GHC.html#v:configure
+Containing package: Distribution.Simple.GHC
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Data.Maybe::Maybe {
+		System.IO::FilePath
+	}
+	Data.Maybe::Maybe {
+		System.IO::FilePath
+	}
+	Distribution.Simple.Program::ProgramConfiguration
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,,) {
+			Distribution.Simple.Compiler::Compiler
+			Data.Maybe::Maybe {
+				Distribution.System::Platform
+			}
+			Distribution.Simple.Program::ProgramConfiguration
+		}
+	}
+}
+
+[Function]
+ghcLibDir :: Verbosity -> LocalBuildInfo -> IO FilePath
+Name: ghcLibDir
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-GHC.html#v:ghcLibDir
+Containing package: Distribution.Simple.GHC
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+
+	[result]
+	System.IO::IO {
+		System.IO::FilePath
+	}
+}
+
+[Function]
+installLib :: Verbosity -> LocalBuildInfo -> FilePath -> FilePath -> FilePath -> PackageDescription -> Library -> ComponentLocalBuildInfo -> IO ()
+Name: installLib
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-GHC.html#v:installLib
+Containing package: Distribution.Simple.GHC
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	System.IO::FilePath
+	System.IO::FilePath
+	System.IO::FilePath
+	Distribution.PackageDescription::PackageDescription
+	Distribution.PackageDescription::Library
+	Distribution.Simple.LocalBuildInfo::ComponentLocalBuildInfo
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+getInstalledPackages :: Verbosity -> PackageDBStack -> ProgramConfiguration -> IO PackageIndex
+Name: getInstalledPackages
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-GHC.html#v:getInstalledPackages
+Containing package: Distribution.Simple.GHC
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Compiler::PackageDBStack
+	Distribution.Simple.Program::ProgramConfiguration
+
+	[result]
+	System.IO::IO {
+		Distribution.Simple.PackageIndex::PackageIndex
+	}
+}
+
+[Function]
+initPackageDB :: Verbosity -> ProgramConfiguration -> FilePath -> IO ()
+Name: initPackageDB
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-GHC.html#v:initPackageDB
+Containing package: Distribution.Simple.GHC
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program::ProgramConfiguration
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+buildExe :: Verbosity -> PackageDescription -> LocalBuildInfo -> Executable -> ComponentLocalBuildInfo -> IO ()
+Name: buildExe
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-GHC.html#v:buildExe
+Containing package: Distribution.Simple.GHC
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.PackageDescription::PackageDescription
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	Distribution.PackageDescription::Executable
+	Distribution.Simple.LocalBuildInfo::ComponentLocalBuildInfo
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+replExe :: Verbosity -> PackageDescription -> LocalBuildInfo -> Executable -> ComponentLocalBuildInfo -> IO ()
+Name: replExe
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-GHC.html#v:replExe
+Containing package: Distribution.Simple.GHC
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.PackageDescription::PackageDescription
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	Distribution.PackageDescription::Executable
+	Distribution.Simple.LocalBuildInfo::ComponentLocalBuildInfo
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+getPackageDBContents :: Verbosity -> PackageDB -> ProgramConfiguration -> IO PackageIndex
+Name: getPackageDBContents
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-GHC.html#v:getPackageDBContents
+Containing package: Distribution.Simple.GHC
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Compiler::PackageDB
+	Distribution.Simple.Program::ProgramConfiguration
+
+	[result]
+	System.IO::IO {
+		Distribution.Simple.PackageIndex::PackageIndex
+	}
+}
+
+[Function]
+ghcDynamic :: Verbosity -> ConfiguredProgram -> IO Bool
+Name: ghcDynamic
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-GHC.html#v:ghcDynamic
+Containing package: Distribution.Simple.GHC
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program.Types::ConfiguredProgram
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+getGhcInfo :: Verbosity -> ConfiguredProgram -> IO [(String, String)]
+Name: getGhcInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-GHC.html#v:getGhcInfo
+Containing package: Distribution.Simple.GHC
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program.Types::ConfiguredProgram
+
+	[result]
+	System.IO::IO {
+		other::List {
+			GHC.Tuple::(,) {
+				Data.String::String
+				Data.String::String
+			}
+		}
+	}
+}
+
+[Function]
+invokeHcPkg :: Verbosity -> ProgramConfiguration -> PackageDBStack -> [String] -> IO ()
+Name: invokeHcPkg
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-GHC.html#v:invokeHcPkg
+Containing package: Distribution.Simple.GHC
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program::ProgramConfiguration
+	Distribution.Simple.Compiler::PackageDBStack
+	other::List {
+		Data.String::String
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+installExe :: Verbosity -> LocalBuildInfo -> InstallDirs FilePath -> FilePath -> (FilePath, FilePath) -> PackageDescription -> Executable -> IO ()
+Name: installExe
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-GHC.html#v:installExe
+Containing package: Distribution.Simple.GHC
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	Distribution.Simple.InstallDirs::InstallDirs {
+		System.IO::FilePath
+	}
+	System.IO::FilePath
+	GHC.Tuple::(,) {
+		System.IO::FilePath
+		System.IO::FilePath
+	}
+	Distribution.PackageDescription::PackageDescription
+	Distribution.PackageDescription::Executable
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}

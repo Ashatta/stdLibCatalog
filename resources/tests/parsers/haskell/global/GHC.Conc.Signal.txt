@@ -1,0 +1,102 @@
+[Package]
+Name: GHC.Conc.Signal
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Signal.html
+Containing package: GHC.Conc
+attributes {
+}
+
+Subpackages {
+}
+
+[Alias]
+type Signal = CInt Source
+Name: Signal
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Signal.html#t:Signal
+Containing package: GHC.Conc.Signal
+attributes {
+}
+parameters {
+}
+Aliased type = Foreign.C.Types::CInt
+
+[Alias]
+type HandlerFun = ForeignPtr Word8 -> IO () Source
+Name: HandlerFun
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Signal.html#t:HandlerFun
+Containing package: GHC.Conc.Signal
+attributes {
+}
+parameters {
+}
+Aliased type = <function> {
+	[parameters]
+	Foreign.ForeignPtr.Safe::ForeignPtr {
+		Data.Word::Word8
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+setHandler :: Signal -> Maybe (HandlerFun, Dynamic) -> IO (Maybe (HandlerFun, Dynamic))
+Name: setHandler
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Signal.html#v:setHandler
+Containing package: GHC.Conc.Signal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Conc.Signal::Signal
+	Data.Maybe::Maybe {
+		GHC.Tuple::(,) {
+			GHC.Conc.Signal::HandlerFun
+			Data.Dynamic::Dynamic
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			GHC.Tuple::(,) {
+				GHC.Conc.Signal::HandlerFun
+				Data.Dynamic::Dynamic
+			}
+		}
+	}
+}
+
+[Function]
+runHandlers :: ForeignPtr Word8 -> Signal -> IO ()
+Name: runHandlers
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Conc-Signal.html#v:runHandlers
+Containing package: GHC.Conc.Signal
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.ForeignPtr.Safe::ForeignPtr {
+		Data.Word::Word8
+	}
+	GHC.Conc.Signal::Signal
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}

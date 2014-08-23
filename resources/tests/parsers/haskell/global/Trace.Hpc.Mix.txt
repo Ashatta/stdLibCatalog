@@ -1,0 +1,190 @@
+[Package]
+Name: Trace.Hpc.Mix
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hpc-0.6.0.1/Trace-Hpc-Mix.html
+Containing package: Hpc
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data BoxLabel = ExpBox Bool | TopLevelBox [String] | LocalBox [String] | BinBox CondBox Bool
+Name: BoxLabel
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hpc-0.6.0.1/Trace-Hpc-Mix.html#t:BoxLabel
+Containing package: Trace.Hpc.Mix
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Mix = Mix FilePath UTCTime Hash Int [MixEntry]
+Name: Mix
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hpc-0.6.0.1/Trace-Hpc-Mix.html#t:Mix
+Containing package: Trace.Hpc.Mix
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data CondBox = GuardBinBox | CondBinBox | QualBinBox
+Name: CondBox
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hpc-0.6.0.1/Trace-Hpc-Mix.html#t:CondBox
+Containing package: Trace.Hpc.Mix
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type MixEntryDom a = Tree (HpcPos, a)
+Name: MixEntryDom
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hpc-0.6.0.1/Trace-Hpc-Mix.html#t:MixEntryDom
+Containing package: Trace.Hpc.Mix
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = Data.Tree::Tree {
+	GHC.Tuple::(,) {
+		Trace.Hpc.Util::HpcPos
+		null::a
+	}
+}
+
+[Alias]
+type MixEntryDom a = Tree (HpcPos, a)
+Name: MixEntry
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hpc-0.6.0.1/Trace-Hpc-Mix.html#t:MixEntry
+Containing package: Trace.Hpc.Mix
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = null::Tree {
+	GHC.Tuple::(,) {
+		Trace.Hpc.Util::HpcPos
+		null::a
+	}
+}
+
+[Function]
+createMixEntryDom :: Show a => [(HpcPos, a)] -> [MixEntryDom [a]]
+Name: createMixEntryDom
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hpc-0.6.0.1/Trace-Hpc-Mix.html#v:createMixEntryDom
+Containing package: Trace.Hpc.Mix
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Show a; a; Text.Show::Show)
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		GHC.Tuple::(,) {
+			Trace.Hpc.Util::HpcPos
+			null::a
+		}
+	}
+
+	[result]
+	other::List {
+		Trace.Hpc.Mix::MixEntryDom {
+			other::List {
+				null::a
+			}
+		}
+	}
+}
+
+[Function]
+readMix :: [String] -> Either String TixModule -> IO Mix
+Name: readMix
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hpc-0.6.0.1/Trace-Hpc-Mix.html#v:readMix
+Containing package: Trace.Hpc.Mix
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Data.String::String
+	}
+	Data.Either::Either {
+		Data.String::String
+		Trace.Hpc.Tix::TixModule
+	}
+
+	[result]
+	System.IO::IO {
+		Trace.Hpc.Mix::Mix
+	}
+}
+
+[Function]
+mixCreate :: String -> String -> Mix -> IO ()
+Name: mixCreate
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/hpc-0.6.0.1/Trace-Hpc-Mix.html#v:mixCreate
+Containing package: Trace.Hpc.Mix
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Data.String::String
+	Trace.Hpc.Mix::Mix
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}

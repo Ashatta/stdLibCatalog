@@ -1,0 +1,401 @@
+[Package]
+Name: Distribution.PackageDescription.Parse
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Parse.html
+Containing package: Distribution.PackageDescription
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data FieldDescr a = FieldDescr { fieldName :: String fieldGet :: a -> Doc fieldSet :: LineNo -> String -> a -> ParseResult a}
+Name: FieldDescr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Parse.html#t:FieldDescr
+Containing package: Distribution.PackageDescription.Parse
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ParseResult a = ParseFailed PError | ParseOk [PWarning] a
+Name: ParseResult
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Parse.html#t:ParseResult
+Containing package: Distribution.PackageDescription.Parse
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type LineNo = Int
+Name: LineNo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Parse.html#t:LineNo
+Containing package: Distribution.PackageDescription.Parse
+attributes {
+}
+parameters {
+}
+Aliased type = Data.Int::Int
+
+[Function]
+pkgDescrFieldDescrs :: [FieldDescr PackageDescription]
+Name: pkgDescrFieldDescrs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Parse.html#v:pkgDescrFieldDescrs
+Containing package: Distribution.PackageDescription.Parse
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		Distribution.PackageDescription.Parse::FieldDescr {
+			Distribution.PackageDescription::PackageDescription
+		}
+	}
+}
+
+[Function]
+flagFieldDescrs :: [FieldDescr Flag]
+Name: flagFieldDescrs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Parse.html#v:flagFieldDescrs
+Containing package: Distribution.PackageDescription.Parse
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		Distribution.PackageDescription.Parse::FieldDescr {
+			Distribution.PackageDescription::Flag
+		}
+	}
+}
+
+[Function]
+showHookedBuildInfo :: HookedBuildInfo -> String
+Name: showHookedBuildInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Parse.html#v:showHookedBuildInfo
+Containing package: Distribution.PackageDescription.Parse
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::HookedBuildInfo
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+testSuiteFieldDescrs :: [FieldDescr TestSuiteStanza]
+Name: testSuiteFieldDescrs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Parse.html#v:testSuiteFieldDescrs
+Containing package: Distribution.PackageDescription.Parse
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		Distribution.PackageDescription.Parse::FieldDescr {
+			null::TestSuiteStanza
+		}
+	}
+}
+
+[Function]
+parsePackageDescription :: String -> ParseResult GenericPackageDescription
+Name: parsePackageDescription
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Parse.html#v:parsePackageDescription
+Containing package: Distribution.PackageDescription.Parse
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Distribution.PackageDescription.Parse::ParseResult {
+		Distribution.PackageDescription::GenericPackageDescription
+	}
+}
+
+[Function]
+libFieldDescrs :: [FieldDescr Library]
+Name: libFieldDescrs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Parse.html#v:libFieldDescrs
+Containing package: Distribution.PackageDescription.Parse
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		Distribution.PackageDescription.Parse::FieldDescr {
+			Distribution.PackageDescription::Library
+		}
+	}
+}
+
+[Function]
+binfoFieldDescrs :: [FieldDescr BuildInfo]
+Name: binfoFieldDescrs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Parse.html#v:binfoFieldDescrs
+Containing package: Distribution.PackageDescription.Parse
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		Distribution.PackageDescription.Parse::FieldDescr {
+			Distribution.PackageDescription::BuildInfo
+		}
+	}
+}
+
+[Function]
+parseHookedBuildInfo :: String -> ParseResult HookedBuildInfo
+Name: parseHookedBuildInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Parse.html#v:parseHookedBuildInfo
+Containing package: Distribution.PackageDescription.Parse
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Distribution.PackageDescription.Parse::ParseResult {
+		Distribution.PackageDescription::HookedBuildInfo
+	}
+}
+
+[Function]
+showPackageDescription :: PackageDescription -> String
+Name: showPackageDescription
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Parse.html#v:showPackageDescription
+Containing package: Distribution.PackageDescription.Parse
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+readHookedBuildInfo :: Verbosity -> FilePath -> IO HookedBuildInfo
+Name: readHookedBuildInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Parse.html#v:readHookedBuildInfo
+Containing package: Distribution.PackageDescription.Parse
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		Distribution.PackageDescription::HookedBuildInfo
+	}
+}
+
+[Function]
+writePackageDescription :: FilePath -> PackageDescription -> IO ()
+Name: writePackageDescription
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Parse.html#v:writePackageDescription
+Containing package: Distribution.PackageDescription.Parse
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	Distribution.PackageDescription::PackageDescription
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+sourceRepoFieldDescrs :: [FieldDescr SourceRepo]
+Name: sourceRepoFieldDescrs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Parse.html#v:sourceRepoFieldDescrs
+Containing package: Distribution.PackageDescription.Parse
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		Distribution.PackageDescription.Parse::FieldDescr {
+			Distribution.PackageDescription::SourceRepo
+		}
+	}
+}
+
+[Function]
+executableFieldDescrs :: [FieldDescr Executable]
+Name: executableFieldDescrs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Parse.html#v:executableFieldDescrs
+Containing package: Distribution.PackageDescription.Parse
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		Distribution.PackageDescription.Parse::FieldDescr {
+			Distribution.PackageDescription::Executable
+		}
+	}
+}
+
+[Function]
+readPackageDescription :: Verbosity -> FilePath -> IO GenericPackageDescription
+Name: readPackageDescription
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Parse.html#v:readPackageDescription
+Containing package: Distribution.PackageDescription.Parse
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		Distribution.PackageDescription::GenericPackageDescription
+	}
+}
+
+[Function]
+writeHookedBuildInfo :: FilePath -> HookedBuildInfo -> IO ()
+Name: writeHookedBuildInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Parse.html#v:writeHookedBuildInfo
+Containing package: Distribution.PackageDescription.Parse
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	Distribution.PackageDescription::HookedBuildInfo
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}

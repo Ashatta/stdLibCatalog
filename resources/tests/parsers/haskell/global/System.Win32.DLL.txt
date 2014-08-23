@@ -1,0 +1,407 @@
+[Package]
+Name: System.Win32.DLL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DLL.html
+Containing package: System.Win32
+attributes {
+}
+
+Subpackages {
+}
+
+[Alias]
+type LoadLibraryFlags = DWORD
+Name: LoadLibraryFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DLL.html#t:LoadLibraryFlags
+Containing package: System.Win32.DLL
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::DWORD
+
+[Function]
+loadLibraryEx :: String -> HANDLE -> LoadLibraryFlags -> IO HINSTANCE
+Name: loadLibraryEx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DLL.html#v:loadLibraryEx
+Containing package: System.Win32.DLL
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	System.Win32.Types::HANDLE
+	System.Win32.DLL::LoadLibraryFlags
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::HINSTANCE
+	}
+}
+
+[Function]
+c_DisableThreadLibraryCalls :: HMODULE -> IO Bool
+Name: c_DisableThreadLibraryCalls
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DLL.html#v:c_DisableThreadLibraryCalls
+Containing package: System.Win32.DLL
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HMODULE
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+c_FreeLibraryFinaliser :: FunPtr (HMODULE -> IO ())
+Name: c_FreeLibraryFinaliser
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DLL.html#v:c_FreeLibraryFinaliser
+Containing package: System.Win32.DLL
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.Ptr::FunPtr {
+		<function> {
+			[parameters]
+			System.Win32.Types::HMODULE
+		
+			[result]
+			System.IO::IO {
+				GHC.Tuple::()
+			}
+		}
+	}
+}
+
+[Function]
+getProcAddress :: HMODULE -> String -> IO Addr
+Name: getProcAddress
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DLL.html#v:getProcAddress
+Containing package: System.Win32.DLL
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HMODULE
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::Addr
+	}
+}
+
+[Function]
+c_LoadLibraryEx :: LPCTSTR -> HANDLE -> LoadLibraryFlags -> IO HINSTANCE
+Name: c_LoadLibraryEx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DLL.html#v:c_LoadLibraryEx
+Containing package: System.Win32.DLL
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::LPCTSTR
+	System.Win32.Types::HANDLE
+	System.Win32.DLL::LoadLibraryFlags
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::HINSTANCE
+	}
+}
+
+[Function]
+disableThreadLibraryCalls :: HMODULE -> IO ()
+Name: disableThreadLibraryCalls
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DLL.html#v:disableThreadLibraryCalls
+Containing package: System.Win32.DLL
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HMODULE
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+lOAD_LIBRARY_AS_DATAFILE :: LoadLibraryFlags
+Name: lOAD_LIBRARY_AS_DATAFILE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DLL.html#v:lOAD_LIBRARY_AS_DATAFILE
+Containing package: System.Win32.DLL
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.DLL::LoadLibraryFlags
+}
+
+[Function]
+lOAD_WITH_ALTERED_SEARCH_PATH :: LoadLibraryFlags
+Name: lOAD_WITH_ALTERED_SEARCH_PATH
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DLL.html#v:lOAD_WITH_ALTERED_SEARCH_PATH
+Containing package: System.Win32.DLL
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.DLL::LoadLibraryFlags
+}
+
+[Function]
+freeLibrary :: HMODULE -> IO ()
+Name: freeLibrary
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DLL.html#v:freeLibrary
+Containing package: System.Win32.DLL
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HMODULE
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_FreeLibrary :: HMODULE -> IO Bool
+Name: c_FreeLibrary
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DLL.html#v:c_FreeLibrary
+Containing package: System.Win32.DLL
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HMODULE
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+getModuleFileName :: HMODULE -> IO String
+Name: getModuleFileName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DLL.html#v:getModuleFileName
+Containing package: System.Win32.DLL
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HMODULE
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+c_LoadLibrary :: LPCTSTR -> IO HINSTANCE
+Name: c_LoadLibrary
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DLL.html#v:c_LoadLibrary
+Containing package: System.Win32.DLL
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::LPCTSTR
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::HINSTANCE
+	}
+}
+
+[Function]
+loadLibrary :: String -> IO HINSTANCE
+Name: loadLibrary
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DLL.html#v:loadLibrary
+Containing package: System.Win32.DLL
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::HINSTANCE
+	}
+}
+
+[Function]
+c_GetProcAddress :: HMODULE -> LPCSTR -> IO Addr
+Name: c_GetProcAddress
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DLL.html#v:c_GetProcAddress
+Containing package: System.Win32.DLL
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HMODULE
+	System.Win32.Types::LPCSTR
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::Addr
+	}
+}
+
+[Function]
+c_GetModuleHandle :: LPCTSTR -> IO HMODULE
+Name: c_GetModuleHandle
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DLL.html#v:c_GetModuleHandle
+Containing package: System.Win32.DLL
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::LPCTSTR
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::HMODULE
+	}
+}
+
+[Function]
+c_GetModuleFileName :: HMODULE -> LPTSTR -> Int -> IO Bool
+Name: c_GetModuleFileName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DLL.html#v:c_GetModuleFileName
+Containing package: System.Win32.DLL
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HMODULE
+	System.Win32.Types::LPTSTR
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+getModuleHandle :: Maybe String -> IO HMODULE
+Name: getModuleHandle
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-DLL.html#v:getModuleHandle
+Containing package: System.Win32.DLL
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Maybe::Maybe {
+		Data.String::String
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::HMODULE
+	}
+}

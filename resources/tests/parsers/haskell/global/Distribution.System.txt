@@ -1,0 +1,149 @@
+[Package]
+Name: Distribution.System
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-System.html
+Containing package: Distribution
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data Arch = I386 | X86_64 | PPC | PPC64 | Sparc | Arm | Mips | SH | IA64 | S390 | Alpha | Hppa | Rs6000 | M68k | Vax | OtherArch String
+Name: Arch
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-System.html#t:Arch
+Containing package: Distribution.System
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Platform = Platform Arch OS
+Name: Platform
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-System.html#t:Platform
+Containing package: Distribution.System
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data OS = Linux | Windows | OSX | FreeBSD | OpenBSD | NetBSD | Solaris | AIX | HPUX | IRIX | HaLVM | IOS | OtherOS String
+Name: OS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-System.html#t:OS
+Containing package: Distribution.System
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+buildPlatform :: Platform
+Name: buildPlatform
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-System.html#v:buildPlatform
+Containing package: Distribution.System
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.System::Platform
+}
+
+[Function]
+buildOS :: OS
+Name: buildOS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-System.html#v:buildOS
+Containing package: Distribution.System
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.System::OS
+}
+
+[Function]
+buildArch :: Arch
+Name: buildArch
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-System.html#v:buildArch
+Containing package: Distribution.System
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.System::Arch
+}
+
+[Function]
+platformFromTriple :: String -> Maybe Platform
+Name: platformFromTriple
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-System.html#v:platformFromTriple
+Containing package: Distribution.System
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Data.Maybe::Maybe {
+		Distribution.System::Platform
+	}
+}

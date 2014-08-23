@@ -1,0 +1,3156 @@
+[Package]
+Name: Graphics.Win32.Menu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html
+Containing package: Graphics.Win32
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data MenuItemInfo = MenuItemInfo { 
+	menuItemType :: MenuFlag
+	menuItemState :: MenuState
+	menuItemID :: UINT
+	menuItemSubMenu :: HMENU
+	menuItemBitmapChecked :: HBITMAP
+	menuItemBitmapUnchecked :: HBITMAP
+	menuItemData :: DWORD
+	menuItemTypeData :: String
+} 
+Name: MenuItemInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#t:MenuItemInfo
+Containing package: Graphics.Win32.Menu
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type MenuName = LPCTSTR
+Name: MenuName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#t:MenuName
+Containing package: Graphics.Win32.Menu
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::LPCTSTR
+
+[Alias]
+type MenuItemMask = UINT
+Name: MenuItemMask
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#t:MenuItemMask
+Containing package: Graphics.Win32.Menu
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::UINT
+
+[Alias]
+type MenuState = MenuFlag
+Name: MenuState
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#t:MenuState
+Containing package: Graphics.Win32.Menu
+attributes {
+}
+parameters {
+}
+Aliased type = Graphics.Win32.Menu::MenuFlag
+
+[Alias]
+type MenuItemMask = UINT
+Name: MenuItem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#t:MenuItem
+Containing package: Graphics.Win32.Menu
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::UINT
+
+[Alias]
+type TrackMenuFlag = UINT
+Name: TrackMenuFlag
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#t:TrackMenuFlag
+Containing package: Graphics.Win32.Menu
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::UINT
+
+[Alias]
+type MenuID = UINT
+Name: MenuID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#t:MenuID
+Containing package: Graphics.Win32.Menu
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::UINT
+
+[Alias]
+type MenuFlag = UINT
+Name: MenuFlag
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#t:MenuFlag
+Containing package: Graphics.Win32.Menu
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::UINT
+
+[Alias]
+type Menu = LPCTSTR
+Name: Menu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#t:Menu
+Containing package: Graphics.Win32.Menu
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::LPCTSTR
+
+[Alias]
+type SystemMenuCommand = UINT
+Name: SystemMenuCommand
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#t:SystemMenuCommand
+Containing package: Graphics.Win32.Menu
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::UINT
+
+[Alias]
+type TPMPARAMS = ()
+Name: TPMPARAMS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#t:TPMPARAMS
+Containing package: Graphics.Win32.Menu
+attributes {
+}
+parameters {
+}
+Aliased type = null::()
+
+[Alias]
+type GMDIFlag = UINT
+Name: GMDIFlag
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#t:GMDIFlag
+Containing package: Graphics.Win32.Menu
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::UINT
+
+[Function]
+trackPopupMenu :: HMENU -> TrackMenuFlag -> Int -> Int -> HWND -> RECT -> IO ()
+Name: trackPopupMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:trackPopupMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	Graphics.Win32.Menu::TrackMenuFlag
+	Data.Int::Int
+	Data.Int::Int
+	Graphics.Win32.GDI.Types::HWND
+	Graphics.Win32.GDI.Types::RECT
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+sC_SCREENSAVE :: SystemMenuCommand
+Name: sC_SCREENSAVE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:sC_SCREENSAVE
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::SystemMenuCommand
+}
+
+[Function]
+pokeFMask :: Ptr MenuItemInfo -> MenuItemMask -> IO ()
+Name: pokeFMask
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:pokeFMask
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		Graphics.Win32.Menu::MenuItemInfo
+	}
+	Graphics.Win32.Menu::MenuItemMask
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_SetMenu :: HWND -> HMENU -> IO Bool
+Name: c_SetMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_SetMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Graphics.Win32.GDI.Types::HMENU
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+mF_INSERT :: MenuItem
+Name: mF_INSERT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mF_INSERT
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuItem
+}
+
+[Function]
+c_CreatePopupMenu :: IO HMENU
+Name: c_CreatePopupMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_CreatePopupMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.GDI.Types::HMENU
+	}
+}
+
+[Function]
+mF_MOUSESELECT :: MenuItem
+Name: mF_MOUSESELECT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mF_MOUSESELECT
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuItem
+}
+
+[Function]
+tPM_TOPALIGN :: TrackMenuFlag
+Name: tPM_TOPALIGN
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:tPM_TOPALIGN
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::TrackMenuFlag
+}
+
+[Function]
+mIIM_STATE :: MenuItemMask
+Name: mIIM_STATE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mIIM_STATE
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuItemMask
+}
+
+[Function]
+mFS_GRAYED :: MenuState
+Name: mFS_GRAYED
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mFS_GRAYED
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuState
+}
+
+[Function]
+mFT_OWNERDRAW :: MenuFlag
+Name: mFT_OWNERDRAW
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mFT_OWNERDRAW
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuFlag
+}
+
+[Function]
+mFT_STRING :: MenuFlag
+Name: mFT_STRING
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mFT_STRING
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuFlag
+}
+
+[Function]
+c_LoadMenu :: HINSTANCE -> Menu -> IO HMENU
+Name: c_LoadMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_LoadMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HINSTANCE
+	Graphics.Win32.Menu::Menu
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.GDI.Types::HMENU
+	}
+}
+
+[Function]
+sC_NEXTWINDOW :: SystemMenuCommand
+Name: sC_NEXTWINDOW
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:sC_NEXTWINDOW
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::SystemMenuCommand
+}
+
+[Function]
+mFT_BITMAP :: MenuFlag
+Name: mFT_BITMAP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mFT_BITMAP
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuFlag
+}
+
+[Function]
+c_GetMenuItemCount :: HMENU -> IO Int
+Name: c_GetMenuItemCount
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_GetMenuItemCount
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}
+
+[Function]
+c_GetMenu :: HWND -> IO HMENU
+Name: c_GetMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_GetMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.GDI.Types::HMENU
+	}
+}
+
+[Function]
+gMDI_USEDISABLED :: GMDIFlag
+Name: gMDI_USEDISABLED
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:gMDI_USEDISABLED
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::GMDIFlag
+}
+
+[Function]
+sC_MINIMIZE :: SystemMenuCommand
+Name: sC_MINIMIZE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:sC_MINIMIZE
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::SystemMenuCommand
+}
+
+[Function]
+setMenuItemInfo :: HMENU -> MenuItem -> Bool -> MenuItemMask -> MenuItemInfo -> IO ()
+Name: setMenuItemInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:setMenuItemInfo
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	Graphics.Win32.Menu::MenuItem
+	Data.Bool::Bool
+	Graphics.Win32.Menu::MenuItemMask
+	Graphics.Win32.Menu::MenuItemInfo
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+mF_BYCOMMAND :: MenuFlag
+Name: mF_BYCOMMAND
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mF_BYCOMMAND
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuFlag
+}
+
+[Function]
+c_SetMenuItemInfo :: HMENU -> UINT -> Bool -> Ptr MenuItemInfo -> IO Bool
+Name: c_SetMenuItemInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_SetMenuItemInfo
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	System.Win32.Types::UINT
+	Data.Bool::Bool
+	Foreign.Ptr::Ptr {
+		Graphics.Win32.Menu::MenuItemInfo
+	}
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+mIIM_ID :: MenuItemMask
+Name: mIIM_ID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mIIM_ID
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuItemMask
+}
+
+[Function]
+sC_MOVE :: SystemMenuCommand
+Name: sC_MOVE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:sC_MOVE
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::SystemMenuCommand
+}
+
+[Function]
+mF_POPUP :: MenuItem
+Name: mF_POPUP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mF_POPUP
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuItem
+}
+
+[Function]
+sC_SIZE :: SystemMenuCommand
+Name: sC_SIZE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:sC_SIZE
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::SystemMenuCommand
+}
+
+[Function]
+mF_CHECKED :: MenuFlag
+Name: mF_CHECKED
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mF_CHECKED
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuFlag
+}
+
+[Function]
+appendMenu :: HMENU -> MenuFlag -> MenuID -> String -> IO ()
+Name: appendMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:appendMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	Graphics.Win32.Menu::MenuFlag
+	Graphics.Win32.Menu::MenuID
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+checkMenuRadioItem :: HMENU -> MenuItem -> MenuItem -> MenuItem -> MenuFlag -> IO ()
+Name: checkMenuRadioItem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:checkMenuRadioItem
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	Graphics.Win32.Menu::MenuItem
+	Graphics.Win32.Menu::MenuItem
+	Graphics.Win32.Menu::MenuItem
+	Graphics.Win32.Menu::MenuFlag
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+mF_SYSMENU :: MenuItem
+Name: mF_SYSMENU
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mF_SYSMENU
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuItem
+}
+
+[Function]
+withTPMPARAMS :: Ptr RECT -> (Ptr TPMPARAMS -> IO a) -> IO a
+Name: withTPMPARAMS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:withTPMPARAMS
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		Graphics.Win32.GDI.Types::RECT
+	}
+	<function> {
+		[parameters]
+		Foreign.Ptr::Ptr {
+			Graphics.Win32.Menu::TPMPARAMS
+		}
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+enableMenuItem :: HMENU -> MenuItem -> MenuFlag -> IO MenuState
+Name: enableMenuItem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:enableMenuItem
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	Graphics.Win32.Menu::MenuItem
+	Graphics.Win32.Menu::MenuFlag
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.Menu::MenuState
+	}
+}
+
+[Function]
+tPM_RIGHTALIGN :: TrackMenuFlag
+Name: tPM_RIGHTALIGN
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:tPM_RIGHTALIGN
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::TrackMenuFlag
+}
+
+[Function]
+modifyMenu :: HMENU -> MenuItem -> MenuFlag -> MenuID -> String -> IO ()
+Name: modifyMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:modifyMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	Graphics.Win32.Menu::MenuItem
+	Graphics.Win32.Menu::MenuFlag
+	Graphics.Win32.Menu::MenuID
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+sC_TASKLIST :: SystemMenuCommand
+Name: sC_TASKLIST
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:sC_TASKLIST
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::SystemMenuCommand
+}
+
+[Function]
+c_InsertMenu :: HMENU -> UINT -> UINT -> MenuID -> LPCTSTR -> IO Bool
+Name: c_InsertMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_InsertMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	System.Win32.Types::UINT
+	System.Win32.Types::UINT
+	Graphics.Win32.Menu::MenuID
+	System.Win32.Types::LPCTSTR
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+sC_PREVWINDOW :: SystemMenuCommand
+Name: sC_PREVWINDOW
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:sC_PREVWINDOW
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::SystemMenuCommand
+}
+
+[Function]
+sC_HSCROLL :: SystemMenuCommand
+Name: sC_HSCROLL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:sC_HSCROLL
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::SystemMenuCommand
+}
+
+[Function]
+c_SetMenuItemBitmaps :: HMENU -> UINT -> UINT -> HBITMAP -> HBITMAP -> IO Bool
+Name: c_SetMenuItemBitmaps
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_SetMenuItemBitmaps
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	System.Win32.Types::UINT
+	System.Win32.Types::UINT
+	Graphics.Win32.GDI.Types::HBITMAP
+	Graphics.Win32.GDI.Types::HBITMAP
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+tPM_RIGHTBUTTON :: TrackMenuFlag
+Name: tPM_RIGHTBUTTON
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:tPM_RIGHTBUTTON
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::TrackMenuFlag
+}
+
+[Function]
+c_ModifyMenu :: HMENU -> UINT -> UINT -> MenuID -> LPCTSTR -> IO Bool
+Name: c_ModifyMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_ModifyMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	System.Win32.Types::UINT
+	System.Win32.Types::UINT
+	Graphics.Win32.Menu::MenuID
+	System.Win32.Types::LPCTSTR
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+createMenu :: IO HMENU
+Name: createMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:createMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.GDI.Types::HMENU
+	}
+}
+
+[Function]
+sC_DEFAULT :: SystemMenuCommand
+Name: sC_DEFAULT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:sC_DEFAULT
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::SystemMenuCommand
+}
+
+[Function]
+getMenuState :: HMENU -> MenuItem -> MenuFlag -> IO MenuState
+Name: getMenuState
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:getMenuState
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	Graphics.Win32.Menu::MenuItem
+	Graphics.Win32.Menu::MenuFlag
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.Menu::MenuState
+	}
+}
+
+[Function]
+mFS_UNHILITE :: MenuState
+Name: mFS_UNHILITE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mFS_UNHILITE
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuState
+}
+
+[Function]
+checkMenuItem :: HMENU -> MenuItem -> MenuFlag -> IO Bool
+Name: checkMenuItem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:checkMenuItem
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	Graphics.Win32.Menu::MenuItem
+	Graphics.Win32.Menu::MenuFlag
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+isMenu :: HMENU -> IO Bool
+Name: isMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:isMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+sC_MAXIMIZE :: SystemMenuCommand
+Name: sC_MAXIMIZE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:sC_MAXIMIZE
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::SystemMenuCommand
+}
+
+[Function]
+c_GetMenuDefaultItem :: HMENU -> Bool -> UINT -> IO UINT
+Name: c_GetMenuDefaultItem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_GetMenuDefaultItem
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	Data.Bool::Bool
+	System.Win32.Types::UINT
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::UINT
+	}
+}
+
+[Function]
+mFS_DISABLED :: MenuState
+Name: mFS_DISABLED
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mFS_DISABLED
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuState
+}
+
+[Function]
+c_SetMenuDefaultItem :: HMENU -> MenuItem -> Bool -> IO Bool
+Name: c_SetMenuDefaultItem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_SetMenuDefaultItem
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	Graphics.Win32.Menu::MenuItem
+	Data.Bool::Bool
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+sC_CONTEXTHELP :: SystemMenuCommand
+Name: sC_CONTEXTHELP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:sC_CONTEXTHELP
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::SystemMenuCommand
+}
+
+[Function]
+sC_HOTKEY :: SystemMenuCommand
+Name: sC_HOTKEY
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:sC_HOTKEY
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::SystemMenuCommand
+}
+
+[Function]
+getMenuItemID :: HMENU -> MenuItem -> IO MenuID
+Name: getMenuItemID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:getMenuItemID
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	Graphics.Win32.Menu::MenuItem
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.Menu::MenuID
+	}
+}
+
+[Function]
+c_DestroyMenu :: HMENU -> IO Bool
+Name: c_DestroyMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_DestroyMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+setMenu :: HWND -> HMENU -> IO ()
+Name: setMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:setMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Graphics.Win32.GDI.Types::HMENU
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+tPM_RETURNCMD :: TrackMenuFlag
+Name: tPM_RETURNCMD
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:tPM_RETURNCMD
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::TrackMenuFlag
+}
+
+[Function]
+mFT_RIGHTORDER :: MenuFlag
+Name: mFT_RIGHTORDER
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mFT_RIGHTORDER
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuFlag
+}
+
+[Function]
+mF_APPEND :: MenuItem
+Name: mF_APPEND
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mF_APPEND
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuItem
+}
+
+[Function]
+c_DeleteMenu :: HMENU -> UINT -> UINT -> IO Bool
+Name: c_DeleteMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_DeleteMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	System.Win32.Types::UINT
+	System.Win32.Types::UINT
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+mF_USECHECKBITMAPS :: MenuItem
+Name: mF_USECHECKBITMAPS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mF_USECHECKBITMAPS
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuItem
+}
+
+[Function]
+peekMenuItemInfo :: Ptr MenuItemInfo -> IO MenuItemInfo
+Name: peekMenuItemInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:peekMenuItemInfo
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		Graphics.Win32.Menu::MenuItemInfo
+	}
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.Menu::MenuItemInfo
+	}
+}
+
+[Function]
+sC_ARRANGE :: SystemMenuCommand
+Name: sC_ARRANGE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:sC_ARRANGE
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::SystemMenuCommand
+}
+
+[Function]
+tPM_CENTERALIGN :: TrackMenuFlag
+Name: tPM_CENTERALIGN
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:tPM_CENTERALIGN
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::TrackMenuFlag
+}
+
+[Function]
+createPopupMenu :: IO HMENU
+Name: createPopupMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:createPopupMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.GDI.Types::HMENU
+	}
+}
+
+[Function]
+destroyMenu :: HMENU -> IO ()
+Name: destroyMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:destroyMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+mF_BYPOSITION :: MenuFlag
+Name: mF_BYPOSITION
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mF_BYPOSITION
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuFlag
+}
+
+[Function]
+mF_END :: MenuItem
+Name: mF_END
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mF_END
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuItem
+}
+
+[Function]
+c_CreateMenu :: IO HMENU
+Name: c_CreateMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_CreateMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.GDI.Types::HMENU
+	}
+}
+
+[Function]
+c_CheckMenuRadioItem :: HMENU -> UINT -> UINT -> UINT -> UINT -> IO Bool
+Name: c_CheckMenuRadioItem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_CheckMenuRadioItem
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	System.Win32.Types::UINT
+	System.Win32.Types::UINT
+	System.Win32.Types::UINT
+	System.Win32.Types::UINT
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+mIIM_CHECKMARKS :: MenuItemMask
+Name: mIIM_CHECKMARKS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mIIM_CHECKMARKS
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuItemMask
+}
+
+[Function]
+removeMenu :: HMENU -> MenuItem -> MenuFlag -> IO ()
+Name: removeMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:removeMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	Graphics.Win32.Menu::MenuItem
+	Graphics.Win32.Menu::MenuFlag
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_AppendMenu :: HMENU -> UINT -> MenuID -> LPCTSTR -> IO Bool
+Name: c_AppendMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_AppendMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	System.Win32.Types::UINT
+	Graphics.Win32.Menu::MenuID
+	System.Win32.Types::LPCTSTR
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+sC_VSCROLL :: SystemMenuCommand
+Name: sC_VSCROLL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:sC_VSCROLL
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::SystemMenuCommand
+}
+
+[Function]
+c_CheckMenuItem :: HMENU -> UINT -> UINT -> IO DWORD
+Name: c_CheckMenuItem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_CheckMenuItem
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	System.Win32.Types::UINT
+	System.Win32.Types::UINT
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::DWORD
+	}
+}
+
+[Function]
+withMenuItemInfo :: MenuItemInfo -> (Ptr MenuItemInfo -> IO a) -> IO a
+Name: withMenuItemInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:withMenuItemInfo
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.Menu::MenuItemInfo
+	<function> {
+		[parameters]
+		Foreign.Ptr::Ptr {
+			Graphics.Win32.Menu::MenuItemInfo
+		}
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+mFT_SEPARATOR :: MenuFlag
+Name: mFT_SEPARATOR
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mFT_SEPARATOR
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuFlag
+}
+
+[Function]
+sC_CLOSE :: SystemMenuCommand
+Name: sC_CLOSE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:sC_CLOSE
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::SystemMenuCommand
+}
+
+[Function]
+mF_REMOVE :: MenuItem
+Name: mF_REMOVE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mF_REMOVE
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuItem
+}
+
+[Function]
+getMenuItemInfo :: HMENU -> MenuItem -> Bool -> MenuItemMask -> IO MenuItemInfo
+Name: getMenuItemInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:getMenuItemInfo
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	Graphics.Win32.Menu::MenuItem
+	Data.Bool::Bool
+	Graphics.Win32.Menu::MenuItemMask
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.Menu::MenuItemInfo
+	}
+}
+
+[Function]
+c_DrawMenuBar :: HWND -> IO Bool
+Name: c_DrawMenuBar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_DrawMenuBar
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+sC_KEYMENU :: SystemMenuCommand
+Name: sC_KEYMENU
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:sC_KEYMENU
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::SystemMenuCommand
+}
+
+[Function]
+mFS_ENABLED :: MenuState
+Name: mFS_ENABLED
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mFS_ENABLED
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuState
+}
+
+[Function]
+mFT_MENUBREAK :: MenuFlag
+Name: mFT_MENUBREAK
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mFT_MENUBREAK
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuFlag
+}
+
+[Function]
+c_GetMenuItemRect :: HWND -> HMENU -> UINT -> LPRECT -> IO Bool
+Name: c_GetMenuItemRect
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_GetMenuItemRect
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Graphics.Win32.GDI.Types::HMENU
+	System.Win32.Types::UINT
+	Graphics.Win32.GDI.Types::LPRECT
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+deleteMenu :: HMENU -> MenuItem -> MenuFlag -> IO ()
+Name: deleteMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:deleteMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	Graphics.Win32.Menu::MenuItem
+	Graphics.Win32.Menu::MenuFlag
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_TrackPopupMenuEx :: HMENU -> TrackMenuFlag -> Int -> Int -> HWND -> Ptr TPMPARAMS -> IO Bool
+Name: c_TrackPopupMenuEx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_TrackPopupMenuEx
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	Graphics.Win32.Menu::TrackMenuFlag
+	Data.Int::Int
+	Data.Int::Int
+	Graphics.Win32.GDI.Types::HWND
+	Foreign.Ptr::Ptr {
+		Graphics.Win32.Menu::TPMPARAMS
+	}
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+mIIM_DATA :: MenuItemMask
+Name: mIIM_DATA
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mIIM_DATA
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuItemMask
+}
+
+[Function]
+tPM_LEFTALIGN :: TrackMenuFlag
+Name: tPM_LEFTALIGN
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:tPM_LEFTALIGN
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::TrackMenuFlag
+}
+
+[Function]
+mFS_UNCHECKED :: MenuState
+Name: mFS_UNCHECKED
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mFS_UNCHECKED
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuState
+}
+
+[Function]
+getSubMenu :: HMENU -> MenuItem -> IO (Maybe HMENU)
+Name: getSubMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:getSubMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	Graphics.Win32.Menu::MenuItem
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			Graphics.Win32.GDI.Types::HMENU
+		}
+	}
+}
+
+[Function]
+mFT_MENUBARBREAK :: MenuFlag
+Name: mFT_MENUBARBREAK
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mFT_MENUBARBREAK
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuFlag
+}
+
+[Function]
+c_RemoveMenu :: HMENU -> UINT -> UINT -> IO Bool
+Name: c_RemoveMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_RemoveMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	System.Win32.Types::UINT
+	System.Win32.Types::UINT
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+setMenuDefaultItem :: HMENU -> MenuItem -> Bool -> IO ()
+Name: setMenuDefaultItem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:setMenuDefaultItem
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	Graphics.Win32.Menu::MenuItem
+	Data.Bool::Bool
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+loadMenu :: Maybe HINSTANCE -> Menu -> IO HMENU
+Name: loadMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:loadMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Maybe::Maybe {
+		System.Win32.Types::HINSTANCE
+	}
+	Graphics.Win32.Menu::Menu
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.GDI.Types::HMENU
+	}
+}
+
+[Function]
+mFT_RIGHTJUSTIFY :: MenuFlag
+Name: mFT_RIGHTJUSTIFY
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mFT_RIGHTJUSTIFY
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuFlag
+}
+
+[Function]
+mFS_DEFAULT :: MenuState
+Name: mFS_DEFAULT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mFS_DEFAULT
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuState
+}
+
+[Function]
+sC_SEPARATOR :: SystemMenuCommand
+Name: sC_SEPARATOR
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:sC_SEPARATOR
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::SystemMenuCommand
+}
+
+[Function]
+mFS_HILITE :: MenuState
+Name: mFS_HILITE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mFS_HILITE
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuState
+}
+
+[Function]
+c_InsertMenuItem :: HMENU -> UINT -> Bool -> Ptr MenuItemInfo -> IO Bool
+Name: c_InsertMenuItem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_InsertMenuItem
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	System.Win32.Types::UINT
+	Data.Bool::Bool
+	Foreign.Ptr::Ptr {
+		Graphics.Win32.Menu::MenuItemInfo
+	}
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+getMenuItemRect :: HWND -> HMENU -> MenuItem -> IO RECT
+Name: getMenuItemRect
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:getMenuItemRect
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Graphics.Win32.GDI.Types::HMENU
+	Graphics.Win32.Menu::MenuItem
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.GDI.Types::RECT
+	}
+}
+
+[Function]
+c_TrackPopupMenu :: HMENU -> TrackMenuFlag -> Int -> Int -> Int -> HWND -> LPRECT -> IO Bool
+Name: c_TrackPopupMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_TrackPopupMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	Graphics.Win32.Menu::TrackMenuFlag
+	Data.Int::Int
+	Data.Int::Int
+	Data.Int::Int
+	Graphics.Win32.GDI.Types::HWND
+	Graphics.Win32.GDI.Types::LPRECT
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+mIIM_SUBMENU :: MenuItemMask
+Name: mIIM_SUBMENU
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mIIM_SUBMENU
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuItemMask
+}
+
+[Function]
+mF_DELETE :: MenuItem
+Name: mF_DELETE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mF_DELETE
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuItem
+}
+
+[Function]
+insertMenuItem :: HMENU -> MenuItem -> Bool -> MenuItemInfo -> IO ()
+Name: insertMenuItem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:insertMenuItem
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	Graphics.Win32.Menu::MenuItem
+	Data.Bool::Bool
+	Graphics.Win32.Menu::MenuItemInfo
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+setMenuItemBitmaps :: HMENU -> MenuItem -> MenuFlag -> HBITMAP -> HBITMAP -> IO ()
+Name: setMenuItemBitmaps
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:setMenuItemBitmaps
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	Graphics.Win32.Menu::MenuItem
+	Graphics.Win32.Menu::MenuFlag
+	Graphics.Win32.GDI.Types::HBITMAP
+	Graphics.Win32.GDI.Types::HBITMAP
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+mF_HELP :: MenuItem
+Name: mF_HELP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mF_HELP
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuItem
+}
+
+[Function]
+tPM_VCENTERALIGN :: TrackMenuFlag
+Name: tPM_VCENTERALIGN
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:tPM_VCENTERALIGN
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::TrackMenuFlag
+}
+
+[Function]
+c_GetSystemMenu :: HWND -> Bool -> IO HMENU
+Name: c_GetSystemMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_GetSystemMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Data.Bool::Bool
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.GDI.Types::HMENU
+	}
+}
+
+[Function]
+mF_CHANGE :: MenuItem
+Name: mF_CHANGE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mF_CHANGE
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuItem
+}
+
+[Function]
+tPM_NONOTIFY :: TrackMenuFlag
+Name: tPM_NONOTIFY
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:tPM_NONOTIFY
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::TrackMenuFlag
+}
+
+[Function]
+getSystemMenu :: HWND -> Bool -> IO (Maybe HMENU)
+Name: getSystemMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:getSystemMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Data.Bool::Bool
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			Graphics.Win32.GDI.Types::HMENU
+		}
+	}
+}
+
+[Function]
+getMenuItemCount :: HMENU -> IO Int
+Name: getMenuItemCount
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:getMenuItemCount
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}
+
+[Function]
+mFT_RADIOCHECK :: MenuFlag
+Name: mFT_RADIOCHECK
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mFT_RADIOCHECK
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuFlag
+}
+
+[Function]
+trackPopupMenuEx :: HMENU -> TrackMenuFlag -> Int -> Int -> HWND -> Maybe (Ptr RECT) -> IO ()
+Name: trackPopupMenuEx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:trackPopupMenuEx
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	Graphics.Win32.Menu::TrackMenuFlag
+	Data.Int::Int
+	Data.Int::Int
+	Graphics.Win32.GDI.Types::HWND
+	Data.Maybe::Maybe {
+		Foreign.Ptr::Ptr {
+			Graphics.Win32.GDI.Types::RECT
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+tPM_HORIZONTAL :: TrackMenuFlag
+Name: tPM_HORIZONTAL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:tPM_HORIZONTAL
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::TrackMenuFlag
+}
+
+[Function]
+c_GetSubMenu :: HMENU -> UINT -> IO HMENU
+Name: c_GetSubMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_GetSubMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	System.Win32.Types::UINT
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.GDI.Types::HMENU
+	}
+}
+
+[Function]
+sC_RESTORE :: SystemMenuCommand
+Name: sC_RESTORE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:sC_RESTORE
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::SystemMenuCommand
+}
+
+[Function]
+getMenu :: HWND -> IO (Maybe HMENU)
+Name: getMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:getMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			Graphics.Win32.GDI.Types::HMENU
+		}
+	}
+}
+
+[Function]
+c_GetMenuItemInfo :: HMENU -> UINT -> Bool -> Ptr MenuItemInfo -> IO Bool
+Name: c_GetMenuItemInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_GetMenuItemInfo
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	System.Win32.Types::UINT
+	Data.Bool::Bool
+	Foreign.Ptr::Ptr {
+		Graphics.Win32.Menu::MenuItemInfo
+	}
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+drawMenuBar :: HWND -> IO ()
+Name: drawMenuBar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:drawMenuBar
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_GetMenuState :: HMENU -> UINT -> UINT -> IO MenuState
+Name: c_GetMenuState
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_GetMenuState
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	System.Win32.Types::UINT
+	System.Win32.Types::UINT
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.Menu::MenuState
+	}
+}
+
+[Function]
+sC_MOUSEMENU :: SystemMenuCommand
+Name: sC_MOUSEMENU
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:sC_MOUSEMENU
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::SystemMenuCommand
+}
+
+[Function]
+sC_MONITORPOWER :: SystemMenuCommand
+Name: sC_MONITORPOWER
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:sC_MONITORPOWER
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::SystemMenuCommand
+}
+
+[Function]
+c_EnableMenuItem :: HMENU -> UINT -> UINT -> IO MenuState
+Name: c_EnableMenuItem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_EnableMenuItem
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	System.Win32.Types::UINT
+	System.Win32.Types::UINT
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.Menu::MenuState
+	}
+}
+
+[Function]
+menuItemFromPoint :: HWND -> HMENU -> POINT -> IO UINT
+Name: menuItemFromPoint
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:menuItemFromPoint
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Graphics.Win32.GDI.Types::HMENU
+	Graphics.Win32.GDI.Types::POINT
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::UINT
+	}
+}
+
+[Function]
+c_GetMenuItemID :: HMENU -> UINT -> IO MenuID
+Name: c_GetMenuItemID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:c_GetMenuItemID
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	System.Win32.Types::UINT
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.Menu::MenuID
+	}
+}
+
+[Function]
+mFS_CHECKED :: MenuState
+Name: mFS_CHECKED
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mFS_CHECKED
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuState
+}
+
+[Function]
+getMenuDefaultItem :: HMENU -> Bool -> GMDIFlag -> IO MenuItem
+Name: getMenuDefaultItem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:getMenuDefaultItem
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	Data.Bool::Bool
+	Graphics.Win32.Menu::GMDIFlag
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.Menu::MenuItem
+	}
+}
+
+[Function]
+gMDI_GOINTOPOPUPS :: GMDIFlag
+Name: gMDI_GOINTOPOPUPS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:gMDI_GOINTOPOPUPS
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::GMDIFlag
+}
+
+[Function]
+hiliteMenuItem :: HWND -> HMENU -> MenuItem -> MenuFlag -> IO Bool
+Name: hiliteMenuItem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:hiliteMenuItem
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Graphics.Win32.GDI.Types::HMENU
+	Graphics.Win32.Menu::MenuItem
+	Graphics.Win32.Menu::MenuFlag
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+allocaMenuItemInfo :: (Ptr MenuItemInfo -> IO a) -> IO a
+Name: allocaMenuItemInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:allocaMenuItemInfo
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Foreign.Ptr::Ptr {
+			Graphics.Win32.Menu::MenuItemInfo
+		}
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+tPM_LEFTBUTTON :: TrackMenuFlag
+Name: tPM_LEFTBUTTON
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:tPM_LEFTBUTTON
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::TrackMenuFlag
+}
+
+[Function]
+insertMenu :: HMENU -> MenuItem -> MenuFlag -> MenuID -> String -> IO ()
+Name: insertMenu
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:insertMenu
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HMENU
+	Graphics.Win32.Menu::MenuItem
+	Graphics.Win32.Menu::MenuFlag
+	Graphics.Win32.Menu::MenuID
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+tPM_BOTTOMALIGN :: TrackMenuFlag
+Name: tPM_BOTTOMALIGN
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:tPM_BOTTOMALIGN
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::TrackMenuFlag
+}
+
+[Function]
+tPM_VERTICAL :: TrackMenuFlag
+Name: tPM_VERTICAL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:tPM_VERTICAL
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::TrackMenuFlag
+}
+
+[Function]
+mIIM_TYPE :: MenuItemMask
+Name: mIIM_TYPE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Menu.html#v:mIIM_TYPE
+Containing package: Graphics.Win32.Menu
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Menu::MenuItemMask
+}

@@ -1,0 +1,3053 @@
+[Package]
+Name: Language.Haskell.TH.Syntax
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html
+Containing package: Language.Haskell.TH
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data Stmt = BindS Pat Exp | LetS [Dec] | NoBindS Exp | ParS [[Stmt]]
+Name: Stmt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Stmt
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TySynEqn = TySynEqn [Type] Type
+Name: TySynEqn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:TySynEqn
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Type = ForallT [TyVarBndr] Cxt Type | AppT Type Type | SigT Type Kind | VarT Name | ConT Name | PromotedT Name | TupleT Int | UnboxedTupleT Int | ArrowT | ListT | PromotedTupleT Int | PromotedNilT | PromotedConsT | StarT | ConstraintT | LitT TyLit
+Name: Type
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Type
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data NameIs = Alone | Applied | Infix
+Name: Name
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Name
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data AnnLookup = AnnLookupModule Module | AnnLookupName Name
+Name: AnnLookup
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:AnnLookup
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Exp = VarE Name | ConE Name | LitE Lit | AppE Exp Exp | InfixE (Maybe Exp) Exp (Maybe Exp) | UInfixE Exp Exp Exp | ParensE Exp | LamE [Pat] Exp | LamCaseE [Match] | TupE [Exp] | UnboxedTupE [Exp] | CondE Exp Exp Exp | MultiIfE [(Guard, Exp)] | LetE [Dec] Exp | CaseE Exp [Match] | DoE [Stmt] | CompE [Stmt] | ArithSeqE Range | ListE [Exp] | SigE Exp Type | RecConE Name [FieldExp] | RecUpdE Exp [FieldExp]
+Name: Exp
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Exp
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Range = FromR Exp | FromThenR Exp Exp | FromToR Exp Exp | FromThenToR Exp Exp Exp
+Name: Range
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Range
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data NameFlavour = NameS | NameQ ModName | NameU Int# | NameL Int# | NameG NameSpace PkgName ModName
+Name: NameFlavour
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:NameFlavour
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Inline = NoInline | Inline | Inlinable
+Name: Inline
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Inline
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data FixityDirection = InfixL | InfixR | InfixN
+Name: Fixity
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Fixity
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data NameSpace = VarName | DataName | TcClsName
+Name: NameSpace
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:NameSpace
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ModuleInfo = ModuleInfo [Module]
+Name: Module
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Module
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype TExp a = TExp { unType :: Exp}
+Name: TExp
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:TExp
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Callconv = CCall | StdCall
+Name: Callconv
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Callconv
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Foreign = ImportF Callconv Safety String Name Type | ExportF Callconv String Name Type
+Name: Foreign
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Foreign
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Guard = NormalG Exp | PatG [Stmt]
+Name: Guard
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Guard
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype Q a = Q { unQ :: forall m. Quasi m => m a}
+Name: Q
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Q
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class (Monad m, Applicative m) => Quasi m where qNewName :: String -> m Name qReport :: Bool -> String -> m () qRecover :: m a -> m a -> m a qLookupName :: Bool -> String -> m (Maybe Name) qReify :: Name -> m Info qReifyInstances :: Name -> [Type] -> m [Dec] qReifyRoles :: Name -> m [Role] qReifyAnnotations :: Data a => AnnLookup -> m [a] qReifyModule :: Module -> m ModuleInfo qLocation :: m Loc qRunIO :: IO a -> m a qAddDependentFile :: FilePath -> m () qAddTopDecls :: [Dec] -> m () qAddModFinalizer :: Q () -> m () qGetQ :: Typeable a => m (Maybe a) qPutQ :: Typeable a => a -> m ()
+Name: Quasi
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Quasi
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	System.IO::Language.Haskell.TH.Syntax.Quasi_IO<>
+	Language.Haskell.TH.Syntax::Language.Haskell.TH.Syntax.Quasi_Q<>
+	Language.Haskell.TH::Language.Haskell.TH.Syntax.Quasi_Q<>
+}
+supertypes {
+	Control.Monad::Monad
+	Control.Applicative::Applicative
+}
+members {
+
+	[Function]
+	qNewName :: String -> m Name
+	Name: qNewName
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:qNewName
+	Containing package: Language.Haskell.TH.Syntax
+	attributes {
+		memberType=function
+	}
+	Containing type: Quasi
+	parameters {
+		m: (Quasi m; m; Language.Haskell.TH.Syntax::Quasi)
+	}
+	Signature = <function> {
+		[parameters]
+		Data.String::String
+	
+		[result]
+		null::m {
+			Language.Haskell.TH.Syntax::Name
+		}
+	}
+
+	[Function]
+	qReport :: Bool -> String -> m ()
+	Name: qReport
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:qReport
+	Containing package: Language.Haskell.TH.Syntax
+	attributes {
+		memberType=function
+	}
+	Containing type: Quasi
+	parameters {
+		m: (Quasi m; m; Language.Haskell.TH.Syntax::Quasi)
+	}
+	Signature = <function> {
+		[parameters]
+		Data.Bool::Bool
+		Data.String::String
+	
+		[result]
+		null::m {
+			GHC.Tuple::()
+		}
+	}
+
+	[Function]
+	qRecover :: m a -> m a -> m a
+	Name: qRecover
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:qRecover
+	Containing package: Language.Haskell.TH.Syntax
+	attributes {
+		memberType=function
+	}
+	Containing type: Quasi
+	parameters {
+		m: (Quasi m; m; Language.Haskell.TH.Syntax::Quasi)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::m {
+			null::a
+		}
+		null::m {
+			null::a
+		}
+	
+		[result]
+		null::m {
+			null::a
+		}
+	}
+
+	[Function]
+	qLookupName :: Bool -> String -> m (Maybe Name)
+	Name: qLookupName
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:qLookupName
+	Containing package: Language.Haskell.TH.Syntax
+	attributes {
+		memberType=function
+	}
+	Containing type: Quasi
+	parameters {
+		m: (Quasi m; m; Language.Haskell.TH.Syntax::Quasi)
+	}
+	Signature = <function> {
+		[parameters]
+		Data.Bool::Bool
+		Data.String::String
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				Language.Haskell.TH.Syntax::Name
+			}
+		}
+	}
+
+	[Function]
+	qReify :: Name -> m Info
+	Name: qReify
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:qReify
+	Containing package: Language.Haskell.TH.Syntax
+	attributes {
+		memberType=function
+	}
+	Containing type: Quasi
+	parameters {
+		m: (Quasi m; m; Language.Haskell.TH.Syntax::Quasi)
+	}
+	Signature = <function> {
+		[parameters]
+		Language.Haskell.TH.Syntax::Name
+	
+		[result]
+		null::m {
+			Language.Haskell.TH.Syntax::Info
+		}
+	}
+
+	[Function]
+	qReifyInstances :: Name -> [Type] -> m [Dec]
+	Name: qReifyInstances
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:qReifyInstances
+	Containing package: Language.Haskell.TH.Syntax
+	attributes {
+		memberType=function
+	}
+	Containing type: Quasi
+	parameters {
+		m: (Quasi m; m; Language.Haskell.TH.Syntax::Quasi)
+	}
+	Signature = <function> {
+		[parameters]
+		Language.Haskell.TH.Syntax::Name
+		other::List {
+			Language.Haskell.TH.Syntax::Type
+		}
+	
+		[result]
+		null::m {
+			other::List {
+				Language.Haskell.TH.Syntax::Dec
+			}
+		}
+	}
+
+	[Function]
+	qReifyRoles :: Name -> m [Role]
+	Name: qReifyRoles
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:qReifyRoles
+	Containing package: Language.Haskell.TH.Syntax
+	attributes {
+		memberType=function
+	}
+	Containing type: Quasi
+	parameters {
+		m: (Quasi m; m; Language.Haskell.TH.Syntax::Quasi)
+	}
+	Signature = <function> {
+		[parameters]
+		Language.Haskell.TH.Syntax::Name
+	
+		[result]
+		null::m {
+			other::List {
+				Language.Haskell.TH.Syntax::Role
+			}
+		}
+	}
+
+	[Function]
+	qReifyAnnotations :: Data a => AnnLookup -> m [a]
+	Name: qReifyAnnotations
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:qReifyAnnotations
+	Containing package: Language.Haskell.TH.Syntax
+	attributes {
+		memberType=function
+	}
+	Containing type: Quasi
+	parameters {
+		a: (Data a; a; Data.Data::Data)
+		m: (Quasi m; m; Language.Haskell.TH.Syntax::Quasi)
+	}
+	Signature = <function> {
+		[parameters]
+		Language.Haskell.TH.Syntax::AnnLookup
+	
+		[result]
+		null::m {
+			other::List {
+				null::a
+			}
+		}
+	}
+
+	[Function]
+	qReifyModule :: Module -> m ModuleInfo
+	Name: qReifyModule
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:qReifyModule
+	Containing package: Language.Haskell.TH.Syntax
+	attributes {
+		memberType=function
+	}
+	Containing type: Quasi
+	parameters {
+		m: (Quasi m; m; Language.Haskell.TH.Syntax::Quasi)
+	}
+	Signature = <function> {
+		[parameters]
+		Language.Haskell.TH.Syntax::Module
+	
+		[result]
+		null::m {
+			Language.Haskell.TH.Syntax::ModuleInfo
+		}
+	}
+
+	[Function]
+	qLocation :: m Loc
+	Name: qLocation
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:qLocation
+	Containing package: Language.Haskell.TH.Syntax
+	attributes {
+		memberType=function
+	}
+	Containing type: Quasi
+	parameters {
+		m: (Quasi m; m; Language.Haskell.TH.Syntax::Quasi)
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		null::m {
+			Language.Haskell.TH.Syntax::Loc
+		}
+	}
+
+	[Function]
+	qRunIO :: IO a -> m a
+	Name: qRunIO
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:qRunIO
+	Containing package: Language.Haskell.TH.Syntax
+	attributes {
+		memberType=function
+	}
+	Containing type: Quasi
+	parameters {
+		a
+		m: (Quasi m; m; Language.Haskell.TH.Syntax::Quasi)
+	}
+	Signature = <function> {
+		[parameters]
+		System.IO::IO {
+			null::a
+		}
+	
+		[result]
+		null::m {
+			null::a
+		}
+	}
+
+	[Function]
+	qAddDependentFile :: FilePath -> m ()
+	Name: qAddDependentFile
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:qAddDependentFile
+	Containing package: Language.Haskell.TH.Syntax
+	attributes {
+		memberType=function
+	}
+	Containing type: Quasi
+	parameters {
+		m: (Quasi m; m; Language.Haskell.TH.Syntax::Quasi)
+	}
+	Signature = <function> {
+		[parameters]
+		System.IO::FilePath
+	
+		[result]
+		null::m {
+			GHC.Tuple::()
+		}
+	}
+
+	[Function]
+	qAddTopDecls :: [Dec] -> m ()
+	Name: qAddTopDecls
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:qAddTopDecls
+	Containing package: Language.Haskell.TH.Syntax
+	attributes {
+		memberType=function
+	}
+	Containing type: Quasi
+	parameters {
+		m: (Quasi m; m; Language.Haskell.TH.Syntax::Quasi)
+	}
+	Signature = <function> {
+		[parameters]
+		other::List {
+			Language.Haskell.TH.Syntax::Dec
+		}
+	
+		[result]
+		null::m {
+			GHC.Tuple::()
+		}
+	}
+
+	[Function]
+	qAddModFinalizer :: Q () -> m ()
+	Name: qAddModFinalizer
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:qAddModFinalizer
+	Containing package: Language.Haskell.TH.Syntax
+	attributes {
+		memberType=function
+	}
+	Containing type: Quasi
+	parameters {
+		m: (Quasi m; m; Language.Haskell.TH.Syntax::Quasi)
+	}
+	Signature = <function> {
+		[parameters]
+		Language.Haskell.TH.Syntax::Q {
+			GHC.Tuple::()
+		}
+	
+		[result]
+		null::m {
+			GHC.Tuple::()
+		}
+	}
+
+	[Function]
+	qGetQ :: Typeable a => m (Maybe a)
+	Name: qGetQ
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:qGetQ
+	Containing package: Language.Haskell.TH.Syntax
+	attributes {
+		memberType=function
+	}
+	Containing type: Quasi
+	parameters {
+		a: (Typeable a; a; Data.Typeable.Internal::Typeable)
+		m: (Quasi m; m; Language.Haskell.TH.Syntax::Quasi)
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		null::m {
+			Data.Maybe::Maybe {
+				null::a
+			}
+		}
+	}
+
+	[Function]
+	qPutQ :: Typeable a => a -> m ()
+	Name: qPutQ
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:qPutQ
+	Containing package: Language.Haskell.TH.Syntax
+	attributes {
+		memberType=function
+	}
+	Containing type: Quasi
+	parameters {
+		a: (Typeable a; a; Data.Typeable.Internal::Typeable)
+		m: (Quasi m; m; Language.Haskell.TH.Syntax::Quasi)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::m {
+			GHC.Tuple::()
+		}
+	}
+}
+
+[Classifier]
+data Loc = Loc { loc_filename :: String loc_package :: String loc_module :: String loc_start :: CharPos loc_end :: CharPos}
+Name: Loc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Loc
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data FixityDirection = InfixL | InfixR | InfixN
+Name: FixityDirection
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:FixityDirection
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Role = NominalR | RepresentationalR | PhantomR | InferR
+Name: Role
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Role
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Phases = AllPhases | FromPhase Int | BeforePhase Int
+Name: Phases
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Phases
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TyLit = NumTyLit Integer | StrTyLit String
+Name: TyLit
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:TyLit
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Pred = ClassP Name [Type] | EqualP Type Type
+Name: Pred
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Pred
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Info = ClassI Dec [InstanceDec] | ClassOpI Name Type ParentName Fixity | TyConI Dec | FamilyI Dec [InstanceDec] | PrimTyConI Name Arity Unlifted | DataConI Name Type ParentName Fixity | VarI Name Type (Maybe Dec) Fixity | TyVarI Name Type
+Name: Info
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Info
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype PkgName = PkgName String
+Name: PkgName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:PkgName
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data RuleBndr = RuleVar Name | TypedRuleVar Name Type
+Name: RuleBndr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:RuleBndr
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype ModName = ModName String
+Name: ModName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:ModName
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Dec = FunD Name [Clause] | ValD Pat Body [Dec] | DataD Cxt Name [TyVarBndr] [Con] [Name] | NewtypeD Cxt Name [TyVarBndr] Con [Name] | TySynD Name [TyVarBndr] Type | ClassD Cxt Name [TyVarBndr] [FunDep] [Dec] | InstanceD Cxt Type [Dec] | SigD Name Type | ForeignD Foreign | InfixD Fixity Name | PragmaD Pragma | FamilyD FamFlavour Name [TyVarBndr] (Maybe Kind) | DataInstD Cxt Name [Type] [Con] [Name] | NewtypeInstD Cxt Name [Type] Con [Name] | TySynInstD Name TySynEqn | ClosedTypeFamilyD Name [TyVarBndr] (Maybe Kind) [TySynEqn] | RoleAnnotD Name [Role]
+Name: Dec
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Dec
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Body = GuardedB [(Guard, Exp)] | NormalB Exp
+Name: Body
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Body
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Pat = LitP Lit | VarP Name | TupP [Pat] | UnboxedTupP [Pat] | ConP Name [Pat] | InfixP Pat Name Pat | UInfixP Pat Name Pat | ParensP Pat | TildeP Pat | BangP Pat | AsP Name Pat | WildP | RecP Name [FieldPat] | ListP [Pat] | SigP Pat Type | ViewP Exp Pat
+Name: Pat
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Pat
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Match = Match Pat Body [Dec]
+Name: Match
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Match
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TyVarBndr = PlainTV Name | KindedTV Name Kind
+Name: TyVarBndr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:TyVarBndr
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Pragma = InlineP Name Inline RuleMatch Phases | SpecialiseP Name Type (Maybe Inline) Phases | SpecialiseInstP Type | RuleP String [RuleBndr] Exp Exp Phases | AnnP AnnTarget Exp
+Name: Pragma
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Pragma
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Strict = IsStrict | NotStrict | Unpacked
+Name: Strict
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Strict
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ModuleInfo = ModuleInfo [Module]
+Name: ModuleInfo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:ModuleInfo
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data AnnTarget = ModuleAnnotation | TypeAnnotation Name | ValueAnnotation Name
+Name: AnnTarget
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:AnnTarget
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Safety = Unsafe | Safe | Interruptible
+Name: Safety
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Safety
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data NameIs = Alone | Applied | Infix
+Name: NameIs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:NameIs
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data RuleMatch = ConLike | FunLike
+Name: RuleMatch
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:RuleMatch
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Con = NormalC Name [StrictType] | RecC Name [VarStrictType] | InfixC StrictType Name StrictType | ForallC [TyVarBndr] Cxt Con
+Name: Con
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Con
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class Lift t where lift :: t -> Q Exp
+Name: Lift
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Lift
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Data.Bool::Language.Haskell.TH.Syntax.Lift_Bool<>
+	Data.Char::Language.Haskell.TH.Syntax.Lift_Char<>
+	Data.Int::Language.Haskell.TH.Syntax.Lift_Int<>
+	Prelude::Language.Haskell.TH.Syntax.Lift_Integer<>
+	other::Language.Haskell.TH.Syntax.Lift_List<a<>>
+	Data.Maybe::Language.Haskell.TH.Syntax.Lift_Maybe<a<>>
+	Data.Either::Language.Haskell.TH.Syntax.Lift_Either<a<>,b<>>
+	GHC.Tuple::Language.Haskell.TH.Syntax.Lift_(,,,)<a<>,b<>>
+	GHC.Tuple::Language.Haskell.TH.Syntax.Lift_(,,,,)<a<>,b<>,c<>>
+	GHC.Tuple::Language.Haskell.TH.Syntax.Lift_(,,,,,)<a<>,b<>,c<>,d<>>
+	GHC.Tuple::Language.Haskell.TH.Syntax.Lift_(,,,,,,)<a<>,b<>,c<>,d<>,e<>>
+	GHC.Tuple::Language.Haskell.TH.Syntax.Lift_(,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>>
+	GHC.Tuple::Language.Haskell.TH.Syntax.Lift_(,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	lift :: t -> Q Exp
+	Name: lift
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:lift
+	Containing package: Language.Haskell.TH.Syntax
+	attributes {
+		memberType=function
+	}
+	Containing type: Lift
+	parameters {
+		t: (Lift t; t; Language.Haskell.TH.Syntax::Lift)
+	}
+	Signature = <function> {
+		[parameters]
+		null::t
+	
+		[result]
+		Language.Haskell.TH.Syntax::Q {
+			Language.Haskell.TH.Syntax::Exp
+		}
+	}
+}
+
+[Classifier]
+data Clause = Clause [Pat] Body [Dec]
+Name: Clause
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Clause
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype OccName = OccName String
+Name: OccName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:OccName
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Lit = CharL Char | StringL String | IntegerL Integer | RationalL Rational | IntPrimL Integer | WordPrimL Integer | FloatPrimL Rational | DoublePrimL Rational | StringPrimL [Word8]
+Name: Lit
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Lit
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data FunDep = FunDep [Name] [Name]
+Name: FunDep
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:FunDep
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data FamFlavour = TypeFam | DataFam
+Name: FamFlavour
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:FamFlavour
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type Uniq = Int
+Name: Uniq
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Uniq
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+}
+parameters {
+}
+Aliased type = Data.Int::Int
+
+[Alias]
+type Cxt = [Pred]
+Name: Cxt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Cxt
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+}
+parameters {
+}
+Aliased type = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		Language.Haskell.TH.Syntax::Pred
+	}
+}
+
+[Alias]
+type Unlifted = Bool
+Name: Unlifted
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Unlifted
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+}
+parameters {
+}
+Aliased type = Data.Bool::Bool
+
+[Alias]
+type FieldExp = (Name, Exp)
+Name: FieldExp
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:FieldExp
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+}
+parameters {
+}
+Aliased type = null::(Name, Exp)
+
+[Alias]
+type VarStrictType = (Name, Strict, Type)
+Name: VarStrictType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:VarStrictType
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+}
+parameters {
+}
+Aliased type = null::(Name, Strict, Type)
+
+[Alias]
+type ParentName = Name
+Name: ParentName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:ParentName
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+}
+parameters {
+}
+Aliased type = Language.Haskell.TH.Syntax::Name
+
+[Alias]
+type StrictType = (Strict, Type)
+Name: StrictType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:StrictType
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+}
+parameters {
+}
+Aliased type = null::(Strict, Type)
+
+[Alias]
+type FieldPat = (Name, Pat)
+Name: FieldPat
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:FieldPat
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+}
+parameters {
+}
+Aliased type = null::(Name, Pat)
+
+[Alias]
+type InstanceDec = Dec
+Name: InstanceDec
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:InstanceDec
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+}
+parameters {
+}
+Aliased type = Language.Haskell.TH.Syntax::Dec
+
+[Alias]
+type Kind = Type
+Name: Kind
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Kind
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+}
+parameters {
+}
+Aliased type = Language.Haskell.TH.Syntax::Type
+
+[Alias]
+type Arity = Int
+Name: Arity
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:Arity
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+}
+parameters {
+}
+Aliased type = Data.Int::Int
+
+[Alias]
+type CharPos = (Int, Int)
+Name: CharPos
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#t:CharPos
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+}
+parameters {
+}
+Aliased type = null::(Int, Int)
+
+[Function]
+nameModule :: Name -> Maybe String
+Name: nameModule
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:nameModule
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::Name
+
+	[result]
+	Data.Maybe::Maybe {
+		Data.String::String
+	}
+}
+
+[Function]
+counter :: IORef Int
+Name: counter
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:counter
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.IORef::IORef {
+		Data.Int::Int
+	}
+}
+
+[Function]
+cmpEq :: Ordering -> Bool
+Name: cmpEq
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:cmpEq
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Ord::Ordering
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+modString :: ModName -> String
+Name: modString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:modString
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::ModName
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+showName :: Name -> String
+Name: showName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:showName
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::Name
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+mk_unboxed_tup_name :: Int -> NameSpace -> Name
+Name: mk_unboxed_tup_name
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:mk_unboxed_tup_name
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	Language.Haskell.TH.Syntax::NameSpace
+
+	[result]
+	Language.Haskell.TH.Syntax::Name
+}
+
+[Function]
+trueName :: Name
+Name: trueName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:trueName
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH.Syntax::Name
+}
+
+[Function]
+reifyModule :: Module -> Q ModuleInfo
+Name: reifyModule
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:reifyModule
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::Module
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		Language.Haskell.TH.Syntax::ModuleInfo
+	}
+}
+
+[Function]
+falseName :: Name
+Name: falseName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:falseName
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH.Syntax::Name
+}
+
+[Function]
+sequenceQ :: [Q a] -> Q [a]
+Name: sequenceQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:sequenceQ
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Language.Haskell.TH.Syntax::Q {
+			null::a
+		}
+	}
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		other::List {
+			null::a
+		}
+	}
+}
+
+[Function]
+leftName :: Name
+Name: leftName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:leftName
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH.Syntax::Name
+}
+
+[Function]
+addDependentFile :: FilePath -> Q ()
+Name: addDependentFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:addDependentFile
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+pkgString :: PkgName -> String
+Name: pkgString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:pkgString
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::PkgName
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+mkNameU :: String -> Uniq -> Name
+Name: mkNameU
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:mkNameU
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Language.Haskell.TH.Syntax::Uniq
+
+	[result]
+	Language.Haskell.TH.Syntax::Name
+}
+
+[Function]
+mkNameL :: String -> Uniq -> Name
+Name: mkNameL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:mkNameL
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Language.Haskell.TH.Syntax::Uniq
+
+	[result]
+	Language.Haskell.TH.Syntax::Name
+}
+
+[Function]
+mkNameG :: NameSpace -> String -> String -> String -> Name
+Name: mkNameG
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:mkNameG
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::NameSpace
+	Data.String::String
+	Data.String::String
+	Data.String::String
+
+	[result]
+	Language.Haskell.TH.Syntax::Name
+}
+
+[Function]
+reportWarning :: String -> Q ()
+Name: reportWarning
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:reportWarning
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+getQ :: Typeable a => Q (Maybe a)
+Name: getQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:getQ
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Typeable a; a; Data.Typeable.Internal::Typeable)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		Data.Maybe::Maybe {
+			null::a
+		}
+	}
+}
+
+[Function]
+reportError :: String -> Q ()
+Name: reportError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:reportError
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+isInstance :: Name -> [Type] -> Q Bool
+Name: isInstance
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:isInstance
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::Name
+	other::List {
+		Language.Haskell.TH.Syntax::Type
+	}
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+bindQ :: Q a -> (a -> Q b) -> Q b
+Name: bindQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:bindQ
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::Q {
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Language.Haskell.TH.Syntax::Q {
+			null::b
+		}
+	}
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		null::b
+	}
+}
+
+[Function]
+showName' :: NameIs -> Name -> String
+Name: showName'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:showName'
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::NameIs
+	Language.Haskell.TH.Syntax::Name
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+occString :: OccName -> String
+Name: occString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:occString
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::OccName
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+nameBase :: Name -> String
+Name: nameBase
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:nameBase
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::Name
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+addModFinalizer :: Q () -> Q ()
+Name: addModFinalizer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:addModFinalizer
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::Q {
+		GHC.Tuple::()
+	}
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+mkOccName :: String -> OccName
+Name: mkOccName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:mkOccName
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Language.Haskell.TH.Syntax::OccName
+}
+
+[Function]
+tupleDataName :: Int -> Name
+Name: tupleDataName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:tupleDataName
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Language.Haskell.TH.Syntax::Name
+}
+
+[Function]
+newName :: String -> Q Name
+Name: newName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:newName
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		Language.Haskell.TH.Syntax::Name
+	}
+}
+
+[Function]
+runIO :: IO a -> Q a
+Name: runIO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:runIO
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		null::a
+	}
+}
+
+[Function]
+rightName :: Name
+Name: rightName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:rightName
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH.Syntax::Name
+}
+
+[Function]
+mkPkgName :: String -> PkgName
+Name: mkPkgName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:mkPkgName
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Language.Haskell.TH.Syntax::PkgName
+}
+
+[Function]
+con_NameL :: Constr
+Name: con_NameL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:con_NameL
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Data::Constr
+}
+
+[Function]
+con_NameG :: Constr
+Name: con_NameG
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:con_NameG
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Data::Constr
+}
+
+[Function]
+con_NameU :: Constr
+Name: con_NameU
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:con_NameU
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Data::Constr
+}
+
+[Function]
+con_NameS :: Constr
+Name: con_NameS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:con_NameS
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Data::Constr
+}
+
+[Function]
+con_NameQ :: Constr
+Name: con_NameQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:con_NameQ
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Data::Constr
+}
+
+[Function]
+addTopDecls :: [Dec] -> Q ()
+Name: addTopDecls
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:addTopDecls
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Language.Haskell.TH.Syntax::Dec
+	}
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+thenCmp :: Ordering -> Ordering -> Ordering
+Name: thenCmp
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:thenCmp
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Ord::Ordering
+	Data.Ord::Ordering
+
+	[result]
+	Data.Ord::Ordering
+}
+
+[Function]
+badIO :: String -> IO a
+Name: badIO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:badIO
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+tupleTypeName :: Int -> Name
+Name: tupleTypeName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:tupleTypeName
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Language.Haskell.TH.Syntax::Name
+}
+
+[Function]
+unboxedTupleTypeName :: Int -> Name
+Name: unboxedTupleTypeName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:unboxedTupleTypeName
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Language.Haskell.TH.Syntax::Name
+}
+
+[Function]
+runQ :: Quasi m => Q a -> m a
+Name: runQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:runQ
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Quasi m; m; Language.Haskell.TH.Syntax::Quasi)
+	a
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::Q {
+		null::a
+	}
+
+	[result]
+	null::m {
+		null::a
+	}
+}
+
+[Function]
+mkNameG_d :: String -> String -> String -> Name
+Name: mkNameG_d
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:mkNameG_d
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Data.String::String
+	Data.String::String
+
+	[result]
+	Language.Haskell.TH.Syntax::Name
+}
+
+[Function]
+mkNameG_v :: String -> String -> String -> Name
+Name: mkNameG_v
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:mkNameG_v
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Data.String::String
+	Data.String::String
+
+	[result]
+	Language.Haskell.TH.Syntax::Name
+}
+
+[Function]
+lookupName :: Bool -> String -> Q (Maybe Name)
+Name: lookupName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:lookupName
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Bool::Bool
+	Data.String::String
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		Data.Maybe::Maybe {
+			Language.Haskell.TH.Syntax::Name
+		}
+	}
+}
+
+[Function]
+justName :: Name
+Name: justName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:justName
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH.Syntax::Name
+}
+
+[Function]
+unboxedTupleDataName :: Int -> Name
+Name: unboxedTupleDataName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:unboxedTupleDataName
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Language.Haskell.TH.Syntax::Name
+}
+
+[Function]
+mkName :: String -> Name
+Name: mkName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:mkName
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Language.Haskell.TH.Syntax::Name
+}
+
+[Function]
+unsafeTExpCoerce :: Q Exp -> Q (TExp a)
+Name: unsafeTExpCoerce
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:unsafeTExpCoerce
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::Q {
+		Language.Haskell.TH.Syntax::Exp
+	}
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		Language.Haskell.TH.Syntax::TExp {
+			null::a
+		}
+	}
+}
+
+[Function]
+putQ :: Typeable a => a -> Q ()
+Name: putQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:putQ
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Typeable a; a; Data.Typeable.Internal::Typeable)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+reifyAnnotations :: Data a => AnnLookup -> Q [a]
+Name: reifyAnnotations
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:reifyAnnotations
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Data a; a; Data.Data::Data)
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::AnnLookup
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		other::List {
+			null::a
+		}
+	}
+}
+
+[Function]
+mkNameG_tc :: String -> String -> String -> Name
+Name: mkNameG_tc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:mkNameG_tc
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Data.String::String
+	Data.String::String
+
+	[result]
+	Language.Haskell.TH.Syntax::Name
+}
+
+[Function]
+report :: Bool -> String -> Q ()
+Name: report
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:report
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Bool::Bool
+	Data.String::String
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+lookupValueName :: String -> Q (Maybe Name)
+Name: lookupValueName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:lookupValueName
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		Data.Maybe::Maybe {
+			Language.Haskell.TH.Syntax::Name
+		}
+	}
+}
+
+[Function]
+recover :: Q a -> Q a -> Q a
+Name: recover
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:recover
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::Q {
+		null::a
+	}
+	Language.Haskell.TH.Syntax::Q {
+		null::a
+	}
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		null::a
+	}
+}
+
+[Function]
+lookupTypeName :: String -> Q (Maybe Name)
+Name: lookupTypeName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:lookupTypeName
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		Data.Maybe::Maybe {
+			Language.Haskell.TH.Syntax::Name
+		}
+	}
+}
+
+[Function]
+mk_tup_name :: Int -> NameSpace -> Name
+Name: mk_tup_name
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:mk_tup_name
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	Language.Haskell.TH.Syntax::NameSpace
+
+	[result]
+	Language.Haskell.TH.Syntax::Name
+}
+
+[Function]
+liftString :: String -> Q Exp
+Name: liftString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:liftString
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		Language.Haskell.TH.Syntax::Exp
+	}
+}
+
+[Function]
+returnQ :: a -> Q a
+Name: returnQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:returnQ
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		null::a
+	}
+}
+
+[Function]
+defaultFixity :: Fixity
+Name: defaultFixity
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:defaultFixity
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH.Syntax::Fixity
+}
+
+[Function]
+nothingName :: Name
+Name: nothingName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:nothingName
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH.Syntax::Name
+}
+
+[Function]
+ty_NameFlavour :: DataType
+Name: ty_NameFlavour
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:ty_NameFlavour
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Data::DataType
+}
+
+[Function]
+mkModName :: String -> ModName
+Name: mkModName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:mkModName
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Language.Haskell.TH.Syntax::ModName
+}
+
+[Function]
+location :: Q Loc
+Name: location
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:location
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		Language.Haskell.TH.Syntax::Loc
+	}
+}
+
+[Function]
+reifyRoles :: Name -> Q [Role]
+Name: reifyRoles
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:reifyRoles
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::Name
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		other::List {
+			Language.Haskell.TH.Syntax::Role
+		}
+	}
+}
+
+[Function]
+reifyInstances :: Name -> [Type] -> Q [InstanceDec]
+Name: reifyInstances
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:reifyInstances
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::Name
+	other::List {
+		Language.Haskell.TH.Syntax::Type
+	}
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		other::List {
+			Language.Haskell.TH.Syntax::InstanceDec
+		}
+	}
+}
+
+[Function]
+reify :: Name -> Q Info
+Name: reify
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:reify
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::Name
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		Language.Haskell.TH.Syntax::Info
+	}
+}
+
+[Function]
+maxPrecedence :: Int
+Name: maxPrecedence
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:maxPrecedence
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+unTypeQ :: Q (TExp a) -> Q Exp
+Name: unTypeQ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Syntax.html#v:unTypeQ
+Containing package: Language.Haskell.TH.Syntax
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::Q {
+		Language.Haskell.TH.Syntax::TExp {
+			null::a
+		}
+	}
+
+	[result]
+	Language.Haskell.TH.Syntax::Q {
+		Language.Haskell.TH.Syntax::Exp
+	}
+}

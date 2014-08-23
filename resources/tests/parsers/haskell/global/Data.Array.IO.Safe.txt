@@ -1,0 +1,108 @@
+[Package]
+Name: Data.Array.IO.Safe
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-IO-Safe.html
+Containing package: Data.Array.IO
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data IOUArray i e
+Name: IOUArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-IO-Safe.html#t:IOUArray
+Containing package: Data.Array.IO.Safe
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	i
+	e
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data IOArray i e :: * -> * -> *
+Name: IOArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-IO-Safe.html#t:IOArray
+Containing package: Data.Array.IO.Safe
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	i
+	e
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+hPutArray :: Handle -> IOUArray Int Word8 -> Int -> IO ()
+Name: hPutArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-IO-Safe.html#v:hPutArray
+Containing package: Data.Array.IO.Safe
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+	Data.Array.IO.Safe::IOUArray {
+		Data.Int::Int
+		Data.Word::Word8
+	}
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+hGetArray :: Handle -> IOUArray Int Word8 -> Int -> IO Int
+Name: hGetArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-IO-Safe.html#v:hGetArray
+Containing package: Data.Array.IO.Safe
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+	Data.Array.IO.Safe::IOUArray {
+		Data.Int::Int
+		Data.Word::Word8
+	}
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}

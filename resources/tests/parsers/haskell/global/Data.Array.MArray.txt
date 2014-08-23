@@ -1,0 +1,513 @@
+[Package]
+Name: Data.Array.MArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-MArray.html
+Containing package: Data.Array
+attributes {
+}
+
+Subpackages {
+	Data.Array.MArray.Safe
+}
+
+[Classifier]
+class Monad m => MArray a e m where getBounds :: Ix i => a i e -> m (i, i) newArray :: Ix i => (i, i) -> e -> m (a i e) newArray_ :: Ix i => (i, i) -> m (a i e)
+Name: MArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-MArray.html#t:MArray
+Containing package: Data.Array.MArray
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Data.Array.IO.Safe::Data.Array.MArray.MArray_IOArray<e<>,IO<>>
+	Data.Array.IO.Safe::Data.Array.MArray.MArray_IOUArray<Bool<>,IO<>>
+	Data.Array.IO.Safe::Data.Array.MArray.MArray_IOUArray<Char<>,IO<>>
+	Data.Array.IO.Safe::Data.Array.MArray.MArray_IOUArray<Double<>,IO<>>
+	Data.Array.IO.Safe::Data.Array.MArray.MArray_IOUArray<Float<>,IO<>>
+	Data.Array.IO.Safe::Data.Array.MArray.MArray_IOUArray<Int<>,IO<>>
+	Data.Array.IO.Safe::Data.Array.MArray.MArray_IOUArray<Int8<>,IO<>>
+	Data.Array.IO.Safe::Data.Array.MArray.MArray_IOUArray<Int16<>,IO<>>
+	Data.Array.IO.Safe::Data.Array.MArray.MArray_IOUArray<Int32<>,IO<>>
+	Data.Array.IO.Safe::Data.Array.MArray.MArray_IOUArray<Int64<>,IO<>>
+	Data.Array.IO.Safe::Data.Array.MArray.MArray_IOUArray<Word<>,IO<>>
+	Data.Array.IO.Safe::Data.Array.MArray.MArray_IOUArray<Word8<>,IO<>>
+	Data.Array.IO.Safe::Data.Array.MArray.MArray_IOUArray<Word16<>,IO<>>
+	Data.Array.IO.Safe::Data.Array.MArray.MArray_IOUArray<Word32<>,IO<>>
+	Data.Array.IO.Safe::Data.Array.MArray.MArray_IOUArray<Word64<>,IO<>>
+	Data.Array.IO.Safe::Data.Array.MArray.MArray_IOUArray<StablePtr<a<>>,IO<>>
+	Data.Array.IO.Safe::Data.Array.MArray.MArray_IOUArray<Ptr<a<>>,IO<>>
+	Data.Array.IO.Safe::Data.Array.MArray.MArray_IOUArray<FunPtr<a<>>,IO<>>
+	Data.Array.IO::Data.Array.MArray.MArray_IOArray<e<>,IO<>>
+	Data.Array.IO::Data.Array.MArray.MArray_IOUArray<Bool<>,IO<>>
+	Data.Array.IO::Data.Array.MArray.MArray_IOUArray<Char<>,IO<>>
+	Data.Array.IO::Data.Array.MArray.MArray_IOUArray<Double<>,IO<>>
+	Data.Array.IO::Data.Array.MArray.MArray_IOUArray<Float<>,IO<>>
+	Data.Array.IO::Data.Array.MArray.MArray_IOUArray<Int<>,IO<>>
+	Data.Array.IO::Data.Array.MArray.MArray_IOUArray<Int8<>,IO<>>
+	Data.Array.IO::Data.Array.MArray.MArray_IOUArray<Int16<>,IO<>>
+	Data.Array.IO::Data.Array.MArray.MArray_IOUArray<Int32<>,IO<>>
+	Data.Array.IO::Data.Array.MArray.MArray_IOUArray<Int64<>,IO<>>
+	Data.Array.IO::Data.Array.MArray.MArray_IOUArray<Word<>,IO<>>
+	Data.Array.IO::Data.Array.MArray.MArray_IOUArray<Word8<>,IO<>>
+	Data.Array.IO::Data.Array.MArray.MArray_IOUArray<Word16<>,IO<>>
+	Data.Array.IO::Data.Array.MArray.MArray_IOUArray<Word32<>,IO<>>
+	Data.Array.IO::Data.Array.MArray.MArray_IOUArray<Word64<>,IO<>>
+	Data.Array.IO::Data.Array.MArray.MArray_IOUArray<StablePtr<a<>>,IO<>>
+	Data.Array.IO::Data.Array.MArray.MArray_IOUArray<Ptr<a<>>,IO<>>
+	Data.Array.IO::Data.Array.MArray.MArray_IOUArray<FunPtr<a<>>,IO<>>
+	Data.Array.Storable::Data.Array.MArray.MArray_StorableArray<e<>,IO<>>
+	Data.Array.ST::Data.Array.MArray.MArray_STArray<s) e (ST<>,s<>>
+	Data.Array.ST::Data.Array.MArray.MArray_STUArray<s) Word64 (ST<>,s<>>
+	Data.Array.ST::Data.Array.MArray.MArray_STUArray<s) Word32 (ST<>,s<>>
+	Data.Array.ST::Data.Array.MArray.MArray_STUArray<s) Word16 (ST<>,s<>>
+	Data.Array.ST::Data.Array.MArray.MArray_STUArray<s) Word8 (ST<>,s<>>
+	Data.Array.ST::Data.Array.MArray.MArray_STUArray<s) Int64 (ST<>,s<>>
+	Data.Array.ST::Data.Array.MArray.MArray_STUArray<s) Int32 (ST<>,s<>>
+	Data.Array.ST::Data.Array.MArray.MArray_STUArray<s) Int16 (ST<>,s<>>
+	Data.Array.ST::Data.Array.MArray.MArray_STUArray<s) Int8 (ST<>,s<>>
+	Data.Array.ST::Data.Array.MArray.MArray_STUArray<s) Double (ST<>,s<>>
+	Data.Array.ST::Data.Array.MArray.MArray_STUArray<s) Float (ST<>,s<>>
+	Data.Array.ST::Data.Array.MArray.MArray_STUArray<s) Word (ST<>,s<>>
+	Data.Array.ST::Data.Array.MArray.MArray_STUArray<s) Int (ST<>,s<>>
+	Data.Array.ST::Data.Array.MArray.MArray_STUArray<s) Char (ST<>,s<>>
+	Data.Array.ST::Data.Array.MArray.MArray_STUArray<s) Bool (ST<>,s<>>
+	Data.Array.ST::Data.Array.MArray.MArray_STUArray<s) (StablePtr<>,a) (ST<>,s<>>
+	Data.Array.ST::Data.Array.MArray.MArray_STUArray<s) (FunPtr<>,a) (ST<>,s<>>
+	Data.Array.ST::Data.Array.MArray.MArray_STUArray<s) (Ptr<>,a) (ST<>,s<>>
+	Data.Array.ST.Safe::Data.Array.MArray.MArray_STArray<s) e (ST<>,s<>>
+	Data.Array.ST.Safe::Data.Array.MArray.MArray_STUArray<s) Word64 (ST<>,s<>>
+	Data.Array.ST.Safe::Data.Array.MArray.MArray_STUArray<s) Word32 (ST<>,s<>>
+	Data.Array.ST.Safe::Data.Array.MArray.MArray_STUArray<s) Word16 (ST<>,s<>>
+	Data.Array.ST.Safe::Data.Array.MArray.MArray_STUArray<s) Word8 (ST<>,s<>>
+	Data.Array.ST.Safe::Data.Array.MArray.MArray_STUArray<s) Int64 (ST<>,s<>>
+	Data.Array.ST.Safe::Data.Array.MArray.MArray_STUArray<s) Int32 (ST<>,s<>>
+	Data.Array.ST.Safe::Data.Array.MArray.MArray_STUArray<s) Int16 (ST<>,s<>>
+	Data.Array.ST.Safe::Data.Array.MArray.MArray_STUArray<s) Int8 (ST<>,s<>>
+	Data.Array.ST.Safe::Data.Array.MArray.MArray_STUArray<s) Double (ST<>,s<>>
+	Data.Array.ST.Safe::Data.Array.MArray.MArray_STUArray<s) Float (ST<>,s<>>
+	Data.Array.ST.Safe::Data.Array.MArray.MArray_STUArray<s) Word (ST<>,s<>>
+	Data.Array.ST.Safe::Data.Array.MArray.MArray_STUArray<s) Int (ST<>,s<>>
+	Data.Array.ST.Safe::Data.Array.MArray.MArray_STUArray<s) Char (ST<>,s<>>
+	Data.Array.ST.Safe::Data.Array.MArray.MArray_STUArray<s) Bool (ST<>,s<>>
+	Data.Array.ST.Safe::Data.Array.MArray.MArray_STUArray<s) (StablePtr<>,a) (ST<>,s<>>
+	Data.Array.ST.Safe::Data.Array.MArray.MArray_STUArray<s) (FunPtr<>,a) (ST<>,s<>>
+	Data.Array.ST.Safe::Data.Array.MArray.MArray_STUArray<s) (Ptr<>,a) (ST<>,s<>>
+	Data.Array.Storable.Safe::Data.Array.MArray.MArray_StorableArray<e<>,IO<>>
+}
+supertypes {
+	Control.Monad::Monad
+}
+members {
+
+	[Function]
+	getBounds :: Ix i => a i e -> m (i, i)
+	Name: getBounds
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-MArray.html#v:getBounds
+	Containing package: Data.Array.MArray
+	attributes {
+		memberType=function
+	}
+	Containing type: MArray
+	parameters {
+		i: (Ix i; i; Data.Ix::Ix)
+		a: (MArray a e m; a, e, m; Data.Array.MArray::MArray)
+		e: (MArray a e m; a, e, m; Data.Array.MArray::MArray)
+		m: (MArray a e m; a, e, m; Data.Array.MArray::MArray)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a {
+			null::i
+			null::e
+		}
+	
+		[result]
+		null::m {
+			GHC.Tuple::(,) {
+				null::i
+				null::i
+			}
+		}
+	}
+
+	[Function]
+	newArray :: Ix i => (i, i) -> e -> m (a i e)
+	Name: newArray
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-MArray.html#v:newArray
+	Containing package: Data.Array.MArray
+	attributes {
+		memberType=function
+	}
+	Containing type: MArray
+	parameters {
+		i: (Ix i; i; Data.Ix::Ix)
+		e: (MArray a e m; e, m, a; Data.Array.MArray::MArray)
+		m: (MArray a e m; e, m, a; Data.Array.MArray::MArray)
+		a: (MArray a e m; e, m, a; Data.Array.MArray::MArray)
+	}
+	Signature = <function> {
+		[parameters]
+		GHC.Tuple::(,) {
+			null::i
+			null::i
+		}
+		null::e
+	
+		[result]
+		null::m {
+			null::a {
+				null::i
+				null::e
+			}
+		}
+	}
+
+	[Function]
+	newArray_ :: Ix i => (i, i) -> m (a i e)
+	Name: newArray_
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-MArray.html#v:newArray_
+	Containing package: Data.Array.MArray
+	attributes {
+		memberType=function
+	}
+	Containing type: MArray
+	parameters {
+		i: (Ix i; i; Data.Ix::Ix)
+		m: (MArray a e m; m, a, e; Data.Array.MArray::MArray)
+		a: (MArray a e m; m, a, e; Data.Array.MArray::MArray)
+		e: (MArray a e m; m, a, e; Data.Array.MArray::MArray)
+	}
+	Signature = <function> {
+		[parameters]
+		GHC.Tuple::(,) {
+			null::i
+			null::i
+		}
+	
+		[result]
+		null::m {
+			null::a {
+				null::i
+				null::e
+			}
+		}
+	}
+}
+
+[Function]
+writeArray :: (MArray a e m, Ix i) => a i e -> i -> e -> m ()
+Name: writeArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-MArray.html#v:writeArray
+Containing package: Data.Array.MArray
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (MArray a e m; a, e, m; Data.Array.MArray::MArray)
+	e: (MArray a e m; a, e, m; Data.Array.MArray::MArray)
+	m: (MArray a e m; a, e, m; Data.Array.MArray::MArray)
+	i: (Ix i; i; Data.Ix::Ix)
+}
+Signature = <function> {
+	[parameters]
+	null::a {
+		null::i
+		null::e
+	}
+	null::i
+	null::e
+
+	[result]
+	null::m {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+thaw :: (Ix i, IArray a e, MArray b e m) => a i e -> m (b i e)
+Name: thaw
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-MArray.html#v:thaw
+Containing package: Data.Array.MArray
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	i: (Ix i; i; Data.Ix::Ix)
+	a: (IArray a e; a, e; Data.Array.IArray::IArray)
+	e: (IArray a e; a, e; Data.Array.IArray::IArray), (MArray b e m; e, b, m; Data.Array.MArray::MArray)
+	b: (MArray b e m; e, b, m; Data.Array.MArray::MArray)
+	m: (MArray b e m; e, b, m; Data.Array.MArray::MArray)
+}
+Signature = <function> {
+	[parameters]
+	null::a {
+		null::i
+		null::e
+	}
+
+	[result]
+	null::m {
+		null::b {
+			null::i
+			null::e
+		}
+	}
+}
+
+[Function]
+getElems :: (MArray a e m, Ix i) => a i e -> m [e]
+Name: getElems
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-MArray.html#v:getElems
+Containing package: Data.Array.MArray
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (MArray a e m; a, e, m; Data.Array.MArray::MArray)
+	e: (MArray a e m; a, e, m; Data.Array.MArray::MArray)
+	m: (MArray a e m; a, e, m; Data.Array.MArray::MArray)
+	i: (Ix i; i; Data.Ix::Ix)
+}
+Signature = <function> {
+	[parameters]
+	null::a {
+		null::i
+		null::e
+	}
+
+	[result]
+	null::m {
+		other::List {
+			null::e
+		}
+	}
+}
+
+[Function]
+mapIndices :: (MArray a e m, Ix i, Ix j) => (i, i) -> (i -> j) -> a j e -> m (a i e)
+Name: mapIndices
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-MArray.html#v:mapIndices
+Containing package: Data.Array.MArray
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (MArray a e m; a, e, m; Data.Array.MArray::MArray)
+	e: (MArray a e m; a, e, m; Data.Array.MArray::MArray)
+	m: (MArray a e m; a, e, m; Data.Array.MArray::MArray)
+	i: (Ix i; i; Data.Ix::Ix)
+	j: (Ix j; j; Data.Ix::Ix)
+}
+Signature = <function> {
+	[parameters]
+	GHC.Tuple::(,) {
+		null::i
+		null::i
+	}
+	<function> {
+		[parameters]
+		null::i
+	
+		[result]
+		null::j
+	}
+	null::a {
+		null::j
+		null::e
+	}
+
+	[result]
+	null::m {
+		null::a {
+			null::i
+			null::e
+		}
+	}
+}
+
+[Function]
+mapArray :: (MArray a e' m, MArray a e m, Ix i) => (e' -> e) -> a i e' -> m (a i e)
+Name: mapArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-MArray.html#v:mapArray
+Containing package: Data.Array.MArray
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (MArray a e' m; a, e', m; Data.Array.MArray::MArray), (MArray a e m; a, m, e; Data.Array.MArray::MArray)
+	e': (MArray a e' m; a, e', m; Data.Array.MArray::MArray)
+	m: (MArray a e' m; a, e', m; Data.Array.MArray::MArray), (MArray a e m; a, m, e; Data.Array.MArray::MArray)
+	e: (MArray a e m; a, m, e; Data.Array.MArray::MArray)
+	i: (Ix i; i; Data.Ix::Ix)
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::e'
+	
+		[result]
+		null::e
+	}
+	null::a {
+		null::i
+		null::e'
+	}
+
+	[result]
+	null::m {
+		null::a {
+			null::i
+			null::e
+		}
+	}
+}
+
+[Function]
+newListArray :: (MArray a e m, Ix i) => (i, i) -> [e] -> m (a i e)
+Name: newListArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-MArray.html#v:newListArray
+Containing package: Data.Array.MArray
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (MArray a e m; a, e, m; Data.Array.MArray::MArray)
+	e: (MArray a e m; a, e, m; Data.Array.MArray::MArray)
+	m: (MArray a e m; a, e, m; Data.Array.MArray::MArray)
+	i: (Ix i; i; Data.Ix::Ix)
+}
+Signature = <function> {
+	[parameters]
+	GHC.Tuple::(,) {
+		null::i
+		null::i
+	}
+	other::List {
+		null::e
+	}
+
+	[result]
+	null::m {
+		null::a {
+			null::i
+			null::e
+		}
+	}
+}
+
+[Function]
+freeze :: (Ix i, MArray a e m, IArray b e) => a i e -> m (b i e)
+Name: freeze
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-MArray.html#v:freeze
+Containing package: Data.Array.MArray
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	i: (Ix i; i; Data.Ix::Ix)
+	a: (MArray a e m; a, e, m; Data.Array.MArray::MArray)
+	e: (MArray a e m; a, e, m; Data.Array.MArray::MArray), (IArray b e; e, b; Data.Array.IArray::IArray)
+	m: (MArray a e m; a, e, m; Data.Array.MArray::MArray)
+	b: (IArray b e; e, b; Data.Array.IArray::IArray)
+}
+Signature = <function> {
+	[parameters]
+	null::a {
+		null::i
+		null::e
+	}
+
+	[result]
+	null::m {
+		null::b {
+			null::i
+			null::e
+		}
+	}
+}
+
+[Function]
+getAssocs :: (MArray a e m, Ix i) => a i e -> m [(i, e)]
+Name: getAssocs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-MArray.html#v:getAssocs
+Containing package: Data.Array.MArray
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (MArray a e m; a, e, m; Data.Array.MArray::MArray)
+	e: (MArray a e m; a, e, m; Data.Array.MArray::MArray)
+	m: (MArray a e m; a, e, m; Data.Array.MArray::MArray)
+	i: (Ix i; i; Data.Ix::Ix)
+}
+Signature = <function> {
+	[parameters]
+	null::a {
+		null::i
+		null::e
+	}
+
+	[result]
+	null::m {
+		other::List {
+			GHC.Tuple::(,) {
+				null::i
+				null::e
+			}
+		}
+	}
+}
+
+[Function]
+readArray :: (MArray a e m, Ix i) => a i e -> i -> m e
+Name: readArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-MArray.html#v:readArray
+Containing package: Data.Array.MArray
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (MArray a e m; a, e, m; Data.Array.MArray::MArray)
+	e: (MArray a e m; a, e, m; Data.Array.MArray::MArray)
+	m: (MArray a e m; a, e, m; Data.Array.MArray::MArray)
+	i: (Ix i; i; Data.Ix::Ix)
+}
+Signature = <function> {
+	[parameters]
+	null::a {
+		null::i
+		null::e
+	}
+	null::i
+
+	[result]
+	null::m {
+		null::e
+	}
+}

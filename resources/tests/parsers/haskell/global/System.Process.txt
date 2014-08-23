@@ -1,0 +1,611 @@
+[Package]
+Name: System.Process
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/process-1.2.0.0/System-Process.html
+Containing package: System
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data ProcessHandle
+Name: ProcessHandle
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/process-1.2.0.0/System-Process.html#t:ProcessHandle
+Containing package: System.Process
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data CmdSpec = ShellCommand String | RawCommand FilePath [String]
+Name: CmdSpec
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/process-1.2.0.0/System-Process.html#t:CmdSpec
+Containing package: System.Process
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data CreateProcess = CreateProcess { cmdspec :: CmdSpec cwd :: Maybe FilePath env :: Maybe [(String, String)] std_in :: StdStream std_out :: StdStream std_err :: StdStream close_fds :: Bool create_group :: Bool delegate_ctlc :: Bool}
+Name: CreateProcess
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/process-1.2.0.0/System-Process.html#t:CreateProcess
+Containing package: System.Process
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data StdStream = Inherit | UseHandle Handle | CreatePipe
+Name: StdStream
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/process-1.2.0.0/System-Process.html#t:StdStream
+Containing package: System.Process
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+terminateProcess :: ProcessHandle -> IO ()
+Name: terminateProcess
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/process-1.2.0.0/System-Process.html#v:terminateProcess
+Containing package: System.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Process::ProcessHandle
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+readProcessWithExitCode :: FilePath -> [String] -> String -> IO (ExitCode, String, String)
+Name: readProcessWithExitCode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/process-1.2.0.0/System-Process.html#v:readProcessWithExitCode
+Containing package: System.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	other::List {
+		Data.String::String
+	}
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,,) {
+			System.Exit::ExitCode
+			Data.String::String
+			Data.String::String
+		}
+	}
+}
+
+[Function]
+createProcess :: CreateProcess -> IO (Maybe Handle, Maybe Handle, Maybe Handle, ProcessHandle)
+Name: createProcess
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/process-1.2.0.0/System-Process.html#v:createProcess
+Containing package: System.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Process::CreateProcess
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,,,) {
+			Data.Maybe::Maybe {
+				GHC.IO.Handle::Handle
+			}
+			Data.Maybe::Maybe {
+				GHC.IO.Handle::Handle
+			}
+			Data.Maybe::Maybe {
+				GHC.IO.Handle::Handle
+			}
+			System.Process::ProcessHandle
+		}
+	}
+}
+
+[Function]
+callCommand :: String -> IO ()
+Name: callCommand
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/process-1.2.0.0/System-Process.html#v:callCommand
+Containing package: System.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+runProcess :: FilePath -> [String] -> Maybe FilePath -> Maybe [(String, String)] -> Maybe Handle -> Maybe Handle -> Maybe Handle -> IO ProcessHandle
+Name: runProcess
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/process-1.2.0.0/System-Process.html#v:runProcess
+Containing package: System.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	other::List {
+		Data.String::String
+	}
+	Data.Maybe::Maybe {
+		System.IO::FilePath
+	}
+	Data.Maybe::Maybe {
+		other::List {
+			GHC.Tuple::(,) {
+				Data.String::String
+				Data.String::String
+			}
+		}
+	}
+	Data.Maybe::Maybe {
+		GHC.IO.Handle::Handle
+	}
+	Data.Maybe::Maybe {
+		GHC.IO.Handle::Handle
+	}
+	Data.Maybe::Maybe {
+		GHC.IO.Handle::Handle
+	}
+
+	[result]
+	System.IO::IO {
+		System.Process::ProcessHandle
+	}
+}
+
+[Function]
+showCommandForUser :: FilePath -> [String] -> String
+Name: showCommandForUser
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/process-1.2.0.0/System-Process.html#v:showCommandForUser
+Containing package: System.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	other::List {
+		Data.String::String
+	}
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+system :: String -> IO ExitCode
+Name: system
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/process-1.2.0.0/System-Process.html#v:system
+Containing package: System.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		System.Exit::ExitCode
+	}
+}
+
+[Function]
+runCommand :: String -> IO ProcessHandle
+Name: runCommand
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/process-1.2.0.0/System-Process.html#v:runCommand
+Containing package: System.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		System.Process::ProcessHandle
+	}
+}
+
+[Function]
+shell :: String -> CreateProcess
+Name: shell
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/process-1.2.0.0/System-Process.html#v:shell
+Containing package: System.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.Process::CreateProcess
+}
+
+[Function]
+spawnCommand :: String -> IO ProcessHandle
+Name: spawnCommand
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/process-1.2.0.0/System-Process.html#v:spawnCommand
+Containing package: System.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		System.Process::ProcessHandle
+	}
+}
+
+[Function]
+callProcess :: FilePath -> [String] -> IO ()
+Name: callProcess
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/process-1.2.0.0/System-Process.html#v:callProcess
+Containing package: System.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	other::List {
+		Data.String::String
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+readProcess :: FilePath -> [String] -> String -> IO String
+Name: readProcess
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/process-1.2.0.0/System-Process.html#v:readProcess
+Containing package: System.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	other::List {
+		Data.String::String
+	}
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+runInteractiveCommand :: String -> IO (Handle, Handle, Handle, ProcessHandle)
+Name: runInteractiveCommand
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/process-1.2.0.0/System-Process.html#v:runInteractiveCommand
+Containing package: System.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,,,) {
+			GHC.IO.Handle::Handle
+			GHC.IO.Handle::Handle
+			GHC.IO.Handle::Handle
+			System.Process::ProcessHandle
+		}
+	}
+}
+
+[Function]
+getProcessExitCode :: ProcessHandle -> IO (Maybe ExitCode)
+Name: getProcessExitCode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/process-1.2.0.0/System-Process.html#v:getProcessExitCode
+Containing package: System.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Process::ProcessHandle
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			System.Exit::ExitCode
+		}
+	}
+}
+
+[Function]
+interruptProcessGroupOf :: ProcessHandle -> IO ()
+Name: interruptProcessGroupOf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/process-1.2.0.0/System-Process.html#v:interruptProcessGroupOf
+Containing package: System.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Process::ProcessHandle
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+rawSystem :: String -> [String] -> IO ExitCode
+Name: rawSystem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/process-1.2.0.0/System-Process.html#v:rawSystem
+Containing package: System.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	other::List {
+		Data.String::String
+	}
+
+	[result]
+	System.IO::IO {
+		System.Exit::ExitCode
+	}
+}
+
+[Function]
+spawnProcess :: FilePath -> [String] -> IO ProcessHandle
+Name: spawnProcess
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/process-1.2.0.0/System-Process.html#v:spawnProcess
+Containing package: System.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	other::List {
+		Data.String::String
+	}
+
+	[result]
+	System.IO::IO {
+		System.Process::ProcessHandle
+	}
+}
+
+[Function]
+runInteractiveProcess :: FilePath -> [String] -> Maybe FilePath -> Maybe [(String, String)] -> IO (Handle, Handle, Handle, ProcessHandle)
+Name: runInteractiveProcess
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/process-1.2.0.0/System-Process.html#v:runInteractiveProcess
+Containing package: System.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	other::List {
+		Data.String::String
+	}
+	Data.Maybe::Maybe {
+		System.IO::FilePath
+	}
+	Data.Maybe::Maybe {
+		other::List {
+			GHC.Tuple::(,) {
+				Data.String::String
+				Data.String::String
+			}
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,,,) {
+			GHC.IO.Handle::Handle
+			GHC.IO.Handle::Handle
+			GHC.IO.Handle::Handle
+			System.Process::ProcessHandle
+		}
+	}
+}
+
+[Function]
+waitForProcess :: ProcessHandle -> IO ExitCode
+Name: waitForProcess
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/process-1.2.0.0/System-Process.html#v:waitForProcess
+Containing package: System.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Process::ProcessHandle
+
+	[result]
+	System.IO::IO {
+		System.Exit::ExitCode
+	}
+}
+
+[Function]
+proc :: FilePath -> [String] -> CreateProcess
+Name: proc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/process-1.2.0.0/System-Process.html#v:proc
+Containing package: System.Process
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	other::List {
+		Data.String::String
+	}
+
+	[result]
+	System.Process::CreateProcess
+}

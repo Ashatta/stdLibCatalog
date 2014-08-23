@@ -1,0 +1,306 @@
+[Package]
+Name: Data.Type.Equality
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Type-Equality.html
+Containing package: Type
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data a :~: b where Refl :: a :~: a
+Name: (:~:)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Type-Equality.html#t:(:~:)
+Containing package: Data.Type.Equality
+attributes {
+	infix=true
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+	b
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class TestEquality f where testEquality :: f a -> f b -> Maybe (a :~: b)
+Name: TestEquality
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Type-Equality.html#t:TestEquality
+Containing package: Data.Type.Equality
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Data.Type.Equality::Data.Type.Equality.TestEquality_(:~:)<a<>>
+	Data.Typeable::Data.Type.Equality.TestEquality_(:~:)<a<>>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	testEquality :: f a -> f b -> Maybe (a :~: b)
+	Name: testEquality
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Type-Equality.html#v:testEquality
+	Containing package: Data.Type.Equality
+	attributes {
+		memberType=function
+	}
+	Containing type: TestEquality
+	parameters {
+		f: (TestEquality f; f; Data.Type.Equality::TestEquality)
+		a
+		b
+	}
+	Signature = <function> {
+		[parameters]
+		null::f {
+			null::a
+		}
+		null::f {
+			null::b
+		}
+	
+		[result]
+		Data.Maybe::Maybe {
+			null::(:~:) {
+				null::a
+				null::b
+			}
+		}
+	}
+}
+
+[Function]
+outer :: (f a :~: g b) -> f :~: g
+Name: outer
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Type-Equality.html#v:outer
+Containing package: Data.Type.Equality
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	f
+	a
+	g
+	b
+}
+Signature = <function> {
+	[parameters]
+	null::(:~:) {
+		null::f {
+			null::a
+		}
+		null::g {
+			null::b
+		}
+	}
+
+	[result]
+	null::(:~:) {
+		null::f
+		null::g
+	}
+}
+
+[Function]
+inner :: (f a :~: g b) -> a :~: b
+Name: inner
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Type-Equality.html#v:inner
+Containing package: Data.Type.Equality
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	f
+	a
+	g
+	b
+}
+Signature = <function> {
+	[parameters]
+	null::(:~:) {
+		null::f {
+			null::a
+		}
+		null::g {
+			null::b
+		}
+	}
+
+	[result]
+	null::(:~:) {
+		null::a
+		null::b
+	}
+}
+
+[Function]
+sym :: (a :~: b) -> b :~: a
+Name: sym
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Type-Equality.html#v:sym
+Containing package: Data.Type.Equality
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	null::(:~:) {
+		null::a
+		null::b
+	}
+
+	[result]
+	null::(:~:) {
+		null::b
+		null::a
+	}
+}
+
+[Function]
+gcastWith :: (a :~: b) -> ((a ~ b) => r) -> r
+Name: gcastWith
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Type-Equality.html#v:gcastWith
+Containing package: Data.Type.Equality
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (a ~ b; a, b; )
+	b: (a ~ b; a, b; )
+	r
+}
+Signature = <function> {
+	[parameters]
+	null::(:~:) {
+		null::a
+		null::b
+	}
+	null::r
+
+	[result]
+	null::r
+}
+
+[Function]
+apply :: (f :~: g) -> (a :~: b) -> f a :~: g b
+Name: apply
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Type-Equality.html#v:apply
+Containing package: Data.Type.Equality
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	f
+	g
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	null::(:~:) {
+		null::f
+		null::g
+	}
+	null::(:~:) {
+		null::a
+		null::b
+	}
+
+	[result]
+	null::(:~:) {
+		null::f {
+			null::a
+		}
+		null::g {
+			null::b
+		}
+	}
+}
+
+[Function]
+castWith :: (a :~: b) -> a -> b
+Name: castWith
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Type-Equality.html#v:castWith
+Containing package: Data.Type.Equality
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	null::(:~:) {
+		null::a
+		null::b
+	}
+	null::a
+
+	[result]
+	null::b
+}
+
+[Function]
+trans :: (a :~: b) -> (b :~: c) -> a :~: c
+Name: trans
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Type-Equality.html#v:trans
+Containing package: Data.Type.Equality
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	null::(:~:) {
+		null::a
+		null::b
+	}
+	null::(:~:) {
+		null::b
+		null::c
+	}
+
+	[result]
+	null::(:~:) {
+		null::a
+		null::c
+	}
+}

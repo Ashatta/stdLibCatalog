@@ -1,0 +1,432 @@
+[Package]
+Name: Data.Traversable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Traversable.html
+Containing package: Data
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+class (Functor t, Foldable t) => Traversable t where traverse :: Applicative f => (a -> f b) -> t a -> f (t b) sequenceA :: Applicative f => t (f a) -> f (t a) mapM :: Monad m => (a -> m b) -> t a -> m (t b) sequence :: Monad m => t (m a) -> m (t a)
+Name: Traversable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Traversable.html#t:Traversable
+Containing package: Data.Traversable
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Control.Applicative.Backwards::Data.Traversable.Traversable_Backwards<f<>>
+	Control.Applicative.Lift::Data.Traversable.Traversable_Lift<f<>>
+	Control.Applicative::Data.Traversable.Traversable_Const<m<>>
+	Control.Monad.Trans.Error::Data.Traversable.Traversable_ErrorT<e<>,f<>>
+	Control.Monad.Trans.Identity::Data.Traversable.Traversable_IdentityT<f<>>
+	Control.Monad.Trans.List::Data.Traversable.Traversable_ListT<f<>>
+	Control.Monad.Trans.Maybe::Data.Traversable.Traversable_MaybeT<f<>>
+	Control.Monad.Trans.Writer.Lazy::Data.Traversable.Traversable_WriterT<w<>,f<>>
+	Control.Monad.Trans.Writer.Strict::Data.Traversable.Traversable_WriterT<w<>,f<>>
+	Data.Either::Data.Traversable.Traversable_Either<a<>>
+	Data.Functor.Compose::Data.Traversable.Traversable_Compose<f<>,g<>>
+	Data.Functor.Constant::Data.Traversable.Traversable_Constant<a<>>
+	Data.Functor.Identity::Data.Traversable.Traversable_Identity<>
+	Data.Functor.Product::Data.Traversable.Traversable_Product<f<>,g<>>
+	Data.Functor.Reverse::Data.Traversable.Traversable_Reverse<f<>>
+	Data.IntMap.Lazy::Data.Traversable.Traversable_IntMap<>
+	Data.IntMap.Strict::Data.Traversable.Traversable_IntMap<>
+	Data.Map.Lazy::Data.Traversable.Traversable_Map<k<>>
+	Data.Map.Strict::Data.Traversable.Traversable_Map<k<>>
+	Data.Maybe::Data.Traversable.Traversable_Maybe<>
+	Data.Proxy::Data.Traversable.Traversable_Proxy<>
+	Data.Sequence::Data.Traversable.Traversable_Seq<>
+	Data.Sequence::Data.Traversable.Traversable_ViewL<>
+	Data.Sequence::Data.Traversable.Traversable_ViewR<>
+	other::Data.Traversable.Traversable_List<curriedParam<>>
+	GHC.Tuple::Data.Traversable.Traversable_(,)<a<>>
+	Data.Tree::Data.Traversable.Traversable_Tree<>
+	Data.Typeable.Internal::Data.Traversable.Traversable_Proxy<>
+	Data.Typeable::Data.Traversable.Traversable_Proxy<>
+	Prelude::Data.Traversable.Traversable_Maybe<>
+	Prelude::Data.Traversable.Traversable_Either<a<>>
+}
+supertypes {
+	Control.Monad::Functor
+	Data.Foldable::Foldable
+}
+members {
+
+	[Function]
+	traverse :: Applicative f => (a -> f b) -> t a -> f (t b)
+	Name: traverse
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Traversable.html#v:traverse
+	Containing package: Data.Traversable
+	attributes {
+		memberType=function
+	}
+	Containing type: Traversable
+	parameters {
+		f: (Applicative f; f; Control.Applicative::Applicative)
+		a
+		b
+		t: (Traversable t; t; Data.Traversable::Traversable)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			null::f {
+				null::b
+			}
+		}
+		null::t {
+			null::a
+		}
+	
+		[result]
+		null::f {
+			null::t {
+				null::b
+			}
+		}
+	}
+
+	[Function]
+	sequenceA :: Applicative f => t (f a) -> f (t a)
+	Name: sequenceA
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Traversable.html#v:sequenceA
+	Containing package: Data.Traversable
+	attributes {
+		memberType=function
+	}
+	Containing type: Traversable
+	parameters {
+		f: (Applicative f; f; Control.Applicative::Applicative)
+		t: (Traversable t; t; Data.Traversable::Traversable)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::t {
+			null::f {
+				null::a
+			}
+		}
+	
+		[result]
+		null::f {
+			null::t {
+				null::a
+			}
+		}
+	}
+
+	[Function]
+	mapM :: Monad m => (a -> m b) -> t a -> m (t b)
+	Name: mapM
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Traversable.html#v:mapM
+	Containing package: Data.Traversable
+	attributes {
+		memberType=function
+	}
+	Containing type: Traversable
+	parameters {
+		m: (Monad m; m; Control.Monad::Monad)
+		a
+		b
+		t: (Traversable t; t; Data.Traversable::Traversable)
+	}
+	Signature = <function> {
+		[parameters]
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			null::m {
+				null::b
+			}
+		}
+		null::t {
+			null::a
+		}
+	
+		[result]
+		null::m {
+			null::t {
+				null::b
+			}
+		}
+	}
+
+	[Function]
+	sequence :: Monad m => t (m a) -> m (t a)
+	Name: sequence
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Traversable.html#v:sequence
+	Containing package: Data.Traversable
+	attributes {
+		memberType=function
+	}
+	Containing type: Traversable
+	parameters {
+		m: (Monad m; m; Control.Monad::Monad)
+		t: (Traversable t; t; Data.Traversable::Traversable)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::t {
+			null::m {
+				null::a
+			}
+		}
+	
+		[result]
+		null::m {
+			null::t {
+				null::a
+			}
+		}
+	}
+}
+
+[Function]
+for :: (Traversable t, Applicative f) => t a -> (a -> f b) -> f (t b)
+Name: for
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Traversable.html#v:for
+Containing package: Data.Traversable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Traversable t; t; Data.Traversable::Traversable)
+	f: (Applicative f; f; Control.Applicative::Applicative)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::f {
+			null::b
+		}
+	}
+
+	[result]
+	null::f {
+		null::t {
+			null::b
+		}
+	}
+}
+
+[Function]
+foldMapDefault :: (Traversable t, Monoid m) => (a -> m) -> t a -> m
+Name: foldMapDefault
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Traversable.html#v:foldMapDefault
+Containing package: Data.Traversable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Traversable t; t; Data.Traversable::Traversable)
+	m: (Monoid m; m; Data.Monoid::Monoid)
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::m
+	}
+	null::t {
+		null::a
+	}
+
+	[result]
+	null::m
+}
+
+[Function]
+forM :: (Traversable t, Monad m) => t a -> (a -> m b) -> m (t b)
+Name: forM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Traversable.html#v:forM
+Containing package: Data.Traversable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Traversable t; t; Data.Traversable::Traversable)
+	m: (Monad m; m; Control.Monad::Monad)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	null::t {
+		null::a
+	}
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::m {
+			null::b
+		}
+	}
+
+	[result]
+	null::m {
+		null::t {
+			null::b
+		}
+	}
+}
+
+[Function]
+fmapDefault :: Traversable t => (a -> b) -> t a -> t b
+Name: fmapDefault
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Traversable.html#v:fmapDefault
+Containing package: Data.Traversable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Traversable t; t; Data.Traversable::Traversable)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::b
+	}
+	null::t {
+		null::a
+	}
+
+	[result]
+	null::t {
+		null::b
+	}
+}
+
+[Function]
+mapAccumR :: Traversable t => (a -> b -> (a, c)) -> a -> t b -> (a, t c)
+Name: mapAccumR
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Traversable.html#v:mapAccumR
+Containing package: Data.Traversable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Traversable t; t; Data.Traversable::Traversable)
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::b
+	
+		[result]
+		GHC.Tuple::(,) {
+			null::a
+			null::c
+		}
+	}
+	null::a
+	null::t {
+		null::b
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		null::a
+		null::t {
+			null::c
+		}
+	}
+}
+
+[Function]
+mapAccumL :: Traversable t => (a -> b -> (a, c)) -> a -> t b -> (a, t c)
+Name: mapAccumL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Traversable.html#v:mapAccumL
+Containing package: Data.Traversable
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	t: (Traversable t; t; Data.Traversable::Traversable)
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::b
+	
+		[result]
+		GHC.Tuple::(,) {
+			null::a
+			null::c
+		}
+	}
+	null::a
+	null::t {
+		null::b
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		null::a
+		null::t {
+			null::c
+		}
+	}
+}

@@ -1,0 +1,72 @@
+[Package]
+Name: GHC.Stats
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Stats.html
+Containing package: GHC
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data GCStats = GCStats { bytesAllocated :: !Int64 numGcs :: !Int64 maxBytesUsed :: !Int64 numByteUsageSamples :: !Int64 cumulativeBytesUsed :: !Int64 bytesCopied :: !Int64 currentBytesUsed :: !Int64 currentBytesSlop :: !Int64 maxBytesSlop :: !Int64 peakMegabytesAllocated :: !Int64 mutatorCpuSeconds :: !Double mutatorWallSeconds :: !Double gcCpuSeconds :: !Double gcWallSeconds :: !Double cpuSeconds :: !Double wallSeconds :: !Double parTotBytesCopied :: !Int64 parMaxBytesCopied :: !Int64}
+Name: GCStats
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Stats.html#t:GCStats
+Containing package: GHC.Stats
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+getGCStats :: IO GCStats
+Name: getGCStats
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Stats.html#v:getGCStats
+Containing package: GHC.Stats
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		GHC.Stats::GCStats
+	}
+}
+
+[Function]
+getGCStatsEnabled :: IO Bool
+Name: getGCStatsEnabled
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Stats.html#v:getGCStatsEnabled
+Containing package: GHC.Stats
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}

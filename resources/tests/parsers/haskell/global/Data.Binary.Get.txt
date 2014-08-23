@@ -1,0 +1,765 @@
+[Package]
+Name: Data.Binary.Get
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html
+Containing package: Data.Binary
+attributes {
+}
+
+Subpackages {
+	Data.Binary.Get.Internal
+}
+
+[Classifier]
+data Get a
+Name: Get
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#t:Get
+Containing package: Data.Binary.Get
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Decoder a = Fail !ByteString !ByteOffset String | Partial (Maybe ByteString -> Decoder a) | Done !ByteString !ByteOffset a
+Name: Decoder
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#t:Decoder
+Containing package: Data.Binary.Get
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type ByteOffset = Int64
+Name: ByteOffset
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#t:ByteOffset
+Containing package: Data.Binary.Get
+attributes {
+}
+parameters {
+}
+Aliased type = Data.Int::Int64
+
+[Function]
+getLazyByteString :: Int64 -> Get ByteString
+Name: getLazyByteString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:getLazyByteString
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int64
+
+	[result]
+	Data.Binary.Get::Get {
+		Data.ByteString.Lazy::ByteString
+	}
+}
+
+[Function]
+skip :: Int -> Get ()
+Name: skip
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:skip
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Data.Binary.Get::Get {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+runGetOrFail :: Get a -> ByteString -> Either (ByteString, ByteOffset, String) (ByteString, ByteOffset, a)
+Name: runGetOrFail
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:runGetOrFail
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Binary.Get::Get {
+		null::a
+	}
+	Data.ByteString.Lazy::ByteString
+
+	[result]
+	Data.Either::Either {
+		GHC.Tuple::(,,) {
+			Data.ByteString.Lazy::ByteString
+			Data.Binary.Get::ByteOffset
+			Data.String::String
+		}
+		GHC.Tuple::(,,) {
+			Data.ByteString.Lazy::ByteString
+			Data.Binary.Get::ByteOffset
+			null::a
+		}
+	}
+}
+
+[Function]
+getWord32be :: Get Word32
+Name: getWord32be
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:getWord32be
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Binary.Get::Get {
+		Data.Word::Word32
+	}
+}
+
+[Function]
+getWord64be :: Get Word64
+Name: getWord64be
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:getWord64be
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Binary.Get::Get {
+		Data.Word::Word64
+	}
+}
+
+[Function]
+runGetState :: Get a -> ByteString -> ByteOffset -> (a, ByteString, ByteOffset)
+Name: runGetState
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:runGetState
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Binary.Get::Get {
+		null::a
+	}
+	Data.ByteString.Lazy::ByteString
+	Data.Binary.Get::ByteOffset
+
+	[result]
+	GHC.Tuple::(,,) {
+		null::a
+		Data.ByteString.Lazy::ByteString
+		Data.Binary.Get::ByteOffset
+	}
+}
+
+[Function]
+getWord16be :: Get Word16
+Name: getWord16be
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:getWord16be
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Binary.Get::Get {
+		Data.Word::Word16
+	}
+}
+
+[Function]
+getWord64le :: Get Word64
+Name: getWord64le
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:getWord64le
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Binary.Get::Get {
+		Data.Word::Word64
+	}
+}
+
+[Function]
+runGet :: Get a -> ByteString -> a
+Name: runGet
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:runGet
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Binary.Get::Get {
+		null::a
+	}
+	Data.ByteString.Lazy::ByteString
+
+	[result]
+	null::a
+}
+
+[Function]
+getWord32host :: Get Word32
+Name: getWord32host
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:getWord32host
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Binary.Get::Get {
+		Data.Word::Word32
+	}
+}
+
+[Function]
+bytesRead :: Get Int64
+Name: bytesRead
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:bytesRead
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Binary.Get::Get {
+		Data.Int::Int64
+	}
+}
+
+[Function]
+lookAhead :: Get a -> Get a
+Name: lookAhead
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:lookAhead
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Binary.Get::Get {
+		null::a
+	}
+
+	[result]
+	Data.Binary.Get::Get {
+		null::a
+	}
+}
+
+[Function]
+runGetIncremental :: Get a -> Decoder a
+Name: runGetIncremental
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:runGetIncremental
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Binary.Get::Get {
+		null::a
+	}
+
+	[result]
+	Data.Binary.Get::Decoder {
+		null::a
+	}
+}
+
+[Function]
+getWord16host :: Get Word16
+Name: getWord16host
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:getWord16host
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Binary.Get::Get {
+		Data.Word::Word16
+	}
+}
+
+[Function]
+getBytes :: Int -> Get ByteString
+Name: getBytes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:getBytes
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Data.Binary.Get::Get {
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+getWord64host :: Get Word64
+Name: getWord64host
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:getWord64host
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Binary.Get::Get {
+		Data.Word::Word64
+	}
+}
+
+[Function]
+pushChunk :: Decoder a -> ByteString -> Decoder a
+Name: pushChunk
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:pushChunk
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Binary.Get::Decoder {
+		null::a
+	}
+	Data.ByteString::ByteString
+
+	[result]
+	Data.Binary.Get::Decoder {
+		null::a
+	}
+}
+
+[Function]
+getWord32le :: Get Word32
+Name: getWord32le
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:getWord32le
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Binary.Get::Get {
+		Data.Word::Word32
+	}
+}
+
+[Function]
+getByteString :: Int -> Get ByteString
+Name: getByteString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:getByteString
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Data.Binary.Get::Get {
+		Data.ByteString::ByteString
+	}
+}
+
+[Function]
+getWord8 :: Get Word8
+Name: getWord8
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:getWord8
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Binary.Get::Get {
+		Data.Word::Word8
+	}
+}
+
+[Function]
+pushChunks :: Decoder a -> ByteString -> Decoder a
+Name: pushChunks
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:pushChunks
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Binary.Get::Decoder {
+		null::a
+	}
+	Data.ByteString.Lazy::ByteString
+
+	[result]
+	Data.Binary.Get::Decoder {
+		null::a
+	}
+}
+
+[Function]
+remaining :: Get Int64
+Name: remaining
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:remaining
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Binary.Get::Get {
+		Data.Int::Int64
+	}
+}
+
+[Function]
+getRemainingLazyByteString :: Get ByteString
+Name: getRemainingLazyByteString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:getRemainingLazyByteString
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Binary.Get::Get {
+		Data.ByteString.Lazy::ByteString
+	}
+}
+
+[Function]
+getWordhost :: Get Word
+Name: getWordhost
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:getWordhost
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Binary.Get::Get {
+		Data.Word::Word
+	}
+}
+
+[Function]
+pushEndOfInput :: Decoder a -> Decoder a
+Name: pushEndOfInput
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:pushEndOfInput
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Binary.Get::Decoder {
+		null::a
+	}
+
+	[result]
+	Data.Binary.Get::Decoder {
+		null::a
+	}
+}
+
+[Function]
+isEmpty :: Get Bool
+Name: isEmpty
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:isEmpty
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Binary.Get::Get {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+getWord16le :: Get Word16
+Name: getWord16le
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:getWord16le
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Binary.Get::Get {
+		Data.Word::Word16
+	}
+}
+
+[Function]
+getLazyByteStringNul :: Get ByteString
+Name: getLazyByteStringNul
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:getLazyByteStringNul
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Binary.Get::Get {
+		Data.ByteString.Lazy::ByteString
+	}
+}
+
+[Function]
+lookAheadM :: Get (Maybe a) -> Get (Maybe a)
+Name: lookAheadM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:lookAheadM
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Binary.Get::Get {
+		Data.Maybe::Maybe {
+			null::a
+		}
+	}
+
+	[result]
+	Data.Binary.Get::Get {
+		Data.Maybe::Maybe {
+			null::a
+		}
+	}
+}
+
+[Function]
+lookAheadE :: Get (Either a b) -> Get (Either a b)
+Name: lookAheadE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/binary-0.7.1.0/Data-Binary-Get.html#v:lookAheadE
+Containing package: Data.Binary.Get
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	Data.Binary.Get::Get {
+		Data.Either::Either {
+			null::a
+			null::b
+		}
+	}
+
+	[result]
+	Data.Binary.Get::Get {
+		Data.Either::Either {
+			null::a
+			null::b
+		}
+	}
+}

@@ -1,0 +1,175 @@
+[Package]
+Name: Data.Array.Unsafe
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-Unsafe.html
+Containing package: Data.Array
+attributes {
+}
+
+Subpackages {
+}
+
+[Function]
+unsafeFreeze :: (Ix i, MArray a e m, IArray b e) => a i e -> m (b i e)
+Name: unsafeFreeze
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-Unsafe.html#v:unsafeFreeze
+Containing package: Data.Array.Unsafe
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	i: (Ix i; i; Data.Ix::Ix)
+	a: (MArray a e m; a, e, m; Data.Array.MArray::MArray)
+	e: (MArray a e m; a, e, m; Data.Array.MArray::MArray), (IArray b e; e, b; Data.Array.IArray::IArray)
+	m: (MArray a e m; a, e, m; Data.Array.MArray::MArray)
+	b: (IArray b e; e, b; Data.Array.IArray::IArray)
+}
+Signature = <function> {
+	[parameters]
+	null::a {
+		null::i
+		null::e
+	}
+
+	[result]
+	null::m {
+		null::b {
+			null::i
+			null::e
+		}
+	}
+}
+
+[Function]
+castIOUArray :: IOUArray ix a -> IO (IOUArray ix b)
+Name: castIOUArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-Unsafe.html#v:castIOUArray
+Containing package: Data.Array.Unsafe
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	ix
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	Data.Array.IO::IOUArray {
+		null::ix
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		Data.Array.IO::IOUArray {
+			null::ix
+			null::b
+		}
+	}
+}
+
+[Function]
+castSTUArray :: STUArray s ix a -> ST s (STUArray s ix b)
+Name: castSTUArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-Unsafe.html#v:castSTUArray
+Containing package: Data.Array.Unsafe
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s
+	ix
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	Data.Array.ST::STUArray {
+		null::s
+		null::ix
+		null::a
+	}
+
+	[result]
+	Control.Monad.ST.Safe::ST {
+		null::s
+		Data.Array.ST::STUArray {
+			null::s
+			null::ix
+			null::b
+		}
+	}
+}
+
+[Function]
+unsafeForeignPtrToStorableArray :: Ix i => ForeignPtr e -> (i, i) -> IO (StorableArray i e)
+Name: unsafeForeignPtrToStorableArray
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-Unsafe.html#v:unsafeForeignPtrToStorableArray
+Containing package: Data.Array.Unsafe
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	i: (Ix i; i; Data.Ix::Ix)
+	e
+}
+Signature = <function> {
+	[parameters]
+	Foreign.ForeignPtr.Safe::ForeignPtr {
+		null::e
+	}
+	GHC.Tuple::(,) {
+		null::i
+		null::i
+	}
+
+	[result]
+	System.IO::IO {
+		Data.Array.Storable::StorableArray {
+			null::i
+			null::e
+		}
+	}
+}
+
+[Function]
+unsafeThaw :: (Ix i, IArray a e, MArray b e m) => a i e -> m (b i e)
+Name: unsafeThaw
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/array-0.5.0.0/Data-Array-Unsafe.html#v:unsafeThaw
+Containing package: Data.Array.Unsafe
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	i: (Ix i; i; Data.Ix::Ix)
+	a: (IArray a e; a, e; Data.Array.IArray::IArray)
+	e: (IArray a e; a, e; Data.Array.IArray::IArray), (MArray b e m; e, b, m; Data.Array.MArray::MArray)
+	b: (MArray b e m; e, b, m; Data.Array.MArray::MArray)
+	m: (MArray b e m; e, b, m; Data.Array.MArray::MArray)
+}
+Signature = <function> {
+	[parameters]
+	null::a {
+		null::i
+		null::e
+	}
+
+	[result]
+	null::m {
+		null::b {
+			null::i
+			null::e
+		}
+	}
+}

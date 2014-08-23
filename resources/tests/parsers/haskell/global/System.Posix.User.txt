@@ -1,0 +1,445 @@
+[Package]
+Name: System.Posix.User
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-User.html
+Containing package: System.Posix
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data GroupEntry = GroupEntry { groupName :: String groupPassword :: String groupID :: GroupID groupMembers :: [String]}
+Name: GroupEntry
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-User.html#t:GroupEntry
+Containing package: System.Posix.User
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data UserEntry = UserEntry { userName :: String userPassword :: String userID :: UserID userGroupID :: GroupID userGecos :: String homeDirectory :: String userShell :: String}
+Name: UserEntry
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-User.html#t:UserEntry
+Containing package: System.Posix.User
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+setUserID :: UserID -> IO ()
+Name: setUserID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-User.html#v:setUserID
+Containing package: System.Posix.User
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::UserID
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+getLoginName :: IO String
+Name: getLoginName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-User.html#v:getLoginName
+Containing package: System.Posix.User
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+getAllUserEntries :: IO [UserEntry]
+Name: getAllUserEntries
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-User.html#v:getAllUserEntries
+Containing package: System.Posix.User
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		other::List {
+			System.Posix.User::UserEntry
+		}
+	}
+}
+
+[Function]
+getGroupEntryForID :: GroupID -> IO GroupEntry
+Name: getGroupEntryForID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-User.html#v:getGroupEntryForID
+Containing package: System.Posix.User
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::GroupID
+
+	[result]
+	System.IO::IO {
+		System.Posix.User::GroupEntry
+	}
+}
+
+[Function]
+getRealGroupID :: IO GroupID
+Name: getRealGroupID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-User.html#v:getRealGroupID
+Containing package: System.Posix.User
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.Posix.Types::GroupID
+	}
+}
+
+[Function]
+getUserEntryForID :: UserID -> IO UserEntry
+Name: getUserEntryForID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-User.html#v:getUserEntryForID
+Containing package: System.Posix.User
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::UserID
+
+	[result]
+	System.IO::IO {
+		System.Posix.User::UserEntry
+	}
+}
+
+[Function]
+setEffectiveUserID :: UserID -> IO ()
+Name: setEffectiveUserID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-User.html#v:setEffectiveUserID
+Containing package: System.Posix.User
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::UserID
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+getEffectiveUserID :: IO UserID
+Name: getEffectiveUserID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-User.html#v:getEffectiveUserID
+Containing package: System.Posix.User
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.Posix.Types::UserID
+	}
+}
+
+[Function]
+getGroupEntryForName :: String -> IO GroupEntry
+Name: getGroupEntryForName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-User.html#v:getGroupEntryForName
+Containing package: System.Posix.User
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		System.Posix.User::GroupEntry
+	}
+}
+
+[Function]
+setGroups :: [GroupID] -> IO ()
+Name: setGroups
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-User.html#v:setGroups
+Containing package: System.Posix.User
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		System.Posix.Types::GroupID
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+getGroups :: IO [GroupID]
+Name: getGroups
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-User.html#v:getGroups
+Containing package: System.Posix.User
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		other::List {
+			System.Posix.Types::GroupID
+		}
+	}
+}
+
+[Function]
+getEffectiveUserName :: IO String
+Name: getEffectiveUserName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-User.html#v:getEffectiveUserName
+Containing package: System.Posix.User
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+getEffectiveGroupID :: IO GroupID
+Name: getEffectiveGroupID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-User.html#v:getEffectiveGroupID
+Containing package: System.Posix.User
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.Posix.Types::GroupID
+	}
+}
+
+[Function]
+setEffectiveGroupID :: GroupID -> IO ()
+Name: setEffectiveGroupID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-User.html#v:setEffectiveGroupID
+Containing package: System.Posix.User
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::GroupID
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+getAllGroupEntries :: IO [GroupEntry]
+Name: getAllGroupEntries
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-User.html#v:getAllGroupEntries
+Containing package: System.Posix.User
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		other::List {
+			System.Posix.User::GroupEntry
+		}
+	}
+}
+
+[Function]
+getUserEntryForName :: String -> IO UserEntry
+Name: getUserEntryForName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-User.html#v:getUserEntryForName
+Containing package: System.Posix.User
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		System.Posix.User::UserEntry
+	}
+}
+
+[Function]
+setGroupID :: GroupID -> IO ()
+Name: setGroupID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-User.html#v:setGroupID
+Containing package: System.Posix.User
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::GroupID
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+getRealUserID :: IO UserID
+Name: getRealUserID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-User.html#v:getRealUserID
+Containing package: System.Posix.User
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.Posix.Types::UserID
+	}
+}

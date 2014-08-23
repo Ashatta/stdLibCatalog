@@ -1,0 +1,192 @@
+[Package]
+Name: Data.Time.Clock.TAI
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Clock-TAI.html
+Containing package: Data.Time.Clock
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data AbsoluteTime
+Name: AbsoluteTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Clock-TAI.html#t:AbsoluteTime
+Containing package: Data.Time.Clock.TAI
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type LeapSecondTable = Day -> Integer
+Name: LeapSecondTable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Clock-TAI.html#t:LeapSecondTable
+Containing package: Data.Time.Clock.TAI
+attributes {
+}
+parameters {
+}
+Aliased type = <function> {
+	[parameters]
+	Data.Time.Calendar::Day
+
+	[result]
+	Prelude::Integer
+}
+
+[Function]
+taiToUTCTime :: LeapSecondTable -> AbsoluteTime -> UTCTime
+Name: taiToUTCTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Clock-TAI.html#v:taiToUTCTime
+Containing package: Data.Time.Clock.TAI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Time.Clock.TAI::LeapSecondTable
+	Data.Time.Clock.TAI::AbsoluteTime
+
+	[result]
+	Data.Time.Clock::UTCTime
+}
+
+[Function]
+utcDayLength :: LeapSecondTable -> Day -> DiffTime
+Name: utcDayLength
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Clock-TAI.html#v:utcDayLength
+Containing package: Data.Time.Clock.TAI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Time.Clock.TAI::LeapSecondTable
+	Data.Time.Calendar::Day
+
+	[result]
+	Data.Time.Clock::DiffTime
+}
+
+[Function]
+diffAbsoluteTime :: AbsoluteTime -> AbsoluteTime -> DiffTime
+Name: diffAbsoluteTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Clock-TAI.html#v:diffAbsoluteTime
+Containing package: Data.Time.Clock.TAI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Time.Clock.TAI::AbsoluteTime
+	Data.Time.Clock.TAI::AbsoluteTime
+
+	[result]
+	Data.Time.Clock::DiffTime
+}
+
+[Function]
+addAbsoluteTime :: DiffTime -> AbsoluteTime -> AbsoluteTime
+Name: addAbsoluteTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Clock-TAI.html#v:addAbsoluteTime
+Containing package: Data.Time.Clock.TAI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Time.Clock::DiffTime
+	Data.Time.Clock.TAI::AbsoluteTime
+
+	[result]
+	Data.Time.Clock.TAI::AbsoluteTime
+}
+
+[Function]
+parseTAIUTCDATFile :: String -> LeapSecondTable
+Name: parseTAIUTCDATFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Clock-TAI.html#v:parseTAIUTCDATFile
+Containing package: Data.Time.Clock.TAI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Data.Time.Clock.TAI::LeapSecondTable
+}
+
+[Function]
+taiEpoch :: AbsoluteTime
+Name: taiEpoch
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Clock-TAI.html#v:taiEpoch
+Containing package: Data.Time.Clock.TAI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Time.Clock.TAI::AbsoluteTime
+}
+
+[Function]
+utcToTAITime :: LeapSecondTable -> UTCTime -> AbsoluteTime
+Name: utcToTAITime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Clock-TAI.html#v:utcToTAITime
+Containing package: Data.Time.Clock.TAI
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Time.Clock.TAI::LeapSecondTable
+	Data.Time.Clock::UTCTime
+
+	[result]
+	Data.Time.Clock.TAI::AbsoluteTime
+}

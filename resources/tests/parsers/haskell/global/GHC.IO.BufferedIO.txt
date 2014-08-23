@@ -1,0 +1,329 @@
+[Package]
+Name: GHC.IO.BufferedIO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-BufferedIO.html
+Containing package: IO
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+class BufferedIO dev where newBuffer :: dev -> BufferState -> IO (Buffer Word8) fillReadBuffer :: dev -> Buffer Word8 -> IO (Int, Buffer Word8) fillReadBuffer0 :: dev -> Buffer Word8 -> IO (Maybe Int, Buffer Word8) emptyWriteBuffer :: dev -> Buffer Word8 -> IO (Buffer Word8) flushWriteBuffer :: dev -> Buffer Word8 -> IO (Buffer Word8) flushWriteBuffer0 :: dev -> Buffer Word8 -> IO (Int, Buffer Word8)
+Name: BufferedIO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-BufferedIO.html#t:BufferedIO
+Containing package: GHC.IO.BufferedIO
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	newBuffer :: dev -> BufferState -> IO (Buffer Word8)
+	Name: newBuffer
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-BufferedIO.html#v:newBuffer
+	Containing package: GHC.IO.BufferedIO
+	attributes {
+		memberType=function
+	}
+	Containing type: BufferedIO
+	parameters {
+		dev: (BufferedIO dev; dev; GHC.IO.BufferedIO::BufferedIO)
+	}
+	Signature = <function> {
+		[parameters]
+		null::dev
+		GHC.IO.Buffer::BufferState
+	
+		[result]
+		System.IO::IO {
+			GHC.IO.Buffer::Buffer {
+				Data.Word::Word8
+			}
+		}
+	}
+
+	[Function]
+	fillReadBuffer :: dev -> Buffer Word8 -> IO (Int, Buffer Word8)
+	Name: fillReadBuffer
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-BufferedIO.html#v:fillReadBuffer
+	Containing package: GHC.IO.BufferedIO
+	attributes {
+		memberType=function
+	}
+	Containing type: BufferedIO
+	parameters {
+		dev: (BufferedIO dev; dev; GHC.IO.BufferedIO::BufferedIO)
+	}
+	Signature = <function> {
+		[parameters]
+		null::dev
+		GHC.IO.Buffer::Buffer {
+			Data.Word::Word8
+		}
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::(,) {
+				Data.Int::Int
+				GHC.IO.Buffer::Buffer {
+					Data.Word::Word8
+				}
+			}
+		}
+	}
+
+	[Function]
+	fillReadBuffer0 :: dev -> Buffer Word8 -> IO (Maybe Int, Buffer Word8)
+	Name: fillReadBuffer0
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-BufferedIO.html#v:fillReadBuffer0
+	Containing package: GHC.IO.BufferedIO
+	attributes {
+		memberType=function
+	}
+	Containing type: BufferedIO
+	parameters {
+		dev: (BufferedIO dev; dev; GHC.IO.BufferedIO::BufferedIO)
+	}
+	Signature = <function> {
+		[parameters]
+		null::dev
+		GHC.IO.Buffer::Buffer {
+			Data.Word::Word8
+		}
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::(,) {
+				Data.Maybe::Maybe {
+					Data.Int::Int
+				}
+				GHC.IO.Buffer::Buffer {
+					Data.Word::Word8
+				}
+			}
+		}
+	}
+
+	[Function]
+	emptyWriteBuffer :: dev -> Buffer Word8 -> IO (Buffer Word8)
+	Name: emptyWriteBuffer
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-BufferedIO.html#v:emptyWriteBuffer
+	Containing package: GHC.IO.BufferedIO
+	attributes {
+		memberType=function
+	}
+	Containing type: BufferedIO
+	parameters {
+		dev: (BufferedIO dev; dev; GHC.IO.BufferedIO::BufferedIO)
+	}
+	Signature = <function> {
+		[parameters]
+		null::dev
+		GHC.IO.Buffer::Buffer {
+			Data.Word::Word8
+		}
+	
+		[result]
+		System.IO::IO {
+			GHC.IO.Buffer::Buffer {
+				Data.Word::Word8
+			}
+		}
+	}
+
+	[Function]
+	flushWriteBuffer :: dev -> Buffer Word8 -> IO (Buffer Word8)
+	Name: flushWriteBuffer
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-BufferedIO.html#v:flushWriteBuffer
+	Containing package: GHC.IO.BufferedIO
+	attributes {
+		memberType=function
+	}
+	Containing type: BufferedIO
+	parameters {
+		dev: (BufferedIO dev; dev; GHC.IO.BufferedIO::BufferedIO)
+	}
+	Signature = <function> {
+		[parameters]
+		null::dev
+		GHC.IO.Buffer::Buffer {
+			Data.Word::Word8
+		}
+	
+		[result]
+		System.IO::IO {
+			GHC.IO.Buffer::Buffer {
+				Data.Word::Word8
+			}
+		}
+	}
+
+	[Function]
+	flushWriteBuffer0 :: dev -> Buffer Word8 -> IO (Int, Buffer Word8)
+	Name: flushWriteBuffer0
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-BufferedIO.html#v:flushWriteBuffer0
+	Containing package: GHC.IO.BufferedIO
+	attributes {
+		memberType=function
+	}
+	Containing type: BufferedIO
+	parameters {
+		dev: (BufferedIO dev; dev; GHC.IO.BufferedIO::BufferedIO)
+	}
+	Signature = <function> {
+		[parameters]
+		null::dev
+		GHC.IO.Buffer::Buffer {
+			Data.Word::Word8
+		}
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::(,) {
+				Data.Int::Int
+				GHC.IO.Buffer::Buffer {
+					Data.Word::Word8
+				}
+			}
+		}
+	}
+}
+
+[Function]
+readBufNonBlocking :: RawIO dev => dev -> Buffer Word8 -> IO (Maybe Int, Buffer Word8)
+Name: readBufNonBlocking
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-BufferedIO.html#v:readBufNonBlocking
+Containing package: GHC.IO.BufferedIO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	dev: (RawIO dev; dev; GHC.IO.Device::RawIO)
+}
+Signature = <function> {
+	[parameters]
+	null::dev
+	GHC.IO.Buffer::Buffer {
+		Data.Word::Word8
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			Data.Maybe::Maybe {
+				Data.Int::Int
+			}
+			GHC.IO.Buffer::Buffer {
+				Data.Word::Word8
+			}
+		}
+	}
+}
+
+[Function]
+readBuf :: RawIO dev => dev -> Buffer Word8 -> IO (Int, Buffer Word8)
+Name: readBuf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-BufferedIO.html#v:readBuf
+Containing package: GHC.IO.BufferedIO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	dev: (RawIO dev; dev; GHC.IO.Device::RawIO)
+}
+Signature = <function> {
+	[parameters]
+	null::dev
+	GHC.IO.Buffer::Buffer {
+		Data.Word::Word8
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			Data.Int::Int
+			GHC.IO.Buffer::Buffer {
+				Data.Word::Word8
+			}
+		}
+	}
+}
+
+[Function]
+writeBuf :: RawIO dev => dev -> Buffer Word8 -> IO (Buffer Word8)
+Name: writeBuf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-BufferedIO.html#v:writeBuf
+Containing package: GHC.IO.BufferedIO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	dev: (RawIO dev; dev; GHC.IO.Device::RawIO)
+}
+Signature = <function> {
+	[parameters]
+	null::dev
+	GHC.IO.Buffer::Buffer {
+		Data.Word::Word8
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.IO.Buffer::Buffer {
+			Data.Word::Word8
+		}
+	}
+}
+
+[Function]
+writeBufNonBlocking :: RawIO dev => dev -> Buffer Word8 -> IO (Int, Buffer Word8)
+Name: writeBufNonBlocking
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-IO-BufferedIO.html#v:writeBufNonBlocking
+Containing package: GHC.IO.BufferedIO
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	dev: (RawIO dev; dev; GHC.IO.Device::RawIO)
+}
+Signature = <function> {
+	[parameters]
+	null::dev
+	GHC.IO.Buffer::Buffer {
+		Data.Word::Word8
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			Data.Int::Int
+			GHC.IO.Buffer::Buffer {
+				Data.Word::Word8
+			}
+		}
+	}
+}

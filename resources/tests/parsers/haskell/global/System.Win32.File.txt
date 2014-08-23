@@ -1,0 +1,3572 @@
+[Package]
+Name: System.Win32.File
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html
+Containing package: System.Win32
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data WIN32_FILE_ATTRIBUTE_DATA = WIN32_FILE_ATTRIBUTE_DATA { fadFileAttributes :: DWORD fadCreationTime :: FILETIME fadLastAccessTime :: FILETIME fadLastWriteTime :: FILETIME fadFileSize :: DDWORD}
+Name: WIN32_FILE_ATTRIBUTE_DATA
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#t:WIN32_FILE_ATTRIBUTE_DATA
+Containing package: System.Win32.File
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype GET_FILEEX_INFO_LEVELS = GET_FILEEX_INFO_LEVELS Word32
+Name: GET_FILEEX_INFO_LEVELS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#t:GET_FILEEX_INFO_LEVELS
+Containing package: System.Win32.File
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype FindData = FindData (ForeignPtr WIN32_FIND_DATA)
+Name: FindData
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#t:FindData
+Containing package: System.Win32.File
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data BY_HANDLE_FILE_INFORMATION = BY_HANDLE_FILE_INFORMATION { bhfiFileAttributes :: FileAttributeOrFlag bhfiCreationTime :: FILETIME bhfiLastAccessTime :: FILETIME bhfiLastWriteTime :: FILETIME bhfiVolumeSerialNumber :: DWORD bhfiSize :: DDWORD bhfiNumberOfLinks :: DWORD bhfiFileIndex :: DDWORD}
+Name: BY_HANDLE_FILE_INFORMATION
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#t:BY_HANDLE_FILE_INFORMATION
+Containing package: System.Win32.File
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type DriveType = UINT
+Name: DriveType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#t:DriveType
+Containing package: System.Win32.File
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::UINT
+
+[Alias]
+type CreateMode = UINT
+Name: CreateMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#t:CreateMode
+Containing package: System.Win32.File
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::UINT
+
+[Alias]
+type MbLPSECURITY_ATTRIBUTES = Maybe LPSECURITY_ATTRIBUTES
+Name: MbLPSECURITY_ATTRIBUTES
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#t:MbLPSECURITY_ATTRIBUTES
+Containing package: System.Win32.File
+attributes {
+}
+parameters {
+}
+Aliased type = Data.Maybe::Maybe {
+	System.Win32.File::LPSECURITY_ATTRIBUTES
+}
+
+[Alias]
+type LPOVERLAPPED = Ptr ()
+Name: LPOVERLAPPED
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#t:LPOVERLAPPED
+Containing package: System.Win32.File
+attributes {
+}
+parameters {
+}
+Aliased type = Foreign.Ptr::Ptr {
+	GHC.Tuple::()
+}
+
+[Alias]
+type LPSECURITY_ATTRIBUTES = Ptr ()
+Name: LPSECURITY_ATTRIBUTES
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#t:LPSECURITY_ATTRIBUTES
+Containing package: System.Win32.File
+attributes {
+}
+parameters {
+}
+Aliased type = Foreign.Ptr::Ptr {
+	GHC.Tuple::()
+}
+
+[Alias]
+type BinaryType = DWORD
+Name: BinaryType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#t:BinaryType
+Containing package: System.Win32.File
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::DWORD
+
+[Alias]
+type FileAttributeOrFlag = UINT
+Name: FileAttributeOrFlag
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#t:FileAttributeOrFlag
+Containing package: System.Win32.File
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::UINT
+
+[Alias]
+type MbLPOVERLAPPED = Maybe LPOVERLAPPED
+Name: MbLPOVERLAPPED
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#t:MbLPOVERLAPPED
+Containing package: System.Win32.File
+attributes {
+}
+parameters {
+}
+Aliased type = Data.Maybe::Maybe {
+	System.Win32.File::LPOVERLAPPED
+}
+
+[Alias]
+type ShareMode = UINT
+Name: ShareMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#t:ShareMode
+Containing package: System.Win32.File
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::UINT
+
+[Alias]
+type DefineDosDeviceFlags = DWORD
+Name: DefineDosDeviceFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#t:DefineDosDeviceFlags
+Containing package: System.Win32.File
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::DWORD
+
+[Alias]
+type WIN32_FIND_DATA = ()
+Name: WIN32_FIND_DATA
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#t:WIN32_FIND_DATA
+Containing package: System.Win32.File
+attributes {
+}
+parameters {
+}
+Aliased type = null::()
+
+[Alias]
+type MoveFileFlag = DWORD
+Name: MoveFileFlag
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#t:MoveFileFlag
+Containing package: System.Win32.File
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::DWORD
+
+[Alias]
+type FileNotificationFlag = DWORD
+Name: FileNotificationFlag
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#t:FileNotificationFlag
+Containing package: System.Win32.File
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::DWORD
+
+[Alias]
+type FileType = DWORD
+Name: FileType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#t:FileType
+Containing package: System.Win32.File
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::DWORD
+
+[Alias]
+type FilePtrDirection = DWORD
+Name: FilePtrDirection
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#t:FilePtrDirection
+Containing package: System.Win32.File
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::DWORD
+
+[Alias]
+type AccessMode = UINT
+Name: AccessMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#t:AccessMode
+Containing package: System.Win32.File
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::UINT
+
+[Function]
+failIfWithRetry :: (a -> Bool) -> String -> IO a -> IO a
+Name: failIfWithRetry
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:failIfWithRetry
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Data.Bool::Bool
+	}
+	Data.String::String
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+fILE_FLAG_DELETE_ON_CLOSE :: FileAttributeOrFlag
+Name: fILE_FLAG_DELETE_ON_CLOSE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_FLAG_DELETE_ON_CLOSE
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileAttributeOrFlag
+}
+
+[Function]
+getFileAttributesExStandard :: String -> IO WIN32_FILE_ATTRIBUTE_DATA
+Name: getFileAttributesExStandard
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:getFileAttributesExStandard
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		System.Win32.File::WIN32_FILE_ATTRIBUTE_DATA
+	}
+}
+
+[Function]
+fILE_TYPE_REMOTE :: FileType
+Name: fILE_TYPE_REMOTE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_TYPE_REMOTE
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileType
+}
+
+[Function]
+dRIVE_UNKNOWN :: DriveType
+Name: dRIVE_UNKNOWN
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:dRIVE_UNKNOWN
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::DriveType
+}
+
+[Function]
+c_WriteFile :: HANDLE -> Ptr a -> DWORD -> Ptr DWORD -> LPOVERLAPPED -> IO Bool
+Name: c_WriteFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_WriteFile
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+	System.Win32.Types::DWORD
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+	System.Win32.File::LPOVERLAPPED
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+fILE_NOTIFY_CHANGE_ATTRIBUTES :: FileNotificationFlag
+Name: fILE_NOTIFY_CHANGE_ATTRIBUTES
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_NOTIFY_CHANGE_ATTRIBUTES
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileNotificationFlag
+}
+
+[Function]
+getDiskFreeSpace :: Maybe String -> IO (DWORD, DWORD, DWORD, DWORD)
+Name: getDiskFreeSpace
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:getDiskFreeSpace
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Maybe::Maybe {
+		Data.String::String
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,,,) {
+			System.Win32.Types::DWORD
+			System.Win32.Types::DWORD
+			System.Win32.Types::DWORD
+			System.Win32.Types::DWORD
+		}
+	}
+}
+
+[Function]
+findCloseChangeNotification :: HANDLE -> IO ()
+Name: findCloseChangeNotification
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:findCloseChangeNotification
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+gENERIC_WRITE :: AccessMode
+Name: gENERIC_WRITE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:gENERIC_WRITE
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::AccessMode
+}
+
+[Function]
+fILE_END :: FilePtrDirection
+Name: fILE_END
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_END
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FilePtrDirection
+}
+
+[Function]
+c_SetEndOfFile :: HANDLE -> IO Bool
+Name: c_SetEndOfFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_SetEndOfFile
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+fILE_TYPE_CHAR :: FileType
+Name: fILE_TYPE_CHAR
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_TYPE_CHAR
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileType
+}
+
+[Function]
+sECURITY_EFFECTIVE_ONLY :: FileAttributeOrFlag
+Name: sECURITY_EFFECTIVE_ONLY
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:sECURITY_EFFECTIVE_ONLY
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileAttributeOrFlag
+}
+
+[Function]
+dELETE :: AccessMode
+Name: dELETE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:dELETE
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::AccessMode
+}
+
+[Function]
+dRIVE_RAMDISK :: DriveType
+Name: dRIVE_RAMDISK
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:dRIVE_RAMDISK
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::DriveType
+}
+
+[Function]
+cREATE_ALWAYS :: CreateMode
+Name: cREATE_ALWAYS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:cREATE_ALWAYS
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::CreateMode
+}
+
+[Function]
+failIfFalseWithRetry_ :: String -> IO Bool -> IO ()
+Name: failIfFalseWithRetry_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:failIfFalseWithRetry_
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+dDD_EXACT_MATCH_ON_REMOVE :: DefineDosDeviceFlags
+Name: dDD_EXACT_MATCH_ON_REMOVE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:dDD_EXACT_MATCH_ON_REMOVE
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::DefineDosDeviceFlags
+}
+
+[Function]
+cREATE_NEW :: CreateMode
+Name: cREATE_NEW
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:cREATE_NEW
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::CreateMode
+}
+
+[Function]
+win32_WriteFile :: HANDLE -> Ptr a -> DWORD -> Maybe LPOVERLAPPED -> IO DWORD
+Name: win32_WriteFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:win32_WriteFile
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+	System.Win32.Types::DWORD
+	Data.Maybe::Maybe {
+		System.Win32.File::LPOVERLAPPED
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::DWORD
+	}
+}
+
+[Function]
+sECURITY_IDENTIFICATION :: FileAttributeOrFlag
+Name: sECURITY_IDENTIFICATION
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:sECURITY_IDENTIFICATION
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileAttributeOrFlag
+}
+
+[Function]
+setVolumeLabel :: String -> String -> IO ()
+Name: setVolumeLabel
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:setVolumeLabel
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+createFile :: String -> AccessMode -> ShareMode -> Maybe LPSECURITY_ATTRIBUTES -> CreateMode -> FileAttributeOrFlag -> Maybe HANDLE -> IO HANDLE
+Name: createFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:createFile
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	System.Win32.File::AccessMode
+	System.Win32.File::ShareMode
+	Data.Maybe::Maybe {
+		System.Win32.File::LPSECURITY_ATTRIBUTES
+	}
+	System.Win32.File::CreateMode
+	System.Win32.File::FileAttributeOrFlag
+	Data.Maybe::Maybe {
+		System.Win32.Types::HANDLE
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::HANDLE
+	}
+}
+
+[Function]
+dRIVE_CDROM :: DriveType
+Name: dRIVE_CDROM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:dRIVE_CDROM
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::DriveType
+}
+
+[Function]
+gENERIC_ALL :: AccessMode
+Name: gENERIC_ALL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:gENERIC_ALL
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::AccessMode
+}
+
+[Function]
+tRUNCATE_EXISTING :: CreateMode
+Name: tRUNCATE_EXISTING
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:tRUNCATE_EXISTING
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::CreateMode
+}
+
+[Function]
+c_SetFileAttributes :: LPCTSTR -> FileAttributeOrFlag -> IO Bool
+Name: c_SetFileAttributes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_SetFileAttributes
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::LPCTSTR
+	System.Win32.File::FileAttributeOrFlag
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+aCCESS_SYSTEM_SECURITY :: AccessMode
+Name: aCCESS_SYSTEM_SECURITY
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:aCCESS_SYSTEM_SECURITY
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::AccessMode
+}
+
+[Function]
+sCS_PIF_BINARY :: BinaryType
+Name: sCS_PIF_BINARY
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:sCS_PIF_BINARY
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::BinaryType
+}
+
+[Function]
+fILE_FLAG_BACKUP_SEMANTICS :: FileAttributeOrFlag
+Name: fILE_FLAG_BACKUP_SEMANTICS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_FLAG_BACKUP_SEMANTICS
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileAttributeOrFlag
+}
+
+[Function]
+fILE_ATTRIBUTE_COMPRESSED :: FileAttributeOrFlag
+Name: fILE_ATTRIBUTE_COMPRESSED
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_ATTRIBUTE_COMPRESSED
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileAttributeOrFlag
+}
+
+[Function]
+gENERIC_READ :: AccessMode
+Name: gENERIC_READ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:gENERIC_READ
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::AccessMode
+}
+
+[Function]
+c_GetFileAttributesEx :: LPCTSTR -> GET_FILEEX_INFO_LEVELS -> Ptr a -> IO BOOL
+Name: c_GetFileAttributesEx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_GetFileAttributesEx
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::LPCTSTR
+	System.Win32.File::GET_FILEEX_INFO_LEVELS
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::BOOL
+	}
+}
+
+[Function]
+c_ReadFile :: HANDLE -> Ptr a -> DWORD -> Ptr DWORD -> LPOVERLAPPED -> IO Bool
+Name: c_ReadFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_ReadFile
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+	System.Win32.Types::DWORD
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+	System.Win32.File::LPOVERLAPPED
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+c_FindCloseChangeNotification :: HANDLE -> IO Bool
+Name: c_FindCloseChangeNotification
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_FindCloseChangeNotification
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+fILE_ATTRIBUTE_SYSTEM :: FileAttributeOrFlag
+Name: fILE_ATTRIBUTE_SYSTEM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_ATTRIBUTE_SYSTEM
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileAttributeOrFlag
+}
+
+[Function]
+fILE_BEGIN :: FilePtrDirection
+Name: fILE_BEGIN
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_BEGIN
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FilePtrDirection
+}
+
+[Function]
+fILE_TYPE_DISK :: FileType
+Name: fILE_TYPE_DISK
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_TYPE_DISK
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileType
+}
+
+[Function]
+c_GetLogicalDrives :: IO DWORD
+Name: c_GetLogicalDrives
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_GetLogicalDrives
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::DWORD
+	}
+}
+
+[Function]
+c_SetCurrentDirectory :: LPCTSTR -> IO Bool
+Name: c_SetCurrentDirectory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_SetCurrentDirectory
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::LPCTSTR
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+sCS_OS216_BINARY :: BinaryType
+Name: sCS_OS216_BINARY
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:sCS_OS216_BINARY
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::BinaryType
+}
+
+[Function]
+fILE_NOTIFY_CHANGE_SIZE :: FileNotificationFlag
+Name: fILE_NOTIFY_CHANGE_SIZE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_NOTIFY_CHANGE_SIZE
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileNotificationFlag
+}
+
+[Function]
+fILE_FLAG_RANDOM_ACCESS :: FileAttributeOrFlag
+Name: fILE_FLAG_RANDOM_ACCESS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_FLAG_RANDOM_ACCESS
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileAttributeOrFlag
+}
+
+[Function]
+c_GetFileAttributes :: LPCTSTR -> IO FileAttributeOrFlag
+Name: c_GetFileAttributes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_GetFileAttributes
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::LPCTSTR
+
+	[result]
+	System.IO::IO {
+		System.Win32.File::FileAttributeOrFlag
+	}
+}
+
+[Function]
+fILE_FLAG_POSIX_SEMANTICS :: FileAttributeOrFlag
+Name: fILE_FLAG_POSIX_SEMANTICS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_FLAG_POSIX_SEMANTICS
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileAttributeOrFlag
+}
+
+[Function]
+fILE_SHARE_WRITE :: ShareMode
+Name: fILE_SHARE_WRITE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_SHARE_WRITE
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::ShareMode
+}
+
+[Function]
+fILE_SHARE_NONE :: ShareMode
+Name: fILE_SHARE_NONE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_SHARE_NONE
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::ShareMode
+}
+
+[Function]
+c_MoveFileEx :: LPCTSTR -> LPCTSTR -> MoveFileFlag -> IO Bool
+Name: c_MoveFileEx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_MoveFileEx
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::LPCTSTR
+	System.Win32.Types::LPCTSTR
+	System.Win32.File::MoveFileFlag
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+fILE_FLAG_SEQUENTIAL_SCAN :: FileAttributeOrFlag
+Name: fILE_FLAG_SEQUENTIAL_SCAN
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_FLAG_SEQUENTIAL_SCAN
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileAttributeOrFlag
+}
+
+[Function]
+mAXIMUM_ALLOWED :: AccessMode
+Name: mAXIMUM_ALLOWED
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:mAXIMUM_ALLOWED
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::AccessMode
+}
+
+[Function]
+defineDosDevice :: DefineDosDeviceFlags -> String -> String -> IO ()
+Name: defineDosDevice
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:defineDosDevice
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.File::DefineDosDeviceFlags
+	Data.String::String
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+setEndOfFile :: HANDLE -> IO ()
+Name: setEndOfFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:setEndOfFile
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+sCS_32BIT_BINARY :: BinaryType
+Name: sCS_32BIT_BINARY
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:sCS_32BIT_BINARY
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::BinaryType
+}
+
+[Function]
+mOVEFILE_REPLACE_EXISTING :: MoveFileFlag
+Name: mOVEFILE_REPLACE_EXISTING
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:mOVEFILE_REPLACE_EXISTING
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::MoveFileFlag
+}
+
+[Function]
+findFirstChangeNotification :: String -> Bool -> FileNotificationFlag -> IO HANDLE
+Name: findFirstChangeNotification
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:findFirstChangeNotification
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Data.Bool::Bool
+	System.Win32.File::FileNotificationFlag
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::HANDLE
+	}
+}
+
+[Function]
+rEAD_CONTROL :: AccessMode
+Name: rEAD_CONTROL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:rEAD_CONTROL
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::AccessMode
+}
+
+[Function]
+dDD_REMOVE_DEFINITION :: DefineDosDeviceFlags
+Name: dDD_REMOVE_DEFINITION
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:dDD_REMOVE_DEFINITION
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::DefineDosDeviceFlags
+}
+
+[Function]
+fILE_ATTRIBUTE_TEMPORARY :: FileAttributeOrFlag
+Name: fILE_ATTRIBUTE_TEMPORARY
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_ATTRIBUTE_TEMPORARY
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileAttributeOrFlag
+}
+
+[Function]
+fILE_FLAG_NO_BUFFERING :: FileAttributeOrFlag
+Name: fILE_FLAG_NO_BUFFERING
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_FLAG_NO_BUFFERING
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileAttributeOrFlag
+}
+
+[Function]
+c_RemoveDirectory :: LPCTSTR -> IO Bool
+Name: c_RemoveDirectory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_RemoveDirectory
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::LPCTSTR
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+setCurrentDirectory :: String -> IO ()
+Name: setCurrentDirectory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:setCurrentDirectory
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+sTANDARD_RIGHTS_READ :: AccessMode
+Name: sTANDARD_RIGHTS_READ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:sTANDARD_RIGHTS_READ
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::AccessMode
+}
+
+[Function]
+sTANDARD_RIGHTS_REQUIRED :: AccessMode
+Name: sTANDARD_RIGHTS_REQUIRED
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:sTANDARD_RIGHTS_REQUIRED
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::AccessMode
+}
+
+[Function]
+c_FindNextChangeNotification :: HANDLE -> IO Bool
+Name: c_FindNextChangeNotification
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_FindNextChangeNotification
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+dRIVE_FIXED :: DriveType
+Name: dRIVE_FIXED
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:dRIVE_FIXED
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::DriveType
+}
+
+[Function]
+failIfWithRetry_ :: (a -> Bool) -> String -> IO a -> IO ()
+Name: failIfWithRetry_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:failIfWithRetry_
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Data.Bool::Bool
+	}
+	Data.String::String
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+sECURITY_SQOS_PRESENT :: FileAttributeOrFlag
+Name: sECURITY_SQOS_PRESENT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:sECURITY_SQOS_PRESENT
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileAttributeOrFlag
+}
+
+[Function]
+c_SetVolumeLabel :: LPCTSTR -> LPCTSTR -> IO Bool
+Name: c_SetVolumeLabel
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_SetVolumeLabel
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::LPCTSTR
+	System.Win32.Types::LPCTSTR
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+mOVEFILE_COPY_ALLOWED :: MoveFileFlag
+Name: mOVEFILE_COPY_ALLOWED
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:mOVEFILE_COPY_ALLOWED
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::MoveFileFlag
+}
+
+[Function]
+sECURITY_CONTEXT_TRACKING :: FileAttributeOrFlag
+Name: sECURITY_CONTEXT_TRACKING
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:sECURITY_CONTEXT_TRACKING
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileAttributeOrFlag
+}
+
+[Function]
+fILE_NOTIFY_CHANGE_LAST_WRITE :: FileNotificationFlag
+Name: fILE_NOTIFY_CHANGE_LAST_WRITE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_NOTIFY_CHANGE_LAST_WRITE
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileNotificationFlag
+}
+
+[Function]
+fILE_FLAG_OVERLAPPED :: FileAttributeOrFlag
+Name: fILE_FLAG_OVERLAPPED
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_FLAG_OVERLAPPED
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileAttributeOrFlag
+}
+
+[Function]
+sCS_POSIX_BINARY :: BinaryType
+Name: sCS_POSIX_BINARY
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:sCS_POSIX_BINARY
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::BinaryType
+}
+
+[Function]
+setFileApisToOEM :: IO ()
+Name: setFileApisToOEM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:setFileApisToOEM
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_CloseHandle :: HANDLE -> IO Bool
+Name: c_CloseHandle
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_CloseHandle
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+sCS_WOW_BINARY :: BinaryType
+Name: sCS_WOW_BINARY
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:sCS_WOW_BINARY
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::BinaryType
+}
+
+[Function]
+fILE_CURRENT :: FilePtrDirection
+Name: fILE_CURRENT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_CURRENT
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FilePtrDirection
+}
+
+[Function]
+c_GetBinaryType :: LPCTSTR -> Ptr DWORD -> IO Bool
+Name: c_GetBinaryType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_GetBinaryType
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::LPCTSTR
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+c_CreateDirectoryEx :: LPCTSTR -> LPCTSTR -> LPSECURITY_ATTRIBUTES -> IO Bool
+Name: c_CreateDirectoryEx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_CreateDirectoryEx
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::LPCTSTR
+	System.Win32.Types::LPCTSTR
+	System.Win32.File::LPSECURITY_ATTRIBUTES
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+sECURITY_ANONYMOUS :: FileAttributeOrFlag
+Name: sECURITY_ANONYMOUS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:sECURITY_ANONYMOUS
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileAttributeOrFlag
+}
+
+[Function]
+dRIVE_NO_ROOT_DIR :: DriveType
+Name: dRIVE_NO_ROOT_DIR
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:dRIVE_NO_ROOT_DIR
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::DriveType
+}
+
+[Function]
+moveFile :: String -> String -> IO ()
+Name: moveFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:moveFile
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+fILE_ATTRIBUTE_DIRECTORY :: FileAttributeOrFlag
+Name: fILE_ATTRIBUTE_DIRECTORY
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_ATTRIBUTE_DIRECTORY
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileAttributeOrFlag
+}
+
+[Function]
+dRIVE_REMOVABLE :: DriveType
+Name: dRIVE_REMOVABLE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:dRIVE_REMOVABLE
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::DriveType
+}
+
+[Function]
+wRITE_DAC :: AccessMode
+Name: wRITE_DAC
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:wRITE_DAC
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::AccessMode
+}
+
+[Function]
+createDirectoryEx :: String -> String -> Maybe LPSECURITY_ATTRIBUTES -> IO ()
+Name: createDirectoryEx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:createDirectoryEx
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Data.String::String
+	Data.Maybe::Maybe {
+		System.Win32.File::LPSECURITY_ATTRIBUTES
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+fILE_SHARE_READ :: ShareMode
+Name: fILE_SHARE_READ
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_SHARE_READ
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::ShareMode
+}
+
+[Function]
+dDD_RAW_TARGET_PATH :: DefineDosDeviceFlags
+Name: dDD_RAW_TARGET_PATH
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:dDD_RAW_TARGET_PATH
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::DefineDosDeviceFlags
+}
+
+[Function]
+fILE_ATTRIBUTE_READONLY :: FileAttributeOrFlag
+Name: fILE_ATTRIBUTE_READONLY
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_ATTRIBUTE_READONLY
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileAttributeOrFlag
+}
+
+[Function]
+c_GetDiskFreeSpace :: LPCTSTR -> Ptr DWORD -> Ptr DWORD -> Ptr DWORD -> Ptr DWORD -> IO Bool
+Name: c_GetDiskFreeSpace
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_GetDiskFreeSpace
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::LPCTSTR
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+sCS_DOS_BINARY :: BinaryType
+Name: sCS_DOS_BINARY
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:sCS_DOS_BINARY
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::BinaryType
+}
+
+[Function]
+getFileAttributes :: String -> IO FileAttributeOrFlag
+Name: getFileAttributes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:getFileAttributes
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		System.Win32.File::FileAttributeOrFlag
+	}
+}
+
+[Function]
+getFileExMaxInfoLevel :: GET_FILEEX_INFO_LEVELS
+Name: getFileExMaxInfoLevel
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:getFileExMaxInfoLevel
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::GET_FILEEX_INFO_LEVELS
+}
+
+[Function]
+c_FindClose :: HANDLE -> IO BOOL
+Name: c_FindClose
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_FindClose
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::BOOL
+	}
+}
+
+[Function]
+sTANDARD_RIGHTS_WRITE :: AccessMode
+Name: sTANDARD_RIGHTS_WRITE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:sTANDARD_RIGHTS_WRITE
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::AccessMode
+}
+
+[Function]
+fILE_ATTRIBUTE_ARCHIVE :: FileAttributeOrFlag
+Name: fILE_ATTRIBUTE_ARCHIVE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_ATTRIBUTE_ARCHIVE
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileAttributeOrFlag
+}
+
+[Function]
+getFileExInfoStandard :: GET_FILEEX_INFO_LEVELS
+Name: getFileExInfoStandard
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:getFileExInfoStandard
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::GET_FILEEX_INFO_LEVELS
+}
+
+[Function]
+c_FindNextFile :: HANDLE -> Ptr WIN32_FIND_DATA -> IO BOOL
+Name: c_FindNextFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_FindNextFile
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+	Foreign.Ptr::Ptr {
+		System.Win32.File::WIN32_FIND_DATA
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::BOOL
+	}
+}
+
+[Function]
+getFileType :: HANDLE -> IO FileType
+Name: getFileType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:getFileType
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+
+	[result]
+	System.IO::IO {
+		System.Win32.File::FileType
+	}
+}
+
+[Function]
+sECURITY_VALID_SQOS_FLAGS :: FileAttributeOrFlag
+Name: sECURITY_VALID_SQOS_FLAGS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:sECURITY_VALID_SQOS_FLAGS
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileAttributeOrFlag
+}
+
+[Function]
+fILE_ATTRIBUTE_HIDDEN :: FileAttributeOrFlag
+Name: fILE_ATTRIBUTE_HIDDEN
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_ATTRIBUTE_HIDDEN
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileAttributeOrFlag
+}
+
+[Function]
+getFileInformationByHandle :: HANDLE -> IO BY_HANDLE_FILE_INFORMATION
+Name: getFileInformationByHandle
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:getFileInformationByHandle
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+
+	[result]
+	System.IO::IO {
+		System.Win32.File::BY_HANDLE_FILE_INFORMATION
+	}
+}
+
+[Function]
+moveFileEx :: String -> String -> MoveFileFlag -> IO ()
+Name: moveFileEx
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:moveFileEx
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Data.String::String
+	System.Win32.File::MoveFileFlag
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+getLogicalDrives :: IO DWORD
+Name: getLogicalDrives
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:getLogicalDrives
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::DWORD
+	}
+}
+
+[Function]
+deleteFile :: String -> IO ()
+Name: deleteFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:deleteFile
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+setFileApisToANSI :: IO ()
+Name: setFileApisToANSI
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:setFileApisToANSI
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+gENERIC_EXECUTE :: AccessMode
+Name: gENERIC_EXECUTE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:gENERIC_EXECUTE
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::AccessMode
+}
+
+[Function]
+getFindDataFileName :: FindData -> IO FilePath
+Name: getFindDataFileName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:getFindDataFileName
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.File::FindData
+
+	[result]
+	System.IO::IO {
+		System.IO::FilePath
+	}
+}
+
+[Function]
+fILE_NOTIFY_CHANGE_DIR_NAME :: FileNotificationFlag
+Name: fILE_NOTIFY_CHANGE_DIR_NAME
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_NOTIFY_CHANGE_DIR_NAME
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileNotificationFlag
+}
+
+[Function]
+c_CreateDirectory :: LPCTSTR -> LPSECURITY_ATTRIBUTES -> IO Bool
+Name: c_CreateDirectory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_CreateDirectory
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::LPCTSTR
+	System.Win32.File::LPSECURITY_ATTRIBUTES
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+findFirstFile :: String -> IO (HANDLE, FindData)
+Name: findFirstFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:findFirstFile
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			System.Win32.Types::HANDLE
+			System.Win32.File::FindData
+		}
+	}
+}
+
+[Function]
+oPEN_ALWAYS :: CreateMode
+Name: oPEN_ALWAYS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:oPEN_ALWAYS
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::CreateMode
+}
+
+[Function]
+setHandleCount :: UINT -> IO UINT
+Name: setHandleCount
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:setHandleCount
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::UINT
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::UINT
+	}
+}
+
+[Function]
+gENERIC_NONE :: AccessMode
+Name: gENERIC_NONE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:gENERIC_NONE
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::AccessMode
+}
+
+[Function]
+c_FindFirstChangeNotification :: LPCTSTR -> Bool -> FileNotificationFlag -> IO HANDLE
+Name: c_FindFirstChangeNotification
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_FindFirstChangeNotification
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::LPCTSTR
+	Data.Bool::Bool
+	System.Win32.File::FileNotificationFlag
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::HANDLE
+	}
+}
+
+[Function]
+findClose :: HANDLE -> IO ()
+Name: findClose
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:findClose
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+dRIVE_REMOTE :: DriveType
+Name: dRIVE_REMOTE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:dRIVE_REMOTE
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::DriveType
+}
+
+[Function]
+c_DefineDosDevice :: DefineDosDeviceFlags -> LPCTSTR -> LPCTSTR -> IO Bool
+Name: c_DefineDosDevice
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_DefineDosDevice
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.File::DefineDosDeviceFlags
+	System.Win32.Types::LPCTSTR
+	System.Win32.Types::LPCTSTR
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+fILE_ATTRIBUTE_NORMAL :: FileAttributeOrFlag
+Name: fILE_ATTRIBUTE_NORMAL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_ATTRIBUTE_NORMAL
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileAttributeOrFlag
+}
+
+[Function]
+removeDirectory :: String -> IO ()
+Name: removeDirectory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:removeDirectory
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_FlushFileBuffers :: HANDLE -> IO Bool
+Name: c_FlushFileBuffers
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_FlushFileBuffers
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+sYNCHRONIZE :: AccessMode
+Name: sYNCHRONIZE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:sYNCHRONIZE
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::AccessMode
+}
+
+[Function]
+findNextChangeNotification :: HANDLE -> IO ()
+Name: findNextChangeNotification
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:findNextChangeNotification
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+wRITE_OWNER :: AccessMode
+Name: wRITE_OWNER
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:wRITE_OWNER
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::AccessMode
+}
+
+[Function]
+oPEN_EXISTING :: CreateMode
+Name: oPEN_EXISTING
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:oPEN_EXISTING
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::CreateMode
+}
+
+[Function]
+findNextFile :: HANDLE -> FindData -> IO Bool
+Name: findNextFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:findNextFile
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+	System.Win32.File::FindData
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+fILE_NOTIFY_CHANGE_SECURITY :: FileNotificationFlag
+Name: fILE_NOTIFY_CHANGE_SECURITY
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_NOTIFY_CHANGE_SECURITY
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileNotificationFlag
+}
+
+[Function]
+fILE_TYPE_UNKNOWN :: FileType
+Name: fILE_TYPE_UNKNOWN
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_TYPE_UNKNOWN
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileType
+}
+
+[Function]
+copyFile :: String -> String -> Bool -> IO ()
+Name: copyFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:copyFile
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Data.String::String
+	Data.Bool::Bool
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+mOVEFILE_DELAY_UNTIL_REBOOT :: MoveFileFlag
+Name: mOVEFILE_DELAY_UNTIL_REBOOT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:mOVEFILE_DELAY_UNTIL_REBOOT
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::MoveFileFlag
+}
+
+[Function]
+sECURITY_IMPERSONATION :: FileAttributeOrFlag
+Name: sECURITY_IMPERSONATION
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:sECURITY_IMPERSONATION
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileAttributeOrFlag
+}
+
+[Function]
+c_DeleteFile :: LPCTSTR -> IO Bool
+Name: c_DeleteFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_DeleteFile
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::LPCTSTR
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+fILE_SHARE_DELETE :: ShareMode
+Name: fILE_SHARE_DELETE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_SHARE_DELETE
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::ShareMode
+}
+
+[Function]
+win32_ReadFile :: HANDLE -> Ptr a -> DWORD -> Maybe LPOVERLAPPED -> IO DWORD
+Name: win32_ReadFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:win32_ReadFile
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+	Foreign.Ptr::Ptr {
+		null::a
+	}
+	System.Win32.Types::DWORD
+	Data.Maybe::Maybe {
+		System.Win32.File::LPOVERLAPPED
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::DWORD
+	}
+}
+
+[Function]
+closeHandle :: HANDLE -> IO ()
+Name: closeHandle
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:closeHandle
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_CopyFile :: LPCTSTR -> LPCTSTR -> Bool -> IO Bool
+Name: c_CopyFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_CopyFile
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::LPCTSTR
+	System.Win32.Types::LPCTSTR
+	Data.Bool::Bool
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+fILE_TYPE_PIPE :: FileType
+Name: fILE_TYPE_PIPE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_TYPE_PIPE
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileType
+}
+
+[Function]
+c_MoveFile :: LPCTSTR -> LPCTSTR -> IO Bool
+Name: c_MoveFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_MoveFile
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::LPCTSTR
+	System.Win32.Types::LPCTSTR
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+setFileAttributes :: String -> FileAttributeOrFlag -> IO ()
+Name: setFileAttributes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:setFileAttributes
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	System.Win32.File::FileAttributeOrFlag
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+flushFileBuffers :: HANDLE -> IO ()
+Name: flushFileBuffers
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:flushFileBuffers
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+fILE_NOTIFY_CHANGE_FILE_NAME :: FileNotificationFlag
+Name: fILE_NOTIFY_CHANGE_FILE_NAME
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_NOTIFY_CHANGE_FILE_NAME
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileNotificationFlag
+}
+
+[Function]
+sPECIFIC_RIGHTS_ALL :: AccessMode
+Name: sPECIFIC_RIGHTS_ALL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:sPECIFIC_RIGHTS_ALL
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::AccessMode
+}
+
+[Function]
+c_FindFirstFile :: LPCTSTR -> Ptr WIN32_FIND_DATA -> IO HANDLE
+Name: c_FindFirstFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_FindFirstFile
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::LPCTSTR
+	Foreign.Ptr::Ptr {
+		System.Win32.File::WIN32_FIND_DATA
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::HANDLE
+	}
+}
+
+[Function]
+c_GetFileInformationByHandle :: HANDLE -> Ptr BY_HANDLE_FILE_INFORMATION -> IO BOOL
+Name: c_GetFileInformationByHandle
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_GetFileInformationByHandle
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+	Foreign.Ptr::Ptr {
+		System.Win32.File::BY_HANDLE_FILE_INFORMATION
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::BOOL
+	}
+}
+
+[Function]
+sECURITY_DELEGATION :: FileAttributeOrFlag
+Name: sECURITY_DELEGATION
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:sECURITY_DELEGATION
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileAttributeOrFlag
+}
+
+[Function]
+fILE_FLAG_WRITE_THROUGH :: FileAttributeOrFlag
+Name: fILE_FLAG_WRITE_THROUGH
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:fILE_FLAG_WRITE_THROUGH
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::FileAttributeOrFlag
+}
+
+[Function]
+sTANDARD_RIGHTS_EXECUTE :: AccessMode
+Name: sTANDARD_RIGHTS_EXECUTE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:sTANDARD_RIGHTS_EXECUTE
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::AccessMode
+}
+
+[Function]
+createDirectory :: String -> Maybe LPSECURITY_ATTRIBUTES -> IO ()
+Name: createDirectory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:createDirectory
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Data.Maybe::Maybe {
+		System.Win32.File::LPSECURITY_ATTRIBUTES
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+getBinaryType :: String -> IO BinaryType
+Name: getBinaryType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:getBinaryType
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		System.Win32.File::BinaryType
+	}
+}
+
+[Function]
+c_CloseHandleFinaliser :: FunPtr (Ptr a -> IO ())
+Name: c_CloseHandleFinaliser
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_CloseHandleFinaliser
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Foreign.Ptr::FunPtr {
+		<function> {
+			[parameters]
+			Foreign.Ptr::Ptr {
+				null::a
+			}
+		
+			[result]
+			System.IO::IO {
+				GHC.Tuple::()
+			}
+		}
+	}
+}
+
+[Function]
+areFileApisANSI :: IO Bool
+Name: areFileApisANSI
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:areFileApisANSI
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+sTANDARD_RIGHTS_ALL :: AccessMode
+Name: sTANDARD_RIGHTS_ALL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:sTANDARD_RIGHTS_ALL
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.File::AccessMode
+}
+
+[Function]
+c_CreateFile :: LPCTSTR -> AccessMode -> ShareMode -> LPSECURITY_ATTRIBUTES -> CreateMode -> FileAttributeOrFlag -> HANDLE -> IO HANDLE
+Name: c_CreateFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-File.html#v:c_CreateFile
+Containing package: System.Win32.File
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::LPCTSTR
+	System.Win32.File::AccessMode
+	System.Win32.File::ShareMode
+	System.Win32.File::LPSECURITY_ATTRIBUTES
+	System.Win32.File::CreateMode
+	System.Win32.File::FileAttributeOrFlag
+	System.Win32.Types::HANDLE
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::HANDLE
+	}
+}

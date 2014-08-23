@@ -1,0 +1,914 @@
+[Package]
+Name: System.IO.Error
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html
+Containing package: System.IO
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data IOErrorType
+Name: IOErrorType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#t:IOErrorType
+Containing package: System.IO.Error
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type IOError = IOException
+Name: IOError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#t:IOError
+Containing package: System.IO.Error
+attributes {
+}
+parameters {
+}
+Aliased type = Control.Exception.Base::IOException
+
+[Function]
+isEOFErrorType :: IOErrorType -> Bool
+Name: isEOFErrorType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:isEOFErrorType
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOErrorType
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+isDoesNotExistError :: IOError -> Bool
+Name: isDoesNotExistError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:isDoesNotExistError
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOError
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+ioeGetLocation :: IOError -> String
+Name: ioeGetLocation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:ioeGetLocation
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOError
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+doesNotExistErrorType :: IOErrorType
+Name: doesNotExistErrorType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:doesNotExistErrorType
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO.Error::IOErrorType
+}
+
+[Function]
+userError :: String -> IOError
+Name: userError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:userError
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO.Error::IOError
+}
+
+[Function]
+mkIOError :: IOErrorType -> String -> Maybe Handle -> Maybe FilePath -> IOError
+Name: mkIOError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:mkIOError
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOErrorType
+	Data.String::String
+	Data.Maybe::Maybe {
+		GHC.IO.Handle::Handle
+	}
+	Data.Maybe::Maybe {
+		System.IO::FilePath
+	}
+
+	[result]
+	System.IO.Error::IOError
+}
+
+[Function]
+ioeSetErrorString :: IOError -> String -> IOError
+Name: ioeSetErrorString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:ioeSetErrorString
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOError
+	Data.String::String
+
+	[result]
+	System.IO.Error::IOError
+}
+
+[Function]
+isAlreadyExistsErrorType :: IOErrorType -> Bool
+Name: isAlreadyExistsErrorType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:isAlreadyExistsErrorType
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOErrorType
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+ioeSetHandle :: IOError -> Handle -> IOError
+Name: ioeSetHandle
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:ioeSetHandle
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOError
+	GHC.IO.Handle::Handle
+
+	[result]
+	System.IO.Error::IOError
+}
+
+[Function]
+isUserErrorType :: IOErrorType -> Bool
+Name: isUserErrorType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:isUserErrorType
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOErrorType
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+ioeGetHandle :: IOError -> Maybe Handle
+Name: ioeGetHandle
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:ioeGetHandle
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOError
+
+	[result]
+	Data.Maybe::Maybe {
+		GHC.IO.Handle::Handle
+	}
+}
+
+[Function]
+alreadyInUseErrorType :: IOErrorType
+Name: alreadyInUseErrorType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:alreadyInUseErrorType
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO.Error::IOErrorType
+}
+
+[Function]
+isIllegalOperationErrorType :: IOErrorType -> Bool
+Name: isIllegalOperationErrorType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:isIllegalOperationErrorType
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOErrorType
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+illegalOperationErrorType :: IOErrorType
+Name: illegalOperationErrorType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:illegalOperationErrorType
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO.Error::IOErrorType
+}
+
+[Function]
+permissionErrorType :: IOErrorType
+Name: permissionErrorType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:permissionErrorType
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO.Error::IOErrorType
+}
+
+[Function]
+isPermissionErrorType :: IOErrorType -> Bool
+Name: isPermissionErrorType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:isPermissionErrorType
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOErrorType
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+isAlreadyInUseError :: IOError -> Bool
+Name: isAlreadyInUseError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:isAlreadyInUseError
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOError
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+alreadyExistsErrorType :: IOErrorType
+Name: alreadyExistsErrorType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:alreadyExistsErrorType
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO.Error::IOErrorType
+}
+
+[Function]
+userErrorType :: IOErrorType
+Name: userErrorType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:userErrorType
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO.Error::IOErrorType
+}
+
+[Function]
+isIllegalOperation :: IOError -> Bool
+Name: isIllegalOperation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:isIllegalOperation
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOError
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+ioeSetFileName :: IOError -> FilePath -> IOError
+Name: ioeSetFileName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:ioeSetFileName
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOError
+	System.IO::FilePath
+
+	[result]
+	System.IO.Error::IOError
+}
+
+[Function]
+isPermissionError :: IOError -> Bool
+Name: isPermissionError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:isPermissionError
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOError
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+isFullErrorType :: IOErrorType -> Bool
+Name: isFullErrorType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:isFullErrorType
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOErrorType
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+modifyIOError :: (IOError -> IOError) -> IO a -> IO a
+Name: modifyIOError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:modifyIOError
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		System.IO.Error::IOError
+	
+		[result]
+		System.IO.Error::IOError
+	}
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+isEOFError :: IOError -> Bool
+Name: isEOFError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:isEOFError
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOError
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+catchIOError :: IO a -> (IOError -> IO a) -> IO a
+Name: catchIOError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:catchIOError
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.IO::IO {
+		null::a
+	}
+	<function> {
+		[parameters]
+		System.IO.Error::IOError
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+isAlreadyExistsError :: IOError -> Bool
+Name: isAlreadyExistsError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:isAlreadyExistsError
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOError
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+isFullError :: IOError -> Bool
+Name: isFullError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:isFullError
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOError
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+ioeGetFileName :: IOError -> Maybe FilePath
+Name: ioeGetFileName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:ioeGetFileName
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOError
+
+	[result]
+	Data.Maybe::Maybe {
+		System.IO::FilePath
+	}
+}
+
+[Function]
+isDoesNotExistErrorType :: IOErrorType -> Bool
+Name: isDoesNotExistErrorType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:isDoesNotExistErrorType
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOErrorType
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+ioeSetLocation :: IOError -> String -> IOError
+Name: ioeSetLocation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:ioeSetLocation
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOError
+	Data.String::String
+
+	[result]
+	System.IO.Error::IOError
+}
+
+[Function]
+tryIOError :: IO a -> IO (Either IOError a)
+Name: tryIOError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:tryIOError
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		Data.Either::Either {
+			System.IO.Error::IOError
+			null::a
+		}
+	}
+}
+
+[Function]
+annotateIOError :: IOError -> String -> Maybe Handle -> Maybe FilePath -> IOError
+Name: annotateIOError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:annotateIOError
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOError
+	Data.String::String
+	Data.Maybe::Maybe {
+		GHC.IO.Handle::Handle
+	}
+	Data.Maybe::Maybe {
+		System.IO::FilePath
+	}
+
+	[result]
+	System.IO.Error::IOError
+}
+
+[Function]
+ioError :: IOError -> IO a
+Name: ioError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:ioError
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOError
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+ioeGetErrorString :: IOError -> String
+Name: ioeGetErrorString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:ioeGetErrorString
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOError
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+eofErrorType :: IOErrorType
+Name: eofErrorType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:eofErrorType
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO.Error::IOErrorType
+}
+
+[Function]
+ioeGetErrorType :: IOError -> IOErrorType
+Name: ioeGetErrorType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:ioeGetErrorType
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOError
+
+	[result]
+	System.IO.Error::IOErrorType
+}
+
+[Function]
+isAlreadyInUseErrorType :: IOErrorType -> Bool
+Name: isAlreadyInUseErrorType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:isAlreadyInUseErrorType
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOErrorType
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+isUserError :: IOError -> Bool
+Name: isUserError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:isUserError
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOError
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+ioeSetErrorType :: IOError -> IOErrorType -> IOError
+Name: ioeSetErrorType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:ioeSetErrorType
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO.Error::IOError
+	System.IO.Error::IOErrorType
+
+	[result]
+	System.IO.Error::IOError
+}
+
+[Function]
+fullErrorType :: IOErrorType
+Name: fullErrorType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-IO-Error.html#v:fullErrorType
+Containing package: System.IO.Error
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO.Error::IOErrorType
+}

@@ -1,0 +1,1655 @@
+[Package]
+Name: System.Posix.Files
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html
+Containing package: System.Posix
+attributes {
+}
+
+Subpackages {
+	System.Posix.Files.ByteString
+}
+
+[Classifier]
+data PathVar = FileSizeBits | LinkLimit | InputLineLimit | InputQueueLimit | FileNameLimit | PathNameLimit | PipeBufferLimit | SymbolicLinkLimit | SetOwnerAndGroupIsRestricted | FileNamesAreNotTruncated | VDisableChar | AsyncIOAvailable | PrioIOAvailable | SyncIOAvailable
+Name: PathVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#t:PathVar
+Containing package: System.Posix.Files
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data FileStatus
+Name: FileStatus
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#t:FileStatus
+Containing package: System.Posix.Files
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+isSocket :: FileStatus -> Bool
+Name: isSocket
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:isSocket
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Files::FileStatus
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+fileGroup :: FileStatus -> GroupID
+Name: fileGroup
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:fileGroup
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Files::FileStatus
+
+	[result]
+	System.Posix.Types::GroupID
+}
+
+[Function]
+accessModes :: FileMode
+Name: accessModes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:accessModes
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Types::FileMode
+}
+
+[Function]
+getSymbolicLinkStatus :: FilePath -> IO FileStatus
+Name: getSymbolicLinkStatus
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:getSymbolicLinkStatus
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		System.Posix.Files::FileStatus
+	}
+}
+
+[Function]
+setOwnerAndGroup :: FilePath -> UserID -> GroupID -> IO ()
+Name: setOwnerAndGroup
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:setOwnerAndGroup
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	System.Posix.Types::UserID
+	System.Posix.Types::GroupID
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+setFdTimesHiRes :: Fd -> POSIXTime -> POSIXTime -> IO ()
+Name: setFdTimesHiRes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:setFdTimesHiRes
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+	Data.Time.Clock.POSIX::POSIXTime
+	Data.Time.Clock.POSIX::POSIXTime
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+unionFileModes :: FileMode -> FileMode -> FileMode
+Name: unionFileModes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:unionFileModes
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::FileMode
+	System.Posix.Types::FileMode
+
+	[result]
+	System.Posix.Types::FileMode
+}
+
+[Function]
+isDirectory :: FileStatus -> Bool
+Name: isDirectory
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:isDirectory
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Files::FileStatus
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+setFileSize :: FilePath -> FileOffset -> IO ()
+Name: setFileSize
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:setFileSize
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	System.Posix.Types::FileOffset
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+setFdMode :: Fd -> FileMode -> IO ()
+Name: setFdMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:setFdMode
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+	System.Posix.Types::FileMode
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+setFileTimesHiRes :: FilePath -> POSIXTime -> POSIXTime -> IO ()
+Name: setFileTimesHiRes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:setFileTimesHiRes
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	Data.Time.Clock.POSIX::POSIXTime
+	Data.Time.Clock.POSIX::POSIXTime
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+fileMode :: FileStatus -> FileMode
+Name: fileMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:fileMode
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Files::FileStatus
+
+	[result]
+	System.Posix.Types::FileMode
+}
+
+[Function]
+touchSymbolicLink :: FilePath -> IO ()
+Name: touchSymbolicLink
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:touchSymbolicLink
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+statusChangeTimeHiRes :: FileStatus -> POSIXTime
+Name: statusChangeTimeHiRes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:statusChangeTimeHiRes
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Files::FileStatus
+
+	[result]
+	Data.Time.Clock.POSIX::POSIXTime
+}
+
+[Function]
+directoryMode :: FileMode
+Name: directoryMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:directoryMode
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Types::FileMode
+}
+
+[Function]
+ownerReadMode :: FileMode
+Name: ownerReadMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:ownerReadMode
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Types::FileMode
+}
+
+[Function]
+stdFileMode :: FileMode
+Name: stdFileMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:stdFileMode
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Types::FileMode
+}
+
+[Function]
+characterSpecialMode :: FileMode
+Name: characterSpecialMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:characterSpecialMode
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Types::FileMode
+}
+
+[Function]
+nullFileMode :: FileMode
+Name: nullFileMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:nullFileMode
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Types::FileMode
+}
+
+[Function]
+intersectFileModes :: FileMode -> FileMode -> FileMode
+Name: intersectFileModes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:intersectFileModes
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::FileMode
+	System.Posix.Types::FileMode
+
+	[result]
+	System.Posix.Types::FileMode
+}
+
+[Function]
+fileID :: FileStatus -> FileID
+Name: fileID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:fileID
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Files::FileStatus
+
+	[result]
+	System.Posix.Types::FileID
+}
+
+[Function]
+accessTimeHiRes :: FileStatus -> POSIXTime
+Name: accessTimeHiRes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:accessTimeHiRes
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Files::FileStatus
+
+	[result]
+	Data.Time.Clock.POSIX::POSIXTime
+}
+
+[Function]
+setGroupIDMode :: FileMode
+Name: setGroupIDMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:setGroupIDMode
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Types::FileMode
+}
+
+[Function]
+ownerModes :: FileMode
+Name: ownerModes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:ownerModes
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Types::FileMode
+}
+
+[Function]
+setFileCreationMask :: FileMode -> IO FileMode
+Name: setFileCreationMask
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:setFileCreationMask
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::FileMode
+
+	[result]
+	System.IO::IO {
+		System.Posix.Types::FileMode
+	}
+}
+
+[Function]
+fileExist :: FilePath -> IO Bool
+Name: fileExist
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:fileExist
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+touchFile :: FilePath -> IO ()
+Name: touchFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:touchFile
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+groupWriteMode :: FileMode
+Name: groupWriteMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:groupWriteMode
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Types::FileMode
+}
+
+[Function]
+fileSize :: FileStatus -> FileOffset
+Name: fileSize
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:fileSize
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Files::FileStatus
+
+	[result]
+	System.Posix.Types::FileOffset
+}
+
+[Function]
+setFdOwnerAndGroup :: Fd -> UserID -> GroupID -> IO ()
+Name: setFdOwnerAndGroup
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:setFdOwnerAndGroup
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+	System.Posix.Types::UserID
+	System.Posix.Types::GroupID
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+getFdStatus :: Fd -> IO FileStatus
+Name: getFdStatus
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:getFdStatus
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+
+	[result]
+	System.IO::IO {
+		System.Posix.Files::FileStatus
+	}
+}
+
+[Function]
+isRegularFile :: FileStatus -> Bool
+Name: isRegularFile
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:isRegularFile
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Files::FileStatus
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+getFileStatus :: FilePath -> IO FileStatus
+Name: getFileStatus
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:getFileStatus
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		System.Posix.Files::FileStatus
+	}
+}
+
+[Function]
+setSymbolicLinkTimesHiRes :: FilePath -> POSIXTime -> POSIXTime -> IO ()
+Name: setSymbolicLinkTimesHiRes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:setSymbolicLinkTimesHiRes
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	Data.Time.Clock.POSIX::POSIXTime
+	Data.Time.Clock.POSIX::POSIXTime
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+setFileMode :: FilePath -> FileMode -> IO ()
+Name: setFileMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:setFileMode
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	System.Posix.Types::FileMode
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+fileAccess :: FilePath -> Bool -> Bool -> Bool -> IO Bool
+Name: fileAccess
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:fileAccess
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	Data.Bool::Bool
+	Data.Bool::Bool
+	Data.Bool::Bool
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+isSymbolicLink :: FileStatus -> Bool
+Name: isSymbolicLink
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:isSymbolicLink
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Files::FileStatus
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+deviceID :: FileStatus -> DeviceID
+Name: deviceID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:deviceID
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Files::FileStatus
+
+	[result]
+	System.Posix.Types::DeviceID
+}
+
+[Function]
+groupModes :: FileMode
+Name: groupModes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:groupModes
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Types::FileMode
+}
+
+[Function]
+createLink :: FilePath -> FilePath -> IO ()
+Name: createLink
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:createLink
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+fileTypeModes :: FileMode
+Name: fileTypeModes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:fileTypeModes
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Types::FileMode
+}
+
+[Function]
+setUserIDMode :: FileMode
+Name: setUserIDMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:setUserIDMode
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Types::FileMode
+}
+
+[Function]
+linkCount :: FileStatus -> LinkCount
+Name: linkCount
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:linkCount
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Files::FileStatus
+
+	[result]
+	System.Posix.Types::LinkCount
+}
+
+[Function]
+otherModes :: FileMode
+Name: otherModes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:otherModes
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Types::FileMode
+}
+
+[Function]
+otherWriteMode :: FileMode
+Name: otherWriteMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:otherWriteMode
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Types::FileMode
+}
+
+[Function]
+ownerWriteMode :: FileMode
+Name: ownerWriteMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:ownerWriteMode
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Types::FileMode
+}
+
+[Function]
+rename :: FilePath -> FilePath -> IO ()
+Name: rename
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:rename
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+fileOwner :: FileStatus -> UserID
+Name: fileOwner
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:fileOwner
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Files::FileStatus
+
+	[result]
+	System.Posix.Types::UserID
+}
+
+[Function]
+getPathVar :: FilePath -> PathVar -> IO Limit
+Name: getPathVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:getPathVar
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	System.Posix.Files::PathVar
+
+	[result]
+	System.IO::IO {
+		System.Posix.Types::Limit
+	}
+}
+
+[Function]
+isBlockDevice :: FileStatus -> Bool
+Name: isBlockDevice
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:isBlockDevice
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Files::FileStatus
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+groupExecuteMode :: FileMode
+Name: groupExecuteMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:groupExecuteMode
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Types::FileMode
+}
+
+[Function]
+socketMode :: FileMode
+Name: socketMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:socketMode
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Types::FileMode
+}
+
+[Function]
+modificationTime :: FileStatus -> EpochTime
+Name: modificationTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:modificationTime
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Files::FileStatus
+
+	[result]
+	System.Posix.Types::EpochTime
+}
+
+[Function]
+regularFileMode :: FileMode
+Name: regularFileMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:regularFileMode
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Types::FileMode
+}
+
+[Function]
+otherExecuteMode :: FileMode
+Name: otherExecuteMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:otherExecuteMode
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Types::FileMode
+}
+
+[Function]
+namedPipeMode :: FileMode
+Name: namedPipeMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:namedPipeMode
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Types::FileMode
+}
+
+[Function]
+setSymbolicLinkOwnerAndGroup :: FilePath -> UserID -> GroupID -> IO ()
+Name: setSymbolicLinkOwnerAndGroup
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:setSymbolicLinkOwnerAndGroup
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	System.Posix.Types::UserID
+	System.Posix.Types::GroupID
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+createDevice :: FilePath -> FileMode -> DeviceID -> IO ()
+Name: createDevice
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:createDevice
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	System.Posix.Types::FileMode
+	System.Posix.Types::DeviceID
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+isCharacterDevice :: FileStatus -> Bool
+Name: isCharacterDevice
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:isCharacterDevice
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Files::FileStatus
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+setFdSize :: Fd -> FileOffset -> IO ()
+Name: setFdSize
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:setFdSize
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+	System.Posix.Types::FileOffset
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+symbolicLinkMode :: FileMode
+Name: symbolicLinkMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:symbolicLinkMode
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Types::FileMode
+}
+
+[Function]
+isNamedPipe :: FileStatus -> Bool
+Name: isNamedPipe
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:isNamedPipe
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Files::FileStatus
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+createSymbolicLink :: FilePath -> FilePath -> IO ()
+Name: createSymbolicLink
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:createSymbolicLink
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+setFileTimes :: FilePath -> EpochTime -> EpochTime -> IO ()
+Name: setFileTimes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:setFileTimes
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	System.Posix.Types::EpochTime
+	System.Posix.Types::EpochTime
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+createNamedPipe :: FilePath -> FileMode -> IO ()
+Name: createNamedPipe
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:createNamedPipe
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	System.Posix.Types::FileMode
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+groupReadMode :: FileMode
+Name: groupReadMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:groupReadMode
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Types::FileMode
+}
+
+[Function]
+ownerExecuteMode :: FileMode
+Name: ownerExecuteMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:ownerExecuteMode
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Types::FileMode
+}
+
+[Function]
+removeLink :: FilePath -> IO ()
+Name: removeLink
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:removeLink
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+readSymbolicLink :: FilePath -> IO FilePath
+Name: readSymbolicLink
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:readSymbolicLink
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		System.IO::FilePath
+	}
+}
+
+[Function]
+otherReadMode :: FileMode
+Name: otherReadMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:otherReadMode
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Types::FileMode
+}
+
+[Function]
+modificationTimeHiRes :: FileStatus -> POSIXTime
+Name: modificationTimeHiRes
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:modificationTimeHiRes
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Files::FileStatus
+
+	[result]
+	Data.Time.Clock.POSIX::POSIXTime
+}
+
+[Function]
+statusChangeTime :: FileStatus -> EpochTime
+Name: statusChangeTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:statusChangeTime
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Files::FileStatus
+
+	[result]
+	System.Posix.Types::EpochTime
+}
+
+[Function]
+getFdPathVar :: Fd -> PathVar -> IO Limit
+Name: getFdPathVar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:getFdPathVar
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+	System.Posix.Files::PathVar
+
+	[result]
+	System.IO::IO {
+		System.Posix.Types::Limit
+	}
+}
+
+[Function]
+blockSpecialMode :: FileMode
+Name: blockSpecialMode
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:blockSpecialMode
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Posix.Types::FileMode
+}
+
+[Function]
+touchFd :: Fd -> IO ()
+Name: touchFd
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:touchFd
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+accessTime :: FileStatus -> EpochTime
+Name: accessTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:accessTime
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Files::FileStatus
+
+	[result]
+	System.Posix.Types::EpochTime
+}
+
+[Function]
+specialDeviceID :: FileStatus -> DeviceID
+Name: specialDeviceID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Files.html#v:specialDeviceID
+Containing package: System.Posix.Files
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Files::FileStatus
+
+	[result]
+	System.Posix.Types::DeviceID
+}

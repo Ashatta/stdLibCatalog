@@ -1,0 +1,930 @@
+[Package]
+Name: Language.Haskell.TH.Ppr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html
+Containing package: Language.Haskell.TH
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+nestDepth :: Int
+	ppr :: a -> Doc
+	ppr_list :: [a] -> Doc
+Name: Ppr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#t:Ppr
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Language.Haskell.TH.Syntax::Language.Haskell.TH.Ppr.Ppr_Exp<>
+	Language.Haskell.TH.Syntax::Language.Haskell.TH.Ppr.Ppr_Match<>
+	Language.Haskell.TH.Syntax::Language.Haskell.TH.Ppr.Ppr_Clause<>
+	Language.Haskell.TH.Syntax::Language.Haskell.TH.Ppr.Ppr_Pat<>
+	Language.Haskell.TH.Syntax::Language.Haskell.TH.Ppr.Ppr_Type<>
+	Language.Haskell.TH.Syntax::Language.Haskell.TH.Ppr.Ppr_Dec<>
+	Language.Haskell.TH.Syntax::Language.Haskell.TH.Ppr.Ppr_Name<>
+	Language.Haskell.TH.Syntax::Language.Haskell.TH.Ppr.Ppr_FunDep<>
+	Language.Haskell.TH.Syntax::Language.Haskell.TH.Ppr.Ppr_Pred<>
+	Language.Haskell.TH.Syntax::Language.Haskell.TH.Ppr.Ppr_TyVarBndr<>
+	Language.Haskell.TH.Syntax::Language.Haskell.TH.Ppr.Ppr_Role<>
+	Language.Haskell.TH.Syntax::Language.Haskell.TH.Ppr.Ppr_TyLit<>
+	Language.Haskell.TH.Syntax::Language.Haskell.TH.Ppr.Ppr_Con<>
+	Language.Haskell.TH.Syntax::Language.Haskell.TH.Ppr.Ppr_RuleBndr<>
+	Language.Haskell.TH.Syntax::Language.Haskell.TH.Ppr.Ppr_Phases<>
+	Language.Haskell.TH.Syntax::Language.Haskell.TH.Ppr.Ppr_RuleMatch<>
+	Language.Haskell.TH.Syntax::Language.Haskell.TH.Ppr.Ppr_Inline<>
+	Language.Haskell.TH.Syntax::Language.Haskell.TH.Ppr.Ppr_Pragma<>
+	Language.Haskell.TH.Syntax::Language.Haskell.TH.Ppr.Ppr_Foreign<>
+	Language.Haskell.TH.Syntax::Language.Haskell.TH.Ppr.Ppr_FamFlavour<>
+	Language.Haskell.TH.Syntax::Language.Haskell.TH.Ppr.Ppr_Range<>
+	Language.Haskell.TH.Syntax::Language.Haskell.TH.Ppr.Ppr_Stmt<>
+	Language.Haskell.TH.Syntax::Language.Haskell.TH.Ppr.Ppr_ModuleInfo<>
+	Language.Haskell.TH.Syntax::Language.Haskell.TH.Ppr.Ppr_Info<>
+	Language.Haskell.TH.Syntax::Language.Haskell.TH.Ppr.Ppr_Module<>
+	other::Language.Haskell.TH.Ppr.Ppr_List<a<>>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	ppr :: a -> Doc
+	Name: ppr
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:ppr
+	Containing package: Language.Haskell.TH.Ppr
+	attributes {
+		memberType=function
+	}
+	Containing type: Ppr
+	parameters {
+		a: (Ppr nestDepth :: Int ppr :: a -> Doc ppr_list :: [a] -> Doc; a; Language.Haskell.TH.Ppr::Ppr)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Language.Haskell.TH.PprLib::Doc
+	}
+
+	[Function]
+	ppr_list :: [a] -> Doc
+	Name: ppr_list
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:ppr_list
+	Containing package: Language.Haskell.TH.Ppr
+	attributes {
+		memberType=function
+	}
+	Containing type: Ppr
+	parameters {
+		a: (Ppr nestDepth :: Int ppr :: a -> Doc ppr_list :: [a] -> Doc; a; Language.Haskell.TH.Ppr::Ppr)
+	}
+	Signature = <function> {
+		[parameters]
+		other::List {
+			null::a
+		}
+	
+		[result]
+		Language.Haskell.TH.PprLib::Doc
+	}
+}
+
+[Alias]
+type Precedence = Int Source
+Name: Precedence
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#t:Precedence
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+}
+parameters {
+}
+Aliased type = Data.Int::Int
+
+[Function]
+pprFixity :: Name -> Fixity -> Doc
+Name: pprFixity
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:pprFixity
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::Name
+	Language.Haskell.TH.Syntax::Fixity
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+pprParendType :: Type -> Doc
+Name: pprParendType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:pprParendType
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::Type
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+pprMaybeExp :: Precedence -> Maybe Exp -> Doc
+Name: pprMaybeExp
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:pprMaybeExp
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Ppr::Precedence
+	Data.Maybe::Maybe {
+		Language.Haskell.TH.Syntax::Exp
+	}
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+pprFields :: [(Name, Exp)] -> Doc
+Name: pprFields
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:pprFields
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		GHC.Tuple::(,) {
+			Language.Haskell.TH.Syntax::Name
+			Language.Haskell.TH.Syntax::Exp
+		}
+	}
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+pprTyLit :: TyLit -> Doc
+Name: pprTyLit
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:pprTyLit
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::TyLit
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+pprExp :: Precedence -> Exp -> Doc
+Name: pprExp
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:pprExp
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Ppr::Precedence
+	Language.Haskell.TH.Syntax::Exp
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+ppr_tySyn :: Doc -> Name -> Doc -> Type -> Doc
+Name: ppr_tySyn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:ppr_tySyn
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.PprLib::Doc
+	Language.Haskell.TH.Syntax::Name
+	Language.Haskell.TH.PprLib::Doc
+	Language.Haskell.TH.Syntax::Type
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+ppr_dec :: Bool -> Dec -> Doc
+Name: ppr_dec
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:ppr_dec
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Bool::Bool
+	Language.Haskell.TH.Syntax::Dec
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+parensIf :: Bool -> Doc -> Doc
+Name: parensIf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:parensIf
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Bool::Bool
+	Language.Haskell.TH.PprLib::Doc
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+ppr_data :: Doc -> Cxt -> Name -> Doc -> [Con] -> [Name] -> Doc
+Name: ppr_data
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:ppr_data
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.PprLib::Doc
+	Language.Haskell.TH.Syntax::Cxt
+	Language.Haskell.TH.Syntax::Name
+	Language.Haskell.TH.PprLib::Doc
+	other::List {
+		Language.Haskell.TH.Syntax::Con
+	}
+	other::List {
+		Language.Haskell.TH.Syntax::Name
+	}
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+where_clause :: [Dec] -> Doc
+Name: where_clause
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:where_clause
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Language.Haskell.TH.Syntax::Dec
+	}
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+pprCxt :: Cxt -> Doc
+Name: pprCxt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:pprCxt
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::Cxt
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+pprVarStrictType :: (Name, Strict, Type) -> Doc
+Name: pprVarStrictType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:pprVarStrictType
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Tuple::(,,) {
+		Language.Haskell.TH.Syntax::Name
+		Language.Haskell.TH.Syntax::Strict
+		Language.Haskell.TH.Syntax::Type
+	}
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+showtextl :: Show a => a -> Doc
+Name: showtextl
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:showtextl
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Show a; a; Text.Show::Show)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+isSymOcc :: Name -> Bool
+Name: isSymOcc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:isSymOcc
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::Name
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+pprFunArgType :: Type -> Doc
+Name: pprFunArgType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:pprFunArgType
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::Type
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+pprString :: String -> Doc
+Name: pprString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:pprString
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+pprint :: Ppr a => a -> String
+Name: pprint
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:pprint
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Ppr a; a; Language.Haskell.TH.Ppr::Ppr)
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+pprPat :: Precedence -> Pat -> Doc
+Name: pprPat
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:pprPat
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Ppr::Precedence
+	Language.Haskell.TH.Syntax::Pat
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+noPrec :: Precedence
+Name: noPrec
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:noPrec
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH.Ppr::Precedence
+}
+
+[Function]
+quoteParens :: Doc -> Doc
+Name: quoteParens
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:quoteParens
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.PprLib::Doc
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+hashParens :: Doc -> Doc
+Name: hashParens
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:hashParens
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.PprLib::Doc
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+opPrec :: Precedence
+Name: opPrec
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:opPrec
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH.Ppr::Precedence
+}
+
+[Function]
+split :: Type -> (Type, [Type])
+Name: split
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:split
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::Type
+
+	[result]
+	GHC.Tuple::(,) {
+		Language.Haskell.TH.Syntax::Type
+		other::List {
+			Language.Haskell.TH.Syntax::Type
+		}
+	}
+}
+
+[Function]
+pprBody :: Bool -> Body -> Doc
+Name: pprBody
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:pprBody
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Bool::Bool
+	Language.Haskell.TH.Syntax::Body
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+pprPrefixOcc :: Name -> Doc
+Name: pprPrefixOcc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:pprPrefixOcc
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::Name
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+pprTyApp :: (Type, [Type]) -> Doc
+Name: pprTyApp
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:pprTyApp
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Tuple::(,) {
+		Language.Haskell.TH.Syntax::Type
+		other::List {
+			Language.Haskell.TH.Syntax::Type
+		}
+	}
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+pprLit :: Precedence -> Lit -> Doc
+Name: pprLit
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:pprLit
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Ppr::Precedence
+	Language.Haskell.TH.Syntax::Lit
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+ppr_newtype :: Doc -> Cxt -> Name -> Doc -> Con -> [Name] -> Doc
+Name: ppr_newtype
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:ppr_newtype
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.PprLib::Doc
+	Language.Haskell.TH.Syntax::Cxt
+	Language.Haskell.TH.Syntax::Name
+	Language.Haskell.TH.PprLib::Doc
+	Language.Haskell.TH.Syntax::Con
+	other::List {
+		Language.Haskell.TH.Syntax::Name
+	}
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+unopPrec :: Precedence
+Name: unopPrec
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:unopPrec
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH.Ppr::Precedence
+}
+
+[Function]
+ppr_sig :: Name -> Type -> Doc
+Name: ppr_sig
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:ppr_sig
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::Name
+	Language.Haskell.TH.Syntax::Type
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+pprStrictType :: (Strict, Type) -> Doc
+Name: pprStrictType
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:pprStrictType
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Tuple::(,) {
+		Language.Haskell.TH.Syntax::Strict
+		Language.Haskell.TH.Syntax::Type
+	}
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+isSymbolASCII :: Char -> Bool
+Name: isSymbolASCII
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:isSymbolASCII
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Char::Char
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+nestDepth :: Int
+Name: nestDepth
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:nestDepth
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+pprGuarded :: Doc -> (Guard, Exp) -> Doc
+Name: pprGuarded
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:pprGuarded
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.PprLib::Doc
+	GHC.Tuple::(,) {
+		Language.Haskell.TH.Syntax::Guard
+		Language.Haskell.TH.Syntax::Exp
+	}
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}
+
+[Function]
+bytesToString :: [Word8] -> String
+Name: bytesToString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:bytesToString
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Data.Word::Word8
+	}
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+appPrec :: Precedence
+Name: appPrec
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:appPrec
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Language.Haskell.TH.Ppr::Precedence
+}
+
+[Function]
+pprInfixExp :: Exp -> Doc
+Name: pprInfixExp
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/template-haskell-2.9.0.0/Language-Haskell-TH-Ppr.html#v:pprInfixExp
+Containing package: Language.Haskell.TH.Ppr
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Language.Haskell.TH.Syntax::Exp
+
+	[result]
+	Language.Haskell.TH.PprLib::Doc
+}

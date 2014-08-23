@@ -1,0 +1,132 @@
+[Package]
+Name: Distribution.Compiler
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compiler.html
+Containing package: Distribution
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data CompilerFlavor = GHC | NHC | YHC | Hugs | HBC | Helium | JHC | LHC | UHC | OtherCompiler String
+Name: CompilerFlavor
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compiler.html#t:CompilerFlavor
+Containing package: Distribution.Compiler
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data CompilerId = CompilerId CompilerFlavor Version
+Name: CompilerId
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compiler.html#t:CompilerId
+Containing package: Distribution.Compiler
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+parseCompilerFlavorCompat :: ReadP r CompilerFlavor
+Name: parseCompilerFlavorCompat
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compiler.html#v:parseCompilerFlavorCompat
+Containing package: Distribution.Compiler
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		Distribution.Compiler::CompilerFlavor
+	}
+}
+
+[Function]
+buildCompilerFlavor :: CompilerFlavor
+Name: buildCompilerFlavor
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compiler.html#v:buildCompilerFlavor
+Containing package: Distribution.Compiler
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Compiler::CompilerFlavor
+}
+
+[Function]
+buildCompilerId :: CompilerId
+Name: buildCompilerId
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compiler.html#v:buildCompilerId
+Containing package: Distribution.Compiler
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Compiler::CompilerId
+}
+
+[Function]
+defaultCompilerFlavor :: Maybe CompilerFlavor
+Name: defaultCompilerFlavor
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Compiler.html#v:defaultCompilerFlavor
+Containing package: Distribution.Compiler
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Maybe::Maybe {
+		Distribution.Compiler::CompilerFlavor
+	}
+}

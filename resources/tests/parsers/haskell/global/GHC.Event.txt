@@ -1,0 +1,431 @@
+[Package]
+Name: GHC.Event
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Event.html
+Containing package: GHC
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data EventManager
+Name: EventManager
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Event.html#t:EventManager
+Containing package: GHC.Event
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data FdKey
+Name: FdKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Event.html#t:FdKey
+Containing package: GHC.Event
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Event
+Name: Event
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Event.html#t:Event
+Containing package: GHC.Event
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TimeoutKey
+Name: TimeoutKey
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Event.html#t:TimeoutKey
+Containing package: GHC.Event
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type TimeoutCallback = IO ()
+Name: TimeoutCallback
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Event.html#t:TimeoutCallback
+Containing package: GHC.Event
+attributes {
+}
+parameters {
+}
+Aliased type = System.IO::IO {
+	GHC.Tuple::()
+}
+
+[Alias]
+type IOCallback = FdKey -> Event -> IO ()
+Name: IOCallback
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Event.html#t:IOCallback
+Containing package: GHC.Event
+attributes {
+}
+parameters {
+}
+Aliased type = <function> {
+	[parameters]
+	GHC.Event::FdKey
+	GHC.Event::Event
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+getSystemEventManager :: IO (Maybe EventManager)
+Name: getSystemEventManager
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Event.html#v:getSystemEventManager
+Containing package: GHC.Event
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			GHC.Event::EventManager
+		}
+	}
+}
+
+[Function]
+evtWrite :: Event
+Name: evtWrite
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Event.html#v:evtWrite
+Containing package: GHC.Event
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	GHC.Event::Event
+}
+
+[Function]
+registerTimeout :: TimerManager -> Int -> TimeoutCallback -> IO TimeoutKey
+Name: registerTimeout
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Event.html#v:registerTimeout
+Containing package: GHC.Event
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	null::TimerManager
+	Data.Int::Int
+	GHC.Event::TimeoutCallback
+
+	[result]
+	System.IO::IO {
+		GHC.Event::TimeoutKey
+	}
+}
+
+[Function]
+new :: Bool -> IO EventManager
+Name: new
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Event.html#v:new
+Containing package: GHC.Event
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Bool::Bool
+
+	[result]
+	System.IO::IO {
+		GHC.Event::EventManager
+	}
+}
+
+[Function]
+unregisterTimeout :: TimerManager -> TimeoutKey -> IO ()
+Name: unregisterTimeout
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Event.html#v:unregisterTimeout
+Containing package: GHC.Event
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	null::TimerManager
+	GHC.Event::TimeoutKey
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+getSystemTimerManager :: IO TimerManager
+Name: getSystemTimerManager
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Event.html#v:getSystemTimerManager
+Containing package: GHC.Event
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		null::TimerManager
+	}
+}
+
+[Function]
+evtRead :: Event
+Name: evtRead
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Event.html#v:evtRead
+Containing package: GHC.Event
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	GHC.Event::Event
+}
+
+[Function]
+unregisterFd :: EventManager -> FdKey -> IO ()
+Name: unregisterFd
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Event.html#v:unregisterFd
+Containing package: GHC.Event
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Event::EventManager
+	GHC.Event::FdKey
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+registerFd :: EventManager -> IOCallback -> Fd -> Event -> IO FdKey
+Name: registerFd
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Event.html#v:registerFd
+Containing package: GHC.Event
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Event::EventManager
+	GHC.Event::IOCallback
+	System.Posix.Types::Fd
+	GHC.Event::Event
+
+	[result]
+	System.IO::IO {
+		GHC.Event::FdKey
+	}
+}
+
+[Function]
+unregisterFd_ :: EventManager -> FdKey -> IO Bool
+Name: unregisterFd_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Event.html#v:unregisterFd_
+Containing package: GHC.Event
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Event::EventManager
+	GHC.Event::FdKey
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+updateTimeout :: TimerManager -> TimeoutKey -> Int -> IO ()
+Name: updateTimeout
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Event.html#v:updateTimeout
+Containing package: GHC.Event
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	null::TimerManager
+	GHC.Event::TimeoutKey
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+registerFd_ :: EventManager -> IOCallback -> Fd -> Event -> IO (FdKey, Bool)
+Name: registerFd_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Event.html#v:registerFd_
+Containing package: GHC.Event
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Event::EventManager
+	GHC.Event::IOCallback
+	System.Posix.Types::Fd
+	GHC.Event::Event
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			GHC.Event::FdKey
+			Data.Bool::Bool
+		}
+	}
+}
+
+[Function]
+closeFd :: EventManager -> (Fd -> IO ()) -> Fd -> IO ()
+Name: closeFd
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Event.html#v:closeFd
+Containing package: GHC.Event
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.Event::EventManager
+	<function> {
+		[parameters]
+		System.Posix.Types::Fd
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+	System.Posix.Types::Fd
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}

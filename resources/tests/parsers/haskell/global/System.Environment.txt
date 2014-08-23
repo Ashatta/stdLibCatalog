@@ -1,0 +1,246 @@
+[Package]
+Name: System.Environment
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-Environment.html
+Containing package: System
+attributes {
+}
+
+Subpackages {
+}
+
+[Function]
+getEnv :: String -> IO String
+Name: getEnv
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-Environment.html#v:getEnv
+Containing package: System.Environment
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+getProgName :: IO String
+Name: getProgName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-Environment.html#v:getProgName
+Containing package: System.Environment
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+setEnv :: String -> String -> IO ()
+Name: setEnv
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-Environment.html#v:setEnv
+Containing package: System.Environment
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+withProgName :: String -> IO a -> IO a
+Name: withProgName
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-Environment.html#v:withProgName
+Containing package: System.Environment
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+getArgs :: IO [String]
+Name: getArgs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-Environment.html#v:getArgs
+Containing package: System.Environment
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		other::List {
+			Data.String::String
+		}
+	}
+}
+
+[Function]
+getEnvironment :: IO [(String, String)]
+Name: getEnvironment
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-Environment.html#v:getEnvironment
+Containing package: System.Environment
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		other::List {
+			GHC.Tuple::(,) {
+				Data.String::String
+				Data.String::String
+			}
+		}
+	}
+}
+
+[Function]
+lookupEnv :: String -> IO (Maybe String)
+Name: lookupEnv
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-Environment.html#v:lookupEnv
+Containing package: System.Environment
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			Data.String::String
+		}
+	}
+}
+
+[Function]
+getExecutablePath :: IO FilePath
+Name: getExecutablePath
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-Environment.html#v:getExecutablePath
+Containing package: System.Environment
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.IO::FilePath
+	}
+}
+
+[Function]
+withArgs :: [String] -> IO a -> IO a
+Name: withArgs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-Environment.html#v:withArgs
+Containing package: System.Environment
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Data.String::String
+	}
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+unsetEnv :: String -> IO ()
+Name: unsetEnv
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/System-Environment.html#v:unsetEnv
+Containing package: System.Environment
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}

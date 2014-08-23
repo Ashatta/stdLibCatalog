@@ -1,0 +1,622 @@
+[Package]
+Name: Text.Read
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read.html
+Containing package: Text
+attributes {
+}
+
+Subpackages {
+	Text.Read.Lex
+}
+
+[Classifier]
+data Lexeme = Char Char | String String | Punc String | Ident String | Symbol String | Number Number | EOF
+Name: Lexeme
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read.html#t:Lexeme
+Containing package: Text.Read
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class Read a where readsPrec :: Int -> ReadS a readList :: ReadS [a] readPrec :: ReadPrec a readListPrec :: ReadPrec [a]
+Name: Read
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read.html#t:Read
+Containing package: Text.Read
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Control.Applicative::Text.Read.Read_ZipList<a<>>
+	Data.Bool::Text.Read.Read_Bool<>
+	Data.ByteString.Char8::Text.Read.Read_ByteString<>
+	Data.ByteString.Lazy.Char8::Text.Read.Read_ByteString<>
+	Data.ByteString.Lazy::Text.Read.Read_ByteString<>
+	Data.ByteString.Short::Text.Read.Read_ShortByteString<>
+	Data.ByteString::Text.Read.Read_ByteString<>
+	Data.Char::Text.Read.Read_Char<>
+	Data.Char::Text.Read.Read_GeneralCategory<>
+	Data.Complex::Text.Read.Read_Complex<a<>>
+	Data.Either::Text.Read.Read_Either<a<>,b<>>
+	Data.Fixed::Text.Read.Read_Fixed<a<>>
+	Data.Int::Text.Read.Read_Int<>
+	Data.Int::Text.Read.Read_Int8<>
+	Data.Int::Text.Read.Read_Int16<>
+	Data.Int::Text.Read.Read_Int32<>
+	Data.Int::Text.Read.Read_Int64<>
+	Data.IntMap.Lazy::Text.Read.Read_IntMap<e<>>
+	Data.IntMap.Strict::Text.Read.Read_IntMap<e<>>
+	Data.IntSet::Text.Read.Read_IntSet<>
+	Data.Map.Lazy::Text.Read.Read_Map<k<>,e<>>
+	Data.Map.Strict::Text.Read.Read_Map<k<>,e<>>
+	Data.Maybe::Text.Read.Read_Maybe<a<>>
+	Data.Monoid::Text.Read.Read_Dual<a<>>
+	Data.Monoid::Text.Read.Read_All<>
+	Data.Monoid::Text.Read.Read_Any<>
+	Data.Monoid::Text.Read.Read_Sum<a<>>
+	Data.Monoid::Text.Read.Read_Product<a<>>
+	Data.Monoid::Text.Read.Read_First<a<>>
+	Data.Monoid::Text.Read.Read_Last<a<>>
+	Data.Ord::Text.Read.Read_Ordering<>
+	Data.Ord::Text.Read.Read_Down<a<>>
+	Data.Proxy::Text.Read.Read_Proxy<s<>>
+	Data.Ratio::Text.Read.Read_Ratio<a<>>
+	Data.Sequence::Text.Read.Read_Seq<a<>>
+	Data.Sequence::Text.Read.Read_ViewL<a<>>
+	Data.Sequence::Text.Read.Read_ViewR<a<>>
+	Data.Set::Text.Read.Read_Set<a<>>
+	Data.Time.Calendar::Text.Read.Read_Day<>
+	Data.Time.Clock::Text.Read.Read_UTCTime<>
+	Data.Time.LocalTime::Text.Read.Read_TimeZone<>
+	Data.Time.LocalTime::Text.Read.Read_TimeOfDay<>
+	Data.Time.LocalTime::Text.Read.Read_LocalTime<>
+	Data.Time.LocalTime::Text.Read.Read_ZonedTime<>
+	Data.Tree::Text.Read.Read_Tree<a<>>
+	Data.Type.Coercion::Text.Read.Read_Coercion<a<>,b<>>
+	Data.Type.Equality::Text.Read.Read_(:~:)<a<>,b<>>
+	Data.Typeable.Internal::Text.Read.Read_Proxy<s<>>
+	Data.Typeable::Text.Read.Read_(:~:)<a<>,b<>>
+	Data.Typeable::Text.Read.Read_Proxy<s<>>
+	Data.Version::Text.Read.Read_Version<>
+	Data.Word::Text.Read.Read_Word<>
+	Data.Word::Text.Read.Read_Word8<>
+	Data.Word::Text.Read.Read_Word16<>
+	Data.Word::Text.Read.Read_Word32<>
+	Data.Word::Text.Read.Read_Word64<>
+	Distribution.Compiler::Text.Read.Read_CompilerFlavor<>
+	Distribution.Compiler::Text.Read.Read_CompilerId<>
+	Distribution.InstalledPackageInfo::Text.Read.Read_InstalledPackageInfo_<m<>>
+	Distribution.License::Text.Read.Read_License<>
+	Distribution.Make::Text.Read.Read_License<>
+	Distribution.Make::Text.Read.Read_Version<>
+	Distribution.ModuleName::Text.Read.Read_ModuleName<>
+	Distribution.Package::Text.Read.Read_PackageName<>
+	Distribution.Package::Text.Read.Read_PackageIdentifier<>
+	Distribution.Package::Text.Read.Read_InstalledPackageId<>
+	Distribution.Package::Text.Read.Read_Dependency<>
+	Distribution.PackageDescription::Text.Read.Read_PackageDescription<>
+	Distribution.PackageDescription::Text.Read.Read_BuildType<>
+	Distribution.PackageDescription::Text.Read.Read_Library<>
+	Distribution.PackageDescription::Text.Read.Read_Executable<>
+	Distribution.PackageDescription::Text.Read.Read_TestSuite<>
+	Distribution.PackageDescription::Text.Read.Read_TestSuiteInterface<>
+	Distribution.PackageDescription::Text.Read.Read_TestType<>
+	Distribution.PackageDescription::Text.Read.Read_Benchmark<>
+	Distribution.PackageDescription::Text.Read.Read_BenchmarkInterface<>
+	Distribution.PackageDescription::Text.Read.Read_BenchmarkType<>
+	Distribution.PackageDescription::Text.Read.Read_BuildInfo<>
+	Distribution.PackageDescription::Text.Read.Read_FlagName<>
+	Distribution.PackageDescription::Text.Read.Read_SourceRepo<>
+	Distribution.PackageDescription::Text.Read.Read_RepoKind<>
+	Distribution.PackageDescription::Text.Read.Read_RepoType<>
+	Distribution.Simple.Compiler::Text.Read.Read_Compiler<>
+	Distribution.Simple.Compiler::Text.Read.Read_PackageDB<>
+	Distribution.Simple.Compiler::Text.Read.Read_OptimisationLevel<>
+	Distribution.Simple.InstallDirs::Text.Read.Read_InstallDirs<dir<>>
+	Distribution.Simple.InstallDirs::Text.Read.Read_PathTemplate<>
+	Distribution.Simple.InstallDirs::Text.Read.Read_PathTemplateVariable<>
+	Distribution.Simple.LocalBuildInfo::Text.Read.Read_LocalBuildInfo<>
+	Distribution.Simple.LocalBuildInfo::Text.Read.Read_Component<>
+	Distribution.Simple.LocalBuildInfo::Text.Read.Read_ComponentName<>
+	Distribution.Simple.LocalBuildInfo::Text.Read.Read_ComponentLocalBuildInfo<>
+	Distribution.Simple.LocalBuildInfo::Text.Read.Read_LibraryName<>
+	Distribution.Simple.PackageIndex::Text.Read.Read_PackageIndex<>
+	Distribution.Simple.Program.Db::Text.Read.Read_ProgramDb<>
+	Distribution.Simple.Program.Types::Text.Read.Read_ConfiguredProgram<>
+	Distribution.Simple.Program.Types::Text.Read.Read_ProgramLocation<>
+	Distribution.Simple.Program::Text.Read.Read_ConfiguredProgram<>
+	Distribution.Simple.Program::Text.Read.Read_ProgramLocation<>
+	Distribution.Simple.Setup::Text.Read.Read_ConfigFlags<>
+	Distribution.Simple.Setup::Text.Read.Read_Flag<a<>>
+	Distribution.Simple.Test::Text.Read.Read_PackageLog<>
+	Distribution.Simple.Test::Text.Read.Read_TestSuiteLog<>
+	Distribution.Simple.Test::Text.Read.Read_TestLogs<>
+	Distribution.System::Text.Read.Read_OS<>
+	Distribution.System::Text.Read.Read_Arch<>
+	Distribution.System::Text.Read.Read_Platform<>
+	Distribution.TestSuite::Text.Read.Read_OptionDescr<>
+	Distribution.TestSuite::Text.Read.Read_OptionType<>
+	Distribution.TestSuite::Text.Read.Read_Result<>
+	Distribution.Verbosity::Text.Read.Read_Verbosity<>
+	Distribution.Version::Text.Read.Read_Version<>
+	Distribution.Version::Text.Read.Read_VersionRange<>
+	Foreign.C.Types::Text.Read.Read_CChar<>
+	Foreign.C.Types::Text.Read.Read_CSChar<>
+	Foreign.C.Types::Text.Read.Read_CUChar<>
+	Foreign.C.Types::Text.Read.Read_CShort<>
+	Foreign.C.Types::Text.Read.Read_CUShort<>
+	Foreign.C.Types::Text.Read.Read_CInt<>
+	Foreign.C.Types::Text.Read.Read_CUInt<>
+	Foreign.C.Types::Text.Read.Read_CLong<>
+	Foreign.C.Types::Text.Read.Read_CULong<>
+	Foreign.C.Types::Text.Read.Read_CPtrdiff<>
+	Foreign.C.Types::Text.Read.Read_CSize<>
+	Foreign.C.Types::Text.Read.Read_CWchar<>
+	Foreign.C.Types::Text.Read.Read_CSigAtomic<>
+	Foreign.C.Types::Text.Read.Read_CLLong<>
+	Foreign.C.Types::Text.Read.Read_CULLong<>
+	Foreign.C.Types::Text.Read.Read_CIntPtr<>
+	Foreign.C.Types::Text.Read.Read_CUIntPtr<>
+	Foreign.C.Types::Text.Read.Read_CIntMax<>
+	Foreign.C.Types::Text.Read.Read_CUIntMax<>
+	Foreign.C.Types::Text.Read.Read_CClock<>
+	Foreign.C.Types::Text.Read.Read_CTime<>
+	Foreign.C.Types::Text.Read.Read_CUSeconds<>
+	Foreign.C.Types::Text.Read.Read_CSUSeconds<>
+	Foreign.C.Types::Text.Read.Read_CFloat<>
+	Foreign.C.Types::Text.Read.Read_CDouble<>
+	Foreign.Ptr::Text.Read.Read_IntPtr<>
+	Foreign.Ptr::Text.Read.Read_WordPtr<>
+	GHC.Exts::Text.Read.Read_Int<>
+	GHC.Exts::Text.Read.Read_Word<>
+	GHC.Exts::Text.Read.Read_Float<>
+	GHC.Exts::Text.Read.Read_Double<>
+	GHC.Exts::Text.Read.Read_Char<>
+	GHC.Exts::Text.Read.Read_Down<a<>>
+	GHC.Generics::Text.Read.Read_U1<p<>>
+	GHC.Generics::Text.Read.Read_Par1<p<>>
+	GHC.Generics::Text.Read.Read_Rec1<f<>,p<>>
+	GHC.Generics::Text.Read.Read_K1<i<>,c<>,p<>>
+	GHC.Generics::Text.Read.Read_M1<i<>,c<>,f<>,p<>>
+	GHC.Generics::Text.Read.Read_(:+:)<f<>,g<>,p<>>
+	GHC.Generics::Text.Read.Read_(:*:)<f<>,g<>,p<>>
+	GHC.Generics::Text.Read.Read_(:.:)<f<>,g<>,p<>>
+	GHC.Generics::Text.Read.Read_Fixity<>
+	GHC.Generics::Text.Read.Read_Associativity<>
+	GHC.Generics::Text.Read.Read_Arity<>
+	GHC.IO.Device::Text.Read.Read_SeekMode<>
+	GHC.IO.Handle::Text.Read.Read_BufferMode<>
+	GHC.IO.Handle::Text.Read.Read_SeekMode<>
+	GHC.IO.Handle::Text.Read.Read_Newline<>
+	GHC.IO.Handle::Text.Read.Read_NewlineMode<>
+	GHC.Stats::Text.Read.Read_GCStats<>
+	GHC.TypeLits::Text.Read.Read_SomeNat<>
+	GHC.TypeLits::Text.Read.Read_SomeSymbol<>
+	Language.Haskell.Extension::Text.Read.Read_Language<>
+	Language.Haskell.Extension::Text.Read.Read_Extension<>
+	Language.Haskell.Extension::Text.Read.Read_KnownExtension<>
+	System.Directory::Text.Read.Read_Permissions<>
+	System.Exit::Text.Read.Read_ExitCode<>
+	System.IO::Text.Read.Read_IOMode<>
+	System.IO::Text.Read.Read_BufferMode<>
+	System.IO::Text.Read.Read_SeekMode<>
+	System.IO::Text.Read.Read_Newline<>
+	System.IO::Text.Read.Read_NewlineMode<>
+	System.Posix.DynamicLinker.Prim::Text.Read.Read_RTLDFlags<>
+	System.Posix.Types::Text.Read.Read_CDev<>
+	System.Posix.Types::Text.Read.Read_CIno<>
+	System.Posix.Types::Text.Read.Read_CMode<>
+	System.Posix.Types::Text.Read.Read_COff<>
+	System.Posix.Types::Text.Read.Read_CPid<>
+	System.Posix.Types::Text.Read.Read_CSsize<>
+	System.Posix.Types::Text.Read.Read_CGid<>
+	System.Posix.Types::Text.Read.Read_CNlink<>
+	System.Posix.Types::Text.Read.Read_CUid<>
+	System.Posix.Types::Text.Read.Read_CCc<>
+	System.Posix.Types::Text.Read.Read_CSpeed<>
+	System.Posix.Types::Text.Read.Read_CTcflag<>
+	System.Posix.Types::Text.Read.Read_CRLim<>
+	System.Posix.Types::Text.Read.Read_Fd<>
+	System.Posix.User::Text.Read.Read_GroupEntry<>
+	System.Posix.User::Text.Read.Read_UserEntry<>
+	System.Time::Text.Read.Read_TimeDiff<>
+	System.Time::Text.Read.Read_CalendarTime<>
+	System.Time::Text.Read.Read_Month<>
+	System.Time::Text.Read.Read_Day<>
+	Text.Read.Lex::Text.Read.Read_Lexeme<>
+	Prelude::Text.Read.Read_Double<>
+	Prelude::Text.Read.Read_Float<>
+	Prelude::Text.Read.Read_Integer<>
+	GHC.Tuple::Text.Read.Read_()<>
+	Text.Read::Text.Read.Read_Lexeme<>
+	other::Text.Read.Read_List<a<>>
+	GHC.Tuple::Text.Read.Read_(,,,)<a<>,b<>>
+	GHC.Tuple::Text.Read.Read_(,,,,)<a<>,b<>,c<>>
+	GHC.Tuple::Text.Read.Read_(,,,,,)<a<>,b<>,c<>,d<>>
+	GHC.Tuple::Text.Read.Read_(,,,,,,)<a<>,b<>,c<>,d<>,e<>>
+	GHC.Tuple::Text.Read.Read_(,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>>
+	GHC.Tuple::Text.Read.Read_(,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>>
+	GHC.Tuple::Text.Read.Read_(,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>>
+	GHC.Tuple::Text.Read.Read_(,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>>
+	GHC.Tuple::Text.Read.Read_(,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>>
+	GHC.Tuple::Text.Read.Read_(,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>>
+	GHC.Tuple::Text.Read.Read_(,,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>,l<>>
+	GHC.Tuple::Text.Read.Read_(,,,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>,l<>,m<>>
+	GHC.Tuple::Text.Read.Read_(,,,,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>,l<>,m<>,n<>>
+	GHC.Tuple::Text.Read.Read_(,,,,,,,,,,,,,,,,)<a<>,b<>,c<>,d<>,e<>,f<>,g<>,h<>,i<>,j<>,k<>,l<>,m<>,n<>,o<>>
+	Trace.Hpc.Mix::Text.Read.Read_Mix<>
+	Trace.Hpc.Mix::Text.Read.Read_BoxLabel<>
+	Trace.Hpc.Mix::Text.Read.Read_CondBox<>
+	Trace.Hpc.Tix::Text.Read.Read_Tix<>
+	Trace.Hpc.Tix::Text.Read.Read_TixModule<>
+	Trace.Hpc.Util::Text.Read.Read_HpcPos<>
+	Trace.Hpc.Util::Text.Read.Read_Hash<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	readsPrec :: Int -> ReadS a
+	Name: readsPrec
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read.html#v:readsPrec
+	Containing package: Text.Read
+	attributes {
+		memberType=function
+	}
+	Containing type: Read
+	parameters {
+		a: (Read a; a; Text.Read::Read)
+	}
+	Signature = <function> {
+		[parameters]
+		Data.Int::Int
+	
+		[result]
+		Text.Read::ReadS {
+			null::a
+		}
+	}
+
+	[Function]
+	readList :: ReadS [a]
+	Name: readList
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read.html#v:readList
+	Containing package: Text.Read
+	attributes {
+		memberType=function
+	}
+	Containing type: Read
+	parameters {
+		a: (Read a; a; Text.Read::Read)
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		Text.Read::ReadS {
+			other::List {
+				null::a
+			}
+		}
+	}
+
+	[Function]
+	readPrec :: ReadPrec a
+	Name: readPrec
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read.html#v:readPrec
+	Containing package: Text.Read
+	attributes {
+		memberType=function
+	}
+	Containing type: Read
+	parameters {
+		a: (Read a; a; Text.Read::Read)
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		Text.ParserCombinators.ReadPrec::ReadPrec {
+			null::a
+		}
+	}
+
+	[Function]
+	readListPrec :: ReadPrec [a]
+	Name: readListPrec
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read.html#v:readListPrec
+	Containing package: Text.Read
+	attributes {
+		memberType=function
+	}
+	Containing type: Read
+	parameters {
+		a: (Read a; a; Text.Read::Read)
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		Text.ParserCombinators.ReadPrec::ReadPrec {
+			other::List {
+				null::a
+			}
+		}
+	}
+}
+
+[Alias]
+type ReadS a = String -> [(a, String)]
+Name: ReadS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read.html#t:ReadS
+Containing package: Text.Read
+attributes {
+}
+parameters {
+	a
+}
+Aliased type = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			null::a
+			Data.String::String
+		}
+	}
+}
+
+[Function]
+read :: Read a => String -> a
+Name: read
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read.html#v:read
+Containing package: Text.Read
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Read a; a; Text.Read::Read)
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	null::a
+}
+
+[Function]
+readEither :: Read a => String -> Either String a
+Name: readEither
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read.html#v:readEither
+Containing package: Text.Read
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Read a; a; Text.Read::Read)
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Data.Either::Either {
+		Data.String::String
+		null::a
+	}
+}
+
+[Function]
+lexP :: ReadPrec Lexeme
+Name: lexP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read.html#v:lexP
+Containing package: Text.Read
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.ParserCombinators.ReadPrec::ReadPrec {
+		Text.Read::Lexeme
+	}
+}
+
+[Function]
+readListDefault :: Read a => ReadS [a]
+Name: readListDefault
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read.html#v:readListDefault
+Containing package: Text.Read
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Read a; a; Text.Read::Read)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.Read::ReadS {
+		other::List {
+			null::a
+		}
+	}
+}
+
+[Function]
+parens :: ReadPrec a -> ReadPrec a
+Name: parens
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read.html#v:parens
+Containing package: Text.Read
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Text.ParserCombinators.ReadPrec::ReadPrec {
+		null::a
+	}
+
+	[result]
+	Text.ParserCombinators.ReadPrec::ReadPrec {
+		null::a
+	}
+}
+
+[Function]
+reads :: Read a => ReadS a
+Name: reads
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read.html#v:reads
+Containing package: Text.Read
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Read a; a; Text.Read::Read)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.Read::ReadS {
+		null::a
+	}
+}
+
+[Function]
+readMaybe :: Read a => String -> Maybe a
+Name: readMaybe
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read.html#v:readMaybe
+Containing package: Text.Read
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Read a; a; Text.Read::Read)
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Data.Maybe::Maybe {
+		null::a
+	}
+}
+
+[Function]
+lex :: ReadS String
+Name: lex
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read.html#v:lex
+Containing package: Text.Read
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.Read::ReadS {
+		Data.String::String
+	}
+}
+
+[Function]
+readListPrecDefault :: Read a => ReadPrec [a]
+Name: readListPrecDefault
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read.html#v:readListPrecDefault
+Containing package: Text.Read
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (Read a; a; Text.Read::Read)
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Text.ParserCombinators.ReadPrec::ReadPrec {
+		other::List {
+			null::a
+		}
+	}
+}
+
+[Function]
+readParen :: Bool -> ReadS a -> ReadS a
+Name: readParen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Text-Read.html#v:readParen
+Containing package: Text.Read
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Bool::Bool
+	Text.Read::ReadS {
+		null::a
+	}
+
+	[result]
+	Text.Read::ReadS {
+		null::a
+	}
+}

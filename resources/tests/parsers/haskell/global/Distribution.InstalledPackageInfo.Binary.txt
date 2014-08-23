@@ -1,0 +1,65 @@
+[Package]
+Name: Distribution.InstalledPackageInfo.Binary
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bin-package-db-0.0.0.0/Distribution-InstalledPackageInfo-Binary.html
+Containing package: Distribution.InstalledPackageInfo
+attributes {
+}
+
+Subpackages {
+}
+
+[Function]
+readBinPackageDB :: Binary m => FilePath -> IO [InstalledPackageInfo_ m]
+Name: readBinPackageDB
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bin-package-db-0.0.0.0/Distribution-InstalledPackageInfo-Binary.html#v:readBinPackageDB
+Containing package: Distribution.InstalledPackageInfo.Binary
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Binary m; m; Data.Binary::Binary)
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		other::List {
+			Distribution.InstalledPackageInfo::InstalledPackageInfo_ {
+				null::m
+			}
+		}
+	}
+}
+
+[Function]
+writeBinPackageDB :: Binary m => FilePath -> [InstalledPackageInfo_ m] -> IO ()
+Name: writeBinPackageDB
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bin-package-db-0.0.0.0/Distribution-InstalledPackageInfo-Binary.html#v:writeBinPackageDB
+Containing package: Distribution.InstalledPackageInfo.Binary
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Binary m; m; Data.Binary::Binary)
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	other::List {
+		Distribution.InstalledPackageInfo::InstalledPackageInfo_ {
+			null::m
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}

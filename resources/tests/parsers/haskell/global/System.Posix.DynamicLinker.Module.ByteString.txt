@@ -1,0 +1,200 @@
+[Package]
+Name: System.Posix.DynamicLinker.Module.ByteString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-DynamicLinker-Module-ByteString.html
+Containing package: System.Posix.DynamicLinker.Module
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data Module
+Name: Module
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-DynamicLinker-Module-ByteString.html#t:Module
+Containing package: System.Posix.DynamicLinker.Module.ByteString
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+moduleSymbol :: Module -> String -> IO (FunPtr a)
+Name: moduleSymbol
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-DynamicLinker-Module-ByteString.html#v:moduleSymbol
+Containing package: System.Posix.DynamicLinker.Module.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.DynamicLinker.Module.ByteString::Module
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		Foreign.Ptr::FunPtr {
+			null::a
+		}
+	}
+}
+
+[Function]
+moduleClose :: Module -> IO ()
+Name: moduleClose
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-DynamicLinker-Module-ByteString.html#v:moduleClose
+Containing package: System.Posix.DynamicLinker.Module.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.DynamicLinker.Module.ByteString::Module
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+withModule :: Maybe String -> String -> [RTLDFlags] -> (Module -> IO a) -> IO a
+Name: withModule
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-DynamicLinker-Module-ByteString.html#v:withModule
+Containing package: System.Posix.DynamicLinker.Module.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Maybe::Maybe {
+		Data.String::String
+	}
+	Data.String::String
+	other::List {
+		System.Posix.DynamicLinker.Prim::RTLDFlags
+	}
+	<function> {
+		[parameters]
+		System.Posix.DynamicLinker.Module.ByteString::Module
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+moduleError :: IO String
+Name: moduleError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-DynamicLinker-Module-ByteString.html#v:moduleError
+Containing package: System.Posix.DynamicLinker.Module.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+withModule_ :: Maybe String -> String -> [RTLDFlags] -> (Module -> IO a) -> IO ()
+Name: withModule_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-DynamicLinker-Module-ByteString.html#v:withModule_
+Containing package: System.Posix.DynamicLinker.Module.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Maybe::Maybe {
+		Data.String::String
+	}
+	Data.String::String
+	other::List {
+		System.Posix.DynamicLinker.Prim::RTLDFlags
+	}
+	<function> {
+		[parameters]
+		System.Posix.DynamicLinker.Module.ByteString::Module
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+moduleOpen :: RawFilePath -> [RTLDFlags] -> IO Module
+Name: moduleOpen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-DynamicLinker-Module-ByteString.html#v:moduleOpen
+Containing package: System.Posix.DynamicLinker.Module.ByteString
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.ByteString.FilePath::RawFilePath
+	other::List {
+		System.Posix.DynamicLinker.Prim::RTLDFlags
+	}
+
+	[result]
+	System.IO::IO {
+		System.Posix.DynamicLinker.Module.ByteString::Module
+	}
+}

@@ -1,0 +1,76 @@
+[Package]
+Name: System.Posix.SharedMem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-SharedMem.html
+Containing package: System.Posix
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data ShmOpenFlags = ShmOpenFlags { shmReadWrite :: Bool shmCreate :: Bool shmExclusive :: Bool shmTrunc :: Bool}
+Name: ShmOpenFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-SharedMem.html#t:ShmOpenFlags
+Containing package: System.Posix.SharedMem
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+shmUnlink :: String -> IO ()
+Name: shmUnlink
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-SharedMem.html#v:shmUnlink
+Containing package: System.Posix.SharedMem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+shmOpen :: String -> ShmOpenFlags -> FileMode -> IO Fd
+Name: shmOpen
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-SharedMem.html#v:shmOpen
+Containing package: System.Posix.SharedMem
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	System.Posix.SharedMem::ShmOpenFlags
+	System.Posix.Types::FileMode
+
+	[result]
+	System.IO::IO {
+		System.Posix.Types::Fd
+	}
+}

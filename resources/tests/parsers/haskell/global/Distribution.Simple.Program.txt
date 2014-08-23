@@ -1,0 +1,1691 @@
+[Package]
+Name: Distribution.Simple.Program
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html
+Containing package: Distribution.Simple
+attributes {
+}
+
+Subpackages {
+	Distribution.Simple.Program.Ar
+	Distribution.Simple.Program.Builtin
+	Distribution.Simple.Program.Db
+	Distribution.Simple.Program.Find
+	Distribution.Simple.Program.GHC
+	Distribution.Simple.Program.HcPkg
+	Distribution.Simple.Program.Hpc
+	Distribution.Simple.Program.Ld
+	Distribution.Simple.Program.Run
+	Distribution.Simple.Program.Script
+	Distribution.Simple.Program.Types
+}
+
+[Classifier]
+data ProgramInvocation = ProgramInvocation { progInvokePath :: FilePath progInvokeArgs :: [String] progInvokeEnv :: [(String, Maybe String)] progInvokeCwd :: Maybe FilePath progInvokeInput :: Maybe String progInvokeInputEncoding :: IOEncoding progInvokeOutputEncoding :: IOEncoding}
+Name: ProgramInvocation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#t:ProgramInvocation
+Containing package: Distribution.Simple.Program
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ConfiguredProgram = ConfiguredProgram { programId :: String programVersion :: Maybe Version programDefaultArgs :: [String] programOverrideArgs :: [String] programOverrideEnv :: [(String, Maybe String)] programLocation :: ProgramLocation}
+Name: ConfiguredProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#t:ConfiguredProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ProgramInvocation = ProgramInvocation { progInvokePath :: FilePath progInvokeArgs :: [String] progInvokeEnv :: [(String, Maybe String)] progInvokeCwd :: Maybe FilePath progInvokeInput :: Maybe String progInvokeInputEncoding :: IOEncoding progInvokeOutputEncoding :: IOEncoding}
+Name: Program
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#t:Program
+Containing package: Distribution.Simple.Program
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ProgramLocation = UserSpecified { locationPath :: FilePath } | FoundOnSystem { locationPath :: FilePath }
+Name: ProgramLocation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#t:ProgramLocation
+Containing package: Distribution.Simple.Program
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ProgramSearchPathEntry = ProgramSearchPathDir FilePath | ProgramSearchPathDefault
+Name: ProgramSearchPathEntry
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#t:ProgramSearchPathEntry
+Containing package: Distribution.Simple.Program
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type ProgArg = String
+Name: ProgArg
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#t:ProgArg
+Containing package: Distribution.Simple.Program
+attributes {
+}
+parameters {
+}
+Aliased type = Data.String::String
+
+[Alias]
+type ProgramConfiguration = ProgramDb
+Name: ProgramConfiguration
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#t:ProgramConfiguration
+Containing package: Distribution.Simple.Program
+attributes {
+}
+parameters {
+}
+Aliased type = Distribution.Simple.Program.Db::ProgramDb
+
+[Alias]
+type ProgramSearchPath = [ProgramSearchPathEntry]
+Name: ProgramSearchPath
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#t:ProgramSearchPath
+Containing package: Distribution.Simple.Program
+attributes {
+}
+parameters {
+}
+Aliased type = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		Distribution.Simple.Program::ProgramSearchPathEntry
+	}
+}
+
+[Function]
+ghcPkgProgram :: Program
+Name: ghcPkgProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:ghcPkgProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::Program
+}
+
+[Function]
+userSpecifyArgs :: String -> [ProgArg] -> ProgramDb -> ProgramDb
+Name: userSpecifyArgs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:userSpecifyArgs
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	other::List {
+		Distribution.Simple.Program::ProgArg
+	}
+	Distribution.Simple.Program.Db::ProgramDb
+
+	[result]
+	Distribution.Simple.Program.Db::ProgramDb
+}
+
+[Function]
+happyProgram :: Program
+Name: happyProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:happyProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::Program
+}
+
+[Function]
+uhcProgram :: Program
+Name: uhcProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:uhcProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::Program
+}
+
+[Function]
+hugsProgram :: Program
+Name: hugsProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:hugsProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::Program
+}
+
+[Function]
+userSpecifyArgss :: [(String, [ProgArg])] -> ProgramDb -> ProgramDb
+Name: userSpecifyArgss
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:userSpecifyArgss
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		GHC.Tuple::(,) {
+			Data.String::String
+			other::List {
+				Distribution.Simple.Program::ProgArg
+			}
+		}
+	}
+	Distribution.Simple.Program.Db::ProgramDb
+
+	[result]
+	Distribution.Simple.Program.Db::ProgramDb
+}
+
+[Function]
+pkgConfigProgram :: Program
+Name: pkgConfigProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:pkgConfigProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::Program
+}
+
+[Function]
+configureProgram :: Verbosity -> Program -> ProgramDb -> IO ProgramDb
+Name: configureProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:configureProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program::Program
+	Distribution.Simple.Program.Db::ProgramDb
+
+	[result]
+	System.IO::IO {
+		Distribution.Simple.Program.Db::ProgramDb
+	}
+}
+
+[Function]
+getProgramInvocationOutput :: Verbosity -> ProgramInvocation -> IO String
+Name: getProgramInvocationOutput
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:getProgramInvocationOutput
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program::ProgramInvocation
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+ranlibProgram :: Program
+Name: ranlibProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:ranlibProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::Program
+}
+
+[Function]
+haddockProgram :: Program
+Name: haddockProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:haddockProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::Program
+}
+
+[Function]
+getDbProgramOutput :: Verbosity -> Program -> ProgramDb -> [ProgArg] -> IO String
+Name: getDbProgramOutput
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:getDbProgramOutput
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program::Program
+	Distribution.Simple.Program.Db::ProgramDb
+	other::List {
+		Distribution.Simple.Program::ProgArg
+	}
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+programPath :: ConfiguredProgram -> FilePath
+Name: programPath
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:programPath
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program::ConfiguredProgram
+
+	[result]
+	System.IO::FilePath
+}
+
+[Function]
+getProgramSearchPath :: ProgramDb -> ProgramSearchPath
+Name: getProgramSearchPath
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:getProgramSearchPath
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program.Db::ProgramDb
+
+	[result]
+	Distribution.Simple.Program::ProgramSearchPath
+}
+
+[Function]
+requireProgram :: Verbosity -> Program -> ProgramDb -> IO (ConfiguredProgram, ProgramDb)
+Name: requireProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:requireProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program::Program
+	Distribution.Simple.Program.Db::ProgramDb
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			Distribution.Simple.Program::ConfiguredProgram
+			Distribution.Simple.Program.Db::ProgramDb
+		}
+	}
+}
+
+[Function]
+arProgram :: Program
+Name: arProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:arProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::Program
+}
+
+[Function]
+alexProgram :: Program
+Name: alexProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:alexProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::Program
+}
+
+[Function]
+reconfigurePrograms :: Verbosity -> [(String, FilePath)] -> [(String, [ProgArg])] -> ProgramDb -> IO ProgramDb
+Name: reconfigurePrograms
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:reconfigurePrograms
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	other::List {
+		GHC.Tuple::(,) {
+			Data.String::String
+			System.IO::FilePath
+		}
+	}
+	other::List {
+		GHC.Tuple::(,) {
+			Data.String::String
+			other::List {
+				Distribution.Simple.Program::ProgArg
+			}
+		}
+	}
+	Distribution.Simple.Program.Db::ProgramDb
+
+	[result]
+	System.IO::IO {
+		Distribution.Simple.Program.Db::ProgramDb
+	}
+}
+
+[Function]
+userMaybeSpecifyPath :: String -> Maybe FilePath -> ProgramDb -> ProgramDb
+Name: userMaybeSpecifyPath
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:userMaybeSpecifyPath
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Data.Maybe::Maybe {
+		System.IO::FilePath
+	}
+	Distribution.Simple.Program.Db::ProgramDb
+
+	[result]
+	Distribution.Simple.Program.Db::ProgramDb
+}
+
+[Function]
+setProgramSearchPath :: ProgramSearchPath -> ProgramDb -> ProgramDb
+Name: setProgramSearchPath
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:setProgramSearchPath
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program::ProgramSearchPath
+	Distribution.Simple.Program.Db::ProgramDb
+
+	[result]
+	Distribution.Simple.Program.Db::ProgramDb
+}
+
+[Function]
+stripProgram :: Program
+Name: stripProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:stripProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::Program
+}
+
+[Function]
+lookupProgram :: Program -> ProgramDb -> Maybe ConfiguredProgram
+Name: lookupProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:lookupProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program::Program
+	Distribution.Simple.Program.Db::ProgramDb
+
+	[result]
+	Data.Maybe::Maybe {
+		Distribution.Simple.Program::ConfiguredProgram
+	}
+}
+
+[Function]
+hpcProgram :: Program
+Name: hpcProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:hpcProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::Program
+}
+
+[Function]
+cpphsProgram :: Program
+Name: cpphsProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:cpphsProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::Program
+}
+
+[Function]
+ldProgram :: Program
+Name: ldProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:ldProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::Program
+}
+
+[Function]
+rawSystemProgram :: Verbosity -> ConfiguredProgram -> [ProgArg] -> IO ()
+Name: rawSystemProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:rawSystemProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program::ConfiguredProgram
+	other::List {
+		Distribution.Simple.Program::ProgArg
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+defaultProgramConfiguration :: ProgramConfiguration
+Name: defaultProgramConfiguration
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:defaultProgramConfiguration
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::ProgramConfiguration
+}
+
+[Function]
+emptyProgramInvocation :: ProgramInvocation
+Name: emptyProgramInvocation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:emptyProgramInvocation
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::ProgramInvocation
+}
+
+[Function]
+ghcProgram :: Program
+Name: ghcProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:ghcProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::Program
+}
+
+[Function]
+hscolourProgram :: Program
+Name: hscolourProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:hscolourProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::Program
+}
+
+[Function]
+gccProgram :: Program
+Name: gccProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:gccProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::Program
+}
+
+[Function]
+programInvocation :: ConfiguredProgram -> [String] -> ProgramInvocation
+Name: programInvocation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:programInvocation
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program::ConfiguredProgram
+	other::List {
+		Data.String::String
+	}
+
+	[result]
+	Distribution.Simple.Program::ProgramInvocation
+}
+
+[Function]
+tarProgram :: Program
+Name: tarProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:tarProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::Program
+}
+
+[Function]
+greencardProgram :: Program
+Name: greencardProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:greencardProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::Program
+}
+
+[Function]
+findProgramLocation :: Verbosity -> FilePath -> IO (Maybe FilePath)
+Name: findProgramLocation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:findProgramLocation
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			System.IO::FilePath
+		}
+	}
+}
+
+[Function]
+userSpecifyPaths :: [(String, FilePath)] -> ProgramDb -> ProgramDb
+Name: userSpecifyPaths
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:userSpecifyPaths
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		GHC.Tuple::(,) {
+			Data.String::String
+			System.IO::FilePath
+		}
+	}
+	Distribution.Simple.Program.Db::ProgramDb
+
+	[result]
+	Distribution.Simple.Program.Db::ProgramDb
+}
+
+[Function]
+hsc2hsProgram :: Program
+Name: hsc2hsProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:hsc2hsProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::Program
+}
+
+[Function]
+rawSystemProgramStdoutConf :: Verbosity -> Program -> ProgramConfiguration -> [ProgArg] -> IO String
+Name: rawSystemProgramStdoutConf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:rawSystemProgramStdoutConf
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program::Program
+	Distribution.Simple.Program::ProgramConfiguration
+	other::List {
+		Distribution.Simple.Program::ProgArg
+	}
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+suppressOverrideArgs :: ConfiguredProgram -> ConfiguredProgram
+Name: suppressOverrideArgs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:suppressOverrideArgs
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program::ConfiguredProgram
+
+	[result]
+	Distribution.Simple.Program::ConfiguredProgram
+}
+
+[Function]
+hmakeProgram :: Program
+Name: hmakeProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:hmakeProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::Program
+}
+
+[Function]
+lhcProgram :: Program
+Name: lhcProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:lhcProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::Program
+}
+
+[Function]
+addKnownPrograms :: [Program] -> ProgramDb -> ProgramDb
+Name: addKnownPrograms
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:addKnownPrograms
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Distribution.Simple.Program::Program
+	}
+	Distribution.Simple.Program.Db::ProgramDb
+
+	[result]
+	Distribution.Simple.Program.Db::ProgramDb
+}
+
+[Function]
+cppProgram :: Program
+Name: cppProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:cppProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::Program
+}
+
+[Function]
+findProgramVersion :: String -> (String -> String) -> Verbosity -> FilePath -> IO (Maybe Version)
+Name: findProgramVersion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:findProgramVersion
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	<function> {
+		[parameters]
+		Data.String::String
+	
+		[result]
+		Data.String::String
+	}
+	Distribution.Verbosity::Verbosity
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			Distribution.Version::Version
+		}
+	}
+}
+
+[Function]
+requireProgramVersion :: Verbosity -> Program -> VersionRange -> ProgramDb -> IO (ConfiguredProgram, Version, ProgramDb)
+Name: requireProgramVersion
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:requireProgramVersion
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program::Program
+	Distribution.Version::VersionRange
+	Distribution.Simple.Program.Db::ProgramDb
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,,) {
+			Distribution.Simple.Program::ConfiguredProgram
+			Distribution.Version::Version
+			Distribution.Simple.Program.Db::ProgramDb
+		}
+	}
+}
+
+[Function]
+simpleProgramInvocation :: FilePath -> [String] -> ProgramInvocation
+Name: simpleProgramInvocation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:simpleProgramInvocation
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	other::List {
+		Data.String::String
+	}
+
+	[result]
+	Distribution.Simple.Program::ProgramInvocation
+}
+
+[Function]
+restoreProgramConfiguration :: [Program] -> ProgramConfiguration -> ProgramConfiguration
+Name: restoreProgramConfiguration
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:restoreProgramConfiguration
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Distribution.Simple.Program::Program
+	}
+	Distribution.Simple.Program::ProgramConfiguration
+
+	[result]
+	Distribution.Simple.Program::ProgramConfiguration
+}
+
+[Function]
+runProgram :: Verbosity -> ConfiguredProgram -> [ProgArg] -> IO ()
+Name: runProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:runProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program::ConfiguredProgram
+	other::List {
+		Distribution.Simple.Program::ProgArg
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+addKnownProgram :: Program -> ProgramDb -> ProgramDb
+Name: addKnownProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:addKnownProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program::Program
+	Distribution.Simple.Program.Db::ProgramDb
+
+	[result]
+	Distribution.Simple.Program.Db::ProgramDb
+}
+
+[Function]
+nhcProgram :: Program
+Name: nhcProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:nhcProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::Program
+}
+
+[Function]
+simpleProgram :: String -> Program
+Name: simpleProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:simpleProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	Distribution.Simple.Program::Program
+}
+
+[Function]
+rawSystemProgramStdout :: Verbosity -> ConfiguredProgram -> [ProgArg] -> IO String
+Name: rawSystemProgramStdout
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:rawSystemProgramStdout
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program::ConfiguredProgram
+	other::List {
+		Distribution.Simple.Program::ProgArg
+	}
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+findProgramOnPath :: String -> Verbosity -> IO (Maybe FilePath)
+Name: findProgramOnPath
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:findProgramOnPath
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Distribution.Verbosity::Verbosity
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			System.IO::FilePath
+		}
+	}
+}
+
+[Function]
+updateProgram :: ConfiguredProgram -> ProgramDb -> ProgramDb
+Name: updateProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:updateProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program::ConfiguredProgram
+	Distribution.Simple.Program.Db::ProgramDb
+
+	[result]
+	Distribution.Simple.Program.Db::ProgramDb
+}
+
+[Function]
+userSpecifiedArgs :: Program -> ProgramDb -> [ProgArg]
+Name: userSpecifiedArgs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:userSpecifiedArgs
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program::Program
+	Distribution.Simple.Program.Db::ProgramDb
+
+	[result]
+	other::List {
+		Distribution.Simple.Program::ProgArg
+	}
+}
+
+[Function]
+configureAllKnownPrograms :: Verbosity -> ProgramDb -> IO ProgramDb
+Name: configureAllKnownPrograms
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:configureAllKnownPrograms
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program.Db::ProgramDb
+
+	[result]
+	System.IO::IO {
+		Distribution.Simple.Program.Db::ProgramDb
+	}
+}
+
+[Function]
+builtinPrograms :: [Program]
+Name: builtinPrograms
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:builtinPrograms
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		Distribution.Simple.Program::Program
+	}
+}
+
+[Function]
+rawSystemProgramConf :: Verbosity -> Program -> ProgramConfiguration -> [ProgArg] -> IO ()
+Name: rawSystemProgramConf
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:rawSystemProgramConf
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program::Program
+	Distribution.Simple.Program::ProgramConfiguration
+	other::List {
+		Distribution.Simple.Program::ProgArg
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c2hsProgram :: Program
+Name: c2hsProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:c2hsProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::Program
+}
+
+[Function]
+getProgramOutput :: Verbosity -> ConfiguredProgram -> [ProgArg] -> IO String
+Name: getProgramOutput
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:getProgramOutput
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program::ConfiguredProgram
+	other::List {
+		Distribution.Simple.Program::ProgArg
+	}
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+userSpecifyPath :: String -> FilePath -> ProgramDb -> ProgramDb
+Name: userSpecifyPath
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:userSpecifyPath
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	System.IO::FilePath
+	Distribution.Simple.Program.Db::ProgramDb
+
+	[result]
+	Distribution.Simple.Program.Db::ProgramDb
+}
+
+[Function]
+runDbProgram :: Verbosity -> Program -> ProgramDb -> [ProgArg] -> IO ()
+Name: runDbProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:runDbProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program::Program
+	Distribution.Simple.Program.Db::ProgramDb
+	other::List {
+		Distribution.Simple.Program::ProgArg
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+lookupKnownProgram :: String -> ProgramDb -> Maybe Program
+Name: lookupKnownProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:lookupKnownProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+	Distribution.Simple.Program.Db::ProgramDb
+
+	[result]
+	Data.Maybe::Maybe {
+		Distribution.Simple.Program::Program
+	}
+}
+
+[Function]
+runProgramInvocation :: Verbosity -> ProgramInvocation -> IO ()
+Name: runProgramInvocation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:runProgramInvocation
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program::ProgramInvocation
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+lhcPkgProgram :: Program
+Name: lhcPkgProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:lhcPkgProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::Program
+}
+
+[Function]
+emptyProgramConfiguration :: ProgramConfiguration
+Name: emptyProgramConfiguration
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:emptyProgramConfiguration
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::ProgramConfiguration
+}
+
+[Function]
+jhcProgram :: Program
+Name: jhcProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:jhcProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::Program
+}
+
+[Function]
+ffihugsProgram :: Program
+Name: ffihugsProgram
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:ffihugsProgram
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Program::Program
+}
+
+[Function]
+knownPrograms :: ProgramDb -> [(Program, Maybe ConfiguredProgram)]
+Name: knownPrograms
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Program.html#v:knownPrograms
+Containing package: Distribution.Simple.Program
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program.Db::ProgramDb
+
+	[result]
+	other::List {
+		GHC.Tuple::(,) {
+			Distribution.Simple.Program::Program
+			Data.Maybe::Maybe {
+				Distribution.Simple.Program::ConfiguredProgram
+			}
+		}
+	}
+}

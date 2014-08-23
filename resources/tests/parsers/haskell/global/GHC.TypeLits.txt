@@ -1,0 +1,302 @@
+[Package]
+Name: GHC.TypeLits
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-TypeLits.html
+Containing package: GHC
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data Symbol
+Name: Symbol
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-TypeLits.html#t:Symbol
+Containing package: GHC.TypeLits
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Nat
+Name: Nat
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-TypeLits.html#t:Nat
+Containing package: GHC.TypeLits
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class KnownSymbol n
+Name: KnownSymbol
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-TypeLits.html#t:KnownSymbol
+Containing package: GHC.TypeLits
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data SomeSymbol = forall n . KnownSymbol n => SomeSymbol (Proxy n)
+Name: SomeSymbol
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-TypeLits.html#t:SomeSymbol
+Containing package: GHC.TypeLits
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class KnownNat n
+Name: KnownNat
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-TypeLits.html#t:KnownNat
+Containing package: GHC.TypeLits
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data SomeNat = forall n . KnownNat n => SomeNat (Proxy n)
+Name: SomeNat
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-TypeLits.html#t:SomeNat
+Containing package: GHC.TypeLits
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type (<=) x y = (x <=? y) ~ True
+Name: (<=)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-TypeLits.html#t:(<=)
+Containing package: GHC.TypeLits
+attributes {
+}
+parameters {
+	x
+	y
+}
+Aliased type = null::(~) {
+	null::(<=?) {
+		null::x
+		null::y
+	}
+	null::True
+}
+
+[Function]
+someSymbolVal :: String -> SomeSymbol
+Name: someSymbolVal
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-TypeLits.html#v:someSymbolVal
+Containing package: GHC.TypeLits
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	GHC.TypeLits::SomeSymbol
+}
+
+[Function]
+sameSymbol :: (KnownSymbol a, KnownSymbol b) => Proxy a -> Proxy b -> Maybe (a :~: b)
+Name: sameSymbol
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-TypeLits.html#v:sameSymbol
+Containing package: GHC.TypeLits
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (KnownSymbol a; a; GHC.TypeLits::KnownSymbol)
+	b: (KnownSymbol b; b; GHC.TypeLits::KnownSymbol)
+}
+Signature = <function> {
+	[parameters]
+	Data.Proxy::Proxy {
+		null::a
+	}
+	Data.Proxy::Proxy {
+		null::b
+	}
+
+	[result]
+	Data.Maybe::Maybe {
+		null::(:~:) {
+			null::a
+			null::b
+		}
+	}
+}
+
+[Function]
+someNatVal :: Integer -> Maybe SomeNat
+Name: someNatVal
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-TypeLits.html#v:someNatVal
+Containing package: GHC.TypeLits
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Integer
+
+	[result]
+	Data.Maybe::Maybe {
+		GHC.TypeLits::SomeNat
+	}
+}
+
+[Function]
+symbolVal :: forall n proxy. KnownSymbol n => proxy n -> String
+Name: symbolVal
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-TypeLits.html#v:symbolVal
+Containing package: GHC.TypeLits
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n: (KnownSymbol n; n; GHC.TypeLits::KnownSymbol)
+	proxy
+}
+Signature = <function> {
+	[parameters]
+	null::proxy {
+		null::n
+	}
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+sameNat :: (KnownNat a, KnownNat b) => Proxy a -> Proxy b -> Maybe (a :~: b)
+Name: sameNat
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-TypeLits.html#v:sameNat
+Containing package: GHC.TypeLits
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a: (KnownNat a; a; GHC.TypeLits::KnownNat)
+	b: (KnownNat b; b; GHC.TypeLits::KnownNat)
+}
+Signature = <function> {
+	[parameters]
+	Data.Proxy::Proxy {
+		null::a
+	}
+	Data.Proxy::Proxy {
+		null::b
+	}
+
+	[result]
+	Data.Maybe::Maybe {
+		null::(:~:) {
+			null::a
+			null::b
+		}
+	}
+}
+
+[Function]
+natVal :: forall n proxy. KnownNat n => proxy n -> Integer
+Name: natVal
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-TypeLits.html#v:natVal
+Containing package: GHC.TypeLits
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	n: (KnownNat n; n; GHC.TypeLits::KnownNat)
+	proxy
+}
+Signature = <function> {
+	[parameters]
+	null::proxy {
+		null::n
+	}
+
+	[result]
+	Prelude::Integer
+}

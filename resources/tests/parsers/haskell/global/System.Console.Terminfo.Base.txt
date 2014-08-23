@@ -1,0 +1,554 @@
+[Package]
+Name: System.Console.Terminfo.Base
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Base.html
+Containing package: System.Console.Terminfo
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+class Monoid a where mempty :: a mappend :: a -> a -> a mconcat :: [a] -> a
+Name: Monoid
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Base.html#t:Monoid
+Containing package: System.Console.Terminfo.Base
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	System.Console.Terminfo.Base::TermStr
+	System.Console.Terminfo.Base::System.Console.Terminfo.Base.Monoid_TermOutput<>
+	Data.Ord::System.Console.Terminfo.Base.Monoid_Ordering<>
+	GHC.Tuple::System.Console.Terminfo.Base.Monoid_()<>
+	Data.Monoid::System.Console.Terminfo.Base.Monoid_All<>
+	Data.Monoid::System.Console.Terminfo.Base.Monoid_Any<>
+	other::System.Console.Terminfo.Base.Monoid_List<a<>>
+	Data.Monoid::System.Console.Terminfo.Base.Monoid_Dual<a<>>
+	Data.Monoid::System.Console.Terminfo.Base.Monoid_Endo<a<>>
+	Data.Monoid::System.Console.Terminfo.Base.Monoid_Sum<a<>>
+	Data.Monoid::System.Console.Terminfo.Base.Monoid_Product<a<>>
+	Data.Monoid::System.Console.Terminfo.Base.Monoid_First<a<>>
+	Data.Monoid::System.Console.Terminfo.Base.Monoid_Last<a<>>
+	Data.Maybe::System.Console.Terminfo.Base.Monoid_Maybe<a<>>
+	other::System.Console.Terminfo.Base.Monoid_Function<a<>,b<>>
+	GHC.Tuple::System.Console.Terminfo.Base.Monoid_(,,,)<a<>,b<>>
+	Control.Applicative::System.Console.Terminfo.Base.Monoid_Const<a<>,b<>>
+	Data.Proxy::System.Console.Terminfo.Base.Monoid_Proxy<s<>>
+	GHC.Tuple::System.Console.Terminfo.Base.Monoid_(,,,,)<a<>,b<>,c<>>
+	GHC.Tuple::System.Console.Terminfo.Base.Monoid_(,,,,,)<a<>,b<>,c<>,d<>>
+	GHC.Tuple::System.Console.Terminfo.Base.Monoid_(,,,,,,)<a<>,b<>,c<>,d<>,e<>>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	mempty :: a
+	Name: mempty
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Base.html#v:mempty
+	Containing package: System.Console.Terminfo.Base
+	attributes {
+		memberType=function
+	}
+	Containing type: Monoid
+	parameters {
+		a: (Monoid a; a; System.Console.Terminfo.Base::Monoid)
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	mappend :: a -> a -> a
+	Name: mappend
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Base.html#v:mappend
+	Containing package: System.Console.Terminfo.Base
+	attributes {
+		memberType=function
+	}
+	Containing type: Monoid
+	parameters {
+		a: (Monoid a; a; System.Console.Terminfo.Base::Monoid)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+		null::a
+	
+		[result]
+		null::a
+	}
+
+	[Function]
+	mconcat :: [a] -> a
+	Name: mconcat
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Base.html#v:mconcat
+	Containing package: System.Console.Terminfo.Base
+	attributes {
+		memberType=function
+	}
+	Containing type: Monoid
+	parameters {
+		a: (Monoid a; a; System.Console.Terminfo.Base::Monoid)
+	}
+	Signature = <function> {
+		[parameters]
+		other::List {
+			null::a
+		}
+	
+		[result]
+		null::a
+	}
+}
+
+[Classifier]
+class (Monoid s, OutputCap s) => TermStr s
+Name: TermStr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Base.html#t:TermStr
+Containing package: System.Console.Terminfo.Base
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	System.Console.Terminfo.Base::System.Console.Terminfo.Base.TermStr_TermOutput<>
+	other::System.Console.Terminfo.Base.TermStr_List<Char<>>
+}
+supertypes {
+	System.Console.Terminfo.Base::Monoid
+	System.Console.Terminfo.Base::OutputCap
+}
+members {
+}
+
+[Classifier]
+class OutputCap f
+Name: OutputCap
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Base.html#t:OutputCap
+Containing package: System.Console.Terminfo.Base
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	System.Console.Terminfo.Base::TermStr
+	System.Console.Terminfo.Base::System.Console.Terminfo.Base.OutputCap_TermOutput<>
+	other::System.Console.Terminfo.Base.OutputCap_List<Char<>>
+	other::System.Console.Terminfo.Base.OutputCap_Function<p<>,f<>>
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Terminal
+Name: Terminal
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Base.html#t:Terminal
+Containing package: System.Console.Terminfo.Base
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data SetupTermError
+Name: SetupTermError
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Base.html#t:SetupTermError
+Containing package: System.Console.Terminfo.Base
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Capability a
+Name: Capability
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Base.html#t:Capability
+Containing package: System.Console.Terminfo.Base
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TermOutput
+Name: TermOutput
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Base.html#t:TermOutput
+Containing package: System.Console.Terminfo.Base
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type LinesAffected = Int
+Name: LinesAffected
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Base.html#t:LinesAffected
+Containing package: System.Console.Terminfo.Base
+attributes {
+}
+parameters {
+}
+Aliased type = Data.Int::Int
+
+[Function]
+tiGetOutput :: String -> Capability ([Int] -> LinesAffected -> TermOutput)
+Name: tiGetOutput
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Base.html#v:tiGetOutput
+Containing package: System.Console.Terminfo.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.Console.Terminfo.Base::Capability {
+		<function> {
+			[parameters]
+			other::List {
+				Data.Int::Int
+			}
+			System.Console.Terminfo.Base::LinesAffected
+		
+			[result]
+			System.Console.Terminfo.Base::TermOutput
+		}
+	}
+}
+
+[Function]
+tiGetStr :: String -> Capability String
+Name: tiGetStr
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Base.html#v:tiGetStr
+Containing package: System.Console.Terminfo.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.Console.Terminfo.Base::Capability {
+		Data.String::String
+	}
+}
+
+[Function]
+tiGuardFlag :: String -> Capability ()
+Name: tiGuardFlag
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Base.html#v:tiGuardFlag
+Containing package: System.Console.Terminfo.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.Console.Terminfo.Base::Capability {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+termText :: String -> TermOutput
+Name: termText
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Base.html#v:termText
+Containing package: System.Console.Terminfo.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.Console.Terminfo.Base::TermOutput
+}
+
+[Function]
+setupTermFromEnv :: IO Terminal
+Name: setupTermFromEnv
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Base.html#v:setupTermFromEnv
+Containing package: System.Console.Terminfo.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.Console.Terminfo.Base::Terminal
+	}
+}
+
+[Function]
+setupTerm :: String -> IO Terminal
+Name: setupTerm
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Base.html#v:setupTerm
+Containing package: System.Console.Terminfo.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		System.Console.Terminfo.Base::Terminal
+	}
+}
+
+[Function]
+tiGetNum :: String -> Capability Int
+Name: tiGetNum
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Base.html#v:tiGetNum
+Containing package: System.Console.Terminfo.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.Console.Terminfo.Base::Capability {
+		Data.Int::Int
+	}
+}
+
+[Function]
+tiGetFlag :: String -> Capability Bool
+Name: tiGetFlag
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Base.html#v:tiGetFlag
+Containing package: System.Console.Terminfo.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.Console.Terminfo.Base::Capability {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+(<#>) :: Monoid m => m -> m -> m
+Name: (<#>)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Base.html#v:(<#>)
+Containing package: System.Console.Terminfo.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monoid m; m; System.Console.Terminfo.Base::Monoid)
+}
+Signature = <function> {
+	[parameters]
+	null::m
+	null::m
+
+	[result]
+	null::m
+}
+
+[Function]
+tiGetOutput1 :: forall f. OutputCap f => String -> Capability f
+Name: tiGetOutput1
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Base.html#v:tiGetOutput1
+Containing package: System.Console.Terminfo.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	f: (OutputCap f; f; System.Console.Terminfo.Base::OutputCap)
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.Console.Terminfo.Base::Capability {
+		null::f
+	}
+}
+
+[Function]
+getCapability :: Terminal -> Capability a -> Maybe a
+Name: getCapability
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Base.html#v:getCapability
+Containing package: System.Console.Terminfo.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.Console.Terminfo.Base::Terminal
+	System.Console.Terminfo.Base::Capability {
+		null::a
+	}
+
+	[result]
+	Data.Maybe::Maybe {
+		null::a
+	}
+}
+
+[Function]
+hRunTermOutput :: Handle -> Terminal -> TermOutput -> IO ()
+Name: hRunTermOutput
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Base.html#v:hRunTermOutput
+Containing package: System.Console.Terminfo.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	GHC.IO.Handle::Handle
+	System.Console.Terminfo.Base::Terminal
+	System.Console.Terminfo.Base::TermOutput
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+runTermOutput :: Terminal -> TermOutput -> IO ()
+Name: runTermOutput
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/terminfo-0.4.0.0/System-Console-Terminfo-Base.html#v:runTermOutput
+Containing package: System.Console.Terminfo.Base
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Console.Terminfo.Base::Terminal
+	System.Console.Terminfo.Base::TermOutput
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}

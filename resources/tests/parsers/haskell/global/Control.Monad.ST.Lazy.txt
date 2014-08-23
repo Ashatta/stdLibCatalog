@@ -1,0 +1,195 @@
+[Package]
+Name: Control.Monad.ST.Lazy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Monad-ST-Lazy.html
+Containing package: Control.Monad.ST
+attributes {
+}
+
+Subpackages {
+	Control.Monad.ST.Lazy.Safe
+	Control.Monad.ST.Lazy.Unsafe
+}
+
+[Classifier]
+data ST s a
+Name: ST
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Monad-ST-Lazy.html#t:ST
+Containing package: Control.Monad.ST.Lazy
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	s
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data RealWorld :: *
+Name: RealWorld
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Monad-ST-Lazy.html#t:RealWorld
+Containing package: Control.Monad.ST.Lazy
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+lazyToStrictST :: ST s a -> ST s a
+Name: lazyToStrictST
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Monad-ST-Lazy.html#v:lazyToStrictST
+Containing package: Control.Monad.ST.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Monad.ST.Lazy::ST {
+		null::s
+		null::a
+	}
+
+	[result]
+	Control.Monad.ST.Lazy::ST {
+		null::s
+		null::a
+	}
+}
+
+[Function]
+fixST :: (a -> ST s a) -> ST s a
+Name: fixST
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Monad-ST-Lazy.html#v:fixST
+Containing package: Control.Monad.ST.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	s
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Control.Monad.ST.Lazy::ST {
+			null::s
+			null::a
+		}
+	}
+
+	[result]
+	Control.Monad.ST.Lazy::ST {
+		null::s
+		null::a
+	}
+}
+
+[Function]
+strictToLazyST :: ST s a -> ST s a
+Name: strictToLazyST
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Monad-ST-Lazy.html#v:strictToLazyST
+Containing package: Control.Monad.ST.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Monad.ST.Safe::ST {
+		null::s
+		null::a
+	}
+
+	[result]
+	Control.Monad.ST.Safe::ST {
+		null::s
+		null::a
+	}
+}
+
+[Function]
+stToIO :: ST RealWorld a -> IO a
+Name: stToIO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Monad-ST-Lazy.html#v:stToIO
+Containing package: Control.Monad.ST.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Monad.ST.Lazy::ST {
+		Control.Monad.ST.Lazy::RealWorld
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+runST :: (forall s. ST s a) -> a
+Name: runST
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Monad-ST-Lazy.html#v:runST
+Containing package: Control.Monad.ST.Lazy
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	s
+	a
+}
+Signature = <function> {
+	[parameters]
+	Control.Monad.ST.Lazy::ST {
+		null::s
+		null::a
+	}
+
+	[result]
+	null::a
+}

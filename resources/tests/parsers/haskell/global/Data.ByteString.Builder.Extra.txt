@@ -1,0 +1,539 @@
+[Package]
+Name: Data.ByteString.Builder.Extra
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString-Builder-Extra.html
+Containing package: Data.ByteString.Builder
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data Next = Done | More !Int BufferWriter | Chunk !ByteString BufferWriter
+Name: Next
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString-Builder-Extra.html#t:Next
+Containing package: Data.ByteString.Builder.Extra
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data AllocationStrategy
+Name: AllocationStrategy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString-Builder-Extra.html#t:AllocationStrategy
+Containing package: Data.ByteString.Builder.Extra
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type BufferWriter = Ptr Word8 -> Int -> IO (Int, Next)
+Name: BufferWriter
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString-Builder-Extra.html#t:BufferWriter
+Containing package: Data.ByteString.Builder.Extra
+attributes {
+}
+parameters {
+}
+Aliased type = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		Data.Word::Word8
+	}
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			Data.Int::Int
+			Data.ByteString.Builder.Extra::Next
+		}
+	}
+}
+
+[Function]
+lazyByteStringThreshold :: Int -> ByteString -> Builder
+Name: lazyByteStringThreshold
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString-Builder-Extra.html#v:lazyByteStringThreshold
+Containing package: Data.ByteString.Builder.Extra
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	Data.ByteString.Lazy::ByteString
+
+	[result]
+	Data.ByteString.Builder::Builder
+}
+
+[Function]
+defaultChunkSize :: Int
+Name: defaultChunkSize
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString-Builder-Extra.html#v:defaultChunkSize
+Containing package: Data.ByteString.Builder.Extra
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+byteStringThreshold :: Int -> ByteString -> Builder
+Name: byteStringThreshold
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString-Builder-Extra.html#v:byteStringThreshold
+Containing package: Data.ByteString.Builder.Extra
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	Data.ByteString::ByteString
+
+	[result]
+	Data.ByteString.Builder::Builder
+}
+
+[Function]
+word64Host :: Word64 -> Builder
+Name: word64Host
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString-Builder-Extra.html#v:word64Host
+Containing package: Data.ByteString.Builder.Extra
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Word::Word64
+
+	[result]
+	Data.ByteString.Builder::Builder
+}
+
+[Function]
+wordHost :: Word -> Builder
+Name: wordHost
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString-Builder-Extra.html#v:wordHost
+Containing package: Data.ByteString.Builder.Extra
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Word::Word
+
+	[result]
+	Data.ByteString.Builder::Builder
+}
+
+[Function]
+untrimmedStrategy :: Int -> Int -> AllocationStrategy
+Name: untrimmedStrategy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString-Builder-Extra.html#v:untrimmedStrategy
+Containing package: Data.ByteString.Builder.Extra
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	Data.Int::Int
+
+	[result]
+	Data.ByteString.Builder.Extra::AllocationStrategy
+}
+
+[Function]
+floatHost :: Float -> Builder
+Name: floatHost
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString-Builder-Extra.html#v:floatHost
+Containing package: Data.ByteString.Builder.Extra
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Float
+
+	[result]
+	Data.ByteString.Builder::Builder
+}
+
+[Function]
+safeStrategy :: Int -> Int -> AllocationStrategy
+Name: safeStrategy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString-Builder-Extra.html#v:safeStrategy
+Containing package: Data.ByteString.Builder.Extra
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	Data.Int::Int
+
+	[result]
+	Data.ByteString.Builder.Extra::AllocationStrategy
+}
+
+[Function]
+smallChunkSize :: Int
+Name: smallChunkSize
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString-Builder-Extra.html#v:smallChunkSize
+Containing package: Data.ByteString.Builder.Extra
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+int32Host :: Int32 -> Builder
+Name: int32Host
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString-Builder-Extra.html#v:int32Host
+Containing package: Data.ByteString.Builder.Extra
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int32
+
+	[result]
+	Data.ByteString.Builder::Builder
+}
+
+[Function]
+byteStringInsert :: ByteString -> Builder
+Name: byteStringInsert
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString-Builder-Extra.html#v:byteStringInsert
+Containing package: Data.ByteString.Builder.Extra
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+
+	[result]
+	Data.ByteString.Builder::Builder
+}
+
+[Function]
+lazyByteStringCopy :: ByteString -> Builder
+Name: lazyByteStringCopy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString-Builder-Extra.html#v:lazyByteStringCopy
+Containing package: Data.ByteString.Builder.Extra
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString.Lazy::ByteString
+
+	[result]
+	Data.ByteString.Builder::Builder
+}
+
+[Function]
+word32Host :: Word32 -> Builder
+Name: word32Host
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString-Builder-Extra.html#v:word32Host
+Containing package: Data.ByteString.Builder.Extra
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Word::Word32
+
+	[result]
+	Data.ByteString.Builder::Builder
+}
+
+[Function]
+doubleHost :: Double -> Builder
+Name: doubleHost
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString-Builder-Extra.html#v:doubleHost
+Containing package: Data.ByteString.Builder.Extra
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Double
+
+	[result]
+	Data.ByteString.Builder::Builder
+}
+
+[Function]
+flush :: Builder
+Name: flush
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString-Builder-Extra.html#v:flush
+Containing package: Data.ByteString.Builder.Extra
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.ByteString.Builder::Builder
+}
+
+[Function]
+word16Host :: Word16 -> Builder
+Name: word16Host
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString-Builder-Extra.html#v:word16Host
+Containing package: Data.ByteString.Builder.Extra
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Word::Word16
+
+	[result]
+	Data.ByteString.Builder::Builder
+}
+
+[Function]
+toLazyByteStringWith :: AllocationStrategy -> ByteString -> Builder -> ByteString
+Name: toLazyByteStringWith
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString-Builder-Extra.html#v:toLazyByteStringWith
+Containing package: Data.ByteString.Builder.Extra
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString.Builder.Extra::AllocationStrategy
+	Data.ByteString.Lazy::ByteString
+	Data.ByteString.Builder::Builder
+
+	[result]
+	Data.ByteString.Lazy::ByteString
+}
+
+[Function]
+lazyByteStringInsert :: ByteString -> Builder
+Name: lazyByteStringInsert
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString-Builder-Extra.html#v:lazyByteStringInsert
+Containing package: Data.ByteString.Builder.Extra
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString.Lazy::ByteString
+
+	[result]
+	Data.ByteString.Builder::Builder
+}
+
+[Function]
+runBuilder :: Builder -> BufferWriter
+Name: runBuilder
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString-Builder-Extra.html#v:runBuilder
+Containing package: Data.ByteString.Builder.Extra
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString.Builder::Builder
+
+	[result]
+	Data.ByteString.Builder.Extra::BufferWriter
+}
+
+[Function]
+intHost :: Int -> Builder
+Name: intHost
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString-Builder-Extra.html#v:intHost
+Containing package: Data.ByteString.Builder.Extra
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	Data.ByteString.Builder::Builder
+}
+
+[Function]
+byteStringCopy :: ByteString -> Builder
+Name: byteStringCopy
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString-Builder-Extra.html#v:byteStringCopy
+Containing package: Data.ByteString.Builder.Extra
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.ByteString::ByteString
+
+	[result]
+	Data.ByteString.Builder::Builder
+}
+
+[Function]
+int64Host :: Int64 -> Builder
+Name: int64Host
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString-Builder-Extra.html#v:int64Host
+Containing package: Data.ByteString.Builder.Extra
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int64
+
+	[result]
+	Data.ByteString.Builder::Builder
+}
+
+[Function]
+int16Host :: Int16 -> Builder
+Name: int16Host
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring-0.10.4.0/Data-ByteString-Builder-Extra.html#v:int16Host
+Containing package: Data.ByteString.Builder.Extra
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int16
+
+	[result]
+	Data.ByteString.Builder::Builder
+}

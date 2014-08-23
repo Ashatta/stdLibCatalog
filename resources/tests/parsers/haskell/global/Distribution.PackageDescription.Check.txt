@@ -1,0 +1,175 @@
+[Package]
+Name: Distribution.PackageDescription.Check
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Check.html
+Containing package: Distribution.PackageDescription
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data CheckPackageContentOps m = CheckPackageContentOps { doesFileExist :: FilePath -> m Bool doesDirectoryExist :: FilePath -> m Bool}
+Name: CheckPackageContentOps
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Check.html#t:CheckPackageContentOps
+Containing package: Distribution.PackageDescription.Check
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	m
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data PackageCheck = PackageBuildImpossible { explanation :: String } | PackageBuildWarning { explanation :: String } | PackageDistSuspicious { explanation :: String } | PackageDistInexcusable { explanation :: String }
+Name: PackageCheck
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Check.html#t:PackageCheck
+Containing package: Distribution.PackageDescription.Check
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+checkPackageContent :: Monad m => CheckPackageContentOps m -> PackageDescription -> m [PackageCheck]
+Name: checkPackageContent
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Check.html#v:checkPackageContent
+Containing package: Distribution.PackageDescription.Check
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	m: (Monad m; m; Control.Monad::Monad)
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription.Check::CheckPackageContentOps {
+		null::m
+	}
+	Distribution.PackageDescription::PackageDescription
+
+	[result]
+	null::m {
+		other::List {
+			Distribution.PackageDescription.Check::PackageCheck
+		}
+	}
+}
+
+[Function]
+checkPackageFiles :: PackageDescription -> FilePath -> IO [PackageCheck]
+Name: checkPackageFiles
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Check.html#v:checkPackageFiles
+Containing package: Distribution.PackageDescription.Check
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		other::List {
+			Distribution.PackageDescription.Check::PackageCheck
+		}
+	}
+}
+
+[Function]
+checkPackageFileNames :: [FilePath] -> [PackageCheck]
+Name: checkPackageFileNames
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Check.html#v:checkPackageFileNames
+Containing package: Distribution.PackageDescription.Check
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		System.IO::FilePath
+	}
+
+	[result]
+	other::List {
+		Distribution.PackageDescription.Check::PackageCheck
+	}
+}
+
+[Function]
+checkPackage :: GenericPackageDescription -> Maybe PackageDescription -> [PackageCheck]
+Name: checkPackage
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Check.html#v:checkPackage
+Containing package: Distribution.PackageDescription.Check
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::GenericPackageDescription
+	Data.Maybe::Maybe {
+		Distribution.PackageDescription::PackageDescription
+	}
+
+	[result]
+	other::List {
+		Distribution.PackageDescription.Check::PackageCheck
+	}
+}
+
+[Function]
+checkConfiguredPackage :: PackageDescription -> [PackageCheck]
+Name: checkConfiguredPackage
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Check.html#v:checkConfiguredPackage
+Containing package: Distribution.PackageDescription.Check
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+
+	[result]
+	other::List {
+		Distribution.PackageDescription.Check::PackageCheck
+	}
+}

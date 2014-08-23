@@ -1,0 +1,304 @@
+[Package]
+Name: Distribution.PackageDescription.Configuration
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Configuration.html
+Containing package: Distribution.PackageDescription
+attributes {
+}
+
+Subpackages {
+}
+
+[Function]
+mapTreeData :: (a -> b) -> CondTree v c a -> CondTree v c b
+Name: mapTreeData
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Configuration.html#v:mapTreeData
+Containing package: Distribution.PackageDescription.Configuration
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+	v
+	c
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::b
+	}
+	Distribution.PackageDescription::CondTree {
+		null::v
+		null::c
+		null::a
+	}
+
+	[result]
+	Distribution.PackageDescription::CondTree {
+		null::v
+		null::c
+		null::b
+	}
+}
+
+[Function]
+finalizePackageDescription :: FlagAssignment -> (Dependency -> Bool) -> Platform -> CompilerId -> [Dependency] -> GenericPackageDescription -> Either [Dependency] (PackageDescription, FlagAssignment)
+Name: finalizePackageDescription
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Configuration.html#v:finalizePackageDescription
+Containing package: Distribution.PackageDescription.Configuration
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::FlagAssignment
+	<function> {
+		[parameters]
+		Distribution.Package::Dependency
+	
+		[result]
+		Data.Bool::Bool
+	}
+	Distribution.System::Platform
+	Distribution.Compiler::CompilerId
+	other::List {
+		Distribution.Package::Dependency
+	}
+	Distribution.PackageDescription::GenericPackageDescription
+
+	[result]
+	Data.Either::Either {
+		other::List {
+			Distribution.Package::Dependency
+		}
+		GHC.Tuple::(,) {
+			Distribution.PackageDescription::PackageDescription
+			Distribution.PackageDescription::FlagAssignment
+		}
+	}
+}
+
+[Function]
+mapCondTree :: (a -> b) -> (c -> d) -> (Condition v -> Condition w) -> CondTree v c a -> CondTree w d b
+Name: mapCondTree
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Configuration.html#v:mapCondTree
+Containing package: Distribution.PackageDescription.Configuration
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+	c
+	d
+	v
+	w
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::b
+	}
+	<function> {
+		[parameters]
+		null::c
+	
+		[result]
+		null::d
+	}
+	<function> {
+		[parameters]
+		Distribution.PackageDescription::Condition {
+			null::v
+		}
+	
+		[result]
+		Distribution.PackageDescription::Condition {
+			null::w
+		}
+	}
+	Distribution.PackageDescription::CondTree {
+		null::v
+		null::c
+		null::a
+	}
+
+	[result]
+	Distribution.PackageDescription::CondTree {
+		null::w
+		null::d
+		null::b
+	}
+}
+
+[Function]
+freeVars :: CondTree ConfVar c a -> [FlagName]
+Name: freeVars
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Configuration.html#v:freeVars
+Containing package: Distribution.PackageDescription.Configuration
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	c
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::CondTree {
+		Distribution.PackageDescription::ConfVar
+		null::c
+		null::a
+	}
+
+	[result]
+	other::List {
+		Distribution.PackageDescription::FlagName
+	}
+}
+
+[Function]
+mapTreeConstrs :: (c -> d) -> CondTree v c a -> CondTree v d a
+Name: mapTreeConstrs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Configuration.html#v:mapTreeConstrs
+Containing package: Distribution.PackageDescription.Configuration
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	c
+	d
+	v
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::c
+	
+		[result]
+		null::d
+	}
+	Distribution.PackageDescription::CondTree {
+		null::v
+		null::c
+		null::a
+	}
+
+	[result]
+	Distribution.PackageDescription::CondTree {
+		null::v
+		null::d
+		null::a
+	}
+}
+
+[Function]
+parseCondition :: ReadP r (Condition ConfVar)
+Name: parseCondition
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Configuration.html#v:parseCondition
+Containing package: Distribution.PackageDescription.Configuration
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	r
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Compat.ReadP::ReadP {
+		null::r
+		Distribution.PackageDescription::Condition {
+			Distribution.PackageDescription::ConfVar
+		}
+	}
+}
+
+[Function]
+mapTreeConds :: (Condition v -> Condition w) -> CondTree v c a -> CondTree w c a
+Name: mapTreeConds
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Configuration.html#v:mapTreeConds
+Containing package: Distribution.PackageDescription.Configuration
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	v
+	w
+	c
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Distribution.PackageDescription::Condition {
+			null::v
+		}
+	
+		[result]
+		Distribution.PackageDescription::Condition {
+			null::w
+		}
+	}
+	Distribution.PackageDescription::CondTree {
+		null::v
+		null::c
+		null::a
+	}
+
+	[result]
+	Distribution.PackageDescription::CondTree {
+		null::w
+		null::c
+		null::a
+	}
+}
+
+[Function]
+flattenPackageDescription :: GenericPackageDescription -> PackageDescription
+Name: flattenPackageDescription
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-PackageDescription-Configuration.html#v:flattenPackageDescription
+Containing package: Distribution.PackageDescription.Configuration
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::GenericPackageDescription
+
+	[result]
+	Distribution.PackageDescription::PackageDescription
+}

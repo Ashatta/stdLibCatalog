@@ -1,0 +1,214 @@
+[Package]
+Name: Data.Either
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Either.html
+Containing package: Data
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data Either a b = Left a | Right b
+Name: Either
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Either.html#t:Either
+Containing package: Data.Either
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+	b
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+partitionEithers :: [Either a b] -> ([a], [b])
+Name: partitionEithers
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Either.html#v:partitionEithers
+Containing package: Data.Either
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Data.Either::Either {
+			null::a
+			null::b
+		}
+	}
+
+	[result]
+	GHC.Tuple::(,) {
+		other::List {
+			null::a
+		}
+		other::List {
+			null::b
+		}
+	}
+}
+
+[Function]
+rights :: [Either a b] -> [b]
+Name: rights
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Either.html#v:rights
+Containing package: Data.Either
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Data.Either::Either {
+			null::a
+			null::b
+		}
+	}
+
+	[result]
+	other::List {
+		null::b
+	}
+}
+
+[Function]
+lefts :: [Either a b] -> [a]
+Name: lefts
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Either.html#v:lefts
+Containing package: Data.Either
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		Data.Either::Either {
+			null::a
+			null::b
+		}
+	}
+
+	[result]
+	other::List {
+		null::a
+	}
+}
+
+[Function]
+isLeft :: Either a b -> Bool
+Name: isLeft
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Either.html#v:isLeft
+Containing package: Data.Either
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	Data.Either::Either {
+		null::a
+		null::b
+	}
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+isRight :: Either a b -> Bool
+Name: isRight
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Either.html#v:isRight
+Containing package: Data.Either
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	Data.Either::Either {
+		null::a
+		null::b
+	}
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+either :: (a -> c) -> (b -> c) -> Either a b -> c
+Name: either
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Data-Either.html#v:either
+Containing package: Data.Either
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+	c
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::c
+	}
+	<function> {
+		[parameters]
+		null::b
+	
+		[result]
+		null::c
+	}
+	Data.Either::Either {
+		null::a
+		null::b
+	}
+
+	[result]
+	null::c
+}

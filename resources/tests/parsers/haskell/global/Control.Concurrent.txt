@@ -1,0 +1,621 @@
+[Package]
+Name: Control.Concurrent
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent.html
+Containing package: Control
+attributes {
+}
+
+Subpackages {
+	Control.Concurrent.Chan
+	Control.Concurrent.MVar
+	Control.Concurrent.QSem
+	Control.Concurrent.QSemN
+}
+
+[Classifier]
+data ThreadId
+Name: ThreadId
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent.html#t:ThreadId
+Containing package: Control.Concurrent
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+threadWaitRead :: Fd -> IO ()
+Name: threadWaitRead
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent.html#v:threadWaitRead
+Containing package: Control.Concurrent
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+forkIOWithUnmask :: ((forall a. IO a -> IO a) -> IO ()) -> IO ThreadId
+Name: forkIOWithUnmask
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent.html#v:forkIOWithUnmask
+Containing package: Control.Concurrent
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			System.IO::IO {
+				null::a
+			}
+		
+			[result]
+			System.IO::IO {
+				null::a
+			}
+		}
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		Control.Concurrent::ThreadId
+	}
+}
+
+[Function]
+forkFinally :: IO a -> (Either SomeException a -> IO ()) -> IO ThreadId
+Name: forkFinally
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent.html#v:forkFinally
+Containing package: Control.Concurrent
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.IO::IO {
+		null::a
+	}
+	<function> {
+		[parameters]
+		Data.Either::Either {
+			Control.Exception.Base::SomeException
+			null::a
+		}
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		Control.Concurrent::ThreadId
+	}
+}
+
+[Function]
+forkOnWithUnmask :: Int -> ((forall a. IO a -> IO a) -> IO ()) -> IO ThreadId
+Name: forkOnWithUnmask
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent.html#v:forkOnWithUnmask
+Containing package: Control.Concurrent
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	<function> {
+		[parameters]
+		<function> {
+			[parameters]
+			System.IO::IO {
+				null::a
+			}
+		
+			[result]
+			System.IO::IO {
+				null::a
+			}
+		}
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+
+	[result]
+	System.IO::IO {
+		Control.Concurrent::ThreadId
+	}
+}
+
+[Function]
+killThread :: ThreadId -> IO ()
+Name: killThread
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent.html#v:killThread
+Containing package: Control.Concurrent
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Control.Concurrent::ThreadId
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+throwTo :: Exception e => ThreadId -> e -> IO ()
+Name: throwTo
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent.html#v:throwTo
+Containing package: Control.Concurrent
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	e: (Exception e; e; Control.Exception.Base::Exception)
+}
+Signature = <function> {
+	[parameters]
+	Control.Concurrent::ThreadId
+	null::e
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+threadCapability :: ThreadId -> IO (Int, Bool)
+Name: threadCapability
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent.html#v:threadCapability
+Containing package: Control.Concurrent
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Control.Concurrent::ThreadId
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			Data.Int::Int
+			Data.Bool::Bool
+		}
+	}
+}
+
+[Function]
+threadDelay :: Int -> IO ()
+Name: threadDelay
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent.html#v:threadDelay
+Containing package: Control.Concurrent
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+threadWaitWriteSTM :: Fd -> IO (STM (), IO ())
+Name: threadWaitWriteSTM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent.html#v:threadWaitWriteSTM
+Containing package: Control.Concurrent
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			GHC.Conc::STM {
+				GHC.Tuple::()
+			}
+			System.IO::IO {
+				GHC.Tuple::()
+			}
+		}
+	}
+}
+
+[Function]
+threadWaitWrite :: Fd -> IO ()
+Name: threadWaitWrite
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent.html#v:threadWaitWrite
+Containing package: Control.Concurrent
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+threadWaitReadSTM :: Fd -> IO (STM (), IO ())
+Name: threadWaitReadSTM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent.html#v:threadWaitReadSTM
+Containing package: Control.Concurrent
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Types::Fd
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			GHC.Conc::STM {
+				GHC.Tuple::()
+			}
+			System.IO::IO {
+				GHC.Tuple::()
+			}
+		}
+	}
+}
+
+[Function]
+yield :: IO ()
+Name: yield
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent.html#v:yield
+Containing package: Control.Concurrent
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+runInBoundThread :: IO a -> IO a
+Name: runInBoundThread
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent.html#v:runInBoundThread
+Containing package: Control.Concurrent
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+myThreadId :: IO ThreadId
+Name: myThreadId
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent.html#v:myThreadId
+Containing package: Control.Concurrent
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Control.Concurrent::ThreadId
+	}
+}
+
+[Function]
+mkWeakThreadId :: ThreadId -> IO (Weak ThreadId)
+Name: mkWeakThreadId
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent.html#v:mkWeakThreadId
+Containing package: Control.Concurrent
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Control.Concurrent::ThreadId
+
+	[result]
+	System.IO::IO {
+		System.Mem.Weak::Weak {
+			Control.Concurrent::ThreadId
+		}
+	}
+}
+
+[Function]
+forkOn :: Int -> IO () -> IO ThreadId
+Name: forkOn
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent.html#v:forkOn
+Containing package: Control.Concurrent
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+
+	[result]
+	System.IO::IO {
+		Control.Concurrent::ThreadId
+	}
+}
+
+[Function]
+forkOS :: IO () -> IO ThreadId
+Name: forkOS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent.html#v:forkOS
+Containing package: Control.Concurrent
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+
+	[result]
+	System.IO::IO {
+		Control.Concurrent::ThreadId
+	}
+}
+
+[Function]
+setNumCapabilities :: Int -> IO ()
+Name: setNumCapabilities
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent.html#v:setNumCapabilities
+Containing package: Control.Concurrent
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+forkIO :: IO () -> IO ThreadId
+Name: forkIO
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent.html#v:forkIO
+Containing package: Control.Concurrent
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+
+	[result]
+	System.IO::IO {
+		Control.Concurrent::ThreadId
+	}
+}
+
+[Function]
+runInUnboundThread :: IO a -> IO a
+Name: runInUnboundThread
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent.html#v:runInUnboundThread
+Containing package: Control.Concurrent
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	System.IO::IO {
+		null::a
+	}
+
+	[result]
+	System.IO::IO {
+		null::a
+	}
+}
+
+[Function]
+rtsSupportsBoundThreads :: Bool
+Name: rtsSupportsBoundThreads
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent.html#v:rtsSupportsBoundThreads
+Containing package: Control.Concurrent
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+isCurrentThreadBound :: IO Bool
+Name: isCurrentThreadBound
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent.html#v:isCurrentThreadBound
+Containing package: Control.Concurrent
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+getNumCapabilities :: IO Int
+Name: getNumCapabilities
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Concurrent.html#v:getNumCapabilities
+Containing package: Control.Concurrent
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}

@@ -1,0 +1,118 @@
+[Package]
+Name: Distribution.Simple.Build
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Build.html
+Containing package: Distribution.Simple
+attributes {
+}
+
+Subpackages {
+	Distribution.Simple.Build.Macros
+	Distribution.Simple.Build.PathsModule
+}
+
+[Function]
+writeAutogenFiles :: Verbosity -> PackageDescription -> LocalBuildInfo -> IO ()
+Name: writeAutogenFiles
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Build.html#v:writeAutogenFiles
+Containing package: Distribution.Simple.Build
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.PackageDescription::PackageDescription
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+repl :: PackageDescription -> LocalBuildInfo -> ReplFlags -> [PPSuffixHandler] -> [String] -> IO ()
+Name: repl
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Build.html#v:repl
+Containing package: Distribution.Simple.Build
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	Distribution.Simple.Setup::ReplFlags
+	other::List {
+		Distribution.Simple.PreProcess::PPSuffixHandler
+	}
+	other::List {
+		Data.String::String
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+initialBuildSteps :: FilePath -> PackageDescription -> LocalBuildInfo -> Verbosity -> IO ()
+Name: initialBuildSteps
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Build.html#v:initialBuildSteps
+Containing package: Distribution.Simple.Build
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+	Distribution.PackageDescription::PackageDescription
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	Distribution.Verbosity::Verbosity
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+build :: PackageDescription -> LocalBuildInfo -> BuildFlags -> [PPSuffixHandler] -> IO ()
+Name: build
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Build.html#v:build
+Containing package: Distribution.Simple.Build
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.PackageDescription::PackageDescription
+	Distribution.Simple.LocalBuildInfo::LocalBuildInfo
+	Distribution.Simple.Setup::BuildFlags
+	other::List {
+		Distribution.Simple.PreProcess::PPSuffixHandler
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}

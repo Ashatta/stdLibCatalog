@@ -1,0 +1,68 @@
+[Package]
+Name: Distribution.Simple.UserHooks
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-UserHooks.html
+Containing package: Distribution.Simple
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data UserHooks = UserHooks { runTests :: Args -> Bool -> PackageDescription -> LocalBuildInfo -> IO () readDesc :: IO (Maybe GenericPackageDescription) hookedPreProcessors :: [PPSuffixHandler] hookedPrograms :: [Program] preConf :: Args -> ConfigFlags -> IO HookedBuildInfo confHook :: (GenericPackageDescription, HookedBuildInfo) -> ConfigFlags -> IO LocalBuildInfo postConf :: Args -> ConfigFlags -> PackageDescription -> LocalBuildInfo -> IO () preBuild :: Args -> BuildFlags -> IO HookedBuildInfo buildHook :: PackageDescription -> LocalBuildInfo -> UserHooks -> BuildFlags -> IO () postBuild :: Args -> BuildFlags -> PackageDescription -> LocalBuildInfo -> IO () preRepl :: Args -> ReplFlags -> IO HookedBuildInfo replHook :: PackageDescription -> LocalBuildInfo -> UserHooks -> ReplFlags -> [String] -> IO () postRepl :: Args -> ReplFlags -> PackageDescription -> LocalBuildInfo -> IO () preClean :: Args -> CleanFlags -> IO HookedBuildInfo cleanHook :: PackageDescription -> () -> UserHooks -> CleanFlags -> IO () postClean :: Args -> CleanFlags -> PackageDescription -> () -> IO () preCopy :: Args -> CopyFlags -> IO HookedBuildInfo copyHook :: PackageDescription -> LocalBuildInfo -> UserHooks -> CopyFlags -> IO () postCopy :: Args -> CopyFlags -> PackageDescription -> LocalBuildInfo -> IO () preInst :: Args -> InstallFlags -> IO HookedBuildInfo instHook :: PackageDescription -> LocalBuildInfo -> UserHooks -> InstallFlags -> IO () postInst :: Args -> InstallFlags -> PackageDescription -> LocalBuildInfo -> IO () preSDist :: Args -> SDistFlags -> IO HookedBuildInfo sDistHook :: PackageDescription -> Maybe LocalBuildInfo -> UserHooks -> SDistFlags -> IO () postSDist :: Args -> SDistFlags -> PackageDescription -> Maybe LocalBuildInfo -> IO () preReg :: Args -> RegisterFlags -> IO HookedBuildInfo regHook :: PackageDescription -> LocalBuildInfo -> UserHooks -> RegisterFlags -> IO () postReg :: Args -> RegisterFlags -> PackageDescription -> LocalBuildInfo -> IO () preUnreg :: Args -> RegisterFlags -> IO HookedBuildInfo unregHook :: PackageDescription -> LocalBuildInfo -> UserHooks -> RegisterFlags -> IO () postUnreg :: Args -> RegisterFlags -> PackageDescription -> LocalBuildInfo -> IO () preHscolour :: Args -> HscolourFlags -> IO HookedBuildInfo hscolourHook :: PackageDescription -> LocalBuildInfo -> UserHooks -> HscolourFlags -> IO () postHscolour :: Args -> HscolourFlags -> PackageDescription -> LocalBuildInfo -> IO () preHaddock :: Args -> HaddockFlags -> IO HookedBuildInfo haddockHook :: PackageDescription -> LocalBuildInfo -> UserHooks -> HaddockFlags -> IO () postHaddock :: Args -> HaddockFlags -> PackageDescription -> LocalBuildInfo -> IO () preTest :: Args -> TestFlags -> IO HookedBuildInfo testHook :: PackageDescription -> LocalBuildInfo -> UserHooks -> TestFlags -> IO () postTest :: Args -> TestFlags -> PackageDescription -> LocalBuildInfo -> IO () preBench :: Args -> BenchmarkFlags -> IO HookedBuildInfo benchHook :: Args -> PackageDescription -> LocalBuildInfo -> UserHooks -> BenchmarkFlags -> IO () postBench :: Args -> BenchmarkFlags -> PackageDescription -> LocalBuildInfo -> IO ()}
+Name: UserHooks
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-UserHooks.html#t:UserHooks
+Containing package: Distribution.Simple.UserHooks
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type Args = [String]
+Name: Args
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-UserHooks.html#t:Args
+Containing package: Distribution.Simple.UserHooks
+attributes {
+}
+parameters {
+}
+Aliased type = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		Data.String::String
+	}
+}
+
+[Function]
+emptyUserHooks :: UserHooks
+Name: emptyUserHooks
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-UserHooks.html#v:emptyUserHooks
+Containing package: Distribution.Simple.UserHooks
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.UserHooks::UserHooks
+}

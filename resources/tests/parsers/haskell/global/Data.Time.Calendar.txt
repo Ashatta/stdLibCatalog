@@ -1,0 +1,292 @@
+[Package]
+Name: Data.Time.Calendar
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Calendar.html
+Containing package: Data.Time
+attributes {
+}
+
+Subpackages {
+	Data.Time.Calendar.Easter
+	Data.Time.Calendar.Julian
+	Data.Time.Calendar.MonthDay
+	Data.Time.Calendar.OrdinalDate
+	Data.Time.Calendar.WeekDate
+}
+
+[Classifier]
+newtype Day = ModifiedJulianDay { toModifiedJulianDay :: Integer}
+Name: Day
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Calendar.html#t:Day
+Containing package: Data.Time.Calendar
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+toGregorian :: Day -> (Integer, Int, Int)
+Name: toGregorian
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Calendar.html#v:toGregorian
+Containing package: Data.Time.Calendar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Time.Calendar::Day
+
+	[result]
+	GHC.Tuple::(,,) {
+		Prelude::Integer
+		Data.Int::Int
+		Data.Int::Int
+	}
+}
+
+[Function]
+fromGregorian :: Integer -> Int -> Int -> Day
+Name: fromGregorian
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Calendar.html#v:fromGregorian
+Containing package: Data.Time.Calendar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Integer
+	Data.Int::Int
+	Data.Int::Int
+
+	[result]
+	Data.Time.Calendar::Day
+}
+
+[Function]
+isLeapYear :: Integer -> Bool
+Name: isLeapYear
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Calendar.html#v:isLeapYear
+Containing package: Data.Time.Calendar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Integer
+
+	[result]
+	Data.Bool::Bool
+}
+
+[Function]
+addGregorianYearsRollOver :: Integer -> Day -> Day
+Name: addGregorianYearsRollOver
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Calendar.html#v:addGregorianYearsRollOver
+Containing package: Data.Time.Calendar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Integer
+	Data.Time.Calendar::Day
+
+	[result]
+	Data.Time.Calendar::Day
+}
+
+[Function]
+addDays :: Integer -> Day -> Day
+Name: addDays
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Calendar.html#v:addDays
+Containing package: Data.Time.Calendar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Integer
+	Data.Time.Calendar::Day
+
+	[result]
+	Data.Time.Calendar::Day
+}
+
+[Function]
+diffDays :: Day -> Day -> Integer
+Name: diffDays
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Calendar.html#v:diffDays
+Containing package: Data.Time.Calendar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Time.Calendar::Day
+	Data.Time.Calendar::Day
+
+	[result]
+	Prelude::Integer
+}
+
+[Function]
+gregorianMonthLength :: Integer -> Int -> Int
+Name: gregorianMonthLength
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Calendar.html#v:gregorianMonthLength
+Containing package: Data.Time.Calendar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Integer
+	Data.Int::Int
+
+	[result]
+	Data.Int::Int
+}
+
+[Function]
+fromGregorianValid :: Integer -> Int -> Int -> Maybe Day
+Name: fromGregorianValid
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Calendar.html#v:fromGregorianValid
+Containing package: Data.Time.Calendar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Integer
+	Data.Int::Int
+	Data.Int::Int
+
+	[result]
+	Data.Maybe::Maybe {
+		Data.Time.Calendar::Day
+	}
+}
+
+[Function]
+showGregorian :: Day -> String
+Name: showGregorian
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Calendar.html#v:showGregorian
+Containing package: Data.Time.Calendar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Time.Calendar::Day
+
+	[result]
+	Data.String::String
+}
+
+[Function]
+addGregorianMonthsRollOver :: Integer -> Day -> Day
+Name: addGregorianMonthsRollOver
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Calendar.html#v:addGregorianMonthsRollOver
+Containing package: Data.Time.Calendar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Integer
+	Data.Time.Calendar::Day
+
+	[result]
+	Data.Time.Calendar::Day
+}
+
+[Function]
+addGregorianMonthsClip :: Integer -> Day -> Day
+Name: addGregorianMonthsClip
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Calendar.html#v:addGregorianMonthsClip
+Containing package: Data.Time.Calendar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Integer
+	Data.Time.Calendar::Day
+
+	[result]
+	Data.Time.Calendar::Day
+}
+
+[Function]
+addGregorianYearsClip :: Integer -> Day -> Day
+Name: addGregorianYearsClip
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/time-1.4.2/Data-Time-Calendar.html#v:addGregorianYearsClip
+Containing package: Data.Time.Calendar
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Prelude::Integer
+	Data.Time.Calendar::Day
+
+	[result]
+	Data.Time.Calendar::Day
+}

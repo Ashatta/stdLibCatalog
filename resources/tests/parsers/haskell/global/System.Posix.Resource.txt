@@ -1,0 +1,115 @@
+[Package]
+Name: System.Posix.Resource
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Resource.html
+Containing package: System.Posix
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data ResourceLimits = ResourceLimits { softLimit :: ResourceLimit hardLimit :: ResourceLimit}
+Name: ResourceLimit
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Resource.html#t:ResourceLimit
+Containing package: System.Posix.Resource
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ResourceLimits = ResourceLimits { softLimit :: ResourceLimit hardLimit :: ResourceLimit}
+Name: ResourceLimits
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Resource.html#t:ResourceLimits
+Containing package: System.Posix.Resource
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Resource = ResourceCoreFileSize | ResourceCPUTime | ResourceDataSize | ResourceFileSize | ResourceOpenFiles | ResourceStackSize | ResourceTotalMemory
+Name: Resource
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Resource.html#t:Resource
+Containing package: System.Posix.Resource
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+getResourceLimit :: Resource -> IO ResourceLimits
+Name: getResourceLimit
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Resource.html#v:getResourceLimit
+Containing package: System.Posix.Resource
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Resource::Resource
+
+	[result]
+	System.IO::IO {
+		System.Posix.Resource::ResourceLimits
+	}
+}
+
+[Function]
+setResourceLimit :: Resource -> ResourceLimits -> IO ()
+Name: setResourceLimit
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/unix-2.7.0.1/System-Posix-Resource.html#v:setResourceLimit
+Containing package: System.Posix.Resource
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Posix.Resource::Resource
+	System.Posix.Resource::ResourceLimits
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}

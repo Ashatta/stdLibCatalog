@@ -1,0 +1,139 @@
+[Package]
+Name: GHC.Fingerprint
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Fingerprint.html
+Containing package: GHC
+attributes {
+}
+
+Subpackages {
+	GHC.Fingerprint.Type
+}
+
+[Classifier]
+data Fingerprint = Fingerprint !Word64 !Word64
+Name: Fingerprint
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Fingerprint.html#t:Fingerprint
+Containing package: GHC.Fingerprint
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+getFileHash :: FilePath -> IO Fingerprint
+Name: getFileHash
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Fingerprint.html#v:getFileHash
+Containing package: GHC.Fingerprint
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.IO::FilePath
+
+	[result]
+	System.IO::IO {
+		GHC.Fingerprint::Fingerprint
+	}
+}
+
+[Function]
+fingerprintFingerprints :: [Fingerprint] -> Fingerprint
+Name: fingerprintFingerprints
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Fingerprint.html#v:fingerprintFingerprints
+Containing package: GHC.Fingerprint
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	other::List {
+		GHC.Fingerprint::Fingerprint
+	}
+
+	[result]
+	GHC.Fingerprint::Fingerprint
+}
+
+[Function]
+fingerprint0 :: Fingerprint
+Name: fingerprint0
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Fingerprint.html#v:fingerprint0
+Containing package: GHC.Fingerprint
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	GHC.Fingerprint::Fingerprint
+}
+
+[Function]
+fingerprintData :: Ptr Word8 -> Int -> IO Fingerprint
+Name: fingerprintData
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Fingerprint.html#v:fingerprintData
+Containing package: GHC.Fingerprint
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		Data.Word::Word8
+	}
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		GHC.Fingerprint::Fingerprint
+	}
+}
+
+[Function]
+fingerprintString :: String -> Fingerprint
+Name: fingerprintString
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/GHC-Fingerprint.html#v:fingerprintString
+Containing package: GHC.Fingerprint
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	GHC.Fingerprint::Fingerprint
+}

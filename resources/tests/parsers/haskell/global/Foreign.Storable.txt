@@ -1,0 +1,309 @@
+[Package]
+Name: Foreign.Storable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Storable.html
+Containing package: Foreign
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+class Storable a where sizeOf :: a -> Int alignment :: a -> Int peekElemOff :: Ptr a -> Int -> IO a pokeElemOff :: Ptr a -> Int -> a -> IO () peekByteOff :: Ptr b -> Int -> IO a pokeByteOff :: Ptr b -> Int -> a -> IO () peek :: Ptr a -> IO a poke :: Ptr a -> a -> IO ()
+Name: Storable
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Storable.html#t:Storable
+Containing package: Foreign.Storable
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Char::Foreign.Storable.Storable_Char<>
+	Data.Bool::Foreign.Storable.Storable_Bool<>
+	Data.Char::Foreign.Storable.Storable_Char<>
+	Data.Int::Foreign.Storable.Storable_Int<>
+	Data.Int::Foreign.Storable.Storable_Int8<>
+	Data.Int::Foreign.Storable.Storable_Int16<>
+	Data.Int::Foreign.Storable.Storable_Int32<>
+	Data.Int::Foreign.Storable.Storable_Int64<>
+	Data.Typeable.Internal::Foreign.Storable.Storable_Fingerprint<>
+	Data.Word::Foreign.Storable.Storable_Word<>
+	Data.Word::Foreign.Storable.Storable_Word8<>
+	Data.Word::Foreign.Storable.Storable_Word16<>
+	Data.Word::Foreign.Storable.Storable_Word32<>
+	Data.Word::Foreign.Storable.Storable_Word64<>
+	Foreign.C.Types::Foreign.Storable.Storable_CChar<>
+	Foreign.C.Types::Foreign.Storable.Storable_CSChar<>
+	Foreign.C.Types::Foreign.Storable.Storable_CUChar<>
+	Foreign.C.Types::Foreign.Storable.Storable_CShort<>
+	Foreign.C.Types::Foreign.Storable.Storable_CUShort<>
+	Foreign.C.Types::Foreign.Storable.Storable_CInt<>
+	Foreign.C.Types::Foreign.Storable.Storable_CUInt<>
+	Foreign.C.Types::Foreign.Storable.Storable_CLong<>
+	Foreign.C.Types::Foreign.Storable.Storable_CULong<>
+	Foreign.C.Types::Foreign.Storable.Storable_CPtrdiff<>
+	Foreign.C.Types::Foreign.Storable.Storable_CSize<>
+	Foreign.C.Types::Foreign.Storable.Storable_CWchar<>
+	Foreign.C.Types::Foreign.Storable.Storable_CSigAtomic<>
+	Foreign.C.Types::Foreign.Storable.Storable_CLLong<>
+	Foreign.C.Types::Foreign.Storable.Storable_CULLong<>
+	Foreign.C.Types::Foreign.Storable.Storable_CIntPtr<>
+	Foreign.C.Types::Foreign.Storable.Storable_CUIntPtr<>
+	Foreign.C.Types::Foreign.Storable.Storable_CIntMax<>
+	Foreign.C.Types::Foreign.Storable.Storable_CUIntMax<>
+	Foreign.C.Types::Foreign.Storable.Storable_CClock<>
+	Foreign.C.Types::Foreign.Storable.Storable_CTime<>
+	Foreign.C.Types::Foreign.Storable.Storable_CUSeconds<>
+	Foreign.C.Types::Foreign.Storable.Storable_CSUSeconds<>
+	Foreign.C.Types::Foreign.Storable.Storable_CFloat<>
+	Foreign.C.Types::Foreign.Storable.Storable_CDouble<>
+	Foreign.Ptr::Foreign.Storable.Storable_Ptr<a<>>
+	Foreign.Ptr::Foreign.Storable.Storable_FunPtr<a<>>
+	Foreign.Ptr::Foreign.Storable.Storable_IntPtr<>
+	Foreign.Ptr::Foreign.Storable.Storable_WordPtr<>
+	Foreign.StablePtr::Foreign.Storable.Storable_StablePtr<a<>>
+	Prelude::Foreign.Storable.Storable_Double<>
+	Prelude::Foreign.Storable.Storable_Float<>
+	GHC.Fingerprint.Type::Foreign.Storable.Storable_Fingerprint<>
+	System.Posix.Types::Foreign.Storable.Storable_Fd<>
+	System.Posix.Types::Foreign.Storable.Storable_CRLim<>
+	System.Posix.Types::Foreign.Storable.Storable_CTcflag<>
+	System.Posix.Types::Foreign.Storable.Storable_CSpeed<>
+	System.Posix.Types::Foreign.Storable.Storable_CCc<>
+	System.Posix.Types::Foreign.Storable.Storable_CUid<>
+	System.Posix.Types::Foreign.Storable.Storable_CNlink<>
+	System.Posix.Types::Foreign.Storable.Storable_CGid<>
+	System.Posix.Types::Foreign.Storable.Storable_CSsize<>
+	System.Posix.Types::Foreign.Storable.Storable_CPid<>
+	System.Posix.Types::Foreign.Storable.Storable_COff<>
+	System.Posix.Types::Foreign.Storable.Storable_CMode<>
+	System.Posix.Types::Foreign.Storable.Storable_CIno<>
+	System.Posix.Types::Foreign.Storable.Storable_CDev<>
+	GHC.Exts::Foreign.Storable.Storable_Int<>
+	GHC.Exts::Foreign.Storable.Storable_Word<>
+	GHC.Exts::Foreign.Storable.Storable_Float<>
+	GHC.Exts::Foreign.Storable.Storable_Double<>
+	GHC.Exts::Foreign.Storable.Storable_Char<>
+	GHC.Exts::Foreign.Storable.Storable_Ptr<a<>>
+	GHC.Exts::Foreign.Storable.Storable_FunPtr<a<>>
+	GHC.Fingerprint::Foreign.Storable.Storable_Fingerprint<>
+	Prelude::Foreign.Storable.Storable_Bool<>
+	Prelude::Foreign.Storable.Storable_Char<>
+	Prelude::Foreign.Storable.Storable_Int<>
+	System.Win32.File::Foreign.Storable.Storable_BY_HANDLE_FILE_INFORMATION<>
+	System.Win32.File::Foreign.Storable.Storable_WIN32_FILE_ATTRIBUTE_DATA<>
+	System.Win32.Info::Foreign.Storable.Storable_ProcessorArchitecture<>
+	System.Win32.Info::Foreign.Storable.Storable_SYSTEM_INFO<>
+	System.Win32.Time::Foreign.Storable.Storable_FILETIME<>
+	System.Win32.Time::Foreign.Storable.Storable_SYSTEMTIME<>
+	System.Win32.Time::Foreign.Storable.Storable_TIME_ZONE_INFORMATION<>
+}
+supertypes {
+}
+members {
+
+	[Function]
+	sizeOf :: a -> Int
+	Name: sizeOf
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Storable.html#v:sizeOf
+	Containing package: Foreign.Storable
+	attributes {
+		memberType=function
+	}
+	Containing type: Storable
+	parameters {
+		a: (Storable a; a; Foreign.Storable::Storable)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Data.Int::Int
+	}
+
+	[Function]
+	alignment :: a -> Int
+	Name: alignment
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Storable.html#v:alignment
+	Containing package: Foreign.Storable
+	attributes {
+		memberType=function
+	}
+	Containing type: Storable
+	parameters {
+		a: (Storable a; a; Foreign.Storable::Storable)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		Data.Int::Int
+	}
+
+	[Function]
+	peekElemOff :: Ptr a -> Int -> IO a
+	Name: peekElemOff
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Storable.html#v:peekElemOff
+	Containing package: Foreign.Storable
+	attributes {
+		memberType=function
+	}
+	Containing type: Storable
+	parameters {
+		a: (Storable a; a; Foreign.Storable::Storable)
+	}
+	Signature = <function> {
+		[parameters]
+		Foreign.Ptr::Ptr {
+			null::a
+		}
+		Data.Int::Int
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[Function]
+	pokeElemOff :: Ptr a -> Int -> a -> IO ()
+	Name: pokeElemOff
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Storable.html#v:pokeElemOff
+	Containing package: Foreign.Storable
+	attributes {
+		memberType=function
+	}
+	Containing type: Storable
+	parameters {
+		a: (Storable a; a; Foreign.Storable::Storable)
+	}
+	Signature = <function> {
+		[parameters]
+		Foreign.Ptr::Ptr {
+			null::a
+		}
+		Data.Int::Int
+		null::a
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+
+	[Function]
+	peekByteOff :: Ptr b -> Int -> IO a
+	Name: peekByteOff
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Storable.html#v:peekByteOff
+	Containing package: Foreign.Storable
+	attributes {
+		memberType=function
+	}
+	Containing type: Storable
+	parameters {
+		b
+		a: (Storable a; a; Foreign.Storable::Storable)
+	}
+	Signature = <function> {
+		[parameters]
+		Foreign.Ptr::Ptr {
+			null::b
+		}
+		Data.Int::Int
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[Function]
+	pokeByteOff :: Ptr b -> Int -> a -> IO ()
+	Name: pokeByteOff
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Storable.html#v:pokeByteOff
+	Containing package: Foreign.Storable
+	attributes {
+		memberType=function
+	}
+	Containing type: Storable
+	parameters {
+		b
+		a: (Storable a; a; Foreign.Storable::Storable)
+	}
+	Signature = <function> {
+		[parameters]
+		Foreign.Ptr::Ptr {
+			null::b
+		}
+		Data.Int::Int
+		null::a
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+
+	[Function]
+	peek :: Ptr a -> IO a
+	Name: peek
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Storable.html#v:peek
+	Containing package: Foreign.Storable
+	attributes {
+		memberType=function
+	}
+	Containing type: Storable
+	parameters {
+		a: (Storable a; a; Foreign.Storable::Storable)
+	}
+	Signature = <function> {
+		[parameters]
+		Foreign.Ptr::Ptr {
+			null::a
+		}
+	
+		[result]
+		System.IO::IO {
+			null::a
+		}
+	}
+
+	[Function]
+	poke :: Ptr a -> a -> IO ()
+	Name: poke
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Foreign-Storable.html#v:poke
+	Containing package: Foreign.Storable
+	attributes {
+		memberType=function
+	}
+	Containing type: Storable
+	parameters {
+		a: (Storable a; a; Foreign.Storable::Storable)
+	}
+	Signature = <function> {
+		[parameters]
+		Foreign.Ptr::Ptr {
+			null::a
+		}
+		null::a
+	
+		[result]
+		System.IO::IO {
+			GHC.Tuple::()
+		}
+	}
+}

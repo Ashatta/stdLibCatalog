@@ -1,0 +1,1085 @@
+[Package]
+Name: System.Win32.Time
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html
+Containing package: System.Win32
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data SYSTEMTIME = SYSTEMTIME { 
+	wYear :: WORD
+	wMonth :: WORD
+	wDayOfWeek :: WORD
+	wDay :: WORD
+	wHour :: WORD
+	wMinute :: WORD
+	wSecond :: WORD
+	wMilliseconds :: WORD
+} 
+Name: SYSTEMTIME
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#t:SYSTEMTIME
+Containing package: System.Win32.Time
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TIME_ZONE_INFORMATION = TIME_ZONE_INFORMATION { 
+	tziBias :: LONG
+	tziStandardName :: String
+	tziStandardDate :: SYSTEMTIME
+	tziStandardBias :: LONG
+	tziDaylightName :: String
+	tziDaylightDate :: SYSTEMTIME
+	tziDaylightBias :: LONG
+} 
+Name: TIME_ZONE_INFORMATION
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#t:TIME_ZONE_INFORMATION
+Containing package: System.Win32.Time
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype FILETIME = FILETIME DDWORD
+Name: FILETIME
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#t:FILETIME
+Containing package: System.Win32.Time
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TimeZoneId = TzIdUnknown | TzIdStandard | TzIdDaylight
+Name: TimeZoneId
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#t:TimeZoneId
+Containing package: System.Win32.Time
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type GetTimeFormatFlags = DWORD
+Name: GetTimeFormatFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#t:GetTimeFormatFlags
+Containing package: System.Win32.Time
+attributes {
+}
+parameters {
+}
+Aliased type = System.Win32.Types::DWORD
+
+[Function]
+tIME_NOTIMEMARKER :: GetTimeFormatFlags
+Name: tIME_NOTIMEMARKER
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:tIME_NOTIMEMARKER
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Time::GetTimeFormatFlags
+}
+
+[Function]
+c_GetTimeZoneInformation :: Ptr TIME_ZONE_INFORMATION -> IO DWORD
+Name: c_GetTimeZoneInformation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:c_GetTimeZoneInformation
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		System.Win32.Time::TIME_ZONE_INFORMATION
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::DWORD
+	}
+}
+
+[Function]
+c_GetFileTime :: HANDLE -> Ptr FILETIME -> Ptr FILETIME -> Ptr FILETIME -> IO BOOL
+Name: c_GetFileTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:c_GetFileTime
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+	Foreign.Ptr::Ptr {
+		System.Win32.Time::FILETIME
+	}
+	Foreign.Ptr::Ptr {
+		System.Win32.Time::FILETIME
+	}
+	Foreign.Ptr::Ptr {
+		System.Win32.Time::FILETIME
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::BOOL
+	}
+}
+
+[Function]
+c_SetSystemTime :: Ptr SYSTEMTIME -> IO BOOL
+Name: c_SetSystemTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:c_SetSystemTime
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		System.Win32.Time::SYSTEMTIME
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::BOOL
+	}
+}
+
+[Function]
+c_FileTimeToSystemTime :: Ptr FILETIME -> Ptr SYSTEMTIME -> IO BOOL
+Name: c_FileTimeToSystemTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:c_FileTimeToSystemTime
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		System.Win32.Time::FILETIME
+	}
+	Foreign.Ptr::Ptr {
+		System.Win32.Time::SYSTEMTIME
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::BOOL
+	}
+}
+
+[Function]
+c_QueryPerformanceFrequency :: Ptr LARGE_INTEGER -> IO BOOL
+Name: c_QueryPerformanceFrequency
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:c_QueryPerformanceFrequency
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::LARGE_INTEGER
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::BOOL
+	}
+}
+
+[Function]
+c_SystemTimeToFileTime :: Ptr SYSTEMTIME -> Ptr FILETIME -> IO BOOL
+Name: c_SystemTimeToFileTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:c_SystemTimeToFileTime
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		System.Win32.Time::SYSTEMTIME
+	}
+	Foreign.Ptr::Ptr {
+		System.Win32.Time::FILETIME
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::BOOL
+	}
+}
+
+[Function]
+tIME_FORCE24HOURFORMAT :: GetTimeFormatFlags
+Name: tIME_FORCE24HOURFORMAT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:tIME_FORCE24HOURFORMAT
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Time::GetTimeFormatFlags
+}
+
+[Function]
+c_GetTimeFormat :: LCID -> GetTimeFormatFlags -> Ptr SYSTEMTIME -> LPCTSTR -> LPTSTR -> CInt -> IO CInt
+Name: c_GetTimeFormat
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:c_GetTimeFormat
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::LCID
+	System.Win32.Time::GetTimeFormatFlags
+	Foreign.Ptr::Ptr {
+		System.Win32.Time::SYSTEMTIME
+	}
+	System.Win32.Types::LPCTSTR
+	System.Win32.Types::LPTSTR
+	Foreign.C.Types::CInt
+
+	[result]
+	System.IO::IO {
+		Foreign.C.Types::CInt
+	}
+}
+
+[Function]
+fileTimeToLocalFileTime :: FILETIME -> IO FILETIME
+Name: fileTimeToLocalFileTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:fileTimeToLocalFileTime
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Time::FILETIME
+
+	[result]
+	System.IO::IO {
+		System.Win32.Time::FILETIME
+	}
+}
+
+[Function]
+setSystemTime :: SYSTEMTIME -> IO ()
+Name: setSystemTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:setSystemTime
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Time::SYSTEMTIME
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_SetSystemTimeAdjustment :: DWORD -> BOOL -> IO BOOL
+Name: c_SetSystemTimeAdjustment
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:c_SetSystemTimeAdjustment
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::DWORD
+	System.Win32.Types::BOOL
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::BOOL
+	}
+}
+
+[Function]
+c_GetSystemTimeAdjustment :: Ptr DWORD -> Ptr DWORD -> Ptr BOOL -> IO BOOL
+Name: c_GetSystemTimeAdjustment
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:c_GetSystemTimeAdjustment
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::DWORD
+	}
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::BOOL
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::BOOL
+	}
+}
+
+[Function]
+c_GetSystemTime :: Ptr SYSTEMTIME -> IO ()
+Name: c_GetSystemTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:c_GetSystemTime
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		System.Win32.Time::SYSTEMTIME
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_SetLocalTime :: Ptr SYSTEMTIME -> IO BOOL
+Name: c_SetLocalTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:c_SetLocalTime
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		System.Win32.Time::SYSTEMTIME
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::BOOL
+	}
+}
+
+[Function]
+getSystemTime :: IO SYSTEMTIME
+Name: getSystemTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:getSystemTime
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.Win32.Time::SYSTEMTIME
+	}
+}
+
+[Function]
+lOCALE_NOUSEROVERRIDE :: GetTimeFormatFlags
+Name: lOCALE_NOUSEROVERRIDE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:lOCALE_NOUSEROVERRIDE
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Time::GetTimeFormatFlags
+}
+
+[Function]
+lOCALE_USE_CP_ACP :: GetTimeFormatFlags
+Name: lOCALE_USE_CP_ACP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:lOCALE_USE_CP_ACP
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Time::GetTimeFormatFlags
+}
+
+[Function]
+getTickCount :: IO DWORD
+Name: getTickCount
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:getTickCount
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::DWORD
+	}
+}
+
+[Function]
+c_SetFileTime :: HANDLE -> Ptr FILETIME -> Ptr FILETIME -> Ptr FILETIME -> IO BOOL
+Name: c_SetFileTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:c_SetFileTime
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+	Foreign.Ptr::Ptr {
+		System.Win32.Time::FILETIME
+	}
+	Foreign.Ptr::Ptr {
+		System.Win32.Time::FILETIME
+	}
+	Foreign.Ptr::Ptr {
+		System.Win32.Time::FILETIME
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::BOOL
+	}
+}
+
+[Function]
+c_FileTimeToLocalFileTime :: Ptr FILETIME -> Ptr FILETIME -> IO BOOL
+Name: c_FileTimeToLocalFileTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:c_FileTimeToLocalFileTime
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		System.Win32.Time::FILETIME
+	}
+	Foreign.Ptr::Ptr {
+		System.Win32.Time::FILETIME
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::BOOL
+	}
+}
+
+[Function]
+c_QueryPerformanceCounter :: Ptr LARGE_INTEGER -> IO BOOL
+Name: c_QueryPerformanceCounter
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:c_QueryPerformanceCounter
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		System.Win32.Types::LARGE_INTEGER
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::BOOL
+	}
+}
+
+[Function]
+getSystemTimeAdjustment :: IO (Maybe (Int, Int))
+Name: getSystemTimeAdjustment
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:getSystemTimeAdjustment
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Data.Maybe::Maybe {
+			GHC.Tuple::(,) {
+				Data.Int::Int
+				Data.Int::Int
+			}
+		}
+	}
+}
+
+[Function]
+setFileTime :: HANDLE -> FILETIME -> FILETIME -> FILETIME -> IO ()
+Name: setFileTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:setFileTime
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+	System.Win32.Time::FILETIME
+	System.Win32.Time::FILETIME
+	System.Win32.Time::FILETIME
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+getFileTime :: HANDLE -> IO (FILETIME, FILETIME, FILETIME)
+Name: getFileTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:getFileTime
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HANDLE
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,,) {
+			System.Win32.Time::FILETIME
+			System.Win32.Time::FILETIME
+			System.Win32.Time::FILETIME
+		}
+	}
+}
+
+[Function]
+getTimeZoneInformation :: IO (TimeZoneId, TIME_ZONE_INFORMATION)
+Name: getTimeZoneInformation
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:getTimeZoneInformation
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			System.Win32.Time::TimeZoneId
+			System.Win32.Time::TIME_ZONE_INFORMATION
+		}
+	}
+}
+
+[Function]
+systemTimeToFileTime :: SYSTEMTIME -> IO FILETIME
+Name: systemTimeToFileTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:systemTimeToFileTime
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Time::SYSTEMTIME
+
+	[result]
+	System.IO::IO {
+		System.Win32.Time::FILETIME
+	}
+}
+
+[Function]
+localFileTimeToFileTime :: FILETIME -> IO FILETIME
+Name: localFileTimeToFileTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:localFileTimeToFileTime
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Time::FILETIME
+
+	[result]
+	System.IO::IO {
+		System.Win32.Time::FILETIME
+	}
+}
+
+[Function]
+queryPerformanceFrequency :: IO Integer
+Name: queryPerformanceFrequency
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:queryPerformanceFrequency
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Prelude::Integer
+	}
+}
+
+[Function]
+setLocalTime :: SYSTEMTIME -> IO ()
+Name: setLocalTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:setLocalTime
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Time::SYSTEMTIME
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_GetSystemTimeAsFileTime :: Ptr FILETIME -> IO ()
+Name: c_GetSystemTimeAsFileTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:c_GetSystemTimeAsFileTime
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		System.Win32.Time::FILETIME
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_GetLocalTime :: Ptr SYSTEMTIME -> IO ()
+Name: c_GetLocalTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:c_GetLocalTime
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		System.Win32.Time::SYSTEMTIME
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+getTimeFormat :: LCID -> GetTimeFormatFlags -> SYSTEMTIME -> String -> IO String
+Name: getTimeFormat
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:getTimeFormat
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::LCID
+	System.Win32.Time::GetTimeFormatFlags
+	System.Win32.Time::SYSTEMTIME
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+setSystemTimeAdjustment :: Maybe Int -> IO ()
+Name: setSystemTimeAdjustment
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:setSystemTimeAdjustment
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Maybe::Maybe {
+		Data.Int::Int
+	}
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_LocalFileTimeToFileTime :: Ptr FILETIME -> Ptr FILETIME -> IO BOOL
+Name: c_LocalFileTimeToFileTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:c_LocalFileTimeToFileTime
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		System.Win32.Time::FILETIME
+	}
+	Foreign.Ptr::Ptr {
+		System.Win32.Time::FILETIME
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::BOOL
+	}
+}
+
+[Function]
+fileTimeToSystemTime :: FILETIME -> IO SYSTEMTIME
+Name: fileTimeToSystemTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:fileTimeToSystemTime
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Time::FILETIME
+
+	[result]
+	System.IO::IO {
+		System.Win32.Time::SYSTEMTIME
+	}
+}
+
+[Function]
+getSystemTimeAsFileTime :: IO FILETIME
+Name: getSystemTimeAsFileTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:getSystemTimeAsFileTime
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.Win32.Time::FILETIME
+	}
+}
+
+[Function]
+tIME_NOMINUTESORSECONDS :: GetTimeFormatFlags
+Name: tIME_NOMINUTESORSECONDS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:tIME_NOMINUTESORSECONDS
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Time::GetTimeFormatFlags
+}
+
+[Function]
+getLocalTime :: IO SYSTEMTIME
+Name: getLocalTime
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:getLocalTime
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.Win32.Time::SYSTEMTIME
+	}
+}
+
+[Function]
+tIME_NOSECONDS :: GetTimeFormatFlags
+Name: tIME_NOSECONDS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:tIME_NOSECONDS
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.Win32.Time::GetTimeFormatFlags
+}
+
+[Function]
+queryPerformanceCounter :: IO Integer
+Name: queryPerformanceCounter
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/System-Win32-Time.html#v:queryPerformanceCounter
+Containing package: System.Win32.Time
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		Prelude::Integer
+	}
+}

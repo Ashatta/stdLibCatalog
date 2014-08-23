@@ -1,0 +1,1874 @@
+[Package]
+Name: Graphics.Win32.Dialogue
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html
+Containing package: Graphics.Win32
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data DialogControl = DialogControl Int Int Int Int (Either ResourceID String) (Either ResourceID String) WindowStyle DWORD Int
+Name: DialogControl
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#t:DialogControl
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data DialogTemplate = DialogTemplate Int Int Int Int WindowStyle DWORD (Either ResourceID String) (Either ResourceID String) (Either ResourceID String) (Either ResourceID String) Int [DialogControl]
+Name: DialogTemplate
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#t:DialogTemplate
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype Stub_DTM = Stub_DTM DTemplateMem
+Name: Stub_DTM
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#t:Stub_DTM
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype DIA_TEMPLATE = DIA_TEMPLATE (Ptr DIA_TEMPLATE)
+Name: DIA_TEMPLATE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#t:DIA_TEMPLATE
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Alias]
+type DTemplateMem = Ptr Stub_DTM
+Name: DTemplate
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#t:DTemplate
+Containing package: Graphics.Win32.Dialogue
+attributes {
+}
+parameters {
+}
+Aliased type = null::Ptr {
+	null::Stub_DTM
+}
+
+[Alias]
+type DialogProc = HWND -> WindowMessage -> WPARAM -> LPARAM -> IO Int
+Name: DialogProc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#t:DialogProc
+Containing package: Graphics.Win32.Dialogue
+attributes {
+}
+parameters {
+}
+Aliased type = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Graphics.Win32.Message::WindowMessage
+	System.Win32.Types::WPARAM
+	System.Win32.Types::LPARAM
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}
+
+[Alias]
+type ResourceID = Int
+Name: ResourceID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#t:ResourceID
+Containing package: Graphics.Win32.Dialogue
+attributes {
+}
+parameters {
+}
+Aliased type = Data.Int::Int
+
+[Alias]
+type DialogStyle = WindowStyle
+Name: DialogStyle
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#t:DialogStyle
+Containing package: Graphics.Win32.Dialogue
+attributes {
+}
+parameters {
+}
+Aliased type = Graphics.Win32.Window::WindowStyle
+
+[Alias]
+type DTemplateMem = Ptr Stub_DTM
+Name: DTemplateMem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#t:DTemplateMem
+Containing package: Graphics.Win32.Dialogue
+attributes {
+}
+parameters {
+}
+Aliased type = Foreign.Ptr::Ptr {
+	Graphics.Win32.Dialogue::Stub_DTM
+}
+
+[Function]
+dS_ABSALIGN :: WindowStyle
+Name: dS_ABSALIGN
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:dS_ABSALIGN
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Window::WindowStyle
+}
+
+[Function]
+marshall_dialogProc_ :: DialogProc -> IO (FunPtr DialogProc)
+Name: marshall_dialogProc_
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:marshall_dialogProc_
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.Dialogue::DialogProc
+
+	[result]
+	System.IO::IO {
+		Foreign.Ptr::FunPtr {
+			Graphics.Win32.Dialogue::DialogProc
+		}
+	}
+}
+
+[Function]
+setDlgItemInt :: HWND -> Int -> UINT -> BOOL -> IO ()
+Name: setDlgItemInt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:setDlgItemInt
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Data.Int::Int
+	System.Win32.Types::UINT
+	System.Win32.Types::BOOL
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+dS_3DLOOK :: WindowStyle
+Name: dS_3DLOOK
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:dS_3DLOOK
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Window::WindowStyle
+}
+
+[Function]
+dM_GETDEFID :: WindowMessage
+Name: dM_GETDEFID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:dM_GETDEFID
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Message::WindowMessage
+}
+
+[Function]
+dS_SYSMODAL :: WindowStyle
+Name: dS_SYSMODAL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:dS_SYSMODAL
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Window::WindowStyle
+}
+
+[Function]
+wM_CTLCOLORDLG :: WindowMessage
+Name: wM_CTLCOLORDLG
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:wM_CTLCOLORDLG
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Message::WindowMessage
+}
+
+[Function]
+c_DialogBoxIndirectParam :: HINSTANCE -> DTemplateMem -> HWND -> FunPtr DialogProc -> LPARAM -> IO Int
+Name: c_DialogBoxIndirectParam
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:c_DialogBoxIndirectParam
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HINSTANCE
+	Graphics.Win32.Dialogue::DTemplateMem
+	Graphics.Win32.GDI.Types::HWND
+	Foreign.Ptr::FunPtr {
+		Graphics.Win32.Dialogue::DialogProc
+	}
+	System.Win32.Types::LPARAM
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}
+
+[Function]
+c_GetDlgItemText :: HWND -> Int -> LPTSTR -> Int -> IO Int
+Name: c_GetDlgItemText
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:c_GetDlgItemText
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Data.Int::Int
+	System.Win32.Types::LPTSTR
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}
+
+[Function]
+dialogBoxIndirectParam :: HINSTANCE -> DTemplateMem -> Maybe HWND -> DialogProc -> LPARAM -> IO Int
+Name: dialogBoxIndirectParam
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:dialogBoxIndirectParam
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HINSTANCE
+	Graphics.Win32.Dialogue::DTemplateMem
+	Data.Maybe::Maybe {
+		Graphics.Win32.GDI.Types::HWND
+	}
+	Graphics.Win32.Dialogue::DialogProc
+	System.Win32.Types::LPARAM
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}
+
+[Function]
+defDlgProc :: HWND -> WindowMessage -> WPARAM -> LPARAM -> IO LRESULT
+Name: defDlgProc
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:defDlgProc
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Graphics.Win32.Message::WindowMessage
+	System.Win32.Types::WPARAM
+	System.Win32.Types::LPARAM
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::LRESULT
+	}
+}
+
+[Function]
+getNextDlgTabItem :: HWND -> HWND -> BOOL -> IO HWND
+Name: getNextDlgTabItem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:getNextDlgTabItem
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Graphics.Win32.GDI.Types::HWND
+	System.Win32.Types::BOOL
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.GDI.Types::HWND
+	}
+}
+
+[Function]
+c_CreateDialogIndirectParam :: HINSTANCE -> DTemplateMem -> HWND -> FunPtr DialogProc -> LPARAM -> IO HWND
+Name: c_CreateDialogIndirectParam
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:c_CreateDialogIndirectParam
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HINSTANCE
+	Graphics.Win32.Dialogue::DTemplateMem
+	Graphics.Win32.GDI.Types::HWND
+	Foreign.Ptr::FunPtr {
+		Graphics.Win32.Dialogue::DialogProc
+	}
+	System.Win32.Types::LPARAM
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.GDI.Types::HWND
+	}
+}
+
+[Function]
+mkDialogTemplate :: String -> IO DTemplate
+Name: mkDialogTemplate
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:mkDialogTemplate
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.Dialogue::DTemplate
+	}
+}
+
+[Function]
+addControl :: Ptr DIA_TEMPLATE -> DialogControl -> IO ()
+Name: addControl
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:addControl
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		Graphics.Win32.Dialogue::DIA_TEMPLATE
+	}
+	Graphics.Win32.Dialogue::DialogControl
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_EndDialog :: HWND -> Int -> IO BOOL
+Name: c_EndDialog
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:c_EndDialog
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::BOOL
+	}
+}
+
+[Function]
+dS_SETFOREGROUND :: WindowStyle
+Name: dS_SETFOREGROUND
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:dS_SETFOREGROUND
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Window::WindowStyle
+}
+
+[Function]
+wM_CTLCOLORMSGBOX :: WindowMessage
+Name: wM_CTLCOLORMSGBOX
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:wM_CTLCOLORMSGBOX
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Message::WindowMessage
+}
+
+[Function]
+createDialogIndirect :: HINSTANCE -> DTemplateMem -> Maybe HWND -> DialogProc -> IO HWND
+Name: createDialogIndirect
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:createDialogIndirect
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HINSTANCE
+	Graphics.Win32.Dialogue::DTemplateMem
+	Data.Maybe::Maybe {
+		Graphics.Win32.GDI.Types::HWND
+	}
+	Graphics.Win32.Dialogue::DialogProc
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.GDI.Types::HWND
+	}
+}
+
+[Function]
+pushButtonControl :: Int -> Int -> Int -> Int -> DWORD -> DWORD -> Int -> String -> DialogControl
+Name: pushButtonControl
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:pushButtonControl
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	Data.Int::Int
+	Data.Int::Int
+	Data.Int::Int
+	System.Win32.Types::DWORD
+	System.Win32.Types::DWORD
+	Data.Int::Int
+	Data.String::String
+
+	[result]
+	Graphics.Win32.Dialogue::DialogControl
+}
+
+[Function]
+getDlgItem :: HWND -> Int -> IO HWND
+Name: getDlgItem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:getDlgItem
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.GDI.Types::HWND
+	}
+}
+
+[Function]
+mkResource :: ResourceID -> IO (Ptr a)
+Name: mkResource
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:mkResource
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.Dialogue::ResourceID
+
+	[result]
+	System.IO::IO {
+		Foreign.Ptr::Ptr {
+			null::a
+		}
+	}
+}
+
+[Function]
+c_DialogBoxParam :: HINSTANCE -> DTemplate -> HWND -> FunPtr DialogProc -> LPARAM -> IO Int
+Name: c_DialogBoxParam
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:c_DialogBoxParam
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HINSTANCE
+	Graphics.Win32.Dialogue::DTemplate
+	Graphics.Win32.GDI.Types::HWND
+	Foreign.Ptr::FunPtr {
+		Graphics.Win32.Dialogue::DialogProc
+	}
+	System.Win32.Types::LPARAM
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}
+
+[Function]
+c_GetDlgCtrlID :: HWND -> IO Int
+Name: c_GetDlgCtrlID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:c_GetDlgCtrlID
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}
+
+[Function]
+setDlgItemText :: HWND -> Int -> String -> IO ()
+Name: setDlgItemText
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:setDlgItemText
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Data.Int::Int
+	Data.String::String
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+dS_CENTERMOUSE :: WindowStyle
+Name: dS_CENTERMOUSE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:dS_CENTERMOUSE
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Window::WindowStyle
+}
+
+[Function]
+dialogBoxParam :: HINSTANCE -> DTemplate -> Maybe HWND -> DialogProc -> LPARAM -> IO Int
+Name: dialogBoxParam
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:dialogBoxParam
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HINSTANCE
+	Graphics.Win32.Dialogue::DTemplate
+	Data.Maybe::Maybe {
+		Graphics.Win32.GDI.Types::HWND
+	}
+	Graphics.Win32.Dialogue::DialogProc
+	System.Win32.Types::LPARAM
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}
+
+[Function]
+getDlgItemText :: HWND -> Int -> Int -> IO String
+Name: getDlgItemText
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:getDlgItemText
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Data.Int::Int
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		Data.String::String
+	}
+}
+
+[Function]
+dM_REPOSITION :: WindowMessage
+Name: dM_REPOSITION
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:dM_REPOSITION
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Message::WindowMessage
+}
+
+[Function]
+addDiaControl :: Ptr DIA_TEMPLATE -> LPCWSTR -> Int -> LPCWSTR -> DWORD -> Int -> Int -> Int -> Int -> DWORD -> IO (Ptr DIA_TEMPLATE)
+Name: addDiaControl
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:addDiaControl
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		Graphics.Win32.Dialogue::DIA_TEMPLATE
+	}
+	System.Win32.Types::LPCWSTR
+	Data.Int::Int
+	System.Win32.Types::LPCWSTR
+	System.Win32.Types::DWORD
+	Data.Int::Int
+	Data.Int::Int
+	Data.Int::Int
+	Data.Int::Int
+	System.Win32.Types::DWORD
+
+	[result]
+	System.IO::IO {
+		Foreign.Ptr::Ptr {
+			Graphics.Win32.Dialogue::DIA_TEMPLATE
+		}
+	}
+}
+
+[Function]
+dS_NOFAILCREATE :: WindowStyle
+Name: dS_NOFAILCREATE
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:dS_NOFAILCREATE
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Window::WindowStyle
+}
+
+[Function]
+listBoxControl :: Int -> Int -> Int -> Int -> DWORD -> DWORD -> Int -> String -> DialogControl
+Name: listBoxControl
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:listBoxControl
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	Data.Int::Int
+	Data.Int::Int
+	Data.Int::Int
+	System.Win32.Types::DWORD
+	System.Win32.Types::DWORD
+	Data.Int::Int
+	Data.String::String
+
+	[result]
+	Graphics.Win32.Dialogue::DialogControl
+}
+
+[Function]
+editControl :: Int -> Int -> Int -> Int -> DWORD -> DWORD -> Int -> String -> DialogControl
+Name: editControl
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:editControl
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	Data.Int::Int
+	Data.Int::Int
+	Data.Int::Int
+	System.Win32.Types::DWORD
+	System.Win32.Types::DWORD
+	Data.Int::Int
+	Data.String::String
+
+	[result]
+	Graphics.Win32.Dialogue::DialogControl
+}
+
+[Function]
+mapDialogRect :: HWND -> LPRECT -> IO ()
+Name: mapDialogRect
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:mapDialogRect
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Graphics.Win32.GDI.Types::LPRECT
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+c_GetNextDlgTabItem :: HWND -> HWND -> BOOL -> IO HWND
+Name: c_GetNextDlgTabItem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:c_GetNextDlgTabItem
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Graphics.Win32.GDI.Types::HWND
+	System.Win32.Types::BOOL
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.GDI.Types::HWND
+	}
+}
+
+[Function]
+c_GetNextDlgGroupItem :: HWND -> HWND -> BOOL -> IO HWND
+Name: c_GetNextDlgGroupItem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:c_GetNextDlgGroupItem
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Graphics.Win32.GDI.Types::HWND
+	System.Win32.Types::BOOL
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.GDI.Types::HWND
+	}
+}
+
+[Function]
+mkDialogTemplateFromResource :: Int -> IO DTemplate
+Name: mkDialogTemplateFromResource
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:mkDialogTemplateFromResource
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.Dialogue::DTemplate
+	}
+}
+
+[Function]
+createDialogIndirectParam :: HINSTANCE -> DTemplateMem -> Maybe HWND -> DialogProc -> LPARAM -> IO HWND
+Name: createDialogIndirectParam
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:createDialogIndirectParam
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HINSTANCE
+	Graphics.Win32.Dialogue::DTemplateMem
+	Data.Maybe::Maybe {
+		Graphics.Win32.GDI.Types::HWND
+	}
+	Graphics.Win32.Dialogue::DialogProc
+	System.Win32.Types::LPARAM
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.GDI.Types::HWND
+	}
+}
+
+[Function]
+mkDiaTemplate :: Int -> Int -> Int -> Int -> Int -> WindowStyle -> DWORD -> LPCWSTR -> LPCWSTR -> LPCWSTR -> LPCWSTR -> Int -> IO (Ptr DIA_TEMPLATE)
+Name: mkDiaTemplate
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:mkDiaTemplate
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	Data.Int::Int
+	Data.Int::Int
+	Data.Int::Int
+	Data.Int::Int
+	Graphics.Win32.Window::WindowStyle
+	System.Win32.Types::DWORD
+	System.Win32.Types::LPCWSTR
+	System.Win32.Types::LPCWSTR
+	System.Win32.Types::LPCWSTR
+	System.Win32.Types::LPCWSTR
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		Foreign.Ptr::Ptr {
+			Graphics.Win32.Dialogue::DIA_TEMPLATE
+		}
+	}
+}
+
+[Function]
+c_MapDialogRect :: HWND -> LPRECT -> IO Bool
+Name: c_MapDialogRect
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:c_MapDialogRect
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Graphics.Win32.GDI.Types::LPRECT
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+getFinalDialog :: Ptr DIA_TEMPLATE -> IO DTemplateMem
+Name: getFinalDialog
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:getFinalDialog
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Foreign.Ptr::Ptr {
+		Graphics.Win32.Dialogue::DIA_TEMPLATE
+	}
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.Dialogue::DTemplateMem
+	}
+}
+
+[Function]
+dS_CONTROL :: WindowStyle
+Name: dS_CONTROL
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:dS_CONTROL
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Window::WindowStyle
+}
+
+[Function]
+comboBoxControl :: Int -> Int -> Int -> Int -> DWORD -> DWORD -> Int -> String -> DialogControl
+Name: comboBoxControl
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:comboBoxControl
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	Data.Int::Int
+	Data.Int::Int
+	Data.Int::Int
+	System.Win32.Types::DWORD
+	System.Win32.Types::DWORD
+	Data.Int::Int
+	Data.String::String
+
+	[result]
+	Graphics.Win32.Dialogue::DialogControl
+}
+
+[Function]
+dS_CONTEXTHELP :: WindowStyle
+Name: dS_CONTEXTHELP
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:dS_CONTEXTHELP
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Window::WindowStyle
+}
+
+[Function]
+dialogBoxIndirect :: HINSTANCE -> DTemplateMem -> Maybe HWND -> DialogProc -> IO Int
+Name: dialogBoxIndirect
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:dialogBoxIndirect
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HINSTANCE
+	Graphics.Win32.Dialogue::DTemplateMem
+	Data.Maybe::Maybe {
+		Graphics.Win32.GDI.Types::HWND
+	}
+	Graphics.Win32.Dialogue::DialogProc
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}
+
+[Function]
+createDialogParam :: HINSTANCE -> DTemplate -> Maybe HWND -> DialogProc -> LPARAM -> IO HWND
+Name: createDialogParam
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:createDialogParam
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HINSTANCE
+	Graphics.Win32.Dialogue::DTemplate
+	Data.Maybe::Maybe {
+		Graphics.Win32.GDI.Types::HWND
+	}
+	Graphics.Win32.Dialogue::DialogProc
+	System.Win32.Types::LPARAM
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.GDI.Types::HWND
+	}
+}
+
+[Function]
+marshall_res :: Either ResourceID String -> IO LPCWSTR
+Name: marshall_res
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:marshall_res
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Either::Either {
+		Graphics.Win32.Dialogue::ResourceID
+		Data.String::String
+	}
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::LPCWSTR
+	}
+}
+
+[Function]
+mkDialogFromTemplate :: DialogTemplate -> IO DTemplateMem
+Name: mkDialogFromTemplate
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:mkDialogFromTemplate
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.Dialogue::DialogTemplate
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.Dialogue::DTemplateMem
+	}
+}
+
+[Function]
+dS_SETFONT :: WindowStyle
+Name: dS_SETFONT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:dS_SETFONT
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Window::WindowStyle
+}
+
+[Function]
+dS_LOCALEDIT :: WindowStyle
+Name: dS_LOCALEDIT
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:dS_LOCALEDIT
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Window::WindowStyle
+}
+
+[Function]
+dialogBox :: HINSTANCE -> DTemplate -> Maybe HWND -> DialogProc -> IO Int
+Name: dialogBox
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:dialogBox
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HINSTANCE
+	Graphics.Win32.Dialogue::DTemplate
+	Data.Maybe::Maybe {
+		Graphics.Win32.GDI.Types::HWND
+	}
+	Graphics.Win32.Dialogue::DialogProc
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}
+
+[Function]
+dM_SETDEFID :: WindowMessage
+Name: dM_SETDEFID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:dM_SETDEFID
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Message::WindowMessage
+}
+
+[Function]
+dS_NOIDLEMSG :: WindowStyle
+Name: dS_NOIDLEMSG
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:dS_NOIDLEMSG
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Window::WindowStyle
+}
+
+[Function]
+endDialog :: HWND -> Int -> IO ()
+Name: endDialog
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:endDialog
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::()
+	}
+}
+
+[Function]
+getDlgCtrlID :: HWND -> IO Int
+Name: getDlgCtrlID
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:getDlgCtrlID
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}
+
+[Function]
+c_SetDlgItemText :: HWND -> Int -> LPCTSTR -> IO Bool
+Name: c_SetDlgItemText
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:c_SetDlgItemText
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Data.Int::Int
+	System.Win32.Types::LPCTSTR
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+c_CreateDialogParam :: HINSTANCE -> DTemplate -> HWND -> FunPtr DialogProc -> LPARAM -> IO HWND
+Name: c_CreateDialogParam
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:c_CreateDialogParam
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HINSTANCE
+	Graphics.Win32.Dialogue::DTemplate
+	Graphics.Win32.GDI.Types::HWND
+	Foreign.Ptr::FunPtr {
+		Graphics.Win32.Dialogue::DialogProc
+	}
+	System.Win32.Types::LPARAM
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.GDI.Types::HWND
+	}
+}
+
+[Function]
+labelControl :: Int -> Int -> Int -> Int -> DWORD -> DWORD -> Int -> String -> DialogControl
+Name: labelControl
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:labelControl
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	Data.Int::Int
+	Data.Int::Int
+	Data.Int::Int
+	System.Win32.Types::DWORD
+	System.Win32.Types::DWORD
+	Data.Int::Int
+	Data.String::String
+
+	[result]
+	Graphics.Win32.Dialogue::DialogControl
+}
+
+[Function]
+createDialog :: HINSTANCE -> DTemplate -> Maybe HWND -> DialogProc -> IO HWND
+Name: createDialog
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:createDialog
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	System.Win32.Types::HINSTANCE
+	Graphics.Win32.Dialogue::DTemplate
+	Data.Maybe::Maybe {
+		Graphics.Win32.GDI.Types::HWND
+	}
+	Graphics.Win32.Dialogue::DialogProc
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.GDI.Types::HWND
+	}
+}
+
+[Function]
+c_SetDlgItemInt :: HWND -> Int -> UINT -> BOOL -> IO Bool
+Name: c_SetDlgItemInt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:c_SetDlgItemInt
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Data.Int::Int
+	System.Win32.Types::UINT
+	System.Win32.Types::BOOL
+
+	[result]
+	System.IO::IO {
+		Data.Bool::Bool
+	}
+}
+
+[Function]
+getDialogBaseUnits :: IO LONG
+Name: getDialogBaseUnits
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:getDialogBaseUnits
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::LONG
+	}
+}
+
+[Function]
+c_GetDlgItem :: HWND -> Int -> IO HWND
+Name: c_GetDlgItem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:c_GetDlgItem
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Data.Int::Int
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.GDI.Types::HWND
+	}
+}
+
+[Function]
+getDlgItemInt :: HWND -> Int -> Bool -> IO Int
+Name: getDlgItemInt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:getDlgItemInt
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Data.Int::Int
+	Data.Bool::Bool
+
+	[result]
+	System.IO::IO {
+		Data.Int::Int
+	}
+}
+
+[Function]
+c_GetDlgItemInt :: HWND -> Int -> Ptr Bool -> Bool -> IO UINT
+Name: c_GetDlgItemInt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:c_GetDlgItemInt
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Data.Int::Int
+	Foreign.Ptr::Ptr {
+		Data.Bool::Bool
+	}
+	Data.Bool::Bool
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::UINT
+	}
+}
+
+[Function]
+dS_CENTER :: WindowStyle
+Name: dS_CENTER
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:dS_CENTER
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Window::WindowStyle
+}
+
+[Function]
+scrollBarControl :: Int -> Int -> Int -> Int -> DWORD -> DWORD -> Int -> String -> DialogControl
+Name: scrollBarControl
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:scrollBarControl
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Int::Int
+	Data.Int::Int
+	Data.Int::Int
+	Data.Int::Int
+	System.Win32.Types::DWORD
+	System.Win32.Types::DWORD
+	Data.Int::Int
+	Data.String::String
+
+	[result]
+	Graphics.Win32.Dialogue::DialogControl
+}
+
+[Function]
+isDialogMessage :: HWND -> LPMSG -> IO BOOL
+Name: isDialogMessage
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:isDialogMessage
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Graphics.Win32.Window::LPMSG
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::BOOL
+	}
+}
+
+[Function]
+mkDialogClosure :: DialogProc -> IO (FunPtr DialogProc)
+Name: mkDialogClosure
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:mkDialogClosure
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.Dialogue::DialogProc
+
+	[result]
+	System.IO::IO {
+		Foreign.Ptr::FunPtr {
+			Graphics.Win32.Dialogue::DialogProc
+		}
+	}
+}
+
+[Function]
+getNextDlgGroupItem :: HWND -> HWND -> BOOL -> IO HWND
+Name: getNextDlgGroupItem
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:getNextDlgGroupItem
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Graphics.Win32.GDI.Types::HWND
+	System.Win32.Types::BOOL
+
+	[result]
+	System.IO::IO {
+		Graphics.Win32.GDI.Types::HWND
+	}
+}
+
+[Function]
+sendDlgItemMessage :: HWND -> Int -> WindowMessage -> WPARAM -> LPARAM -> IO LONG
+Name: sendDlgItemMessage
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:sendDlgItemMessage
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Graphics.Win32.GDI.Types::HWND
+	Data.Int::Int
+	Graphics.Win32.Message::WindowMessage
+	System.Win32.Types::WPARAM
+	System.Win32.Types::LPARAM
+
+	[result]
+	System.IO::IO {
+		System.Win32.Types::LONG
+	}
+}
+
+[Function]
+dS_FIXEDSYS :: WindowStyle
+Name: dS_FIXEDSYS
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:dS_FIXEDSYS
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Window::WindowStyle
+}
+
+[Function]
+dS_MODALFRAME :: WindowStyle
+Name: dS_MODALFRAME
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Win32-2.3.0.2/Graphics-Win32-Dialogue.html#v:dS_MODALFRAME
+Containing package: Graphics.Win32.Dialogue
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Graphics.Win32.Window::WindowStyle
+}

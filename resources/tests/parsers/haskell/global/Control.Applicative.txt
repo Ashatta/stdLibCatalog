@@ -1,0 +1,708 @@
+[Package]
+Name: Control.Applicative
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Applicative.html
+Containing package: Control
+attributes {
+}
+
+Subpackages {
+	Control.Applicative.Backwards
+	Control.Applicative.Lift
+}
+
+[Classifier]
+newtype WrappedMonad m a = WrapMonad { unwrapMonad :: m a}
+Name: WrappedMonad
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Applicative.html#t:WrappedMonad
+Containing package: Control.Applicative
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	m
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype Const a b = Const { getConst :: a}
+Name: Const
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Applicative.html#t:Const
+Containing package: Control.Applicative
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+	b
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class Functor f => Applicative f where pure :: a -> f a (<*>) :: f (a -> b) -> f a -> f b (*>) :: f a -> f b -> f b (<*) :: f a -> f b -> f a
+Name: Applicative
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Applicative.html#t:Applicative
+Containing package: Control.Applicative
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Control.Applicative::Alternative
+	Language.Haskell.TH.Syntax::Quasi
+	Compiler.Hoopl::Control.Applicative.Applicative_CheckingFuelMonad<m<>>
+	Compiler.Hoopl::Control.Applicative.Applicative_InfiniteFuelMonad<m<>>
+	Compiler.Hoopl::Control.Applicative.Applicative_SimpleUniqueMonad<>
+	Compiler.Hoopl::Control.Applicative.Applicative_UniqueMonadT<m<>>
+	Control.Applicative.Backwards::Control.Applicative.Applicative_Backwards<f<>>
+	Control.Applicative.Lift::Control.Applicative.Applicative_Lift<f<>>
+	other::Control.Applicative.Applicative_List<curriedParam<>>
+	System.IO::Control.Applicative.Applicative_IO<>
+	Data.Maybe::Control.Applicative.Applicative_Maybe<>
+	Text.ParserCombinators.ReadP::Control.Applicative.Applicative_ReadP<>
+	Text.ParserCombinators.ReadPrec::Control.Applicative.Applicative_ReadPrec<>
+	GHC.Conc::Control.Applicative.Applicative_STM<>
+	Control.Applicative::Control.Applicative.Applicative_ZipList<>
+	other::Control.Applicative.Applicative_(->)<a<>>
+	Data.Either::Control.Applicative.Applicative_Either<e<>>
+	GHC.Tuple::Control.Applicative.Applicative_(,)<a<>>
+	Control.Monad.ST.Safe::Control.Applicative.Applicative_ST<s<>>
+	Data.Proxy::Control.Applicative.Applicative_Proxy<>
+	Control.Arrow::Control.Applicative.Applicative_ArrowMonad<a<>>
+	Control.Monad.ST.Lazy.Safe::Control.Applicative.Applicative_ST<s<>>
+	Control.Applicative::Control.Applicative.Applicative_WrappedMonad<m<>>
+	Control.Applicative::Control.Applicative.Applicative_Const<m<>>
+	Control.Applicative::Control.Applicative.Applicative_WrappedArrow<a<>,b<>>
+	Control.Monad.ST.Lazy::Control.Applicative.Applicative_ST<s<>>
+	Control.Monad.ST::Control.Applicative.Applicative_ST<s<>>
+	Control.Monad.Trans.Cont::Control.Applicative.Applicative_ContT<r<>,m<>>
+	Control.Monad.Trans.Error::Control.Applicative.Applicative_ErrorT<e<>,m<>>
+	Control.Monad.Trans.Identity::Control.Applicative.Applicative_IdentityT<m<>>
+	Control.Monad.Trans.List::Control.Applicative.Applicative_ListT<m<>>
+	Control.Monad.Trans.Maybe::Control.Applicative.Applicative_MaybeT<m<>>
+	Control.Monad.Trans.RWS.Lazy::Control.Applicative.Applicative_RWST<r<>,w<>,s<>,m<>>
+	Control.Monad.Trans.RWS.Strict::Control.Applicative.Applicative_RWST<r<>,w<>,s<>,m<>>
+	Control.Monad.Trans.Reader::Control.Applicative.Applicative_ReaderT<r<>,m<>>
+	Control.Monad.Trans.State.Lazy::Control.Applicative.Applicative_StateT<s<>,m<>>
+	Control.Monad.Trans.State.Strict::Control.Applicative.Applicative_StateT<s<>,m<>>
+	Control.Monad.Trans.Writer.Lazy::Control.Applicative.Applicative_WriterT<w<>,m<>>
+	Control.Monad.Trans.Writer.Strict::Control.Applicative.Applicative_WriterT<w<>,m<>>
+	Data.Binary.Get.Internal::Control.Applicative.Applicative_Get<>
+	Data.Binary.Get::Control.Applicative.Applicative_Get<>
+	Data.Binary.Put::Control.Applicative.Applicative_PutM<>
+	Data.Binary::Control.Applicative.Applicative_Get<>
+	Data.Functor.Compose::Control.Applicative.Applicative_Compose<f<>,g<>>
+	Data.Functor.Constant::Control.Applicative.Applicative_Constant<a<>>
+	Data.Functor.Identity::Control.Applicative.Applicative_Identity<>
+	Data.Functor.Product::Control.Applicative.Applicative_Product<f<>,g<>>
+	Data.Functor.Reverse::Control.Applicative.Applicative_Reverse<f<>>
+	Data.Sequence::Control.Applicative.Applicative_Seq<>
+	Data.Tree::Control.Applicative.Applicative_Tree<>
+	Data.Typeable.Internal::Control.Applicative.Applicative_Proxy<>
+	Data.Typeable::Control.Applicative.Applicative_Proxy<>
+	Distribution.InstalledPackageInfo::Control.Applicative.Applicative_ParseResult<>
+	Distribution.PackageDescription.Parse::Control.Applicative.Applicative_ParseResult<>
+	GHC.Conc.Sync::Control.Applicative.Applicative_STM<>
+	IO::Control.Applicative.Applicative_IO<>
+	Language.Haskell.TH.PprLib::Control.Applicative.Applicative_PprM<>
+	Language.Haskell.TH.Syntax::Control.Applicative.Applicative_Q<>
+	Language.Haskell.TH::Control.Applicative.Applicative_Q<>
+	Maybe::Control.Applicative.Applicative_Maybe<>
+	Prelude::Control.Applicative.Applicative_Maybe<>
+	Prelude::Control.Applicative.Applicative_Either<e<>>
+	Prelude::Control.Applicative.Applicative_IO<>
+	System.Console.Haskeline::Control.Applicative.Applicative_InputT<m<>>
+	System.Console.Terminfo.Base::Control.Applicative.Applicative_Capability<>
+}
+supertypes {
+	Control.Monad::Functor
+}
+members {
+
+	[Function]
+	pure :: a -> f a
+	Name: pure
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Applicative.html#v:pure
+	Containing package: Control.Applicative
+	attributes {
+		memberType=function
+	}
+	Containing type: Applicative
+	parameters {
+		a
+		f: (Applicative f; f; Control.Applicative::Applicative)
+	}
+	Signature = <function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::f {
+			null::a
+		}
+	}
+
+	[Function]
+	(<*>) :: f (a -> b) -> f a -> f b
+	Name: (<*>)
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Applicative.html#v:(<*>)
+	Containing package: Control.Applicative
+	attributes {
+		memberType=function
+	}
+	Containing type: Applicative
+	parameters {
+		f: (Applicative f; f; Control.Applicative::Applicative)
+		a
+		b
+	}
+	Signature = <function> {
+		[parameters]
+		null::f {
+			<function> {
+				[parameters]
+				null::a
+			
+				[result]
+				null::b
+			}
+		}
+		null::f {
+			null::a
+		}
+	
+		[result]
+		null::f {
+			null::b
+		}
+	}
+
+	[Function]
+	(*>) :: f a -> f b -> f b
+	Name: (*>)
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Applicative.html#v:(*>)
+	Containing package: Control.Applicative
+	attributes {
+		memberType=function
+	}
+	Containing type: Applicative
+	parameters {
+		f: (Applicative f; f; Control.Applicative::Applicative)
+		a
+		b
+	}
+	Signature = <function> {
+		[parameters]
+		null::f {
+			null::a
+		}
+		null::f {
+			null::b
+		}
+	
+		[result]
+		null::f {
+			null::b
+		}
+	}
+
+	[Function]
+	(<*) :: f a -> f b -> f a
+	Name: (<*)
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Applicative.html#v:(<*)
+	Containing package: Control.Applicative
+	attributes {
+		memberType=function
+	}
+	Containing type: Applicative
+	parameters {
+		f: (Applicative f; f; Control.Applicative::Applicative)
+		a
+		b
+	}
+	Signature = <function> {
+		[parameters]
+		null::f {
+			null::a
+		}
+		null::f {
+			null::b
+		}
+	
+		[result]
+		null::f {
+			null::a
+		}
+	}
+}
+
+[Classifier]
+newtype ZipList a = ZipList { getZipList :: [a]}
+Name: ZipList
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Applicative.html#t:ZipList
+Containing package: Control.Applicative
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+newtype WrappedArrow a b c = WrapArrow { unwrapArrow :: a b c}
+Name: WrappedArrow
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Applicative.html#t:WrappedArrow
+Containing package: Control.Applicative
+attributes {
+	infix=false
+	classifierType=newtype
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+	b
+	c
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+class Applicative f => Alternative f where empty :: f a (<|>) :: f a -> f a -> f a some :: f a -> f [a] many :: f a -> f [a]
+Name: Alternative
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Applicative.html#t:Alternative
+Containing package: Control.Applicative
+attributes {
+	classifierType=typeclass
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+	Control.Applicative.Backwards::Control.Applicative.Alternative_Backwards<f<>>
+	Control.Applicative.Lift::Control.Applicative.Alternative_Lift<f<>>
+	other::Control.Applicative.Alternative_List<curriedParam<>>
+	Data.Maybe::Control.Applicative.Alternative_Maybe<>
+	Text.ParserCombinators.ReadP::Control.Applicative.Alternative_ReadP<>
+	Text.ParserCombinators.ReadPrec::Control.Applicative.Alternative_ReadPrec<>
+	GHC.Conc::Control.Applicative.Alternative_STM<>
+	Control.Arrow::Control.Applicative.Alternative_ArrowMonad<a<>>
+	Control.Applicative::Control.Applicative.Alternative_WrappedMonad<m<>>
+	Control.Applicative::Control.Applicative.Alternative_WrappedArrow<a<>,b<>>
+	Control.Monad.Trans.Error::Control.Applicative.Alternative_ErrorT<e<>,m<>>
+	Control.Monad.Trans.Identity::Control.Applicative.Alternative_IdentityT<m<>>
+	Control.Monad.Trans.List::Control.Applicative.Alternative_ListT<m<>>
+	Control.Monad.Trans.Maybe::Control.Applicative.Alternative_MaybeT<m<>>
+	Control.Monad.Trans.RWS.Lazy::Control.Applicative.Alternative_RWST<r<>,w<>,s<>,m<>>
+	Control.Monad.Trans.RWS.Strict::Control.Applicative.Alternative_RWST<r<>,w<>,s<>,m<>>
+	Control.Monad.Trans.Reader::Control.Applicative.Alternative_ReaderT<r<>,m<>>
+	Control.Monad.Trans.State.Lazy::Control.Applicative.Alternative_StateT<s<>,m<>>
+	Control.Monad.Trans.State.Strict::Control.Applicative.Alternative_StateT<s<>,m<>>
+	Control.Monad.Trans.Writer.Lazy::Control.Applicative.Alternative_WriterT<w<>,m<>>
+	Control.Monad.Trans.Writer.Strict::Control.Applicative.Alternative_WriterT<w<>,m<>>
+	Data.Binary.Get.Internal::Control.Applicative.Alternative_Get<>
+	Data.Binary.Get::Control.Applicative.Alternative_Get<>
+	Data.Binary::Control.Applicative.Alternative_Get<>
+	Data.Functor.Compose::Control.Applicative.Alternative_Compose<f<>,g<>>
+	Data.Functor.Product::Control.Applicative.Alternative_Product<f<>,g<>>
+	Data.Functor.Reverse::Control.Applicative.Alternative_Reverse<f<>>
+	Data.Sequence::Control.Applicative.Alternative_Seq<>
+	GHC.Conc.Sync::Control.Applicative.Alternative_STM<>
+	Maybe::Control.Applicative.Alternative_Maybe<>
+	Prelude::Control.Applicative.Alternative_Maybe<>
+	System.Console.Terminfo.Base::Control.Applicative.Alternative_Capability<>
+}
+supertypes {
+	Control.Applicative::Applicative
+}
+members {
+
+	[Function]
+	empty :: f a
+	Name: empty
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Applicative.html#v:empty
+	Containing package: Control.Applicative
+	attributes {
+		memberType=function
+	}
+	Containing type: Alternative
+	parameters {
+		f: (Alternative f; f; Control.Applicative::Alternative)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		null::f {
+			null::a
+		}
+	}
+
+	[Function]
+	(<|>) :: f a -> f a -> f a
+	Name: (<|>)
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Applicative.html#v:(<|>)
+	Containing package: Control.Applicative
+	attributes {
+		memberType=function
+	}
+	Containing type: Alternative
+	parameters {
+		f: (Alternative f; f; Control.Applicative::Alternative)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::f {
+			null::a
+		}
+		null::f {
+			null::a
+		}
+	
+		[result]
+		null::f {
+			null::a
+		}
+	}
+
+	[Function]
+	some :: f a -> f [a]
+	Name: some
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Applicative.html#v:some
+	Containing package: Control.Applicative
+	attributes {
+		memberType=function
+	}
+	Containing type: Alternative
+	parameters {
+		f: (Alternative f; f; Control.Applicative::Alternative)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::f {
+			null::a
+		}
+	
+		[result]
+		null::f {
+			other::List {
+				null::a
+			}
+		}
+	}
+
+	[Function]
+	many :: f a -> f [a]
+	Name: many
+	Language: HASKELL
+	Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Applicative.html#v:many
+	Containing package: Control.Applicative
+	attributes {
+		memberType=function
+	}
+	Containing type: Alternative
+	parameters {
+		f: (Alternative f; f; Control.Applicative::Alternative)
+		a
+	}
+	Signature = <function> {
+		[parameters]
+		null::f {
+			null::a
+		}
+	
+		[result]
+		null::f {
+			other::List {
+				null::a
+			}
+		}
+	}
+}
+
+[Function]
+liftA3 :: Applicative f => (a -> b -> c -> d) -> f a -> f b -> f c -> f d
+Name: liftA3
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Applicative.html#v:liftA3
+Containing package: Control.Applicative
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	f: (Applicative f; f; Control.Applicative::Applicative)
+	a
+	b
+	c
+	d
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::b
+		null::c
+	
+		[result]
+		null::d
+	}
+	null::f {
+		null::a
+	}
+	null::f {
+		null::b
+	}
+	null::f {
+		null::c
+	}
+
+	[result]
+	null::f {
+		null::d
+	}
+}
+
+[Function]
+(<$>) :: Functor f => (a -> b) -> f a -> f b
+Name: (<$>)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Applicative.html#v:(<$>)
+Containing package: Control.Applicative
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	f: (Functor f; f; Control.Monad::Functor)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::b
+	}
+	null::f {
+		null::a
+	}
+
+	[result]
+	null::f {
+		null::b
+	}
+}
+
+[Function]
+liftA2 :: Applicative f => (a -> b -> c) -> f a -> f b -> f c
+Name: liftA2
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Applicative.html#v:liftA2
+Containing package: Control.Applicative
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	f: (Applicative f; f; Control.Applicative::Applicative)
+	a
+	b
+	c
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+		null::b
+	
+		[result]
+		null::c
+	}
+	null::f {
+		null::a
+	}
+	null::f {
+		null::b
+	}
+
+	[result]
+	null::f {
+		null::c
+	}
+}
+
+[Function]
+liftA :: Applicative f => (a -> b) -> f a -> f b
+Name: liftA
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Applicative.html#v:liftA
+Containing package: Control.Applicative
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	f: (Applicative f; f; Control.Applicative::Applicative)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::a
+	
+		[result]
+		null::b
+	}
+	null::f {
+		null::a
+	}
+
+	[result]
+	null::f {
+		null::b
+	}
+}
+
+[Function]
+(<**>) :: Applicative f => f a -> f (a -> b) -> f b
+Name: (<**>)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Applicative.html#v:(<**>)
+Containing package: Control.Applicative
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	f: (Applicative f; f; Control.Applicative::Applicative)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	null::f {
+		null::a
+	}
+	null::f {
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			null::b
+		}
+	}
+
+	[result]
+	null::f {
+		null::b
+	}
+}
+
+[Function]
+optional :: Alternative f => f a -> f (Maybe a)
+Name: optional
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Applicative.html#v:optional
+Containing package: Control.Applicative
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	f: (Alternative f; f; Control.Applicative::Alternative)
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::f {
+		null::a
+	}
+
+	[result]
+	null::f {
+		Data.Maybe::Maybe {
+			null::a
+		}
+	}
+}
+
+[Function]
+(<$) :: Functor f => a -> f b -> f a
+Name: (<$)
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/base-4.7.0.1/Control-Applicative.html#v:(<$)
+Containing package: Control.Applicative
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	f: (Functor f; f; Control.Monad::Functor)
+	a
+	b
+}
+Signature = <function> {
+	[parameters]
+	null::a
+	null::f {
+		null::b
+	}
+
+	[result]
+	null::f {
+		null::a
+	}
+}

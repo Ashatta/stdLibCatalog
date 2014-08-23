@@ -1,0 +1,1768 @@
+[Package]
+Name: Distribution.Simple.Setup
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html
+Containing package: Distribution.Simple
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+data HaddockFlags = HaddockFlags { haddockProgramPaths :: [(String, FilePath)] haddockProgramArgs :: [(String, [String])] haddockHoogle :: Flag Bool haddockHtml :: Flag Bool haddockHtmlLocation :: Flag String haddockExecutables :: Flag Bool haddockTestSuites :: Flag Bool haddockBenchmarks :: Flag Bool haddockInternal :: Flag Bool haddockCss :: Flag FilePath haddockHscolour :: Flag Bool haddockHscolourCss :: Flag FilePath haddockContents :: Flag PathTemplate haddockDistPref :: Flag FilePath haddockKeepTempFiles :: Flag Bool haddockVerbosity :: Flag Verbosity}
+Name: HaddockFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#t:HaddockFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ConfigFlags = ConfigFlags { configPrograms :: ProgramConfiguration configProgramPaths :: [(String, FilePath)] configProgramArgs :: [(String, [String])] configProgramPathExtra :: [FilePath] configHcFlavor :: Flag CompilerFlavor configHcPath :: Flag FilePath configHcPkg :: Flag FilePath configVanillaLib :: Flag Bool configProfLib :: Flag Bool configSharedLib :: Flag Bool configDynExe :: Flag Bool configProfExe :: Flag Bool configConfigureArgs :: [String] configOptimization :: Flag OptimisationLevel configProgPrefix :: Flag PathTemplate configProgSuffix :: Flag PathTemplate configInstallDirs :: InstallDirs (Flag PathTemplate) configScratchDir :: Flag FilePath configExtraLibDirs :: [FilePath] configExtraIncludeDirs :: [FilePath] configDistPref :: Flag FilePath configVerbosity :: Flag Verbosity configUserInstall :: Flag Bool configPackageDBs :: [Maybe PackageDB] configGHCiLib :: Flag Bool configSplitObjs :: Flag Bool configStripExes :: Flag Bool configConstraints :: [Dependency] configConfigurationsFlags :: FlagAssignment configTests :: Flag Bool configBenchmarks :: Flag Bool configLibCoverage :: Flag Bool}
+Name: ConfigFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#t:ConfigFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data GlobalFlags = GlobalFlags { globalVersion :: Flag Bool globalNumericVersion :: Flag Bool}
+Name: GlobalFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#t:GlobalFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data RegisterFlags = RegisterFlags { regPackageDB :: Flag PackageDB regGenScript :: Flag Bool regGenPkgConf :: Flag (Maybe FilePath) regInPlace :: Flag Bool regDistPref :: Flag FilePath regVerbosity :: Flag Verbosity}
+Name: RegisterFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#t:RegisterFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data BuildFlags = BuildFlags { buildProgramPaths :: [(String, FilePath)] buildProgramArgs :: [(String, [String])] buildDistPref :: Flag FilePath buildVerbosity :: Flag Verbosity buildArgs :: [String]}
+Name: BuildFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#t:BuildFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data HscolourFlags = HscolourFlags { hscolourCSS :: Flag FilePath hscolourExecutables :: Flag Bool hscolourTestSuites :: Flag Bool hscolourBenchmarks :: Flag Bool hscolourDistPref :: Flag FilePath hscolourVerbosity :: Flag Verbosity}
+Name: HscolourFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#t:HscolourFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data ReplFlags = ReplFlags { replProgramPaths :: [(String, FilePath)] replProgramArgs :: [(String, [String])] replDistPref :: Flag FilePath replVerbosity :: Flag Verbosity replReload :: Flag Bool}
+Name: ReplFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#t:ReplFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data InstallFlags = InstallFlags { installPackageDB :: Flag PackageDB installDistPref :: Flag FilePath installUseWrapper :: Flag Bool installInPlace :: Flag Bool installVerbosity :: Flag Verbosity}
+Name: InstallFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#t:InstallFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TestFlags = TestFlags { testDistPref :: Flag FilePath testVerbosity :: Flag Verbosity testHumanLog :: Flag PathTemplate testMachineLog :: Flag PathTemplate testShowDetails :: Flag TestShowDetails testKeepTix :: Flag Bool testList :: Flag [String] testOptions :: [PathTemplate]}
+Name: TestFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#t:TestFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data SDistFlags = SDistFlags { sDistSnapshot :: Flag Bool sDistDirectory :: Flag FilePath sDistDistPref :: Flag FilePath sDistListSources :: Flag FilePath sDistVerbosity :: Flag Verbosity}
+Name: SDistFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#t:SDistFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data BenchmarkFlags = BenchmarkFlags { benchmarkDistPref :: Flag FilePath benchmarkVerbosity :: Flag Verbosity benchmarkOptions :: [PathTemplate]}
+Name: BenchmarkFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#t:BenchmarkFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data TestShowDetails = Never | Failures | Always
+Name: TestShowDetails
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#t:TestShowDetails
+Containing package: Distribution.Simple.Setup
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data CleanFlags = CleanFlags { cleanSaveConf :: Flag Bool cleanDistPref :: Flag FilePath cleanVerbosity :: Flag Verbosity}
+Name: CleanFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#t:CleanFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data Flag a = Flag a | NoFlag
+Name: Flag
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#t:Flag
+Containing package: Distribution.Simple.Setup
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+	a
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data CopyFlags = CopyFlags { copyDest :: Flag CopyDest copyDistPref :: Flag FilePath copyVerbosity :: Flag Verbosity}
+Name: CopyFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#t:CopyFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+data CopyDest = NoCopyDest | CopyTo FilePath
+Name: CopyDest
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#t:CopyDest
+Containing package: Distribution.Simple.Setup
+attributes {
+	infix=false
+	classifierType=data
+	fakeInstanceClassifier=false
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Function]
+defaultCleanFlags :: CleanFlags
+Name: defaultCleanFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:defaultCleanFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Setup::CleanFlags
+}
+
+[Function]
+emptyCopyFlags :: CopyFlags
+Name: emptyCopyFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:emptyCopyFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Setup::CopyFlags
+}
+
+[Function]
+installCommand :: CommandUI InstallFlags
+Name: installCommand
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:installCommand
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Command::CommandUI {
+		Distribution.Simple.Setup::InstallFlags
+	}
+}
+
+[Function]
+emptyRegisterFlags :: RegisterFlags
+Name: emptyRegisterFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:emptyRegisterFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Setup::RegisterFlags
+}
+
+[Function]
+emptyInstallFlags :: InstallFlags
+Name: emptyInstallFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:emptyInstallFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Setup::InstallFlags
+}
+
+[Function]
+fromFlag :: Flag a -> a
+Name: fromFlag
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:fromFlag
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Setup::Flag {
+		null::a
+	}
+
+	[result]
+	null::a
+}
+
+[Function]
+configureOptions :: ShowOrParseArgs -> [OptionField ConfigFlags]
+Name: configureOptions
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:configureOptions
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Command::ShowOrParseArgs
+
+	[result]
+	other::List {
+		Distribution.Simple.Command::OptionField {
+			Distribution.Simple.Setup::ConfigFlags
+		}
+	}
+}
+
+[Function]
+configureLinker :: Verbosity -> ProgramConfiguration -> IO (FilePath, [String])
+Name: configureLinker
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:configureLinker
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program::ProgramConfiguration
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			System.IO::FilePath
+			other::List {
+				Data.String::String
+			}
+		}
+	}
+}
+
+[Function]
+buildOptions :: ProgramConfiguration -> ShowOrParseArgs -> [OptionField BuildFlags]
+Name: buildOptions
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:buildOptions
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program::ProgramConfiguration
+	Distribution.Simple.Command::ShowOrParseArgs
+
+	[result]
+	other::List {
+		Distribution.Simple.Command::OptionField {
+			Distribution.Simple.Setup::BuildFlags
+		}
+	}
+}
+
+[Function]
+emptyBuildFlags :: BuildFlags
+Name: emptyBuildFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:emptyBuildFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Setup::BuildFlags
+}
+
+[Function]
+defaultBuildFlags :: BuildFlags
+Name: defaultBuildFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:defaultBuildFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Setup::BuildFlags
+}
+
+[Function]
+defaultTestFlags :: TestFlags
+Name: defaultTestFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:defaultTestFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Setup::TestFlags
+}
+
+[Function]
+replCommand :: ProgramConfiguration -> CommandUI ReplFlags
+Name: replCommand
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:replCommand
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program::ProgramConfiguration
+
+	[result]
+	Distribution.Simple.Command::CommandUI {
+		Distribution.Simple.Setup::ReplFlags
+	}
+}
+
+[Function]
+globalCommand :: CommandUI GlobalFlags
+Name: globalCommand
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:globalCommand
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Command::CommandUI {
+		Distribution.Simple.Setup::GlobalFlags
+	}
+}
+
+[Function]
+defaultReplFlags :: ReplFlags
+Name: defaultReplFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:defaultReplFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Setup::ReplFlags
+}
+
+[Function]
+programConfigurationPaths' :: (String -> String) -> ProgramConfiguration -> ShowOrParseArgs -> (flags -> [(String, FilePath)]) -> ([(String, FilePath)] -> flags -> flags) -> [OptionField flags]
+Name: programConfigurationPaths'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:programConfigurationPaths'
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	flags
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		Data.String::String
+	
+		[result]
+		Data.String::String
+	}
+	Distribution.Simple.Program::ProgramConfiguration
+	Distribution.Simple.Command::ShowOrParseArgs
+	<function> {
+		[parameters]
+		null::flags
+	
+		[result]
+		other::List {
+			GHC.Tuple::(,) {
+				Data.String::String
+				System.IO::FilePath
+			}
+		}
+	}
+	<function> {
+		[parameters]
+		other::List {
+			GHC.Tuple::(,) {
+				Data.String::String
+				System.IO::FilePath
+			}
+		}
+		null::flags
+	
+		[result]
+		null::flags
+	}
+
+	[result]
+	other::List {
+		Distribution.Simple.Command::OptionField {
+			null::flags
+		}
+	}
+}
+
+[Function]
+defaultDistPref :: FilePath
+Name: defaultDistPref
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:defaultDistPref
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	System.IO::FilePath
+}
+
+[Function]
+configAbsolutePaths :: ConfigFlags -> IO ConfigFlags
+Name: configAbsolutePaths
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:configAbsolutePaths
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Setup::ConfigFlags
+
+	[result]
+	System.IO::IO {
+		Distribution.Simple.Setup::ConfigFlags
+	}
+}
+
+[Function]
+configureCommand :: ProgramConfiguration -> CommandUI ConfigFlags
+Name: configureCommand
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:configureCommand
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program::ProgramConfiguration
+
+	[result]
+	Distribution.Simple.Command::CommandUI {
+		Distribution.Simple.Setup::ConfigFlags
+	}
+}
+
+[Function]
+emptyHscolourFlags :: HscolourFlags
+Name: emptyHscolourFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:emptyHscolourFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Setup::HscolourFlags
+}
+
+[Function]
+testCommand :: CommandUI TestFlags
+Name: testCommand
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:testCommand
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Command::CommandUI {
+		Distribution.Simple.Setup::TestFlags
+	}
+}
+
+[Function]
+trueArg :: SFlags -> LFlags -> Description -> (b -> Flag Bool) -> (Flag Bool -> b -> b) -> OptDescr b
+Name: trueArg
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:trueArg
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	b
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Command::SFlags
+	Distribution.Simple.Command::LFlags
+	Distribution.Simple.Command::Description
+	<function> {
+		[parameters]
+		null::b
+	
+		[result]
+		Distribution.Simple.Setup::Flag {
+			Data.Bool::Bool
+		}
+	}
+	<function> {
+		[parameters]
+		Distribution.Simple.Setup::Flag {
+			Data.Bool::Bool
+		}
+		null::b
+	
+		[result]
+		null::b
+	}
+
+	[result]
+	Distribution.Simple.Command::OptDescr {
+		null::b
+	}
+}
+
+[Function]
+installDirsOptions :: [OptionField (InstallDirs (Flag PathTemplate))]
+Name: installDirsOptions
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:installDirsOptions
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	other::List {
+		Distribution.Simple.Command::OptionField {
+			Distribution.Simple.InstallDirs::InstallDirs {
+				Distribution.Simple.Setup::Flag {
+					Distribution.Simple.InstallDirs::PathTemplate
+				}
+			}
+		}
+	}
+}
+
+[Function]
+sdistCommand :: CommandUI SDistFlags
+Name: sdistCommand
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:sdistCommand
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Command::CommandUI {
+		Distribution.Simple.Setup::SDistFlags
+	}
+}
+
+[Function]
+hscolourCommand :: CommandUI HscolourFlags
+Name: hscolourCommand
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:hscolourCommand
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Command::CommandUI {
+		Distribution.Simple.Setup::HscolourFlags
+	}
+}
+
+[Function]
+haddockCommand :: CommandUI HaddockFlags
+Name: haddockCommand
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:haddockCommand
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Command::CommandUI {
+		Distribution.Simple.Setup::HaddockFlags
+	}
+}
+
+[Function]
+emptyConfigFlags :: ConfigFlags
+Name: emptyConfigFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:emptyConfigFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Setup::ConfigFlags
+}
+
+[Function]
+emptyTestFlags :: TestFlags
+Name: emptyTestFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:emptyTestFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Setup::TestFlags
+}
+
+[Function]
+defaultRegisterFlags :: RegisterFlags
+Name: defaultRegisterFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:defaultRegisterFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Setup::RegisterFlags
+}
+
+[Function]
+defaultHscolourFlags :: HscolourFlags
+Name: defaultHscolourFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:defaultHscolourFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Setup::HscolourFlags
+}
+
+[Function]
+cleanCommand :: CommandUI CleanFlags
+Name: cleanCommand
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:cleanCommand
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Command::CommandUI {
+		Distribution.Simple.Setup::CleanFlags
+	}
+}
+
+[Function]
+configureCCompiler :: Verbosity -> ProgramConfiguration -> IO (FilePath, [String])
+Name: configureCCompiler
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:configureCCompiler
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Verbosity::Verbosity
+	Distribution.Simple.Program::ProgramConfiguration
+
+	[result]
+	System.IO::IO {
+		GHC.Tuple::(,) {
+			System.IO::FilePath
+			other::List {
+				Data.String::String
+			}
+		}
+	}
+}
+
+[Function]
+copyCommand :: CommandUI CopyFlags
+Name: copyCommand
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:copyCommand
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Command::CommandUI {
+		Distribution.Simple.Setup::CopyFlags
+	}
+}
+
+[Function]
+boolOpt' :: OptFlags -> OptFlags -> MkOptDescr (a -> Flag Bool) (Flag Bool -> a -> a) a
+Name: boolOpt'
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:boolOpt'
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Command::OptFlags
+	Distribution.Simple.Command::OptFlags
+
+	[result]
+	Distribution.Simple.Command::MkOptDescr {
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			Distribution.Simple.Setup::Flag {
+				Data.Bool::Bool
+			}
+		}
+		<function> {
+			[parameters]
+			Distribution.Simple.Setup::Flag {
+				Data.Bool::Bool
+			}
+			null::a
+		
+			[result]
+			null::a
+		}
+		null::a
+	}
+}
+
+[Function]
+falseArg :: SFlags -> LFlags -> Description -> (b -> Flag Bool) -> (Flag Bool -> b -> b) -> OptDescr b
+Name: falseArg
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:falseArg
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	b
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Command::SFlags
+	Distribution.Simple.Command::LFlags
+	Distribution.Simple.Command::Description
+	<function> {
+		[parameters]
+		null::b
+	
+		[result]
+		Distribution.Simple.Setup::Flag {
+			Data.Bool::Bool
+		}
+	}
+	<function> {
+		[parameters]
+		Distribution.Simple.Setup::Flag {
+			Data.Bool::Bool
+		}
+		null::b
+	
+		[result]
+		null::b
+	}
+
+	[result]
+	Distribution.Simple.Command::OptDescr {
+		null::b
+	}
+}
+
+[Function]
+defaultCopyFlags :: CopyFlags
+Name: defaultCopyFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:defaultCopyFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Setup::CopyFlags
+}
+
+[Function]
+emptyHaddockFlags :: HaddockFlags
+Name: emptyHaddockFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:emptyHaddockFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Setup::HaddockFlags
+}
+
+[Function]
+flagToList :: Flag a -> [a]
+Name: flagToList
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:flagToList
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Setup::Flag {
+		null::a
+	}
+
+	[result]
+	other::List {
+		null::a
+	}
+}
+
+[Function]
+fromFlagOrDefault :: a -> Flag a -> a
+Name: fromFlagOrDefault
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:fromFlagOrDefault
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::a
+	Distribution.Simple.Setup::Flag {
+		null::a
+	}
+
+	[result]
+	null::a
+}
+
+[Function]
+defaultSDistFlags :: SDistFlags
+Name: defaultSDistFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:defaultSDistFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Setup::SDistFlags
+}
+
+[Function]
+programConfigurationOptions :: ProgramConfiguration -> ShowOrParseArgs -> (flags -> [(String, [String])]) -> ([(String, [String])] -> flags -> flags) -> [OptionField flags]
+Name: programConfigurationOptions
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:programConfigurationOptions
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	flags
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program::ProgramConfiguration
+	Distribution.Simple.Command::ShowOrParseArgs
+	<function> {
+		[parameters]
+		null::flags
+	
+		[result]
+		other::List {
+			GHC.Tuple::(,) {
+				Data.String::String
+				other::List {
+					Data.String::String
+				}
+			}
+		}
+	}
+	<function> {
+		[parameters]
+		other::List {
+			GHC.Tuple::(,) {
+				Data.String::String
+				other::List {
+					Data.String::String
+				}
+			}
+		}
+		null::flags
+	
+		[result]
+		null::flags
+	}
+
+	[result]
+	other::List {
+		Distribution.Simple.Command::OptionField {
+			null::flags
+		}
+	}
+}
+
+[Function]
+defaultConfigFlags :: ProgramConfiguration -> ConfigFlags
+Name: defaultConfigFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:defaultConfigFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program::ProgramConfiguration
+
+	[result]
+	Distribution.Simple.Setup::ConfigFlags
+}
+
+[Function]
+optionVerbosity :: (flags -> Flag Verbosity) -> (Flag Verbosity -> flags -> flags) -> OptionField flags
+Name: optionVerbosity
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:optionVerbosity
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	flags
+}
+Signature = <function> {
+	[parameters]
+	<function> {
+		[parameters]
+		null::flags
+	
+		[result]
+		Distribution.Simple.Setup::Flag {
+			Distribution.Verbosity::Verbosity
+		}
+	}
+	<function> {
+		[parameters]
+		Distribution.Simple.Setup::Flag {
+			Distribution.Verbosity::Verbosity
+		}
+		null::flags
+	
+		[result]
+		null::flags
+	}
+
+	[result]
+	Distribution.Simple.Command::OptionField {
+		null::flags
+	}
+}
+
+[Function]
+buildCommand :: ProgramConfiguration -> CommandUI BuildFlags
+Name: buildCommand
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:buildCommand
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Program::ProgramConfiguration
+
+	[result]
+	Distribution.Simple.Command::CommandUI {
+		Distribution.Simple.Setup::BuildFlags
+	}
+}
+
+[Function]
+unregisterCommand :: CommandUI RegisterFlags
+Name: unregisterCommand
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:unregisterCommand
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Command::CommandUI {
+		Distribution.Simple.Setup::RegisterFlags
+	}
+}
+
+[Function]
+benchmarkCommand :: CommandUI BenchmarkFlags
+Name: benchmarkCommand
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:benchmarkCommand
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Command::CommandUI {
+		Distribution.Simple.Setup::BenchmarkFlags
+	}
+}
+
+[Function]
+toFlag :: a -> Flag a
+Name: toFlag
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:toFlag
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	null::a
+
+	[result]
+	Distribution.Simple.Setup::Flag {
+		null::a
+	}
+}
+
+[Function]
+registerCommand :: CommandUI RegisterFlags
+Name: registerCommand
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:registerCommand
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Command::CommandUI {
+		Distribution.Simple.Setup::RegisterFlags
+	}
+}
+
+[Function]
+emptySDistFlags :: SDistFlags
+Name: emptySDistFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:emptySDistFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Setup::SDistFlags
+}
+
+[Function]
+configureArgs :: Bool -> ConfigFlags -> [String]
+Name: configureArgs
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:configureArgs
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Data.Bool::Bool
+	Distribution.Simple.Setup::ConfigFlags
+
+	[result]
+	other::List {
+		Data.String::String
+	}
+}
+
+[Function]
+defaultHaddockFlags :: HaddockFlags
+Name: defaultHaddockFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:defaultHaddockFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Setup::HaddockFlags
+}
+
+[Function]
+emptyGlobalFlags :: GlobalFlags
+Name: emptyGlobalFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:emptyGlobalFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Setup::GlobalFlags
+}
+
+[Function]
+emptyBenchmarkFlags :: BenchmarkFlags
+Name: emptyBenchmarkFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:emptyBenchmarkFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Setup::BenchmarkFlags
+}
+
+[Function]
+defaultInstallFlags :: InstallFlags
+Name: defaultInstallFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:defaultInstallFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Setup::InstallFlags
+}
+
+[Function]
+defaultGlobalFlags :: GlobalFlags
+Name: defaultGlobalFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:defaultGlobalFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Setup::GlobalFlags
+}
+
+[Function]
+emptyCleanFlags :: CleanFlags
+Name: emptyCleanFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:emptyCleanFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Setup::CleanFlags
+}
+
+[Function]
+defaultBenchmarkFlags :: BenchmarkFlags
+Name: defaultBenchmarkFlags
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:defaultBenchmarkFlags
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+
+	[result]
+	Distribution.Simple.Setup::BenchmarkFlags
+}
+
+[Function]
+buildVerbose :: BuildFlags -> Verbosity
+Name: buildVerbose
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:buildVerbose
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Setup::BuildFlags
+
+	[result]
+	Distribution.Verbosity::Verbosity
+}
+
+[Function]
+flagToMaybe :: Flag a -> Maybe a
+Name: flagToMaybe
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:flagToMaybe
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Setup::Flag {
+		null::a
+	}
+
+	[result]
+	Data.Maybe::Maybe {
+		null::a
+	}
+}
+
+[Function]
+boolOpt :: SFlags -> SFlags -> MkOptDescr (a -> Flag Bool) (Flag Bool -> a -> a) a
+Name: boolOpt
+Language: HASKELL
+Doc: http://www.haskell.org/ghc/docs/latest/html/libraries/Cabal-1.18.1.3/Distribution-Simple-Setup.html#v:boolOpt
+Containing package: Distribution.Simple.Setup
+attributes {
+	memberType=function
+}
+Containing type: null
+parameters {
+	a
+}
+Signature = <function> {
+	[parameters]
+	Distribution.Simple.Command::SFlags
+	Distribution.Simple.Command::SFlags
+
+	[result]
+	Distribution.Simple.Command::MkOptDescr {
+		<function> {
+			[parameters]
+			null::a
+		
+			[result]
+			Distribution.Simple.Setup::Flag {
+				Data.Bool::Bool
+			}
+		}
+		<function> {
+			[parameters]
+			Distribution.Simple.Setup::Flag {
+				Data.Bool::Bool
+			}
+			null::a
+		
+			[result]
+			null::a
+		}
+		null::a
+	}
+}
