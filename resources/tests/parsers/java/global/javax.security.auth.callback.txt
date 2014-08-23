@@ -1,0 +1,1839 @@
+[Package]
+Name: javax.security.auth.callback
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/package-summary.html
+Containing package: javax.security.auth
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+public interface Callback
+Name: Callback
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/Callback.html
+Containing package: javax.security.auth.callback
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.security.auth.callback::TextOutputCallback
+	javax.security.auth.callback::NameCallback
+	javax.security.auth.callback::PasswordCallback
+	javax.security.sasl::AuthorizeCallback
+	javax.security.auth.callback::TextInputCallback
+	javax.security.auth.callback::LanguageCallback
+	javax.security.auth.callback::ConfirmationCallback
+	javax.security.auth.callback::ChoiceCallback
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+public interface CallbackHandler
+Name: CallbackHandler
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/CallbackHandler.html
+Containing package: javax.security.auth.callback
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	void handle(Callback[] callbacks)
+	     throws IOException,
+	            UnsupportedCallbackException
+	Name: handle
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/CallbackHandler.html#handle-javax.security.auth.callback.Callback:A-
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CallbackHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			javax.security.auth.callback::Callback
+		}
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public class ChoiceCallback
+extends Object
+implements Callback, Serializable
+Name: ChoiceCallback
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ChoiceCallback.html
+Containing package: javax.security.auth.callback
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.security.sasl::RealmChoiceCallback
+}
+supertypes {
+	javax.security.auth.callback::Callback
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public ChoiceCallback(String prompt,
+	                      String[] choices,
+	                      int defaultChoice,
+	                      boolean multipleSelectionsAllowed)
+	Name: ChoiceCallback
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ChoiceCallback.html#ChoiceCallback-java.lang.String-java.lang.String:A-int-boolean-
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ChoiceCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::[] {
+			java.lang::String
+		}
+		other::int
+		other::boolean
+	
+		[result]
+		javax.security.auth.callback::ChoiceCallback
+	}
+
+	[Function]
+	public String getPrompt()
+	Name: getPrompt
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ChoiceCallback.html#getPrompt--
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChoiceCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String[] getChoices()
+	Name: getChoices
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ChoiceCallback.html#getChoices--
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChoiceCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public int getDefaultChoice()
+	Name: getDefaultChoice
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ChoiceCallback.html#getDefaultChoice--
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChoiceCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public boolean allowMultipleSelections()
+	Name: allowMultipleSelections
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ChoiceCallback.html#allowMultipleSelections--
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChoiceCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void setSelectedIndex(int selection)
+	Name: setSelectedIndex
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ChoiceCallback.html#setSelectedIndex-int-
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChoiceCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void setSelectedIndexes(int[] selections)
+	Name: setSelectedIndexes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ChoiceCallback.html#setSelectedIndexes-int:A-
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChoiceCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::int
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public int[] getSelectedIndexes()
+	Name: getSelectedIndexes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ChoiceCallback.html#getSelectedIndexes--
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChoiceCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::int
+		}
+	}
+}
+
+[Classifier]
+public class ConfirmationCallback
+extends Object
+implements Callback, Serializable
+Name: ConfirmationCallback
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ConfirmationCallback.html
+Containing package: javax.security.auth.callback
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.security.auth.callback::Callback
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static final int UNSPECIFIED_OPTION
+	Name: UNSPECIFIED_OPTION
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ConfirmationCallback.html#UNSPECIFIED_OPTION
+	Containing package: javax.security.auth.callback
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ConfirmationCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int YES_NO_OPTION
+	Name: YES_NO_OPTION
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ConfirmationCallback.html#YES_NO_OPTION
+	Containing package: javax.security.auth.callback
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ConfirmationCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int YES_NO_CANCEL_OPTION
+	Name: YES_NO_CANCEL_OPTION
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ConfirmationCallback.html#YES_NO_CANCEL_OPTION
+	Containing package: javax.security.auth.callback
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ConfirmationCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int OK_CANCEL_OPTION
+	Name: OK_CANCEL_OPTION
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ConfirmationCallback.html#OK_CANCEL_OPTION
+	Containing package: javax.security.auth.callback
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ConfirmationCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int YES
+	Name: YES
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ConfirmationCallback.html#YES
+	Containing package: javax.security.auth.callback
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ConfirmationCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int NO
+	Name: NO
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ConfirmationCallback.html#NO
+	Containing package: javax.security.auth.callback
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ConfirmationCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int CANCEL
+	Name: CANCEL
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ConfirmationCallback.html#CANCEL
+	Containing package: javax.security.auth.callback
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ConfirmationCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int OK
+	Name: OK
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ConfirmationCallback.html#OK
+	Containing package: javax.security.auth.callback
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ConfirmationCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int INFORMATION
+	Name: INFORMATION
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ConfirmationCallback.html#INFORMATION
+	Containing package: javax.security.auth.callback
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ConfirmationCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int WARNING
+	Name: WARNING
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ConfirmationCallback.html#WARNING
+	Containing package: javax.security.auth.callback
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ConfirmationCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int ERROR
+	Name: ERROR
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ConfirmationCallback.html#ERROR
+	Containing package: javax.security.auth.callback
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ConfirmationCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public ConfirmationCallback(int messageType,
+	                            int optionType,
+	                            int defaultOption)
+	Name: ConfirmationCallback
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ConfirmationCallback.html#ConfirmationCallback-int-int-int-
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ConfirmationCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::int
+		other::int
+	
+		[result]
+		javax.security.auth.callback::ConfirmationCallback
+	}
+
+	[Function]
+	public ConfirmationCallback(int messageType,
+	                            String[] options,
+	                            int defaultOption)
+	Name: ConfirmationCallback
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ConfirmationCallback.html#ConfirmationCallback-int-java.lang.String:A-int-
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ConfirmationCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::[] {
+			java.lang::String
+		}
+		other::int
+	
+		[result]
+		javax.security.auth.callback::ConfirmationCallback
+	}
+
+	[Function]
+	public ConfirmationCallback(String prompt,
+	                            int messageType,
+	                            int optionType,
+	                            int defaultOption)
+	Name: ConfirmationCallback
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ConfirmationCallback.html#ConfirmationCallback-java.lang.String-int-int-int-
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ConfirmationCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::int
+		other::int
+		other::int
+	
+		[result]
+		javax.security.auth.callback::ConfirmationCallback
+	}
+
+	[Function]
+	public ConfirmationCallback(String prompt,
+	                            int messageType,
+	                            String[] options,
+	                            int defaultOption)
+	Name: ConfirmationCallback
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ConfirmationCallback.html#ConfirmationCallback-java.lang.String-int-java.lang.String:A-int-
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ConfirmationCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::int
+		other::[] {
+			java.lang::String
+		}
+		other::int
+	
+		[result]
+		javax.security.auth.callback::ConfirmationCallback
+	}
+
+	[Function]
+	public String getPrompt()
+	Name: getPrompt
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ConfirmationCallback.html#getPrompt--
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ConfirmationCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public int getMessageType()
+	Name: getMessageType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ConfirmationCallback.html#getMessageType--
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ConfirmationCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public int getOptionType()
+	Name: getOptionType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ConfirmationCallback.html#getOptionType--
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ConfirmationCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public String[] getOptions()
+	Name: getOptions
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ConfirmationCallback.html#getOptions--
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ConfirmationCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public int getDefaultOption()
+	Name: getDefaultOption
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ConfirmationCallback.html#getDefaultOption--
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ConfirmationCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public void setSelectedIndex(int selection)
+	Name: setSelectedIndex
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ConfirmationCallback.html#setSelectedIndex-int-
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ConfirmationCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public int getSelectedIndex()
+	Name: getSelectedIndex
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/ConfirmationCallback.html#getSelectedIndex--
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ConfirmationCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public class LanguageCallback
+extends Object
+implements Callback, Serializable
+Name: LanguageCallback
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/LanguageCallback.html
+Containing package: javax.security.auth.callback
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.security.auth.callback::Callback
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public LanguageCallback()
+	Name: LanguageCallback
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/LanguageCallback.html#LanguageCallback--
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: LanguageCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.security.auth.callback::LanguageCallback
+	}
+
+	[Function]
+	public void setLocale(Locale locale)
+	Name: setLocale
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/LanguageCallback.html#setLocale-java.util.Locale-
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LanguageCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Locale
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Locale getLocale()
+	Name: getLocale
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/LanguageCallback.html#getLocale--
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LanguageCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Locale
+	}
+}
+
+[Classifier]
+public class NameCallback
+extends Object
+implements Callback, Serializable
+Name: NameCallback
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/NameCallback.html
+Containing package: javax.security.auth.callback
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.security.auth.callback::Callback
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public NameCallback(String prompt)
+	Name: NameCallback
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/NameCallback.html#NameCallback-java.lang.String-
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: NameCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.security.auth.callback::NameCallback
+	}
+
+	[Function]
+	public NameCallback(String prompt,
+	                    String defaultName)
+	Name: NameCallback
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/NameCallback.html#NameCallback-java.lang.String-java.lang.String-
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: NameCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.security.auth.callback::NameCallback
+	}
+
+	[Function]
+	public String getPrompt()
+	Name: getPrompt
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/NameCallback.html#getPrompt--
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: NameCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getDefaultName()
+	Name: getDefaultName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/NameCallback.html#getDefaultName--
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: NameCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public void setName(String name)
+	Name: setName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/NameCallback.html#setName-java.lang.String-
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: NameCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public String getName()
+	Name: getName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/NameCallback.html#getName--
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: NameCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public class PasswordCallback
+extends Object
+implements Callback, Serializable
+Name: PasswordCallback
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/PasswordCallback.html
+Containing package: javax.security.auth.callback
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.security.auth.callback::Callback
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public PasswordCallback(String prompt,
+	                        boolean echoOn)
+	Name: PasswordCallback
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/PasswordCallback.html#PasswordCallback-java.lang.String-boolean-
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: PasswordCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::boolean
+	
+		[result]
+		javax.security.auth.callback::PasswordCallback
+	}
+
+	[Function]
+	public String getPrompt()
+	Name: getPrompt
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/PasswordCallback.html#getPrompt--
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: PasswordCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public boolean isEchoOn()
+	Name: isEchoOn
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/PasswordCallback.html#isEchoOn--
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: PasswordCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void setPassword(char[] password)
+	Name: setPassword
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/PasswordCallback.html#setPassword-char:A-
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: PasswordCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::char
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public char[] getPassword()
+	Name: getPassword
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/PasswordCallback.html#getPassword--
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: PasswordCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::char
+		}
+	}
+
+	[Function]
+	public void clearPassword()
+	Name: clearPassword
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/PasswordCallback.html#clearPassword--
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: PasswordCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public class TextInputCallback
+extends Object
+implements Callback, Serializable
+Name: TextInputCallback
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/TextInputCallback.html
+Containing package: javax.security.auth.callback
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.security.sasl::RealmCallback
+}
+supertypes {
+	javax.security.auth.callback::Callback
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public TextInputCallback(String prompt)
+	Name: TextInputCallback
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/TextInputCallback.html#TextInputCallback-java.lang.String-
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TextInputCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.security.auth.callback::TextInputCallback
+	}
+
+	[Function]
+	public TextInputCallback(String prompt,
+	                         String defaultText)
+	Name: TextInputCallback
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/TextInputCallback.html#TextInputCallback-java.lang.String-java.lang.String-
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TextInputCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.security.auth.callback::TextInputCallback
+	}
+
+	[Function]
+	public String getPrompt()
+	Name: getPrompt
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/TextInputCallback.html#getPrompt--
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TextInputCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getDefaultText()
+	Name: getDefaultText
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/TextInputCallback.html#getDefaultText--
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TextInputCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public void setText(String text)
+	Name: setText
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/TextInputCallback.html#setText-java.lang.String-
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TextInputCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public String getText()
+	Name: getText
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/TextInputCallback.html#getText--
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TextInputCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public class TextOutputCallback
+extends Object
+implements Callback, Serializable
+Name: TextOutputCallback
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/TextOutputCallback.html
+Containing package: javax.security.auth.callback
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.security.auth.callback::Callback
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static final int INFORMATION
+	Name: INFORMATION
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/TextOutputCallback.html#INFORMATION
+	Containing package: javax.security.auth.callback
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: TextOutputCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int WARNING
+	Name: WARNING
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/TextOutputCallback.html#WARNING
+	Containing package: javax.security.auth.callback
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: TextOutputCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int ERROR
+	Name: ERROR
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/TextOutputCallback.html#ERROR
+	Containing package: javax.security.auth.callback
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: TextOutputCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public TextOutputCallback(int messageType,
+	                          String message)
+	Name: TextOutputCallback
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/TextOutputCallback.html#TextOutputCallback-int-java.lang.String-
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TextOutputCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.lang::String
+	
+		[result]
+		javax.security.auth.callback::TextOutputCallback
+	}
+
+	[Function]
+	public int getMessageType()
+	Name: getMessageType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/TextOutputCallback.html#getMessageType--
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TextOutputCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public String getMessage()
+	Name: getMessage
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/TextOutputCallback.html#getMessage--
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TextOutputCallback
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public class UnsupportedCallbackException
+extends Exception
+Name: UnsupportedCallbackException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/UnsupportedCallbackException.html
+Containing package: javax.security.auth.callback
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Exception
+}
+members {
+
+	[Function]
+	public UnsupportedCallbackException(Callback callback)
+	Name: UnsupportedCallbackException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/UnsupportedCallbackException.html#UnsupportedCallbackException-javax.security.auth.callback.Callback-
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: UnsupportedCallbackException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.security.auth.callback::Callback
+	
+		[result]
+		javax.security.auth.callback::UnsupportedCallbackException
+	}
+
+	[Function]
+	public UnsupportedCallbackException(Callback callback,
+	                                    String msg)
+	Name: UnsupportedCallbackException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/UnsupportedCallbackException.html#UnsupportedCallbackException-javax.security.auth.callback.Callback-java.lang.String-
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: UnsupportedCallbackException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.security.auth.callback::Callback
+		java.lang::String
+	
+		[result]
+		javax.security.auth.callback::UnsupportedCallbackException
+	}
+
+	[Function]
+	public Callback getCallback()
+	Name: getCallback
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/callback/UnsupportedCallbackException.html#getCallback--
+	Containing package: javax.security.auth.callback
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UnsupportedCallbackException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.security.auth.callback::Callback
+	}
+}

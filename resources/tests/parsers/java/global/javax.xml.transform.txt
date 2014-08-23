@@ -1,0 +1,2435 @@
+[Package]
+Name: javax.xml.transform
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/package-summary.html
+Containing package: javax.xml
+attributes {
+}
+
+Subpackages {
+	javax.xml.transform.dom
+	javax.xml.transform.sax
+	javax.xml.transform.stax
+	javax.xml.transform.stream
+}
+
+[Classifier]
+public interface ErrorListener
+Name: ErrorListener
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/ErrorListener.html
+Containing package: javax.xml.transform
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	void warning(TransformerException exception)
+	      throws TransformerException
+	Name: warning
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/ErrorListener.html#warning-javax.xml.transform.TransformerException-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ErrorListener
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.transform::TransformerException
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void error(TransformerException exception)
+	    throws TransformerException
+	Name: error
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/ErrorListener.html#error-javax.xml.transform.TransformerException-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ErrorListener
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.transform::TransformerException
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void fatalError(TransformerException exception)
+	         throws TransformerException
+	Name: fatalError
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/ErrorListener.html#fatalError-javax.xml.transform.TransformerException-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ErrorListener
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.transform::TransformerException
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface Result
+Name: Result
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/Result.html
+Containing package: javax.xml.transform
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.xml.transform.stax::StAXResult
+	javax.xml.transform.dom::DOMResult
+	javax.xml.transform.stream::StreamResult
+	javax.xml.transform.sax::SAXResult
+}
+supertypes {
+}
+members {
+
+	[Function]
+	static final String PI_DISABLE_OUTPUT_ESCAPING
+	Name: PI_DISABLE_OUTPUT_ESCAPING
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/Result.html#PI_DISABLE_OUTPUT_ESCAPING
+	Containing package: javax.xml.transform
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: Result
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String PI_ENABLE_OUTPUT_ESCAPING
+	Name: PI_ENABLE_OUTPUT_ESCAPING
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/Result.html#PI_ENABLE_OUTPUT_ESCAPING
+	Containing package: javax.xml.transform
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: Result
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	void setSystemId(String systemId)
+	Name: setSystemId
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/Result.html#setSystemId-java.lang.String-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Result
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	String getSystemId()
+	Name: getSystemId
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/Result.html#getSystemId--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Result
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public interface Source
+Name: Source
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/Source.html
+Containing package: javax.xml.transform
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.xml.transform.sax::SAXSource
+	javax.xml.transform.stream::StreamSource
+	javax.xml.transform.stax::StAXSource
+	javax.xml.transform.dom::DOMSource
+}
+supertypes {
+}
+members {
+
+	[Function]
+	void setSystemId(String systemId)
+	Name: setSystemId
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/Source.html#setSystemId-java.lang.String-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Source
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	String getSystemId()
+	Name: getSystemId
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/Source.html#getSystemId--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Source
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public interface SourceLocator
+Name: SourceLocator
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/SourceLocator.html
+Containing package: javax.xml.transform
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.xml.transform.dom::DOMLocator
+}
+supertypes {
+}
+members {
+
+	[Function]
+	String getPublicId()
+	Name: getPublicId
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/SourceLocator.html#getPublicId--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SourceLocator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	String getSystemId()
+	Name: getSystemId
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/SourceLocator.html#getSystemId--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SourceLocator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	int getLineNumber()
+	Name: getLineNumber
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/SourceLocator.html#getLineNumber--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SourceLocator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	int getColumnNumber()
+	Name: getColumnNumber
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/SourceLocator.html#getColumnNumber--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SourceLocator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public interface Templates
+Name: Templates
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/Templates.html
+Containing package: javax.xml.transform
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	Transformer newTransformer()
+	                    throws TransformerConfigurationException
+	Name: newTransformer
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/Templates.html#newTransformer--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Templates
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.transform::Transformer
+	}
+
+	[Function]
+	Properties getOutputProperties()
+	Name: getOutputProperties
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/Templates.html#getOutputProperties--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Templates
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Properties
+	}
+}
+
+[Classifier]
+public interface URIResolver
+Name: URIResolver
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/URIResolver.html
+Containing package: javax.xml.transform
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	Source resolve(String href,
+	               String base)
+	        throws TransformerException
+	Name: resolve
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/URIResolver.html#resolve-java.lang.String-java.lang.String-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: URIResolver
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.xml.transform::Source
+	}
+}
+
+[Classifier]
+public class OutputKeys
+extends Object
+Name: OutputKeys
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/OutputKeys.html
+Containing package: javax.xml.transform
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static final String METHOD
+	Name: METHOD
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/OutputKeys.html#METHOD
+	Containing package: javax.xml.transform
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: OutputKeys
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final String VERSION
+	Name: VERSION
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/OutputKeys.html#VERSION
+	Containing package: javax.xml.transform
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: OutputKeys
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final String ENCODING
+	Name: ENCODING
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/OutputKeys.html#ENCODING
+	Containing package: javax.xml.transform
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: OutputKeys
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final String OMIT_XML_DECLARATION
+	Name: OMIT_XML_DECLARATION
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/OutputKeys.html#OMIT_XML_DECLARATION
+	Containing package: javax.xml.transform
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: OutputKeys
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final String STANDALONE
+	Name: STANDALONE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/OutputKeys.html#STANDALONE
+	Containing package: javax.xml.transform
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: OutputKeys
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final String DOCTYPE_PUBLIC
+	Name: DOCTYPE_PUBLIC
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/OutputKeys.html#DOCTYPE_PUBLIC
+	Containing package: javax.xml.transform
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: OutputKeys
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final String DOCTYPE_SYSTEM
+	Name: DOCTYPE_SYSTEM
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/OutputKeys.html#DOCTYPE_SYSTEM
+	Containing package: javax.xml.transform
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: OutputKeys
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final String CDATA_SECTION_ELEMENTS
+	Name: CDATA_SECTION_ELEMENTS
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/OutputKeys.html#CDATA_SECTION_ELEMENTS
+	Containing package: javax.xml.transform
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: OutputKeys
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final String INDENT
+	Name: INDENT
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/OutputKeys.html#INDENT
+	Containing package: javax.xml.transform
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: OutputKeys
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final String MEDIA_TYPE
+	Name: MEDIA_TYPE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/OutputKeys.html#MEDIA_TYPE
+	Containing package: javax.xml.transform
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: OutputKeys
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public abstract class Transformer
+extends Object
+Name: Transformer
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/Transformer.html
+Containing package: javax.xml.transform
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected Transformer()
+	Name: Transformer
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/Transformer.html#Transformer--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Transformer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.transform::Transformer
+	}
+
+	[Function]
+	public void reset()
+	Name: reset
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/Transformer.html#reset--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Transformer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract void transform(Source xmlSource,
+	                               Result outputTarget)
+	                        throws TransformerException
+	Name: transform
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/Transformer.html#transform-javax.xml.transform.Source-javax.xml.transform.Result-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Transformer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.transform::Source
+		javax.xml.transform::Result
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract void setParameter(String name,
+	                                  Object value)
+	Name: setParameter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/Transformer.html#setParameter-java.lang.String-java.lang.Object-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Transformer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Object
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract Object getParameter(String name)
+	Name: getParameter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/Transformer.html#getParameter-java.lang.String-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Transformer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public abstract void clearParameters()
+	Name: clearParameters
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/Transformer.html#clearParameters--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Transformer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract void setURIResolver(URIResolver resolver)
+	Name: setURIResolver
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/Transformer.html#setURIResolver-javax.xml.transform.URIResolver-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Transformer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.transform::URIResolver
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract URIResolver getURIResolver()
+	Name: getURIResolver
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/Transformer.html#getURIResolver--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Transformer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.transform::URIResolver
+	}
+
+	[Function]
+	public abstract void setOutputProperties(Properties oformat)
+	Name: setOutputProperties
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/Transformer.html#setOutputProperties-java.util.Properties-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Transformer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Properties
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract Properties getOutputProperties()
+	Name: getOutputProperties
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/Transformer.html#getOutputProperties--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Transformer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Properties
+	}
+
+	[Function]
+	public abstract void setOutputProperty(String name,
+	                                       String value)
+	                                throws IllegalArgumentException
+	Name: setOutputProperty
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/Transformer.html#setOutputProperty-java.lang.String-java.lang.String-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Transformer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract String getOutputProperty(String name)
+	                                  throws IllegalArgumentException
+	Name: getOutputProperty
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/Transformer.html#getOutputProperty-java.lang.String-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Transformer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public abstract void setErrorListener(ErrorListener listener)
+	                               throws IllegalArgumentException
+	Name: setErrorListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/Transformer.html#setErrorListener-javax.xml.transform.ErrorListener-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Transformer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.transform::ErrorListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract ErrorListener getErrorListener()
+	Name: getErrorListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/Transformer.html#getErrorListener--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Transformer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.transform::ErrorListener
+	}
+}
+
+[Classifier]
+public abstract class TransformerFactory
+extends Object
+Name: TransformerFactory
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerFactory.html
+Containing package: javax.xml.transform
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.xml.transform.sax::SAXTransformerFactory
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected TransformerFactory()
+	Name: TransformerFactory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerFactory.html#TransformerFactory--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TransformerFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.transform::TransformerFactory
+	}
+
+	[Function]
+	public static TransformerFactory newInstance()
+	                                      throws TransformerFactoryConfigurationError
+	Name: newInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerFactory.html#newInstance--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TransformerFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.transform::TransformerFactory
+	}
+
+	[Function]
+	public static TransformerFactory newInstance(String factoryClassName,
+	                                             ClassLoader classLoader)
+	                                      throws TransformerFactoryConfigurationError
+	Name: newInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerFactory.html#newInstance-java.lang.String-java.lang.ClassLoader-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TransformerFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::ClassLoader
+	
+		[result]
+		javax.xml.transform::TransformerFactory
+	}
+
+	[Function]
+	public abstract Transformer newTransformer(Source source)
+	                                    throws TransformerConfigurationException
+	Name: newTransformer
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerFactory.html#newTransformer-javax.xml.transform.Source-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TransformerFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.transform::Source
+	
+		[result]
+		javax.xml.transform::Transformer
+	}
+
+	[Function]
+	public abstract Transformer newTransformer()
+	                                    throws TransformerConfigurationException
+	Name: newTransformer
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerFactory.html#newTransformer--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TransformerFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.transform::Transformer
+	}
+
+	[Function]
+	public abstract Templates newTemplates(Source source)
+	                                throws TransformerConfigurationException
+	Name: newTemplates
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerFactory.html#newTemplates-javax.xml.transform.Source-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TransformerFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.transform::Source
+	
+		[result]
+		javax.xml.transform::Templates
+	}
+
+	[Function]
+	public abstract Source getAssociatedStylesheet(Source source,
+	                                               String media,
+	                                               String title,
+	                                               String charset)
+	                                        throws TransformerConfigurationException
+	Name: getAssociatedStylesheet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerFactory.html#getAssociatedStylesheet-javax.xml.transform.Source-java.lang.String-java.lang.String-java.lang.String-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TransformerFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.transform::Source
+		java.lang::String
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.xml.transform::Source
+	}
+
+	[Function]
+	public abstract void setURIResolver(URIResolver resolver)
+	Name: setURIResolver
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerFactory.html#setURIResolver-javax.xml.transform.URIResolver-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TransformerFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.transform::URIResolver
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract URIResolver getURIResolver()
+	Name: getURIResolver
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerFactory.html#getURIResolver--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TransformerFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.transform::URIResolver
+	}
+
+	[Function]
+	public abstract void setFeature(String name,
+	                                boolean value)
+	                         throws TransformerConfigurationException
+	Name: setFeature
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerFactory.html#setFeature-java.lang.String-boolean-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TransformerFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::boolean
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract boolean getFeature(String name)
+	Name: getFeature
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerFactory.html#getFeature-java.lang.String-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TransformerFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract void setAttribute(String name,
+	                                  Object value)
+	Name: setAttribute
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerFactory.html#setAttribute-java.lang.String-java.lang.Object-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TransformerFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Object
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract Object getAttribute(String name)
+	Name: getAttribute
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerFactory.html#getAttribute-java.lang.String-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TransformerFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public abstract void setErrorListener(ErrorListener listener)
+	Name: setErrorListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerFactory.html#setErrorListener-javax.xml.transform.ErrorListener-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TransformerFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.transform::ErrorListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract ErrorListener getErrorListener()
+	Name: getErrorListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerFactory.html#getErrorListener--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TransformerFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.transform::ErrorListener
+	}
+}
+
+[Classifier]
+public class TransformerConfigurationException
+extends TransformerException
+Name: TransformerConfigurationException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerConfigurationException.html
+Containing package: javax.xml.transform
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.xml.transform::TransformerException
+}
+members {
+
+	[Function]
+	public TransformerConfigurationException()
+	Name: TransformerConfigurationException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerConfigurationException.html#TransformerConfigurationException--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TransformerConfigurationException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.transform::TransformerConfigurationException
+	}
+
+	[Function]
+	public TransformerConfigurationException(String msg)
+	Name: TransformerConfigurationException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerConfigurationException.html#TransformerConfigurationException-java.lang.String-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TransformerConfigurationException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.xml.transform::TransformerConfigurationException
+	}
+
+	[Function]
+	public TransformerConfigurationException(Throwable e)
+	Name: TransformerConfigurationException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerConfigurationException.html#TransformerConfigurationException-java.lang.Throwable-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TransformerConfigurationException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Throwable
+	
+		[result]
+		javax.xml.transform::TransformerConfigurationException
+	}
+
+	[Function]
+	public TransformerConfigurationException(String msg,
+	                                         Throwable e)
+	Name: TransformerConfigurationException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerConfigurationException.html#TransformerConfigurationException-java.lang.String-java.lang.Throwable-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TransformerConfigurationException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Throwable
+	
+		[result]
+		javax.xml.transform::TransformerConfigurationException
+	}
+
+	[Function]
+	public TransformerConfigurationException(String message,
+	                                         SourceLocator locator)
+	Name: TransformerConfigurationException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerConfigurationException.html#TransformerConfigurationException-java.lang.String-javax.xml.transform.SourceLocator-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TransformerConfigurationException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.xml.transform::SourceLocator
+	
+		[result]
+		javax.xml.transform::TransformerConfigurationException
+	}
+
+	[Function]
+	public TransformerConfigurationException(String message,
+	                                         SourceLocator locator,
+	                                         Throwable e)
+	Name: TransformerConfigurationException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerConfigurationException.html#TransformerConfigurationException-java.lang.String-javax.xml.transform.SourceLocator-java.lang.Throwable-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TransformerConfigurationException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.xml.transform::SourceLocator
+		java.lang::Throwable
+	
+		[result]
+		javax.xml.transform::TransformerConfigurationException
+	}
+}
+
+[Classifier]
+public class TransformerException
+extends Exception
+Name: TransformerException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerException.html
+Containing package: javax.xml.transform
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.xml.transform::TransformerConfigurationException
+}
+supertypes {
+	java.lang::Exception
+}
+members {
+
+	[Function]
+	public TransformerException(String message)
+	Name: TransformerException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerException.html#TransformerException-java.lang.String-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TransformerException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.xml.transform::TransformerException
+	}
+
+	[Function]
+	public TransformerException(Throwable e)
+	Name: TransformerException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerException.html#TransformerException-java.lang.Throwable-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TransformerException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Throwable
+	
+		[result]
+		javax.xml.transform::TransformerException
+	}
+
+	[Function]
+	public TransformerException(String message,
+	                            Throwable e)
+	Name: TransformerException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerException.html#TransformerException-java.lang.String-java.lang.Throwable-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TransformerException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Throwable
+	
+		[result]
+		javax.xml.transform::TransformerException
+	}
+
+	[Function]
+	public TransformerException(String message,
+	                            SourceLocator locator)
+	Name: TransformerException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerException.html#TransformerException-java.lang.String-javax.xml.transform.SourceLocator-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TransformerException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.xml.transform::SourceLocator
+	
+		[result]
+		javax.xml.transform::TransformerException
+	}
+
+	[Function]
+	public TransformerException(String message,
+	                            SourceLocator locator,
+	                            Throwable e)
+	Name: TransformerException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerException.html#TransformerException-java.lang.String-javax.xml.transform.SourceLocator-java.lang.Throwable-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TransformerException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.xml.transform::SourceLocator
+		java.lang::Throwable
+	
+		[result]
+		javax.xml.transform::TransformerException
+	}
+
+	[Function]
+	public SourceLocator getLocator()
+	Name: getLocator
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerException.html#getLocator--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TransformerException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.transform::SourceLocator
+	}
+
+	[Function]
+	public void setLocator(SourceLocator location)
+	Name: setLocator
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerException.html#setLocator-javax.xml.transform.SourceLocator-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TransformerException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.transform::SourceLocator
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Throwable getException()
+	Name: getException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerException.html#getException--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TransformerException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Throwable
+	}
+
+	[Function]
+	public Throwable getCause()
+	Name: getCause
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerException.html#getCause--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TransformerException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Throwable
+	}
+
+	[Function]
+	public Throwable initCause(Throwable cause)
+	Name: initCause
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerException.html#initCause-java.lang.Throwable-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TransformerException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Throwable
+	
+		[result]
+		java.lang::Throwable
+	}
+
+	[Function]
+	public String getMessageAndLocation()
+	Name: getMessageAndLocation
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerException.html#getMessageAndLocation--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TransformerException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getLocationAsString()
+	Name: getLocationAsString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerException.html#getLocationAsString--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TransformerException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public void printStackTrace()
+	Name: printStackTrace
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerException.html#printStackTrace--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TransformerException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void printStackTrace(PrintStream s)
+	Name: printStackTrace
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerException.html#printStackTrace-java.io.PrintStream-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TransformerException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::PrintStream
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void printStackTrace(PrintWriter s)
+	Name: printStackTrace
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerException.html#printStackTrace-java.io.PrintWriter-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TransformerException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::PrintWriter
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public class TransformerFactoryConfigurationError
+extends Error
+Name: TransformerFactoryConfigurationError
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerFactoryConfigurationError.html
+Containing package: javax.xml.transform
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Error
+}
+members {
+
+	[Function]
+	public TransformerFactoryConfigurationError()
+	Name: TransformerFactoryConfigurationError
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerFactoryConfigurationError.html#TransformerFactoryConfigurationError--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TransformerFactoryConfigurationError
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.transform::TransformerFactoryConfigurationError
+	}
+
+	[Function]
+	public TransformerFactoryConfigurationError(String msg)
+	Name: TransformerFactoryConfigurationError
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerFactoryConfigurationError.html#TransformerFactoryConfigurationError-java.lang.String-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TransformerFactoryConfigurationError
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.xml.transform::TransformerFactoryConfigurationError
+	}
+
+	[Function]
+	public TransformerFactoryConfigurationError(Exception e)
+	Name: TransformerFactoryConfigurationError
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerFactoryConfigurationError.html#TransformerFactoryConfigurationError-java.lang.Exception-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TransformerFactoryConfigurationError
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Exception
+	
+		[result]
+		javax.xml.transform::TransformerFactoryConfigurationError
+	}
+
+	[Function]
+	public TransformerFactoryConfigurationError(Exception e,
+	                                            String msg)
+	Name: TransformerFactoryConfigurationError
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerFactoryConfigurationError.html#TransformerFactoryConfigurationError-java.lang.Exception-java.lang.String-
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TransformerFactoryConfigurationError
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Exception
+		java.lang::String
+	
+		[result]
+		javax.xml.transform::TransformerFactoryConfigurationError
+	}
+
+	[Function]
+	public String getMessage()
+	Name: getMessage
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerFactoryConfigurationError.html#getMessage--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TransformerFactoryConfigurationError
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public Exception getException()
+	Name: getException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerFactoryConfigurationError.html#getException--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TransformerFactoryConfigurationError
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Exception
+	}
+
+	[Function]
+	public Throwable getCause()
+	Name: getCause
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerFactoryConfigurationError.html#getCause--
+	Containing package: javax.xml.transform
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TransformerFactoryConfigurationError
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Throwable
+	}
+}

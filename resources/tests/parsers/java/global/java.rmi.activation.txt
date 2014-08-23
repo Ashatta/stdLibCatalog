@@ -1,0 +1,2786 @@
+[Package]
+Name: java.rmi.activation
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/package-summary.html
+Containing package: java.rmi
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+public interface ActivationInstantiator
+extends Remote
+Name: ActivationInstantiator
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationInstantiator.html
+Containing package: java.rmi.activation
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.rmi.activation::ActivationGroup_Stub
+	java.rmi.activation::ActivationGroup
+}
+supertypes {
+	java.rmi::Remote
+}
+members {
+
+	[Function]
+	MarshalledObject<? extends Remote> newInstance(ActivationID id,
+	                                               ActivationDesc desc)
+	                                        throws ActivationException,
+	                                               RemoteException
+	Name: newInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationInstantiator.html#newInstance-java.rmi.activation.ActivationID-java.rmi.activation.ActivationDesc-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationInstantiator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationID
+		java.rmi.activation::ActivationDesc
+	
+		[result]
+		java.rmi::MarshalledObject {
+			? {
+				extends java.rmi::Remote
+			}
+		}
+	}
+}
+
+[Classifier]
+public interface ActivationMonitor
+extends Remote
+Name: ActivationMonitor
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationMonitor.html
+Containing package: java.rmi.activation
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.rmi::Remote
+}
+members {
+
+	[Function]
+	void inactiveObject(ActivationID id)
+	             throws UnknownObjectException,
+	                    RemoteException
+	Name: inactiveObject
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationMonitor.html#inactiveObject-java.rmi.activation.ActivationID-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationMonitor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationID
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void activeObject(ActivationID id,
+	                  MarshalledObject<? extends Remote> obj)
+	           throws UnknownObjectException,
+	                  RemoteException
+	Name: activeObject
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationMonitor.html#activeObject-java.rmi.activation.ActivationID-java.rmi.MarshalledObject-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationMonitor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationID
+		java.rmi::MarshalledObject {
+			? {
+				extends java.rmi::Remote
+			}
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void inactiveGroup(ActivationGroupID id,
+	                   long incarnation)
+	            throws UnknownGroupException,
+	                   RemoteException
+	Name: inactiveGroup
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationMonitor.html#inactiveGroup-java.rmi.activation.ActivationGroupID-long-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationMonitor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationGroupID
+		other::long
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface ActivationSystem
+extends Remote
+Name: ActivationSystem
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationSystem.html
+Containing package: java.rmi.activation
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.rmi::Remote
+}
+members {
+
+	[Function]
+	static final int SYSTEM_PORT
+	Name: SYSTEM_PORT
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationSystem.html#SYSTEM_PORT
+	Containing package: java.rmi.activation
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ActivationSystem
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	ActivationID registerObject(ActivationDesc desc)
+	                     throws ActivationException,
+	                            UnknownGroupException,
+	                            RemoteException
+	Name: registerObject
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationSystem.html#registerObject-java.rmi.activation.ActivationDesc-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationSystem
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationDesc
+	
+		[result]
+		java.rmi.activation::ActivationID
+	}
+
+	[Function]
+	void unregisterObject(ActivationID id)
+	               throws ActivationException,
+	                      UnknownObjectException,
+	                      RemoteException
+	Name: unregisterObject
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationSystem.html#unregisterObject-java.rmi.activation.ActivationID-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationSystem
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationID
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	ActivationGroupID registerGroup(ActivationGroupDesc desc)
+	                         throws ActivationException,
+	                                RemoteException
+	Name: registerGroup
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationSystem.html#registerGroup-java.rmi.activation.ActivationGroupDesc-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationSystem
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationGroupDesc
+	
+		[result]
+		java.rmi.activation::ActivationGroupID
+	}
+
+	[Function]
+	ActivationMonitor activeGroup(ActivationGroupID id,
+	                              ActivationInstantiator group,
+	                              long incarnation)
+	                       throws UnknownGroupException,
+	                              ActivationException,
+	                              RemoteException
+	Name: activeGroup
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationSystem.html#activeGroup-java.rmi.activation.ActivationGroupID-java.rmi.activation.ActivationInstantiator-long-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationSystem
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationGroupID
+		java.rmi.activation::ActivationInstantiator
+		other::long
+	
+		[result]
+		java.rmi.activation::ActivationMonitor
+	}
+
+	[Function]
+	void unregisterGroup(ActivationGroupID id)
+	              throws ActivationException,
+	                     UnknownGroupException,
+	                     RemoteException
+	Name: unregisterGroup
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationSystem.html#unregisterGroup-java.rmi.activation.ActivationGroupID-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationSystem
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationGroupID
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void shutdown()
+	       throws RemoteException
+	Name: shutdown
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationSystem.html#shutdown--
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationSystem
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	ActivationDesc setActivationDesc(ActivationID id,
+	                                 ActivationDesc desc)
+	                          throws ActivationException,
+	                                 UnknownObjectException,
+	                                 UnknownGroupException,
+	                                 RemoteException
+	Name: setActivationDesc
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationSystem.html#setActivationDesc-java.rmi.activation.ActivationID-java.rmi.activation.ActivationDesc-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationSystem
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationID
+		java.rmi.activation::ActivationDesc
+	
+		[result]
+		java.rmi.activation::ActivationDesc
+	}
+
+	[Function]
+	ActivationGroupDesc setActivationGroupDesc(ActivationGroupID id,
+	                                           ActivationGroupDesc desc)
+	                                    throws ActivationException,
+	                                           UnknownGroupException,
+	                                           RemoteException
+	Name: setActivationGroupDesc
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationSystem.html#setActivationGroupDesc-java.rmi.activation.ActivationGroupID-java.rmi.activation.ActivationGroupDesc-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationSystem
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationGroupID
+		java.rmi.activation::ActivationGroupDesc
+	
+		[result]
+		java.rmi.activation::ActivationGroupDesc
+	}
+
+	[Function]
+	ActivationDesc getActivationDesc(ActivationID id)
+	                          throws ActivationException,
+	                                 UnknownObjectException,
+	                                 RemoteException
+	Name: getActivationDesc
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationSystem.html#getActivationDesc-java.rmi.activation.ActivationID-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationSystem
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationID
+	
+		[result]
+		java.rmi.activation::ActivationDesc
+	}
+
+	[Function]
+	ActivationGroupDesc getActivationGroupDesc(ActivationGroupID id)
+	                                    throws ActivationException,
+	                                           UnknownGroupException,
+	                                           RemoteException
+	Name: getActivationGroupDesc
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationSystem.html#getActivationGroupDesc-java.rmi.activation.ActivationGroupID-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationSystem
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationGroupID
+	
+		[result]
+		java.rmi.activation::ActivationGroupDesc
+	}
+}
+
+[Classifier]
+public interface Activator
+extends Remote
+Name: Activator
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/Activator.html
+Containing package: java.rmi.activation
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.rmi::Remote
+}
+members {
+
+	[Function]
+	MarshalledObject<? extends Remote> activate(ActivationID id,
+	                                            boolean force)
+	                                     throws ActivationException,
+	                                            UnknownObjectException,
+	                                            RemoteException
+	Name: activate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/Activator.html#activate-java.rmi.activation.ActivationID-boolean-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Activator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationID
+		other::boolean
+	
+		[result]
+		java.rmi::MarshalledObject {
+			? {
+				extends java.rmi::Remote
+			}
+		}
+	}
+}
+
+[Classifier]
+public abstract class Activatable
+extends RemoteServer
+Name: Activatable
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/Activatable.html
+Containing package: java.rmi.activation
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.rmi.server::RemoteServer
+}
+members {
+
+	[Function]
+	protected Activatable(String location,
+	                      MarshalledObject<?> data,
+	                      boolean restart,
+	                      int port)
+	               throws ActivationException,
+	                      RemoteException
+	Name: Activatable
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/Activatable.html#Activatable-java.lang.String-java.rmi.MarshalledObject-boolean-int-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Activatable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.rmi::MarshalledObject {
+			?
+		}
+		other::boolean
+		other::int
+	
+		[result]
+		java.rmi.activation::Activatable
+	}
+
+	[Function]
+	protected Activatable(String location,
+	                      MarshalledObject<?> data,
+	                      boolean restart,
+	                      int port,
+	                      RMIClientSocketFactory csf,
+	                      RMIServerSocketFactory ssf)
+	               throws ActivationException,
+	                      RemoteException
+	Name: Activatable
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/Activatable.html#Activatable-java.lang.String-java.rmi.MarshalledObject-boolean-int-java.rmi.server.RMIClientSocketFactory-java.rmi.server.RMIServerSocketFactory-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Activatable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.rmi::MarshalledObject {
+			?
+		}
+		other::boolean
+		other::int
+		java.rmi.server::RMIClientSocketFactory
+		java.rmi.server::RMIServerSocketFactory
+	
+		[result]
+		java.rmi.activation::Activatable
+	}
+
+	[Function]
+	protected Activatable(ActivationID id,
+	                      int port)
+	               throws RemoteException
+	Name: Activatable
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/Activatable.html#Activatable-java.rmi.activation.ActivationID-int-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Activatable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationID
+		other::int
+	
+		[result]
+		java.rmi.activation::Activatable
+	}
+
+	[Function]
+	protected Activatable(ActivationID id,
+	                      int port,
+	                      RMIClientSocketFactory csf,
+	                      RMIServerSocketFactory ssf)
+	               throws RemoteException
+	Name: Activatable
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/Activatable.html#Activatable-java.rmi.activation.ActivationID-int-java.rmi.server.RMIClientSocketFactory-java.rmi.server.RMIServerSocketFactory-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Activatable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationID
+		other::int
+		java.rmi.server::RMIClientSocketFactory
+		java.rmi.server::RMIServerSocketFactory
+	
+		[result]
+		java.rmi.activation::Activatable
+	}
+
+	[Function]
+	protected ActivationID getID()
+	Name: getID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/Activatable.html#getID--
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Activatable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.rmi.activation::ActivationID
+	}
+
+	[Function]
+	public static Remote register(ActivationDesc desc)
+	                       throws UnknownGroupException,
+	                              ActivationException,
+	                              RemoteException
+	Name: register
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/Activatable.html#register-java.rmi.activation.ActivationDesc-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Activatable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationDesc
+	
+		[result]
+		java.rmi::Remote
+	}
+
+	[Function]
+	public static boolean inactive(ActivationID id)
+	                        throws UnknownObjectException,
+	                               ActivationException,
+	                               RemoteException
+	Name: inactive
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/Activatable.html#inactive-java.rmi.activation.ActivationID-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Activatable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationID
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public static void unregister(ActivationID id)
+	                       throws UnknownObjectException,
+	                              ActivationException,
+	                              RemoteException
+	Name: unregister
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/Activatable.html#unregister-java.rmi.activation.ActivationID-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Activatable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationID
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static ActivationID exportObject(Remote obj,
+	                                        String location,
+	                                        MarshalledObject<?> data,
+	                                        boolean restart,
+	                                        int port)
+	                                 throws ActivationException,
+	                                        RemoteException
+	Name: exportObject
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/Activatable.html#exportObject-java.rmi.Remote-java.lang.String-java.rmi.MarshalledObject-boolean-int-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Activatable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi::Remote
+		java.lang::String
+		java.rmi::MarshalledObject {
+			?
+		}
+		other::boolean
+		other::int
+	
+		[result]
+		java.rmi.activation::ActivationID
+	}
+
+	[Function]
+	public static ActivationID exportObject(Remote obj,
+	                                        String location,
+	                                        MarshalledObject<?> data,
+	                                        boolean restart,
+	                                        int port,
+	                                        RMIClientSocketFactory csf,
+	                                        RMIServerSocketFactory ssf)
+	                                 throws ActivationException,
+	                                        RemoteException
+	Name: exportObject
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/Activatable.html#exportObject-java.rmi.Remote-java.lang.String-java.rmi.MarshalledObject-boolean-int-java.rmi.server.RMIClientSocketFactory-java.rmi.server.RMIServerSocketFactory-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Activatable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi::Remote
+		java.lang::String
+		java.rmi::MarshalledObject {
+			?
+		}
+		other::boolean
+		other::int
+		java.rmi.server::RMIClientSocketFactory
+		java.rmi.server::RMIServerSocketFactory
+	
+		[result]
+		java.rmi.activation::ActivationID
+	}
+
+	[Function]
+	public static Remote exportObject(Remote obj,
+	                                  ActivationID id,
+	                                  int port)
+	                           throws RemoteException
+	Name: exportObject
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/Activatable.html#exportObject-java.rmi.Remote-java.rmi.activation.ActivationID-int-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Activatable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi::Remote
+		java.rmi.activation::ActivationID
+		other::int
+	
+		[result]
+		java.rmi::Remote
+	}
+
+	[Function]
+	public static Remote exportObject(Remote obj,
+	                                  ActivationID id,
+	                                  int port,
+	                                  RMIClientSocketFactory csf,
+	                                  RMIServerSocketFactory ssf)
+	                           throws RemoteException
+	Name: exportObject
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/Activatable.html#exportObject-java.rmi.Remote-java.rmi.activation.ActivationID-int-java.rmi.server.RMIClientSocketFactory-java.rmi.server.RMIServerSocketFactory-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Activatable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi::Remote
+		java.rmi.activation::ActivationID
+		other::int
+		java.rmi.server::RMIClientSocketFactory
+		java.rmi.server::RMIServerSocketFactory
+	
+		[result]
+		java.rmi::Remote
+	}
+
+	[Function]
+	public static boolean unexportObject(Remote obj,
+	                                     boolean force)
+	                              throws NoSuchObjectException
+	Name: unexportObject
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/Activatable.html#unexportObject-java.rmi.Remote-boolean-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Activatable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi::Remote
+		other::boolean
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public final class ActivationDesc
+extends Object
+implements Serializable
+Name: ActivationDesc
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationDesc.html
+Containing package: java.rmi.activation
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public ActivationDesc(String className,
+	                      String location,
+	                      MarshalledObject<?> data)
+	               throws ActivationException
+	Name: ActivationDesc
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationDesc.html#ActivationDesc-java.lang.String-java.lang.String-java.rmi.MarshalledObject-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ActivationDesc
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		java.rmi::MarshalledObject {
+			?
+		}
+	
+		[result]
+		java.rmi.activation::ActivationDesc
+	}
+
+	[Function]
+	public ActivationDesc(String className,
+	                      String location,
+	                      MarshalledObject<?> data,
+	                      boolean restart)
+	               throws ActivationException
+	Name: ActivationDesc
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationDesc.html#ActivationDesc-java.lang.String-java.lang.String-java.rmi.MarshalledObject-boolean-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ActivationDesc
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		java.rmi::MarshalledObject {
+			?
+		}
+		other::boolean
+	
+		[result]
+		java.rmi.activation::ActivationDesc
+	}
+
+	[Function]
+	public ActivationDesc(ActivationGroupID groupID,
+	                      String className,
+	                      String location,
+	                      MarshalledObject<?> data)
+	Name: ActivationDesc
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationDesc.html#ActivationDesc-java.rmi.activation.ActivationGroupID-java.lang.String-java.lang.String-java.rmi.MarshalledObject-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ActivationDesc
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationGroupID
+		java.lang::String
+		java.lang::String
+		java.rmi::MarshalledObject {
+			?
+		}
+	
+		[result]
+		java.rmi.activation::ActivationDesc
+	}
+
+	[Function]
+	public ActivationDesc(ActivationGroupID groupID,
+	                      String className,
+	                      String location,
+	                      MarshalledObject<?> data,
+	                      boolean restart)
+	Name: ActivationDesc
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationDesc.html#ActivationDesc-java.rmi.activation.ActivationGroupID-java.lang.String-java.lang.String-java.rmi.MarshalledObject-boolean-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ActivationDesc
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationGroupID
+		java.lang::String
+		java.lang::String
+		java.rmi::MarshalledObject {
+			?
+		}
+		other::boolean
+	
+		[result]
+		java.rmi.activation::ActivationDesc
+	}
+
+	[Function]
+	public ActivationGroupID getGroupID()
+	Name: getGroupID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationDesc.html#getGroupID--
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationDesc
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.rmi.activation::ActivationGroupID
+	}
+
+	[Function]
+	public String getClassName()
+	Name: getClassName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationDesc.html#getClassName--
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationDesc
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getLocation()
+	Name: getLocation
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationDesc.html#getLocation--
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationDesc
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public MarshalledObject<?> getData()
+	Name: getData
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationDesc.html#getData--
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationDesc
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.rmi::MarshalledObject {
+			?
+		}
+	}
+
+	[Function]
+	public boolean getRestartMode()
+	Name: getRestartMode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationDesc.html#getRestartMode--
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationDesc
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean equals(Object obj)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationDesc.html#equals-java.lang.Object-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationDesc
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public int hashCode()
+	Name: hashCode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationDesc.html#hashCode--
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationDesc
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public abstract class ActivationGroup
+extends UnicastRemoteObject
+implements ActivationInstantiator
+Name: ActivationGroup
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroup.html
+Containing package: java.rmi.activation
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.rmi.activation::ActivationInstantiator
+	java.rmi.server::UnicastRemoteObject
+}
+members {
+
+	[Function]
+	protected ActivationGroup(ActivationGroupID groupID)
+	                   throws RemoteException
+	Name: ActivationGroup
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroup.html#ActivationGroup-java.rmi.activation.ActivationGroupID-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ActivationGroup
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationGroupID
+	
+		[result]
+		java.rmi.activation::ActivationGroup
+	}
+
+	[Function]
+	public boolean inactiveObject(ActivationID id)
+	                       throws ActivationException,
+	                              UnknownObjectException,
+	                              RemoteException
+	Name: inactiveObject
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroup.html#inactiveObject-java.rmi.activation.ActivationID-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationGroup
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationID
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract void activeObject(ActivationID id,
+	                                  Remote obj)
+	                           throws ActivationException,
+	                                  UnknownObjectException,
+	                                  RemoteException
+	Name: activeObject
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroup.html#activeObject-java.rmi.activation.ActivationID-java.rmi.Remote-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationGroup
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationID
+		java.rmi::Remote
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static ActivationGroup createGroup(ActivationGroupID id,
+	                                          ActivationGroupDesc desc,
+	                                          long incarnation)
+	                                   throws ActivationException
+	Name: createGroup
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroup.html#createGroup-java.rmi.activation.ActivationGroupID-java.rmi.activation.ActivationGroupDesc-long-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationGroup
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationGroupID
+		java.rmi.activation::ActivationGroupDesc
+		other::long
+	
+		[result]
+		java.rmi.activation::ActivationGroup
+	}
+
+	[Function]
+	public static ActivationGroupID currentGroupID()
+	Name: currentGroupID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroup.html#currentGroupID--
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationGroup
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.rmi.activation::ActivationGroupID
+	}
+
+	[Function]
+	public static void setSystem(ActivationSystem system)
+	                      throws ActivationException
+	Name: setSystem
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroup.html#setSystem-java.rmi.activation.ActivationSystem-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationGroup
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationSystem
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static ActivationSystem getSystem()
+	                                  throws ActivationException
+	Name: getSystem
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroup.html#getSystem--
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationGroup
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.rmi.activation::ActivationSystem
+	}
+
+	[Function]
+	protected void activeObject(ActivationID id,
+	                            MarshalledObject<? extends Remote> mobj)
+	                     throws ActivationException,
+	                            UnknownObjectException,
+	                            RemoteException
+	Name: activeObject
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroup.html#activeObject-java.rmi.activation.ActivationID-java.rmi.MarshalledObject-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationGroup
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationID
+		java.rmi::MarshalledObject {
+			? {
+				extends java.rmi::Remote
+			}
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void inactiveGroup()
+	                      throws UnknownGroupException,
+	                             RemoteException
+	Name: inactiveGroup
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroup.html#inactiveGroup--
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationGroup
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public final class ActivationGroup_Stub
+extends RemoteStub
+implements ActivationInstantiator, Remote
+Name: ActivationGroup_Stub
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroup_Stub.html
+Containing package: java.rmi.activation
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.rmi.activation::ActivationInstantiator
+	java.rmi::Remote
+	java.rmi.server::RemoteStub
+}
+members {
+
+	[Function]
+	public ActivationGroup_Stub(RemoteRef ref)
+	Name: ActivationGroup_Stub
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroup_Stub.html#ActivationGroup_Stub-java.rmi.server.RemoteRef-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ActivationGroup_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.server::RemoteRef
+	
+		[result]
+		java.rmi.activation::ActivationGroup_Stub
+	}
+
+	[Function]
+	public MarshalledObject newInstance(ActivationID id,
+	                                    ActivationDesc desc)
+	                             throws RemoteException,
+	                                    ActivationException
+	Name: newInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroup_Stub.html#newInstance-java.rmi.activation.ActivationID-java.rmi.activation.ActivationDesc-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationGroup_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationID
+		java.rmi.activation::ActivationDesc
+	
+		[result]
+		java.rmi::MarshalledObject
+	}
+}
+
+[Classifier]
+public final class ActivationGroupDesc
+extends Object
+implements Serializable
+Name: ActivationGroupDesc
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroupDesc.html
+Containing package: java.rmi.activation
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public ActivationGroupDesc(Properties overrides,
+	                           ActivationGroupDesc.CommandEnvironment cmd)
+	Name: ActivationGroupDesc
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroupDesc.html#ActivationGroupDesc-java.util.Properties-java.rmi.activation.ActivationGroupDesc.CommandEnvironment-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ActivationGroupDesc
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Properties
+		java.rmi.activation::ActivationGroupDesc.CommandEnvironment
+	
+		[result]
+		java.rmi.activation::ActivationGroupDesc
+	}
+
+	[Function]
+	public ActivationGroupDesc(String className,
+	                           String location,
+	                           MarshalledObject<?> data,
+	                           Properties overrides,
+	                           ActivationGroupDesc.CommandEnvironment cmd)
+	Name: ActivationGroupDesc
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroupDesc.html#ActivationGroupDesc-java.lang.String-java.lang.String-java.rmi.MarshalledObject-java.util.Properties-java.rmi.activation.ActivationGroupDesc.CommandEnvironment-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ActivationGroupDesc
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		java.rmi::MarshalledObject {
+			?
+		}
+		java.util::Properties
+		java.rmi.activation::ActivationGroupDesc.CommandEnvironment
+	
+		[result]
+		java.rmi.activation::ActivationGroupDesc
+	}
+
+	[Function]
+	public String getClassName()
+	Name: getClassName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroupDesc.html#getClassName--
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationGroupDesc
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getLocation()
+	Name: getLocation
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroupDesc.html#getLocation--
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationGroupDesc
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public MarshalledObject<?> getData()
+	Name: getData
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroupDesc.html#getData--
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationGroupDesc
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.rmi::MarshalledObject {
+			?
+		}
+	}
+
+	[Function]
+	public Properties getPropertyOverrides()
+	Name: getPropertyOverrides
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroupDesc.html#getPropertyOverrides--
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationGroupDesc
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Properties
+	}
+
+	[Function]
+	public ActivationGroupDesc.CommandEnvironment getCommandEnvironment()
+	Name: getCommandEnvironment
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroupDesc.html#getCommandEnvironment--
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationGroupDesc
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.rmi.activation::ActivationGroupDesc.CommandEnvironment
+	}
+
+	[Function]
+	public boolean equals(Object obj)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroupDesc.html#equals-java.lang.Object-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationGroupDesc
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public int hashCode()
+	Name: hashCode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroupDesc.html#hashCode--
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationGroupDesc
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public static class ActivationGroupDesc.CommandEnvironment
+extends Object
+implements Serializable
+Name: ActivationGroupDesc.CommandEnvironment
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroupDesc.CommandEnvironment.html
+Containing package: java.rmi.activation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=true
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public CommandEnvironment(String cmdpath,
+	                          String[] argv)
+	Name: CommandEnvironment
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroupDesc.CommandEnvironment.html#CommandEnvironment-java.lang.String-java.lang.String:A-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ActivationGroupDesc.CommandEnvironment
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::[] {
+			java.lang::String
+		}
+	
+		[result]
+		java.rmi.activation::ActivationGroupDesc.CommandEnvironment
+	}
+
+	[Function]
+	public String getCommandPath()
+	Name: getCommandPath
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroupDesc.CommandEnvironment.html#getCommandPath--
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationGroupDesc.CommandEnvironment
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String[] getCommandOptions()
+	Name: getCommandOptions
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroupDesc.CommandEnvironment.html#getCommandOptions--
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationGroupDesc.CommandEnvironment
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public boolean equals(Object obj)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroupDesc.CommandEnvironment.html#equals-java.lang.Object-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationGroupDesc.CommandEnvironment
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public int hashCode()
+	Name: hashCode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroupDesc.CommandEnvironment.html#hashCode--
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationGroupDesc.CommandEnvironment
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public class ActivationGroupID
+extends Object
+implements Serializable
+Name: ActivationGroupID
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroupID.html
+Containing package: java.rmi.activation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public ActivationGroupID(ActivationSystem system)
+	Name: ActivationGroupID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroupID.html#ActivationGroupID-java.rmi.activation.ActivationSystem-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ActivationGroupID
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::ActivationSystem
+	
+		[result]
+		java.rmi.activation::ActivationGroupID
+	}
+
+	[Function]
+	public ActivationSystem getSystem()
+	Name: getSystem
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroupID.html#getSystem--
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationGroupID
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.rmi.activation::ActivationSystem
+	}
+
+	[Function]
+	public int hashCode()
+	Name: hashCode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroupID.html#hashCode--
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationGroupID
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public boolean equals(Object obj)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationGroupID.html#equals-java.lang.Object-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationGroupID
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public class ActivationID
+extends Object
+implements Serializable
+Name: ActivationID
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationID.html
+Containing package: java.rmi.activation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public ActivationID(Activator activator)
+	Name: ActivationID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationID.html#ActivationID-java.rmi.activation.Activator-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ActivationID
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.activation::Activator
+	
+		[result]
+		java.rmi.activation::ActivationID
+	}
+
+	[Function]
+	public Remote activate(boolean force)
+	                throws ActivationException,
+	                       UnknownObjectException,
+	                       RemoteException
+	Name: activate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationID.html#activate-boolean-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationID
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::boolean
+	
+		[result]
+		java.rmi::Remote
+	}
+
+	[Function]
+	public int hashCode()
+	Name: hashCode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationID.html#hashCode--
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationID
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public boolean equals(Object obj)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationID.html#equals-java.lang.Object-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationID
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public class ActivateFailedException
+extends RemoteException
+Name: ActivateFailedException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivateFailedException.html
+Containing package: java.rmi.activation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.rmi::RemoteException
+}
+members {
+
+	[Function]
+	public ActivateFailedException(String s)
+	Name: ActivateFailedException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivateFailedException.html#ActivateFailedException-java.lang.String-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ActivateFailedException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.rmi.activation::ActivateFailedException
+	}
+
+	[Function]
+	public ActivateFailedException(String s,
+	                               Exception ex)
+	Name: ActivateFailedException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivateFailedException.html#ActivateFailedException-java.lang.String-java.lang.Exception-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ActivateFailedException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Exception
+	
+		[result]
+		java.rmi.activation::ActivateFailedException
+	}
+}
+
+[Classifier]
+public class ActivationException
+extends Exception
+Name: ActivationException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationException.html
+Containing package: java.rmi.activation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.rmi.activation::UnknownGroupException
+	java.rmi.activation::UnknownObjectException
+}
+supertypes {
+	java.lang::Exception
+}
+members {
+
+	[Function]
+	public Throwable detail
+	Name: detail
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationException.html#detail
+	Containing package: java.rmi.activation
+	attributes {
+		final=false
+		scope=public
+		static=false
+		memberType=field
+	}
+	Containing type: ActivationException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Throwable
+	}
+
+	[Function]
+	public ActivationException()
+	Name: ActivationException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationException.html#ActivationException--
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ActivationException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.rmi.activation::ActivationException
+	}
+
+	[Function]
+	public ActivationException(String s)
+	Name: ActivationException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationException.html#ActivationException-java.lang.String-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ActivationException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.rmi.activation::ActivationException
+	}
+
+	[Function]
+	public ActivationException(String s,
+	                           Throwable cause)
+	Name: ActivationException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationException.html#ActivationException-java.lang.String-java.lang.Throwable-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ActivationException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Throwable
+	
+		[result]
+		java.rmi.activation::ActivationException
+	}
+
+	[Function]
+	public String getMessage()
+	Name: getMessage
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationException.html#getMessage--
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public Throwable getCause()
+	Name: getCause
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/ActivationException.html#getCause--
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Throwable
+	}
+}
+
+[Classifier]
+public class UnknownGroupException
+extends ActivationException
+Name: UnknownGroupException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/UnknownGroupException.html
+Containing package: java.rmi.activation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.rmi.activation::ActivationException
+}
+members {
+
+	[Function]
+	public UnknownGroupException(String s)
+	Name: UnknownGroupException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/UnknownGroupException.html#UnknownGroupException-java.lang.String-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: UnknownGroupException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.rmi.activation::UnknownGroupException
+	}
+}
+
+[Classifier]
+public class UnknownObjectException
+extends ActivationException
+Name: UnknownObjectException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/UnknownObjectException.html
+Containing package: java.rmi.activation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.rmi.activation::ActivationException
+}
+members {
+
+	[Function]
+	public UnknownObjectException(String s)
+	Name: UnknownObjectException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/activation/UnknownObjectException.html#UnknownObjectException-java.lang.String-
+	Containing package: java.rmi.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: UnknownObjectException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.rmi.activation::UnknownObjectException
+	}
+}

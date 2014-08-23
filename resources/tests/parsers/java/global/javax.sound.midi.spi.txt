@@ -1,0 +1,708 @@
+[Package]
+Name: javax.sound.midi.spi
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/sound/midi/spi/package-summary.html
+Containing package: javax.sound.midi
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+public abstract class MidiDeviceProvider
+extends Object
+Name: MidiDeviceProvider
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/sound/midi/spi/MidiDeviceProvider.html
+Containing package: javax.sound.midi.spi
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public MidiDeviceProvider()
+	Name: MidiDeviceProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/sound/midi/spi/MidiDeviceProvider.html#MidiDeviceProvider--
+	Containing package: javax.sound.midi.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MidiDeviceProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.sound.midi.spi::MidiDeviceProvider
+	}
+
+	[Function]
+	public boolean isDeviceSupported(MidiDevice.Info info)
+	Name: isDeviceSupported
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/sound/midi/spi/MidiDeviceProvider.html#isDeviceSupported-javax.sound.midi.MidiDevice.Info-
+	Containing package: javax.sound.midi.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MidiDeviceProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.sound.midi::MidiDevice.Info
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract MidiDevice.Info[] getDeviceInfo()
+	Name: getDeviceInfo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/sound/midi/spi/MidiDeviceProvider.html#getDeviceInfo--
+	Containing package: javax.sound.midi.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MidiDeviceProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			javax.sound.midi::MidiDevice.Info
+		}
+	}
+
+	[Function]
+	public abstract MidiDevice getDevice(MidiDevice.Info info)
+	Name: getDevice
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/sound/midi/spi/MidiDeviceProvider.html#getDevice-javax.sound.midi.MidiDevice.Info-
+	Containing package: javax.sound.midi.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MidiDeviceProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.sound.midi::MidiDevice.Info
+	
+		[result]
+		javax.sound.midi::MidiDevice
+	}
+}
+
+[Classifier]
+public abstract class MidiFileReader
+extends Object
+Name: MidiFileReader
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/sound/midi/spi/MidiFileReader.html
+Containing package: javax.sound.midi.spi
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public MidiFileReader()
+	Name: MidiFileReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/sound/midi/spi/MidiFileReader.html#MidiFileReader--
+	Containing package: javax.sound.midi.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MidiFileReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.sound.midi.spi::MidiFileReader
+	}
+
+	[Function]
+	public abstract MidiFileFormat getMidiFileFormat(InputStream stream)
+	                                          throws InvalidMidiDataException,
+	                                                 IOException
+	Name: getMidiFileFormat
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/sound/midi/spi/MidiFileReader.html#getMidiFileFormat-java.io.InputStream-
+	Containing package: javax.sound.midi.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MidiFileReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::InputStream
+	
+		[result]
+		javax.sound.midi::MidiFileFormat
+	}
+
+	[Function]
+	public abstract MidiFileFormat getMidiFileFormat(URL url)
+	                                          throws InvalidMidiDataException,
+	                                                 IOException
+	Name: getMidiFileFormat
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/sound/midi/spi/MidiFileReader.html#getMidiFileFormat-java.net.URL-
+	Containing package: javax.sound.midi.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MidiFileReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::URL
+	
+		[result]
+		javax.sound.midi::MidiFileFormat
+	}
+
+	[Function]
+	public abstract MidiFileFormat getMidiFileFormat(File file)
+	                                          throws InvalidMidiDataException,
+	                                                 IOException
+	Name: getMidiFileFormat
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/sound/midi/spi/MidiFileReader.html#getMidiFileFormat-java.io.File-
+	Containing package: javax.sound.midi.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MidiFileReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::File
+	
+		[result]
+		javax.sound.midi::MidiFileFormat
+	}
+
+	[Function]
+	public abstract Sequence getSequence(InputStream stream)
+	                              throws InvalidMidiDataException,
+	                                     IOException
+	Name: getSequence
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/sound/midi/spi/MidiFileReader.html#getSequence-java.io.InputStream-
+	Containing package: javax.sound.midi.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MidiFileReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::InputStream
+	
+		[result]
+		javax.sound.midi::Sequence
+	}
+
+	[Function]
+	public abstract Sequence getSequence(URL url)
+	                              throws InvalidMidiDataException,
+	                                     IOException
+	Name: getSequence
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/sound/midi/spi/MidiFileReader.html#getSequence-java.net.URL-
+	Containing package: javax.sound.midi.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MidiFileReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::URL
+	
+		[result]
+		javax.sound.midi::Sequence
+	}
+
+	[Function]
+	public abstract Sequence getSequence(File file)
+	                              throws InvalidMidiDataException,
+	                                     IOException
+	Name: getSequence
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/sound/midi/spi/MidiFileReader.html#getSequence-java.io.File-
+	Containing package: javax.sound.midi.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MidiFileReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::File
+	
+		[result]
+		javax.sound.midi::Sequence
+	}
+}
+
+[Classifier]
+public abstract class MidiFileWriter
+extends Object
+Name: MidiFileWriter
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/sound/midi/spi/MidiFileWriter.html
+Containing package: javax.sound.midi.spi
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public MidiFileWriter()
+	Name: MidiFileWriter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/sound/midi/spi/MidiFileWriter.html#MidiFileWriter--
+	Containing package: javax.sound.midi.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MidiFileWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.sound.midi.spi::MidiFileWriter
+	}
+
+	[Function]
+	public abstract int[] getMidiFileTypes()
+	Name: getMidiFileTypes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/sound/midi/spi/MidiFileWriter.html#getMidiFileTypes--
+	Containing package: javax.sound.midi.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MidiFileWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::int
+		}
+	}
+
+	[Function]
+	public abstract int[] getMidiFileTypes(Sequence sequence)
+	Name: getMidiFileTypes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/sound/midi/spi/MidiFileWriter.html#getMidiFileTypes-javax.sound.midi.Sequence-
+	Containing package: javax.sound.midi.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MidiFileWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.sound.midi::Sequence
+	
+		[result]
+		other::[] {
+			other::int
+		}
+	}
+
+	[Function]
+	public boolean isFileTypeSupported(int fileType)
+	Name: isFileTypeSupported
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/sound/midi/spi/MidiFileWriter.html#isFileTypeSupported-int-
+	Containing package: javax.sound.midi.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MidiFileWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isFileTypeSupported(int fileType,
+	                                   Sequence sequence)
+	Name: isFileTypeSupported
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/sound/midi/spi/MidiFileWriter.html#isFileTypeSupported-int-javax.sound.midi.Sequence-
+	Containing package: javax.sound.midi.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MidiFileWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		javax.sound.midi::Sequence
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract int write(Sequence in,
+	                          int fileType,
+	                          OutputStream out)
+	                   throws IOException
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/sound/midi/spi/MidiFileWriter.html#write-javax.sound.midi.Sequence-int-java.io.OutputStream-
+	Containing package: javax.sound.midi.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MidiFileWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.sound.midi::Sequence
+		other::int
+		java.io::OutputStream
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public abstract int write(Sequence in,
+	                          int fileType,
+	                          File out)
+	                   throws IOException
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/sound/midi/spi/MidiFileWriter.html#write-javax.sound.midi.Sequence-int-java.io.File-
+	Containing package: javax.sound.midi.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MidiFileWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.sound.midi::Sequence
+		other::int
+		java.io::File
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public abstract class SoundbankReader
+extends Object
+Name: SoundbankReader
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/sound/midi/spi/SoundbankReader.html
+Containing package: javax.sound.midi.spi
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public SoundbankReader()
+	Name: SoundbankReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/sound/midi/spi/SoundbankReader.html#SoundbankReader--
+	Containing package: javax.sound.midi.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: SoundbankReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.sound.midi.spi::SoundbankReader
+	}
+
+	[Function]
+	public abstract Soundbank getSoundbank(URL url)
+	                                throws InvalidMidiDataException,
+	                                       IOException
+	Name: getSoundbank
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/sound/midi/spi/SoundbankReader.html#getSoundbank-java.net.URL-
+	Containing package: javax.sound.midi.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SoundbankReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::URL
+	
+		[result]
+		javax.sound.midi::Soundbank
+	}
+
+	[Function]
+	public abstract Soundbank getSoundbank(InputStream stream)
+	                                throws InvalidMidiDataException,
+	                                       IOException
+	Name: getSoundbank
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/sound/midi/spi/SoundbankReader.html#getSoundbank-java.io.InputStream-
+	Containing package: javax.sound.midi.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SoundbankReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::InputStream
+	
+		[result]
+		javax.sound.midi::Soundbank
+	}
+
+	[Function]
+	public abstract Soundbank getSoundbank(File file)
+	                                throws InvalidMidiDataException,
+	                                       IOException
+	Name: getSoundbank
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/sound/midi/spi/SoundbankReader.html#getSoundbank-java.io.File-
+	Containing package: javax.sound.midi.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SoundbankReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::File
+	
+		[result]
+		javax.sound.midi::Soundbank
+	}
+}

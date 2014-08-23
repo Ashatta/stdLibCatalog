@@ -1,0 +1,2823 @@
+[Package]
+Name: java.awt.datatransfer
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/package-summary.html
+Containing package: java.awt
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+public interface ClipboardOwner
+Name: ClipboardOwner
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/ClipboardOwner.html
+Containing package: java.awt.datatransfer
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.awt.datatransfer::StringSelection
+}
+supertypes {
+}
+members {
+
+	[Function]
+	void lostOwnership(Clipboard clipboard,
+	                   Transferable contents)
+	Name: lostOwnership
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/ClipboardOwner.html#lostOwnership-java.awt.datatransfer.Clipboard-java.awt.datatransfer.Transferable-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ClipboardOwner
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.datatransfer::Clipboard
+		java.awt.datatransfer::Transferable
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface FlavorListener
+extends EventListener
+Name: FlavorListener
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/FlavorListener.html
+Containing package: java.awt.datatransfer
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.util::EventListener
+}
+members {
+
+	[Function]
+	void flavorsChanged(FlavorEvent e)
+	Name: flavorsChanged
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/FlavorListener.html#flavorsChanged-java.awt.datatransfer.FlavorEvent-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FlavorListener
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.datatransfer::FlavorEvent
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface FlavorMap
+Name: FlavorMap
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/FlavorMap.html
+Containing package: java.awt.datatransfer
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.awt.datatransfer::SystemFlavorMap
+	java.awt.datatransfer::FlavorTable
+}
+supertypes {
+}
+members {
+
+	[Function]
+	Map<DataFlavor,String> getNativesForFlavors(DataFlavor[] flavors)
+	Name: getNativesForFlavors
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/FlavorMap.html#getNativesForFlavors-java.awt.datatransfer.DataFlavor:A-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FlavorMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.awt.datatransfer::DataFlavor
+		}
+	
+		[result]
+		java.util::Map {
+			java.awt.datatransfer::DataFlavor
+			java.lang::String
+		}
+	}
+
+	[Function]
+	Map<String,DataFlavor> getFlavorsForNatives(String[] natives)
+	Name: getFlavorsForNatives
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/FlavorMap.html#getFlavorsForNatives-java.lang.String:A-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FlavorMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.lang::String
+		}
+	
+		[result]
+		java.util::Map {
+			java.lang::String
+			java.awt.datatransfer::DataFlavor
+		}
+	}
+}
+
+[Classifier]
+public interface FlavorTable
+extends FlavorMap
+Name: FlavorTable
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/FlavorTable.html
+Containing package: java.awt.datatransfer
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.awt.datatransfer::SystemFlavorMap
+}
+supertypes {
+	java.awt.datatransfer::FlavorMap
+}
+members {
+
+	[Function]
+	List<String> getNativesForFlavor(DataFlavor flav)
+	Name: getNativesForFlavor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/FlavorTable.html#getNativesForFlavor-java.awt.datatransfer.DataFlavor-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FlavorTable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.datatransfer::DataFlavor
+	
+		[result]
+		java.util::List {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	List<DataFlavor> getFlavorsForNative(String nat)
+	Name: getFlavorsForNative
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/FlavorTable.html#getFlavorsForNative-java.lang.String-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FlavorTable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.util::List {
+			java.awt.datatransfer::DataFlavor
+		}
+	}
+}
+
+[Classifier]
+public interface Transferable
+Name: Transferable
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/Transferable.html
+Containing package: java.awt.datatransfer
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.awt.datatransfer::StringSelection
+	javax.activation::DataHandler
+	java.awt.dnd::DropTargetContext.TransferableProxy
+}
+supertypes {
+}
+members {
+
+	[Function]
+	DataFlavor[] getTransferDataFlavors()
+	Name: getTransferDataFlavors
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/Transferable.html#getTransferDataFlavors--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Transferable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.awt.datatransfer::DataFlavor
+		}
+	}
+
+	[Function]
+	boolean isDataFlavorSupported(DataFlavor flavor)
+	Name: isDataFlavorSupported
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/Transferable.html#isDataFlavorSupported-java.awt.datatransfer.DataFlavor-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Transferable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.datatransfer::DataFlavor
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	Object getTransferData(DataFlavor flavor)
+	                throws UnsupportedFlavorException,
+	                       IOException
+	Name: getTransferData
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/Transferable.html#getTransferData-java.awt.datatransfer.DataFlavor-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Transferable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.datatransfer::DataFlavor
+	
+		[result]
+		java.lang::Object
+	}
+}
+
+[Classifier]
+public class Clipboard
+extends Object
+Name: Clipboard
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/Clipboard.html
+Containing package: java.awt.datatransfer
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected ClipboardOwner owner
+	Name: owner
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/Clipboard.html#owner
+	Containing package: java.awt.datatransfer
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: Clipboard
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt.datatransfer::ClipboardOwner
+	}
+
+	[Function]
+	protected Transferable contents
+	Name: contents
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/Clipboard.html#contents
+	Containing package: java.awt.datatransfer
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: Clipboard
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt.datatransfer::Transferable
+	}
+
+	[Function]
+	public Clipboard(String name)
+	Name: Clipboard
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/Clipboard.html#Clipboard-java.lang.String-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Clipboard
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.awt.datatransfer::Clipboard
+	}
+
+	[Function]
+	public String getName()
+	Name: getName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/Clipboard.html#getName--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Clipboard
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public void setContents(Transferable contents,
+	                        ClipboardOwner owner)
+	Name: setContents
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/Clipboard.html#setContents-java.awt.datatransfer.Transferable-java.awt.datatransfer.ClipboardOwner-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Clipboard
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.datatransfer::Transferable
+		java.awt.datatransfer::ClipboardOwner
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Transferable getContents(Object requestor)
+	Name: getContents
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/Clipboard.html#getContents-java.lang.Object-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Clipboard
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		java.awt.datatransfer::Transferable
+	}
+
+	[Function]
+	public DataFlavor[] getAvailableDataFlavors()
+	Name: getAvailableDataFlavors
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/Clipboard.html#getAvailableDataFlavors--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Clipboard
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.awt.datatransfer::DataFlavor
+		}
+	}
+
+	[Function]
+	public boolean isDataFlavorAvailable(DataFlavor flavor)
+	Name: isDataFlavorAvailable
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/Clipboard.html#isDataFlavorAvailable-java.awt.datatransfer.DataFlavor-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Clipboard
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.datatransfer::DataFlavor
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public Object getData(DataFlavor flavor)
+	               throws UnsupportedFlavorException,
+	                      IOException
+	Name: getData
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/Clipboard.html#getData-java.awt.datatransfer.DataFlavor-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Clipboard
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.datatransfer::DataFlavor
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public void addFlavorListener(FlavorListener listener)
+	Name: addFlavorListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/Clipboard.html#addFlavorListener-java.awt.datatransfer.FlavorListener-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Clipboard
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.datatransfer::FlavorListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void removeFlavorListener(FlavorListener listener)
+	Name: removeFlavorListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/Clipboard.html#removeFlavorListener-java.awt.datatransfer.FlavorListener-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Clipboard
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.datatransfer::FlavorListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public FlavorListener[] getFlavorListeners()
+	Name: getFlavorListeners
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/Clipboard.html#getFlavorListeners--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Clipboard
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.awt.datatransfer::FlavorListener
+		}
+	}
+}
+
+[Classifier]
+public class DataFlavor
+extends Object
+implements Externalizable, Cloneable
+Name: DataFlavor
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html
+Containing package: java.awt.datatransfer
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.activation::ActivationDataFlavor
+}
+supertypes {
+	java.io::Externalizable
+	java.lang::Cloneable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static final DataFlavor stringFlavor
+	Name: stringFlavor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#stringFlavor
+	Containing package: java.awt.datatransfer
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt.datatransfer::DataFlavor
+	}
+
+	[Function]
+	public static final DataFlavor imageFlavor
+	Name: imageFlavor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#imageFlavor
+	Containing package: java.awt.datatransfer
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt.datatransfer::DataFlavor
+	}
+
+	[Function]
+	@Deprecated
+	public static final DataFlavor plainTextFlavor
+	Name: plainTextFlavor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#plainTextFlavor
+	Containing package: java.awt.datatransfer
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt.datatransfer::DataFlavor
+	}
+
+	[Function]
+	public static final String javaSerializedObjectMimeType
+	Name: javaSerializedObjectMimeType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#javaSerializedObjectMimeType
+	Containing package: java.awt.datatransfer
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final DataFlavor javaFileListFlavor
+	Name: javaFileListFlavor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#javaFileListFlavor
+	Containing package: java.awt.datatransfer
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt.datatransfer::DataFlavor
+	}
+
+	[Function]
+	public static final String javaJVMLocalObjectMimeType
+	Name: javaJVMLocalObjectMimeType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#javaJVMLocalObjectMimeType
+	Containing package: java.awt.datatransfer
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final String javaRemoteObjectMimeType
+	Name: javaRemoteObjectMimeType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#javaRemoteObjectMimeType
+	Containing package: java.awt.datatransfer
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static DataFlavor selectionHtmlFlavor
+	Name: selectionHtmlFlavor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#selectionHtmlFlavor
+	Containing package: java.awt.datatransfer
+	attributes {
+		final=false
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt.datatransfer::DataFlavor
+	}
+
+	[Function]
+	public static DataFlavor fragmentHtmlFlavor
+	Name: fragmentHtmlFlavor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#fragmentHtmlFlavor
+	Containing package: java.awt.datatransfer
+	attributes {
+		final=false
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt.datatransfer::DataFlavor
+	}
+
+	[Function]
+	public static DataFlavor allHtmlFlavor
+	Name: allHtmlFlavor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#allHtmlFlavor
+	Containing package: java.awt.datatransfer
+	attributes {
+		final=false
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt.datatransfer::DataFlavor
+	}
+
+	[Function]
+	public DataFlavor()
+	Name: DataFlavor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#DataFlavor--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt.datatransfer::DataFlavor
+	}
+
+	[Function]
+	public DataFlavor(Class<?> representationClass,
+	                  String humanPresentableName)
+	Name: DataFlavor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#DataFlavor-java.lang.Class-java.lang.String-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			?
+		}
+		java.lang::String
+	
+		[result]
+		java.awt.datatransfer::DataFlavor
+	}
+
+	[Function]
+	public DataFlavor(String mimeType,
+	                  String humanPresentableName)
+	Name: DataFlavor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#DataFlavor-java.lang.String-java.lang.String-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		java.awt.datatransfer::DataFlavor
+	}
+
+	[Function]
+	public DataFlavor(String mimeType,
+	                  String humanPresentableName,
+	                  ClassLoader classLoader)
+	           throws ClassNotFoundException
+	Name: DataFlavor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#DataFlavor-java.lang.String-java.lang.String-java.lang.ClassLoader-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		java.lang::ClassLoader
+	
+		[result]
+		java.awt.datatransfer::DataFlavor
+	}
+
+	[Function]
+	public DataFlavor(String mimeType)
+	           throws ClassNotFoundException
+	Name: DataFlavor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#DataFlavor-java.lang.String-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.awt.datatransfer::DataFlavor
+	}
+
+	[Function]
+	protected static final Class<?> tryToLoadClass(String className,
+	                                               ClassLoader fallback)
+	                                        throws ClassNotFoundException
+	Name: tryToLoadClass
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#tryToLoadClass-java.lang.String-java.lang.ClassLoader-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::ClassLoader
+	
+		[result]
+		java.lang::Class {
+			?
+		}
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#toString--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final DataFlavor getTextPlainUnicodeFlavor()
+	Name: getTextPlainUnicodeFlavor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#getTextPlainUnicodeFlavor--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt.datatransfer::DataFlavor
+	}
+
+	[Function]
+	public static final DataFlavor selectBestTextFlavor(DataFlavor[] availableFlavors)
+	Name: selectBestTextFlavor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#selectBestTextFlavor-java.awt.datatransfer.DataFlavor:A-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.awt.datatransfer::DataFlavor
+		}
+	
+		[result]
+		java.awt.datatransfer::DataFlavor
+	}
+
+	[Function]
+	public Reader getReaderForText(Transferable transferable)
+	                        throws UnsupportedFlavorException,
+	                               IOException
+	Name: getReaderForText
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#getReaderForText-java.awt.datatransfer.Transferable-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.datatransfer::Transferable
+	
+		[result]
+		java.io::Reader
+	}
+
+	[Function]
+	public String getMimeType()
+	Name: getMimeType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#getMimeType--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public Class<?> getRepresentationClass()
+	Name: getRepresentationClass
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#getRepresentationClass--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Class {
+			?
+		}
+	}
+
+	[Function]
+	public String getHumanPresentableName()
+	Name: getHumanPresentableName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#getHumanPresentableName--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getPrimaryType()
+	Name: getPrimaryType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#getPrimaryType--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getSubType()
+	Name: getSubType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#getSubType--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getParameter(String paramName)
+	Name: getParameter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#getParameter-java.lang.String-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public void setHumanPresentableName(String humanPresentableName)
+	Name: setHumanPresentableName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#setHumanPresentableName-java.lang.String-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean equals(Object o)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#equals-java.lang.Object-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean equals(DataFlavor that)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#equals-java.awt.datatransfer.DataFlavor-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.datatransfer::DataFlavor
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	@Deprecated
+	public boolean equals(String s)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#equals-java.lang.String-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public int hashCode()
+	Name: hashCode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#hashCode--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public boolean match(DataFlavor that)
+	Name: match
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#match-java.awt.datatransfer.DataFlavor-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.datatransfer::DataFlavor
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isMimeTypeEqual(String mimeType)
+	Name: isMimeTypeEqual
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#isMimeTypeEqual-java.lang.String-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final boolean isMimeTypeEqual(DataFlavor dataFlavor)
+	Name: isMimeTypeEqual
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#isMimeTypeEqual-java.awt.datatransfer.DataFlavor-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.datatransfer::DataFlavor
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isMimeTypeSerializedObject()
+	Name: isMimeTypeSerializedObject
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#isMimeTypeSerializedObject--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final Class<?> getDefaultRepresentationClass()
+	Name: getDefaultRepresentationClass
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#getDefaultRepresentationClass--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Class {
+			?
+		}
+	}
+
+	[Function]
+	public final String getDefaultRepresentationClassAsString()
+	Name: getDefaultRepresentationClassAsString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#getDefaultRepresentationClassAsString--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public boolean isRepresentationClassInputStream()
+	Name: isRepresentationClassInputStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#isRepresentationClassInputStream--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isRepresentationClassReader()
+	Name: isRepresentationClassReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#isRepresentationClassReader--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isRepresentationClassCharBuffer()
+	Name: isRepresentationClassCharBuffer
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#isRepresentationClassCharBuffer--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isRepresentationClassByteBuffer()
+	Name: isRepresentationClassByteBuffer
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#isRepresentationClassByteBuffer--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isRepresentationClassSerializable()
+	Name: isRepresentationClassSerializable
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#isRepresentationClassSerializable--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isRepresentationClassRemote()
+	Name: isRepresentationClassRemote
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#isRepresentationClassRemote--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isFlavorSerializedObjectType()
+	Name: isFlavorSerializedObjectType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#isFlavorSerializedObjectType--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isFlavorRemoteObjectType()
+	Name: isFlavorRemoteObjectType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#isFlavorRemoteObjectType--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isFlavorJavaFileListType()
+	Name: isFlavorJavaFileListType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#isFlavorJavaFileListType--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isFlavorTextType()
+	Name: isFlavorTextType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#isFlavorTextType--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void writeExternal(ObjectOutput os)
+	                   throws IOException
+	Name: writeExternal
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#writeExternal-java.io.ObjectOutput-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::ObjectOutput
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void readExternal(ObjectInput is)
+	                  throws IOException,
+	                         ClassNotFoundException
+	Name: readExternal
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#readExternal-java.io.ObjectInput-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::ObjectInput
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Object clone()
+	             throws CloneNotSupportedException
+	Name: clone
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#clone--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	@Deprecated
+	protected String normalizeMimeTypeParameter(String parameterName,
+	                                                        String parameterValue)
+	Name: normalizeMimeTypeParameter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#normalizeMimeTypeParameter-java.lang.String-java.lang.String-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	@Deprecated
+	protected String normalizeMimeType(String mimeType)
+	Name: normalizeMimeType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/DataFlavor.html#normalizeMimeType-java.lang.String-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public class FlavorEvent
+extends EventObject
+Name: FlavorEvent
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/FlavorEvent.html
+Containing package: java.awt.datatransfer
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.util::EventObject
+}
+members {
+
+	[Function]
+	public FlavorEvent(Clipboard source)
+	Name: FlavorEvent
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/FlavorEvent.html#FlavorEvent-java.awt.datatransfer.Clipboard-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: FlavorEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.datatransfer::Clipboard
+	
+		[result]
+		java.awt.datatransfer::FlavorEvent
+	}
+}
+
+[Classifier]
+public class StringSelection
+extends Object
+implements Transferable, ClipboardOwner
+Name: StringSelection
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/StringSelection.html
+Containing package: java.awt.datatransfer
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.awt.datatransfer::Transferable
+	java.awt.datatransfer::ClipboardOwner
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public StringSelection(String data)
+	Name: StringSelection
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/StringSelection.html#StringSelection-java.lang.String-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: StringSelection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.awt.datatransfer::StringSelection
+	}
+
+	[Function]
+	public DataFlavor[] getTransferDataFlavors()
+	Name: getTransferDataFlavors
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/StringSelection.html#getTransferDataFlavors--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StringSelection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.awt.datatransfer::DataFlavor
+		}
+	}
+
+	[Function]
+	public boolean isDataFlavorSupported(DataFlavor flavor)
+	Name: isDataFlavorSupported
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/StringSelection.html#isDataFlavorSupported-java.awt.datatransfer.DataFlavor-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StringSelection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.datatransfer::DataFlavor
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public Object getTransferData(DataFlavor flavor)
+	                       throws UnsupportedFlavorException,
+	                              IOException
+	Name: getTransferData
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/StringSelection.html#getTransferData-java.awt.datatransfer.DataFlavor-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StringSelection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.datatransfer::DataFlavor
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public void lostOwnership(Clipboard clipboard,
+	                          Transferable contents)
+	Name: lostOwnership
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/StringSelection.html#lostOwnership-java.awt.datatransfer.Clipboard-java.awt.datatransfer.Transferable-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StringSelection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.datatransfer::Clipboard
+		java.awt.datatransfer::Transferable
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public final class SystemFlavorMap
+extends Object
+implements FlavorMap, FlavorTable
+Name: SystemFlavorMap
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/SystemFlavorMap.html
+Containing package: java.awt.datatransfer
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.awt.datatransfer::FlavorMap
+	java.awt.datatransfer::FlavorTable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static FlavorMap getDefaultFlavorMap()
+	Name: getDefaultFlavorMap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/SystemFlavorMap.html#getDefaultFlavorMap--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: SystemFlavorMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt.datatransfer::FlavorMap
+	}
+
+	[Function]
+	public List<String> getNativesForFlavor(DataFlavor flav)
+	Name: getNativesForFlavor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/SystemFlavorMap.html#getNativesForFlavor-java.awt.datatransfer.DataFlavor-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SystemFlavorMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.datatransfer::DataFlavor
+	
+		[result]
+		java.util::List {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public List<DataFlavor> getFlavorsForNative(String nat)
+	Name: getFlavorsForNative
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/SystemFlavorMap.html#getFlavorsForNative-java.lang.String-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SystemFlavorMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.util::List {
+			java.awt.datatransfer::DataFlavor
+		}
+	}
+
+	[Function]
+	public Map<DataFlavor,String> getNativesForFlavors(DataFlavor[] flavors)
+	Name: getNativesForFlavors
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/SystemFlavorMap.html#getNativesForFlavors-java.awt.datatransfer.DataFlavor:A-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SystemFlavorMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.awt.datatransfer::DataFlavor
+		}
+	
+		[result]
+		java.util::Map {
+			java.awt.datatransfer::DataFlavor
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public Map<String,DataFlavor> getFlavorsForNatives(String[] natives)
+	Name: getFlavorsForNatives
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/SystemFlavorMap.html#getFlavorsForNatives-java.lang.String:A-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SystemFlavorMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.lang::String
+		}
+	
+		[result]
+		java.util::Map {
+			java.lang::String
+			java.awt.datatransfer::DataFlavor
+		}
+	}
+
+	[Function]
+	public void addUnencodedNativeForFlavor(DataFlavor flav,
+	                                        String nat)
+	Name: addUnencodedNativeForFlavor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/SystemFlavorMap.html#addUnencodedNativeForFlavor-java.awt.datatransfer.DataFlavor-java.lang.String-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SystemFlavorMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.datatransfer::DataFlavor
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void setNativesForFlavor(DataFlavor flav,
+	                                String[] natives)
+	Name: setNativesForFlavor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/SystemFlavorMap.html#setNativesForFlavor-java.awt.datatransfer.DataFlavor-java.lang.String:A-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SystemFlavorMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.datatransfer::DataFlavor
+		other::[] {
+			java.lang::String
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void addFlavorForUnencodedNative(String nat,
+	                                        DataFlavor flav)
+	Name: addFlavorForUnencodedNative
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/SystemFlavorMap.html#addFlavorForUnencodedNative-java.lang.String-java.awt.datatransfer.DataFlavor-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SystemFlavorMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.awt.datatransfer::DataFlavor
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void setFlavorsForNative(String nat,
+	                                DataFlavor[] flavors)
+	Name: setFlavorsForNative
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/SystemFlavorMap.html#setFlavorsForNative-java.lang.String-java.awt.datatransfer.DataFlavor:A-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SystemFlavorMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::[] {
+			java.awt.datatransfer::DataFlavor
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static String encodeJavaMIMEType(String mimeType)
+	Name: encodeJavaMIMEType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/SystemFlavorMap.html#encodeJavaMIMEType-java.lang.String-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: SystemFlavorMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static String encodeDataFlavor(DataFlavor flav)
+	Name: encodeDataFlavor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/SystemFlavorMap.html#encodeDataFlavor-java.awt.datatransfer.DataFlavor-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: SystemFlavorMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.datatransfer::DataFlavor
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static boolean isJavaMIMEType(String str)
+	Name: isJavaMIMEType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/SystemFlavorMap.html#isJavaMIMEType-java.lang.String-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: SystemFlavorMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public static String decodeJavaMIMEType(String nat)
+	Name: decodeJavaMIMEType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/SystemFlavorMap.html#decodeJavaMIMEType-java.lang.String-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: SystemFlavorMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static DataFlavor decodeDataFlavor(String nat)
+	                                   throws ClassNotFoundException
+	Name: decodeDataFlavor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/SystemFlavorMap.html#decodeDataFlavor-java.lang.String-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: SystemFlavorMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.awt.datatransfer::DataFlavor
+	}
+}
+
+[Classifier]
+public class MimeTypeParseException
+extends Exception
+Name: MimeTypeParseException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/MimeTypeParseException.html
+Containing package: java.awt.datatransfer
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Exception
+}
+members {
+
+	[Function]
+	public MimeTypeParseException()
+	Name: MimeTypeParseException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/MimeTypeParseException.html#MimeTypeParseException--
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MimeTypeParseException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt.datatransfer::MimeTypeParseException
+	}
+
+	[Function]
+	public MimeTypeParseException(String s)
+	Name: MimeTypeParseException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/MimeTypeParseException.html#MimeTypeParseException-java.lang.String-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MimeTypeParseException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.awt.datatransfer::MimeTypeParseException
+	}
+}
+
+[Classifier]
+public class UnsupportedFlavorException
+extends Exception
+Name: UnsupportedFlavorException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/UnsupportedFlavorException.html
+Containing package: java.awt.datatransfer
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Exception
+}
+members {
+
+	[Function]
+	public UnsupportedFlavorException(DataFlavor flavor)
+	Name: UnsupportedFlavorException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/awt/datatransfer/UnsupportedFlavorException.html#UnsupportedFlavorException-java.awt.datatransfer.DataFlavor-
+	Containing package: java.awt.datatransfer
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: UnsupportedFlavorException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.datatransfer::DataFlavor
+	
+		[result]
+		java.awt.datatransfer::UnsupportedFlavorException
+	}
+}

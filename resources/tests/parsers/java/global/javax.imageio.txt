@@ -1,0 +1,9115 @@
+[Package]
+Name: javax.imageio
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/package-summary.html
+Containing package: null
+attributes {
+}
+
+Subpackages {
+	javax.imageio.plugins.bmp
+	javax.imageio.spi
+	javax.imageio.event
+	javax.imageio.metadata
+	javax.imageio.stream
+	javax.imageio.plugins.jpeg
+}
+
+[Classifier]
+public interface IIOParamController
+Name: IIOParamController
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParamController.html
+Containing package: javax.imageio
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	boolean activate(IIOParam param)
+	Name: activate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParamController.html#activate-javax.imageio.IIOParam-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOParamController
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio::IIOParam
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public interface ImageTranscoder
+Name: ImageTranscoder
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageTranscoder.html
+Containing package: javax.imageio
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.imageio::ImageWriter
+}
+supertypes {
+}
+members {
+
+	[Function]
+	IIOMetadata convertStreamMetadata(IIOMetadata inData,
+	                                  ImageWriteParam param)
+	Name: convertStreamMetadata
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageTranscoder.html#convertStreamMetadata-javax.imageio.metadata.IIOMetadata-javax.imageio.ImageWriteParam-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageTranscoder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio.metadata::IIOMetadata
+		javax.imageio::ImageWriteParam
+	
+		[result]
+		javax.imageio.metadata::IIOMetadata
+	}
+
+	[Function]
+	IIOMetadata convertImageMetadata(IIOMetadata inData,
+	                                 ImageTypeSpecifier imageType,
+	                                 ImageWriteParam param)
+	Name: convertImageMetadata
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageTranscoder.html#convertImageMetadata-javax.imageio.metadata.IIOMetadata-javax.imageio.ImageTypeSpecifier-javax.imageio.ImageWriteParam-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageTranscoder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio.metadata::IIOMetadata
+		javax.imageio::ImageTypeSpecifier
+		javax.imageio::ImageWriteParam
+	
+		[result]
+		javax.imageio.metadata::IIOMetadata
+	}
+}
+
+[Classifier]
+public class IIOImage
+extends Object
+Name: IIOImage
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOImage.html
+Containing package: javax.imageio
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected RenderedImage image
+	Name: image
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOImage.html#image
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: IIOImage
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt.image::RenderedImage
+	}
+
+	[Function]
+	protected Raster raster
+	Name: raster
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOImage.html#raster
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: IIOImage
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt.image::Raster
+	}
+
+	[Function]
+	protected List<? extends BufferedImage> thumbnails
+	Name: thumbnails
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOImage.html#thumbnails
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: IIOImage
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			? {
+				extends java.awt.image::BufferedImage
+			}
+		}
+	}
+
+	[Function]
+	protected IIOMetadata metadata
+	Name: metadata
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOImage.html#metadata
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: IIOImage
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio.metadata::IIOMetadata
+	}
+
+	[Function]
+	public IIOImage(RenderedImage image,
+	                List<? extends BufferedImage> thumbnails,
+	                IIOMetadata metadata)
+	Name: IIOImage
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOImage.html#IIOImage-java.awt.image.RenderedImage-java.util.List-javax.imageio.metadata.IIOMetadata-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: IIOImage
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.image::RenderedImage
+		java.util::List {
+			? {
+				extends java.awt.image::BufferedImage
+			}
+		}
+		javax.imageio.metadata::IIOMetadata
+	
+		[result]
+		javax.imageio::IIOImage
+	}
+
+	[Function]
+	public IIOImage(Raster raster,
+	                List<? extends BufferedImage> thumbnails,
+	                IIOMetadata metadata)
+	Name: IIOImage
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOImage.html#IIOImage-java.awt.image.Raster-java.util.List-javax.imageio.metadata.IIOMetadata-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: IIOImage
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.image::Raster
+		java.util::List {
+			? {
+				extends java.awt.image::BufferedImage
+			}
+		}
+		javax.imageio.metadata::IIOMetadata
+	
+		[result]
+		javax.imageio::IIOImage
+	}
+
+	[Function]
+	public RenderedImage getRenderedImage()
+	Name: getRenderedImage
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOImage.html#getRenderedImage--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOImage
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt.image::RenderedImage
+	}
+
+	[Function]
+	public void setRenderedImage(RenderedImage image)
+	Name: setRenderedImage
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOImage.html#setRenderedImage-java.awt.image.RenderedImage-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOImage
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.image::RenderedImage
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean hasRaster()
+	Name: hasRaster
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOImage.html#hasRaster--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOImage
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public Raster getRaster()
+	Name: getRaster
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOImage.html#getRaster--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOImage
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt.image::Raster
+	}
+
+	[Function]
+	public void setRaster(Raster raster)
+	Name: setRaster
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOImage.html#setRaster-java.awt.image.Raster-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOImage
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.image::Raster
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public int getNumThumbnails()
+	Name: getNumThumbnails
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOImage.html#getNumThumbnails--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOImage
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public BufferedImage getThumbnail(int index)
+	Name: getThumbnail
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOImage.html#getThumbnail-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOImage
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		java.awt.image::BufferedImage
+	}
+
+	[Function]
+	public List<? extends BufferedImage> getThumbnails()
+	Name: getThumbnails
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOImage.html#getThumbnails--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOImage
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			? {
+				extends java.awt.image::BufferedImage
+			}
+		}
+	}
+
+	[Function]
+	public void setThumbnails(List<? extends BufferedImage> thumbnails)
+	Name: setThumbnails
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOImage.html#setThumbnails-java.util.List-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOImage
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::List {
+			? {
+				extends java.awt.image::BufferedImage
+			}
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public IIOMetadata getMetadata()
+	Name: getMetadata
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOImage.html#getMetadata--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOImage
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio.metadata::IIOMetadata
+	}
+
+	[Function]
+	public void setMetadata(IIOMetadata metadata)
+	Name: setMetadata
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOImage.html#setMetadata-javax.imageio.metadata.IIOMetadata-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOImage
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio.metadata::IIOMetadata
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public abstract class IIOParam
+extends Object
+Name: IIOParam
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html
+Containing package: javax.imageio
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.imageio::ImageWriteParam
+	javax.imageio::ImageReadParam
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected Rectangle sourceRegion
+	Name: sourceRegion
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#sourceRegion
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt::Rectangle
+	}
+
+	[Function]
+	protected int sourceXSubsampling
+	Name: sourceXSubsampling
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#sourceXSubsampling
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected int sourceYSubsampling
+	Name: sourceYSubsampling
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#sourceYSubsampling
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected int subsamplingXOffset
+	Name: subsamplingXOffset
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#subsamplingXOffset
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected int subsamplingYOffset
+	Name: subsamplingYOffset
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#subsamplingYOffset
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected int[] sourceBands
+	Name: sourceBands
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#sourceBands
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::int
+		}
+	}
+
+	[Function]
+	protected ImageTypeSpecifier destinationType
+	Name: destinationType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#destinationType
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio::ImageTypeSpecifier
+	}
+
+	[Function]
+	protected Point destinationOffset
+	Name: destinationOffset
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#destinationOffset
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt::Point
+	}
+
+	[Function]
+	protected IIOParamController defaultController
+	Name: defaultController
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#defaultController
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio::IIOParamController
+	}
+
+	[Function]
+	protected IIOParamController controller
+	Name: controller
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#controller
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio::IIOParamController
+	}
+
+	[Function]
+	protected IIOParam()
+	Name: IIOParam
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#IIOParam--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio::IIOParam
+	}
+
+	[Function]
+	public void setSourceRegion(Rectangle sourceRegion)
+	Name: setSourceRegion
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#setSourceRegion-java.awt.Rectangle-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt::Rectangle
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Rectangle getSourceRegion()
+	Name: getSourceRegion
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#getSourceRegion--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt::Rectangle
+	}
+
+	[Function]
+	public void setSourceSubsampling(int sourceXSubsampling,
+	                                 int sourceYSubsampling,
+	                                 int subsamplingXOffset,
+	                                 int subsamplingYOffset)
+	Name: setSourceSubsampling
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#setSourceSubsampling-int-int-int-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::int
+		other::int
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public int getSourceXSubsampling()
+	Name: getSourceXSubsampling
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#getSourceXSubsampling--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public int getSourceYSubsampling()
+	Name: getSourceYSubsampling
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#getSourceYSubsampling--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public int getSubsamplingXOffset()
+	Name: getSubsamplingXOffset
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#getSubsamplingXOffset--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public int getSubsamplingYOffset()
+	Name: getSubsamplingYOffset
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#getSubsamplingYOffset--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public void setSourceBands(int[] sourceBands)
+	Name: setSourceBands
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#setSourceBands-int:A-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::int
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public int[] getSourceBands()
+	Name: getSourceBands
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#getSourceBands--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::int
+		}
+	}
+
+	[Function]
+	public void setDestinationType(ImageTypeSpecifier destinationType)
+	Name: setDestinationType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#setDestinationType-javax.imageio.ImageTypeSpecifier-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio::ImageTypeSpecifier
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public ImageTypeSpecifier getDestinationType()
+	Name: getDestinationType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#getDestinationType--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio::ImageTypeSpecifier
+	}
+
+	[Function]
+	public void setDestinationOffset(Point destinationOffset)
+	Name: setDestinationOffset
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#setDestinationOffset-java.awt.Point-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt::Point
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Point getDestinationOffset()
+	Name: getDestinationOffset
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#getDestinationOffset--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt::Point
+	}
+
+	[Function]
+	public void setController(IIOParamController controller)
+	Name: setController
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#setController-javax.imageio.IIOParamController-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio::IIOParamController
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public IIOParamController getController()
+	Name: getController
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#getController--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio::IIOParamController
+	}
+
+	[Function]
+	public IIOParamController getDefaultController()
+	Name: getDefaultController
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#getDefaultController--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio::IIOParamController
+	}
+
+	[Function]
+	public boolean hasController()
+	Name: hasController
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#hasController--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean activateController()
+	Name: activateController
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOParam.html#activateController--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public final class ImageIO
+extends Object
+Name: ImageIO
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html
+Containing package: javax.imageio
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static void scanForPlugins()
+	Name: scanForPlugins
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#scanForPlugins--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static void setUseCache(boolean useCache)
+	Name: setUseCache
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#setUseCache-boolean-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::boolean
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static boolean getUseCache()
+	Name: getUseCache
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#getUseCache--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public static void setCacheDirectory(File cacheDirectory)
+	Name: setCacheDirectory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#setCacheDirectory-java.io.File-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::File
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static File getCacheDirectory()
+	Name: getCacheDirectory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#getCacheDirectory--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.io::File
+	}
+
+	[Function]
+	public static ImageInputStream createImageInputStream(Object input)
+	                                               throws IOException
+	Name: createImageInputStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#createImageInputStream-java.lang.Object-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		javax.imageio.stream::ImageInputStream
+	}
+
+	[Function]
+	public static ImageOutputStream createImageOutputStream(Object output)
+	                                                 throws IOException
+	Name: createImageOutputStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#createImageOutputStream-java.lang.Object-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		javax.imageio.stream::ImageOutputStream
+	}
+
+	[Function]
+	public static String[] getReaderFormatNames()
+	Name: getReaderFormatNames
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#getReaderFormatNames--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public static String[] getReaderMIMETypes()
+	Name: getReaderMIMETypes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#getReaderMIMETypes--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public static String[] getReaderFileSuffixes()
+	Name: getReaderFileSuffixes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#getReaderFileSuffixes--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public static Iterator<ImageReader> getImageReaders(Object input)
+	Name: getImageReaders
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#getImageReaders-java.lang.Object-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		java.util::Iterator {
+			javax.imageio::ImageReader
+		}
+	}
+
+	[Function]
+	public static Iterator<ImageReader> getImageReadersByFormatName(String formatName)
+	Name: getImageReadersByFormatName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#getImageReadersByFormatName-java.lang.String-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.util::Iterator {
+			javax.imageio::ImageReader
+		}
+	}
+
+	[Function]
+	public static Iterator<ImageReader> getImageReadersBySuffix(String fileSuffix)
+	Name: getImageReadersBySuffix
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#getImageReadersBySuffix-java.lang.String-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.util::Iterator {
+			javax.imageio::ImageReader
+		}
+	}
+
+	[Function]
+	public static Iterator<ImageReader> getImageReadersByMIMEType(String MIMEType)
+	Name: getImageReadersByMIMEType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#getImageReadersByMIMEType-java.lang.String-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.util::Iterator {
+			javax.imageio::ImageReader
+		}
+	}
+
+	[Function]
+	public static String[] getWriterFormatNames()
+	Name: getWriterFormatNames
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#getWriterFormatNames--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public static String[] getWriterMIMETypes()
+	Name: getWriterMIMETypes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#getWriterMIMETypes--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public static String[] getWriterFileSuffixes()
+	Name: getWriterFileSuffixes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#getWriterFileSuffixes--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public static Iterator<ImageWriter> getImageWritersByFormatName(String formatName)
+	Name: getImageWritersByFormatName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#getImageWritersByFormatName-java.lang.String-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.util::Iterator {
+			javax.imageio::ImageWriter
+		}
+	}
+
+	[Function]
+	public static Iterator<ImageWriter> getImageWritersBySuffix(String fileSuffix)
+	Name: getImageWritersBySuffix
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#getImageWritersBySuffix-java.lang.String-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.util::Iterator {
+			javax.imageio::ImageWriter
+		}
+	}
+
+	[Function]
+	public static Iterator<ImageWriter> getImageWritersByMIMEType(String MIMEType)
+	Name: getImageWritersByMIMEType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#getImageWritersByMIMEType-java.lang.String-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.util::Iterator {
+			javax.imageio::ImageWriter
+		}
+	}
+
+	[Function]
+	public static ImageWriter getImageWriter(ImageReader reader)
+	Name: getImageWriter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#getImageWriter-javax.imageio.ImageReader-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio::ImageReader
+	
+		[result]
+		javax.imageio::ImageWriter
+	}
+
+	[Function]
+	public static ImageReader getImageReader(ImageWriter writer)
+	Name: getImageReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#getImageReader-javax.imageio.ImageWriter-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio::ImageWriter
+	
+		[result]
+		javax.imageio::ImageReader
+	}
+
+	[Function]
+	public static Iterator<ImageWriter> getImageWriters(ImageTypeSpecifier type,
+	                                                    String formatName)
+	Name: getImageWriters
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#getImageWriters-javax.imageio.ImageTypeSpecifier-java.lang.String-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio::ImageTypeSpecifier
+		java.lang::String
+	
+		[result]
+		java.util::Iterator {
+			javax.imageio::ImageWriter
+		}
+	}
+
+	[Function]
+	public static Iterator<ImageTranscoder> getImageTranscoders(ImageReader reader,
+	                                                            ImageWriter writer)
+	Name: getImageTranscoders
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#getImageTranscoders-javax.imageio.ImageReader-javax.imageio.ImageWriter-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio::ImageReader
+		javax.imageio::ImageWriter
+	
+		[result]
+		java.util::Iterator {
+			javax.imageio::ImageTranscoder
+		}
+	}
+
+	[Function]
+	public static BufferedImage read(File input)
+	                          throws IOException
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#read-java.io.File-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::File
+	
+		[result]
+		java.awt.image::BufferedImage
+	}
+
+	[Function]
+	public static BufferedImage read(InputStream input)
+	                          throws IOException
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#read-java.io.InputStream-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::InputStream
+	
+		[result]
+		java.awt.image::BufferedImage
+	}
+
+	[Function]
+	public static BufferedImage read(URL input)
+	                          throws IOException
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#read-java.net.URL-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::URL
+	
+		[result]
+		java.awt.image::BufferedImage
+	}
+
+	[Function]
+	public static BufferedImage read(ImageInputStream stream)
+	                          throws IOException
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#read-javax.imageio.stream.ImageInputStream-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio.stream::ImageInputStream
+	
+		[result]
+		java.awt.image::BufferedImage
+	}
+
+	[Function]
+	public static boolean write(RenderedImage im,
+	                            String formatName,
+	                            ImageOutputStream output)
+	                     throws IOException
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#write-java.awt.image.RenderedImage-java.lang.String-javax.imageio.stream.ImageOutputStream-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.image::RenderedImage
+		java.lang::String
+		javax.imageio.stream::ImageOutputStream
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public static boolean write(RenderedImage im,
+	                            String formatName,
+	                            File output)
+	                     throws IOException
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#write-java.awt.image.RenderedImage-java.lang.String-java.io.File-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.image::RenderedImage
+		java.lang::String
+		java.io::File
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public static boolean write(RenderedImage im,
+	                            String formatName,
+	                            OutputStream output)
+	                     throws IOException
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#write-java.awt.image.RenderedImage-java.lang.String-java.io.OutputStream-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageIO
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.image::RenderedImage
+		java.lang::String
+		java.io::OutputStream
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public abstract class ImageReader
+extends Object
+Name: ImageReader
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html
+Containing package: javax.imageio
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected ImageReaderSpi originatingProvider
+	Name: originatingProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#originatingProvider
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio.spi::ImageReaderSpi
+	}
+
+	[Function]
+	protected Object input
+	Name: input
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#input
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	protected boolean seekForwardOnly
+	Name: seekForwardOnly
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#seekForwardOnly
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected boolean ignoreMetadata
+	Name: ignoreMetadata
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#ignoreMetadata
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected int minIndex
+	Name: minIndex
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#minIndex
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected Locale[] availableLocales
+	Name: availableLocales
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#availableLocales
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.util::Locale
+		}
+	}
+
+	[Function]
+	protected Locale locale
+	Name: locale
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#locale
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Locale
+	}
+
+	[Function]
+	protected List<IIOReadWarningListener> warningListeners
+	Name: warningListeners
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#warningListeners
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			javax.imageio.event::IIOReadWarningListener
+		}
+	}
+
+	[Function]
+	protected List<Locale> warningLocales
+	Name: warningLocales
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#warningLocales
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			java.util::Locale
+		}
+	}
+
+	[Function]
+	protected List<IIOReadProgressListener> progressListeners
+	Name: progressListeners
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#progressListeners
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			javax.imageio.event::IIOReadProgressListener
+		}
+	}
+
+	[Function]
+	protected List<IIOReadUpdateListener> updateListeners
+	Name: updateListeners
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#updateListeners
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			javax.imageio.event::IIOReadUpdateListener
+		}
+	}
+
+	[Function]
+	protected ImageReader(ImageReaderSpi originatingProvider)
+	Name: ImageReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#ImageReader-javax.imageio.spi.ImageReaderSpi-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio.spi::ImageReaderSpi
+	
+		[result]
+		javax.imageio::ImageReader
+	}
+
+	[Function]
+	public String getFormatName()
+	                     throws IOException
+	Name: getFormatName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#getFormatName--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public ImageReaderSpi getOriginatingProvider()
+	Name: getOriginatingProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#getOriginatingProvider--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio.spi::ImageReaderSpi
+	}
+
+	[Function]
+	public void setInput(Object input,
+	                     boolean seekForwardOnly,
+	                     boolean ignoreMetadata)
+	Name: setInput
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#setInput-java.lang.Object-boolean-boolean-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+		other::boolean
+		other::boolean
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void setInput(Object input,
+	                     boolean seekForwardOnly)
+	Name: setInput
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#setInput-java.lang.Object-boolean-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+		other::boolean
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void setInput(Object input)
+	Name: setInput
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#setInput-java.lang.Object-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Object getInput()
+	Name: getInput
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#getInput--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public boolean isSeekForwardOnly()
+	Name: isSeekForwardOnly
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#isSeekForwardOnly--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isIgnoringMetadata()
+	Name: isIgnoringMetadata
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#isIgnoringMetadata--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public int getMinIndex()
+	Name: getMinIndex
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#getMinIndex--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public Locale[] getAvailableLocales()
+	Name: getAvailableLocales
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#getAvailableLocales--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.util::Locale
+		}
+	}
+
+	[Function]
+	public void setLocale(Locale locale)
+	Name: setLocale
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#setLocale-java.util.Locale-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Locale
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Locale getLocale()
+	Name: getLocale
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#getLocale--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Locale
+	}
+
+	[Function]
+	public abstract int getNumImages(boolean allowSearch)
+	                          throws IOException
+	Name: getNumImages
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#getNumImages-boolean-
+	Containing package: javax.imageio
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::boolean
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public abstract int getWidth(int imageIndex)
+	                      throws IOException
+	Name: getWidth
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#getWidth-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public abstract int getHeight(int imageIndex)
+	                       throws IOException
+	Name: getHeight
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#getHeight-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public boolean isRandomAccessEasy(int imageIndex)
+	                           throws IOException
+	Name: isRandomAccessEasy
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#isRandomAccessEasy-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public float getAspectRatio(int imageIndex)
+	                     throws IOException
+	Name: getAspectRatio
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#getAspectRatio-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::float
+	}
+
+	[Function]
+	public ImageTypeSpecifier getRawImageType(int imageIndex)
+	                                   throws IOException
+	Name: getRawImageType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#getRawImageType-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		javax.imageio::ImageTypeSpecifier
+	}
+
+	[Function]
+	public abstract Iterator<ImageTypeSpecifier> getImageTypes(int imageIndex)
+	                                                    throws IOException
+	Name: getImageTypes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#getImageTypes-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		java.util::Iterator {
+			javax.imageio::ImageTypeSpecifier
+		}
+	}
+
+	[Function]
+	public ImageReadParam getDefaultReadParam()
+	Name: getDefaultReadParam
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#getDefaultReadParam--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio::ImageReadParam
+	}
+
+	[Function]
+	public abstract IIOMetadata getStreamMetadata()
+	                                       throws IOException
+	Name: getStreamMetadata
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#getStreamMetadata--
+	Containing package: javax.imageio
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio.metadata::IIOMetadata
+	}
+
+	[Function]
+	public IIOMetadata getStreamMetadata(String formatName,
+	                                     Set<String> nodeNames)
+	                              throws IOException
+	Name: getStreamMetadata
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#getStreamMetadata-java.lang.String-java.util.Set-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.util::Set {
+			java.lang::String
+		}
+	
+		[result]
+		javax.imageio.metadata::IIOMetadata
+	}
+
+	[Function]
+	public abstract IIOMetadata getImageMetadata(int imageIndex)
+	                                      throws IOException
+	Name: getImageMetadata
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#getImageMetadata-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		javax.imageio.metadata::IIOMetadata
+	}
+
+	[Function]
+	public IIOMetadata getImageMetadata(int imageIndex,
+	                                    String formatName,
+	                                    Set<String> nodeNames)
+	                             throws IOException
+	Name: getImageMetadata
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#getImageMetadata-int-java.lang.String-java.util.Set-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.lang::String
+		java.util::Set {
+			java.lang::String
+		}
+	
+		[result]
+		javax.imageio.metadata::IIOMetadata
+	}
+
+	[Function]
+	public BufferedImage read(int imageIndex)
+	                   throws IOException
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#read-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		java.awt.image::BufferedImage
+	}
+
+	[Function]
+	public abstract BufferedImage read(int imageIndex,
+	                                   ImageReadParam param)
+	                            throws IOException
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#read-int-javax.imageio.ImageReadParam-
+	Containing package: javax.imageio
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		javax.imageio::ImageReadParam
+	
+		[result]
+		java.awt.image::BufferedImage
+	}
+
+	[Function]
+	public IIOImage readAll(int imageIndex,
+	                        ImageReadParam param)
+	                 throws IOException
+	Name: readAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#readAll-int-javax.imageio.ImageReadParam-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		javax.imageio::ImageReadParam
+	
+		[result]
+		javax.imageio::IIOImage
+	}
+
+	[Function]
+	public Iterator<IIOImage> readAll(Iterator<? extends ImageReadParam> params)
+	                           throws IOException
+	Name: readAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#readAll-java.util.Iterator-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Iterator {
+			? {
+				extends javax.imageio::ImageReadParam
+			}
+		}
+	
+		[result]
+		java.util::Iterator {
+			javax.imageio::IIOImage
+		}
+	}
+
+	[Function]
+	public boolean canReadRaster()
+	Name: canReadRaster
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#canReadRaster--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public Raster readRaster(int imageIndex,
+	                         ImageReadParam param)
+	                  throws IOException
+	Name: readRaster
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#readRaster-int-javax.imageio.ImageReadParam-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		javax.imageio::ImageReadParam
+	
+		[result]
+		java.awt.image::Raster
+	}
+
+	[Function]
+	public boolean isImageTiled(int imageIndex)
+	                     throws IOException
+	Name: isImageTiled
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#isImageTiled-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public int getTileWidth(int imageIndex)
+	                 throws IOException
+	Name: getTileWidth
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#getTileWidth-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public int getTileHeight(int imageIndex)
+	                  throws IOException
+	Name: getTileHeight
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#getTileHeight-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public int getTileGridXOffset(int imageIndex)
+	                       throws IOException
+	Name: getTileGridXOffset
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#getTileGridXOffset-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public int getTileGridYOffset(int imageIndex)
+	                       throws IOException
+	Name: getTileGridYOffset
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#getTileGridYOffset-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public BufferedImage readTile(int imageIndex,
+	                              int tileX,
+	                              int tileY)
+	                       throws IOException
+	Name: readTile
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#readTile-int-int-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::int
+		other::int
+	
+		[result]
+		java.awt.image::BufferedImage
+	}
+
+	[Function]
+	public Raster readTileRaster(int imageIndex,
+	                             int tileX,
+	                             int tileY)
+	                      throws IOException
+	Name: readTileRaster
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#readTileRaster-int-int-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::int
+		other::int
+	
+		[result]
+		java.awt.image::Raster
+	}
+
+	[Function]
+	public RenderedImage readAsRenderedImage(int imageIndex,
+	                                         ImageReadParam param)
+	                                  throws IOException
+	Name: readAsRenderedImage
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#readAsRenderedImage-int-javax.imageio.ImageReadParam-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		javax.imageio::ImageReadParam
+	
+		[result]
+		java.awt.image::RenderedImage
+	}
+
+	[Function]
+	public boolean readerSupportsThumbnails()
+	Name: readerSupportsThumbnails
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#readerSupportsThumbnails--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean hasThumbnails(int imageIndex)
+	                      throws IOException
+	Name: hasThumbnails
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#hasThumbnails-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public int getNumThumbnails(int imageIndex)
+	                     throws IOException
+	Name: getNumThumbnails
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#getNumThumbnails-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public int getThumbnailWidth(int imageIndex,
+	                             int thumbnailIndex)
+	                      throws IOException
+	Name: getThumbnailWidth
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#getThumbnailWidth-int-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public int getThumbnailHeight(int imageIndex,
+	                              int thumbnailIndex)
+	                       throws IOException
+	Name: getThumbnailHeight
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#getThumbnailHeight-int-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public BufferedImage readThumbnail(int imageIndex,
+	                                   int thumbnailIndex)
+	                            throws IOException
+	Name: readThumbnail
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#readThumbnail-int-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::int
+	
+		[result]
+		java.awt.image::BufferedImage
+	}
+
+	[Function]
+	public void abort()
+	Name: abort
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#abort--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected boolean abortRequested()
+	Name: abortRequested
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#abortRequested--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected void clearAbortRequest()
+	Name: clearAbortRequest
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#clearAbortRequest--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void addIIOReadWarningListener(IIOReadWarningListener listener)
+	Name: addIIOReadWarningListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#addIIOReadWarningListener-javax.imageio.event.IIOReadWarningListener-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio.event::IIOReadWarningListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void removeIIOReadWarningListener(IIOReadWarningListener listener)
+	Name: removeIIOReadWarningListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#removeIIOReadWarningListener-javax.imageio.event.IIOReadWarningListener-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio.event::IIOReadWarningListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void removeAllIIOReadWarningListeners()
+	Name: removeAllIIOReadWarningListeners
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#removeAllIIOReadWarningListeners--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void addIIOReadProgressListener(IIOReadProgressListener listener)
+	Name: addIIOReadProgressListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#addIIOReadProgressListener-javax.imageio.event.IIOReadProgressListener-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio.event::IIOReadProgressListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void removeIIOReadProgressListener(IIOReadProgressListener listener)
+	Name: removeIIOReadProgressListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#removeIIOReadProgressListener-javax.imageio.event.IIOReadProgressListener-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio.event::IIOReadProgressListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void removeAllIIOReadProgressListeners()
+	Name: removeAllIIOReadProgressListeners
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#removeAllIIOReadProgressListeners--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void addIIOReadUpdateListener(IIOReadUpdateListener listener)
+	Name: addIIOReadUpdateListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#addIIOReadUpdateListener-javax.imageio.event.IIOReadUpdateListener-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio.event::IIOReadUpdateListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void removeIIOReadUpdateListener(IIOReadUpdateListener listener)
+	Name: removeIIOReadUpdateListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#removeIIOReadUpdateListener-javax.imageio.event.IIOReadUpdateListener-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio.event::IIOReadUpdateListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void removeAllIIOReadUpdateListeners()
+	Name: removeAllIIOReadUpdateListeners
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#removeAllIIOReadUpdateListeners--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void processSequenceStarted(int minIndex)
+	Name: processSequenceStarted
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#processSequenceStarted-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void processSequenceComplete()
+	Name: processSequenceComplete
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#processSequenceComplete--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void processImageStarted(int imageIndex)
+	Name: processImageStarted
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#processImageStarted-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void processImageProgress(float percentageDone)
+	Name: processImageProgress
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#processImageProgress-float-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::float
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void processImageComplete()
+	Name: processImageComplete
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#processImageComplete--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void processThumbnailStarted(int imageIndex,
+	                                       int thumbnailIndex)
+	Name: processThumbnailStarted
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#processThumbnailStarted-int-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void processThumbnailProgress(float percentageDone)
+	Name: processThumbnailProgress
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#processThumbnailProgress-float-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::float
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void processThumbnailComplete()
+	Name: processThumbnailComplete
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#processThumbnailComplete--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void processReadAborted()
+	Name: processReadAborted
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#processReadAborted--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void processPassStarted(BufferedImage theImage,
+	                                  int pass,
+	                                  int minPass,
+	                                  int maxPass,
+	                                  int minX,
+	                                  int minY,
+	                                  int periodX,
+	                                  int periodY,
+	                                  int[] bands)
+	Name: processPassStarted
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#processPassStarted-java.awt.image.BufferedImage-int-int-int-int-int-int-int-int:A-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.image::BufferedImage
+		other::int
+		other::int
+		other::int
+		other::int
+		other::int
+		other::int
+		other::int
+		other::[] {
+			other::int
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void processImageUpdate(BufferedImage theImage,
+	                                  int minX,
+	                                  int minY,
+	                                  int width,
+	                                  int height,
+	                                  int periodX,
+	                                  int periodY,
+	                                  int[] bands)
+	Name: processImageUpdate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#processImageUpdate-java.awt.image.BufferedImage-int-int-int-int-int-int-int:A-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.image::BufferedImage
+		other::int
+		other::int
+		other::int
+		other::int
+		other::int
+		other::int
+		other::[] {
+			other::int
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void processPassComplete(BufferedImage theImage)
+	Name: processPassComplete
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#processPassComplete-java.awt.image.BufferedImage-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.image::BufferedImage
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void processThumbnailPassStarted(BufferedImage theThumbnail,
+	                                           int pass,
+	                                           int minPass,
+	                                           int maxPass,
+	                                           int minX,
+	                                           int minY,
+	                                           int periodX,
+	                                           int periodY,
+	                                           int[] bands)
+	Name: processThumbnailPassStarted
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#processThumbnailPassStarted-java.awt.image.BufferedImage-int-int-int-int-int-int-int-int:A-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.image::BufferedImage
+		other::int
+		other::int
+		other::int
+		other::int
+		other::int
+		other::int
+		other::int
+		other::[] {
+			other::int
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void processThumbnailUpdate(BufferedImage theThumbnail,
+	                                      int minX,
+	                                      int minY,
+	                                      int width,
+	                                      int height,
+	                                      int periodX,
+	                                      int periodY,
+	                                      int[] bands)
+	Name: processThumbnailUpdate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#processThumbnailUpdate-java.awt.image.BufferedImage-int-int-int-int-int-int-int:A-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.image::BufferedImage
+		other::int
+		other::int
+		other::int
+		other::int
+		other::int
+		other::int
+		other::[] {
+			other::int
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void processThumbnailPassComplete(BufferedImage theThumbnail)
+	Name: processThumbnailPassComplete
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#processThumbnailPassComplete-java.awt.image.BufferedImage-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.image::BufferedImage
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void processWarningOccurred(String warning)
+	Name: processWarningOccurred
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#processWarningOccurred-java.lang.String-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void processWarningOccurred(String baseName,
+	                                      String keyword)
+	Name: processWarningOccurred
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#processWarningOccurred-java.lang.String-java.lang.String-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void reset()
+	Name: reset
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#reset--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void dispose()
+	Name: dispose
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#dispose--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected static Rectangle getSourceRegion(ImageReadParam param,
+	                                           int srcWidth,
+	                                           int srcHeight)
+	Name: getSourceRegion
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#getSourceRegion-javax.imageio.ImageReadParam-int-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio::ImageReadParam
+		other::int
+		other::int
+	
+		[result]
+		java.awt::Rectangle
+	}
+
+	[Function]
+	protected static void computeRegions(ImageReadParam param,
+	                                     int srcWidth,
+	                                     int srcHeight,
+	                                     BufferedImage image,
+	                                     Rectangle srcRegion,
+	                                     Rectangle destRegion)
+	Name: computeRegions
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#computeRegions-javax.imageio.ImageReadParam-int-int-java.awt.image.BufferedImage-java.awt.Rectangle-java.awt.Rectangle-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio::ImageReadParam
+		other::int
+		other::int
+		java.awt.image::BufferedImage
+		java.awt::Rectangle
+		java.awt::Rectangle
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected static void checkReadParamBandSettings(ImageReadParam param,
+	                                                 int numSrcBands,
+	                                                 int numDstBands)
+	Name: checkReadParamBandSettings
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#checkReadParamBandSettings-javax.imageio.ImageReadParam-int-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio::ImageReadParam
+		other::int
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected static BufferedImage getDestination(ImageReadParam param,
+	                                              Iterator<ImageTypeSpecifier> imageTypes,
+	                                              int width,
+	                                              int height)
+	                                       throws IIOException
+	Name: getDestination
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReader.html#getDestination-javax.imageio.ImageReadParam-java.util.Iterator-int-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio::ImageReadParam
+		java.util::Iterator {
+			javax.imageio::ImageTypeSpecifier
+		}
+		other::int
+		other::int
+	
+		[result]
+		java.awt.image::BufferedImage
+	}
+}
+
+[Classifier]
+public class ImageReadParam
+extends IIOParam
+Name: ImageReadParam
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReadParam.html
+Containing package: javax.imageio
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.imageio.plugins.jpeg::JPEGImageReadParam
+}
+supertypes {
+	javax.imageio::IIOParam
+}
+members {
+
+	[Function]
+	protected boolean canSetSourceRenderSize
+	Name: canSetSourceRenderSize
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReadParam.html#canSetSourceRenderSize
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReadParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected Dimension sourceRenderSize
+	Name: sourceRenderSize
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReadParam.html#sourceRenderSize
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReadParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt::Dimension
+	}
+
+	[Function]
+	protected BufferedImage destination
+	Name: destination
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReadParam.html#destination
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReadParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt.image::BufferedImage
+	}
+
+	[Function]
+	protected int[] destinationBands
+	Name: destinationBands
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReadParam.html#destinationBands
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReadParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::int
+		}
+	}
+
+	[Function]
+	protected int minProgressivePass
+	Name: minProgressivePass
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReadParam.html#minProgressivePass
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReadParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected int numProgressivePasses
+	Name: numProgressivePasses
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReadParam.html#numProgressivePasses
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReadParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public ImageReadParam()
+	Name: ImageReadParam
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReadParam.html#ImageReadParam--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ImageReadParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio::ImageReadParam
+	}
+
+	[Function]
+	public void setDestinationType(ImageTypeSpecifier destinationType)
+	Name: setDestinationType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReadParam.html#setDestinationType-javax.imageio.ImageTypeSpecifier-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReadParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio::ImageTypeSpecifier
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void setDestination(BufferedImage destination)
+	Name: setDestination
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReadParam.html#setDestination-java.awt.image.BufferedImage-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReadParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.image::BufferedImage
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public BufferedImage getDestination()
+	Name: getDestination
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReadParam.html#getDestination--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReadParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt.image::BufferedImage
+	}
+
+	[Function]
+	public void setDestinationBands(int[] destinationBands)
+	Name: setDestinationBands
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReadParam.html#setDestinationBands-int:A-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReadParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::int
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public int[] getDestinationBands()
+	Name: getDestinationBands
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReadParam.html#getDestinationBands--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReadParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::int
+		}
+	}
+
+	[Function]
+	public boolean canSetSourceRenderSize()
+	Name: canSetSourceRenderSize
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReadParam.html#canSetSourceRenderSize--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReadParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void setSourceRenderSize(Dimension size)
+	                         throws UnsupportedOperationException
+	Name: setSourceRenderSize
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReadParam.html#setSourceRenderSize-java.awt.Dimension-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReadParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt::Dimension
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Dimension getSourceRenderSize()
+	Name: getSourceRenderSize
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReadParam.html#getSourceRenderSize--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReadParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt::Dimension
+	}
+
+	[Function]
+	public void setSourceProgressivePasses(int minPass,
+	                                       int numPasses)
+	Name: setSourceProgressivePasses
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReadParam.html#setSourceProgressivePasses-int-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReadParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public int getSourceMinProgressivePass()
+	Name: getSourceMinProgressivePass
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReadParam.html#getSourceMinProgressivePass--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReadParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public int getSourceMaxProgressivePass()
+	Name: getSourceMaxProgressivePass
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReadParam.html#getSourceMaxProgressivePass--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReadParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public int getSourceNumProgressivePasses()
+	Name: getSourceNumProgressivePasses
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageReadParam.html#getSourceNumProgressivePasses--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReadParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public class ImageTypeSpecifier
+extends Object
+Name: ImageTypeSpecifier
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageTypeSpecifier.html
+Containing package: javax.imageio
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected ColorModel colorModel
+	Name: colorModel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageTypeSpecifier.html#colorModel
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageTypeSpecifier
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt.image::ColorModel
+	}
+
+	[Function]
+	protected SampleModel sampleModel
+	Name: sampleModel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageTypeSpecifier.html#sampleModel
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageTypeSpecifier
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt.image::SampleModel
+	}
+
+	[Function]
+	public ImageTypeSpecifier(ColorModel colorModel,
+	                          SampleModel sampleModel)
+	Name: ImageTypeSpecifier
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageTypeSpecifier.html#ImageTypeSpecifier-java.awt.image.ColorModel-java.awt.image.SampleModel-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ImageTypeSpecifier
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.image::ColorModel
+		java.awt.image::SampleModel
+	
+		[result]
+		javax.imageio::ImageTypeSpecifier
+	}
+
+	[Function]
+	public ImageTypeSpecifier(RenderedImage image)
+	Name: ImageTypeSpecifier
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageTypeSpecifier.html#ImageTypeSpecifier-java.awt.image.RenderedImage-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ImageTypeSpecifier
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.image::RenderedImage
+	
+		[result]
+		javax.imageio::ImageTypeSpecifier
+	}
+
+	[Function]
+	public static ImageTypeSpecifier createPacked(ColorSpace colorSpace,
+	                                              int redMask,
+	                                              int greenMask,
+	                                              int blueMask,
+	                                              int alphaMask,
+	                                              int transferType,
+	                                              boolean isAlphaPremultiplied)
+	Name: createPacked
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageTypeSpecifier.html#createPacked-java.awt.color.ColorSpace-int-int-int-int-int-boolean-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageTypeSpecifier
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.color::ColorSpace
+		other::int
+		other::int
+		other::int
+		other::int
+		other::int
+		other::boolean
+	
+		[result]
+		javax.imageio::ImageTypeSpecifier
+	}
+
+	[Function]
+	public static ImageTypeSpecifier createInterleaved(ColorSpace colorSpace,
+	                                                   int[] bandOffsets,
+	                                                   int dataType,
+	                                                   boolean hasAlpha,
+	                                                   boolean isAlphaPremultiplied)
+	Name: createInterleaved
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageTypeSpecifier.html#createInterleaved-java.awt.color.ColorSpace-int:A-int-boolean-boolean-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageTypeSpecifier
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.color::ColorSpace
+		other::[] {
+			other::int
+		}
+		other::int
+		other::boolean
+		other::boolean
+	
+		[result]
+		javax.imageio::ImageTypeSpecifier
+	}
+
+	[Function]
+	public static ImageTypeSpecifier createBanded(ColorSpace colorSpace,
+	                                              int[] bankIndices,
+	                                              int[] bandOffsets,
+	                                              int dataType,
+	                                              boolean hasAlpha,
+	                                              boolean isAlphaPremultiplied)
+	Name: createBanded
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageTypeSpecifier.html#createBanded-java.awt.color.ColorSpace-int:A-int:A-int-boolean-boolean-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageTypeSpecifier
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.color::ColorSpace
+		other::[] {
+			other::int
+		}
+		other::[] {
+			other::int
+		}
+		other::int
+		other::boolean
+		other::boolean
+	
+		[result]
+		javax.imageio::ImageTypeSpecifier
+	}
+
+	[Function]
+	public static ImageTypeSpecifier createGrayscale(int bits,
+	                                                 int dataType,
+	                                                 boolean isSigned)
+	Name: createGrayscale
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageTypeSpecifier.html#createGrayscale-int-int-boolean-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageTypeSpecifier
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::int
+		other::boolean
+	
+		[result]
+		javax.imageio::ImageTypeSpecifier
+	}
+
+	[Function]
+	public static ImageTypeSpecifier createGrayscale(int bits,
+	                                                 int dataType,
+	                                                 boolean isSigned,
+	                                                 boolean isAlphaPremultiplied)
+	Name: createGrayscale
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageTypeSpecifier.html#createGrayscale-int-int-boolean-boolean-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageTypeSpecifier
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::int
+		other::boolean
+		other::boolean
+	
+		[result]
+		javax.imageio::ImageTypeSpecifier
+	}
+
+	[Function]
+	public static ImageTypeSpecifier createIndexed(byte[] redLUT,
+	                                               byte[] greenLUT,
+	                                               byte[] blueLUT,
+	                                               byte[] alphaLUT,
+	                                               int bits,
+	                                               int dataType)
+	Name: createIndexed
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageTypeSpecifier.html#createIndexed-byte:A-byte:A-byte:A-byte:A-int-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageTypeSpecifier
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+		other::[] {
+			other::byte
+		}
+		other::[] {
+			other::byte
+		}
+		other::[] {
+			other::byte
+		}
+		other::int
+		other::int
+	
+		[result]
+		javax.imageio::ImageTypeSpecifier
+	}
+
+	[Function]
+	public static ImageTypeSpecifier createFromBufferedImageType(int bufferedImageType)
+	Name: createFromBufferedImageType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageTypeSpecifier.html#createFromBufferedImageType-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageTypeSpecifier
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		javax.imageio::ImageTypeSpecifier
+	}
+
+	[Function]
+	public static ImageTypeSpecifier createFromRenderedImage(RenderedImage image)
+	Name: createFromRenderedImage
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageTypeSpecifier.html#createFromRenderedImage-java.awt.image.RenderedImage-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageTypeSpecifier
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.image::RenderedImage
+	
+		[result]
+		javax.imageio::ImageTypeSpecifier
+	}
+
+	[Function]
+	public int getBufferedImageType()
+	Name: getBufferedImageType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageTypeSpecifier.html#getBufferedImageType--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageTypeSpecifier
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public int getNumComponents()
+	Name: getNumComponents
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageTypeSpecifier.html#getNumComponents--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageTypeSpecifier
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public int getNumBands()
+	Name: getNumBands
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageTypeSpecifier.html#getNumBands--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageTypeSpecifier
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public int getBitsPerBand(int band)
+	Name: getBitsPerBand
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageTypeSpecifier.html#getBitsPerBand-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageTypeSpecifier
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public SampleModel getSampleModel()
+	Name: getSampleModel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageTypeSpecifier.html#getSampleModel--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageTypeSpecifier
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt.image::SampleModel
+	}
+
+	[Function]
+	public SampleModel getSampleModel(int width,
+	                                  int height)
+	Name: getSampleModel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageTypeSpecifier.html#getSampleModel-int-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageTypeSpecifier
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::int
+	
+		[result]
+		java.awt.image::SampleModel
+	}
+
+	[Function]
+	public ColorModel getColorModel()
+	Name: getColorModel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageTypeSpecifier.html#getColorModel--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageTypeSpecifier
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt.image::ColorModel
+	}
+
+	[Function]
+	public BufferedImage createBufferedImage(int width,
+	                                         int height)
+	Name: createBufferedImage
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageTypeSpecifier.html#createBufferedImage-int-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageTypeSpecifier
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::int
+	
+		[result]
+		java.awt.image::BufferedImage
+	}
+
+	[Function]
+	public boolean equals(Object o)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageTypeSpecifier.html#equals-java.lang.Object-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageTypeSpecifier
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public int hashCode()
+	Name: hashCode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageTypeSpecifier.html#hashCode--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageTypeSpecifier
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public class ImageWriteParam
+extends IIOParam
+Name: ImageWriteParam
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html
+Containing package: javax.imageio
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.imageio.plugins.jpeg::JPEGImageWriteParam
+	javax.imageio.plugins.bmp::BMPImageWriteParam
+}
+supertypes {
+	javax.imageio::IIOParam
+}
+members {
+
+	[Function]
+	public static final int MODE_DISABLED
+	Name: MODE_DISABLED
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#MODE_DISABLED
+	Containing package: javax.imageio
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int MODE_DEFAULT
+	Name: MODE_DEFAULT
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#MODE_DEFAULT
+	Containing package: javax.imageio
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int MODE_EXPLICIT
+	Name: MODE_EXPLICIT
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#MODE_EXPLICIT
+	Containing package: javax.imageio
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int MODE_COPY_FROM_METADATA
+	Name: MODE_COPY_FROM_METADATA
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#MODE_COPY_FROM_METADATA
+	Containing package: javax.imageio
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected boolean canWriteTiles
+	Name: canWriteTiles
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#canWriteTiles
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected int tilingMode
+	Name: tilingMode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#tilingMode
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected Dimension[] preferredTileSizes
+	Name: preferredTileSizes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#preferredTileSizes
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.awt::Dimension
+		}
+	}
+
+	[Function]
+	protected boolean tilingSet
+	Name: tilingSet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#tilingSet
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected int tileWidth
+	Name: tileWidth
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#tileWidth
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected int tileHeight
+	Name: tileHeight
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#tileHeight
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected boolean canOffsetTiles
+	Name: canOffsetTiles
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#canOffsetTiles
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected int tileGridXOffset
+	Name: tileGridXOffset
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#tileGridXOffset
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected int tileGridYOffset
+	Name: tileGridYOffset
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#tileGridYOffset
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected boolean canWriteProgressive
+	Name: canWriteProgressive
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#canWriteProgressive
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected int progressiveMode
+	Name: progressiveMode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#progressiveMode
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected boolean canWriteCompressed
+	Name: canWriteCompressed
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#canWriteCompressed
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected int compressionMode
+	Name: compressionMode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#compressionMode
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected String[] compressionTypes
+	Name: compressionTypes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#compressionTypes
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	protected String compressionType
+	Name: compressionType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#compressionType
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	protected float compressionQuality
+	Name: compressionQuality
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#compressionQuality
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::float
+	}
+
+	[Function]
+	protected Locale locale
+	Name: locale
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#locale
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Locale
+	}
+
+	[Function]
+	protected ImageWriteParam()
+	Name: ImageWriteParam
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#ImageWriteParam--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio::ImageWriteParam
+	}
+
+	[Function]
+	public ImageWriteParam(Locale locale)
+	Name: ImageWriteParam
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#ImageWriteParam-java.util.Locale-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Locale
+	
+		[result]
+		javax.imageio::ImageWriteParam
+	}
+
+	[Function]
+	public Locale getLocale()
+	Name: getLocale
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#getLocale--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Locale
+	}
+
+	[Function]
+	public boolean canWriteTiles()
+	Name: canWriteTiles
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#canWriteTiles--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean canOffsetTiles()
+	Name: canOffsetTiles
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#canOffsetTiles--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void setTilingMode(int mode)
+	Name: setTilingMode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#setTilingMode-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public int getTilingMode()
+	Name: getTilingMode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#getTilingMode--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public Dimension[] getPreferredTileSizes()
+	Name: getPreferredTileSizes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#getPreferredTileSizes--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.awt::Dimension
+		}
+	}
+
+	[Function]
+	public void setTiling(int tileWidth,
+	                      int tileHeight,
+	                      int tileGridXOffset,
+	                      int tileGridYOffset)
+	Name: setTiling
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#setTiling-int-int-int-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::int
+		other::int
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void unsetTiling()
+	Name: unsetTiling
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#unsetTiling--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public int getTileWidth()
+	Name: getTileWidth
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#getTileWidth--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public int getTileHeight()
+	Name: getTileHeight
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#getTileHeight--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public int getTileGridXOffset()
+	Name: getTileGridXOffset
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#getTileGridXOffset--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public int getTileGridYOffset()
+	Name: getTileGridYOffset
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#getTileGridYOffset--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public boolean canWriteProgressive()
+	Name: canWriteProgressive
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#canWriteProgressive--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void setProgressiveMode(int mode)
+	Name: setProgressiveMode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#setProgressiveMode-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public int getProgressiveMode()
+	Name: getProgressiveMode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#getProgressiveMode--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public boolean canWriteCompressed()
+	Name: canWriteCompressed
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#canWriteCompressed--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void setCompressionMode(int mode)
+	Name: setCompressionMode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#setCompressionMode-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public int getCompressionMode()
+	Name: getCompressionMode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#getCompressionMode--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public String[] getCompressionTypes()
+	Name: getCompressionTypes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#getCompressionTypes--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public void setCompressionType(String compressionType)
+	Name: setCompressionType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#setCompressionType-java.lang.String-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public String getCompressionType()
+	Name: getCompressionType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#getCompressionType--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public void unsetCompression()
+	Name: unsetCompression
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#unsetCompression--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public String getLocalizedCompressionTypeName()
+	Name: getLocalizedCompressionTypeName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#getLocalizedCompressionTypeName--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public boolean isCompressionLossless()
+	Name: isCompressionLossless
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#isCompressionLossless--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void setCompressionQuality(float quality)
+	Name: setCompressionQuality
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#setCompressionQuality-float-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::float
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public float getCompressionQuality()
+	Name: getCompressionQuality
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#getCompressionQuality--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::float
+	}
+
+	[Function]
+	public float getBitRate(float quality)
+	Name: getBitRate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#getBitRate-float-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::float
+	
+		[result]
+		other::float
+	}
+
+	[Function]
+	public String[] getCompressionQualityDescriptions()
+	Name: getCompressionQualityDescriptions
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#getCompressionQualityDescriptions--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public float[] getCompressionQualityValues()
+	Name: getCompressionQualityValues
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriteParam.html#getCompressionQualityValues--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriteParam
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::float
+		}
+	}
+}
+
+[Classifier]
+public abstract class ImageWriter
+extends Object
+implements ImageTranscoder
+Name: ImageWriter
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html
+Containing package: javax.imageio
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.imageio::ImageTranscoder
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected ImageWriterSpi originatingProvider
+	Name: originatingProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#originatingProvider
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio.spi::ImageWriterSpi
+	}
+
+	[Function]
+	protected Object output
+	Name: output
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#output
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	protected Locale[] availableLocales
+	Name: availableLocales
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#availableLocales
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.util::Locale
+		}
+	}
+
+	[Function]
+	protected Locale locale
+	Name: locale
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#locale
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Locale
+	}
+
+	[Function]
+	protected List<IIOWriteWarningListener> warningListeners
+	Name: warningListeners
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#warningListeners
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			javax.imageio.event::IIOWriteWarningListener
+		}
+	}
+
+	[Function]
+	protected List<Locale> warningLocales
+	Name: warningLocales
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#warningLocales
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			java.util::Locale
+		}
+	}
+
+	[Function]
+	protected List<IIOWriteProgressListener> progressListeners
+	Name: progressListeners
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#progressListeners
+	Containing package: javax.imageio
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			javax.imageio.event::IIOWriteProgressListener
+		}
+	}
+
+	[Function]
+	protected ImageWriter(ImageWriterSpi originatingProvider)
+	Name: ImageWriter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#ImageWriter-javax.imageio.spi.ImageWriterSpi-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio.spi::ImageWriterSpi
+	
+		[result]
+		javax.imageio::ImageWriter
+	}
+
+	[Function]
+	public ImageWriterSpi getOriginatingProvider()
+	Name: getOriginatingProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#getOriginatingProvider--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio.spi::ImageWriterSpi
+	}
+
+	[Function]
+	public void setOutput(Object output)
+	Name: setOutput
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#setOutput-java.lang.Object-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Object getOutput()
+	Name: getOutput
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#getOutput--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public Locale[] getAvailableLocales()
+	Name: getAvailableLocales
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#getAvailableLocales--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.util::Locale
+		}
+	}
+
+	[Function]
+	public void setLocale(Locale locale)
+	Name: setLocale
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#setLocale-java.util.Locale-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Locale
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Locale getLocale()
+	Name: getLocale
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#getLocale--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Locale
+	}
+
+	[Function]
+	public ImageWriteParam getDefaultWriteParam()
+	Name: getDefaultWriteParam
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#getDefaultWriteParam--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio::ImageWriteParam
+	}
+
+	[Function]
+	public abstract IIOMetadata getDefaultStreamMetadata(ImageWriteParam param)
+	Name: getDefaultStreamMetadata
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#getDefaultStreamMetadata-javax.imageio.ImageWriteParam-
+	Containing package: javax.imageio
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio::ImageWriteParam
+	
+		[result]
+		javax.imageio.metadata::IIOMetadata
+	}
+
+	[Function]
+	public abstract IIOMetadata getDefaultImageMetadata(ImageTypeSpecifier imageType,
+	                                                    ImageWriteParam param)
+	Name: getDefaultImageMetadata
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#getDefaultImageMetadata-javax.imageio.ImageTypeSpecifier-javax.imageio.ImageWriteParam-
+	Containing package: javax.imageio
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio::ImageTypeSpecifier
+		javax.imageio::ImageWriteParam
+	
+		[result]
+		javax.imageio.metadata::IIOMetadata
+	}
+
+	[Function]
+	public abstract IIOMetadata convertStreamMetadata(IIOMetadata inData,
+	                                                  ImageWriteParam param)
+	Name: convertStreamMetadata
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#convertStreamMetadata-javax.imageio.metadata.IIOMetadata-javax.imageio.ImageWriteParam-
+	Containing package: javax.imageio
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio.metadata::IIOMetadata
+		javax.imageio::ImageWriteParam
+	
+		[result]
+		javax.imageio.metadata::IIOMetadata
+	}
+
+	[Function]
+	public abstract IIOMetadata convertImageMetadata(IIOMetadata inData,
+	                                                 ImageTypeSpecifier imageType,
+	                                                 ImageWriteParam param)
+	Name: convertImageMetadata
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#convertImageMetadata-javax.imageio.metadata.IIOMetadata-javax.imageio.ImageTypeSpecifier-javax.imageio.ImageWriteParam-
+	Containing package: javax.imageio
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio.metadata::IIOMetadata
+		javax.imageio::ImageTypeSpecifier
+		javax.imageio::ImageWriteParam
+	
+		[result]
+		javax.imageio.metadata::IIOMetadata
+	}
+
+	[Function]
+	public int getNumThumbnailsSupported(ImageTypeSpecifier imageType,
+	                                     ImageWriteParam param,
+	                                     IIOMetadata streamMetadata,
+	                                     IIOMetadata imageMetadata)
+	Name: getNumThumbnailsSupported
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#getNumThumbnailsSupported-javax.imageio.ImageTypeSpecifier-javax.imageio.ImageWriteParam-javax.imageio.metadata.IIOMetadata-javax.imageio.metadata.IIOMetadata-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio::ImageTypeSpecifier
+		javax.imageio::ImageWriteParam
+		javax.imageio.metadata::IIOMetadata
+		javax.imageio.metadata::IIOMetadata
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public Dimension[] getPreferredThumbnailSizes(ImageTypeSpecifier imageType,
+	                                              ImageWriteParam param,
+	                                              IIOMetadata streamMetadata,
+	                                              IIOMetadata imageMetadata)
+	Name: getPreferredThumbnailSizes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#getPreferredThumbnailSizes-javax.imageio.ImageTypeSpecifier-javax.imageio.ImageWriteParam-javax.imageio.metadata.IIOMetadata-javax.imageio.metadata.IIOMetadata-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio::ImageTypeSpecifier
+		javax.imageio::ImageWriteParam
+		javax.imageio.metadata::IIOMetadata
+		javax.imageio.metadata::IIOMetadata
+	
+		[result]
+		other::[] {
+			java.awt::Dimension
+		}
+	}
+
+	[Function]
+	public boolean canWriteRasters()
+	Name: canWriteRasters
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#canWriteRasters--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract void write(IIOMetadata streamMetadata,
+	                           IIOImage image,
+	                           ImageWriteParam param)
+	                    throws IOException
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#write-javax.imageio.metadata.IIOMetadata-javax.imageio.IIOImage-javax.imageio.ImageWriteParam-
+	Containing package: javax.imageio
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio.metadata::IIOMetadata
+		javax.imageio::IIOImage
+		javax.imageio::ImageWriteParam
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void write(IIOImage image)
+	           throws IOException
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#write-javax.imageio.IIOImage-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio::IIOImage
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void write(RenderedImage image)
+	           throws IOException
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#write-java.awt.image.RenderedImage-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.image::RenderedImage
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean canWriteSequence()
+	Name: canWriteSequence
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#canWriteSequence--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void prepareWriteSequence(IIOMetadata streamMetadata)
+	                          throws IOException
+	Name: prepareWriteSequence
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#prepareWriteSequence-javax.imageio.metadata.IIOMetadata-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio.metadata::IIOMetadata
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void writeToSequence(IIOImage image,
+	                            ImageWriteParam param)
+	                     throws IOException
+	Name: writeToSequence
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#writeToSequence-javax.imageio.IIOImage-javax.imageio.ImageWriteParam-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio::IIOImage
+		javax.imageio::ImageWriteParam
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void endWriteSequence()
+	                      throws IOException
+	Name: endWriteSequence
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#endWriteSequence--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean canReplaceStreamMetadata()
+	                                 throws IOException
+	Name: canReplaceStreamMetadata
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#canReplaceStreamMetadata--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void replaceStreamMetadata(IIOMetadata streamMetadata)
+	                           throws IOException
+	Name: replaceStreamMetadata
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#replaceStreamMetadata-javax.imageio.metadata.IIOMetadata-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio.metadata::IIOMetadata
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean canReplaceImageMetadata(int imageIndex)
+	                                throws IOException
+	Name: canReplaceImageMetadata
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#canReplaceImageMetadata-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void replaceImageMetadata(int imageIndex,
+	                                 IIOMetadata imageMetadata)
+	                          throws IOException
+	Name: replaceImageMetadata
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#replaceImageMetadata-int-javax.imageio.metadata.IIOMetadata-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		javax.imageio.metadata::IIOMetadata
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean canInsertImage(int imageIndex)
+	                       throws IOException
+	Name: canInsertImage
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#canInsertImage-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void writeInsert(int imageIndex,
+	                        IIOImage image,
+	                        ImageWriteParam param)
+	                 throws IOException
+	Name: writeInsert
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#writeInsert-int-javax.imageio.IIOImage-javax.imageio.ImageWriteParam-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		javax.imageio::IIOImage
+		javax.imageio::ImageWriteParam
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean canRemoveImage(int imageIndex)
+	                       throws IOException
+	Name: canRemoveImage
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#canRemoveImage-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void removeImage(int imageIndex)
+	                 throws IOException
+	Name: removeImage
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#removeImage-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean canWriteEmpty()
+	                      throws IOException
+	Name: canWriteEmpty
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#canWriteEmpty--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void prepareWriteEmpty(IIOMetadata streamMetadata,
+	                              ImageTypeSpecifier imageType,
+	                              int width,
+	                              int height,
+	                              IIOMetadata imageMetadata,
+	                              List<? extends BufferedImage> thumbnails,
+	                              ImageWriteParam param)
+	                       throws IOException
+	Name: prepareWriteEmpty
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#prepareWriteEmpty-javax.imageio.metadata.IIOMetadata-javax.imageio.ImageTypeSpecifier-int-int-javax.imageio.metadata.IIOMetadata-java.util.List-javax.imageio.ImageWriteParam-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio.metadata::IIOMetadata
+		javax.imageio::ImageTypeSpecifier
+		other::int
+		other::int
+		javax.imageio.metadata::IIOMetadata
+		java.util::List {
+			? {
+				extends java.awt.image::BufferedImage
+			}
+		}
+		javax.imageio::ImageWriteParam
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void endWriteEmpty()
+	                   throws IOException
+	Name: endWriteEmpty
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#endWriteEmpty--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean canInsertEmpty(int imageIndex)
+	                       throws IOException
+	Name: canInsertEmpty
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#canInsertEmpty-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void prepareInsertEmpty(int imageIndex,
+	                               ImageTypeSpecifier imageType,
+	                               int width,
+	                               int height,
+	                               IIOMetadata imageMetadata,
+	                               List<? extends BufferedImage> thumbnails,
+	                               ImageWriteParam param)
+	                        throws IOException
+	Name: prepareInsertEmpty
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#prepareInsertEmpty-int-javax.imageio.ImageTypeSpecifier-int-int-javax.imageio.metadata.IIOMetadata-java.util.List-javax.imageio.ImageWriteParam-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		javax.imageio::ImageTypeSpecifier
+		other::int
+		other::int
+		javax.imageio.metadata::IIOMetadata
+		java.util::List {
+			? {
+				extends java.awt.image::BufferedImage
+			}
+		}
+		javax.imageio::ImageWriteParam
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void endInsertEmpty()
+	                    throws IOException
+	Name: endInsertEmpty
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#endInsertEmpty--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean canReplacePixels(int imageIndex)
+	                         throws IOException
+	Name: canReplacePixels
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#canReplacePixels-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void prepareReplacePixels(int imageIndex,
+	                                 Rectangle region)
+	                          throws IOException
+	Name: prepareReplacePixels
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#prepareReplacePixels-int-java.awt.Rectangle-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.awt::Rectangle
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void replacePixels(RenderedImage image,
+	                          ImageWriteParam param)
+	                   throws IOException
+	Name: replacePixels
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#replacePixels-java.awt.image.RenderedImage-javax.imageio.ImageWriteParam-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.image::RenderedImage
+		javax.imageio::ImageWriteParam
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void replacePixels(Raster raster,
+	                          ImageWriteParam param)
+	                   throws IOException
+	Name: replacePixels
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#replacePixels-java.awt.image.Raster-javax.imageio.ImageWriteParam-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.image::Raster
+		javax.imageio::ImageWriteParam
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void endReplacePixels()
+	                      throws IOException
+	Name: endReplacePixels
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#endReplacePixels--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void abort()
+	Name: abort
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#abort--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected boolean abortRequested()
+	Name: abortRequested
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#abortRequested--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected void clearAbortRequest()
+	Name: clearAbortRequest
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#clearAbortRequest--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void addIIOWriteWarningListener(IIOWriteWarningListener listener)
+	Name: addIIOWriteWarningListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#addIIOWriteWarningListener-javax.imageio.event.IIOWriteWarningListener-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio.event::IIOWriteWarningListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void removeIIOWriteWarningListener(IIOWriteWarningListener listener)
+	Name: removeIIOWriteWarningListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#removeIIOWriteWarningListener-javax.imageio.event.IIOWriteWarningListener-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio.event::IIOWriteWarningListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void removeAllIIOWriteWarningListeners()
+	Name: removeAllIIOWriteWarningListeners
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#removeAllIIOWriteWarningListeners--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void addIIOWriteProgressListener(IIOWriteProgressListener listener)
+	Name: addIIOWriteProgressListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#addIIOWriteProgressListener-javax.imageio.event.IIOWriteProgressListener-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio.event::IIOWriteProgressListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void removeIIOWriteProgressListener(IIOWriteProgressListener listener)
+	Name: removeIIOWriteProgressListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#removeIIOWriteProgressListener-javax.imageio.event.IIOWriteProgressListener-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio.event::IIOWriteProgressListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void removeAllIIOWriteProgressListeners()
+	Name: removeAllIIOWriteProgressListeners
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#removeAllIIOWriteProgressListeners--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void processImageStarted(int imageIndex)
+	Name: processImageStarted
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#processImageStarted-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void processImageProgress(float percentageDone)
+	Name: processImageProgress
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#processImageProgress-float-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::float
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void processImageComplete()
+	Name: processImageComplete
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#processImageComplete--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void processThumbnailStarted(int imageIndex,
+	                                       int thumbnailIndex)
+	Name: processThumbnailStarted
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#processThumbnailStarted-int-int-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void processThumbnailProgress(float percentageDone)
+	Name: processThumbnailProgress
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#processThumbnailProgress-float-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::float
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void processThumbnailComplete()
+	Name: processThumbnailComplete
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#processThumbnailComplete--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void processWriteAborted()
+	Name: processWriteAborted
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#processWriteAborted--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void processWarningOccurred(int imageIndex,
+	                                      String warning)
+	Name: processWarningOccurred
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#processWarningOccurred-int-java.lang.String-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void processWarningOccurred(int imageIndex,
+	                                      String baseName,
+	                                      String keyword)
+	Name: processWarningOccurred
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#processWarningOccurred-int-java.lang.String-java.lang.String-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void reset()
+	Name: reset
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#reset--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void dispose()
+	Name: dispose
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageWriter.html#dispose--
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public class IIOException
+extends IOException
+Name: IIOException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOException.html
+Containing package: javax.imageio
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.imageio.metadata::IIOInvalidTreeException
+}
+supertypes {
+	java.io::IOException
+}
+members {
+
+	[Function]
+	public IIOException(String message)
+	Name: IIOException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOException.html#IIOException-java.lang.String-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: IIOException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.imageio::IIOException
+	}
+
+	[Function]
+	public IIOException(String message,
+	                    Throwable cause)
+	Name: IIOException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/IIOException.html#IIOException-java.lang.String-java.lang.Throwable-
+	Containing package: javax.imageio
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: IIOException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Throwable
+	
+		[result]
+		javax.imageio::IIOException
+	}
+}

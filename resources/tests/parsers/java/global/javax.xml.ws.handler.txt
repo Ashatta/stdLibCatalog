@@ -1,0 +1,939 @@
+[Package]
+Name: javax.xml.ws.handler
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/package-summary.html
+Containing package: javax.xml.ws
+attributes {
+}
+
+Subpackages {
+	javax.xml.ws.handler.soap
+}
+
+[Classifier]
+public interface Handler<C extends MessageContext>
+Name: Handler
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/Handler.html
+Containing package: javax.xml.ws.handler
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	C: (C extends MessageContext; C; javax.xml.ws.handler::MessageContext)
+}
+derived {
+	javax.xml.ws.handler.soap::SOAPHandler
+	javax.xml.ws.handler::LogicalHandler
+}
+supertypes {
+}
+members {
+
+	[Function]
+	boolean handleMessage(C context)
+	Name: handleMessage
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/Handler.html#handleMessage-C-
+	Containing package: javax.xml.ws.handler
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Handler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::C
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean handleFault(C context)
+	Name: handleFault
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/Handler.html#handleFault-C-
+	Containing package: javax.xml.ws.handler
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Handler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::C
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	void close(MessageContext context)
+	Name: close
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/Handler.html#close-javax.xml.ws.handler.MessageContext-
+	Containing package: javax.xml.ws.handler
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Handler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.ws.handler::MessageContext
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface HandlerResolver
+Name: HandlerResolver
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/HandlerResolver.html
+Containing package: javax.xml.ws.handler
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	List<Handler> getHandlerChain(PortInfo portInfo)
+	Name: getHandlerChain
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/HandlerResolver.html#getHandlerChain-javax.xml.ws.handler.PortInfo-
+	Containing package: javax.xml.ws.handler
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: HandlerResolver
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.ws.handler::PortInfo
+	
+		[result]
+		java.util::List {
+			javax.xml.ws.handler::Handler
+		}
+	}
+}
+
+[Classifier]
+public interface LogicalHandler<C extends LogicalMessageContext>
+extends Handler<C>
+Name: LogicalHandler
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/LogicalHandler.html
+Containing package: javax.xml.ws.handler
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	C: (C extends LogicalMessageContext; C; javax.xml.ws.handler::LogicalMessageContext)
+}
+derived {
+}
+supertypes {
+	javax.xml.ws.handler::Handler {
+		null::C
+	}
+}
+members {
+}
+
+[Classifier]
+public interface LogicalMessageContext
+extends MessageContext
+Name: LogicalMessageContext
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/LogicalMessageContext.html
+Containing package: javax.xml.ws.handler
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.xml.ws.handler::MessageContext
+}
+members {
+
+	[Function]
+	LogicalMessage getMessage()
+	Name: getMessage
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/LogicalMessageContext.html#getMessage--
+	Containing package: javax.xml.ws.handler
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LogicalMessageContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.ws::LogicalMessage
+	}
+}
+
+[Classifier]
+public interface MessageContext
+extends Map<String,Object>
+Name: MessageContext
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/MessageContext.html
+Containing package: javax.xml.ws.handler
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.xml.ws.handler.soap::SOAPMessageContext
+	javax.xml.ws.handler::LogicalMessageContext
+}
+supertypes {
+	java.util::Map {
+		java.lang::String
+		java.lang::Object
+	}
+}
+members {
+
+	[Function]
+	static final String MESSAGE_OUTBOUND_PROPERTY
+	Name: MESSAGE_OUTBOUND_PROPERTY
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/MessageContext.html#MESSAGE_OUTBOUND_PROPERTY
+	Containing package: javax.xml.ws.handler
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: MessageContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String INBOUND_MESSAGE_ATTACHMENTS
+	Name: INBOUND_MESSAGE_ATTACHMENTS
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/MessageContext.html#INBOUND_MESSAGE_ATTACHMENTS
+	Containing package: javax.xml.ws.handler
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: MessageContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String OUTBOUND_MESSAGE_ATTACHMENTS
+	Name: OUTBOUND_MESSAGE_ATTACHMENTS
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/MessageContext.html#OUTBOUND_MESSAGE_ATTACHMENTS
+	Containing package: javax.xml.ws.handler
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: MessageContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String WSDL_DESCRIPTION
+	Name: WSDL_DESCRIPTION
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/MessageContext.html#WSDL_DESCRIPTION
+	Containing package: javax.xml.ws.handler
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: MessageContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String WSDL_SERVICE
+	Name: WSDL_SERVICE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/MessageContext.html#WSDL_SERVICE
+	Containing package: javax.xml.ws.handler
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: MessageContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String WSDL_PORT
+	Name: WSDL_PORT
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/MessageContext.html#WSDL_PORT
+	Containing package: javax.xml.ws.handler
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: MessageContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String WSDL_INTERFACE
+	Name: WSDL_INTERFACE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/MessageContext.html#WSDL_INTERFACE
+	Containing package: javax.xml.ws.handler
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: MessageContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String WSDL_OPERATION
+	Name: WSDL_OPERATION
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/MessageContext.html#WSDL_OPERATION
+	Containing package: javax.xml.ws.handler
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: MessageContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String HTTP_RESPONSE_CODE
+	Name: HTTP_RESPONSE_CODE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/MessageContext.html#HTTP_RESPONSE_CODE
+	Containing package: javax.xml.ws.handler
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: MessageContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String HTTP_REQUEST_HEADERS
+	Name: HTTP_REQUEST_HEADERS
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/MessageContext.html#HTTP_REQUEST_HEADERS
+	Containing package: javax.xml.ws.handler
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: MessageContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String HTTP_RESPONSE_HEADERS
+	Name: HTTP_RESPONSE_HEADERS
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/MessageContext.html#HTTP_RESPONSE_HEADERS
+	Containing package: javax.xml.ws.handler
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: MessageContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String HTTP_REQUEST_METHOD
+	Name: HTTP_REQUEST_METHOD
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/MessageContext.html#HTTP_REQUEST_METHOD
+	Containing package: javax.xml.ws.handler
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: MessageContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String SERVLET_REQUEST
+	Name: SERVLET_REQUEST
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/MessageContext.html#SERVLET_REQUEST
+	Containing package: javax.xml.ws.handler
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: MessageContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String SERVLET_RESPONSE
+	Name: SERVLET_RESPONSE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/MessageContext.html#SERVLET_RESPONSE
+	Containing package: javax.xml.ws.handler
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: MessageContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String SERVLET_CONTEXT
+	Name: SERVLET_CONTEXT
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/MessageContext.html#SERVLET_CONTEXT
+	Containing package: javax.xml.ws.handler
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: MessageContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String QUERY_STRING
+	Name: QUERY_STRING
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/MessageContext.html#QUERY_STRING
+	Containing package: javax.xml.ws.handler
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: MessageContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String PATH_INFO
+	Name: PATH_INFO
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/MessageContext.html#PATH_INFO
+	Containing package: javax.xml.ws.handler
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: MessageContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String REFERENCE_PARAMETERS
+	Name: REFERENCE_PARAMETERS
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/MessageContext.html#REFERENCE_PARAMETERS
+	Containing package: javax.xml.ws.handler
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: MessageContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	void setScope(String name,
+	              MessageContext.Scope scope)
+	Name: setScope
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/MessageContext.html#setScope-java.lang.String-javax.xml.ws.handler.MessageContext.Scope-
+	Containing package: javax.xml.ws.handler
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MessageContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.xml.ws.handler::MessageContext.Scope
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	MessageContext.Scope getScope(String name)
+	Name: getScope
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/MessageContext.html#getScope-java.lang.String-
+	Containing package: javax.xml.ws.handler
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MessageContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.xml.ws.handler::MessageContext.Scope
+	}
+}
+
+[Classifier]
+public static enum MessageContext.Scope
+extends Enum<MessageContext.Scope>
+Name: MessageContext.Scope
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/MessageContext.Scope.html
+Containing package: javax.xml.ws.handler
+attributes {
+	abstract=false
+	final=false
+	classifierType=enum
+	static=true
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Enum {
+		javax.xml.ws.handler::MessageContext.Scope
+	}
+}
+members {
+
+	[Function]
+	public static final MessageContext.Scope APPLICATION
+	Name: APPLICATION
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/MessageContext.Scope.html#APPLICATION
+	Containing package: javax.xml.ws.handler
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: MessageContext.Scope
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.ws.handler::MessageContext.Scope
+	}
+
+	[Function]
+	public static final MessageContext.Scope HANDLER
+	Name: HANDLER
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/MessageContext.Scope.html#HANDLER
+	Containing package: javax.xml.ws.handler
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: MessageContext.Scope
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.ws.handler::MessageContext.Scope
+	}
+
+	[Function]
+	public static MessageContext.Scope[] values()
+	Name: values
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/MessageContext.Scope.html#values--
+	Containing package: javax.xml.ws.handler
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: MessageContext.Scope
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			javax.xml.ws.handler::MessageContext.Scope
+		}
+	}
+
+	[Function]
+	public static MessageContext.Scope valueOf(String name)
+	Name: valueOf
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/MessageContext.Scope.html#valueOf-java.lang.String-
+	Containing package: javax.xml.ws.handler
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: MessageContext.Scope
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.xml.ws.handler::MessageContext.Scope
+	}
+}
+
+[Classifier]
+public interface PortInfo
+Name: PortInfo
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/PortInfo.html
+Containing package: javax.xml.ws.handler
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	QName getServiceName()
+	Name: getServiceName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/PortInfo.html#getServiceName--
+	Containing package: javax.xml.ws.handler
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: PortInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.namespace::QName
+	}
+
+	[Function]
+	QName getPortName()
+	Name: getPortName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/PortInfo.html#getPortName--
+	Containing package: javax.xml.ws.handler
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: PortInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.namespace::QName
+	}
+
+	[Function]
+	String getBindingID()
+	Name: getBindingID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/handler/PortInfo.html#getBindingID--
+	Containing package: javax.xml.ws.handler
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: PortInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}

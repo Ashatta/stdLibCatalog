@@ -1,0 +1,7797 @@
+[Package]
+Name: java.nio.file
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/package-summary.html
+Containing package: java.nio
+attributes {
+}
+
+Subpackages {
+	java.nio.file.spi
+	java.nio.file.attribute
+}
+
+[Classifier]
+public interface CopyOption
+Name: CopyOption
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/CopyOption.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.nio.file::LinkOption
+	java.nio.file::StandardCopyOption
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+public interface DirectoryStream<T>
+extends Closeable, Iterable<T>
+Name: DirectoryStream
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/DirectoryStream.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+	java.nio.file::SecureDirectoryStream
+}
+supertypes {
+	java.io::Closeable
+	java.lang::Iterable {
+		null::T
+	}
+}
+members {
+
+	[Function]
+	Iterator<T> iterator()
+	Name: iterator
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/DirectoryStream.html#iterator--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DirectoryStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Iterator {
+			null::T
+		}
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public static interface DirectoryStream.Filter<T>
+Name: DirectoryStream.Filter
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/DirectoryStream.Filter.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=true
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	boolean accept(T entry)
+	        throws IOException
+	Name: accept
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/DirectoryStream.Filter.html#accept-T-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DirectoryStream.Filter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public interface FileVisitor<T>
+Name: FileVisitor
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileVisitor.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+	java.nio.file::SimpleFileVisitor
+}
+supertypes {
+}
+members {
+
+	[Function]
+	FileVisitResult preVisitDirectory(T dir,
+	                                  BasicFileAttributes attrs)
+	                           throws IOException
+	Name: preVisitDirectory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileVisitor.html#preVisitDirectory-T-java.nio.file.attribute.BasicFileAttributes-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileVisitor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		java.nio.file.attribute::BasicFileAttributes
+	
+		[result]
+		java.nio.file::FileVisitResult
+	}
+
+	[Function]
+	FileVisitResult visitFile(T file,
+	                          BasicFileAttributes attrs)
+	                   throws IOException
+	Name: visitFile
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileVisitor.html#visitFile-T-java.nio.file.attribute.BasicFileAttributes-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileVisitor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		java.nio.file.attribute::BasicFileAttributes
+	
+		[result]
+		java.nio.file::FileVisitResult
+	}
+
+	[Function]
+	FileVisitResult visitFileFailed(T file,
+	                                IOException exc)
+	                         throws IOException
+	Name: visitFileFailed
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileVisitor.html#visitFileFailed-T-java.io.IOException-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileVisitor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		java.io::IOException
+	
+		[result]
+		java.nio.file::FileVisitResult
+	}
+
+	[Function]
+	FileVisitResult postVisitDirectory(T dir,
+	                                   IOException exc)
+	                            throws IOException
+	Name: postVisitDirectory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileVisitor.html#postVisitDirectory-T-java.io.IOException-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileVisitor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		java.io::IOException
+	
+		[result]
+		java.nio.file::FileVisitResult
+	}
+}
+
+[Classifier]
+public interface OpenOption
+Name: OpenOption
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/OpenOption.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.nio.file::StandardOpenOption
+	java.nio.file::LinkOption
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+public interface Path
+extends Comparable<Path>, Iterable<Path>, Watchable
+Name: Path
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Comparable {
+		java.nio.file::Path
+	}
+	java.lang::Iterable {
+		java.nio.file::Path
+	}
+	java.nio.file::Watchable
+}
+members {
+
+	[Function]
+	FileSystem getFileSystem()
+	Name: getFileSystem
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#getFileSystem--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::FileSystem
+	}
+
+	[Function]
+	boolean isAbsolute()
+	Name: isAbsolute
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#isAbsolute--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	Path getRoot()
+	Name: getRoot
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#getRoot--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	Path getFileName()
+	Name: getFileName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#getFileName--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	Path getParent()
+	Name: getParent
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#getParent--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	int getNameCount()
+	Name: getNameCount
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#getNameCount--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	Path getName(int index)
+	Name: getName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#getName-int-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	Path subpath(int beginIndex,
+	             int endIndex)
+	Name: subpath
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#subpath-int-int-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::int
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	boolean startsWith(Path other)
+	Name: startsWith
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#startsWith-java.nio.file.Path-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean startsWith(String other)
+	Name: startsWith
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#startsWith-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean endsWith(Path other)
+	Name: endsWith
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#endsWith-java.nio.file.Path-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean endsWith(String other)
+	Name: endsWith
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#endsWith-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	Path normalize()
+	Name: normalize
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#normalize--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	Path resolve(Path other)
+	Name: resolve
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#resolve-java.nio.file.Path-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	Path resolve(String other)
+	Name: resolve
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#resolve-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	Path resolveSibling(Path other)
+	Name: resolveSibling
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#resolveSibling-java.nio.file.Path-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	Path resolveSibling(String other)
+	Name: resolveSibling
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#resolveSibling-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	Path relativize(Path other)
+	Name: relativize
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#relativize-java.nio.file.Path-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	URI toUri()
+	Name: toUri
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#toUri--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.net::URI
+	}
+
+	[Function]
+	Path toAbsolutePath()
+	Name: toAbsolutePath
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#toAbsolutePath--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	Path toRealPath(LinkOption... options)
+	         throws IOException
+	Name: toRealPath
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#toRealPath-java.nio.file.LinkOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::... {
+			java.nio.file::LinkOption
+		}
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	File toFile()
+	Name: toFile
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#toFile--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.io::File
+	}
+
+	[Function]
+	WatchKey register(WatchService watcher,
+	                  WatchEvent.Kind<?>[] events,
+	                  WatchEvent.Modifier... modifiers)
+	           throws IOException
+	Name: register
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#register-java.nio.file.WatchService-java.nio.file.WatchEvent.Kind:A-java.nio.file.WatchEvent.Modifier...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::WatchService
+		other::[] {
+			java.nio.file::WatchEvent.Kind {
+				?
+			}
+		}
+		other::... {
+			java.nio.file::WatchEvent.Modifier
+		}
+	
+		[result]
+		java.nio.file::WatchKey
+	}
+
+	[Function]
+	WatchKey register(WatchService watcher,
+	                  WatchEvent.Kind<?>... events)
+	           throws IOException
+	Name: register
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#register-java.nio.file.WatchService-java.nio.file.WatchEvent.Kind...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::WatchService
+		other::... {
+			java.nio.file::WatchEvent.Kind {
+				?
+			}
+		}
+	
+		[result]
+		java.nio.file::WatchKey
+	}
+
+	[Function]
+	Iterator<Path> iterator()
+	Name: iterator
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#iterator--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Iterator {
+			java.nio.file::Path
+		}
+	}
+
+	[Function]
+	int compareTo(Path other)
+	Name: compareTo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#compareTo-java.nio.file.Path-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	boolean equals(Object other)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#equals-java.lang.Object-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	int hashCode()
+	Name: hashCode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#hashCode--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html#toString--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Path
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface PathMatcher
+Name: PathMatcher
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/PathMatcher.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	boolean matches(Path path)
+	Name: matches
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/PathMatcher.html#matches-java.nio.file.Path-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: PathMatcher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public interface SecureDirectoryStream<T>
+extends DirectoryStream<T>
+Name: SecureDirectoryStream
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/SecureDirectoryStream.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+}
+supertypes {
+	java.nio.file::DirectoryStream {
+		null::T
+	}
+}
+members {
+
+	[Function]
+	SecureDirectoryStream<T> newDirectoryStream(T path,
+	                                            LinkOption... options)
+	                                     throws IOException
+	Name: newDirectoryStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/SecureDirectoryStream.html#newDirectoryStream-T-java.nio.file.LinkOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SecureDirectoryStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		other::... {
+			java.nio.file::LinkOption
+		}
+	
+		[result]
+		java.nio.file::SecureDirectoryStream {
+			null::T
+		}
+	}
+
+	[Function]
+	SeekableByteChannel newByteChannel(T path,
+	                                   Set<? extends OpenOption> options,
+	                                   FileAttribute<?>... attrs)
+	                            throws IOException
+	Name: newByteChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/SecureDirectoryStream.html#newByteChannel-T-java.util.Set-java.nio.file.attribute.FileAttribute...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SecureDirectoryStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		java.util::Set {
+			? {
+				extends java.nio.file::OpenOption
+			}
+		}
+		other::... {
+			java.nio.file.attribute::FileAttribute {
+				?
+			}
+		}
+	
+		[result]
+		java.nio.channels::SeekableByteChannel
+	}
+
+	[Function]
+	void deleteFile(T path)
+	         throws IOException
+	Name: deleteFile
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/SecureDirectoryStream.html#deleteFile-T-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SecureDirectoryStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void deleteDirectory(T path)
+	              throws IOException
+	Name: deleteDirectory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/SecureDirectoryStream.html#deleteDirectory-T-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SecureDirectoryStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void move(T srcpath,
+	          SecureDirectoryStream<T> targetdir,
+	          T targetpath)
+	   throws IOException
+	Name: move
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/SecureDirectoryStream.html#move-T-java.nio.file.SecureDirectoryStream-T-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SecureDirectoryStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		java.nio.file::SecureDirectoryStream {
+			null::T
+		}
+		null::T
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	<V extends FileAttributeView> V getFileAttributeView(Class<V> type)
+	Name: getFileAttributeView
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/SecureDirectoryStream.html#getFileAttributeView-java.lang.Class-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SecureDirectoryStream
+	parameters {
+		V: (V extends FileAttributeView; V; java.nio.file.attribute::FileAttributeView)
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			null::V
+		}
+	
+		[result]
+		null::V
+	}
+
+	[Function]
+	<V extends FileAttributeView> V getFileAttributeView(T path,
+	                                                     Class<V> type,
+	                                                     LinkOption... options)
+	Name: getFileAttributeView
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/SecureDirectoryStream.html#getFileAttributeView-T-java.lang.Class-java.nio.file.LinkOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SecureDirectoryStream
+	parameters {
+		V: (V extends FileAttributeView; V; java.nio.file.attribute::FileAttributeView)
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		java.lang::Class {
+			null::V
+		}
+		other::... {
+			java.nio.file::LinkOption
+		}
+	
+		[result]
+		null::V
+	}
+}
+
+[Classifier]
+public interface Watchable
+Name: Watchable
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Watchable.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.nio.file::Path
+}
+supertypes {
+}
+members {
+
+	[Function]
+	WatchKey register(WatchService watcher,
+	                  WatchEvent.Kind<?>[] events,
+	                  WatchEvent.Modifier... modifiers)
+	           throws IOException
+	Name: register
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Watchable.html#register-java.nio.file.WatchService-java.nio.file.WatchEvent.Kind:A-java.nio.file.WatchEvent.Modifier...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Watchable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::WatchService
+		other::[] {
+			java.nio.file::WatchEvent.Kind {
+				?
+			}
+		}
+		other::... {
+			java.nio.file::WatchEvent.Modifier
+		}
+	
+		[result]
+		java.nio.file::WatchKey
+	}
+
+	[Function]
+	WatchKey register(WatchService watcher,
+	                  WatchEvent.Kind<?>... events)
+	           throws IOException
+	Name: register
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Watchable.html#register-java.nio.file.WatchService-java.nio.file.WatchEvent.Kind...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Watchable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::WatchService
+		other::... {
+			java.nio.file::WatchEvent.Kind {
+				?
+			}
+		}
+	
+		[result]
+		java.nio.file::WatchKey
+	}
+}
+
+[Classifier]
+public interface WatchEvent<T>
+Name: WatchEvent
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/WatchEvent.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	WatchEvent.Kind<T> kind()
+	Name: kind
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/WatchEvent.html#kind--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WatchEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::WatchEvent.Kind {
+			null::T
+		}
+	}
+
+	[Function]
+	int count()
+	Name: count
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/WatchEvent.html#count--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WatchEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	T context()
+	Name: context
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/WatchEvent.html#context--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WatchEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		null::T
+	}
+}
+
+[Classifier]
+public static interface WatchEvent.Kind<T>
+Name: WatchEvent.Kind
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/WatchEvent.Kind.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=true
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	String name()
+	Name: name
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/WatchEvent.Kind.html#name--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WatchEvent.Kind
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	Class<T> type()
+	Name: type
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/WatchEvent.Kind.html#type--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WatchEvent.Kind
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Class {
+			null::T
+		}
+	}
+}
+
+[Classifier]
+public static interface WatchEvent.Modifier
+Name: WatchEvent.Modifier
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/WatchEvent.Modifier.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=true
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	String name()
+	Name: name
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/WatchEvent.Modifier.html#name--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WatchEvent.Modifier
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public interface WatchKey
+Name: WatchKey
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/WatchKey.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	boolean isValid()
+	Name: isValid
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/WatchKey.html#isValid--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WatchKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	List<WatchEvent<?>> pollEvents()
+	Name: pollEvents
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/WatchKey.html#pollEvents--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WatchKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			java.nio.file::WatchEvent {
+				?
+			}
+		}
+	}
+
+	[Function]
+	boolean reset()
+	Name: reset
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/WatchKey.html#reset--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WatchKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	void cancel()
+	Name: cancel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/WatchKey.html#cancel--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WatchKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	Watchable watchable()
+	Name: watchable
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/WatchKey.html#watchable--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WatchKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::Watchable
+	}
+}
+
+[Classifier]
+public interface WatchService
+extends Closeable
+Name: WatchService
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/WatchService.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::Closeable
+}
+members {
+
+	[Function]
+	void close()
+	    throws IOException
+	Name: close
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/WatchService.html#close--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WatchService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	WatchKey poll()
+	Name: poll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/WatchService.html#poll--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WatchService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::WatchKey
+	}
+
+	[Function]
+	WatchKey poll(long timeout,
+	              TimeUnit unit)
+	       throws InterruptedException
+	Name: poll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/WatchService.html#poll-long-java.util.concurrent.TimeUnit-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WatchService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		java.util.concurrent::TimeUnit
+	
+		[result]
+		java.nio.file::WatchKey
+	}
+
+	[Function]
+	WatchKey take()
+	       throws InterruptedException
+	Name: take
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/WatchService.html#take--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WatchService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::WatchKey
+	}
+}
+
+[Classifier]
+public final class Files
+extends Object
+Name: Files
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static InputStream newInputStream(Path path,
+	                                         OpenOption... options)
+	                                  throws IOException
+	Name: newInputStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#newInputStream-java.nio.file.Path-java.nio.file.OpenOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		other::... {
+			java.nio.file::OpenOption
+		}
+	
+		[result]
+		java.io::InputStream
+	}
+
+	[Function]
+	public static OutputStream newOutputStream(Path path,
+	                                           OpenOption... options)
+	                                    throws IOException
+	Name: newOutputStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#newOutputStream-java.nio.file.Path-java.nio.file.OpenOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		other::... {
+			java.nio.file::OpenOption
+		}
+	
+		[result]
+		java.io::OutputStream
+	}
+
+	[Function]
+	public static SeekableByteChannel newByteChannel(Path path,
+	                                                 Set<? extends OpenOption> options,
+	                                                 FileAttribute<?>... attrs)
+	                                          throws IOException
+	Name: newByteChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#newByteChannel-java.nio.file.Path-java.util.Set-java.nio.file.attribute.FileAttribute...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.util::Set {
+			? {
+				extends java.nio.file::OpenOption
+			}
+		}
+		other::... {
+			java.nio.file.attribute::FileAttribute {
+				?
+			}
+		}
+	
+		[result]
+		java.nio.channels::SeekableByteChannel
+	}
+
+	[Function]
+	public static SeekableByteChannel newByteChannel(Path path,
+	                                                 OpenOption... options)
+	                                          throws IOException
+	Name: newByteChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#newByteChannel-java.nio.file.Path-java.nio.file.OpenOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		other::... {
+			java.nio.file::OpenOption
+		}
+	
+		[result]
+		java.nio.channels::SeekableByteChannel
+	}
+
+	[Function]
+	public static DirectoryStream<Path> newDirectoryStream(Path dir)
+	                                                throws IOException
+	Name: newDirectoryStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#newDirectoryStream-java.nio.file.Path-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		java.nio.file::DirectoryStream {
+			java.nio.file::Path
+		}
+	}
+
+	[Function]
+	public static DirectoryStream<Path> newDirectoryStream(Path dir,
+	                                                       String glob)
+	                                                throws IOException
+	Name: newDirectoryStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#newDirectoryStream-java.nio.file.Path-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.lang::String
+	
+		[result]
+		java.nio.file::DirectoryStream {
+			java.nio.file::Path
+		}
+	}
+
+	[Function]
+	public static DirectoryStream<Path> newDirectoryStream(Path dir,
+	                                                       DirectoryStream.Filter<? super Path> filter)
+	                                                throws IOException
+	Name: newDirectoryStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#newDirectoryStream-java.nio.file.Path-java.nio.file.DirectoryStream.Filter-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.nio.file::DirectoryStream.Filter {
+			? {
+				super java.nio.file::Path
+			}
+		}
+	
+		[result]
+		java.nio.file::DirectoryStream {
+			java.nio.file::Path
+		}
+	}
+
+	[Function]
+	public static Path createFile(Path path,
+	                              FileAttribute<?>... attrs)
+	                       throws IOException
+	Name: createFile
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#createFile-java.nio.file.Path-java.nio.file.attribute.FileAttribute...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		other::... {
+			java.nio.file.attribute::FileAttribute {
+				?
+			}
+		}
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	public static Path createDirectory(Path dir,
+	                                   FileAttribute<?>... attrs)
+	                            throws IOException
+	Name: createDirectory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#createDirectory-java.nio.file.Path-java.nio.file.attribute.FileAttribute...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		other::... {
+			java.nio.file.attribute::FileAttribute {
+				?
+			}
+		}
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	public static Path createDirectories(Path dir,
+	                                     FileAttribute<?>... attrs)
+	                              throws IOException
+	Name: createDirectories
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#createDirectories-java.nio.file.Path-java.nio.file.attribute.FileAttribute...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		other::... {
+			java.nio.file.attribute::FileAttribute {
+				?
+			}
+		}
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	public static Path createTempFile(Path dir,
+	                                  String prefix,
+	                                  String suffix,
+	                                  FileAttribute<?>... attrs)
+	                           throws IOException
+	Name: createTempFile
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#createTempFile-java.nio.file.Path-java.lang.String-java.lang.String-java.nio.file.attribute.FileAttribute...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.lang::String
+		java.lang::String
+		other::... {
+			java.nio.file.attribute::FileAttribute {
+				?
+			}
+		}
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	public static Path createTempFile(String prefix,
+	                                  String suffix,
+	                                  FileAttribute<?>... attrs)
+	                           throws IOException
+	Name: createTempFile
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#createTempFile-java.lang.String-java.lang.String-java.nio.file.attribute.FileAttribute...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		other::... {
+			java.nio.file.attribute::FileAttribute {
+				?
+			}
+		}
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	public static Path createTempDirectory(Path dir,
+	                                       String prefix,
+	                                       FileAttribute<?>... attrs)
+	                                throws IOException
+	Name: createTempDirectory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#createTempDirectory-java.nio.file.Path-java.lang.String-java.nio.file.attribute.FileAttribute...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.lang::String
+		other::... {
+			java.nio.file.attribute::FileAttribute {
+				?
+			}
+		}
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	public static Path createTempDirectory(String prefix,
+	                                       FileAttribute<?>... attrs)
+	                                throws IOException
+	Name: createTempDirectory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#createTempDirectory-java.lang.String-java.nio.file.attribute.FileAttribute...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::... {
+			java.nio.file.attribute::FileAttribute {
+				?
+			}
+		}
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	public static Path createSymbolicLink(Path link,
+	                                      Path target,
+	                                      FileAttribute<?>... attrs)
+	                               throws IOException
+	Name: createSymbolicLink
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#createSymbolicLink-java.nio.file.Path-java.nio.file.Path-java.nio.file.attribute.FileAttribute...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.nio.file::Path
+		other::... {
+			java.nio.file.attribute::FileAttribute {
+				?
+			}
+		}
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	public static Path createLink(Path link,
+	                              Path existing)
+	                       throws IOException
+	Name: createLink
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#createLink-java.nio.file.Path-java.nio.file.Path-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.nio.file::Path
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	public static void delete(Path path)
+	                   throws IOException
+	Name: delete
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#delete-java.nio.file.Path-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static boolean deleteIfExists(Path path)
+	                              throws IOException
+	Name: deleteIfExists
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#deleteIfExists-java.nio.file.Path-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public static Path copy(Path source,
+	                        Path target,
+	                        CopyOption... options)
+	                 throws IOException
+	Name: copy
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#copy-java.nio.file.Path-java.nio.file.Path-java.nio.file.CopyOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.nio.file::Path
+		other::... {
+			java.nio.file::CopyOption
+		}
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	public static Path move(Path source,
+	                        Path target,
+	                        CopyOption... options)
+	                 throws IOException
+	Name: move
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#move-java.nio.file.Path-java.nio.file.Path-java.nio.file.CopyOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.nio.file::Path
+		other::... {
+			java.nio.file::CopyOption
+		}
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	public static Path readSymbolicLink(Path link)
+	                             throws IOException
+	Name: readSymbolicLink
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#readSymbolicLink-java.nio.file.Path-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	public static FileStore getFileStore(Path path)
+	                              throws IOException
+	Name: getFileStore
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#getFileStore-java.nio.file.Path-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		java.nio.file::FileStore
+	}
+
+	[Function]
+	public static boolean isSameFile(Path path,
+	                                 Path path2)
+	                          throws IOException
+	Name: isSameFile
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#isSameFile-java.nio.file.Path-java.nio.file.Path-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.nio.file::Path
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public static boolean isHidden(Path path)
+	                        throws IOException
+	Name: isHidden
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#isHidden-java.nio.file.Path-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public static String probeContentType(Path path)
+	                               throws IOException
+	Name: probeContentType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#probeContentType-java.nio.file.Path-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static <V extends FileAttributeView> V getFileAttributeView(Path path,
+	                                                                   Class<V> type,
+	                                                                   LinkOption... options)
+	Name: getFileAttributeView
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#getFileAttributeView-java.nio.file.Path-java.lang.Class-java.nio.file.LinkOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+		V: (V extends FileAttributeView; V; java.nio.file.attribute::FileAttributeView)
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.lang::Class {
+			null::V
+		}
+		other::... {
+			java.nio.file::LinkOption
+		}
+	
+		[result]
+		null::V
+	}
+
+	[Function]
+	public static <A extends BasicFileAttributes> A readAttributes(Path path,
+	                                                               Class<A> type,
+	                                                               LinkOption... options)
+	                                                        throws IOException
+	Name: readAttributes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#readAttributes-java.nio.file.Path-java.lang.Class-java.nio.file.LinkOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+		A: (A extends BasicFileAttributes; A; java.nio.file.attribute::BasicFileAttributes)
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.lang::Class {
+			null::A
+		}
+		other::... {
+			java.nio.file::LinkOption
+		}
+	
+		[result]
+		null::A
+	}
+
+	[Function]
+	public static Path setAttribute(Path path,
+	                                String attribute,
+	                                Object value,
+	                                LinkOption... options)
+	                         throws IOException
+	Name: setAttribute
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#setAttribute-java.nio.file.Path-java.lang.String-java.lang.Object-java.nio.file.LinkOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.lang::String
+		java.lang::Object
+		other::... {
+			java.nio.file::LinkOption
+		}
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	public static Object getAttribute(Path path,
+	                                  String attribute,
+	                                  LinkOption... options)
+	                           throws IOException
+	Name: getAttribute
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#getAttribute-java.nio.file.Path-java.lang.String-java.nio.file.LinkOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.lang::String
+		other::... {
+			java.nio.file::LinkOption
+		}
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public static Map<String,Object> readAttributes(Path path,
+	                                                String attributes,
+	                                                LinkOption... options)
+	                                         throws IOException
+	Name: readAttributes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#readAttributes-java.nio.file.Path-java.lang.String-java.nio.file.LinkOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.lang::String
+		other::... {
+			java.nio.file::LinkOption
+		}
+	
+		[result]
+		java.util::Map {
+			java.lang::String
+			java.lang::Object
+		}
+	}
+
+	[Function]
+	public static Set<PosixFilePermission> getPosixFilePermissions(Path path,
+	                                                               LinkOption... options)
+	                                                        throws IOException
+	Name: getPosixFilePermissions
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#getPosixFilePermissions-java.nio.file.Path-java.nio.file.LinkOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		other::... {
+			java.nio.file::LinkOption
+		}
+	
+		[result]
+		java.util::Set {
+			java.nio.file.attribute::PosixFilePermission
+		}
+	}
+
+	[Function]
+	public static Path setPosixFilePermissions(Path path,
+	                                           Set<PosixFilePermission> perms)
+	                                    throws IOException
+	Name: setPosixFilePermissions
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#setPosixFilePermissions-java.nio.file.Path-java.util.Set-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.util::Set {
+			java.nio.file.attribute::PosixFilePermission
+		}
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	public static UserPrincipal getOwner(Path path,
+	                                     LinkOption... options)
+	                              throws IOException
+	Name: getOwner
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#getOwner-java.nio.file.Path-java.nio.file.LinkOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		other::... {
+			java.nio.file::LinkOption
+		}
+	
+		[result]
+		java.nio.file.attribute::UserPrincipal
+	}
+
+	[Function]
+	public static Path setOwner(Path path,
+	                            UserPrincipal owner)
+	                     throws IOException
+	Name: setOwner
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#setOwner-java.nio.file.Path-java.nio.file.attribute.UserPrincipal-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.nio.file.attribute::UserPrincipal
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	public static boolean isSymbolicLink(Path path)
+	Name: isSymbolicLink
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#isSymbolicLink-java.nio.file.Path-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public static boolean isDirectory(Path path,
+	                                  LinkOption... options)
+	Name: isDirectory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#isDirectory-java.nio.file.Path-java.nio.file.LinkOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		other::... {
+			java.nio.file::LinkOption
+		}
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public static boolean isRegularFile(Path path,
+	                                    LinkOption... options)
+	Name: isRegularFile
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#isRegularFile-java.nio.file.Path-java.nio.file.LinkOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		other::... {
+			java.nio.file::LinkOption
+		}
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public static FileTime getLastModifiedTime(Path path,
+	                                           LinkOption... options)
+	                                    throws IOException
+	Name: getLastModifiedTime
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#getLastModifiedTime-java.nio.file.Path-java.nio.file.LinkOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		other::... {
+			java.nio.file::LinkOption
+		}
+	
+		[result]
+		java.nio.file.attribute::FileTime
+	}
+
+	[Function]
+	public static Path setLastModifiedTime(Path path,
+	                                       FileTime time)
+	                                throws IOException
+	Name: setLastModifiedTime
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#setLastModifiedTime-java.nio.file.Path-java.nio.file.attribute.FileTime-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.nio.file.attribute::FileTime
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	public static long size(Path path)
+	                 throws IOException
+	Name: size
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#size-java.nio.file.Path-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public static boolean exists(Path path,
+	                             LinkOption... options)
+	Name: exists
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#exists-java.nio.file.Path-java.nio.file.LinkOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		other::... {
+			java.nio.file::LinkOption
+		}
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public static boolean notExists(Path path,
+	                                LinkOption... options)
+	Name: notExists
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#notExists-java.nio.file.Path-java.nio.file.LinkOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		other::... {
+			java.nio.file::LinkOption
+		}
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public static boolean isReadable(Path path)
+	Name: isReadable
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#isReadable-java.nio.file.Path-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public static boolean isWritable(Path path)
+	Name: isWritable
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#isWritable-java.nio.file.Path-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public static boolean isExecutable(Path path)
+	Name: isExecutable
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#isExecutable-java.nio.file.Path-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public static Path walkFileTree(Path start,
+	                                Set<FileVisitOption> options,
+	                                int maxDepth,
+	                                FileVisitor<? super Path> visitor)
+	                         throws IOException
+	Name: walkFileTree
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#walkFileTree-java.nio.file.Path-java.util.Set-int-java.nio.file.FileVisitor-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.util::Set {
+			java.nio.file::FileVisitOption
+		}
+		other::int
+		java.nio.file::FileVisitor {
+			? {
+				super java.nio.file::Path
+			}
+		}
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	public static Path walkFileTree(Path start,
+	                                FileVisitor<? super Path> visitor)
+	                         throws IOException
+	Name: walkFileTree
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#walkFileTree-java.nio.file.Path-java.nio.file.FileVisitor-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.nio.file::FileVisitor {
+			? {
+				super java.nio.file::Path
+			}
+		}
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	public static BufferedReader newBufferedReader(Path path,
+	                                               Charset cs)
+	                                        throws IOException
+	Name: newBufferedReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#newBufferedReader-java.nio.file.Path-java.nio.charset.Charset-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.nio.charset::Charset
+	
+		[result]
+		java.io::BufferedReader
+	}
+
+	[Function]
+	public static BufferedReader newBufferedReader(Path path)
+	                                        throws IOException
+	Name: newBufferedReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#newBufferedReader-java.nio.file.Path-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		java.io::BufferedReader
+	}
+
+	[Function]
+	public static BufferedWriter newBufferedWriter(Path path,
+	                                               Charset cs,
+	                                               OpenOption... options)
+	                                        throws IOException
+	Name: newBufferedWriter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#newBufferedWriter-java.nio.file.Path-java.nio.charset.Charset-java.nio.file.OpenOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.nio.charset::Charset
+		other::... {
+			java.nio.file::OpenOption
+		}
+	
+		[result]
+		java.io::BufferedWriter
+	}
+
+	[Function]
+	public static BufferedWriter newBufferedWriter(Path path,
+	                                               OpenOption... options)
+	                                        throws IOException
+	Name: newBufferedWriter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#newBufferedWriter-java.nio.file.Path-java.nio.file.OpenOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		other::... {
+			java.nio.file::OpenOption
+		}
+	
+		[result]
+		java.io::BufferedWriter
+	}
+
+	[Function]
+	public static long copy(InputStream in,
+	                        Path target,
+	                        CopyOption... options)
+	                 throws IOException
+	Name: copy
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#copy-java.io.InputStream-java.nio.file.Path-java.nio.file.CopyOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::InputStream
+		java.nio.file::Path
+		other::... {
+			java.nio.file::CopyOption
+		}
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public static long copy(Path source,
+	                        OutputStream out)
+	                 throws IOException
+	Name: copy
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#copy-java.nio.file.Path-java.io.OutputStream-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.io::OutputStream
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public static byte[] readAllBytes(Path path)
+	                           throws IOException
+	Name: readAllBytes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#readAllBytes-java.nio.file.Path-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	public static List<String> readAllLines(Path path,
+	                                        Charset cs)
+	                                 throws IOException
+	Name: readAllLines
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#readAllLines-java.nio.file.Path-java.nio.charset.Charset-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.nio.charset::Charset
+	
+		[result]
+		java.util::List {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public static List<String> readAllLines(Path path)
+	                                 throws IOException
+	Name: readAllLines
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#readAllLines-java.nio.file.Path-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		java.util::List {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public static Path write(Path path,
+	                         byte[] bytes,
+	                         OpenOption... options)
+	                  throws IOException
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#write-java.nio.file.Path-byte:A-java.nio.file.OpenOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		other::[] {
+			other::byte
+		}
+		other::... {
+			java.nio.file::OpenOption
+		}
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	public static Path write(Path path,
+	                         Iterable<? extends CharSequence> lines,
+	                         Charset cs,
+	                         OpenOption... options)
+	                  throws IOException
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#write-java.nio.file.Path-java.lang.Iterable-java.nio.charset.Charset-java.nio.file.OpenOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.lang::Iterable {
+			? {
+				extends java.lang::CharSequence
+			}
+		}
+		java.nio.charset::Charset
+		other::... {
+			java.nio.file::OpenOption
+		}
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	public static Path write(Path path,
+	                         Iterable<? extends CharSequence> lines,
+	                         OpenOption... options)
+	                  throws IOException
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#write-java.nio.file.Path-java.lang.Iterable-java.nio.file.OpenOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.lang::Iterable {
+			? {
+				extends java.lang::CharSequence
+			}
+		}
+		other::... {
+			java.nio.file::OpenOption
+		}
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	public static Stream<Path> list(Path dir)
+	                         throws IOException
+	Name: list
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#list-java.nio.file.Path-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		java.util.stream::Stream {
+			java.nio.file::Path
+		}
+	}
+
+	[Function]
+	public static Stream<Path> walk(Path start,
+	                                int maxDepth,
+	                                FileVisitOption... options)
+	                         throws IOException
+	Name: walk
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#walk-java.nio.file.Path-int-java.nio.file.FileVisitOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		other::int
+		other::... {
+			java.nio.file::FileVisitOption
+		}
+	
+		[result]
+		java.util.stream::Stream {
+			java.nio.file::Path
+		}
+	}
+
+	[Function]
+	public static Stream<Path> walk(Path start,
+	                                FileVisitOption... options)
+	                         throws IOException
+	Name: walk
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#walk-java.nio.file.Path-java.nio.file.FileVisitOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		other::... {
+			java.nio.file::FileVisitOption
+		}
+	
+		[result]
+		java.util.stream::Stream {
+			java.nio.file::Path
+		}
+	}
+
+	[Function]
+	public static Stream<Path> find(Path start,
+	                                int maxDepth,
+	                                BiPredicate<Path,BasicFileAttributes> matcher,
+	                                FileVisitOption... options)
+	                         throws IOException
+	Name: find
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#find-java.nio.file.Path-int-java.util.function.BiPredicate-java.nio.file.FileVisitOption...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		other::int
+		java.util.function::BiPredicate {
+			java.nio.file::Path
+			java.nio.file.attribute::BasicFileAttributes
+		}
+		other::... {
+			java.nio.file::FileVisitOption
+		}
+	
+		[result]
+		java.util.stream::Stream {
+			java.nio.file::Path
+		}
+	}
+
+	[Function]
+	public static Stream<String> lines(Path path,
+	                                   Charset cs)
+	                            throws IOException
+	Name: lines
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#lines-java.nio.file.Path-java.nio.charset.Charset-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.nio.charset::Charset
+	
+		[result]
+		java.util.stream::Stream {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public static Stream<String> lines(Path path)
+	                            throws IOException
+	Name: lines
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#lines-java.nio.file.Path-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Files
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		java.util.stream::Stream {
+			java.lang::String
+		}
+	}
+}
+
+[Classifier]
+public abstract class FileStore
+extends Object
+Name: FileStore
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileStore.html
+Containing package: java.nio.file
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected FileStore()
+	Name: FileStore
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileStore.html#FileStore--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: FileStore
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::FileStore
+	}
+
+	[Function]
+	public abstract String name()
+	Name: name
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileStore.html#name--
+	Containing package: java.nio.file
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileStore
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public abstract String type()
+	Name: type
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileStore.html#type--
+	Containing package: java.nio.file
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileStore
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public abstract boolean isReadOnly()
+	Name: isReadOnly
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileStore.html#isReadOnly--
+	Containing package: java.nio.file
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileStore
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract long getTotalSpace()
+	                            throws IOException
+	Name: getTotalSpace
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileStore.html#getTotalSpace--
+	Containing package: java.nio.file
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileStore
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public abstract long getUsableSpace()
+	                             throws IOException
+	Name: getUsableSpace
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileStore.html#getUsableSpace--
+	Containing package: java.nio.file
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileStore
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public abstract long getUnallocatedSpace()
+	                                  throws IOException
+	Name: getUnallocatedSpace
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileStore.html#getUnallocatedSpace--
+	Containing package: java.nio.file
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileStore
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public abstract boolean supportsFileAttributeView(Class<? extends FileAttributeView> type)
+	Name: supportsFileAttributeView
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileStore.html#supportsFileAttributeView-java.lang.Class-
+	Containing package: java.nio.file
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileStore
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			? {
+				extends java.nio.file.attribute::FileAttributeView
+			}
+		}
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract boolean supportsFileAttributeView(String name)
+	Name: supportsFileAttributeView
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileStore.html#supportsFileAttributeView-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileStore
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract <V extends FileStoreAttributeView> V getFileStoreAttributeView(Class<V> type)
+	Name: getFileStoreAttributeView
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileStore.html#getFileStoreAttributeView-java.lang.Class-
+	Containing package: java.nio.file
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileStore
+	parameters {
+		V: (V extends FileStoreAttributeView; V; java.nio.file.attribute::FileStoreAttributeView)
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			null::V
+		}
+	
+		[result]
+		null::V
+	}
+
+	[Function]
+	public abstract Object getAttribute(String attribute)
+	                             throws IOException
+	Name: getAttribute
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileStore.html#getAttribute-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileStore
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::Object
+	}
+}
+
+[Classifier]
+public abstract class FileSystem
+extends Object
+implements Closeable
+Name: FileSystem
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystem.html
+Containing package: java.nio.file
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::Closeable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected FileSystem()
+	Name: FileSystem
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystem.html#FileSystem--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: FileSystem
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::FileSystem
+	}
+
+	[Function]
+	public abstract FileSystemProvider provider()
+	Name: provider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystem.html#provider--
+	Containing package: java.nio.file
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystem
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file.spi::FileSystemProvider
+	}
+
+	[Function]
+	public abstract void close()
+	                    throws IOException
+	Name: close
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystem.html#close--
+	Containing package: java.nio.file
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystem
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract boolean isOpen()
+	Name: isOpen
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystem.html#isOpen--
+	Containing package: java.nio.file
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystem
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract boolean isReadOnly()
+	Name: isReadOnly
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystem.html#isReadOnly--
+	Containing package: java.nio.file
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystem
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract String getSeparator()
+	Name: getSeparator
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystem.html#getSeparator--
+	Containing package: java.nio.file
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystem
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public abstract Iterable<Path> getRootDirectories()
+	Name: getRootDirectories
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystem.html#getRootDirectories--
+	Containing package: java.nio.file
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystem
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Iterable {
+			java.nio.file::Path
+		}
+	}
+
+	[Function]
+	public abstract Iterable<FileStore> getFileStores()
+	Name: getFileStores
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystem.html#getFileStores--
+	Containing package: java.nio.file
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystem
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Iterable {
+			java.nio.file::FileStore
+		}
+	}
+
+	[Function]
+	public abstract Set<String> supportedFileAttributeViews()
+	Name: supportedFileAttributeViews
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystem.html#supportedFileAttributeViews--
+	Containing package: java.nio.file
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystem
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Set {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public abstract Path getPath(String first,
+	                             String... more)
+	Name: getPath
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystem.html#getPath-java.lang.String-java.lang.String...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystem
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::... {
+			java.lang::String
+		}
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	public abstract PathMatcher getPathMatcher(String syntaxAndPattern)
+	Name: getPathMatcher
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystem.html#getPathMatcher-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystem
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.nio.file::PathMatcher
+	}
+
+	[Function]
+	public abstract UserPrincipalLookupService getUserPrincipalLookupService()
+	Name: getUserPrincipalLookupService
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystem.html#getUserPrincipalLookupService--
+	Containing package: java.nio.file
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystem
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file.attribute::UserPrincipalLookupService
+	}
+
+	[Function]
+	public abstract WatchService newWatchService()
+	                                      throws IOException
+	Name: newWatchService
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystem.html#newWatchService--
+	Containing package: java.nio.file
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystem
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::WatchService
+	}
+}
+
+[Classifier]
+public final class FileSystems
+extends Object
+Name: FileSystems
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystems.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static FileSystem getDefault()
+	Name: getDefault
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystems.html#getDefault--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystems
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::FileSystem
+	}
+
+	[Function]
+	public static FileSystem getFileSystem(URI uri)
+	Name: getFileSystem
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystems.html#getFileSystem-java.net.URI-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystems
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::URI
+	
+		[result]
+		java.nio.file::FileSystem
+	}
+
+	[Function]
+	public static FileSystem newFileSystem(URI uri,
+	                                       Map<String,?> env)
+	                                throws IOException
+	Name: newFileSystem
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystems.html#newFileSystem-java.net.URI-java.util.Map-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystems
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::URI
+		java.util::Map {
+			java.lang::String
+			?
+		}
+	
+		[result]
+		java.nio.file::FileSystem
+	}
+
+	[Function]
+	public static FileSystem newFileSystem(URI uri,
+	                                       Map<String,?> env,
+	                                       ClassLoader loader)
+	                                throws IOException
+	Name: newFileSystem
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystems.html#newFileSystem-java.net.URI-java.util.Map-java.lang.ClassLoader-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystems
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::URI
+		java.util::Map {
+			java.lang::String
+			?
+		}
+		java.lang::ClassLoader
+	
+		[result]
+		java.nio.file::FileSystem
+	}
+
+	[Function]
+	public static FileSystem newFileSystem(Path path,
+	                                       ClassLoader loader)
+	                                throws IOException
+	Name: newFileSystem
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystems.html#newFileSystem-java.nio.file.Path-java.lang.ClassLoader-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystems
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.lang::ClassLoader
+	
+		[result]
+		java.nio.file::FileSystem
+	}
+}
+
+[Classifier]
+public final class LinkPermission
+extends BasicPermission
+Name: LinkPermission
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/LinkPermission.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.security::BasicPermission
+}
+members {
+
+	[Function]
+	public LinkPermission(String name)
+	Name: LinkPermission
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/LinkPermission.html#LinkPermission-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: LinkPermission
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.nio.file::LinkPermission
+	}
+
+	[Function]
+	public LinkPermission(String name,
+	                      String actions)
+	Name: LinkPermission
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/LinkPermission.html#LinkPermission-java.lang.String-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: LinkPermission
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		java.nio.file::LinkPermission
+	}
+}
+
+[Classifier]
+public final class Paths
+extends Object
+Name: Paths
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Paths.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static Path get(String first,
+	                       String... more)
+	Name: get
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Paths.html#get-java.lang.String-java.lang.String...-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Paths
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::... {
+			java.lang::String
+		}
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	public static Path get(URI uri)
+	Name: get
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Paths.html#get-java.net.URI-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Paths
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::URI
+	
+		[result]
+		java.nio.file::Path
+	}
+}
+
+[Classifier]
+public class SimpleFileVisitor<T>
+extends Object
+implements FileVisitor<T>
+Name: SimpleFileVisitor
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/SimpleFileVisitor.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+}
+supertypes {
+	java.nio.file::FileVisitor {
+		null::T
+	}
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected SimpleFileVisitor()
+	Name: SimpleFileVisitor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/SimpleFileVisitor.html#SimpleFileVisitor--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: SimpleFileVisitor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::SimpleFileVisitor
+	}
+
+	[Function]
+	public FileVisitResult preVisitDirectory(T dir,
+	                                         BasicFileAttributes attrs)
+	                                  throws IOException
+	Name: preVisitDirectory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/SimpleFileVisitor.html#preVisitDirectory-T-java.nio.file.attribute.BasicFileAttributes-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleFileVisitor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		java.nio.file.attribute::BasicFileAttributes
+	
+		[result]
+		java.nio.file::FileVisitResult
+	}
+
+	[Function]
+	public FileVisitResult visitFile(T file,
+	                                 BasicFileAttributes attrs)
+	                          throws IOException
+	Name: visitFile
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/SimpleFileVisitor.html#visitFile-T-java.nio.file.attribute.BasicFileAttributes-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleFileVisitor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		java.nio.file.attribute::BasicFileAttributes
+	
+		[result]
+		java.nio.file::FileVisitResult
+	}
+
+	[Function]
+	public FileVisitResult visitFileFailed(T file,
+	                                       IOException exc)
+	                                throws IOException
+	Name: visitFileFailed
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/SimpleFileVisitor.html#visitFileFailed-T-java.io.IOException-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleFileVisitor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		java.io::IOException
+	
+		[result]
+		java.nio.file::FileVisitResult
+	}
+
+	[Function]
+	public FileVisitResult postVisitDirectory(T dir,
+	                                          IOException exc)
+	                                   throws IOException
+	Name: postVisitDirectory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/SimpleFileVisitor.html#postVisitDirectory-T-java.io.IOException-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleFileVisitor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		java.io::IOException
+	
+		[result]
+		java.nio.file::FileVisitResult
+	}
+}
+
+[Classifier]
+public final class StandardWatchEventKinds
+extends Object
+Name: StandardWatchEventKinds
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/StandardWatchEventKinds.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static final WatchEvent.Kind<Object> OVERFLOW
+	Name: OVERFLOW
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/StandardWatchEventKinds.html#OVERFLOW
+	Containing package: java.nio.file
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: StandardWatchEventKinds
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::WatchEvent.Kind {
+			java.lang::Object
+		}
+	}
+
+	[Function]
+	public static final WatchEvent.Kind<Path> ENTRY_CREATE
+	Name: ENTRY_CREATE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/StandardWatchEventKinds.html#ENTRY_CREATE
+	Containing package: java.nio.file
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: StandardWatchEventKinds
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::WatchEvent.Kind {
+			java.nio.file::Path
+		}
+	}
+
+	[Function]
+	public static final WatchEvent.Kind<Path> ENTRY_DELETE
+	Name: ENTRY_DELETE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/StandardWatchEventKinds.html#ENTRY_DELETE
+	Containing package: java.nio.file
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: StandardWatchEventKinds
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::WatchEvent.Kind {
+			java.nio.file::Path
+		}
+	}
+
+	[Function]
+	public static final WatchEvent.Kind<Path> ENTRY_MODIFY
+	Name: ENTRY_MODIFY
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/StandardWatchEventKinds.html#ENTRY_MODIFY
+	Containing package: java.nio.file
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: StandardWatchEventKinds
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::WatchEvent.Kind {
+			java.nio.file::Path
+		}
+	}
+}
+
+[Classifier]
+public enum AccessMode
+extends Enum<AccessMode>
+Name: AccessMode
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/AccessMode.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=enum
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Enum {
+		java.nio.file::AccessMode
+	}
+}
+members {
+
+	[Function]
+	public static final AccessMode READ
+	Name: READ
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/AccessMode.html#READ
+	Containing package: java.nio.file
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: AccessMode
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::AccessMode
+	}
+
+	[Function]
+	public static final AccessMode WRITE
+	Name: WRITE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/AccessMode.html#WRITE
+	Containing package: java.nio.file
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: AccessMode
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::AccessMode
+	}
+
+	[Function]
+	public static final AccessMode EXECUTE
+	Name: EXECUTE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/AccessMode.html#EXECUTE
+	Containing package: java.nio.file
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: AccessMode
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::AccessMode
+	}
+
+	[Function]
+	public static AccessMode[] values()
+	Name: values
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/AccessMode.html#values--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: AccessMode
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.nio.file::AccessMode
+		}
+	}
+
+	[Function]
+	public static AccessMode valueOf(String name)
+	Name: valueOf
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/AccessMode.html#valueOf-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: AccessMode
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.nio.file::AccessMode
+	}
+}
+
+[Classifier]
+public enum FileVisitOption
+extends Enum<FileVisitOption>
+Name: FileVisitOption
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileVisitOption.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=enum
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Enum {
+		java.nio.file::FileVisitOption
+	}
+}
+members {
+
+	[Function]
+	public static final FileVisitOption FOLLOW_LINKS
+	Name: FOLLOW_LINKS
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileVisitOption.html#FOLLOW_LINKS
+	Containing package: java.nio.file
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: FileVisitOption
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::FileVisitOption
+	}
+
+	[Function]
+	public static FileVisitOption[] values()
+	Name: values
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileVisitOption.html#values--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileVisitOption
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.nio.file::FileVisitOption
+		}
+	}
+
+	[Function]
+	public static FileVisitOption valueOf(String name)
+	Name: valueOf
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileVisitOption.html#valueOf-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileVisitOption
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.nio.file::FileVisitOption
+	}
+}
+
+[Classifier]
+public enum FileVisitResult
+extends Enum<FileVisitResult>
+Name: FileVisitResult
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileVisitResult.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=enum
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Enum {
+		java.nio.file::FileVisitResult
+	}
+}
+members {
+
+	[Function]
+	public static final FileVisitResult CONTINUE
+	Name: CONTINUE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileVisitResult.html#CONTINUE
+	Containing package: java.nio.file
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: FileVisitResult
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::FileVisitResult
+	}
+
+	[Function]
+	public static final FileVisitResult TERMINATE
+	Name: TERMINATE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileVisitResult.html#TERMINATE
+	Containing package: java.nio.file
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: FileVisitResult
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::FileVisitResult
+	}
+
+	[Function]
+	public static final FileVisitResult SKIP_SUBTREE
+	Name: SKIP_SUBTREE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileVisitResult.html#SKIP_SUBTREE
+	Containing package: java.nio.file
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: FileVisitResult
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::FileVisitResult
+	}
+
+	[Function]
+	public static final FileVisitResult SKIP_SIBLINGS
+	Name: SKIP_SIBLINGS
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileVisitResult.html#SKIP_SIBLINGS
+	Containing package: java.nio.file
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: FileVisitResult
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::FileVisitResult
+	}
+
+	[Function]
+	public static FileVisitResult[] values()
+	Name: values
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileVisitResult.html#values--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileVisitResult
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.nio.file::FileVisitResult
+		}
+	}
+
+	[Function]
+	public static FileVisitResult valueOf(String name)
+	Name: valueOf
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileVisitResult.html#valueOf-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileVisitResult
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.nio.file::FileVisitResult
+	}
+}
+
+[Classifier]
+public enum LinkOption
+extends Enum<LinkOption>
+implements OpenOption, CopyOption
+Name: LinkOption
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/LinkOption.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=enum
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.nio.file::OpenOption
+	java.nio.file::CopyOption
+	java.lang::Enum {
+		java.nio.file::LinkOption
+	}
+}
+members {
+
+	[Function]
+	public static final LinkOption NOFOLLOW_LINKS
+	Name: NOFOLLOW_LINKS
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/LinkOption.html#NOFOLLOW_LINKS
+	Containing package: java.nio.file
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: LinkOption
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::LinkOption
+	}
+
+	[Function]
+	public static LinkOption[] values()
+	Name: values
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/LinkOption.html#values--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: LinkOption
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.nio.file::LinkOption
+		}
+	}
+
+	[Function]
+	public static LinkOption valueOf(String name)
+	Name: valueOf
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/LinkOption.html#valueOf-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: LinkOption
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.nio.file::LinkOption
+	}
+}
+
+[Classifier]
+public enum StandardCopyOption
+extends Enum<StandardCopyOption>
+implements CopyOption
+Name: StandardCopyOption
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/StandardCopyOption.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=enum
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.nio.file::CopyOption
+	java.lang::Enum {
+		java.nio.file::StandardCopyOption
+	}
+}
+members {
+
+	[Function]
+	public static final StandardCopyOption REPLACE_EXISTING
+	Name: REPLACE_EXISTING
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/StandardCopyOption.html#REPLACE_EXISTING
+	Containing package: java.nio.file
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: StandardCopyOption
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::StandardCopyOption
+	}
+
+	[Function]
+	public static final StandardCopyOption COPY_ATTRIBUTES
+	Name: COPY_ATTRIBUTES
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/StandardCopyOption.html#COPY_ATTRIBUTES
+	Containing package: java.nio.file
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: StandardCopyOption
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::StandardCopyOption
+	}
+
+	[Function]
+	public static final StandardCopyOption ATOMIC_MOVE
+	Name: ATOMIC_MOVE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/StandardCopyOption.html#ATOMIC_MOVE
+	Containing package: java.nio.file
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: StandardCopyOption
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::StandardCopyOption
+	}
+
+	[Function]
+	public static StandardCopyOption[] values()
+	Name: values
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/StandardCopyOption.html#values--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: StandardCopyOption
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.nio.file::StandardCopyOption
+		}
+	}
+
+	[Function]
+	public static StandardCopyOption valueOf(String name)
+	Name: valueOf
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/StandardCopyOption.html#valueOf-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: StandardCopyOption
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.nio.file::StandardCopyOption
+	}
+}
+
+[Classifier]
+public enum StandardOpenOption
+extends Enum<StandardOpenOption>
+implements OpenOption
+Name: StandardOpenOption
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/StandardOpenOption.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=enum
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.nio.file::OpenOption
+	java.lang::Enum {
+		java.nio.file::StandardOpenOption
+	}
+}
+members {
+
+	[Function]
+	public static final StandardOpenOption READ
+	Name: READ
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/StandardOpenOption.html#READ
+	Containing package: java.nio.file
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: StandardOpenOption
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::StandardOpenOption
+	}
+
+	[Function]
+	public static final StandardOpenOption WRITE
+	Name: WRITE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/StandardOpenOption.html#WRITE
+	Containing package: java.nio.file
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: StandardOpenOption
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::StandardOpenOption
+	}
+
+	[Function]
+	public static final StandardOpenOption APPEND
+	Name: APPEND
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/StandardOpenOption.html#APPEND
+	Containing package: java.nio.file
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: StandardOpenOption
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::StandardOpenOption
+	}
+
+	[Function]
+	public static final StandardOpenOption TRUNCATE_EXISTING
+	Name: TRUNCATE_EXISTING
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/StandardOpenOption.html#TRUNCATE_EXISTING
+	Containing package: java.nio.file
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: StandardOpenOption
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::StandardOpenOption
+	}
+
+	[Function]
+	public static final StandardOpenOption CREATE
+	Name: CREATE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/StandardOpenOption.html#CREATE
+	Containing package: java.nio.file
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: StandardOpenOption
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::StandardOpenOption
+	}
+
+	[Function]
+	public static final StandardOpenOption CREATE_NEW
+	Name: CREATE_NEW
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/StandardOpenOption.html#CREATE_NEW
+	Containing package: java.nio.file
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: StandardOpenOption
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::StandardOpenOption
+	}
+
+	[Function]
+	public static final StandardOpenOption DELETE_ON_CLOSE
+	Name: DELETE_ON_CLOSE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/StandardOpenOption.html#DELETE_ON_CLOSE
+	Containing package: java.nio.file
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: StandardOpenOption
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::StandardOpenOption
+	}
+
+	[Function]
+	public static final StandardOpenOption SPARSE
+	Name: SPARSE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/StandardOpenOption.html#SPARSE
+	Containing package: java.nio.file
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: StandardOpenOption
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::StandardOpenOption
+	}
+
+	[Function]
+	public static final StandardOpenOption SYNC
+	Name: SYNC
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/StandardOpenOption.html#SYNC
+	Containing package: java.nio.file
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: StandardOpenOption
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::StandardOpenOption
+	}
+
+	[Function]
+	public static final StandardOpenOption DSYNC
+	Name: DSYNC
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/StandardOpenOption.html#DSYNC
+	Containing package: java.nio.file
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: StandardOpenOption
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::StandardOpenOption
+	}
+
+	[Function]
+	public static StandardOpenOption[] values()
+	Name: values
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/StandardOpenOption.html#values--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: StandardOpenOption
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.nio.file::StandardOpenOption
+		}
+	}
+
+	[Function]
+	public static StandardOpenOption valueOf(String name)
+	Name: valueOf
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/StandardOpenOption.html#valueOf-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: StandardOpenOption
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.nio.file::StandardOpenOption
+	}
+}
+
+[Classifier]
+public class AccessDeniedException
+extends FileSystemException
+Name: AccessDeniedException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/AccessDeniedException.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.nio.file::FileSystemException
+}
+members {
+
+	[Function]
+	public AccessDeniedException(String file)
+	Name: AccessDeniedException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/AccessDeniedException.html#AccessDeniedException-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AccessDeniedException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.nio.file::AccessDeniedException
+	}
+
+	[Function]
+	public AccessDeniedException(String file,
+	                             String other,
+	                             String reason)
+	Name: AccessDeniedException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/AccessDeniedException.html#AccessDeniedException-java.lang.String-java.lang.String-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AccessDeniedException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		java.nio.file::AccessDeniedException
+	}
+}
+
+[Classifier]
+public class AtomicMoveNotSupportedException
+extends FileSystemException
+Name: AtomicMoveNotSupportedException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/AtomicMoveNotSupportedException.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.nio.file::FileSystemException
+}
+members {
+
+	[Function]
+	public AtomicMoveNotSupportedException(String source,
+	                                       String target,
+	                                       String reason)
+	Name: AtomicMoveNotSupportedException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/AtomicMoveNotSupportedException.html#AtomicMoveNotSupportedException-java.lang.String-java.lang.String-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AtomicMoveNotSupportedException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		java.nio.file::AtomicMoveNotSupportedException
+	}
+}
+
+[Classifier]
+public class ClosedDirectoryStreamException
+extends IllegalStateException
+Name: ClosedDirectoryStreamException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/ClosedDirectoryStreamException.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::IllegalStateException
+}
+members {
+
+	[Function]
+	public ClosedDirectoryStreamException()
+	Name: ClosedDirectoryStreamException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/ClosedDirectoryStreamException.html#ClosedDirectoryStreamException--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ClosedDirectoryStreamException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::ClosedDirectoryStreamException
+	}
+}
+
+[Classifier]
+public class ClosedFileSystemException
+extends IllegalStateException
+Name: ClosedFileSystemException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/ClosedFileSystemException.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::IllegalStateException
+}
+members {
+
+	[Function]
+	public ClosedFileSystemException()
+	Name: ClosedFileSystemException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/ClosedFileSystemException.html#ClosedFileSystemException--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ClosedFileSystemException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::ClosedFileSystemException
+	}
+}
+
+[Classifier]
+public class ClosedWatchServiceException
+extends IllegalStateException
+Name: ClosedWatchServiceException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/ClosedWatchServiceException.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::IllegalStateException
+}
+members {
+
+	[Function]
+	public ClosedWatchServiceException()
+	Name: ClosedWatchServiceException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/ClosedWatchServiceException.html#ClosedWatchServiceException--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ClosedWatchServiceException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::ClosedWatchServiceException
+	}
+}
+
+[Classifier]
+public final class DirectoryIteratorException
+extends ConcurrentModificationException
+Name: DirectoryIteratorException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/DirectoryIteratorException.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.util::ConcurrentModificationException
+}
+members {
+
+	[Function]
+	public DirectoryIteratorException(IOException cause)
+	Name: DirectoryIteratorException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/DirectoryIteratorException.html#DirectoryIteratorException-java.io.IOException-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: DirectoryIteratorException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::IOException
+	
+		[result]
+		java.nio.file::DirectoryIteratorException
+	}
+
+	[Function]
+	public IOException getCause()
+	Name: getCause
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/DirectoryIteratorException.html#getCause--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DirectoryIteratorException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.io::IOException
+	}
+}
+
+[Classifier]
+public class DirectoryNotEmptyException
+extends FileSystemException
+Name: DirectoryNotEmptyException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/DirectoryNotEmptyException.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.nio.file::FileSystemException
+}
+members {
+
+	[Function]
+	public DirectoryNotEmptyException(String dir)
+	Name: DirectoryNotEmptyException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/DirectoryNotEmptyException.html#DirectoryNotEmptyException-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: DirectoryNotEmptyException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.nio.file::DirectoryNotEmptyException
+	}
+}
+
+[Classifier]
+public class FileAlreadyExistsException
+extends FileSystemException
+Name: FileAlreadyExistsException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileAlreadyExistsException.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.nio.file::FileSystemException
+}
+members {
+
+	[Function]
+	public FileAlreadyExistsException(String file)
+	Name: FileAlreadyExistsException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileAlreadyExistsException.html#FileAlreadyExistsException-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: FileAlreadyExistsException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.nio.file::FileAlreadyExistsException
+	}
+
+	[Function]
+	public FileAlreadyExistsException(String file,
+	                                  String other,
+	                                  String reason)
+	Name: FileAlreadyExistsException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileAlreadyExistsException.html#FileAlreadyExistsException-java.lang.String-java.lang.String-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: FileAlreadyExistsException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		java.nio.file::FileAlreadyExistsException
+	}
+}
+
+[Classifier]
+public class FileSystemAlreadyExistsException
+extends RuntimeException
+Name: FileSystemAlreadyExistsException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystemAlreadyExistsException.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::RuntimeException
+}
+members {
+
+	[Function]
+	public FileSystemAlreadyExistsException()
+	Name: FileSystemAlreadyExistsException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystemAlreadyExistsException.html#FileSystemAlreadyExistsException--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: FileSystemAlreadyExistsException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::FileSystemAlreadyExistsException
+	}
+
+	[Function]
+	public FileSystemAlreadyExistsException(String msg)
+	Name: FileSystemAlreadyExistsException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystemAlreadyExistsException.html#FileSystemAlreadyExistsException-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: FileSystemAlreadyExistsException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.nio.file::FileSystemAlreadyExistsException
+	}
+}
+
+[Classifier]
+public class FileSystemException
+extends IOException
+Name: FileSystemException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystemException.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.nio.file::AccessDeniedException
+	java.nio.file::AtomicMoveNotSupportedException
+	java.nio.file::DirectoryNotEmptyException
+	java.nio.file::NoSuchFileException
+	java.nio.file::FileAlreadyExistsException
+	java.nio.file::FileSystemLoopException
+	java.nio.file::NotLinkException
+	java.nio.file::NotDirectoryException
+}
+supertypes {
+	java.io::IOException
+}
+members {
+
+	[Function]
+	public FileSystemException(String file)
+	Name: FileSystemException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystemException.html#FileSystemException-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: FileSystemException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.nio.file::FileSystemException
+	}
+
+	[Function]
+	public FileSystemException(String file,
+	                           String other,
+	                           String reason)
+	Name: FileSystemException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystemException.html#FileSystemException-java.lang.String-java.lang.String-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: FileSystemException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		java.nio.file::FileSystemException
+	}
+
+	[Function]
+	public String getFile()
+	Name: getFile
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystemException.html#getFile--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getOtherFile()
+	Name: getOtherFile
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystemException.html#getOtherFile--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getReason()
+	Name: getReason
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystemException.html#getReason--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getMessage()
+	Name: getMessage
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystemException.html#getMessage--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public class FileSystemLoopException
+extends FileSystemException
+Name: FileSystemLoopException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystemLoopException.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.nio.file::FileSystemException
+}
+members {
+
+	[Function]
+	public FileSystemLoopException(String file)
+	Name: FileSystemLoopException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystemLoopException.html#FileSystemLoopException-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: FileSystemLoopException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.nio.file::FileSystemLoopException
+	}
+}
+
+[Classifier]
+public class FileSystemNotFoundException
+extends RuntimeException
+Name: FileSystemNotFoundException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystemNotFoundException.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::RuntimeException
+}
+members {
+
+	[Function]
+	public FileSystemNotFoundException()
+	Name: FileSystemNotFoundException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystemNotFoundException.html#FileSystemNotFoundException--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: FileSystemNotFoundException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::FileSystemNotFoundException
+	}
+
+	[Function]
+	public FileSystemNotFoundException(String msg)
+	Name: FileSystemNotFoundException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystemNotFoundException.html#FileSystemNotFoundException-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: FileSystemNotFoundException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.nio.file::FileSystemNotFoundException
+	}
+}
+
+[Classifier]
+public class InvalidPathException
+extends IllegalArgumentException
+Name: InvalidPathException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/InvalidPathException.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::IllegalArgumentException
+}
+members {
+
+	[Function]
+	public InvalidPathException(String input,
+	                            String reason,
+	                            int index)
+	Name: InvalidPathException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/InvalidPathException.html#InvalidPathException-java.lang.String-java.lang.String-int-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: InvalidPathException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		other::int
+	
+		[result]
+		java.nio.file::InvalidPathException
+	}
+
+	[Function]
+	public InvalidPathException(String input,
+	                            String reason)
+	Name: InvalidPathException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/InvalidPathException.html#InvalidPathException-java.lang.String-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: InvalidPathException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		java.nio.file::InvalidPathException
+	}
+
+	[Function]
+	public String getInput()
+	Name: getInput
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/InvalidPathException.html#getInput--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: InvalidPathException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getReason()
+	Name: getReason
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/InvalidPathException.html#getReason--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: InvalidPathException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public int getIndex()
+	Name: getIndex
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/InvalidPathException.html#getIndex--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: InvalidPathException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public String getMessage()
+	Name: getMessage
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/InvalidPathException.html#getMessage--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: InvalidPathException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public class NoSuchFileException
+extends FileSystemException
+Name: NoSuchFileException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/NoSuchFileException.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.nio.file::FileSystemException
+}
+members {
+
+	[Function]
+	public NoSuchFileException(String file)
+	Name: NoSuchFileException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/NoSuchFileException.html#NoSuchFileException-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: NoSuchFileException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.nio.file::NoSuchFileException
+	}
+
+	[Function]
+	public NoSuchFileException(String file,
+	                           String other,
+	                           String reason)
+	Name: NoSuchFileException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/NoSuchFileException.html#NoSuchFileException-java.lang.String-java.lang.String-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: NoSuchFileException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		java.nio.file::NoSuchFileException
+	}
+}
+
+[Classifier]
+public class NotDirectoryException
+extends FileSystemException
+Name: NotDirectoryException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/NotDirectoryException.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.nio.file::FileSystemException
+}
+members {
+
+	[Function]
+	public NotDirectoryException(String file)
+	Name: NotDirectoryException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/NotDirectoryException.html#NotDirectoryException-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: NotDirectoryException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.nio.file::NotDirectoryException
+	}
+}
+
+[Classifier]
+public class NotLinkException
+extends FileSystemException
+Name: NotLinkException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/NotLinkException.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.nio.file::FileSystemException
+}
+members {
+
+	[Function]
+	public NotLinkException(String file)
+	Name: NotLinkException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/NotLinkException.html#NotLinkException-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: NotLinkException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.nio.file::NotLinkException
+	}
+
+	[Function]
+	public NotLinkException(String file,
+	                        String other,
+	                        String reason)
+	Name: NotLinkException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/NotLinkException.html#NotLinkException-java.lang.String-java.lang.String-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: NotLinkException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		java.nio.file::NotLinkException
+	}
+}
+
+[Classifier]
+public class ProviderMismatchException
+extends IllegalArgumentException
+Name: ProviderMismatchException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/ProviderMismatchException.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::IllegalArgumentException
+}
+members {
+
+	[Function]
+	public ProviderMismatchException()
+	Name: ProviderMismatchException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/ProviderMismatchException.html#ProviderMismatchException--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ProviderMismatchException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::ProviderMismatchException
+	}
+
+	[Function]
+	public ProviderMismatchException(String msg)
+	Name: ProviderMismatchException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/ProviderMismatchException.html#ProviderMismatchException-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ProviderMismatchException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.nio.file::ProviderMismatchException
+	}
+}
+
+[Classifier]
+public class ProviderNotFoundException
+extends RuntimeException
+Name: ProviderNotFoundException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/ProviderNotFoundException.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::RuntimeException
+}
+members {
+
+	[Function]
+	public ProviderNotFoundException()
+	Name: ProviderNotFoundException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/ProviderNotFoundException.html#ProviderNotFoundException--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ProviderNotFoundException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::ProviderNotFoundException
+	}
+
+	[Function]
+	public ProviderNotFoundException(String msg)
+	Name: ProviderNotFoundException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/ProviderNotFoundException.html#ProviderNotFoundException-java.lang.String-
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ProviderNotFoundException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.nio.file::ProviderNotFoundException
+	}
+}
+
+[Classifier]
+public class ReadOnlyFileSystemException
+extends UnsupportedOperationException
+Name: ReadOnlyFileSystemException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/ReadOnlyFileSystemException.html
+Containing package: java.nio.file
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::UnsupportedOperationException
+}
+members {
+
+	[Function]
+	public ReadOnlyFileSystemException()
+	Name: ReadOnlyFileSystemException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/ReadOnlyFileSystemException.html#ReadOnlyFileSystemException--
+	Containing package: java.nio.file
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ReadOnlyFileSystemException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file::ReadOnlyFileSystemException
+	}
+}

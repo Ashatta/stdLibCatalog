@@ -1,0 +1,558 @@
+[Package]
+Name: java.lang.ref
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/ref/package-summary.html
+Containing package: java.lang
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+public class PhantomReference<T>
+extends Reference<T>
+Name: PhantomReference
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/ref/PhantomReference.html
+Containing package: java.lang.ref
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+}
+supertypes {
+	java.lang.ref::Reference {
+		null::T
+	}
+}
+members {
+
+	[Function]
+	public PhantomReference(T referent,
+	                        ReferenceQueue<? super T> q)
+	Name: PhantomReference
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/ref/PhantomReference.html#PhantomReference-T-java.lang.ref.ReferenceQueue-
+	Containing package: java.lang.ref
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: PhantomReference
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		java.lang.ref::ReferenceQueue {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		java.lang.ref::PhantomReference
+	}
+
+	[Function]
+	public T get()
+	Name: get
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/ref/PhantomReference.html#get--
+	Containing package: java.lang.ref
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: PhantomReference
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		null::T
+	}
+}
+
+[Classifier]
+public abstract class Reference<T>
+extends Object
+Name: Reference
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/ref/Reference.html
+Containing package: java.lang.ref
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+	java.lang.ref::SoftReference
+	java.lang.ref::WeakReference
+	java.lang.ref::PhantomReference
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public T get()
+	Name: get
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/ref/Reference.html#get--
+	Containing package: java.lang.ref
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Reference
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		null::T
+	}
+
+	[Function]
+	public void clear()
+	Name: clear
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/ref/Reference.html#clear--
+	Containing package: java.lang.ref
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Reference
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean isEnqueued()
+	Name: isEnqueued
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/ref/Reference.html#isEnqueued--
+	Containing package: java.lang.ref
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Reference
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean enqueue()
+	Name: enqueue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/ref/Reference.html#enqueue--
+	Containing package: java.lang.ref
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Reference
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public class ReferenceQueue<T>
+extends Object
+Name: ReferenceQueue
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/ref/ReferenceQueue.html
+Containing package: java.lang.ref
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public ReferenceQueue()
+	Name: ReferenceQueue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/ref/ReferenceQueue.html#ReferenceQueue--
+	Containing package: java.lang.ref
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ReferenceQueue
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang.ref::ReferenceQueue
+	}
+
+	[Function]
+	public Reference<? extends T> poll()
+	Name: poll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/ref/ReferenceQueue.html#poll--
+	Containing package: java.lang.ref
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReferenceQueue
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang.ref::Reference {
+			? {
+				extends null::T
+			}
+		}
+	}
+
+	[Function]
+	public Reference<? extends T> remove(long timeout)
+	                              throws IllegalArgumentException,
+	                                     InterruptedException
+	Name: remove
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/ref/ReferenceQueue.html#remove-long-
+	Containing package: java.lang.ref
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReferenceQueue
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		java.lang.ref::Reference {
+			? {
+				extends null::T
+			}
+		}
+	}
+
+	[Function]
+	public Reference<? extends T> remove()
+	                              throws InterruptedException
+	Name: remove
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/ref/ReferenceQueue.html#remove--
+	Containing package: java.lang.ref
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReferenceQueue
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang.ref::Reference {
+			? {
+				extends null::T
+			}
+		}
+	}
+}
+
+[Classifier]
+public class SoftReference<T>
+extends Reference<T>
+Name: SoftReference
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/ref/SoftReference.html
+Containing package: java.lang.ref
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+}
+supertypes {
+	java.lang.ref::Reference {
+		null::T
+	}
+}
+members {
+
+	[Function]
+	public SoftReference(T referent)
+	Name: SoftReference
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/ref/SoftReference.html#SoftReference-T-
+	Containing package: java.lang.ref
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: SoftReference
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+	
+		[result]
+		java.lang.ref::SoftReference
+	}
+
+	[Function]
+	public SoftReference(T referent,
+	                     ReferenceQueue<? super T> q)
+	Name: SoftReference
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/ref/SoftReference.html#SoftReference-T-java.lang.ref.ReferenceQueue-
+	Containing package: java.lang.ref
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: SoftReference
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		java.lang.ref::ReferenceQueue {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		java.lang.ref::SoftReference
+	}
+
+	[Function]
+	public T get()
+	Name: get
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/ref/SoftReference.html#get--
+	Containing package: java.lang.ref
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SoftReference
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		null::T
+	}
+}
+
+[Classifier]
+public class WeakReference<T>
+extends Reference<T>
+Name: WeakReference
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/ref/WeakReference.html
+Containing package: java.lang.ref
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+}
+supertypes {
+	java.lang.ref::Reference {
+		null::T
+	}
+}
+members {
+
+	[Function]
+	public WeakReference(T referent)
+	Name: WeakReference
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/ref/WeakReference.html#WeakReference-T-
+	Containing package: java.lang.ref
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: WeakReference
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+	
+		[result]
+		java.lang.ref::WeakReference
+	}
+
+	[Function]
+	public WeakReference(T referent,
+	                     ReferenceQueue<? super T> q)
+	Name: WeakReference
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/ref/WeakReference.html#WeakReference-T-java.lang.ref.ReferenceQueue-
+	Containing package: java.lang.ref
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: WeakReference
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		java.lang.ref::ReferenceQueue {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		java.lang.ref::WeakReference
+	}
+}

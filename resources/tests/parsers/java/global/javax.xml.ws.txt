@@ -1,0 +1,3844 @@
+[Package]
+Name: javax.xml.ws
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/package-summary.html
+Containing package: javax.xml
+attributes {
+}
+
+Subpackages {
+	javax.xml.ws.spi
+	javax.xml.ws.handler
+	javax.xml.ws.http
+	javax.xml.ws.soap
+	javax.xml.ws.wsaddressing
+}
+
+[Classifier]
+public interface AsyncHandler<T>
+Name: AsyncHandler
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/AsyncHandler.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	void handleResponse(Response<T> res)
+	Name: handleResponse
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/AsyncHandler.html#handleResponse-javax.xml.ws.Response-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsyncHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.ws::Response {
+			null::T
+		}
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface Binding
+Name: Binding
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Binding.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.xml.ws.soap::SOAPBinding
+	javax.xml.ws.http::HTTPBinding
+}
+supertypes {
+}
+members {
+
+	[Function]
+	List<Handler> getHandlerChain()
+	Name: getHandlerChain
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Binding.html#getHandlerChain--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Binding
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			javax.xml.ws.handler::Handler
+		}
+	}
+
+	[Function]
+	void setHandlerChain(List<Handler> chain)
+	Name: setHandlerChain
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Binding.html#setHandlerChain-java.util.List-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Binding
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::List {
+			javax.xml.ws.handler::Handler
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	String getBindingID()
+	Name: getBindingID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Binding.html#getBindingID--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Binding
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public interface BindingProvider
+Name: BindingProvider
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/BindingProvider.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.xml.ws::Dispatch
+}
+supertypes {
+}
+members {
+
+	[Function]
+	static final String USERNAME_PROPERTY
+	Name: USERNAME_PROPERTY
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/BindingProvider.html#USERNAME_PROPERTY
+	Containing package: javax.xml.ws
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: BindingProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String PASSWORD_PROPERTY
+	Name: PASSWORD_PROPERTY
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/BindingProvider.html#PASSWORD_PROPERTY
+	Containing package: javax.xml.ws
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: BindingProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String ENDPOINT_ADDRESS_PROPERTY
+	Name: ENDPOINT_ADDRESS_PROPERTY
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/BindingProvider.html#ENDPOINT_ADDRESS_PROPERTY
+	Containing package: javax.xml.ws
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: BindingProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String SESSION_MAINTAIN_PROPERTY
+	Name: SESSION_MAINTAIN_PROPERTY
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/BindingProvider.html#SESSION_MAINTAIN_PROPERTY
+	Containing package: javax.xml.ws
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: BindingProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String SOAPACTION_USE_PROPERTY
+	Name: SOAPACTION_USE_PROPERTY
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/BindingProvider.html#SOAPACTION_USE_PROPERTY
+	Containing package: javax.xml.ws
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: BindingProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String SOAPACTION_URI_PROPERTY
+	Name: SOAPACTION_URI_PROPERTY
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/BindingProvider.html#SOAPACTION_URI_PROPERTY
+	Containing package: javax.xml.ws
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: BindingProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	Map<String,Object> getRequestContext()
+	Name: getRequestContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/BindingProvider.html#getRequestContext--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BindingProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Map {
+			java.lang::String
+			java.lang::Object
+		}
+	}
+
+	[Function]
+	Map<String,Object> getResponseContext()
+	Name: getResponseContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/BindingProvider.html#getResponseContext--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BindingProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Map {
+			java.lang::String
+			java.lang::Object
+		}
+	}
+
+	[Function]
+	Binding getBinding()
+	Name: getBinding
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/BindingProvider.html#getBinding--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BindingProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.ws::Binding
+	}
+
+	[Function]
+	EndpointReference getEndpointReference()
+	Name: getEndpointReference
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/BindingProvider.html#getEndpointReference--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BindingProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.ws::EndpointReference
+	}
+
+	[Function]
+	<T extends EndpointReference> T getEndpointReference(Class<T> clazz)
+	Name: getEndpointReference
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/BindingProvider.html#getEndpointReference-java.lang.Class-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BindingProvider
+	parameters {
+		T: (T extends EndpointReference; T; javax.xml.ws::EndpointReference)
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			null::T
+		}
+	
+		[result]
+		null::T
+	}
+}
+
+[Classifier]
+public interface Dispatch<T>
+extends BindingProvider
+Name: Dispatch
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Dispatch.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+}
+supertypes {
+	javax.xml.ws::BindingProvider
+}
+members {
+
+	[Function]
+	T invoke(T msg)
+	Name: invoke
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Dispatch.html#invoke-T-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Dispatch
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+	
+		[result]
+		null::T
+	}
+
+	[Function]
+	Response<T> invokeAsync(T msg)
+	Name: invokeAsync
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Dispatch.html#invokeAsync-T-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Dispatch
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+	
+		[result]
+		javax.xml.ws::Response {
+			null::T
+		}
+	}
+
+	[Function]
+	Future<?> invokeAsync(T msg,
+	                      AsyncHandler<T> handler)
+	Name: invokeAsync
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Dispatch.html#invokeAsync-T-javax.xml.ws.AsyncHandler-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Dispatch
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		javax.xml.ws::AsyncHandler {
+			null::T
+		}
+	
+		[result]
+		java.util.concurrent::Future {
+			?
+		}
+	}
+
+	[Function]
+	void invokeOneWay(T msg)
+	Name: invokeOneWay
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Dispatch.html#invokeOneWay-T-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Dispatch
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface LogicalMessage
+Name: LogicalMessage
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/LogicalMessage.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	Source getPayload()
+	Name: getPayload
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/LogicalMessage.html#getPayload--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LogicalMessage
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.transform::Source
+	}
+
+	[Function]
+	void setPayload(Source payload)
+	Name: setPayload
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/LogicalMessage.html#setPayload-javax.xml.transform.Source-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LogicalMessage
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.transform::Source
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	Object getPayload(JAXBContext context)
+	Name: getPayload
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/LogicalMessage.html#getPayload-javax.xml.bind.JAXBContext-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LogicalMessage
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.bind::JAXBContext
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	void setPayload(Object payload,
+	                JAXBContext context)
+	Name: setPayload
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/LogicalMessage.html#setPayload-java.lang.Object-javax.xml.bind.JAXBContext-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LogicalMessage
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+		javax.xml.bind::JAXBContext
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface Provider<T>
+Name: Provider
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Provider.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	T invoke(T request)
+	Name: invoke
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Provider.html#invoke-T-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Provider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+	
+		[result]
+		null::T
+	}
+}
+
+[Classifier]
+public interface Response<T>
+extends Future<T>
+Name: Response
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Response.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+}
+supertypes {
+	java.util.concurrent::Future {
+		null::T
+	}
+}
+members {
+
+	[Function]
+	Map<String,Object> getContext()
+	Name: getContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Response.html#getContext--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Response
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Map {
+			java.lang::String
+			java.lang::Object
+		}
+	}
+}
+
+[Classifier]
+public interface WebServiceContext
+Name: WebServiceContext
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/WebServiceContext.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	MessageContext getMessageContext()
+	Name: getMessageContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/WebServiceContext.html#getMessageContext--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WebServiceContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.ws.handler::MessageContext
+	}
+
+	[Function]
+	Principal getUserPrincipal()
+	Name: getUserPrincipal
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/WebServiceContext.html#getUserPrincipal--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WebServiceContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.security::Principal
+	}
+
+	[Function]
+	boolean isUserInRole(String role)
+	Name: isUserInRole
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/WebServiceContext.html#isUserInRole-java.lang.String-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WebServiceContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	EndpointReference getEndpointReference(Element... referenceParameters)
+	Name: getEndpointReference
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/WebServiceContext.html#getEndpointReference-org.w3c.dom.Element...-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WebServiceContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::... {
+			org.w3c.dom::Element
+		}
+	
+		[result]
+		javax.xml.ws::EndpointReference
+	}
+
+	[Function]
+	<T extends EndpointReference> T getEndpointReference(Class<T> clazz,
+	                                                     Element... referenceParameters)
+	Name: getEndpointReference
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/WebServiceContext.html#getEndpointReference-java.lang.Class-org.w3c.dom.Element...-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WebServiceContext
+	parameters {
+		T: (T extends EndpointReference; T; javax.xml.ws::EndpointReference)
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			null::T
+		}
+		other::... {
+			org.w3c.dom::Element
+		}
+	
+		[result]
+		null::T
+	}
+}
+
+[Classifier]
+public abstract class Endpoint
+extends Object
+Name: Endpoint
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Endpoint.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static final String WSDL_SERVICE
+	Name: WSDL_SERVICE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Endpoint.html#WSDL_SERVICE
+	Containing package: javax.xml.ws
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: Endpoint
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final String WSDL_PORT
+	Name: WSDL_PORT
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Endpoint.html#WSDL_PORT
+	Containing package: javax.xml.ws
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: Endpoint
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public Endpoint()
+	Name: Endpoint
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Endpoint.html#Endpoint--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Endpoint
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.ws::Endpoint
+	}
+
+	[Function]
+	public static Endpoint create(Object implementor)
+	Name: create
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Endpoint.html#create-java.lang.Object-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Endpoint
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		javax.xml.ws::Endpoint
+	}
+
+	[Function]
+	public static Endpoint create(Object implementor,
+	                              WebServiceFeature... features)
+	Name: create
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Endpoint.html#create-java.lang.Object-javax.xml.ws.WebServiceFeature...-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Endpoint
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+		other::... {
+			javax.xml.ws::WebServiceFeature
+		}
+	
+		[result]
+		javax.xml.ws::Endpoint
+	}
+
+	[Function]
+	public static Endpoint create(String bindingId,
+	                              Object implementor)
+	Name: create
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Endpoint.html#create-java.lang.String-java.lang.Object-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Endpoint
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Object
+	
+		[result]
+		javax.xml.ws::Endpoint
+	}
+
+	[Function]
+	public static Endpoint create(String bindingId,
+	                              Object implementor,
+	                              WebServiceFeature... features)
+	Name: create
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Endpoint.html#create-java.lang.String-java.lang.Object-javax.xml.ws.WebServiceFeature...-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Endpoint
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Object
+		other::... {
+			javax.xml.ws::WebServiceFeature
+		}
+	
+		[result]
+		javax.xml.ws::Endpoint
+	}
+
+	[Function]
+	public abstract Binding getBinding()
+	Name: getBinding
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Endpoint.html#getBinding--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Endpoint
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.ws::Binding
+	}
+
+	[Function]
+	public abstract Object getImplementor()
+	Name: getImplementor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Endpoint.html#getImplementor--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Endpoint
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public abstract void publish(String address)
+	Name: publish
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Endpoint.html#publish-java.lang.String-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Endpoint
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static Endpoint publish(String address,
+	                               Object implementor)
+	Name: publish
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Endpoint.html#publish-java.lang.String-java.lang.Object-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Endpoint
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Object
+	
+		[result]
+		javax.xml.ws::Endpoint
+	}
+
+	[Function]
+	public static Endpoint publish(String address,
+	                               Object implementor,
+	                               WebServiceFeature... features)
+	Name: publish
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Endpoint.html#publish-java.lang.String-java.lang.Object-javax.xml.ws.WebServiceFeature...-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Endpoint
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Object
+		other::... {
+			javax.xml.ws::WebServiceFeature
+		}
+	
+		[result]
+		javax.xml.ws::Endpoint
+	}
+
+	[Function]
+	public abstract void publish(Object serverContext)
+	Name: publish
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Endpoint.html#publish-java.lang.Object-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Endpoint
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void publish(HttpContext serverContext)
+	Name: publish
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Endpoint.html#publish-javax.xml.ws.spi.http.HttpContext-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Endpoint
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.ws.spi.http::HttpContext
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract void stop()
+	Name: stop
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Endpoint.html#stop--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Endpoint
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract boolean isPublished()
+	Name: isPublished
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Endpoint.html#isPublished--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Endpoint
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract List<Source> getMetadata()
+	Name: getMetadata
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Endpoint.html#getMetadata--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Endpoint
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			javax.xml.transform::Source
+		}
+	}
+
+	[Function]
+	public abstract void setMetadata(List<Source> metadata)
+	Name: setMetadata
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Endpoint.html#setMetadata-java.util.List-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Endpoint
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::List {
+			javax.xml.transform::Source
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract Executor getExecutor()
+	Name: getExecutor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Endpoint.html#getExecutor--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Endpoint
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.concurrent::Executor
+	}
+
+	[Function]
+	public abstract void setExecutor(Executor executor)
+	Name: setExecutor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Endpoint.html#setExecutor-java.util.concurrent.Executor-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Endpoint
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.concurrent::Executor
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract Map<String,Object> getProperties()
+	Name: getProperties
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Endpoint.html#getProperties--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Endpoint
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Map {
+			java.lang::String
+			java.lang::Object
+		}
+	}
+
+	[Function]
+	public abstract void setProperties(Map<String,Object> properties)
+	Name: setProperties
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Endpoint.html#setProperties-java.util.Map-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Endpoint
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Map {
+			java.lang::String
+			java.lang::Object
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract EndpointReference getEndpointReference(Element... referenceParameters)
+	Name: getEndpointReference
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Endpoint.html#getEndpointReference-org.w3c.dom.Element...-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Endpoint
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::... {
+			org.w3c.dom::Element
+		}
+	
+		[result]
+		javax.xml.ws::EndpointReference
+	}
+
+	[Function]
+	public abstract <T extends EndpointReference> T getEndpointReference(Class<T> clazz,
+	                                                                     Element... referenceParameters)
+	Name: getEndpointReference
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Endpoint.html#getEndpointReference-java.lang.Class-org.w3c.dom.Element...-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Endpoint
+	parameters {
+		T: (T extends EndpointReference; T; javax.xml.ws::EndpointReference)
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			null::T
+		}
+		other::... {
+			org.w3c.dom::Element
+		}
+	
+		[result]
+		null::T
+	}
+
+	[Function]
+	public void setEndpointContext(EndpointContext ctxt)
+	Name: setEndpointContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Endpoint.html#setEndpointContext-javax.xml.ws.EndpointContext-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Endpoint
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.ws::EndpointContext
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public abstract class EndpointContext
+extends Object
+Name: EndpointContext
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/EndpointContext.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public EndpointContext()
+	Name: EndpointContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/EndpointContext.html#EndpointContext--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: EndpointContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.ws::EndpointContext
+	}
+
+	[Function]
+	public abstract Set<Endpoint> getEndpoints()
+	Name: getEndpoints
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/EndpointContext.html#getEndpoints--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EndpointContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Set {
+			javax.xml.ws::Endpoint
+		}
+	}
+}
+
+[Classifier]
+public abstract class EndpointReference
+extends Object
+Name: EndpointReference
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/EndpointReference.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.xml.ws.wsaddressing::W3CEndpointReference
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected EndpointReference()
+	Name: EndpointReference
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/EndpointReference.html#EndpointReference--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: EndpointReference
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.ws::EndpointReference
+	}
+
+	[Function]
+	public static EndpointReference readFrom(Source eprInfoset)
+	Name: readFrom
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/EndpointReference.html#readFrom-javax.xml.transform.Source-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: EndpointReference
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.transform::Source
+	
+		[result]
+		javax.xml.ws::EndpointReference
+	}
+
+	[Function]
+	public abstract void writeTo(Result result)
+	Name: writeTo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/EndpointReference.html#writeTo-javax.xml.transform.Result-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EndpointReference
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.transform::Result
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public <T> T getPort(Class<T> serviceEndpointInterface,
+	                     WebServiceFeature... features)
+	Name: getPort
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/EndpointReference.html#getPort-java.lang.Class-javax.xml.ws.WebServiceFeature...-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EndpointReference
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			null::T
+		}
+		other::... {
+			javax.xml.ws::WebServiceFeature
+		}
+	
+		[result]
+		null::T
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/EndpointReference.html#toString--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EndpointReference
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public final class Holder<T>
+extends Object
+implements Serializable
+Name: Holder
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Holder.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public T value
+	Name: value
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Holder.html#value
+	Containing package: javax.xml.ws
+	attributes {
+		final=false
+		scope=public
+		static=false
+		memberType=field
+	}
+	Containing type: Holder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		null::T
+	}
+
+	[Function]
+	public Holder()
+	Name: Holder
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Holder.html#Holder--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Holder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.ws::Holder
+	}
+
+	[Function]
+	public Holder(T value)
+	Name: Holder
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Holder.html#Holder-T-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Holder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+	
+		[result]
+		javax.xml.ws::Holder
+	}
+}
+
+[Classifier]
+public final class RespectBindingFeature
+extends WebServiceFeature
+Name: RespectBindingFeature
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/RespectBindingFeature.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.xml.ws::WebServiceFeature
+}
+members {
+
+	[Function]
+	public static final String ID
+	Name: ID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/RespectBindingFeature.html#ID
+	Containing package: javax.xml.ws
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: RespectBindingFeature
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public RespectBindingFeature()
+	Name: RespectBindingFeature
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/RespectBindingFeature.html#RespectBindingFeature--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RespectBindingFeature
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.ws::RespectBindingFeature
+	}
+
+	[Function]
+	public RespectBindingFeature(boolean enabled)
+	Name: RespectBindingFeature
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/RespectBindingFeature.html#RespectBindingFeature-boolean-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RespectBindingFeature
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::boolean
+	
+		[result]
+		javax.xml.ws::RespectBindingFeature
+	}
+
+	[Function]
+	public String getID()
+	Name: getID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/RespectBindingFeature.html#getID--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RespectBindingFeature
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public class Service
+extends Object
+Name: Service
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected Service(URL wsdlDocumentLocation,
+	                  QName serviceName)
+	Name: Service
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.html#Service-java.net.URL-javax.xml.namespace.QName-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Service
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::URL
+		javax.xml.namespace::QName
+	
+		[result]
+		javax.xml.ws::Service
+	}
+
+	[Function]
+	protected Service(URL wsdlDocumentLocation,
+	                  QName serviceName,
+	                  WebServiceFeature... features)
+	Name: Service
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.html#Service-java.net.URL-javax.xml.namespace.QName-javax.xml.ws.WebServiceFeature...-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Service
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::URL
+		javax.xml.namespace::QName
+		other::... {
+			javax.xml.ws::WebServiceFeature
+		}
+	
+		[result]
+		javax.xml.ws::Service
+	}
+
+	[Function]
+	public <T> T getPort(QName portName,
+	                     Class<T> serviceEndpointInterface)
+	Name: getPort
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.html#getPort-javax.xml.namespace.QName-java.lang.Class-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Service
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.namespace::QName
+		java.lang::Class {
+			null::T
+		}
+	
+		[result]
+		null::T
+	}
+
+	[Function]
+	public <T> T getPort(QName portName,
+	                     Class<T> serviceEndpointInterface,
+	                     WebServiceFeature... features)
+	Name: getPort
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.html#getPort-javax.xml.namespace.QName-java.lang.Class-javax.xml.ws.WebServiceFeature...-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Service
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.namespace::QName
+		java.lang::Class {
+			null::T
+		}
+		other::... {
+			javax.xml.ws::WebServiceFeature
+		}
+	
+		[result]
+		null::T
+	}
+
+	[Function]
+	public <T> T getPort(Class<T> serviceEndpointInterface)
+	Name: getPort
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.html#getPort-java.lang.Class-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Service
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			null::T
+		}
+	
+		[result]
+		null::T
+	}
+
+	[Function]
+	public <T> T getPort(Class<T> serviceEndpointInterface,
+	                     WebServiceFeature... features)
+	Name: getPort
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.html#getPort-java.lang.Class-javax.xml.ws.WebServiceFeature...-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Service
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			null::T
+		}
+		other::... {
+			javax.xml.ws::WebServiceFeature
+		}
+	
+		[result]
+		null::T
+	}
+
+	[Function]
+	public <T> T getPort(EndpointReference endpointReference,
+	                     Class<T> serviceEndpointInterface,
+	                     WebServiceFeature... features)
+	Name: getPort
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.html#getPort-javax.xml.ws.EndpointReference-java.lang.Class-javax.xml.ws.WebServiceFeature...-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Service
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.ws::EndpointReference
+		java.lang::Class {
+			null::T
+		}
+		other::... {
+			javax.xml.ws::WebServiceFeature
+		}
+	
+		[result]
+		null::T
+	}
+
+	[Function]
+	public void addPort(QName portName,
+	                    String bindingId,
+	                    String endpointAddress)
+	Name: addPort
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.html#addPort-javax.xml.namespace.QName-java.lang.String-java.lang.String-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Service
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.namespace::QName
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public <T> Dispatch<T> createDispatch(QName portName,
+	                                      Class<T> type,
+	                                      Service.Mode mode)
+	Name: createDispatch
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.html#createDispatch-javax.xml.namespace.QName-java.lang.Class-javax.xml.ws.Service.Mode-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Service
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.namespace::QName
+		java.lang::Class {
+			null::T
+		}
+		javax.xml.ws::Service.Mode
+	
+		[result]
+		javax.xml.ws::Dispatch {
+			null::T
+		}
+	}
+
+	[Function]
+	public <T> Dispatch<T> createDispatch(QName portName,
+	                                      Class<T> type,
+	                                      Service.Mode mode,
+	                                      WebServiceFeature... features)
+	Name: createDispatch
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.html#createDispatch-javax.xml.namespace.QName-java.lang.Class-javax.xml.ws.Service.Mode-javax.xml.ws.WebServiceFeature...-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Service
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.namespace::QName
+		java.lang::Class {
+			null::T
+		}
+		javax.xml.ws::Service.Mode
+		other::... {
+			javax.xml.ws::WebServiceFeature
+		}
+	
+		[result]
+		javax.xml.ws::Dispatch {
+			null::T
+		}
+	}
+
+	[Function]
+	public <T> Dispatch<T> createDispatch(EndpointReference endpointReference,
+	                                      Class<T> type,
+	                                      Service.Mode mode,
+	                                      WebServiceFeature... features)
+	Name: createDispatch
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.html#createDispatch-javax.xml.ws.EndpointReference-java.lang.Class-javax.xml.ws.Service.Mode-javax.xml.ws.WebServiceFeature...-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Service
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.ws::EndpointReference
+		java.lang::Class {
+			null::T
+		}
+		javax.xml.ws::Service.Mode
+		other::... {
+			javax.xml.ws::WebServiceFeature
+		}
+	
+		[result]
+		javax.xml.ws::Dispatch {
+			null::T
+		}
+	}
+
+	[Function]
+	public Dispatch<Object> createDispatch(QName portName,
+	                                       JAXBContext context,
+	                                       Service.Mode mode)
+	Name: createDispatch
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.html#createDispatch-javax.xml.namespace.QName-javax.xml.bind.JAXBContext-javax.xml.ws.Service.Mode-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Service
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.namespace::QName
+		javax.xml.bind::JAXBContext
+		javax.xml.ws::Service.Mode
+	
+		[result]
+		javax.xml.ws::Dispatch {
+			java.lang::Object
+		}
+	}
+
+	[Function]
+	public Dispatch<Object> createDispatch(QName portName,
+	                                       JAXBContext context,
+	                                       Service.Mode mode,
+	                                       WebServiceFeature... features)
+	Name: createDispatch
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.html#createDispatch-javax.xml.namespace.QName-javax.xml.bind.JAXBContext-javax.xml.ws.Service.Mode-javax.xml.ws.WebServiceFeature...-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Service
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.namespace::QName
+		javax.xml.bind::JAXBContext
+		javax.xml.ws::Service.Mode
+		other::... {
+			javax.xml.ws::WebServiceFeature
+		}
+	
+		[result]
+		javax.xml.ws::Dispatch {
+			java.lang::Object
+		}
+	}
+
+	[Function]
+	public Dispatch<Object> createDispatch(EndpointReference endpointReference,
+	                                       JAXBContext context,
+	                                       Service.Mode mode,
+	                                       WebServiceFeature... features)
+	Name: createDispatch
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.html#createDispatch-javax.xml.ws.EndpointReference-javax.xml.bind.JAXBContext-javax.xml.ws.Service.Mode-javax.xml.ws.WebServiceFeature...-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Service
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.ws::EndpointReference
+		javax.xml.bind::JAXBContext
+		javax.xml.ws::Service.Mode
+		other::... {
+			javax.xml.ws::WebServiceFeature
+		}
+	
+		[result]
+		javax.xml.ws::Dispatch {
+			java.lang::Object
+		}
+	}
+
+	[Function]
+	public QName getServiceName()
+	Name: getServiceName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.html#getServiceName--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Service
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.namespace::QName
+	}
+
+	[Function]
+	public Iterator<QName> getPorts()
+	Name: getPorts
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.html#getPorts--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Service
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Iterator {
+			javax.xml.namespace::QName
+		}
+	}
+
+	[Function]
+	public URL getWSDLDocumentLocation()
+	Name: getWSDLDocumentLocation
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.html#getWSDLDocumentLocation--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Service
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.net::URL
+	}
+
+	[Function]
+	public HandlerResolver getHandlerResolver()
+	Name: getHandlerResolver
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.html#getHandlerResolver--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Service
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.ws.handler::HandlerResolver
+	}
+
+	[Function]
+	public void setHandlerResolver(HandlerResolver handlerResolver)
+	Name: setHandlerResolver
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.html#setHandlerResolver-javax.xml.ws.handler.HandlerResolver-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Service
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.ws.handler::HandlerResolver
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Executor getExecutor()
+	Name: getExecutor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.html#getExecutor--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Service
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.concurrent::Executor
+	}
+
+	[Function]
+	public void setExecutor(Executor executor)
+	Name: setExecutor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.html#setExecutor-java.util.concurrent.Executor-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Service
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.concurrent::Executor
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static Service create(URL wsdlDocumentLocation,
+	                             QName serviceName)
+	Name: create
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.html#create-java.net.URL-javax.xml.namespace.QName-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Service
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::URL
+		javax.xml.namespace::QName
+	
+		[result]
+		javax.xml.ws::Service
+	}
+
+	[Function]
+	public static Service create(URL wsdlDocumentLocation,
+	                             QName serviceName,
+	                             WebServiceFeature... features)
+	Name: create
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.html#create-java.net.URL-javax.xml.namespace.QName-javax.xml.ws.WebServiceFeature...-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Service
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::URL
+		javax.xml.namespace::QName
+		other::... {
+			javax.xml.ws::WebServiceFeature
+		}
+	
+		[result]
+		javax.xml.ws::Service
+	}
+
+	[Function]
+	public static Service create(QName serviceName)
+	Name: create
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.html#create-javax.xml.namespace.QName-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Service
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.namespace::QName
+	
+		[result]
+		javax.xml.ws::Service
+	}
+
+	[Function]
+	public static Service create(QName serviceName,
+	                             WebServiceFeature... features)
+	Name: create
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.html#create-javax.xml.namespace.QName-javax.xml.ws.WebServiceFeature...-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Service
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.namespace::QName
+		other::... {
+			javax.xml.ws::WebServiceFeature
+		}
+	
+		[result]
+		javax.xml.ws::Service
+	}
+}
+
+[Classifier]
+public static enum Service.Mode
+extends Enum<Service.Mode>
+Name: Service.Mode
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.Mode.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=false
+	final=false
+	classifierType=enum
+	static=true
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Enum {
+		javax.xml.ws::Service.Mode
+	}
+}
+members {
+
+	[Function]
+	public static final Service.Mode MESSAGE
+	Name: MESSAGE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.Mode.html#MESSAGE
+	Containing package: javax.xml.ws
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: Service.Mode
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.ws::Service.Mode
+	}
+
+	[Function]
+	public static final Service.Mode PAYLOAD
+	Name: PAYLOAD
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.Mode.html#PAYLOAD
+	Containing package: javax.xml.ws
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: Service.Mode
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.ws::Service.Mode
+	}
+
+	[Function]
+	public static Service.Mode[] values()
+	Name: values
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.Mode.html#values--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Service.Mode
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			javax.xml.ws::Service.Mode
+		}
+	}
+
+	[Function]
+	public static Service.Mode valueOf(String name)
+	Name: valueOf
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Service.Mode.html#valueOf-java.lang.String-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Service.Mode
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.xml.ws::Service.Mode
+	}
+}
+
+[Classifier]
+public abstract class WebServiceFeature
+extends Object
+Name: WebServiceFeature
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/WebServiceFeature.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.xml.ws::RespectBindingFeature
+	javax.xml.ws.soap::AddressingFeature
+	javax.xml.ws.soap::MTOMFeature
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected boolean enabled
+	Name: enabled
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/WebServiceFeature.html#enabled
+	Containing package: javax.xml.ws
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: WebServiceFeature
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected WebServiceFeature()
+	Name: WebServiceFeature
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/WebServiceFeature.html#WebServiceFeature--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: WebServiceFeature
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.ws::WebServiceFeature
+	}
+
+	[Function]
+	public abstract String getID()
+	Name: getID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/WebServiceFeature.html#getID--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WebServiceFeature
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public boolean isEnabled()
+	Name: isEnabled
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/WebServiceFeature.html#isEnabled--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WebServiceFeature
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public final class WebServicePermission
+extends BasicPermission
+Name: WebServicePermission
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/WebServicePermission.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.security::BasicPermission
+}
+members {
+
+	[Function]
+	public WebServicePermission(String name)
+	Name: WebServicePermission
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/WebServicePermission.html#WebServicePermission-java.lang.String-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: WebServicePermission
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.xml.ws::WebServicePermission
+	}
+
+	[Function]
+	public WebServicePermission(String name,
+	                            String actions)
+	Name: WebServicePermission
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/WebServicePermission.html#WebServicePermission-java.lang.String-java.lang.String-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: WebServicePermission
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.xml.ws::WebServicePermission
+	}
+}
+
+[Classifier]
+public class ProtocolException
+extends WebServiceException
+Name: ProtocolException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/ProtocolException.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.xml.ws.soap::SOAPFaultException
+	javax.xml.ws.http::HTTPException
+}
+supertypes {
+	javax.xml.ws::WebServiceException
+}
+members {
+
+	[Function]
+	public ProtocolException()
+	Name: ProtocolException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/ProtocolException.html#ProtocolException--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ProtocolException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.ws::ProtocolException
+	}
+
+	[Function]
+	public ProtocolException(String message)
+	Name: ProtocolException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/ProtocolException.html#ProtocolException-java.lang.String-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ProtocolException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.xml.ws::ProtocolException
+	}
+
+	[Function]
+	public ProtocolException(String message,
+	                         Throwable cause)
+	Name: ProtocolException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/ProtocolException.html#ProtocolException-java.lang.String-java.lang.Throwable-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ProtocolException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Throwable
+	
+		[result]
+		javax.xml.ws::ProtocolException
+	}
+
+	[Function]
+	public ProtocolException(Throwable cause)
+	Name: ProtocolException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/ProtocolException.html#ProtocolException-java.lang.Throwable-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ProtocolException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Throwable
+	
+		[result]
+		javax.xml.ws::ProtocolException
+	}
+}
+
+[Classifier]
+public class WebServiceException
+extends RuntimeException
+Name: WebServiceException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/WebServiceException.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.xml.ws::ProtocolException
+}
+supertypes {
+	java.lang::RuntimeException
+}
+members {
+
+	[Function]
+	public WebServiceException()
+	Name: WebServiceException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/WebServiceException.html#WebServiceException--
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: WebServiceException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.ws::WebServiceException
+	}
+
+	[Function]
+	public WebServiceException(String message)
+	Name: WebServiceException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/WebServiceException.html#WebServiceException-java.lang.String-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: WebServiceException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.xml.ws::WebServiceException
+	}
+
+	[Function]
+	public WebServiceException(String message,
+	                           Throwable cause)
+	Name: WebServiceException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/WebServiceException.html#WebServiceException-java.lang.String-java.lang.Throwable-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: WebServiceException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Throwable
+	
+		[result]
+		javax.xml.ws::WebServiceException
+	}
+
+	[Function]
+	public WebServiceException(Throwable cause)
+	Name: WebServiceException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/WebServiceException.html#WebServiceException-java.lang.Throwable-
+	Containing package: javax.xml.ws
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: WebServiceException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Throwable
+	
+		[result]
+		javax.xml.ws::WebServiceException
+	}
+}
+
+[Classifier]
+@Documented
+ @Retention(value=RUNTIME)
+ @Target(value=METHOD)
+public @interface Action
+Name: Action
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/Action.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Target(value=TYPE)
+ @Retention(value=RUNTIME)
+ @Documented
+public @interface BindingType
+Name: BindingType
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/BindingType.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Documented
+ @Retention(value=RUNTIME)
+ @Target(value=METHOD)
+public @interface FaultAction
+Name: FaultAction
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/FaultAction.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Target(value=METHOD)
+ @Retention(value=RUNTIME)
+ @Documented
+public @interface RequestWrapper
+Name: RequestWrapper
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/RequestWrapper.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Target(value={TYPE,METHOD,FIELD})
+ @Retention(value=RUNTIME)
+ @Documented
+ @WebServiceFeatureAnnotation(id="javax.xml.ws.RespectBindingFeature",
+                             bean=RespectBindingFeature.class)
+public @interface RespectBinding
+Name: RespectBinding
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/RespectBinding.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=false
+	final=false
+	static=false
+	scope=package-local
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Target(value=METHOD)
+ @Retention(value=RUNTIME)
+ @Documented
+public @interface ResponseWrapper
+Name: ResponseWrapper
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/ResponseWrapper.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Target(value=TYPE)
+ @Retention(value=RUNTIME)
+ @Inherited
+ @Documented
+public @interface ServiceMode
+Name: ServiceMode
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/ServiceMode.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Target(value=METHOD)
+ @Retention(value=RUNTIME)
+ @Documented
+public @interface WebEndpoint
+Name: WebEndpoint
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/WebEndpoint.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Target(value=TYPE)
+ @Retention(value=RUNTIME)
+ @Documented
+public @interface WebFault
+Name: WebFault
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/WebFault.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Target(value=TYPE)
+ @Retention(value=RUNTIME)
+ @Documented
+public @interface WebServiceClient
+Name: WebServiceClient
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/WebServiceClient.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Target(value=TYPE)
+ @Retention(value=RUNTIME)
+ @Documented
+public @interface WebServiceProvider
+Name: WebServiceProvider
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/WebServiceProvider.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Target(value={TYPE,METHOD,FIELD})
+ @Retention(value=RUNTIME)
+ @Documented
+public @interface WebServiceRef
+Name: WebServiceRef
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/WebServiceRef.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Documented
+ @Retention(value=RUNTIME)
+ @Target(value=TYPE)
+public @interface WebServiceRefs
+Name: WebServiceRefs
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/ws/WebServiceRefs.html
+Containing package: javax.xml.ws
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}

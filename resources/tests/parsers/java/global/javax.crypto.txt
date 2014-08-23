@@ -1,0 +1,6664 @@
+[Package]
+Name: javax.crypto
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/package-summary.html
+Containing package: null
+attributes {
+}
+
+Subpackages {
+	javax.crypto.interfaces
+	javax.crypto.spec
+}
+
+[Classifier]
+public interface SecretKey
+extends Key, Destroyable
+Name: SecretKey
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/SecretKey.html
+Containing package: javax.crypto
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.security.auth.kerberos::KerberosKey
+	javax.crypto.interfaces::PBEKey
+	javax.crypto.spec::SecretKeySpec
+}
+supertypes {
+	java.security::Key
+	javax.security.auth::Destroyable
+}
+members {
+
+	[Function]
+	static final long serialVersionUID
+	Name: serialVersionUID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/SecretKey.html#serialVersionUID
+	Containing package: javax.crypto
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: SecretKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+}
+
+[Classifier]
+public class Cipher
+extends Object
+Name: Cipher
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html
+Containing package: javax.crypto
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.crypto::NullCipher
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static final int ENCRYPT_MODE
+	Name: ENCRYPT_MODE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#ENCRYPT_MODE
+	Containing package: javax.crypto
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int DECRYPT_MODE
+	Name: DECRYPT_MODE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#DECRYPT_MODE
+	Containing package: javax.crypto
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int WRAP_MODE
+	Name: WRAP_MODE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#WRAP_MODE
+	Containing package: javax.crypto
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int UNWRAP_MODE
+	Name: UNWRAP_MODE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#UNWRAP_MODE
+	Containing package: javax.crypto
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int PUBLIC_KEY
+	Name: PUBLIC_KEY
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#PUBLIC_KEY
+	Containing package: javax.crypto
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int PRIVATE_KEY
+	Name: PRIVATE_KEY
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#PRIVATE_KEY
+	Containing package: javax.crypto
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int SECRET_KEY
+	Name: SECRET_KEY
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#SECRET_KEY
+	Containing package: javax.crypto
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected Cipher(CipherSpi cipherSpi,
+	                 Provider provider,
+	                 String transformation)
+	Name: Cipher
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#Cipher-javax.crypto.CipherSpi-java.security.Provider-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.crypto::CipherSpi
+		java.security::Provider
+		java.lang::String
+	
+		[result]
+		javax.crypto::Cipher
+	}
+
+	[Function]
+	public static final Cipher getInstance(String transformation)
+	                                throws NoSuchAlgorithmException,
+	                                       NoSuchPaddingException
+	Name: getInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#getInstance-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.crypto::Cipher
+	}
+
+	[Function]
+	public static final Cipher getInstance(String transformation,
+	                                       String provider)
+	                                throws NoSuchAlgorithmException,
+	                                       NoSuchProviderException,
+	                                       NoSuchPaddingException
+	Name: getInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#getInstance-java.lang.String-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.crypto::Cipher
+	}
+
+	[Function]
+	public static final Cipher getInstance(String transformation,
+	                                       Provider provider)
+	                                throws NoSuchAlgorithmException,
+	                                       NoSuchPaddingException
+	Name: getInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#getInstance-java.lang.String-java.security.Provider-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.security::Provider
+	
+		[result]
+		javax.crypto::Cipher
+	}
+
+	[Function]
+	public final Provider getProvider()
+	Name: getProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#getProvider--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.security::Provider
+	}
+
+	[Function]
+	public final String getAlgorithm()
+	Name: getAlgorithm
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#getAlgorithm--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public final int getBlockSize()
+	Name: getBlockSize
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#getBlockSize--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public final int getOutputSize(int inputLen)
+	Name: getOutputSize
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#getOutputSize-int-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public final byte[] getIV()
+	Name: getIV
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#getIV--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	public final AlgorithmParameters getParameters()
+	Name: getParameters
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#getParameters--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.security::AlgorithmParameters
+	}
+
+	[Function]
+	public final ExemptionMechanism getExemptionMechanism()
+	Name: getExemptionMechanism
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#getExemptionMechanism--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.crypto::ExemptionMechanism
+	}
+
+	[Function]
+	public final void init(int opmode,
+	                       Key key)
+	                throws InvalidKeyException
+	Name: init
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#init-int-java.security.Key-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.security::Key
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void init(int opmode,
+	                       Key key,
+	                       SecureRandom random)
+	                throws InvalidKeyException
+	Name: init
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#init-int-java.security.Key-java.security.SecureRandom-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.security::Key
+		java.security::SecureRandom
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void init(int opmode,
+	                       Key key,
+	                       AlgorithmParameterSpec params)
+	                throws InvalidKeyException,
+	                       InvalidAlgorithmParameterException
+	Name: init
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#init-int-java.security.Key-java.security.spec.AlgorithmParameterSpec-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.security::Key
+		java.security.spec::AlgorithmParameterSpec
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void init(int opmode,
+	                       Key key,
+	                       AlgorithmParameterSpec params,
+	                       SecureRandom random)
+	                throws InvalidKeyException,
+	                       InvalidAlgorithmParameterException
+	Name: init
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#init-int-java.security.Key-java.security.spec.AlgorithmParameterSpec-java.security.SecureRandom-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.security::Key
+		java.security.spec::AlgorithmParameterSpec
+		java.security::SecureRandom
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void init(int opmode,
+	                       Key key,
+	                       AlgorithmParameters params)
+	                throws InvalidKeyException,
+	                       InvalidAlgorithmParameterException
+	Name: init
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#init-int-java.security.Key-java.security.AlgorithmParameters-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.security::Key
+		java.security::AlgorithmParameters
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void init(int opmode,
+	                       Key key,
+	                       AlgorithmParameters params,
+	                       SecureRandom random)
+	                throws InvalidKeyException,
+	                       InvalidAlgorithmParameterException
+	Name: init
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#init-int-java.security.Key-java.security.AlgorithmParameters-java.security.SecureRandom-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.security::Key
+		java.security::AlgorithmParameters
+		java.security::SecureRandom
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void init(int opmode,
+	                       Certificate certificate)
+	                throws InvalidKeyException
+	Name: init
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#init-int-java.security.cert.Certificate-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.security.cert::Certificate
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void init(int opmode,
+	                       Certificate certificate,
+	                       SecureRandom random)
+	                throws InvalidKeyException
+	Name: init
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#init-int-java.security.cert.Certificate-java.security.SecureRandom-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.security.cert::Certificate
+		java.security::SecureRandom
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final byte[] update(byte[] input)
+	Name: update
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#update-byte:A-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	public final byte[] update(byte[] input,
+	                           int inputOffset,
+	                           int inputLen)
+	Name: update
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#update-byte:A-int-int-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+		other::int
+		other::int
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	public final int update(byte[] input,
+	                        int inputOffset,
+	                        int inputLen,
+	                        byte[] output)
+	                 throws ShortBufferException
+	Name: update
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#update-byte:A-int-int-byte:A-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+		other::int
+		other::int
+		other::[] {
+			other::byte
+		}
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public final int update(byte[] input,
+	                        int inputOffset,
+	                        int inputLen,
+	                        byte[] output,
+	                        int outputOffset)
+	                 throws ShortBufferException
+	Name: update
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#update-byte:A-int-int-byte:A-int-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+		other::int
+		other::int
+		other::[] {
+			other::byte
+		}
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public final int update(ByteBuffer input,
+	                        ByteBuffer output)
+	                 throws ShortBufferException
+	Name: update
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#update-java.nio.ByteBuffer-java.nio.ByteBuffer-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+		java.nio::ByteBuffer
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public final byte[] doFinal()
+	                     throws IllegalBlockSizeException,
+	                            BadPaddingException
+	Name: doFinal
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#doFinal--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	public final int doFinal(byte[] output,
+	                         int outputOffset)
+	                  throws IllegalBlockSizeException,
+	                         ShortBufferException,
+	                         BadPaddingException
+	Name: doFinal
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#doFinal-byte:A-int-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public final byte[] doFinal(byte[] input)
+	                     throws IllegalBlockSizeException,
+	                            BadPaddingException
+	Name: doFinal
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#doFinal-byte:A-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	public final byte[] doFinal(byte[] input,
+	                            int inputOffset,
+	                            int inputLen)
+	                     throws IllegalBlockSizeException,
+	                            BadPaddingException
+	Name: doFinal
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#doFinal-byte:A-int-int-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+		other::int
+		other::int
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	public final int doFinal(byte[] input,
+	                         int inputOffset,
+	                         int inputLen,
+	                         byte[] output)
+	                  throws ShortBufferException,
+	                         IllegalBlockSizeException,
+	                         BadPaddingException
+	Name: doFinal
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#doFinal-byte:A-int-int-byte:A-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+		other::int
+		other::int
+		other::[] {
+			other::byte
+		}
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public final int doFinal(byte[] input,
+	                         int inputOffset,
+	                         int inputLen,
+	                         byte[] output,
+	                         int outputOffset)
+	                  throws ShortBufferException,
+	                         IllegalBlockSizeException,
+	                         BadPaddingException
+	Name: doFinal
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#doFinal-byte:A-int-int-byte:A-int-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+		other::int
+		other::int
+		other::[] {
+			other::byte
+		}
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public final int doFinal(ByteBuffer input,
+	                         ByteBuffer output)
+	                  throws ShortBufferException,
+	                         IllegalBlockSizeException,
+	                         BadPaddingException
+	Name: doFinal
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#doFinal-java.nio.ByteBuffer-java.nio.ByteBuffer-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+		java.nio::ByteBuffer
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public final byte[] wrap(Key key)
+	                  throws IllegalBlockSizeException,
+	                         InvalidKeyException
+	Name: wrap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#wrap-java.security.Key-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Key
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	public final Key unwrap(byte[] wrappedKey,
+	                        String wrappedKeyAlgorithm,
+	                        int wrappedKeyType)
+	                 throws InvalidKeyException,
+	                        NoSuchAlgorithmException
+	Name: unwrap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#unwrap-byte:A-java.lang.String-int-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+		java.lang::String
+		other::int
+	
+		[result]
+		java.security::Key
+	}
+
+	[Function]
+	public static final int getMaxAllowedKeyLength(String transformation)
+	                                        throws NoSuchAlgorithmException
+	Name: getMaxAllowedKeyLength
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#getMaxAllowedKeyLength-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final AlgorithmParameterSpec getMaxAllowedParameterSpec(String transformation)
+	                                                               throws NoSuchAlgorithmException
+	Name: getMaxAllowedParameterSpec
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#getMaxAllowedParameterSpec-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.security.spec::AlgorithmParameterSpec
+	}
+
+	[Function]
+	public final void updateAAD(byte[] src)
+	Name: updateAAD
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#updateAAD-byte:A-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void updateAAD(byte[] src,
+	                            int offset,
+	                            int len)
+	Name: updateAAD
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#updateAAD-byte:A-int-int-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+		other::int
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void updateAAD(ByteBuffer src)
+	Name: updateAAD
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html#updateAAD-java.nio.ByteBuffer-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Cipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public class CipherInputStream
+extends FilterInputStream
+Name: CipherInputStream
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherInputStream.html
+Containing package: javax.crypto
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::FilterInputStream
+}
+members {
+
+	[Function]
+	public CipherInputStream(InputStream is,
+	                         Cipher c)
+	Name: CipherInputStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherInputStream.html#CipherInputStream-java.io.InputStream-javax.crypto.Cipher-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: CipherInputStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::InputStream
+		javax.crypto::Cipher
+	
+		[result]
+		javax.crypto::CipherInputStream
+	}
+
+	[Function]
+	protected CipherInputStream(InputStream is)
+	Name: CipherInputStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherInputStream.html#CipherInputStream-java.io.InputStream-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: CipherInputStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::InputStream
+	
+		[result]
+		javax.crypto::CipherInputStream
+	}
+
+	[Function]
+	public int read()
+	         throws IOException
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherInputStream.html#read--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherInputStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public int read(byte[] b)
+	         throws IOException
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherInputStream.html#read-byte:A-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherInputStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public int read(byte[] b,
+	                int off,
+	                int len)
+	         throws IOException
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherInputStream.html#read-byte:A-int-int-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherInputStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+		other::int
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public long skip(long n)
+	          throws IOException
+	Name: skip
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherInputStream.html#skip-long-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherInputStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public int available()
+	              throws IOException
+	Name: available
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherInputStream.html#available--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherInputStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public void close()
+	           throws IOException
+	Name: close
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherInputStream.html#close--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherInputStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean markSupported()
+	Name: markSupported
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherInputStream.html#markSupported--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherInputStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public class CipherOutputStream
+extends FilterOutputStream
+Name: CipherOutputStream
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherOutputStream.html
+Containing package: javax.crypto
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::FilterOutputStream
+}
+members {
+
+	[Function]
+	public CipherOutputStream(OutputStream os,
+	                          Cipher c)
+	Name: CipherOutputStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherOutputStream.html#CipherOutputStream-java.io.OutputStream-javax.crypto.Cipher-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: CipherOutputStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::OutputStream
+		javax.crypto::Cipher
+	
+		[result]
+		javax.crypto::CipherOutputStream
+	}
+
+	[Function]
+	protected CipherOutputStream(OutputStream os)
+	Name: CipherOutputStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherOutputStream.html#CipherOutputStream-java.io.OutputStream-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: CipherOutputStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::OutputStream
+	
+		[result]
+		javax.crypto::CipherOutputStream
+	}
+
+	[Function]
+	public void write(int b)
+	           throws IOException
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherOutputStream.html#write-int-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherOutputStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void write(byte[] b)
+	           throws IOException
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherOutputStream.html#write-byte:A-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherOutputStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void write(byte[] b,
+	                  int off,
+	                  int len)
+	           throws IOException
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherOutputStream.html#write-byte:A-int-int-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherOutputStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+		other::int
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void flush()
+	           throws IOException
+	Name: flush
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherOutputStream.html#flush--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherOutputStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void close()
+	           throws IOException
+	Name: close
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherOutputStream.html#close--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherOutputStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public abstract class CipherSpi
+extends Object
+Name: CipherSpi
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherSpi.html
+Containing package: javax.crypto
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public CipherSpi()
+	Name: CipherSpi
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherSpi.html#CipherSpi--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: CipherSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.crypto::CipherSpi
+	}
+
+	[Function]
+	protected abstract void engineSetMode(String mode)
+	                               throws NoSuchAlgorithmException
+	Name: engineSetMode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherSpi.html#engineSetMode-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected abstract void engineSetPadding(String padding)
+	                                  throws NoSuchPaddingException
+	Name: engineSetPadding
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherSpi.html#engineSetPadding-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected abstract int engineGetBlockSize()
+	Name: engineGetBlockSize
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherSpi.html#engineGetBlockSize--
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected abstract int engineGetOutputSize(int inputLen)
+	Name: engineGetOutputSize
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherSpi.html#engineGetOutputSize-int-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected abstract byte[] engineGetIV()
+	Name: engineGetIV
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherSpi.html#engineGetIV--
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	protected abstract AlgorithmParameters engineGetParameters()
+	Name: engineGetParameters
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherSpi.html#engineGetParameters--
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.security::AlgorithmParameters
+	}
+
+	[Function]
+	protected abstract void engineInit(int opmode,
+	                                   Key key,
+	                                   SecureRandom random)
+	                            throws InvalidKeyException
+	Name: engineInit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherSpi.html#engineInit-int-java.security.Key-java.security.SecureRandom-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.security::Key
+		java.security::SecureRandom
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected abstract void engineInit(int opmode,
+	                                   Key key,
+	                                   AlgorithmParameterSpec params,
+	                                   SecureRandom random)
+	                            throws InvalidKeyException,
+	                                   InvalidAlgorithmParameterException
+	Name: engineInit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherSpi.html#engineInit-int-java.security.Key-java.security.spec.AlgorithmParameterSpec-java.security.SecureRandom-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.security::Key
+		java.security.spec::AlgorithmParameterSpec
+		java.security::SecureRandom
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected abstract void engineInit(int opmode,
+	                                   Key key,
+	                                   AlgorithmParameters params,
+	                                   SecureRandom random)
+	                            throws InvalidKeyException,
+	                                   InvalidAlgorithmParameterException
+	Name: engineInit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherSpi.html#engineInit-int-java.security.Key-java.security.AlgorithmParameters-java.security.SecureRandom-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.security::Key
+		java.security::AlgorithmParameters
+		java.security::SecureRandom
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected abstract byte[] engineUpdate(byte[] input,
+	                                       int inputOffset,
+	                                       int inputLen)
+	Name: engineUpdate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherSpi.html#engineUpdate-byte:A-int-int-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+		other::int
+		other::int
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	protected abstract int engineUpdate(byte[] input,
+	                                    int inputOffset,
+	                                    int inputLen,
+	                                    byte[] output,
+	                                    int outputOffset)
+	                             throws ShortBufferException
+	Name: engineUpdate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherSpi.html#engineUpdate-byte:A-int-int-byte:A-int-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+		other::int
+		other::int
+		other::[] {
+			other::byte
+		}
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected int engineUpdate(ByteBuffer input,
+	                           ByteBuffer output)
+	                    throws ShortBufferException
+	Name: engineUpdate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherSpi.html#engineUpdate-java.nio.ByteBuffer-java.nio.ByteBuffer-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+		java.nio::ByteBuffer
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected abstract byte[] engineDoFinal(byte[] input,
+	                                        int inputOffset,
+	                                        int inputLen)
+	                                 throws IllegalBlockSizeException,
+	                                        BadPaddingException
+	Name: engineDoFinal
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherSpi.html#engineDoFinal-byte:A-int-int-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+		other::int
+		other::int
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	protected abstract int engineDoFinal(byte[] input,
+	                                     int inputOffset,
+	                                     int inputLen,
+	                                     byte[] output,
+	                                     int outputOffset)
+	                              throws ShortBufferException,
+	                                     IllegalBlockSizeException,
+	                                     BadPaddingException
+	Name: engineDoFinal
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherSpi.html#engineDoFinal-byte:A-int-int-byte:A-int-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+		other::int
+		other::int
+		other::[] {
+			other::byte
+		}
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected int engineDoFinal(ByteBuffer input,
+	                            ByteBuffer output)
+	                     throws ShortBufferException,
+	                            IllegalBlockSizeException,
+	                            BadPaddingException
+	Name: engineDoFinal
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherSpi.html#engineDoFinal-java.nio.ByteBuffer-java.nio.ByteBuffer-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+		java.nio::ByteBuffer
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected byte[] engineWrap(Key key)
+	                     throws IllegalBlockSizeException,
+	                            InvalidKeyException
+	Name: engineWrap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherSpi.html#engineWrap-java.security.Key-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Key
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	protected Key engineUnwrap(byte[] wrappedKey,
+	                           String wrappedKeyAlgorithm,
+	                           int wrappedKeyType)
+	                    throws InvalidKeyException,
+	                           NoSuchAlgorithmException
+	Name: engineUnwrap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherSpi.html#engineUnwrap-byte:A-java.lang.String-int-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+		java.lang::String
+		other::int
+	
+		[result]
+		java.security::Key
+	}
+
+	[Function]
+	protected int engineGetKeySize(Key key)
+	                        throws InvalidKeyException
+	Name: engineGetKeySize
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherSpi.html#engineGetKeySize-java.security.Key-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Key
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected void engineUpdateAAD(byte[] src,
+	                               int offset,
+	                               int len)
+	Name: engineUpdateAAD
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherSpi.html#engineUpdateAAD-byte:A-int-int-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+		other::int
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void engineUpdateAAD(ByteBuffer src)
+	Name: engineUpdateAAD
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/CipherSpi.html#engineUpdateAAD-java.nio.ByteBuffer-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CipherSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public class EncryptedPrivateKeyInfo
+extends Object
+Name: EncryptedPrivateKeyInfo
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/EncryptedPrivateKeyInfo.html
+Containing package: javax.crypto
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public EncryptedPrivateKeyInfo(byte[] encoded)
+	                        throws IOException
+	Name: EncryptedPrivateKeyInfo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/EncryptedPrivateKeyInfo.html#EncryptedPrivateKeyInfo-byte:A-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: EncryptedPrivateKeyInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+	
+		[result]
+		javax.crypto::EncryptedPrivateKeyInfo
+	}
+
+	[Function]
+	public EncryptedPrivateKeyInfo(String algName,
+	                               byte[] encryptedData)
+	                        throws NoSuchAlgorithmException
+	Name: EncryptedPrivateKeyInfo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/EncryptedPrivateKeyInfo.html#EncryptedPrivateKeyInfo-java.lang.String-byte:A-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: EncryptedPrivateKeyInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::[] {
+			other::byte
+		}
+	
+		[result]
+		javax.crypto::EncryptedPrivateKeyInfo
+	}
+
+	[Function]
+	public EncryptedPrivateKeyInfo(AlgorithmParameters algParams,
+	                               byte[] encryptedData)
+	                        throws NoSuchAlgorithmException
+	Name: EncryptedPrivateKeyInfo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/EncryptedPrivateKeyInfo.html#EncryptedPrivateKeyInfo-java.security.AlgorithmParameters-byte:A-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: EncryptedPrivateKeyInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::AlgorithmParameters
+		other::[] {
+			other::byte
+		}
+	
+		[result]
+		javax.crypto::EncryptedPrivateKeyInfo
+	}
+
+	[Function]
+	public String getAlgName()
+	Name: getAlgName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/EncryptedPrivateKeyInfo.html#getAlgName--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EncryptedPrivateKeyInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public AlgorithmParameters getAlgParameters()
+	Name: getAlgParameters
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/EncryptedPrivateKeyInfo.html#getAlgParameters--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EncryptedPrivateKeyInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.security::AlgorithmParameters
+	}
+
+	[Function]
+	public byte[] getEncryptedData()
+	Name: getEncryptedData
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/EncryptedPrivateKeyInfo.html#getEncryptedData--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EncryptedPrivateKeyInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	public PKCS8EncodedKeySpec getKeySpec(Cipher cipher)
+	                               throws InvalidKeySpecException
+	Name: getKeySpec
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/EncryptedPrivateKeyInfo.html#getKeySpec-javax.crypto.Cipher-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EncryptedPrivateKeyInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.crypto::Cipher
+	
+		[result]
+		java.security.spec::PKCS8EncodedKeySpec
+	}
+
+	[Function]
+	public PKCS8EncodedKeySpec getKeySpec(Key decryptKey)
+	                               throws NoSuchAlgorithmException,
+	                                      InvalidKeyException
+	Name: getKeySpec
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/EncryptedPrivateKeyInfo.html#getKeySpec-java.security.Key-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EncryptedPrivateKeyInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Key
+	
+		[result]
+		java.security.spec::PKCS8EncodedKeySpec
+	}
+
+	[Function]
+	public PKCS8EncodedKeySpec getKeySpec(Key decryptKey,
+	                                      String providerName)
+	                               throws NoSuchProviderException,
+	                                      NoSuchAlgorithmException,
+	                                      InvalidKeyException
+	Name: getKeySpec
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/EncryptedPrivateKeyInfo.html#getKeySpec-java.security.Key-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EncryptedPrivateKeyInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Key
+		java.lang::String
+	
+		[result]
+		java.security.spec::PKCS8EncodedKeySpec
+	}
+
+	[Function]
+	public PKCS8EncodedKeySpec getKeySpec(Key decryptKey,
+	                                      Provider provider)
+	                               throws NoSuchAlgorithmException,
+	                                      InvalidKeyException
+	Name: getKeySpec
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/EncryptedPrivateKeyInfo.html#getKeySpec-java.security.Key-java.security.Provider-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EncryptedPrivateKeyInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Key
+		java.security::Provider
+	
+		[result]
+		java.security.spec::PKCS8EncodedKeySpec
+	}
+
+	[Function]
+	public byte[] getEncoded()
+	                  throws IOException
+	Name: getEncoded
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/EncryptedPrivateKeyInfo.html#getEncoded--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EncryptedPrivateKeyInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+}
+
+[Classifier]
+public class ExemptionMechanism
+extends Object
+Name: ExemptionMechanism
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ExemptionMechanism.html
+Containing package: javax.crypto
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected ExemptionMechanism(ExemptionMechanismSpi exmechSpi,
+	                             Provider provider,
+	                             String mechanism)
+	Name: ExemptionMechanism
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ExemptionMechanism.html#ExemptionMechanism-javax.crypto.ExemptionMechanismSpi-java.security.Provider-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ExemptionMechanism
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.crypto::ExemptionMechanismSpi
+		java.security::Provider
+		java.lang::String
+	
+		[result]
+		javax.crypto::ExemptionMechanism
+	}
+
+	[Function]
+	public final String getName()
+	Name: getName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ExemptionMechanism.html#getName--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ExemptionMechanism
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final ExemptionMechanism getInstance(String algorithm)
+	                                            throws NoSuchAlgorithmException
+	Name: getInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ExemptionMechanism.html#getInstance-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ExemptionMechanism
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.crypto::ExemptionMechanism
+	}
+
+	[Function]
+	public static final ExemptionMechanism getInstance(String algorithm,
+	                                                   String provider)
+	                                            throws NoSuchAlgorithmException,
+	                                                   NoSuchProviderException
+	Name: getInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ExemptionMechanism.html#getInstance-java.lang.String-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ExemptionMechanism
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.crypto::ExemptionMechanism
+	}
+
+	[Function]
+	public static final ExemptionMechanism getInstance(String algorithm,
+	                                                   Provider provider)
+	                                            throws NoSuchAlgorithmException
+	Name: getInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ExemptionMechanism.html#getInstance-java.lang.String-java.security.Provider-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ExemptionMechanism
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.security::Provider
+	
+		[result]
+		javax.crypto::ExemptionMechanism
+	}
+
+	[Function]
+	public final Provider getProvider()
+	Name: getProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ExemptionMechanism.html#getProvider--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ExemptionMechanism
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.security::Provider
+	}
+
+	[Function]
+	public final boolean isCryptoAllowed(Key key)
+	                              throws ExemptionMechanismException
+	Name: isCryptoAllowed
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ExemptionMechanism.html#isCryptoAllowed-java.security.Key-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ExemptionMechanism
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Key
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final int getOutputSize(int inputLen)
+	                        throws IllegalStateException
+	Name: getOutputSize
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ExemptionMechanism.html#getOutputSize-int-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ExemptionMechanism
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public final void init(Key key)
+	                throws InvalidKeyException,
+	                       ExemptionMechanismException
+	Name: init
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ExemptionMechanism.html#init-java.security.Key-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ExemptionMechanism
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Key
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void init(Key key,
+	                       AlgorithmParameterSpec params)
+	                throws InvalidKeyException,
+	                       InvalidAlgorithmParameterException,
+	                       ExemptionMechanismException
+	Name: init
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ExemptionMechanism.html#init-java.security.Key-java.security.spec.AlgorithmParameterSpec-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ExemptionMechanism
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Key
+		java.security.spec::AlgorithmParameterSpec
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void init(Key key,
+	                       AlgorithmParameters params)
+	                throws InvalidKeyException,
+	                       InvalidAlgorithmParameterException,
+	                       ExemptionMechanismException
+	Name: init
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ExemptionMechanism.html#init-java.security.Key-java.security.AlgorithmParameters-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ExemptionMechanism
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Key
+		java.security::AlgorithmParameters
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final byte[] genExemptionBlob()
+	                              throws IllegalStateException,
+	                                     ExemptionMechanismException
+	Name: genExemptionBlob
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ExemptionMechanism.html#genExemptionBlob--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ExemptionMechanism
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	public final int genExemptionBlob(byte[] output)
+	                           throws IllegalStateException,
+	                                  ShortBufferException,
+	                                  ExemptionMechanismException
+	Name: genExemptionBlob
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ExemptionMechanism.html#genExemptionBlob-byte:A-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ExemptionMechanism
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public final int genExemptionBlob(byte[] output,
+	                                  int outputOffset)
+	                           throws IllegalStateException,
+	                                  ShortBufferException,
+	                                  ExemptionMechanismException
+	Name: genExemptionBlob
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ExemptionMechanism.html#genExemptionBlob-byte:A-int-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ExemptionMechanism
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected void finalize()
+	Name: finalize
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ExemptionMechanism.html#finalize--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ExemptionMechanism
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public abstract class ExemptionMechanismSpi
+extends Object
+Name: ExemptionMechanismSpi
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ExemptionMechanismSpi.html
+Containing package: javax.crypto
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public ExemptionMechanismSpi()
+	Name: ExemptionMechanismSpi
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ExemptionMechanismSpi.html#ExemptionMechanismSpi--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ExemptionMechanismSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.crypto::ExemptionMechanismSpi
+	}
+
+	[Function]
+	protected abstract int engineGetOutputSize(int inputLen)
+	Name: engineGetOutputSize
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ExemptionMechanismSpi.html#engineGetOutputSize-int-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ExemptionMechanismSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected abstract void engineInit(Key key)
+	                            throws InvalidKeyException,
+	                                   ExemptionMechanismException
+	Name: engineInit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ExemptionMechanismSpi.html#engineInit-java.security.Key-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ExemptionMechanismSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Key
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected abstract void engineInit(Key key,
+	                                   AlgorithmParameterSpec params)
+	                            throws InvalidKeyException,
+	                                   InvalidAlgorithmParameterException,
+	                                   ExemptionMechanismException
+	Name: engineInit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ExemptionMechanismSpi.html#engineInit-java.security.Key-java.security.spec.AlgorithmParameterSpec-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ExemptionMechanismSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Key
+		java.security.spec::AlgorithmParameterSpec
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected abstract void engineInit(Key key,
+	                                   AlgorithmParameters params)
+	                            throws InvalidKeyException,
+	                                   InvalidAlgorithmParameterException,
+	                                   ExemptionMechanismException
+	Name: engineInit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ExemptionMechanismSpi.html#engineInit-java.security.Key-java.security.AlgorithmParameters-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ExemptionMechanismSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Key
+		java.security::AlgorithmParameters
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected abstract byte[] engineGenExemptionBlob()
+	                                          throws ExemptionMechanismException
+	Name: engineGenExemptionBlob
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ExemptionMechanismSpi.html#engineGenExemptionBlob--
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ExemptionMechanismSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	protected abstract int engineGenExemptionBlob(byte[] output,
+	                                              int outputOffset)
+	                                       throws ShortBufferException,
+	                                              ExemptionMechanismException
+	Name: engineGenExemptionBlob
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ExemptionMechanismSpi.html#engineGenExemptionBlob-byte:A-int-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ExemptionMechanismSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+		other::int
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public class KeyAgreement
+extends Object
+Name: KeyAgreement
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyAgreement.html
+Containing package: javax.crypto
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected KeyAgreement(KeyAgreementSpi keyAgreeSpi,
+	                       Provider provider,
+	                       String algorithm)
+	Name: KeyAgreement
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyAgreement.html#KeyAgreement-javax.crypto.KeyAgreementSpi-java.security.Provider-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: KeyAgreement
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.crypto::KeyAgreementSpi
+		java.security::Provider
+		java.lang::String
+	
+		[result]
+		javax.crypto::KeyAgreement
+	}
+
+	[Function]
+	public final String getAlgorithm()
+	Name: getAlgorithm
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyAgreement.html#getAlgorithm--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyAgreement
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final KeyAgreement getInstance(String algorithm)
+	                                      throws NoSuchAlgorithmException
+	Name: getInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyAgreement.html#getInstance-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyAgreement
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.crypto::KeyAgreement
+	}
+
+	[Function]
+	public static final KeyAgreement getInstance(String algorithm,
+	                                             String provider)
+	                                      throws NoSuchAlgorithmException,
+	                                             NoSuchProviderException
+	Name: getInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyAgreement.html#getInstance-java.lang.String-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyAgreement
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.crypto::KeyAgreement
+	}
+
+	[Function]
+	public static final KeyAgreement getInstance(String algorithm,
+	                                             Provider provider)
+	                                      throws NoSuchAlgorithmException
+	Name: getInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyAgreement.html#getInstance-java.lang.String-java.security.Provider-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyAgreement
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.security::Provider
+	
+		[result]
+		javax.crypto::KeyAgreement
+	}
+
+	[Function]
+	public final Provider getProvider()
+	Name: getProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyAgreement.html#getProvider--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyAgreement
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.security::Provider
+	}
+
+	[Function]
+	public final void init(Key key)
+	                throws InvalidKeyException
+	Name: init
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyAgreement.html#init-java.security.Key-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyAgreement
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Key
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void init(Key key,
+	                       SecureRandom random)
+	                throws InvalidKeyException
+	Name: init
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyAgreement.html#init-java.security.Key-java.security.SecureRandom-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyAgreement
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Key
+		java.security::SecureRandom
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void init(Key key,
+	                       AlgorithmParameterSpec params)
+	                throws InvalidKeyException,
+	                       InvalidAlgorithmParameterException
+	Name: init
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyAgreement.html#init-java.security.Key-java.security.spec.AlgorithmParameterSpec-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyAgreement
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Key
+		java.security.spec::AlgorithmParameterSpec
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void init(Key key,
+	                       AlgorithmParameterSpec params,
+	                       SecureRandom random)
+	                throws InvalidKeyException,
+	                       InvalidAlgorithmParameterException
+	Name: init
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyAgreement.html#init-java.security.Key-java.security.spec.AlgorithmParameterSpec-java.security.SecureRandom-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyAgreement
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Key
+		java.security.spec::AlgorithmParameterSpec
+		java.security::SecureRandom
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final Key doPhase(Key key,
+	                         boolean lastPhase)
+	                  throws InvalidKeyException,
+	                         IllegalStateException
+	Name: doPhase
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyAgreement.html#doPhase-java.security.Key-boolean-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyAgreement
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Key
+		other::boolean
+	
+		[result]
+		java.security::Key
+	}
+
+	[Function]
+	public final byte[] generateSecret()
+	                            throws IllegalStateException
+	Name: generateSecret
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyAgreement.html#generateSecret--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyAgreement
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	public final int generateSecret(byte[] sharedSecret,
+	                                int offset)
+	                         throws IllegalStateException,
+	                                ShortBufferException
+	Name: generateSecret
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyAgreement.html#generateSecret-byte:A-int-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyAgreement
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public final SecretKey generateSecret(String algorithm)
+	                               throws IllegalStateException,
+	                                      NoSuchAlgorithmException,
+	                                      InvalidKeyException
+	Name: generateSecret
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyAgreement.html#generateSecret-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyAgreement
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.crypto::SecretKey
+	}
+}
+
+[Classifier]
+public abstract class KeyAgreementSpi
+extends Object
+Name: KeyAgreementSpi
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyAgreementSpi.html
+Containing package: javax.crypto
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public KeyAgreementSpi()
+	Name: KeyAgreementSpi
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyAgreementSpi.html#KeyAgreementSpi--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: KeyAgreementSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.crypto::KeyAgreementSpi
+	}
+
+	[Function]
+	protected abstract void engineInit(Key key,
+	                                   SecureRandom random)
+	                            throws InvalidKeyException
+	Name: engineInit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyAgreementSpi.html#engineInit-java.security.Key-java.security.SecureRandom-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyAgreementSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Key
+		java.security::SecureRandom
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected abstract void engineInit(Key key,
+	                                   AlgorithmParameterSpec params,
+	                                   SecureRandom random)
+	                            throws InvalidKeyException,
+	                                   InvalidAlgorithmParameterException
+	Name: engineInit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyAgreementSpi.html#engineInit-java.security.Key-java.security.spec.AlgorithmParameterSpec-java.security.SecureRandom-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyAgreementSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Key
+		java.security.spec::AlgorithmParameterSpec
+		java.security::SecureRandom
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected abstract Key engineDoPhase(Key key,
+	                                     boolean lastPhase)
+	                              throws InvalidKeyException,
+	                                     IllegalStateException
+	Name: engineDoPhase
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyAgreementSpi.html#engineDoPhase-java.security.Key-boolean-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyAgreementSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Key
+		other::boolean
+	
+		[result]
+		java.security::Key
+	}
+
+	[Function]
+	protected abstract byte[] engineGenerateSecret()
+	                                        throws IllegalStateException
+	Name: engineGenerateSecret
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyAgreementSpi.html#engineGenerateSecret--
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyAgreementSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	protected abstract int engineGenerateSecret(byte[] sharedSecret,
+	                                            int offset)
+	                                     throws IllegalStateException,
+	                                            ShortBufferException
+	Name: engineGenerateSecret
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyAgreementSpi.html#engineGenerateSecret-byte:A-int-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyAgreementSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected abstract SecretKey engineGenerateSecret(String algorithm)
+	                                           throws IllegalStateException,
+	                                                  NoSuchAlgorithmException,
+	                                                  InvalidKeyException
+	Name: engineGenerateSecret
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyAgreementSpi.html#engineGenerateSecret-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyAgreementSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.crypto::SecretKey
+	}
+}
+
+[Classifier]
+public class KeyGenerator
+extends Object
+Name: KeyGenerator
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyGenerator.html
+Containing package: javax.crypto
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected KeyGenerator(KeyGeneratorSpi keyGenSpi,
+	                       Provider provider,
+	                       String algorithm)
+	Name: KeyGenerator
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyGenerator.html#KeyGenerator-javax.crypto.KeyGeneratorSpi-java.security.Provider-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: KeyGenerator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.crypto::KeyGeneratorSpi
+		java.security::Provider
+		java.lang::String
+	
+		[result]
+		javax.crypto::KeyGenerator
+	}
+
+	[Function]
+	public final String getAlgorithm()
+	Name: getAlgorithm
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyGenerator.html#getAlgorithm--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyGenerator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final KeyGenerator getInstance(String algorithm)
+	                                      throws NoSuchAlgorithmException
+	Name: getInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyGenerator.html#getInstance-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyGenerator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.crypto::KeyGenerator
+	}
+
+	[Function]
+	public static final KeyGenerator getInstance(String algorithm,
+	                                             String provider)
+	                                      throws NoSuchAlgorithmException,
+	                                             NoSuchProviderException
+	Name: getInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyGenerator.html#getInstance-java.lang.String-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyGenerator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.crypto::KeyGenerator
+	}
+
+	[Function]
+	public static final KeyGenerator getInstance(String algorithm,
+	                                             Provider provider)
+	                                      throws NoSuchAlgorithmException
+	Name: getInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyGenerator.html#getInstance-java.lang.String-java.security.Provider-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyGenerator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.security::Provider
+	
+		[result]
+		javax.crypto::KeyGenerator
+	}
+
+	[Function]
+	public final Provider getProvider()
+	Name: getProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyGenerator.html#getProvider--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyGenerator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.security::Provider
+	}
+
+	[Function]
+	public final void init(SecureRandom random)
+	Name: init
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyGenerator.html#init-java.security.SecureRandom-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyGenerator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::SecureRandom
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void init(AlgorithmParameterSpec params)
+	                throws InvalidAlgorithmParameterException
+	Name: init
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyGenerator.html#init-java.security.spec.AlgorithmParameterSpec-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyGenerator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security.spec::AlgorithmParameterSpec
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void init(AlgorithmParameterSpec params,
+	                       SecureRandom random)
+	                throws InvalidAlgorithmParameterException
+	Name: init
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyGenerator.html#init-java.security.spec.AlgorithmParameterSpec-java.security.SecureRandom-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyGenerator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security.spec::AlgorithmParameterSpec
+		java.security::SecureRandom
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void init(int keysize)
+	Name: init
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyGenerator.html#init-int-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyGenerator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void init(int keysize,
+	                       SecureRandom random)
+	Name: init
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyGenerator.html#init-int-java.security.SecureRandom-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyGenerator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.security::SecureRandom
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final SecretKey generateKey()
+	Name: generateKey
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyGenerator.html#generateKey--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyGenerator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.crypto::SecretKey
+	}
+}
+
+[Classifier]
+public abstract class KeyGeneratorSpi
+extends Object
+Name: KeyGeneratorSpi
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyGeneratorSpi.html
+Containing package: javax.crypto
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public KeyGeneratorSpi()
+	Name: KeyGeneratorSpi
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyGeneratorSpi.html#KeyGeneratorSpi--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: KeyGeneratorSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.crypto::KeyGeneratorSpi
+	}
+
+	[Function]
+	protected abstract void engineInit(SecureRandom random)
+	Name: engineInit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyGeneratorSpi.html#engineInit-java.security.SecureRandom-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyGeneratorSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::SecureRandom
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected abstract void engineInit(AlgorithmParameterSpec params,
+	                                   SecureRandom random)
+	                            throws InvalidAlgorithmParameterException
+	Name: engineInit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyGeneratorSpi.html#engineInit-java.security.spec.AlgorithmParameterSpec-java.security.SecureRandom-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyGeneratorSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security.spec::AlgorithmParameterSpec
+		java.security::SecureRandom
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected abstract void engineInit(int keysize,
+	                                   SecureRandom random)
+	Name: engineInit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyGeneratorSpi.html#engineInit-int-java.security.SecureRandom-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyGeneratorSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.security::SecureRandom
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected abstract SecretKey engineGenerateKey()
+	Name: engineGenerateKey
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyGeneratorSpi.html#engineGenerateKey--
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: KeyGeneratorSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.crypto::SecretKey
+	}
+}
+
+[Classifier]
+public class Mac
+extends Object
+implements Cloneable
+Name: Mac
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Mac.html
+Containing package: javax.crypto
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Cloneable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected Mac(MacSpi macSpi,
+	              Provider provider,
+	              String algorithm)
+	Name: Mac
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Mac.html#Mac-javax.crypto.MacSpi-java.security.Provider-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Mac
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.crypto::MacSpi
+		java.security::Provider
+		java.lang::String
+	
+		[result]
+		javax.crypto::Mac
+	}
+
+	[Function]
+	public final String getAlgorithm()
+	Name: getAlgorithm
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Mac.html#getAlgorithm--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Mac
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final Mac getInstance(String algorithm)
+	                             throws NoSuchAlgorithmException
+	Name: getInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Mac.html#getInstance-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Mac
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.crypto::Mac
+	}
+
+	[Function]
+	public static final Mac getInstance(String algorithm,
+	                                    String provider)
+	                             throws NoSuchAlgorithmException,
+	                                    NoSuchProviderException
+	Name: getInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Mac.html#getInstance-java.lang.String-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Mac
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.crypto::Mac
+	}
+
+	[Function]
+	public static final Mac getInstance(String algorithm,
+	                                    Provider provider)
+	                             throws NoSuchAlgorithmException
+	Name: getInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Mac.html#getInstance-java.lang.String-java.security.Provider-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Mac
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.security::Provider
+	
+		[result]
+		javax.crypto::Mac
+	}
+
+	[Function]
+	public final Provider getProvider()
+	Name: getProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Mac.html#getProvider--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Mac
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.security::Provider
+	}
+
+	[Function]
+	public final int getMacLength()
+	Name: getMacLength
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Mac.html#getMacLength--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Mac
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public final void init(Key key)
+	                throws InvalidKeyException
+	Name: init
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Mac.html#init-java.security.Key-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Mac
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Key
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void init(Key key,
+	                       AlgorithmParameterSpec params)
+	                throws InvalidKeyException,
+	                       InvalidAlgorithmParameterException
+	Name: init
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Mac.html#init-java.security.Key-java.security.spec.AlgorithmParameterSpec-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Mac
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Key
+		java.security.spec::AlgorithmParameterSpec
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void update(byte input)
+	                  throws IllegalStateException
+	Name: update
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Mac.html#update-byte-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Mac
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::byte
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void update(byte[] input)
+	                  throws IllegalStateException
+	Name: update
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Mac.html#update-byte:A-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Mac
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void update(byte[] input,
+	                         int offset,
+	                         int len)
+	                  throws IllegalStateException
+	Name: update
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Mac.html#update-byte:A-int-int-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Mac
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+		other::int
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void update(ByteBuffer input)
+	Name: update
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Mac.html#update-java.nio.ByteBuffer-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Mac
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final byte[] doFinal()
+	                     throws IllegalStateException
+	Name: doFinal
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Mac.html#doFinal--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Mac
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	public final void doFinal(byte[] output,
+	                          int outOffset)
+	                   throws ShortBufferException,
+	                          IllegalStateException
+	Name: doFinal
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Mac.html#doFinal-byte:A-int-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Mac
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final byte[] doFinal(byte[] input)
+	                     throws IllegalStateException
+	Name: doFinal
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Mac.html#doFinal-byte:A-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Mac
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	public final void reset()
+	Name: reset
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Mac.html#reset--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Mac
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final Object clone()
+	                   throws CloneNotSupportedException
+	Name: clone
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/Mac.html#clone--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Mac
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Object
+	}
+}
+
+[Classifier]
+public abstract class MacSpi
+extends Object
+Name: MacSpi
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/MacSpi.html
+Containing package: javax.crypto
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public MacSpi()
+	Name: MacSpi
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/MacSpi.html#MacSpi--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MacSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.crypto::MacSpi
+	}
+
+	[Function]
+	protected abstract int engineGetMacLength()
+	Name: engineGetMacLength
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/MacSpi.html#engineGetMacLength--
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MacSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected abstract void engineInit(Key key,
+	                                   AlgorithmParameterSpec params)
+	                            throws InvalidKeyException,
+	                                   InvalidAlgorithmParameterException
+	Name: engineInit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/MacSpi.html#engineInit-java.security.Key-java.security.spec.AlgorithmParameterSpec-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MacSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Key
+		java.security.spec::AlgorithmParameterSpec
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected abstract void engineUpdate(byte input)
+	Name: engineUpdate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/MacSpi.html#engineUpdate-byte-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MacSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::byte
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected abstract void engineUpdate(byte[] input,
+	                                     int offset,
+	                                     int len)
+	Name: engineUpdate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/MacSpi.html#engineUpdate-byte:A-int-int-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MacSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+		other::int
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void engineUpdate(ByteBuffer input)
+	Name: engineUpdate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/MacSpi.html#engineUpdate-java.nio.ByteBuffer-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MacSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected abstract byte[] engineDoFinal()
+	Name: engineDoFinal
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/MacSpi.html#engineDoFinal--
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MacSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	protected abstract void engineReset()
+	Name: engineReset
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/MacSpi.html#engineReset--
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MacSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Object clone()
+	             throws CloneNotSupportedException
+	Name: clone
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/MacSpi.html#clone--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MacSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Object
+	}
+}
+
+[Classifier]
+public class NullCipher
+extends Cipher
+Name: NullCipher
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/NullCipher.html
+Containing package: javax.crypto
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.crypto::Cipher
+}
+members {
+
+	[Function]
+	public NullCipher()
+	Name: NullCipher
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/NullCipher.html#NullCipher--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: NullCipher
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.crypto::NullCipher
+	}
+}
+
+[Classifier]
+public class SealedObject
+extends Object
+implements Serializable
+Name: SealedObject
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/SealedObject.html
+Containing package: javax.crypto
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected byte[] encodedParams
+	Name: encodedParams
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/SealedObject.html#encodedParams
+	Containing package: javax.crypto
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: SealedObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	public SealedObject(Serializable object,
+	                    Cipher c)
+	             throws IOException,
+	                    IllegalBlockSizeException
+	Name: SealedObject
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/SealedObject.html#SealedObject-java.io.Serializable-javax.crypto.Cipher-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: SealedObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::Serializable
+		javax.crypto::Cipher
+	
+		[result]
+		javax.crypto::SealedObject
+	}
+
+	[Function]
+	protected SealedObject(SealedObject so)
+	Name: SealedObject
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/SealedObject.html#SealedObject-javax.crypto.SealedObject-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: SealedObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.crypto::SealedObject
+	
+		[result]
+		javax.crypto::SealedObject
+	}
+
+	[Function]
+	public final String getAlgorithm()
+	Name: getAlgorithm
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/SealedObject.html#getAlgorithm--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SealedObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public final Object getObject(Key key)
+	                       throws IOException,
+	                              ClassNotFoundException,
+	                              NoSuchAlgorithmException,
+	                              InvalidKeyException
+	Name: getObject
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/SealedObject.html#getObject-java.security.Key-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SealedObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Key
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public final Object getObject(Cipher c)
+	                       throws IOException,
+	                              ClassNotFoundException,
+	                              IllegalBlockSizeException,
+	                              BadPaddingException
+	Name: getObject
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/SealedObject.html#getObject-javax.crypto.Cipher-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SealedObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.crypto::Cipher
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public final Object getObject(Key key,
+	                              String provider)
+	                       throws IOException,
+	                              ClassNotFoundException,
+	                              NoSuchAlgorithmException,
+	                              NoSuchProviderException,
+	                              InvalidKeyException
+	Name: getObject
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/SealedObject.html#getObject-java.security.Key-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SealedObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Key
+		java.lang::String
+	
+		[result]
+		java.lang::Object
+	}
+}
+
+[Classifier]
+public class SecretKeyFactory
+extends Object
+Name: SecretKeyFactory
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/SecretKeyFactory.html
+Containing package: javax.crypto
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected SecretKeyFactory(SecretKeyFactorySpi keyFacSpi,
+	                           Provider provider,
+	                           String algorithm)
+	Name: SecretKeyFactory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/SecretKeyFactory.html#SecretKeyFactory-javax.crypto.SecretKeyFactorySpi-java.security.Provider-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: SecretKeyFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.crypto::SecretKeyFactorySpi
+		java.security::Provider
+		java.lang::String
+	
+		[result]
+		javax.crypto::SecretKeyFactory
+	}
+
+	[Function]
+	public static final SecretKeyFactory getInstance(String algorithm)
+	                                          throws NoSuchAlgorithmException
+	Name: getInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/SecretKeyFactory.html#getInstance-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: SecretKeyFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.crypto::SecretKeyFactory
+	}
+
+	[Function]
+	public static final SecretKeyFactory getInstance(String algorithm,
+	                                                 String provider)
+	                                          throws NoSuchAlgorithmException,
+	                                                 NoSuchProviderException
+	Name: getInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/SecretKeyFactory.html#getInstance-java.lang.String-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: SecretKeyFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.crypto::SecretKeyFactory
+	}
+
+	[Function]
+	public static final SecretKeyFactory getInstance(String algorithm,
+	                                                 Provider provider)
+	                                          throws NoSuchAlgorithmException
+	Name: getInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/SecretKeyFactory.html#getInstance-java.lang.String-java.security.Provider-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: SecretKeyFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.security::Provider
+	
+		[result]
+		javax.crypto::SecretKeyFactory
+	}
+
+	[Function]
+	public final Provider getProvider()
+	Name: getProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/SecretKeyFactory.html#getProvider--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SecretKeyFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.security::Provider
+	}
+
+	[Function]
+	public final String getAlgorithm()
+	Name: getAlgorithm
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/SecretKeyFactory.html#getAlgorithm--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SecretKeyFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public final SecretKey generateSecret(KeySpec keySpec)
+	                               throws InvalidKeySpecException
+	Name: generateSecret
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/SecretKeyFactory.html#generateSecret-java.security.spec.KeySpec-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SecretKeyFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security.spec::KeySpec
+	
+		[result]
+		javax.crypto::SecretKey
+	}
+
+	[Function]
+	public final KeySpec getKeySpec(SecretKey key,
+	                                Class<?> keySpec)
+	                         throws InvalidKeySpecException
+	Name: getKeySpec
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/SecretKeyFactory.html#getKeySpec-javax.crypto.SecretKey-java.lang.Class-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SecretKeyFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.crypto::SecretKey
+		java.lang::Class {
+			?
+		}
+	
+		[result]
+		java.security.spec::KeySpec
+	}
+
+	[Function]
+	public final SecretKey translateKey(SecretKey key)
+	                             throws InvalidKeyException
+	Name: translateKey
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/SecretKeyFactory.html#translateKey-javax.crypto.SecretKey-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SecretKeyFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.crypto::SecretKey
+	
+		[result]
+		javax.crypto::SecretKey
+	}
+}
+
+[Classifier]
+public abstract class SecretKeyFactorySpi
+extends Object
+Name: SecretKeyFactorySpi
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/SecretKeyFactorySpi.html
+Containing package: javax.crypto
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public SecretKeyFactorySpi()
+	Name: SecretKeyFactorySpi
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/SecretKeyFactorySpi.html#SecretKeyFactorySpi--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: SecretKeyFactorySpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.crypto::SecretKeyFactorySpi
+	}
+
+	[Function]
+	protected abstract SecretKey engineGenerateSecret(KeySpec keySpec)
+	                                           throws InvalidKeySpecException
+	Name: engineGenerateSecret
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/SecretKeyFactorySpi.html#engineGenerateSecret-java.security.spec.KeySpec-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SecretKeyFactorySpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security.spec::KeySpec
+	
+		[result]
+		javax.crypto::SecretKey
+	}
+
+	[Function]
+	protected abstract KeySpec engineGetKeySpec(SecretKey key,
+	                                            Class<?> keySpec)
+	                                     throws InvalidKeySpecException
+	Name: engineGetKeySpec
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/SecretKeyFactorySpi.html#engineGetKeySpec-javax.crypto.SecretKey-java.lang.Class-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SecretKeyFactorySpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.crypto::SecretKey
+		java.lang::Class {
+			?
+		}
+	
+		[result]
+		java.security.spec::KeySpec
+	}
+
+	[Function]
+	protected abstract SecretKey engineTranslateKey(SecretKey key)
+	                                         throws InvalidKeyException
+	Name: engineTranslateKey
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/SecretKeyFactorySpi.html#engineTranslateKey-javax.crypto.SecretKey-
+	Containing package: javax.crypto
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SecretKeyFactorySpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.crypto::SecretKey
+	
+		[result]
+		javax.crypto::SecretKey
+	}
+}
+
+[Classifier]
+public class AEADBadTagException
+extends BadPaddingException
+Name: AEADBadTagException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/AEADBadTagException.html
+Containing package: javax.crypto
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.crypto::BadPaddingException
+}
+members {
+
+	[Function]
+	public AEADBadTagException()
+	Name: AEADBadTagException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/AEADBadTagException.html#AEADBadTagException--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AEADBadTagException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.crypto::AEADBadTagException
+	}
+
+	[Function]
+	public AEADBadTagException(String msg)
+	Name: AEADBadTagException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/AEADBadTagException.html#AEADBadTagException-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AEADBadTagException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.crypto::AEADBadTagException
+	}
+}
+
+[Classifier]
+public class BadPaddingException
+extends GeneralSecurityException
+Name: BadPaddingException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/BadPaddingException.html
+Containing package: javax.crypto
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.crypto::AEADBadTagException
+}
+supertypes {
+	java.security::GeneralSecurityException
+}
+members {
+
+	[Function]
+	public BadPaddingException()
+	Name: BadPaddingException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/BadPaddingException.html#BadPaddingException--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: BadPaddingException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.crypto::BadPaddingException
+	}
+
+	[Function]
+	public BadPaddingException(String msg)
+	Name: BadPaddingException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/BadPaddingException.html#BadPaddingException-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: BadPaddingException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.crypto::BadPaddingException
+	}
+}
+
+[Classifier]
+public class ExemptionMechanismException
+extends GeneralSecurityException
+Name: ExemptionMechanismException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ExemptionMechanismException.html
+Containing package: javax.crypto
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.security::GeneralSecurityException
+}
+members {
+
+	[Function]
+	public ExemptionMechanismException()
+	Name: ExemptionMechanismException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ExemptionMechanismException.html#ExemptionMechanismException--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ExemptionMechanismException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.crypto::ExemptionMechanismException
+	}
+
+	[Function]
+	public ExemptionMechanismException(String msg)
+	Name: ExemptionMechanismException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ExemptionMechanismException.html#ExemptionMechanismException-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ExemptionMechanismException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.crypto::ExemptionMechanismException
+	}
+}
+
+[Classifier]
+public class IllegalBlockSizeException
+extends GeneralSecurityException
+Name: IllegalBlockSizeException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/IllegalBlockSizeException.html
+Containing package: javax.crypto
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.security::GeneralSecurityException
+}
+members {
+
+	[Function]
+	public IllegalBlockSizeException()
+	Name: IllegalBlockSizeException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/IllegalBlockSizeException.html#IllegalBlockSizeException--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: IllegalBlockSizeException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.crypto::IllegalBlockSizeException
+	}
+
+	[Function]
+	public IllegalBlockSizeException(String msg)
+	Name: IllegalBlockSizeException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/IllegalBlockSizeException.html#IllegalBlockSizeException-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: IllegalBlockSizeException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.crypto::IllegalBlockSizeException
+	}
+}
+
+[Classifier]
+public class NoSuchPaddingException
+extends GeneralSecurityException
+Name: NoSuchPaddingException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/NoSuchPaddingException.html
+Containing package: javax.crypto
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.security::GeneralSecurityException
+}
+members {
+
+	[Function]
+	public NoSuchPaddingException()
+	Name: NoSuchPaddingException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/NoSuchPaddingException.html#NoSuchPaddingException--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: NoSuchPaddingException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.crypto::NoSuchPaddingException
+	}
+
+	[Function]
+	public NoSuchPaddingException(String msg)
+	Name: NoSuchPaddingException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/NoSuchPaddingException.html#NoSuchPaddingException-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: NoSuchPaddingException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.crypto::NoSuchPaddingException
+	}
+}
+
+[Classifier]
+public class ShortBufferException
+extends GeneralSecurityException
+Name: ShortBufferException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ShortBufferException.html
+Containing package: javax.crypto
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.security::GeneralSecurityException
+}
+members {
+
+	[Function]
+	public ShortBufferException()
+	Name: ShortBufferException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ShortBufferException.html#ShortBufferException--
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ShortBufferException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.crypto::ShortBufferException
+	}
+
+	[Function]
+	public ShortBufferException(String msg)
+	Name: ShortBufferException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/crypto/ShortBufferException.html#ShortBufferException-java.lang.String-
+	Containing package: javax.crypto
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ShortBufferException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.crypto::ShortBufferException
+	}
+}

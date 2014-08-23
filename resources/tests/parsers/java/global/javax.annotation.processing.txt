@@ -1,0 +1,1413 @@
+[Package]
+Name: javax.annotation.processing
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/package-summary.html
+Containing package: javax.annotation
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+public interface Completion
+Name: Completion
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/Completion.html
+Containing package: javax.annotation.processing
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	String getValue()
+	Name: getValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/Completion.html#getValue--
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Completion
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	String getMessage()
+	Name: getMessage
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/Completion.html#getMessage--
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Completion
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public interface Filer
+Name: Filer
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/Filer.html
+Containing package: javax.annotation.processing
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	JavaFileObject createSourceFile(CharSequence name,
+	                                Element... originatingElements)
+	                         throws IOException
+	Name: createSourceFile
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/Filer.html#createSourceFile-java.lang.CharSequence-javax.lang.model.element.Element...-
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Filer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::CharSequence
+		other::... {
+			javax.lang.model.element::Element
+		}
+	
+		[result]
+		javax.tools::JavaFileObject
+	}
+
+	[Function]
+	JavaFileObject createClassFile(CharSequence name,
+	                               Element... originatingElements)
+	                        throws IOException
+	Name: createClassFile
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/Filer.html#createClassFile-java.lang.CharSequence-javax.lang.model.element.Element...-
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Filer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::CharSequence
+		other::... {
+			javax.lang.model.element::Element
+		}
+	
+		[result]
+		javax.tools::JavaFileObject
+	}
+
+	[Function]
+	FileObject createResource(JavaFileManager.Location location,
+	                          CharSequence pkg,
+	                          CharSequence relativeName,
+	                          Element... originatingElements)
+	                   throws IOException
+	Name: createResource
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/Filer.html#createResource-javax.tools.JavaFileManager.Location-java.lang.CharSequence-java.lang.CharSequence-javax.lang.model.element.Element...-
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Filer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.tools::JavaFileManager.Location
+		java.lang::CharSequence
+		java.lang::CharSequence
+		other::... {
+			javax.lang.model.element::Element
+		}
+	
+		[result]
+		javax.tools::FileObject
+	}
+
+	[Function]
+	FileObject getResource(JavaFileManager.Location location,
+	                       CharSequence pkg,
+	                       CharSequence relativeName)
+	                throws IOException
+	Name: getResource
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/Filer.html#getResource-javax.tools.JavaFileManager.Location-java.lang.CharSequence-java.lang.CharSequence-
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Filer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.tools::JavaFileManager.Location
+		java.lang::CharSequence
+		java.lang::CharSequence
+	
+		[result]
+		javax.tools::FileObject
+	}
+}
+
+[Classifier]
+public interface Messager
+Name: Messager
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/Messager.html
+Containing package: javax.annotation.processing
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	void printMessage(Diagnostic.Kind kind,
+	                  CharSequence msg)
+	Name: printMessage
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/Messager.html#printMessage-javax.tools.Diagnostic.Kind-java.lang.CharSequence-
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Messager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.tools::Diagnostic.Kind
+		java.lang::CharSequence
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void printMessage(Diagnostic.Kind kind,
+	                  CharSequence msg,
+	                  Element e)
+	Name: printMessage
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/Messager.html#printMessage-javax.tools.Diagnostic.Kind-java.lang.CharSequence-javax.lang.model.element.Element-
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Messager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.tools::Diagnostic.Kind
+		java.lang::CharSequence
+		javax.lang.model.element::Element
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void printMessage(Diagnostic.Kind kind,
+	                  CharSequence msg,
+	                  Element e,
+	                  AnnotationMirror a)
+	Name: printMessage
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/Messager.html#printMessage-javax.tools.Diagnostic.Kind-java.lang.CharSequence-javax.lang.model.element.Element-javax.lang.model.element.AnnotationMirror-
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Messager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.tools::Diagnostic.Kind
+		java.lang::CharSequence
+		javax.lang.model.element::Element
+		javax.lang.model.element::AnnotationMirror
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void printMessage(Diagnostic.Kind kind,
+	                  CharSequence msg,
+	                  Element e,
+	                  AnnotationMirror a,
+	                  AnnotationValue v)
+	Name: printMessage
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/Messager.html#printMessage-javax.tools.Diagnostic.Kind-java.lang.CharSequence-javax.lang.model.element.Element-javax.lang.model.element.AnnotationMirror-javax.lang.model.element.AnnotationValue-
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Messager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.tools::Diagnostic.Kind
+		java.lang::CharSequence
+		javax.lang.model.element::Element
+		javax.lang.model.element::AnnotationMirror
+		javax.lang.model.element::AnnotationValue
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface ProcessingEnvironment
+Name: ProcessingEnvironment
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/ProcessingEnvironment.html
+Containing package: javax.annotation.processing
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	Map<String,String> getOptions()
+	Name: getOptions
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/ProcessingEnvironment.html#getOptions--
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ProcessingEnvironment
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Map {
+			java.lang::String
+			java.lang::String
+		}
+	}
+
+	[Function]
+	Messager getMessager()
+	Name: getMessager
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/ProcessingEnvironment.html#getMessager--
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ProcessingEnvironment
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.annotation.processing::Messager
+	}
+
+	[Function]
+	Filer getFiler()
+	Name: getFiler
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/ProcessingEnvironment.html#getFiler--
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ProcessingEnvironment
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.annotation.processing::Filer
+	}
+
+	[Function]
+	Elements getElementUtils()
+	Name: getElementUtils
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/ProcessingEnvironment.html#getElementUtils--
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ProcessingEnvironment
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.lang.model.util::Elements
+	}
+
+	[Function]
+	Types getTypeUtils()
+	Name: getTypeUtils
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/ProcessingEnvironment.html#getTypeUtils--
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ProcessingEnvironment
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.lang.model.util::Types
+	}
+
+	[Function]
+	SourceVersion getSourceVersion()
+	Name: getSourceVersion
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/ProcessingEnvironment.html#getSourceVersion--
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ProcessingEnvironment
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.lang.model::SourceVersion
+	}
+
+	[Function]
+	Locale getLocale()
+	Name: getLocale
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/ProcessingEnvironment.html#getLocale--
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ProcessingEnvironment
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Locale
+	}
+}
+
+[Classifier]
+public interface Processor
+Name: Processor
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/Processor.html
+Containing package: javax.annotation.processing
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.annotation.processing::AbstractProcessor
+}
+supertypes {
+}
+members {
+
+	[Function]
+	Set<String> getSupportedOptions()
+	Name: getSupportedOptions
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/Processor.html#getSupportedOptions--
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Processor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Set {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	Set<String> getSupportedAnnotationTypes()
+	Name: getSupportedAnnotationTypes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/Processor.html#getSupportedAnnotationTypes--
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Processor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Set {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	SourceVersion getSupportedSourceVersion()
+	Name: getSupportedSourceVersion
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/Processor.html#getSupportedSourceVersion--
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Processor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.lang.model::SourceVersion
+	}
+
+	[Function]
+	void init(ProcessingEnvironment processingEnv)
+	Name: init
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/Processor.html#init-javax.annotation.processing.ProcessingEnvironment-
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Processor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.annotation.processing::ProcessingEnvironment
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	boolean process(Set<? extends TypeElement> annotations,
+	                RoundEnvironment roundEnv)
+	Name: process
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/Processor.html#process-java.util.Set-javax.annotation.processing.RoundEnvironment-
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Processor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Set {
+			? {
+				extends javax.lang.model.element::TypeElement
+			}
+		}
+		javax.annotation.processing::RoundEnvironment
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	Iterable<? extends Completion> getCompletions(Element element,
+	                                              AnnotationMirror annotation,
+	                                              ExecutableElement member,
+	                                              String userText)
+	Name: getCompletions
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/Processor.html#getCompletions-javax.lang.model.element.Element-javax.lang.model.element.AnnotationMirror-javax.lang.model.element.ExecutableElement-java.lang.String-
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Processor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.lang.model.element::Element
+		javax.lang.model.element::AnnotationMirror
+		javax.lang.model.element::ExecutableElement
+		java.lang::String
+	
+		[result]
+		java.lang::Iterable {
+			? {
+				extends javax.annotation.processing::Completion
+			}
+		}
+	}
+}
+
+[Classifier]
+public interface RoundEnvironment
+Name: RoundEnvironment
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/RoundEnvironment.html
+Containing package: javax.annotation.processing
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	boolean processingOver()
+	Name: processingOver
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/RoundEnvironment.html#processingOver--
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoundEnvironment
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean errorRaised()
+	Name: errorRaised
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/RoundEnvironment.html#errorRaised--
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoundEnvironment
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	Set<? extends Element> getRootElements()
+	Name: getRootElements
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/RoundEnvironment.html#getRootElements--
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoundEnvironment
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Set {
+			? {
+				extends javax.lang.model.element::Element
+			}
+		}
+	}
+
+	[Function]
+	Set<? extends Element> getElementsAnnotatedWith(TypeElement a)
+	Name: getElementsAnnotatedWith
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/RoundEnvironment.html#getElementsAnnotatedWith-javax.lang.model.element.TypeElement-
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoundEnvironment
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.lang.model.element::TypeElement
+	
+		[result]
+		java.util::Set {
+			? {
+				extends javax.lang.model.element::Element
+			}
+		}
+	}
+
+	[Function]
+	Set<? extends Element> getElementsAnnotatedWith(Class<? extends Annotation> a)
+	Name: getElementsAnnotatedWith
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/RoundEnvironment.html#getElementsAnnotatedWith-java.lang.Class-
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoundEnvironment
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			? {
+				extends java.lang.annotation::Annotation
+			}
+		}
+	
+		[result]
+		java.util::Set {
+			? {
+				extends javax.lang.model.element::Element
+			}
+		}
+	}
+}
+
+[Classifier]
+public abstract class AbstractProcessor
+extends Object
+implements Processor
+Name: AbstractProcessor
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/AbstractProcessor.html
+Containing package: javax.annotation.processing
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.annotation.processing::Processor
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected ProcessingEnvironment processingEnv
+	Name: processingEnv
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/AbstractProcessor.html#processingEnv
+	Containing package: javax.annotation.processing
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: AbstractProcessor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.annotation.processing::ProcessingEnvironment
+	}
+
+	[Function]
+	protected AbstractProcessor()
+	Name: AbstractProcessor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/AbstractProcessor.html#AbstractProcessor--
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AbstractProcessor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.annotation.processing::AbstractProcessor
+	}
+
+	[Function]
+	public Set<String> getSupportedOptions()
+	Name: getSupportedOptions
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/AbstractProcessor.html#getSupportedOptions--
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractProcessor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Set {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public Set<String> getSupportedAnnotationTypes()
+	Name: getSupportedAnnotationTypes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/AbstractProcessor.html#getSupportedAnnotationTypes--
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractProcessor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Set {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public SourceVersion getSupportedSourceVersion()
+	Name: getSupportedSourceVersion
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/AbstractProcessor.html#getSupportedSourceVersion--
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractProcessor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.lang.model::SourceVersion
+	}
+
+	[Function]
+	public void init(ProcessingEnvironment processingEnv)
+	Name: init
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/AbstractProcessor.html#init-javax.annotation.processing.ProcessingEnvironment-
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractProcessor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.annotation.processing::ProcessingEnvironment
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract boolean process(Set<? extends TypeElement> annotations,
+	                                RoundEnvironment roundEnv)
+	Name: process
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/AbstractProcessor.html#process-java.util.Set-javax.annotation.processing.RoundEnvironment-
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractProcessor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Set {
+			? {
+				extends javax.lang.model.element::TypeElement
+			}
+		}
+		javax.annotation.processing::RoundEnvironment
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public Iterable<? extends Completion> getCompletions(Element element,
+	                                                     AnnotationMirror annotation,
+	                                                     ExecutableElement member,
+	                                                     String userText)
+	Name: getCompletions
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/AbstractProcessor.html#getCompletions-javax.lang.model.element.Element-javax.lang.model.element.AnnotationMirror-javax.lang.model.element.ExecutableElement-java.lang.String-
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractProcessor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.lang.model.element::Element
+		javax.lang.model.element::AnnotationMirror
+		javax.lang.model.element::ExecutableElement
+		java.lang::String
+	
+		[result]
+		java.lang::Iterable {
+			? {
+				extends javax.annotation.processing::Completion
+			}
+		}
+	}
+
+	[Function]
+	protected boolean isInitialized()
+	Name: isInitialized
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/AbstractProcessor.html#isInitialized--
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractProcessor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public class Completions
+extends Object
+Name: Completions
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/Completions.html
+Containing package: javax.annotation.processing
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static Completion of(String value,
+	                            String message)
+	Name: of
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/Completions.html#of-java.lang.String-java.lang.String-
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Completions
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.annotation.processing::Completion
+	}
+
+	[Function]
+	public static Completion of(String value)
+	Name: of
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/Completions.html#of-java.lang.String-
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Completions
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.annotation.processing::Completion
+	}
+}
+
+[Classifier]
+public class FilerException
+extends IOException
+Name: FilerException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/FilerException.html
+Containing package: javax.annotation.processing
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::IOException
+}
+members {
+
+	[Function]
+	public FilerException(String s)
+	Name: FilerException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/FilerException.html#FilerException-java.lang.String-
+	Containing package: javax.annotation.processing
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: FilerException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.annotation.processing::FilerException
+	}
+}
+
+[Classifier]
+@Documented
+ @Target(value=TYPE)
+ @Retention(value=RUNTIME)
+public @interface SupportedAnnotationTypes
+Name: SupportedAnnotationTypes
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/SupportedAnnotationTypes.html
+Containing package: javax.annotation.processing
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Documented
+ @Target(value=TYPE)
+ @Retention(value=RUNTIME)
+public @interface SupportedOptions
+Name: SupportedOptions
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/SupportedOptions.html
+Containing package: javax.annotation.processing
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Documented
+ @Target(value=TYPE)
+ @Retention(value=RUNTIME)
+public @interface SupportedSourceVersion
+Name: SupportedSourceVersion
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/SupportedSourceVersion.html
+Containing package: javax.annotation.processing
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}

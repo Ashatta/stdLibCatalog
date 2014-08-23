@@ -1,0 +1,1099 @@
+[Package]
+Name: javax.naming.event
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/package-summary.html
+Containing package: javax.naming
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+public interface EventContext
+extends Context
+Name: EventContext
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/EventContext.html
+Containing package: javax.naming.event
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.naming.event::EventDirContext
+}
+supertypes {
+	javax.naming::Context
+}
+members {
+
+	[Function]
+	static final int OBJECT_SCOPE
+	Name: OBJECT_SCOPE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/EventContext.html#OBJECT_SCOPE
+	Containing package: javax.naming.event
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: EventContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	static final int ONELEVEL_SCOPE
+	Name: ONELEVEL_SCOPE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/EventContext.html#ONELEVEL_SCOPE
+	Containing package: javax.naming.event
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: EventContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	static final int SUBTREE_SCOPE
+	Name: SUBTREE_SCOPE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/EventContext.html#SUBTREE_SCOPE
+	Containing package: javax.naming.event
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: EventContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	void addNamingListener(Name target,
+	                       int scope,
+	                       NamingListener l)
+	                throws NamingException
+	Name: addNamingListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/EventContext.html#addNamingListener-javax.naming.Name-int-javax.naming.event.NamingListener-
+	Containing package: javax.naming.event
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EventContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.naming::Name
+		other::int
+		javax.naming.event::NamingListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void addNamingListener(String target,
+	                       int scope,
+	                       NamingListener l)
+	                throws NamingException
+	Name: addNamingListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/EventContext.html#addNamingListener-java.lang.String-int-javax.naming.event.NamingListener-
+	Containing package: javax.naming.event
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EventContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::int
+		javax.naming.event::NamingListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void removeNamingListener(NamingListener l)
+	                   throws NamingException
+	Name: removeNamingListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/EventContext.html#removeNamingListener-javax.naming.event.NamingListener-
+	Containing package: javax.naming.event
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EventContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.naming.event::NamingListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	boolean targetMustExist()
+	                 throws NamingException
+	Name: targetMustExist
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/EventContext.html#targetMustExist--
+	Containing package: javax.naming.event
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EventContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public interface EventDirContext
+extends EventContext, DirContext
+Name: EventDirContext
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/EventDirContext.html
+Containing package: javax.naming.event
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.naming.event::EventContext
+	javax.naming.directory::DirContext
+}
+members {
+
+	[Function]
+	void addNamingListener(Name target,
+	                       String filter,
+	                       SearchControls ctls,
+	                       NamingListener l)
+	                throws NamingException
+	Name: addNamingListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/EventDirContext.html#addNamingListener-javax.naming.Name-java.lang.String-javax.naming.directory.SearchControls-javax.naming.event.NamingListener-
+	Containing package: javax.naming.event
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EventDirContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.naming::Name
+		java.lang::String
+		javax.naming.directory::SearchControls
+		javax.naming.event::NamingListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void addNamingListener(String target,
+	                       String filter,
+	                       SearchControls ctls,
+	                       NamingListener l)
+	                throws NamingException
+	Name: addNamingListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/EventDirContext.html#addNamingListener-java.lang.String-java.lang.String-javax.naming.directory.SearchControls-javax.naming.event.NamingListener-
+	Containing package: javax.naming.event
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EventDirContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		javax.naming.directory::SearchControls
+		javax.naming.event::NamingListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void addNamingListener(Name target,
+	                       String filter,
+	                       Object[] filterArgs,
+	                       SearchControls ctls,
+	                       NamingListener l)
+	                throws NamingException
+	Name: addNamingListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/EventDirContext.html#addNamingListener-javax.naming.Name-java.lang.String-java.lang.Object:A-javax.naming.directory.SearchControls-javax.naming.event.NamingListener-
+	Containing package: javax.naming.event
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EventDirContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.naming::Name
+		java.lang::String
+		other::[] {
+			java.lang::Object
+		}
+		javax.naming.directory::SearchControls
+		javax.naming.event::NamingListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void addNamingListener(String target,
+	                       String filter,
+	                       Object[] filterArgs,
+	                       SearchControls ctls,
+	                       NamingListener l)
+	                throws NamingException
+	Name: addNamingListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/EventDirContext.html#addNamingListener-java.lang.String-java.lang.String-java.lang.Object:A-javax.naming.directory.SearchControls-javax.naming.event.NamingListener-
+	Containing package: javax.naming.event
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EventDirContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		other::[] {
+			java.lang::Object
+		}
+		javax.naming.directory::SearchControls
+		javax.naming.event::NamingListener
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface NamespaceChangeListener
+extends NamingListener
+Name: NamespaceChangeListener
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/NamespaceChangeListener.html
+Containing package: javax.naming.event
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.naming.event::NamingListener
+}
+members {
+
+	[Function]
+	void objectAdded(NamingEvent evt)
+	Name: objectAdded
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/NamespaceChangeListener.html#objectAdded-javax.naming.event.NamingEvent-
+	Containing package: javax.naming.event
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: NamespaceChangeListener
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.naming.event::NamingEvent
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void objectRemoved(NamingEvent evt)
+	Name: objectRemoved
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/NamespaceChangeListener.html#objectRemoved-javax.naming.event.NamingEvent-
+	Containing package: javax.naming.event
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: NamespaceChangeListener
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.naming.event::NamingEvent
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void objectRenamed(NamingEvent evt)
+	Name: objectRenamed
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/NamespaceChangeListener.html#objectRenamed-javax.naming.event.NamingEvent-
+	Containing package: javax.naming.event
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: NamespaceChangeListener
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.naming.event::NamingEvent
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface NamingListener
+extends EventListener
+Name: NamingListener
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/NamingListener.html
+Containing package: javax.naming.event
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.naming.event::ObjectChangeListener
+	javax.naming.event::NamespaceChangeListener
+	javax.naming.ldap::UnsolicitedNotificationListener
+}
+supertypes {
+	java.util::EventListener
+}
+members {
+
+	[Function]
+	void namingExceptionThrown(NamingExceptionEvent evt)
+	Name: namingExceptionThrown
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/NamingListener.html#namingExceptionThrown-javax.naming.event.NamingExceptionEvent-
+	Containing package: javax.naming.event
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: NamingListener
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.naming.event::NamingExceptionEvent
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface ObjectChangeListener
+extends NamingListener
+Name: ObjectChangeListener
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/ObjectChangeListener.html
+Containing package: javax.naming.event
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.naming.event::NamingListener
+}
+members {
+
+	[Function]
+	void objectChanged(NamingEvent evt)
+	Name: objectChanged
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/ObjectChangeListener.html#objectChanged-javax.naming.event.NamingEvent-
+	Containing package: javax.naming.event
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ObjectChangeListener
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.naming.event::NamingEvent
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public class NamingEvent
+extends EventObject
+Name: NamingEvent
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/NamingEvent.html
+Containing package: javax.naming.event
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.util::EventObject
+}
+members {
+
+	[Function]
+	public static final int OBJECT_ADDED
+	Name: OBJECT_ADDED
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/NamingEvent.html#OBJECT_ADDED
+	Containing package: javax.naming.event
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: NamingEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int OBJECT_REMOVED
+	Name: OBJECT_REMOVED
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/NamingEvent.html#OBJECT_REMOVED
+	Containing package: javax.naming.event
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: NamingEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int OBJECT_RENAMED
+	Name: OBJECT_RENAMED
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/NamingEvent.html#OBJECT_RENAMED
+	Containing package: javax.naming.event
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: NamingEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int OBJECT_CHANGED
+	Name: OBJECT_CHANGED
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/NamingEvent.html#OBJECT_CHANGED
+	Containing package: javax.naming.event
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: NamingEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected Object changeInfo
+	Name: changeInfo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/NamingEvent.html#changeInfo
+	Containing package: javax.naming.event
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: NamingEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	protected int type
+	Name: type
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/NamingEvent.html#type
+	Containing package: javax.naming.event
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: NamingEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected Binding oldBinding
+	Name: oldBinding
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/NamingEvent.html#oldBinding
+	Containing package: javax.naming.event
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: NamingEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.naming::Binding
+	}
+
+	[Function]
+	protected Binding newBinding
+	Name: newBinding
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/NamingEvent.html#newBinding
+	Containing package: javax.naming.event
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: NamingEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.naming::Binding
+	}
+
+	[Function]
+	public NamingEvent(EventContext source,
+	                   int type,
+	                   Binding newBd,
+	                   Binding oldBd,
+	                   Object changeInfo)
+	Name: NamingEvent
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/NamingEvent.html#NamingEvent-javax.naming.event.EventContext-int-javax.naming.Binding-javax.naming.Binding-java.lang.Object-
+	Containing package: javax.naming.event
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: NamingEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.naming.event::EventContext
+		other::int
+		javax.naming::Binding
+		javax.naming::Binding
+		java.lang::Object
+	
+		[result]
+		javax.naming.event::NamingEvent
+	}
+
+	[Function]
+	public int getType()
+	Name: getType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/NamingEvent.html#getType--
+	Containing package: javax.naming.event
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: NamingEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public EventContext getEventContext()
+	Name: getEventContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/NamingEvent.html#getEventContext--
+	Containing package: javax.naming.event
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: NamingEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.naming.event::EventContext
+	}
+
+	[Function]
+	public Binding getOldBinding()
+	Name: getOldBinding
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/NamingEvent.html#getOldBinding--
+	Containing package: javax.naming.event
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: NamingEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.naming::Binding
+	}
+
+	[Function]
+	public Binding getNewBinding()
+	Name: getNewBinding
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/NamingEvent.html#getNewBinding--
+	Containing package: javax.naming.event
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: NamingEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.naming::Binding
+	}
+
+	[Function]
+	public Object getChangeInfo()
+	Name: getChangeInfo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/NamingEvent.html#getChangeInfo--
+	Containing package: javax.naming.event
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: NamingEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public void dispatch(NamingListener listener)
+	Name: dispatch
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/NamingEvent.html#dispatch-javax.naming.event.NamingListener-
+	Containing package: javax.naming.event
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: NamingEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.naming.event::NamingListener
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public class NamingExceptionEvent
+extends EventObject
+Name: NamingExceptionEvent
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/NamingExceptionEvent.html
+Containing package: javax.naming.event
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.util::EventObject
+}
+members {
+
+	[Function]
+	public NamingExceptionEvent(EventContext source,
+	                            NamingException exc)
+	Name: NamingExceptionEvent
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/NamingExceptionEvent.html#NamingExceptionEvent-javax.naming.event.EventContext-javax.naming.NamingException-
+	Containing package: javax.naming.event
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: NamingExceptionEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.naming.event::EventContext
+		javax.naming::NamingException
+	
+		[result]
+		javax.naming.event::NamingExceptionEvent
+	}
+
+	[Function]
+	public NamingException getException()
+	Name: getException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/NamingExceptionEvent.html#getException--
+	Containing package: javax.naming.event
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: NamingExceptionEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.naming::NamingException
+	}
+
+	[Function]
+	public EventContext getEventContext()
+	Name: getEventContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/NamingExceptionEvent.html#getEventContext--
+	Containing package: javax.naming.event
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: NamingExceptionEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.naming.event::EventContext
+	}
+
+	[Function]
+	public void dispatch(NamingListener listener)
+	Name: dispatch
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/event/NamingExceptionEvent.html#dispatch-javax.naming.event.NamingListener-
+	Containing package: javax.naming.event
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: NamingExceptionEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.naming.event::NamingListener
+	
+		[result]
+		other::void
+	}
+}

@@ -1,0 +1,1441 @@
+[Package]
+Name: javax.security.auth
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/package-summary.html
+Containing package: null
+attributes {
+}
+
+Subpackages {
+	javax.security.auth.kerberos
+	javax.security.auth.spi
+	javax.security.auth.login
+	javax.security.auth.x500
+	javax.security.auth.callback
+}
+
+[Classifier]
+public interface Destroyable
+Name: Destroyable
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Destroyable.html
+Containing package: javax.security.auth
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.security.auth.kerberos::KerberosKey
+	javax.security.auth.kerberos::KerberosTicket
+	java.security::PrivateKey
+	javax.crypto::SecretKey
+	java.security::KeyStore.PasswordProtection
+	javax.security.auth.x500::X500PrivateCredential
+}
+supertypes {
+}
+members {
+
+	[Function]
+	default void destroy()
+	              throws DestroyFailedException
+	Name: destroy
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Destroyable.html#destroy--
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Destroyable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	default boolean isDestroyed()
+	Name: isDestroyed
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Destroyable.html#isDestroyed--
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Destroyable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public interface Refreshable
+Name: Refreshable
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Refreshable.html
+Containing package: javax.security.auth
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.security.auth.kerberos::KerberosTicket
+}
+supertypes {
+}
+members {
+
+	[Function]
+	boolean isCurrent()
+	Name: isCurrent
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Refreshable.html#isCurrent--
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Refreshable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	void refresh()
+	      throws RefreshFailedException
+	Name: refresh
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Refreshable.html#refresh--
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Refreshable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public final class AuthPermission
+extends BasicPermission
+Name: AuthPermission
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/AuthPermission.html
+Containing package: javax.security.auth
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.security::BasicPermission
+}
+members {
+
+	[Function]
+	public AuthPermission(String name)
+	Name: AuthPermission
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/AuthPermission.html#AuthPermission-java.lang.String-
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AuthPermission
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.security.auth::AuthPermission
+	}
+
+	[Function]
+	public AuthPermission(String name,
+	                      String actions)
+	Name: AuthPermission
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/AuthPermission.html#AuthPermission-java.lang.String-java.lang.String-
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AuthPermission
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.security.auth::AuthPermission
+	}
+}
+
+[Classifier]
+@Deprecated
+public abstract class Policy
+extends Object
+Name: Policy
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Policy.html
+Containing package: javax.security.auth
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected Policy()
+	Name: Policy
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Policy.html#Policy--
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Policy
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.security.auth::Policy
+	}
+
+	[Function]
+	public static Policy getPolicy()
+	Name: getPolicy
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Policy.html#getPolicy--
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Policy
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.security.auth::Policy
+	}
+
+	[Function]
+	public static void setPolicy(Policy policy)
+	Name: setPolicy
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Policy.html#setPolicy-javax.security.auth.Policy-
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Policy
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.security.auth::Policy
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract PermissionCollection getPermissions(Subject subject,
+	                                                    CodeSource cs)
+	Name: getPermissions
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Policy.html#getPermissions-javax.security.auth.Subject-java.security.CodeSource-
+	Containing package: javax.security.auth
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Policy
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.security.auth::Subject
+		java.security::CodeSource
+	
+		[result]
+		java.security::PermissionCollection
+	}
+
+	[Function]
+	public abstract void refresh()
+	Name: refresh
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Policy.html#refresh--
+	Containing package: javax.security.auth
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Policy
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public final class PrivateCredentialPermission
+extends Permission
+Name: PrivateCredentialPermission
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/PrivateCredentialPermission.html
+Containing package: javax.security.auth
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.security::Permission
+}
+members {
+
+	[Function]
+	public PrivateCredentialPermission(String name,
+	                                   String actions)
+	Name: PrivateCredentialPermission
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/PrivateCredentialPermission.html#PrivateCredentialPermission-java.lang.String-java.lang.String-
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: PrivateCredentialPermission
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.security.auth::PrivateCredentialPermission
+	}
+
+	[Function]
+	public String getCredentialClass()
+	Name: getCredentialClass
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/PrivateCredentialPermission.html#getCredentialClass--
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: PrivateCredentialPermission
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String[][] getPrincipals()
+	Name: getPrincipals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/PrivateCredentialPermission.html#getPrincipals--
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: PrivateCredentialPermission
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::[] {
+				java.lang::String
+			}
+		}
+	}
+
+	[Function]
+	public boolean implies(Permission p)
+	Name: implies
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/PrivateCredentialPermission.html#implies-java.security.Permission-
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: PrivateCredentialPermission
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Permission
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean equals(Object obj)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/PrivateCredentialPermission.html#equals-java.lang.Object-
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: PrivateCredentialPermission
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public int hashCode()
+	Name: hashCode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/PrivateCredentialPermission.html#hashCode--
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: PrivateCredentialPermission
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public String getActions()
+	Name: getActions
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/PrivateCredentialPermission.html#getActions--
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: PrivateCredentialPermission
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public PermissionCollection newPermissionCollection()
+	Name: newPermissionCollection
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/PrivateCredentialPermission.html#newPermissionCollection--
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: PrivateCredentialPermission
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.security::PermissionCollection
+	}
+}
+
+[Classifier]
+public final class Subject
+extends Object
+implements Serializable
+Name: Subject
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Subject.html
+Containing package: javax.security.auth
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public Subject()
+	Name: Subject
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Subject.html#Subject--
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Subject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.security.auth::Subject
+	}
+
+	[Function]
+	public Subject(boolean readOnly,
+	               Set<? extends Principal> principals,
+	               Set<?> pubCredentials,
+	               Set<?> privCredentials)
+	Name: Subject
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Subject.html#Subject-boolean-java.util.Set-java.util.Set-java.util.Set-
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Subject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::boolean
+		java.util::Set {
+			? {
+				extends java.security::Principal
+			}
+		}
+		java.util::Set {
+			?
+		}
+		java.util::Set {
+			?
+		}
+	
+		[result]
+		javax.security.auth::Subject
+	}
+
+	[Function]
+	public void setReadOnly()
+	Name: setReadOnly
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Subject.html#setReadOnly--
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Subject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean isReadOnly()
+	Name: isReadOnly
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Subject.html#isReadOnly--
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Subject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public static Subject getSubject(AccessControlContext acc)
+	Name: getSubject
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Subject.html#getSubject-java.security.AccessControlContext-
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Subject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::AccessControlContext
+	
+		[result]
+		javax.security.auth::Subject
+	}
+
+	[Function]
+	public static <T> T doAs(Subject subject,
+	                         PrivilegedAction<T> action)
+	Name: doAs
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Subject.html#doAs-javax.security.auth.Subject-java.security.PrivilegedAction-
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Subject
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		javax.security.auth::Subject
+		java.security::PrivilegedAction {
+			null::T
+		}
+	
+		[result]
+		null::T
+	}
+
+	[Function]
+	public static <T> T doAs(Subject subject,
+	                         PrivilegedExceptionAction<T> action)
+	                  throws PrivilegedActionException
+	Name: doAs
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Subject.html#doAs-javax.security.auth.Subject-java.security.PrivilegedExceptionAction-
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Subject
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		javax.security.auth::Subject
+		java.security::PrivilegedExceptionAction {
+			null::T
+		}
+	
+		[result]
+		null::T
+	}
+
+	[Function]
+	public static <T> T doAsPrivileged(Subject subject,
+	                                   PrivilegedAction<T> action,
+	                                   AccessControlContext acc)
+	Name: doAsPrivileged
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Subject.html#doAsPrivileged-javax.security.auth.Subject-java.security.PrivilegedAction-java.security.AccessControlContext-
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Subject
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		javax.security.auth::Subject
+		java.security::PrivilegedAction {
+			null::T
+		}
+		java.security::AccessControlContext
+	
+		[result]
+		null::T
+	}
+
+	[Function]
+	public static <T> T doAsPrivileged(Subject subject,
+	                                   PrivilegedExceptionAction<T> action,
+	                                   AccessControlContext acc)
+	                            throws PrivilegedActionException
+	Name: doAsPrivileged
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Subject.html#doAsPrivileged-javax.security.auth.Subject-java.security.PrivilegedExceptionAction-java.security.AccessControlContext-
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Subject
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		javax.security.auth::Subject
+		java.security::PrivilegedExceptionAction {
+			null::T
+		}
+		java.security::AccessControlContext
+	
+		[result]
+		null::T
+	}
+
+	[Function]
+	public Set<Principal> getPrincipals()
+	Name: getPrincipals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Subject.html#getPrincipals--
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Subject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Set {
+			java.security::Principal
+		}
+	}
+
+	[Function]
+	public <T extends Principal> Set<T> getPrincipals(Class<T> c)
+	Name: getPrincipals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Subject.html#getPrincipals-java.lang.Class-
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Subject
+	parameters {
+		T: (T extends Principal; T; java.security::Principal)
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			null::T
+		}
+	
+		[result]
+		java.util::Set {
+			null::T
+		}
+	}
+
+	[Function]
+	public Set<Object> getPublicCredentials()
+	Name: getPublicCredentials
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Subject.html#getPublicCredentials--
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Subject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Set {
+			java.lang::Object
+		}
+	}
+
+	[Function]
+	public Set<Object> getPrivateCredentials()
+	Name: getPrivateCredentials
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Subject.html#getPrivateCredentials--
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Subject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Set {
+			java.lang::Object
+		}
+	}
+
+	[Function]
+	public <T> Set<T> getPublicCredentials(Class<T> c)
+	Name: getPublicCredentials
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Subject.html#getPublicCredentials-java.lang.Class-
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Subject
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			null::T
+		}
+	
+		[result]
+		java.util::Set {
+			null::T
+		}
+	}
+
+	[Function]
+	public <T> Set<T> getPrivateCredentials(Class<T> c)
+	Name: getPrivateCredentials
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Subject.html#getPrivateCredentials-java.lang.Class-
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Subject
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			null::T
+		}
+	
+		[result]
+		java.util::Set {
+			null::T
+		}
+	}
+
+	[Function]
+	public boolean equals(Object o)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Subject.html#equals-java.lang.Object-
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Subject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Subject.html#toString--
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Subject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public int hashCode()
+	Name: hashCode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/Subject.html#hashCode--
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Subject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public class SubjectDomainCombiner
+extends Object
+implements DomainCombiner
+Name: SubjectDomainCombiner
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/SubjectDomainCombiner.html
+Containing package: javax.security.auth
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.security::DomainCombiner
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public SubjectDomainCombiner(Subject subject)
+	Name: SubjectDomainCombiner
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/SubjectDomainCombiner.html#SubjectDomainCombiner-javax.security.auth.Subject-
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: SubjectDomainCombiner
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.security.auth::Subject
+	
+		[result]
+		javax.security.auth::SubjectDomainCombiner
+	}
+
+	[Function]
+	public Subject getSubject()
+	Name: getSubject
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/SubjectDomainCombiner.html#getSubject--
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SubjectDomainCombiner
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.security.auth::Subject
+	}
+
+	[Function]
+	public ProtectionDomain[] combine(ProtectionDomain[] currentDomains,
+	                                  ProtectionDomain[] assignedDomains)
+	Name: combine
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/SubjectDomainCombiner.html#combine-java.security.ProtectionDomain:A-java.security.ProtectionDomain:A-
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SubjectDomainCombiner
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.security::ProtectionDomain
+		}
+		other::[] {
+			java.security::ProtectionDomain
+		}
+	
+		[result]
+		other::[] {
+			java.security::ProtectionDomain
+		}
+	}
+}
+
+[Classifier]
+public class DestroyFailedException
+extends Exception
+Name: DestroyFailedException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/DestroyFailedException.html
+Containing package: javax.security.auth
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Exception
+}
+members {
+
+	[Function]
+	public DestroyFailedException()
+	Name: DestroyFailedException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/DestroyFailedException.html#DestroyFailedException--
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: DestroyFailedException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.security.auth::DestroyFailedException
+	}
+
+	[Function]
+	public DestroyFailedException(String msg)
+	Name: DestroyFailedException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/DestroyFailedException.html#DestroyFailedException-java.lang.String-
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: DestroyFailedException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.security.auth::DestroyFailedException
+	}
+}
+
+[Classifier]
+public class RefreshFailedException
+extends Exception
+Name: RefreshFailedException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/RefreshFailedException.html
+Containing package: javax.security.auth
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Exception
+}
+members {
+
+	[Function]
+	public RefreshFailedException()
+	Name: RefreshFailedException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/RefreshFailedException.html#RefreshFailedException--
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RefreshFailedException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.security.auth::RefreshFailedException
+	}
+
+	[Function]
+	public RefreshFailedException(String msg)
+	Name: RefreshFailedException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/security/auth/RefreshFailedException.html#RefreshFailedException-java.lang.String-
+	Containing package: javax.security.auth
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RefreshFailedException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.security.auth::RefreshFailedException
+	}
+}

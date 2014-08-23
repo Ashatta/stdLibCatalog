@@ -1,0 +1,4723 @@
+[Package]
+Name: java.time.temporal
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/package-summary.html
+Containing package: java.time
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+public interface Temporal
+extends TemporalAccessor
+Name: Temporal
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/Temporal.html
+Containing package: java.time.temporal
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.time::LocalDateTime
+	java.time::YearMonth
+	java.time.chrono::ChronoLocalDate
+	java.time::Year
+	java.time::OffsetDateTime
+	java.time::OffsetTime
+	java.time::LocalTime
+	java.time.chrono::ChronoZonedDateTime
+	java.time.chrono::ChronoLocalDateTime
+	java.time::Instant
+	java.time::LocalDate
+	java.time::ZonedDateTime
+}
+supertypes {
+	java.time.temporal::TemporalAccessor
+}
+members {
+
+	[Function]
+	boolean isSupported(TemporalUnit unit)
+	Name: isSupported
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/Temporal.html#isSupported-java.time.temporal.TemporalUnit-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Temporal
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time.temporal::TemporalUnit
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	default Temporal with(TemporalAdjuster adjuster)
+	Name: with
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/Temporal.html#with-java.time.temporal.TemporalAdjuster-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Temporal
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time.temporal::TemporalAdjuster
+	
+		[result]
+		java.time.temporal::Temporal
+	}
+
+	[Function]
+	Temporal with(TemporalField field,
+	              long newValue)
+	Name: with
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/Temporal.html#with-java.time.temporal.TemporalField-long-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Temporal
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time.temporal::TemporalField
+		other::long
+	
+		[result]
+		java.time.temporal::Temporal
+	}
+
+	[Function]
+	default Temporal plus(TemporalAmount amount)
+	Name: plus
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/Temporal.html#plus-java.time.temporal.TemporalAmount-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Temporal
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time.temporal::TemporalAmount
+	
+		[result]
+		java.time.temporal::Temporal
+	}
+
+	[Function]
+	Temporal plus(long amountToAdd,
+	              TemporalUnit unit)
+	Name: plus
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/Temporal.html#plus-long-java.time.temporal.TemporalUnit-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Temporal
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		java.time.temporal::TemporalUnit
+	
+		[result]
+		java.time.temporal::Temporal
+	}
+
+	[Function]
+	default Temporal minus(TemporalAmount amount)
+	Name: minus
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/Temporal.html#minus-java.time.temporal.TemporalAmount-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Temporal
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time.temporal::TemporalAmount
+	
+		[result]
+		java.time.temporal::Temporal
+	}
+
+	[Function]
+	default Temporal minus(long amountToSubtract,
+	                       TemporalUnit unit)
+	Name: minus
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/Temporal.html#minus-long-java.time.temporal.TemporalUnit-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Temporal
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		java.time.temporal::TemporalUnit
+	
+		[result]
+		java.time.temporal::Temporal
+	}
+
+	[Function]
+	long until(Temporal endExclusive,
+	           TemporalUnit unit)
+	Name: until
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/Temporal.html#until-java.time.temporal.Temporal-java.time.temporal.TemporalUnit-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Temporal
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time.temporal::Temporal
+		java.time.temporal::TemporalUnit
+	
+		[result]
+		other::long
+	}
+}
+
+[Classifier]
+public interface TemporalAccessor
+Name: TemporalAccessor
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalAccessor.html
+Containing package: java.time.temporal
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.time.temporal::Temporal
+	java.time.chrono::Era
+	java.time::DayOfWeek
+	java.time::ZoneOffset
+	java.time::MonthDay
+	java.time::Month
+}
+supertypes {
+}
+members {
+
+	[Function]
+	boolean isSupported(TemporalField field)
+	Name: isSupported
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalAccessor.html#isSupported-java.time.temporal.TemporalField-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalAccessor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time.temporal::TemporalField
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	default ValueRange range(TemporalField field)
+	Name: range
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalAccessor.html#range-java.time.temporal.TemporalField-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalAccessor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time.temporal::TemporalField
+	
+		[result]
+		java.time.temporal::ValueRange
+	}
+
+	[Function]
+	default int get(TemporalField field)
+	Name: get
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalAccessor.html#get-java.time.temporal.TemporalField-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalAccessor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time.temporal::TemporalField
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	long getLong(TemporalField field)
+	Name: getLong
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalAccessor.html#getLong-java.time.temporal.TemporalField-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalAccessor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time.temporal::TemporalField
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	default <R> R query(TemporalQuery<R> query)
+	Name: query
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalAccessor.html#query-java.time.temporal.TemporalQuery-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalAccessor
+	parameters {
+		R
+	}
+	Signature = <function> {
+		[parameters]
+		java.time.temporal::TemporalQuery {
+			null::R
+		}
+	
+		[result]
+		null::R
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface TemporalAdjuster
+Name: TemporalAdjuster
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalAdjuster.html
+Containing package: java.time.temporal
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.time::LocalDateTime
+	java.time::YearMonth
+	java.time.chrono::ChronoLocalDate
+	java.time::Year
+	java.time.chrono::Era
+	java.time::DayOfWeek
+	java.time::OffsetDateTime
+	java.time::OffsetTime
+	java.time::LocalTime
+	java.time::ZoneOffset
+	java.time.chrono::ChronoLocalDateTime
+	java.time::Instant
+	java.time::MonthDay
+	java.time::Month
+	java.time::LocalDate
+}
+supertypes {
+}
+members {
+
+	[Function]
+	Temporal adjustInto(Temporal temporal)
+	Name: adjustInto
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalAdjuster.html#adjustInto-java.time.temporal.Temporal-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalAdjuster
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time.temporal::Temporal
+	
+		[result]
+		java.time.temporal::Temporal
+	}
+}
+
+[Classifier]
+public interface TemporalAmount
+Name: TemporalAmount
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalAmount.html
+Containing package: java.time.temporal
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.time::Duration
+	java.time.chrono::ChronoPeriod
+}
+supertypes {
+}
+members {
+
+	[Function]
+	long get(TemporalUnit unit)
+	Name: get
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalAmount.html#get-java.time.temporal.TemporalUnit-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalAmount
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time.temporal::TemporalUnit
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	List<TemporalUnit> getUnits()
+	Name: getUnits
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalAmount.html#getUnits--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalAmount
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			java.time.temporal::TemporalUnit
+		}
+	}
+
+	[Function]
+	Temporal addTo(Temporal temporal)
+	Name: addTo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalAmount.html#addTo-java.time.temporal.Temporal-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalAmount
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time.temporal::Temporal
+	
+		[result]
+		java.time.temporal::Temporal
+	}
+
+	[Function]
+	Temporal subtractFrom(Temporal temporal)
+	Name: subtractFrom
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalAmount.html#subtractFrom-java.time.temporal.Temporal-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalAmount
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time.temporal::Temporal
+	
+		[result]
+		java.time.temporal::Temporal
+	}
+}
+
+[Classifier]
+public interface TemporalField
+Name: TemporalField
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalField.html
+Containing package: java.time.temporal
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.time.temporal::ChronoField
+}
+supertypes {
+}
+members {
+
+	[Function]
+	default String getDisplayName(Locale locale)
+	Name: getDisplayName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalField.html#getDisplayName-java.util.Locale-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Locale
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	TemporalUnit getBaseUnit()
+	Name: getBaseUnit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalField.html#getBaseUnit--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalUnit
+	}
+
+	[Function]
+	TemporalUnit getRangeUnit()
+	Name: getRangeUnit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalField.html#getRangeUnit--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalUnit
+	}
+
+	[Function]
+	ValueRange range()
+	Name: range
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalField.html#range--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ValueRange
+	}
+
+	[Function]
+	boolean isDateBased()
+	Name: isDateBased
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalField.html#isDateBased--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean isTimeBased()
+	Name: isTimeBased
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalField.html#isTimeBased--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean isSupportedBy(TemporalAccessor temporal)
+	Name: isSupportedBy
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalField.html#isSupportedBy-java.time.temporal.TemporalAccessor-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time.temporal::TemporalAccessor
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	ValueRange rangeRefinedBy(TemporalAccessor temporal)
+	Name: rangeRefinedBy
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalField.html#rangeRefinedBy-java.time.temporal.TemporalAccessor-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time.temporal::TemporalAccessor
+	
+		[result]
+		java.time.temporal::ValueRange
+	}
+
+	[Function]
+	long getFrom(TemporalAccessor temporal)
+	Name: getFrom
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalField.html#getFrom-java.time.temporal.TemporalAccessor-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time.temporal::TemporalAccessor
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	<R extends Temporal> R adjustInto(R temporal,
+	                                  long newValue)
+	Name: adjustInto
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalField.html#adjustInto-R-long-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalField
+	parameters {
+		R: (R extends Temporal; R; java.time.temporal::Temporal)
+	}
+	Signature = <function> {
+		[parameters]
+		null::R
+		other::long
+	
+		[result]
+		null::R
+	}
+
+	[Function]
+	default TemporalAccessor resolve(Map<TemporalField,Long> fieldValues,
+	                                 TemporalAccessor partialTemporal,
+	                                 ResolverStyle resolverStyle)
+	Name: resolve
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalField.html#resolve-java.util.Map-java.time.temporal.TemporalAccessor-java.time.format.ResolverStyle-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Map {
+			java.time.temporal::TemporalField
+			java.lang::Long
+		}
+		java.time.temporal::TemporalAccessor
+		java.time.format::ResolverStyle
+	
+		[result]
+		java.time.temporal::TemporalAccessor
+	}
+
+	[Function]
+	String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalField.html#toString--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface TemporalQuery<R>
+Name: TemporalQuery
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalQuery.html
+Containing package: java.time.temporal
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	R
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	R queryFrom(TemporalAccessor temporal)
+	Name: queryFrom
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalQuery.html#queryFrom-java.time.temporal.TemporalAccessor-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalQuery
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time.temporal::TemporalAccessor
+	
+		[result]
+		null::R
+	}
+}
+
+[Classifier]
+public interface TemporalUnit
+Name: TemporalUnit
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalUnit.html
+Containing package: java.time.temporal
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.time.temporal::ChronoUnit
+}
+supertypes {
+}
+members {
+
+	[Function]
+	Duration getDuration()
+	Name: getDuration
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalUnit.html#getDuration--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time::Duration
+	}
+
+	[Function]
+	boolean isDurationEstimated()
+	Name: isDurationEstimated
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalUnit.html#isDurationEstimated--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean isDateBased()
+	Name: isDateBased
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalUnit.html#isDateBased--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean isTimeBased()
+	Name: isTimeBased
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalUnit.html#isTimeBased--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	default boolean isSupportedBy(Temporal temporal)
+	Name: isSupportedBy
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalUnit.html#isSupportedBy-java.time.temporal.Temporal-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time.temporal::Temporal
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	<R extends Temporal> R addTo(R temporal,
+	                             long amount)
+	Name: addTo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalUnit.html#addTo-R-long-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalUnit
+	parameters {
+		R: (R extends Temporal; R; java.time.temporal::Temporal)
+	}
+	Signature = <function> {
+		[parameters]
+		null::R
+		other::long
+	
+		[result]
+		null::R
+	}
+
+	[Function]
+	long between(Temporal temporal1Inclusive,
+	             Temporal temporal2Exclusive)
+	Name: between
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalUnit.html#between-java.time.temporal.Temporal-java.time.temporal.Temporal-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time.temporal::Temporal
+		java.time.temporal::Temporal
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalUnit.html#toString--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public final class IsoFields
+extends Object
+Name: IsoFields
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/IsoFields.html
+Containing package: java.time.temporal
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static final TemporalField DAY_OF_QUARTER
+	Name: DAY_OF_QUARTER
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/IsoFields.html#DAY_OF_QUARTER
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: IsoFields
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalField
+	}
+
+	[Function]
+	public static final TemporalField QUARTER_OF_YEAR
+	Name: QUARTER_OF_YEAR
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/IsoFields.html#QUARTER_OF_YEAR
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: IsoFields
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalField
+	}
+
+	[Function]
+	public static final TemporalField WEEK_OF_WEEK_BASED_YEAR
+	Name: WEEK_OF_WEEK_BASED_YEAR
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/IsoFields.html#WEEK_OF_WEEK_BASED_YEAR
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: IsoFields
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalField
+	}
+
+	[Function]
+	public static final TemporalField WEEK_BASED_YEAR
+	Name: WEEK_BASED_YEAR
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/IsoFields.html#WEEK_BASED_YEAR
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: IsoFields
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalField
+	}
+
+	[Function]
+	public static final TemporalUnit WEEK_BASED_YEARS
+	Name: WEEK_BASED_YEARS
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/IsoFields.html#WEEK_BASED_YEARS
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: IsoFields
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalUnit
+	}
+
+	[Function]
+	public static final TemporalUnit QUARTER_YEARS
+	Name: QUARTER_YEARS
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/IsoFields.html#QUARTER_YEARS
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: IsoFields
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalUnit
+	}
+}
+
+[Classifier]
+public final class JulianFields
+extends Object
+Name: JulianFields
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/JulianFields.html
+Containing package: java.time.temporal
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static final TemporalField JULIAN_DAY
+	Name: JULIAN_DAY
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/JulianFields.html#JULIAN_DAY
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: JulianFields
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalField
+	}
+
+	[Function]
+	public static final TemporalField MODIFIED_JULIAN_DAY
+	Name: MODIFIED_JULIAN_DAY
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/JulianFields.html#MODIFIED_JULIAN_DAY
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: JulianFields
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalField
+	}
+
+	[Function]
+	public static final TemporalField RATA_DIE
+	Name: RATA_DIE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/JulianFields.html#RATA_DIE
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: JulianFields
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalField
+	}
+}
+
+[Classifier]
+public final class TemporalAdjusters
+extends Object
+Name: TemporalAdjusters
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalAdjusters.html
+Containing package: java.time.temporal
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static TemporalAdjuster ofDateAdjuster(UnaryOperator<LocalDate> dateBasedAdjuster)
+	Name: ofDateAdjuster
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalAdjusters.html#ofDateAdjuster-java.util.function.UnaryOperator-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalAdjusters
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::UnaryOperator {
+			java.time::LocalDate
+		}
+	
+		[result]
+		java.time.temporal::TemporalAdjuster
+	}
+
+	[Function]
+	public static TemporalAdjuster firstDayOfMonth()
+	Name: firstDayOfMonth
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalAdjusters.html#firstDayOfMonth--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalAdjusters
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalAdjuster
+	}
+
+	[Function]
+	public static TemporalAdjuster lastDayOfMonth()
+	Name: lastDayOfMonth
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalAdjusters.html#lastDayOfMonth--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalAdjusters
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalAdjuster
+	}
+
+	[Function]
+	public static TemporalAdjuster firstDayOfNextMonth()
+	Name: firstDayOfNextMonth
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalAdjusters.html#firstDayOfNextMonth--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalAdjusters
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalAdjuster
+	}
+
+	[Function]
+	public static TemporalAdjuster firstDayOfYear()
+	Name: firstDayOfYear
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalAdjusters.html#firstDayOfYear--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalAdjusters
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalAdjuster
+	}
+
+	[Function]
+	public static TemporalAdjuster lastDayOfYear()
+	Name: lastDayOfYear
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalAdjusters.html#lastDayOfYear--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalAdjusters
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalAdjuster
+	}
+
+	[Function]
+	public static TemporalAdjuster firstDayOfNextYear()
+	Name: firstDayOfNextYear
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalAdjusters.html#firstDayOfNextYear--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalAdjusters
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalAdjuster
+	}
+
+	[Function]
+	public static TemporalAdjuster firstInMonth(DayOfWeek dayOfWeek)
+	Name: firstInMonth
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalAdjusters.html#firstInMonth-java.time.DayOfWeek-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalAdjusters
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time::DayOfWeek
+	
+		[result]
+		java.time.temporal::TemporalAdjuster
+	}
+
+	[Function]
+	public static TemporalAdjuster lastInMonth(DayOfWeek dayOfWeek)
+	Name: lastInMonth
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalAdjusters.html#lastInMonth-java.time.DayOfWeek-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalAdjusters
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time::DayOfWeek
+	
+		[result]
+		java.time.temporal::TemporalAdjuster
+	}
+
+	[Function]
+	public static TemporalAdjuster dayOfWeekInMonth(int ordinal,
+	                                                DayOfWeek dayOfWeek)
+	Name: dayOfWeekInMonth
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalAdjusters.html#dayOfWeekInMonth-int-java.time.DayOfWeek-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalAdjusters
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.time::DayOfWeek
+	
+		[result]
+		java.time.temporal::TemporalAdjuster
+	}
+
+	[Function]
+	public static TemporalAdjuster next(DayOfWeek dayOfWeek)
+	Name: next
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalAdjusters.html#next-java.time.DayOfWeek-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalAdjusters
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time::DayOfWeek
+	
+		[result]
+		java.time.temporal::TemporalAdjuster
+	}
+
+	[Function]
+	public static TemporalAdjuster nextOrSame(DayOfWeek dayOfWeek)
+	Name: nextOrSame
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalAdjusters.html#nextOrSame-java.time.DayOfWeek-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalAdjusters
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time::DayOfWeek
+	
+		[result]
+		java.time.temporal::TemporalAdjuster
+	}
+
+	[Function]
+	public static TemporalAdjuster previous(DayOfWeek dayOfWeek)
+	Name: previous
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalAdjusters.html#previous-java.time.DayOfWeek-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalAdjusters
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time::DayOfWeek
+	
+		[result]
+		java.time.temporal::TemporalAdjuster
+	}
+
+	[Function]
+	public static TemporalAdjuster previousOrSame(DayOfWeek dayOfWeek)
+	Name: previousOrSame
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalAdjusters.html#previousOrSame-java.time.DayOfWeek-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalAdjusters
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time::DayOfWeek
+	
+		[result]
+		java.time.temporal::TemporalAdjuster
+	}
+}
+
+[Classifier]
+public final class TemporalQueries
+extends Object
+Name: TemporalQueries
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalQueries.html
+Containing package: java.time.temporal
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static TemporalQuery<ZoneId> zoneId()
+	Name: zoneId
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalQueries.html#zoneId--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalQueries
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalQuery {
+			java.time::ZoneId
+		}
+	}
+
+	[Function]
+	public static TemporalQuery<Chronology> chronology()
+	Name: chronology
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalQueries.html#chronology--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalQueries
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalQuery {
+			java.time.chrono::Chronology
+		}
+	}
+
+	[Function]
+	public static TemporalQuery<TemporalUnit> precision()
+	Name: precision
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalQueries.html#precision--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalQueries
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalQuery {
+			java.time.temporal::TemporalUnit
+		}
+	}
+
+	[Function]
+	public static TemporalQuery<ZoneId> zone()
+	Name: zone
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalQueries.html#zone--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalQueries
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalQuery {
+			java.time::ZoneId
+		}
+	}
+
+	[Function]
+	public static TemporalQuery<ZoneOffset> offset()
+	Name: offset
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalQueries.html#offset--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalQueries
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalQuery {
+			java.time::ZoneOffset
+		}
+	}
+
+	[Function]
+	public static TemporalQuery<LocalDate> localDate()
+	Name: localDate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalQueries.html#localDate--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalQueries
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalQuery {
+			java.time::LocalDate
+		}
+	}
+
+	[Function]
+	public static TemporalQuery<LocalTime> localTime()
+	Name: localTime
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/TemporalQueries.html#localTime--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TemporalQueries
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalQuery {
+			java.time::LocalTime
+		}
+	}
+}
+
+[Classifier]
+public final class ValueRange
+extends Object
+implements Serializable
+Name: ValueRange
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ValueRange.html
+Containing package: java.time.temporal
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static ValueRange of(long min,
+	                            long max)
+	Name: of
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ValueRange.html#of-long-long-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ValueRange
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		other::long
+	
+		[result]
+		java.time.temporal::ValueRange
+	}
+
+	[Function]
+	public static ValueRange of(long min,
+	                            long maxSmallest,
+	                            long maxLargest)
+	Name: of
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ValueRange.html#of-long-long-long-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ValueRange
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		other::long
+		other::long
+	
+		[result]
+		java.time.temporal::ValueRange
+	}
+
+	[Function]
+	public static ValueRange of(long minSmallest,
+	                            long minLargest,
+	                            long maxSmallest,
+	                            long maxLargest)
+	Name: of
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ValueRange.html#of-long-long-long-long-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ValueRange
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		other::long
+		other::long
+		other::long
+	
+		[result]
+		java.time.temporal::ValueRange
+	}
+
+	[Function]
+	public boolean isFixed()
+	Name: isFixed
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ValueRange.html#isFixed--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ValueRange
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public long getMinimum()
+	Name: getMinimum
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ValueRange.html#getMinimum--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ValueRange
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public long getLargestMinimum()
+	Name: getLargestMinimum
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ValueRange.html#getLargestMinimum--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ValueRange
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public long getSmallestMaximum()
+	Name: getSmallestMaximum
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ValueRange.html#getSmallestMaximum--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ValueRange
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public long getMaximum()
+	Name: getMaximum
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ValueRange.html#getMaximum--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ValueRange
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public boolean isIntValue()
+	Name: isIntValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ValueRange.html#isIntValue--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ValueRange
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isValidValue(long value)
+	Name: isValidValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ValueRange.html#isValidValue-long-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ValueRange
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isValidIntValue(long value)
+	Name: isValidIntValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ValueRange.html#isValidIntValue-long-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ValueRange
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public long checkValidValue(long value,
+	                            TemporalField field)
+	Name: checkValidValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ValueRange.html#checkValidValue-long-java.time.temporal.TemporalField-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ValueRange
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		java.time.temporal::TemporalField
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public int checkValidIntValue(long value,
+	                              TemporalField field)
+	Name: checkValidIntValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ValueRange.html#checkValidIntValue-long-java.time.temporal.TemporalField-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ValueRange
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		java.time.temporal::TemporalField
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public boolean equals(Object obj)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ValueRange.html#equals-java.lang.Object-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ValueRange
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public int hashCode()
+	Name: hashCode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ValueRange.html#hashCode--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ValueRange
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ValueRange.html#toString--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ValueRange
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public final class WeekFields
+extends Object
+implements Serializable
+Name: WeekFields
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/WeekFields.html
+Containing package: java.time.temporal
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static final WeekFields ISO
+	Name: ISO
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/WeekFields.html#ISO
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: WeekFields
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::WeekFields
+	}
+
+	[Function]
+	public static final WeekFields SUNDAY_START
+	Name: SUNDAY_START
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/WeekFields.html#SUNDAY_START
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: WeekFields
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::WeekFields
+	}
+
+	[Function]
+	public static final TemporalUnit WEEK_BASED_YEARS
+	Name: WEEK_BASED_YEARS
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/WeekFields.html#WEEK_BASED_YEARS
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: WeekFields
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalUnit
+	}
+
+	[Function]
+	public static WeekFields of(Locale locale)
+	Name: of
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/WeekFields.html#of-java.util.Locale-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: WeekFields
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Locale
+	
+		[result]
+		java.time.temporal::WeekFields
+	}
+
+	[Function]
+	public static WeekFields of(DayOfWeek firstDayOfWeek,
+	                            int minimalDaysInFirstWeek)
+	Name: of
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/WeekFields.html#of-java.time.DayOfWeek-int-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: WeekFields
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time::DayOfWeek
+		other::int
+	
+		[result]
+		java.time.temporal::WeekFields
+	}
+
+	[Function]
+	public DayOfWeek getFirstDayOfWeek()
+	Name: getFirstDayOfWeek
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/WeekFields.html#getFirstDayOfWeek--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WeekFields
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time::DayOfWeek
+	}
+
+	[Function]
+	public int getMinimalDaysInFirstWeek()
+	Name: getMinimalDaysInFirstWeek
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/WeekFields.html#getMinimalDaysInFirstWeek--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WeekFields
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public TemporalField dayOfWeek()
+	Name: dayOfWeek
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/WeekFields.html#dayOfWeek--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WeekFields
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalField
+	}
+
+	[Function]
+	public TemporalField weekOfMonth()
+	Name: weekOfMonth
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/WeekFields.html#weekOfMonth--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WeekFields
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalField
+	}
+
+	[Function]
+	public TemporalField weekOfYear()
+	Name: weekOfYear
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/WeekFields.html#weekOfYear--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WeekFields
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalField
+	}
+
+	[Function]
+	public TemporalField weekOfWeekBasedYear()
+	Name: weekOfWeekBasedYear
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/WeekFields.html#weekOfWeekBasedYear--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WeekFields
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalField
+	}
+
+	[Function]
+	public TemporalField weekBasedYear()
+	Name: weekBasedYear
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/WeekFields.html#weekBasedYear--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WeekFields
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalField
+	}
+
+	[Function]
+	public boolean equals(Object object)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/WeekFields.html#equals-java.lang.Object-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WeekFields
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public int hashCode()
+	Name: hashCode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/WeekFields.html#hashCode--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WeekFields
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/WeekFields.html#toString--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WeekFields
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public enum ChronoField
+extends Enum<ChronoField>
+implements TemporalField
+Name: ChronoField
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html
+Containing package: java.time.temporal
+attributes {
+	abstract=false
+	final=false
+	classifierType=enum
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.time.temporal::TemporalField
+	java.lang::Enum {
+		java.time.temporal::ChronoField
+	}
+}
+members {
+
+	[Function]
+	public static final ChronoField NANO_OF_SECOND
+	Name: NANO_OF_SECOND
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#NANO_OF_SECOND
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField NANO_OF_DAY
+	Name: NANO_OF_DAY
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#NANO_OF_DAY
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField MICRO_OF_SECOND
+	Name: MICRO_OF_SECOND
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#MICRO_OF_SECOND
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField MICRO_OF_DAY
+	Name: MICRO_OF_DAY
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#MICRO_OF_DAY
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField MILLI_OF_SECOND
+	Name: MILLI_OF_SECOND
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#MILLI_OF_SECOND
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField MILLI_OF_DAY
+	Name: MILLI_OF_DAY
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#MILLI_OF_DAY
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField SECOND_OF_MINUTE
+	Name: SECOND_OF_MINUTE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#SECOND_OF_MINUTE
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField SECOND_OF_DAY
+	Name: SECOND_OF_DAY
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#SECOND_OF_DAY
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField MINUTE_OF_HOUR
+	Name: MINUTE_OF_HOUR
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#MINUTE_OF_HOUR
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField MINUTE_OF_DAY
+	Name: MINUTE_OF_DAY
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#MINUTE_OF_DAY
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField HOUR_OF_AMPM
+	Name: HOUR_OF_AMPM
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#HOUR_OF_AMPM
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField CLOCK_HOUR_OF_AMPM
+	Name: CLOCK_HOUR_OF_AMPM
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#CLOCK_HOUR_OF_AMPM
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField HOUR_OF_DAY
+	Name: HOUR_OF_DAY
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#HOUR_OF_DAY
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField CLOCK_HOUR_OF_DAY
+	Name: CLOCK_HOUR_OF_DAY
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#CLOCK_HOUR_OF_DAY
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField AMPM_OF_DAY
+	Name: AMPM_OF_DAY
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#AMPM_OF_DAY
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField DAY_OF_WEEK
+	Name: DAY_OF_WEEK
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#DAY_OF_WEEK
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField ALIGNED_DAY_OF_WEEK_IN_MONTH
+	Name: ALIGNED_DAY_OF_WEEK_IN_MONTH
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#ALIGNED_DAY_OF_WEEK_IN_MONTH
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField ALIGNED_DAY_OF_WEEK_IN_YEAR
+	Name: ALIGNED_DAY_OF_WEEK_IN_YEAR
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#ALIGNED_DAY_OF_WEEK_IN_YEAR
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField DAY_OF_MONTH
+	Name: DAY_OF_MONTH
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#DAY_OF_MONTH
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField DAY_OF_YEAR
+	Name: DAY_OF_YEAR
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#DAY_OF_YEAR
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField EPOCH_DAY
+	Name: EPOCH_DAY
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#EPOCH_DAY
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField ALIGNED_WEEK_OF_MONTH
+	Name: ALIGNED_WEEK_OF_MONTH
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#ALIGNED_WEEK_OF_MONTH
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField ALIGNED_WEEK_OF_YEAR
+	Name: ALIGNED_WEEK_OF_YEAR
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#ALIGNED_WEEK_OF_YEAR
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField MONTH_OF_YEAR
+	Name: MONTH_OF_YEAR
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#MONTH_OF_YEAR
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField PROLEPTIC_MONTH
+	Name: PROLEPTIC_MONTH
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#PROLEPTIC_MONTH
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField YEAR_OF_ERA
+	Name: YEAR_OF_ERA
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#YEAR_OF_ERA
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField YEAR
+	Name: YEAR
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#YEAR
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField ERA
+	Name: ERA
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#ERA
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField INSTANT_SECONDS
+	Name: INSTANT_SECONDS
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#INSTANT_SECONDS
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static final ChronoField OFFSET_SECONDS
+	Name: OFFSET_SECONDS
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#OFFSET_SECONDS
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public static ChronoField[] values()
+	Name: values
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#values--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.time.temporal::ChronoField
+		}
+	}
+
+	[Function]
+	public static ChronoField valueOf(String name)
+	Name: valueOf
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#valueOf-java.lang.String-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.time.temporal::ChronoField
+	}
+
+	[Function]
+	public String getDisplayName(Locale locale)
+	Name: getDisplayName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#getDisplayName-java.util.Locale-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Locale
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public TemporalUnit getBaseUnit()
+	Name: getBaseUnit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#getBaseUnit--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalUnit
+	}
+
+	[Function]
+	public TemporalUnit getRangeUnit()
+	Name: getRangeUnit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#getRangeUnit--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::TemporalUnit
+	}
+
+	[Function]
+	public ValueRange range()
+	Name: range
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#range--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ValueRange
+	}
+
+	[Function]
+	public boolean isDateBased()
+	Name: isDateBased
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#isDateBased--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isTimeBased()
+	Name: isTimeBased
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#isTimeBased--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public long checkValidValue(long value)
+	Name: checkValidValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#checkValidValue-long-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public int checkValidIntValue(long value)
+	Name: checkValidIntValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#checkValidIntValue-long-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public boolean isSupportedBy(TemporalAccessor temporal)
+	Name: isSupportedBy
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#isSupportedBy-java.time.temporal.TemporalAccessor-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time.temporal::TemporalAccessor
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public ValueRange rangeRefinedBy(TemporalAccessor temporal)
+	Name: rangeRefinedBy
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#rangeRefinedBy-java.time.temporal.TemporalAccessor-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time.temporal::TemporalAccessor
+	
+		[result]
+		java.time.temporal::ValueRange
+	}
+
+	[Function]
+	public long getFrom(TemporalAccessor temporal)
+	Name: getFrom
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#getFrom-java.time.temporal.TemporalAccessor-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time.temporal::TemporalAccessor
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public <R extends Temporal> R adjustInto(R temporal,
+	                                         long newValue)
+	Name: adjustInto
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#adjustInto-R-long-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChronoField
+	parameters {
+		R: (R extends Temporal; R; java.time.temporal::Temporal)
+	}
+	Signature = <function> {
+		[parameters]
+		null::R
+		other::long
+	
+		[result]
+		null::R
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html#toString--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChronoField
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public enum ChronoUnit
+extends Enum<ChronoUnit>
+implements TemporalUnit
+Name: ChronoUnit
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html
+Containing package: java.time.temporal
+attributes {
+	abstract=false
+	final=false
+	classifierType=enum
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.time.temporal::TemporalUnit
+	java.lang::Enum {
+		java.time.temporal::ChronoUnit
+	}
+}
+members {
+
+	[Function]
+	public static final ChronoUnit NANOS
+	Name: NANOS
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html#NANOS
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoUnit
+	}
+
+	[Function]
+	public static final ChronoUnit MICROS
+	Name: MICROS
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html#MICROS
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoUnit
+	}
+
+	[Function]
+	public static final ChronoUnit MILLIS
+	Name: MILLIS
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html#MILLIS
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoUnit
+	}
+
+	[Function]
+	public static final ChronoUnit SECONDS
+	Name: SECONDS
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html#SECONDS
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoUnit
+	}
+
+	[Function]
+	public static final ChronoUnit MINUTES
+	Name: MINUTES
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html#MINUTES
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoUnit
+	}
+
+	[Function]
+	public static final ChronoUnit HOURS
+	Name: HOURS
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html#HOURS
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoUnit
+	}
+
+	[Function]
+	public static final ChronoUnit HALF_DAYS
+	Name: HALF_DAYS
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html#HALF_DAYS
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoUnit
+	}
+
+	[Function]
+	public static final ChronoUnit DAYS
+	Name: DAYS
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html#DAYS
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoUnit
+	}
+
+	[Function]
+	public static final ChronoUnit WEEKS
+	Name: WEEKS
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html#WEEKS
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoUnit
+	}
+
+	[Function]
+	public static final ChronoUnit MONTHS
+	Name: MONTHS
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html#MONTHS
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoUnit
+	}
+
+	[Function]
+	public static final ChronoUnit YEARS
+	Name: YEARS
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html#YEARS
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoUnit
+	}
+
+	[Function]
+	public static final ChronoUnit DECADES
+	Name: DECADES
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html#DECADES
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoUnit
+	}
+
+	[Function]
+	public static final ChronoUnit CENTURIES
+	Name: CENTURIES
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html#CENTURIES
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoUnit
+	}
+
+	[Function]
+	public static final ChronoUnit MILLENNIA
+	Name: MILLENNIA
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html#MILLENNIA
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoUnit
+	}
+
+	[Function]
+	public static final ChronoUnit ERAS
+	Name: ERAS
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html#ERAS
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoUnit
+	}
+
+	[Function]
+	public static final ChronoUnit FOREVER
+	Name: FOREVER
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html#FOREVER
+	Containing package: java.time.temporal
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: ChronoUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time.temporal::ChronoUnit
+	}
+
+	[Function]
+	public static ChronoUnit[] values()
+	Name: values
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html#values--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChronoUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.time.temporal::ChronoUnit
+		}
+	}
+
+	[Function]
+	public static ChronoUnit valueOf(String name)
+	Name: valueOf
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html#valueOf-java.lang.String-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChronoUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.time.temporal::ChronoUnit
+	}
+
+	[Function]
+	public Duration getDuration()
+	Name: getDuration
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html#getDuration--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChronoUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.time::Duration
+	}
+
+	[Function]
+	public boolean isDurationEstimated()
+	Name: isDurationEstimated
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html#isDurationEstimated--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChronoUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isDateBased()
+	Name: isDateBased
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html#isDateBased--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChronoUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isTimeBased()
+	Name: isTimeBased
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html#isTimeBased--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChronoUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isSupportedBy(Temporal temporal)
+	Name: isSupportedBy
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html#isSupportedBy-java.time.temporal.Temporal-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChronoUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time.temporal::Temporal
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public <R extends Temporal> R addTo(R temporal,
+	                                    long amount)
+	Name: addTo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html#addTo-R-long-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChronoUnit
+	parameters {
+		R: (R extends Temporal; R; java.time.temporal::Temporal)
+	}
+	Signature = <function> {
+		[parameters]
+		null::R
+		other::long
+	
+		[result]
+		null::R
+	}
+
+	[Function]
+	public long between(Temporal temporal1Inclusive,
+	                    Temporal temporal2Exclusive)
+	Name: between
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html#between-java.time.temporal.Temporal-java.time.temporal.Temporal-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChronoUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.time.temporal::Temporal
+		java.time.temporal::Temporal
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html#toString--
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ChronoUnit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public class UnsupportedTemporalTypeException
+extends DateTimeException
+Name: UnsupportedTemporalTypeException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/UnsupportedTemporalTypeException.html
+Containing package: java.time.temporal
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.time::DateTimeException
+}
+members {
+
+	[Function]
+	public UnsupportedTemporalTypeException(String message)
+	Name: UnsupportedTemporalTypeException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/UnsupportedTemporalTypeException.html#UnsupportedTemporalTypeException-java.lang.String-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: UnsupportedTemporalTypeException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.time.temporal::UnsupportedTemporalTypeException
+	}
+
+	[Function]
+	public UnsupportedTemporalTypeException(String message,
+	                                        Throwable cause)
+	Name: UnsupportedTemporalTypeException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/time/temporal/UnsupportedTemporalTypeException.html#UnsupportedTemporalTypeException-java.lang.String-java.lang.Throwable-
+	Containing package: java.time.temporal
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: UnsupportedTemporalTypeException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Throwable
+	
+		[result]
+		java.time.temporal::UnsupportedTemporalTypeException
+	}
+}

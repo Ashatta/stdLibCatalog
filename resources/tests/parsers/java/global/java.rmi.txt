@@ -1,0 +1,1688 @@
+[Package]
+Name: java.rmi
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/package-summary.html
+Containing package: null
+attributes {
+}
+
+Subpackages {
+	java.rmi.dgc
+	java.rmi.server
+	java.rmi.activation
+	java.rmi.registry
+}
+
+[Classifier]
+public interface Remote
+Name: Remote
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/Remote.html
+Containing package: java.rmi
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.rmi.activation::ActivationInstantiator
+	java.rmi.activation::ActivationMonitor
+	java.rmi.activation::Activator
+	javax.management.remote.rmi::RMIConnection
+	java.rmi.registry::Registry
+	java.rmi.activation::ActivationGroup_Stub
+	java.rmi.activation::ActivationSystem
+	javax.management.remote.rmi::RMIServer
+	java.rmi.dgc::DGC
+	java.rmi.server::RemoteObject
+	org.omg.stub.java.rmi::_Remote_Stub
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+public final class MarshalledObject<T>
+extends Object
+implements Serializable
+Name: MarshalledObject
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/MarshalledObject.html
+Containing package: java.rmi
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public MarshalledObject(T obj)
+	                 throws IOException
+	Name: MarshalledObject
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/MarshalledObject.html#MarshalledObject-T-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MarshalledObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+	
+		[result]
+		java.rmi::MarshalledObject
+	}
+
+	[Function]
+	public T get()
+	      throws IOException,
+	             ClassNotFoundException
+	Name: get
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/MarshalledObject.html#get--
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MarshalledObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		null::T
+	}
+
+	[Function]
+	public int hashCode()
+	Name: hashCode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/MarshalledObject.html#hashCode--
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MarshalledObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public boolean equals(Object obj)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/MarshalledObject.html#equals-java.lang.Object-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MarshalledObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public final class Naming
+extends Object
+Name: Naming
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/Naming.html
+Containing package: java.rmi
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static Remote lookup(String name)
+	                     throws NotBoundException,
+	                            MalformedURLException,
+	                            RemoteException
+	Name: lookup
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/Naming.html#lookup-java.lang.String-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Naming
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.rmi::Remote
+	}
+
+	[Function]
+	public static void bind(String name,
+	                        Remote obj)
+	                 throws AlreadyBoundException,
+	                        MalformedURLException,
+	                        RemoteException
+	Name: bind
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/Naming.html#bind-java.lang.String-java.rmi.Remote-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Naming
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.rmi::Remote
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static void unbind(String name)
+	                   throws RemoteException,
+	                          NotBoundException,
+	                          MalformedURLException
+	Name: unbind
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/Naming.html#unbind-java.lang.String-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Naming
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static void rebind(String name,
+	                          Remote obj)
+	                   throws RemoteException,
+	                          MalformedURLException
+	Name: rebind
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/Naming.html#rebind-java.lang.String-java.rmi.Remote-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Naming
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.rmi::Remote
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static String[] list(String name)
+	                     throws RemoteException,
+	                            MalformedURLException
+	Name: list
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/Naming.html#list-java.lang.String-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Naming
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+}
+
+[Classifier]
+@Deprecated
+public class RMISecurityManager
+extends SecurityManager
+Name: RMISecurityManager
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/RMISecurityManager.html
+Containing package: java.rmi
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::SecurityManager
+}
+members {
+
+	[Function]
+	public RMISecurityManager()
+	Name: RMISecurityManager
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/RMISecurityManager.html#RMISecurityManager--
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RMISecurityManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.rmi::RMISecurityManager
+	}
+}
+
+[Classifier]
+public class AccessException
+extends RemoteException
+Name: AccessException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/AccessException.html
+Containing package: java.rmi
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.rmi::RemoteException
+}
+members {
+
+	[Function]
+	public AccessException(String s)
+	Name: AccessException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/AccessException.html#AccessException-java.lang.String-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AccessException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.rmi::AccessException
+	}
+
+	[Function]
+	public AccessException(String s,
+	                       Exception ex)
+	Name: AccessException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/AccessException.html#AccessException-java.lang.String-java.lang.Exception-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AccessException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Exception
+	
+		[result]
+		java.rmi::AccessException
+	}
+}
+
+[Classifier]
+public class AlreadyBoundException
+extends Exception
+Name: AlreadyBoundException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/AlreadyBoundException.html
+Containing package: java.rmi
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Exception
+}
+members {
+
+	[Function]
+	public AlreadyBoundException()
+	Name: AlreadyBoundException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/AlreadyBoundException.html#AlreadyBoundException--
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AlreadyBoundException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.rmi::AlreadyBoundException
+	}
+
+	[Function]
+	public AlreadyBoundException(String s)
+	Name: AlreadyBoundException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/AlreadyBoundException.html#AlreadyBoundException-java.lang.String-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AlreadyBoundException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.rmi::AlreadyBoundException
+	}
+}
+
+[Classifier]
+public class ConnectException
+extends RemoteException
+Name: ConnectException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/ConnectException.html
+Containing package: java.rmi
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.rmi::RemoteException
+}
+members {
+
+	[Function]
+	public ConnectException(String s)
+	Name: ConnectException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/ConnectException.html#ConnectException-java.lang.String-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ConnectException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.rmi::ConnectException
+	}
+
+	[Function]
+	public ConnectException(String s,
+	                        Exception ex)
+	Name: ConnectException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/ConnectException.html#ConnectException-java.lang.String-java.lang.Exception-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ConnectException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Exception
+	
+		[result]
+		java.rmi::ConnectException
+	}
+}
+
+[Classifier]
+public class ConnectIOException
+extends RemoteException
+Name: ConnectIOException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/ConnectIOException.html
+Containing package: java.rmi
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.rmi::RemoteException
+}
+members {
+
+	[Function]
+	public ConnectIOException(String s)
+	Name: ConnectIOException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/ConnectIOException.html#ConnectIOException-java.lang.String-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ConnectIOException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.rmi::ConnectIOException
+	}
+
+	[Function]
+	public ConnectIOException(String s,
+	                          Exception ex)
+	Name: ConnectIOException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/ConnectIOException.html#ConnectIOException-java.lang.String-java.lang.Exception-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ConnectIOException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Exception
+	
+		[result]
+		java.rmi::ConnectIOException
+	}
+}
+
+[Classifier]
+public class MarshalException
+extends RemoteException
+Name: MarshalException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/MarshalException.html
+Containing package: java.rmi
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.rmi::RemoteException
+}
+members {
+
+	[Function]
+	public MarshalException(String s)
+	Name: MarshalException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/MarshalException.html#MarshalException-java.lang.String-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MarshalException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.rmi::MarshalException
+	}
+
+	[Function]
+	public MarshalException(String s,
+	                        Exception ex)
+	Name: MarshalException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/MarshalException.html#MarshalException-java.lang.String-java.lang.Exception-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MarshalException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Exception
+	
+		[result]
+		java.rmi::MarshalException
+	}
+}
+
+[Classifier]
+public class NoSuchObjectException
+extends RemoteException
+Name: NoSuchObjectException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/NoSuchObjectException.html
+Containing package: java.rmi
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.rmi::RemoteException
+}
+members {
+
+	[Function]
+	public NoSuchObjectException(String s)
+	Name: NoSuchObjectException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/NoSuchObjectException.html#NoSuchObjectException-java.lang.String-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: NoSuchObjectException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.rmi::NoSuchObjectException
+	}
+}
+
+[Classifier]
+public class NotBoundException
+extends Exception
+Name: NotBoundException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/NotBoundException.html
+Containing package: java.rmi
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Exception
+}
+members {
+
+	[Function]
+	public NotBoundException()
+	Name: NotBoundException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/NotBoundException.html#NotBoundException--
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: NotBoundException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.rmi::NotBoundException
+	}
+
+	[Function]
+	public NotBoundException(String s)
+	Name: NotBoundException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/NotBoundException.html#NotBoundException-java.lang.String-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: NotBoundException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.rmi::NotBoundException
+	}
+}
+
+[Classifier]
+public class RemoteException
+extends IOException
+Name: RemoteException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/RemoteException.html
+Containing package: java.rmi
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.rmi::ServerError
+	java.rmi::ServerRuntimeException
+	java.rmi::AccessException
+	java.rmi.server::SkeletonNotFoundException
+	java.rmi::UnknownHostException
+	java.rmi.server::ExportException
+	javax.activity::InvalidActivityException
+	javax.activity::ActivityCompletedException
+	javax.transaction::TransactionRequiredException
+	java.rmi.server::SkeletonMismatchException
+	javax.transaction::TransactionRolledbackException
+	java.rmi::MarshalException
+	java.rmi.activation::ActivateFailedException
+	javax.activity::ActivityRequiredException
+	java.rmi::UnexpectedException
+	java.rmi::StubNotFoundException
+	java.rmi::ServerException
+	java.rmi::NoSuchObjectException
+	java.rmi::ConnectIOException
+	java.rmi::UnmarshalException
+	javax.transaction::InvalidTransactionException
+	java.rmi::ConnectException
+}
+supertypes {
+	java.io::IOException
+}
+members {
+
+	[Function]
+	public Throwable detail
+	Name: detail
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/RemoteException.html#detail
+	Containing package: java.rmi
+	attributes {
+		final=false
+		scope=public
+		static=false
+		memberType=field
+	}
+	Containing type: RemoteException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Throwable
+	}
+
+	[Function]
+	public RemoteException()
+	Name: RemoteException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/RemoteException.html#RemoteException--
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RemoteException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.rmi::RemoteException
+	}
+
+	[Function]
+	public RemoteException(String s)
+	Name: RemoteException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/RemoteException.html#RemoteException-java.lang.String-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RemoteException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.rmi::RemoteException
+	}
+
+	[Function]
+	public RemoteException(String s,
+	                       Throwable cause)
+	Name: RemoteException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/RemoteException.html#RemoteException-java.lang.String-java.lang.Throwable-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RemoteException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Throwable
+	
+		[result]
+		java.rmi::RemoteException
+	}
+
+	[Function]
+	public String getMessage()
+	Name: getMessage
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/RemoteException.html#getMessage--
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RemoteException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public Throwable getCause()
+	Name: getCause
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/RemoteException.html#getCause--
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RemoteException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Throwable
+	}
+}
+
+[Classifier]
+@Deprecated
+public class RMISecurityException
+extends SecurityException
+Name: RMISecurityException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/RMISecurityException.html
+Containing package: java.rmi
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::SecurityException
+}
+members {
+
+	[Function]
+	@Deprecated
+	public RMISecurityException(String name)
+	Name: RMISecurityException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/RMISecurityException.html#RMISecurityException-java.lang.String-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RMISecurityException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.rmi::RMISecurityException
+	}
+
+	[Function]
+	@Deprecated
+	public RMISecurityException(String name,
+	                                        String arg)
+	Name: RMISecurityException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/RMISecurityException.html#RMISecurityException-java.lang.String-java.lang.String-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RMISecurityException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		java.rmi::RMISecurityException
+	}
+}
+
+[Classifier]
+public class ServerError
+extends RemoteException
+Name: ServerError
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/ServerError.html
+Containing package: java.rmi
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.rmi::RemoteException
+}
+members {
+
+	[Function]
+	public ServerError(String s,
+	                   Error err)
+	Name: ServerError
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/ServerError.html#ServerError-java.lang.String-java.lang.Error-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ServerError
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Error
+	
+		[result]
+		java.rmi::ServerError
+	}
+}
+
+[Classifier]
+public class ServerException
+extends RemoteException
+Name: ServerException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/ServerException.html
+Containing package: java.rmi
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.rmi::RemoteException
+}
+members {
+
+	[Function]
+	public ServerException(String s)
+	Name: ServerException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/ServerException.html#ServerException-java.lang.String-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ServerException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.rmi::ServerException
+	}
+
+	[Function]
+	public ServerException(String s,
+	                       Exception ex)
+	Name: ServerException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/ServerException.html#ServerException-java.lang.String-java.lang.Exception-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ServerException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Exception
+	
+		[result]
+		java.rmi::ServerException
+	}
+}
+
+[Classifier]
+@Deprecated
+public class ServerRuntimeException
+extends RemoteException
+Name: ServerRuntimeException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/ServerRuntimeException.html
+Containing package: java.rmi
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.rmi::RemoteException
+}
+members {
+
+	[Function]
+	@Deprecated
+	public ServerRuntimeException(String s,
+	                                          Exception ex)
+	Name: ServerRuntimeException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/ServerRuntimeException.html#ServerRuntimeException-java.lang.String-java.lang.Exception-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ServerRuntimeException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Exception
+	
+		[result]
+		java.rmi::ServerRuntimeException
+	}
+}
+
+[Classifier]
+public class StubNotFoundException
+extends RemoteException
+Name: StubNotFoundException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/StubNotFoundException.html
+Containing package: java.rmi
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.rmi::RemoteException
+}
+members {
+
+	[Function]
+	public StubNotFoundException(String s)
+	Name: StubNotFoundException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/StubNotFoundException.html#StubNotFoundException-java.lang.String-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: StubNotFoundException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.rmi::StubNotFoundException
+	}
+
+	[Function]
+	public StubNotFoundException(String s,
+	                             Exception ex)
+	Name: StubNotFoundException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/StubNotFoundException.html#StubNotFoundException-java.lang.String-java.lang.Exception-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: StubNotFoundException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Exception
+	
+		[result]
+		java.rmi::StubNotFoundException
+	}
+}
+
+[Classifier]
+public class UnexpectedException
+extends RemoteException
+Name: UnexpectedException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/UnexpectedException.html
+Containing package: java.rmi
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.rmi::RemoteException
+}
+members {
+
+	[Function]
+	public UnexpectedException(String s)
+	Name: UnexpectedException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/UnexpectedException.html#UnexpectedException-java.lang.String-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: UnexpectedException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.rmi::UnexpectedException
+	}
+
+	[Function]
+	public UnexpectedException(String s,
+	                           Exception ex)
+	Name: UnexpectedException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/UnexpectedException.html#UnexpectedException-java.lang.String-java.lang.Exception-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: UnexpectedException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Exception
+	
+		[result]
+		java.rmi::UnexpectedException
+	}
+}
+
+[Classifier]
+public class UnknownHostException
+extends RemoteException
+Name: UnknownHostException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/UnknownHostException.html
+Containing package: java.rmi
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.rmi::RemoteException
+}
+members {
+
+	[Function]
+	public UnknownHostException(String s)
+	Name: UnknownHostException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/UnknownHostException.html#UnknownHostException-java.lang.String-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: UnknownHostException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.rmi::UnknownHostException
+	}
+
+	[Function]
+	public UnknownHostException(String s,
+	                            Exception ex)
+	Name: UnknownHostException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/UnknownHostException.html#UnknownHostException-java.lang.String-java.lang.Exception-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: UnknownHostException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Exception
+	
+		[result]
+		java.rmi::UnknownHostException
+	}
+}
+
+[Classifier]
+public class UnmarshalException
+extends RemoteException
+Name: UnmarshalException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/UnmarshalException.html
+Containing package: java.rmi
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.rmi::RemoteException
+}
+members {
+
+	[Function]
+	public UnmarshalException(String s)
+	Name: UnmarshalException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/UnmarshalException.html#UnmarshalException-java.lang.String-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: UnmarshalException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.rmi::UnmarshalException
+	}
+
+	[Function]
+	public UnmarshalException(String s,
+	                          Exception ex)
+	Name: UnmarshalException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/UnmarshalException.html#UnmarshalException-java.lang.String-java.lang.Exception-
+	Containing package: java.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: UnmarshalException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Exception
+	
+		[result]
+		java.rmi::UnmarshalException
+	}
+}

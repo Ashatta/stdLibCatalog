@@ -1,0 +1,767 @@
+[Package]
+Name: java.util.spi
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/package-summary.html
+Containing package: java.util
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+public interface ResourceBundleControlProvider
+Name: ResourceBundleControlProvider
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/ResourceBundleControlProvider.html
+Containing package: java.util.spi
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	ResourceBundle.Control getControl(String baseName)
+	Name: getControl
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/ResourceBundleControlProvider.html#getControl-java.lang.String-
+	Containing package: java.util.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ResourceBundleControlProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.util::ResourceBundle.Control
+	}
+}
+
+[Classifier]
+public abstract class CalendarDataProvider
+extends LocaleServiceProvider
+Name: CalendarDataProvider
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/CalendarDataProvider.html
+Containing package: java.util.spi
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.util.spi::LocaleServiceProvider
+}
+members {
+
+	[Function]
+	protected CalendarDataProvider()
+	Name: CalendarDataProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/CalendarDataProvider.html#CalendarDataProvider--
+	Containing package: java.util.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: CalendarDataProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.spi::CalendarDataProvider
+	}
+
+	[Function]
+	public abstract int getFirstDayOfWeek(Locale locale)
+	Name: getFirstDayOfWeek
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/CalendarDataProvider.html#getFirstDayOfWeek-java.util.Locale-
+	Containing package: java.util.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CalendarDataProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Locale
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public abstract int getMinimalDaysInFirstWeek(Locale locale)
+	Name: getMinimalDaysInFirstWeek
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/CalendarDataProvider.html#getMinimalDaysInFirstWeek-java.util.Locale-
+	Containing package: java.util.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CalendarDataProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Locale
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public abstract class CalendarNameProvider
+extends LocaleServiceProvider
+Name: CalendarNameProvider
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/CalendarNameProvider.html
+Containing package: java.util.spi
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.util.spi::LocaleServiceProvider
+}
+members {
+
+	[Function]
+	protected CalendarNameProvider()
+	Name: CalendarNameProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/CalendarNameProvider.html#CalendarNameProvider--
+	Containing package: java.util.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: CalendarNameProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.spi::CalendarNameProvider
+	}
+
+	[Function]
+	public abstract String getDisplayName(String calendarType,
+	                                      int field,
+	                                      int value,
+	                                      int style,
+	                                      Locale locale)
+	Name: getDisplayName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/CalendarNameProvider.html#getDisplayName-java.lang.String-int-int-int-java.util.Locale-
+	Containing package: java.util.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CalendarNameProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::int
+		other::int
+		other::int
+		java.util::Locale
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public abstract Map<String,Integer> getDisplayNames(String calendarType,
+	                                                    int field,
+	                                                    int style,
+	                                                    Locale locale)
+	Name: getDisplayNames
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/CalendarNameProvider.html#getDisplayNames-java.lang.String-int-int-java.util.Locale-
+	Containing package: java.util.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CalendarNameProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::int
+		other::int
+		java.util::Locale
+	
+		[result]
+		java.util::Map {
+			java.lang::String
+			java.lang::Integer
+		}
+	}
+}
+
+[Classifier]
+public abstract class CurrencyNameProvider
+extends LocaleServiceProvider
+Name: CurrencyNameProvider
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/CurrencyNameProvider.html
+Containing package: java.util.spi
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.util.spi::LocaleServiceProvider
+}
+members {
+
+	[Function]
+	protected CurrencyNameProvider()
+	Name: CurrencyNameProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/CurrencyNameProvider.html#CurrencyNameProvider--
+	Containing package: java.util.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: CurrencyNameProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.spi::CurrencyNameProvider
+	}
+
+	[Function]
+	public abstract String getSymbol(String currencyCode,
+	                                 Locale locale)
+	Name: getSymbol
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/CurrencyNameProvider.html#getSymbol-java.lang.String-java.util.Locale-
+	Containing package: java.util.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CurrencyNameProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.util::Locale
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getDisplayName(String currencyCode,
+	                             Locale locale)
+	Name: getDisplayName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/CurrencyNameProvider.html#getDisplayName-java.lang.String-java.util.Locale-
+	Containing package: java.util.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CurrencyNameProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.util::Locale
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public abstract class LocaleNameProvider
+extends LocaleServiceProvider
+Name: LocaleNameProvider
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/LocaleNameProvider.html
+Containing package: java.util.spi
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.util.spi::LocaleServiceProvider
+}
+members {
+
+	[Function]
+	protected LocaleNameProvider()
+	Name: LocaleNameProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/LocaleNameProvider.html#LocaleNameProvider--
+	Containing package: java.util.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: LocaleNameProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.spi::LocaleNameProvider
+	}
+
+	[Function]
+	public abstract String getDisplayLanguage(String languageCode,
+	                                          Locale locale)
+	Name: getDisplayLanguage
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/LocaleNameProvider.html#getDisplayLanguage-java.lang.String-java.util.Locale-
+	Containing package: java.util.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LocaleNameProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.util::Locale
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getDisplayScript(String scriptCode,
+	                               Locale locale)
+	Name: getDisplayScript
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/LocaleNameProvider.html#getDisplayScript-java.lang.String-java.util.Locale-
+	Containing package: java.util.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LocaleNameProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.util::Locale
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public abstract String getDisplayCountry(String countryCode,
+	                                         Locale locale)
+	Name: getDisplayCountry
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/LocaleNameProvider.html#getDisplayCountry-java.lang.String-java.util.Locale-
+	Containing package: java.util.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LocaleNameProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.util::Locale
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public abstract String getDisplayVariant(String variant,
+	                                         Locale locale)
+	Name: getDisplayVariant
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/LocaleNameProvider.html#getDisplayVariant-java.lang.String-java.util.Locale-
+	Containing package: java.util.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LocaleNameProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.util::Locale
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public abstract class LocaleServiceProvider
+extends Object
+Name: LocaleServiceProvider
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/LocaleServiceProvider.html
+Containing package: java.util.spi
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.text.spi::DateFormatSymbolsProvider
+	java.text.spi::DateFormatProvider
+	java.util.spi::CalendarDataProvider
+	java.util.spi::LocaleNameProvider
+	java.text.spi::CollatorProvider
+	java.text.spi::NumberFormatProvider
+	java.text.spi::DecimalFormatSymbolsProvider
+	java.util.spi::TimeZoneNameProvider
+	java.util.spi::CurrencyNameProvider
+	java.util.spi::CalendarNameProvider
+	java.text.spi::BreakIteratorProvider
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected LocaleServiceProvider()
+	Name: LocaleServiceProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/LocaleServiceProvider.html#LocaleServiceProvider--
+	Containing package: java.util.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: LocaleServiceProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.spi::LocaleServiceProvider
+	}
+
+	[Function]
+	public abstract Locale[] getAvailableLocales()
+	Name: getAvailableLocales
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/LocaleServiceProvider.html#getAvailableLocales--
+	Containing package: java.util.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LocaleServiceProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.util::Locale
+		}
+	}
+
+	[Function]
+	public boolean isSupportedLocale(Locale locale)
+	Name: isSupportedLocale
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/LocaleServiceProvider.html#isSupportedLocale-java.util.Locale-
+	Containing package: java.util.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LocaleServiceProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Locale
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public abstract class TimeZoneNameProvider
+extends LocaleServiceProvider
+Name: TimeZoneNameProvider
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/TimeZoneNameProvider.html
+Containing package: java.util.spi
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.util.spi::LocaleServiceProvider
+}
+members {
+
+	[Function]
+	protected TimeZoneNameProvider()
+	Name: TimeZoneNameProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/TimeZoneNameProvider.html#TimeZoneNameProvider--
+	Containing package: java.util.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TimeZoneNameProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.spi::TimeZoneNameProvider
+	}
+
+	[Function]
+	public abstract String getDisplayName(String ID,
+	                                      boolean daylight,
+	                                      int style,
+	                                      Locale locale)
+	Name: getDisplayName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/TimeZoneNameProvider.html#getDisplayName-java.lang.String-boolean-int-java.util.Locale-
+	Containing package: java.util.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TimeZoneNameProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::boolean
+		other::int
+		java.util::Locale
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getGenericDisplayName(String ID,
+	                                    int style,
+	                                    Locale locale)
+	Name: getGenericDisplayName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/spi/TimeZoneNameProvider.html#getGenericDisplayName-java.lang.String-int-java.util.Locale-
+	Containing package: java.util.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TimeZoneNameProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::int
+		java.util::Locale
+	
+		[result]
+		java.lang::String
+	}
+}

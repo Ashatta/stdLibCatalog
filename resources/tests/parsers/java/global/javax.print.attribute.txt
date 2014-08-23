@@ -1,0 +1,4610 @@
+[Package]
+Name: javax.print.attribute
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/package-summary.html
+Containing package: javax.print
+attributes {
+}
+
+Subpackages {
+	javax.print.attribute.standard
+}
+
+[Classifier]
+public interface Attribute
+extends Serializable
+Name: Attribute
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/Attribute.html
+Containing package: javax.print.attribute
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.print.attribute::PrintRequestAttribute
+	javax.print.attribute.standard::Severity
+	javax.print.attribute::PrintServiceAttribute
+	javax.print.attribute.standard::JobStateReason
+	javax.print.attribute.standard::MediaTray
+	javax.print.attribute.standard::PrinterStateReason
+	javax.print.attribute::SupportedValuesAttribute
+	javax.print.attribute.standard::ReferenceUriSchemesSupported
+	javax.print.attribute::DocAttribute
+	javax.print.attribute.standard::MediaName
+	javax.print.attribute.standard::MediaSize
+	javax.print.attribute::PrintJobAttribute
+}
+supertypes {
+	java.io::Serializable
+}
+members {
+
+	[Function]
+	Class<? extends Attribute> getCategory()
+	Name: getCategory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/Attribute.html#getCategory--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Attribute
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Class {
+			? {
+				extends javax.print.attribute::Attribute
+			}
+		}
+	}
+
+	[Function]
+	String getName()
+	Name: getName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/Attribute.html#getName--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Attribute
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public interface AttributeSet
+Name: AttributeSet
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/AttributeSet.html
+Containing package: javax.print.attribute
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.print.attribute::HashAttributeSet
+	javax.print.attribute::PrintRequestAttributeSet
+	javax.print.attribute::PrintServiceAttributeSet
+	javax.print.attribute::PrintJobAttributeSet
+	javax.print.attribute::DocAttributeSet
+}
+supertypes {
+}
+members {
+
+	[Function]
+	Attribute get(Class<?> category)
+	Name: get
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/AttributeSet.html#get-java.lang.Class-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			?
+		}
+	
+		[result]
+		javax.print.attribute::Attribute
+	}
+
+	[Function]
+	boolean add(Attribute attribute)
+	Name: add
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/AttributeSet.html#add-javax.print.attribute.Attribute-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::Attribute
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean remove(Class<?> category)
+	Name: remove
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/AttributeSet.html#remove-java.lang.Class-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			?
+		}
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean remove(Attribute attribute)
+	Name: remove
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/AttributeSet.html#remove-javax.print.attribute.Attribute-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::Attribute
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean containsKey(Class<?> category)
+	Name: containsKey
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/AttributeSet.html#containsKey-java.lang.Class-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			?
+		}
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean containsValue(Attribute attribute)
+	Name: containsValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/AttributeSet.html#containsValue-javax.print.attribute.Attribute-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::Attribute
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean addAll(AttributeSet attributes)
+	Name: addAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/AttributeSet.html#addAll-javax.print.attribute.AttributeSet-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::AttributeSet
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	int size()
+	Name: size
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/AttributeSet.html#size--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	Attribute[] toArray()
+	Name: toArray
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/AttributeSet.html#toArray--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			javax.print.attribute::Attribute
+		}
+	}
+
+	[Function]
+	void clear()
+	Name: clear
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/AttributeSet.html#clear--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	boolean isEmpty()
+	Name: isEmpty
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/AttributeSet.html#isEmpty--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean equals(Object object)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/AttributeSet.html#equals-java.lang.Object-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	int hashCode()
+	Name: hashCode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/AttributeSet.html#hashCode--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public interface DocAttribute
+extends Attribute
+Name: DocAttribute
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/DocAttribute.html
+Containing package: javax.print.attribute
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.print.attribute.standard::Chromaticity
+	javax.print.attribute.standard::Media
+	javax.print.attribute.standard::Compression
+	javax.print.attribute.standard::PrintQuality
+	javax.print.attribute.standard::OrientationRequested
+	javax.print.attribute.standard::DocumentName
+	javax.print.attribute.standard::NumberUp
+	javax.print.attribute.standard::PageRanges
+	javax.print.attribute.standard::MediaPrintableArea
+	javax.print.attribute.standard::Finishings
+	javax.print.attribute.standard::SheetCollate
+	javax.print.attribute.standard::Sides
+	javax.print.attribute.standard::PrinterResolution
+}
+supertypes {
+	javax.print.attribute::Attribute
+}
+members {
+}
+
+[Classifier]
+public interface DocAttributeSet
+extends AttributeSet
+Name: DocAttributeSet
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/DocAttributeSet.html
+Containing package: javax.print.attribute
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.print.attribute::HashDocAttributeSet
+}
+supertypes {
+	javax.print.attribute::AttributeSet
+}
+members {
+
+	[Function]
+	boolean add(Attribute attribute)
+	Name: add
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/DocAttributeSet.html#add-javax.print.attribute.Attribute-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DocAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::Attribute
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean addAll(AttributeSet attributes)
+	Name: addAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/DocAttributeSet.html#addAll-javax.print.attribute.AttributeSet-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DocAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::AttributeSet
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public interface PrintJobAttribute
+extends Attribute
+Name: PrintJobAttribute
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/PrintJobAttribute.html
+Containing package: javax.print.attribute
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.print.attribute.standard::NumberOfInterveningJobs
+	javax.print.attribute.standard::DateTimeAtProcessing
+	javax.print.attribute.standard::OutputDeviceAssigned
+	javax.print.attribute.standard::JobMediaSheetsCompleted
+	javax.print.attribute.standard::JobHoldUntil
+	javax.print.attribute.standard::JobName
+	javax.print.attribute.standard::JobOriginatingUserName
+	javax.print.attribute.standard::JobMessageFromOperator
+	javax.print.attribute.standard::JobKOctets
+	javax.print.attribute.standard::JobState
+	javax.print.attribute.standard::JobSheets
+	javax.print.attribute.standard::PresentationDirection
+	javax.print.attribute.standard::Chromaticity
+	javax.print.attribute.standard::Media
+	javax.print.attribute.standard::DateTimeAtCompleted
+	javax.print.attribute.standard::PrintQuality
+	javax.print.attribute.standard::OrientationRequested
+	javax.print.attribute.standard::JobMediaSheets
+	javax.print.attribute.standard::NumberUp
+	javax.print.attribute.standard::JobKOctetsProcessed
+	javax.print.attribute.standard::Destination
+	javax.print.attribute.standard::PageRanges
+	javax.print.attribute.standard::Fidelity
+	javax.print.attribute.standard::MediaPrintableArea
+	javax.print.attribute.standard::DateTimeAtCreation
+	javax.print.attribute.standard::Finishings
+	javax.print.attribute.standard::SheetCollate
+	javax.print.attribute.standard::Sides
+	javax.print.attribute.standard::Copies
+	javax.print.attribute.standard::JobPriority
+	javax.print.attribute.standard::PrinterResolution
+	javax.print.attribute.standard::JobImpressions
+	javax.print.attribute.standard::JobStateReasons
+	javax.print.attribute.standard::NumberOfDocuments
+	javax.print.attribute.standard::MultipleDocumentHandling
+	javax.print.attribute.standard::JobImpressionsCompleted
+}
+supertypes {
+	javax.print.attribute::Attribute
+}
+members {
+}
+
+[Classifier]
+public interface PrintJobAttributeSet
+extends AttributeSet
+Name: PrintJobAttributeSet
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/PrintJobAttributeSet.html
+Containing package: javax.print.attribute
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.print.attribute::HashPrintJobAttributeSet
+}
+supertypes {
+	javax.print.attribute::AttributeSet
+}
+members {
+
+	[Function]
+	boolean add(Attribute attribute)
+	Name: add
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/PrintJobAttributeSet.html#add-javax.print.attribute.Attribute-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: PrintJobAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::Attribute
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean addAll(AttributeSet attributes)
+	Name: addAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/PrintJobAttributeSet.html#addAll-javax.print.attribute.AttributeSet-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: PrintJobAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::AttributeSet
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public interface PrintRequestAttribute
+extends Attribute
+Name: PrintRequestAttribute
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/PrintRequestAttribute.html
+Containing package: javax.print.attribute
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.print.attribute.standard::JobHoldUntil
+	javax.print.attribute.standard::JobName
+	javax.print.attribute.standard::JobKOctets
+	javax.print.attribute.standard::JobSheets
+	javax.print.attribute.standard::PresentationDirection
+	javax.print.attribute.standard::Chromaticity
+	javax.print.attribute.standard::Media
+	javax.print.attribute.standard::PrintQuality
+	javax.print.attribute.standard::OrientationRequested
+	javax.print.attribute.standard::JobMediaSheets
+	javax.print.attribute.standard::RequestingUserName
+	javax.print.attribute.standard::NumberUp
+	javax.print.attribute.standard::Destination
+	javax.print.attribute.standard::PageRanges
+	javax.print.attribute.standard::Fidelity
+	javax.print.attribute.standard::MediaPrintableArea
+	javax.print.attribute.standard::DialogTypeSelection
+	javax.print.attribute.standard::Finishings
+	javax.print.attribute.standard::SheetCollate
+	javax.print.attribute.standard::Sides
+	javax.print.attribute.standard::Copies
+	javax.print.attribute.standard::JobPriority
+	javax.print.attribute.standard::PrinterResolution
+	javax.print.attribute.standard::JobImpressions
+	javax.print.attribute.standard::MultipleDocumentHandling
+}
+supertypes {
+	javax.print.attribute::Attribute
+}
+members {
+}
+
+[Classifier]
+public interface PrintRequestAttributeSet
+extends AttributeSet
+Name: PrintRequestAttributeSet
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/PrintRequestAttributeSet.html
+Containing package: javax.print.attribute
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.print.attribute::HashPrintRequestAttributeSet
+}
+supertypes {
+	javax.print.attribute::AttributeSet
+}
+members {
+
+	[Function]
+	boolean add(Attribute attribute)
+	Name: add
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/PrintRequestAttributeSet.html#add-javax.print.attribute.Attribute-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: PrintRequestAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::Attribute
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean addAll(AttributeSet attributes)
+	Name: addAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/PrintRequestAttributeSet.html#addAll-javax.print.attribute.AttributeSet-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: PrintRequestAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::AttributeSet
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public interface PrintServiceAttribute
+extends Attribute
+Name: PrintServiceAttribute
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/PrintServiceAttribute.html
+Containing package: javax.print.attribute
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.print.attribute.standard::PDLOverrideSupported
+	javax.print.attribute.standard::QueuedJobCount
+	javax.print.attribute.standard::PrinterMoreInfoManufacturer
+	javax.print.attribute.standard::PrinterName
+	javax.print.attribute.standard::PagesPerMinute
+	javax.print.attribute.standard::PrinterMessageFromOperator
+	javax.print.attribute.standard::PrinterInfo
+	javax.print.attribute.standard::ColorSupported
+	javax.print.attribute.standard::PrinterMoreInfo
+	javax.print.attribute.standard::PrinterLocation
+	javax.print.attribute.standard::PrinterIsAcceptingJobs
+	javax.print.attribute.standard::PagesPerMinuteColor
+	javax.print.attribute.standard::PrinterMakeAndModel
+	javax.print.attribute.standard::PrinterState
+	javax.print.attribute.standard::PrinterURI
+	javax.print.attribute.standard::PrinterStateReasons
+}
+supertypes {
+	javax.print.attribute::Attribute
+}
+members {
+}
+
+[Classifier]
+public interface PrintServiceAttributeSet
+extends AttributeSet
+Name: PrintServiceAttributeSet
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/PrintServiceAttributeSet.html
+Containing package: javax.print.attribute
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.print.attribute::HashPrintServiceAttributeSet
+}
+supertypes {
+	javax.print.attribute::AttributeSet
+}
+members {
+
+	[Function]
+	boolean add(Attribute attribute)
+	Name: add
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/PrintServiceAttributeSet.html#add-javax.print.attribute.Attribute-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: PrintServiceAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::Attribute
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean addAll(AttributeSet attributes)
+	Name: addAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/PrintServiceAttributeSet.html#addAll-javax.print.attribute.AttributeSet-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: PrintServiceAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::AttributeSet
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public interface SupportedValuesAttribute
+extends Attribute
+Name: SupportedValuesAttribute
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/SupportedValuesAttribute.html
+Containing package: javax.print.attribute
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.print.attribute.standard::JobPrioritySupported
+	javax.print.attribute.standard::NumberUpSupported
+	javax.print.attribute.standard::CopiesSupported
+	javax.print.attribute.standard::JobMediaSheetsSupported
+	javax.print.attribute.standard::JobImpressionsSupported
+	javax.print.attribute.standard::JobKOctetsSupported
+}
+supertypes {
+	javax.print.attribute::Attribute
+}
+members {
+}
+
+[Classifier]
+public final class AttributeSetUtilities
+extends Object
+Name: AttributeSetUtilities
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/AttributeSetUtilities.html
+Containing package: javax.print.attribute
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static AttributeSet unmodifiableView(AttributeSet attributeSet)
+	Name: unmodifiableView
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/AttributeSetUtilities.html#unmodifiableView-javax.print.attribute.AttributeSet-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: AttributeSetUtilities
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::AttributeSet
+	
+		[result]
+		javax.print.attribute::AttributeSet
+	}
+
+	[Function]
+	public static DocAttributeSet unmodifiableView(DocAttributeSet attributeSet)
+	Name: unmodifiableView
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/AttributeSetUtilities.html#unmodifiableView-javax.print.attribute.DocAttributeSet-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: AttributeSetUtilities
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::DocAttributeSet
+	
+		[result]
+		javax.print.attribute::DocAttributeSet
+	}
+
+	[Function]
+	public static PrintRequestAttributeSet unmodifiableView(PrintRequestAttributeSet attributeSet)
+	Name: unmodifiableView
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/AttributeSetUtilities.html#unmodifiableView-javax.print.attribute.PrintRequestAttributeSet-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: AttributeSetUtilities
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::PrintRequestAttributeSet
+	
+		[result]
+		javax.print.attribute::PrintRequestAttributeSet
+	}
+
+	[Function]
+	public static PrintJobAttributeSet unmodifiableView(PrintJobAttributeSet attributeSet)
+	Name: unmodifiableView
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/AttributeSetUtilities.html#unmodifiableView-javax.print.attribute.PrintJobAttributeSet-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: AttributeSetUtilities
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::PrintJobAttributeSet
+	
+		[result]
+		javax.print.attribute::PrintJobAttributeSet
+	}
+
+	[Function]
+	public static PrintServiceAttributeSet unmodifiableView(PrintServiceAttributeSet attributeSet)
+	Name: unmodifiableView
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/AttributeSetUtilities.html#unmodifiableView-javax.print.attribute.PrintServiceAttributeSet-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: AttributeSetUtilities
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::PrintServiceAttributeSet
+	
+		[result]
+		javax.print.attribute::PrintServiceAttributeSet
+	}
+
+	[Function]
+	public static AttributeSet synchronizedView(AttributeSet attributeSet)
+	Name: synchronizedView
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/AttributeSetUtilities.html#synchronizedView-javax.print.attribute.AttributeSet-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: AttributeSetUtilities
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::AttributeSet
+	
+		[result]
+		javax.print.attribute::AttributeSet
+	}
+
+	[Function]
+	public static DocAttributeSet synchronizedView(DocAttributeSet attributeSet)
+	Name: synchronizedView
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/AttributeSetUtilities.html#synchronizedView-javax.print.attribute.DocAttributeSet-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: AttributeSetUtilities
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::DocAttributeSet
+	
+		[result]
+		javax.print.attribute::DocAttributeSet
+	}
+
+	[Function]
+	public static PrintRequestAttributeSet synchronizedView(PrintRequestAttributeSet attributeSet)
+	Name: synchronizedView
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/AttributeSetUtilities.html#synchronizedView-javax.print.attribute.PrintRequestAttributeSet-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: AttributeSetUtilities
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::PrintRequestAttributeSet
+	
+		[result]
+		javax.print.attribute::PrintRequestAttributeSet
+	}
+
+	[Function]
+	public static PrintJobAttributeSet synchronizedView(PrintJobAttributeSet attributeSet)
+	Name: synchronizedView
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/AttributeSetUtilities.html#synchronizedView-javax.print.attribute.PrintJobAttributeSet-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: AttributeSetUtilities
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::PrintJobAttributeSet
+	
+		[result]
+		javax.print.attribute::PrintJobAttributeSet
+	}
+
+	[Function]
+	public static PrintServiceAttributeSet synchronizedView(PrintServiceAttributeSet attributeSet)
+	Name: synchronizedView
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/AttributeSetUtilities.html#synchronizedView-javax.print.attribute.PrintServiceAttributeSet-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: AttributeSetUtilities
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::PrintServiceAttributeSet
+	
+		[result]
+		javax.print.attribute::PrintServiceAttributeSet
+	}
+
+	[Function]
+	public static Class<?> verifyAttributeCategory(Object object,
+	                                               Class<?> interfaceName)
+	Name: verifyAttributeCategory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/AttributeSetUtilities.html#verifyAttributeCategory-java.lang.Object-java.lang.Class-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: AttributeSetUtilities
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+		java.lang::Class {
+			?
+		}
+	
+		[result]
+		java.lang::Class {
+			?
+		}
+	}
+
+	[Function]
+	public static Attribute verifyAttributeValue(Object object,
+	                                             Class<?> interfaceName)
+	Name: verifyAttributeValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/AttributeSetUtilities.html#verifyAttributeValue-java.lang.Object-java.lang.Class-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: AttributeSetUtilities
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+		java.lang::Class {
+			?
+		}
+	
+		[result]
+		javax.print.attribute::Attribute
+	}
+
+	[Function]
+	public static void verifyCategoryForValue(Class<?> category,
+	                                          Attribute attribute)
+	Name: verifyCategoryForValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/AttributeSetUtilities.html#verifyCategoryForValue-java.lang.Class-javax.print.attribute.Attribute-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: AttributeSetUtilities
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			?
+		}
+		javax.print.attribute::Attribute
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public abstract class DateTimeSyntax
+extends Object
+implements Serializable, Cloneable
+Name: DateTimeSyntax
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/DateTimeSyntax.html
+Containing package: javax.print.attribute
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.print.attribute.standard::DateTimeAtProcessing
+	javax.print.attribute.standard::JobHoldUntil
+	javax.print.attribute.standard::DateTimeAtCompleted
+	javax.print.attribute.standard::DateTimeAtCreation
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Cloneable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected DateTimeSyntax(Date value)
+	Name: DateTimeSyntax
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/DateTimeSyntax.html#DateTimeSyntax-java.util.Date-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: DateTimeSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Date
+	
+		[result]
+		javax.print.attribute::DateTimeSyntax
+	}
+
+	[Function]
+	public Date getValue()
+	Name: getValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/DateTimeSyntax.html#getValue--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DateTimeSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Date
+	}
+
+	[Function]
+	public boolean equals(Object object)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/DateTimeSyntax.html#equals-java.lang.Object-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DateTimeSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public int hashCode()
+	Name: hashCode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/DateTimeSyntax.html#hashCode--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DateTimeSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/DateTimeSyntax.html#toString--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DateTimeSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public abstract class EnumSyntax
+extends Object
+implements Serializable, Cloneable
+Name: EnumSyntax
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/EnumSyntax.html
+Containing package: javax.print.attribute
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.print.attribute.standard::PDLOverrideSupported
+	javax.print.attribute.standard::Severity
+	javax.print.attribute.standard::JobState
+	javax.print.attribute.standard::JobSheets
+	javax.print.attribute.standard::JobStateReason
+	javax.print.attribute.standard::PresentationDirection
+	javax.print.attribute.standard::PrinterStateReason
+	javax.print.attribute.standard::Chromaticity
+	javax.print.attribute.standard::Media
+	javax.print.attribute.standard::ColorSupported
+	javax.print.attribute.standard::Compression
+	javax.print.attribute.standard::PrintQuality
+	javax.print.attribute.standard::OrientationRequested
+	javax.print.attribute.standard::Fidelity
+	javax.print.attribute.standard::DialogTypeSelection
+	javax.print.attribute.standard::Finishings
+	javax.print.attribute.standard::SheetCollate
+	javax.print.attribute.standard::PrinterIsAcceptingJobs
+	javax.print.attribute.standard::ReferenceUriSchemesSupported
+	javax.print.attribute.standard::Sides
+	javax.print.attribute.standard::PrinterState
+	javax.print.attribute.standard::MultipleDocumentHandling
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Cloneable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected EnumSyntax(int value)
+	Name: EnumSyntax
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/EnumSyntax.html#EnumSyntax-int-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: EnumSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		javax.print.attribute::EnumSyntax
+	}
+
+	[Function]
+	public int getValue()
+	Name: getValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/EnumSyntax.html#getValue--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EnumSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public Object clone()
+	Name: clone
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/EnumSyntax.html#clone--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EnumSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public int hashCode()
+	Name: hashCode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/EnumSyntax.html#hashCode--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EnumSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/EnumSyntax.html#toString--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EnumSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	protected Object readResolve()
+	                      throws ObjectStreamException
+	Name: readResolve
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/EnumSyntax.html#readResolve--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EnumSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	protected String[] getStringTable()
+	Name: getStringTable
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/EnumSyntax.html#getStringTable--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EnumSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	protected EnumSyntax[] getEnumValueTable()
+	Name: getEnumValueTable
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/EnumSyntax.html#getEnumValueTable--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EnumSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			javax.print.attribute::EnumSyntax
+		}
+	}
+
+	[Function]
+	protected int getOffset()
+	Name: getOffset
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/EnumSyntax.html#getOffset--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EnumSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public class HashAttributeSet
+extends Object
+implements AttributeSet, Serializable
+Name: HashAttributeSet
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashAttributeSet.html
+Containing package: javax.print.attribute
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.print.attribute::HashDocAttributeSet
+	javax.print.attribute::HashPrintServiceAttributeSet
+	javax.print.attribute::HashPrintRequestAttributeSet
+	javax.print.attribute::HashPrintJobAttributeSet
+}
+supertypes {
+	javax.print.attribute::AttributeSet
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public HashAttributeSet()
+	Name: HashAttributeSet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashAttributeSet.html#HashAttributeSet--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: HashAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.print.attribute::HashAttributeSet
+	}
+
+	[Function]
+	public HashAttributeSet(Attribute attribute)
+	Name: HashAttributeSet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashAttributeSet.html#HashAttributeSet-javax.print.attribute.Attribute-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: HashAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::Attribute
+	
+		[result]
+		javax.print.attribute::HashAttributeSet
+	}
+
+	[Function]
+	public HashAttributeSet(Attribute[] attributes)
+	Name: HashAttributeSet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashAttributeSet.html#HashAttributeSet-javax.print.attribute.Attribute:A-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: HashAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			javax.print.attribute::Attribute
+		}
+	
+		[result]
+		javax.print.attribute::HashAttributeSet
+	}
+
+	[Function]
+	public HashAttributeSet(AttributeSet attributes)
+	Name: HashAttributeSet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashAttributeSet.html#HashAttributeSet-javax.print.attribute.AttributeSet-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: HashAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::AttributeSet
+	
+		[result]
+		javax.print.attribute::HashAttributeSet
+	}
+
+	[Function]
+	protected HashAttributeSet(Class<?> interfaceName)
+	Name: HashAttributeSet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashAttributeSet.html#HashAttributeSet-java.lang.Class-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: HashAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			?
+		}
+	
+		[result]
+		javax.print.attribute::HashAttributeSet
+	}
+
+	[Function]
+	protected HashAttributeSet(Attribute attribute,
+	                           Class<?> interfaceName)
+	Name: HashAttributeSet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashAttributeSet.html#HashAttributeSet-javax.print.attribute.Attribute-java.lang.Class-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: HashAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::Attribute
+		java.lang::Class {
+			?
+		}
+	
+		[result]
+		javax.print.attribute::HashAttributeSet
+	}
+
+	[Function]
+	protected HashAttributeSet(Attribute[] attributes,
+	                           Class<?> interfaceName)
+	Name: HashAttributeSet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashAttributeSet.html#HashAttributeSet-javax.print.attribute.Attribute:A-java.lang.Class-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: HashAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			javax.print.attribute::Attribute
+		}
+		java.lang::Class {
+			?
+		}
+	
+		[result]
+		javax.print.attribute::HashAttributeSet
+	}
+
+	[Function]
+	protected HashAttributeSet(AttributeSet attributes,
+	                           Class<?> interfaceName)
+	Name: HashAttributeSet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashAttributeSet.html#HashAttributeSet-javax.print.attribute.AttributeSet-java.lang.Class-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: HashAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::AttributeSet
+		java.lang::Class {
+			?
+		}
+	
+		[result]
+		javax.print.attribute::HashAttributeSet
+	}
+
+	[Function]
+	public Attribute get(Class<?> category)
+	Name: get
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashAttributeSet.html#get-java.lang.Class-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: HashAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			?
+		}
+	
+		[result]
+		javax.print.attribute::Attribute
+	}
+
+	[Function]
+	public boolean add(Attribute attribute)
+	Name: add
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashAttributeSet.html#add-javax.print.attribute.Attribute-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: HashAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::Attribute
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean remove(Class<?> category)
+	Name: remove
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashAttributeSet.html#remove-java.lang.Class-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: HashAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			?
+		}
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean remove(Attribute attribute)
+	Name: remove
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashAttributeSet.html#remove-javax.print.attribute.Attribute-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: HashAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::Attribute
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean containsKey(Class<?> category)
+	Name: containsKey
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashAttributeSet.html#containsKey-java.lang.Class-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: HashAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			?
+		}
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean containsValue(Attribute attribute)
+	Name: containsValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashAttributeSet.html#containsValue-javax.print.attribute.Attribute-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: HashAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::Attribute
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean addAll(AttributeSet attributes)
+	Name: addAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashAttributeSet.html#addAll-javax.print.attribute.AttributeSet-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: HashAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::AttributeSet
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public int size()
+	Name: size
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashAttributeSet.html#size--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: HashAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public Attribute[] toArray()
+	Name: toArray
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashAttributeSet.html#toArray--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: HashAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			javax.print.attribute::Attribute
+		}
+	}
+
+	[Function]
+	public void clear()
+	Name: clear
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashAttributeSet.html#clear--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: HashAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean isEmpty()
+	Name: isEmpty
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashAttributeSet.html#isEmpty--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: HashAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean equals(Object object)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashAttributeSet.html#equals-java.lang.Object-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: HashAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public int hashCode()
+	Name: hashCode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashAttributeSet.html#hashCode--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: HashAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public class HashDocAttributeSet
+extends HashAttributeSet
+implements DocAttributeSet, Serializable
+Name: HashDocAttributeSet
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashDocAttributeSet.html
+Containing package: javax.print.attribute
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.print.attribute::DocAttributeSet
+	java.io::Serializable
+	javax.print.attribute::HashAttributeSet
+}
+members {
+
+	[Function]
+	public HashDocAttributeSet()
+	Name: HashDocAttributeSet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashDocAttributeSet.html#HashDocAttributeSet--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: HashDocAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.print.attribute::HashDocAttributeSet
+	}
+
+	[Function]
+	public HashDocAttributeSet(DocAttribute attribute)
+	Name: HashDocAttributeSet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashDocAttributeSet.html#HashDocAttributeSet-javax.print.attribute.DocAttribute-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: HashDocAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::DocAttribute
+	
+		[result]
+		javax.print.attribute::HashDocAttributeSet
+	}
+
+	[Function]
+	public HashDocAttributeSet(DocAttribute[] attributes)
+	Name: HashDocAttributeSet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashDocAttributeSet.html#HashDocAttributeSet-javax.print.attribute.DocAttribute:A-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: HashDocAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			javax.print.attribute::DocAttribute
+		}
+	
+		[result]
+		javax.print.attribute::HashDocAttributeSet
+	}
+
+	[Function]
+	public HashDocAttributeSet(DocAttributeSet attributes)
+	Name: HashDocAttributeSet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashDocAttributeSet.html#HashDocAttributeSet-javax.print.attribute.DocAttributeSet-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: HashDocAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::DocAttributeSet
+	
+		[result]
+		javax.print.attribute::HashDocAttributeSet
+	}
+}
+
+[Classifier]
+public class HashPrintJobAttributeSet
+extends HashAttributeSet
+implements PrintJobAttributeSet, Serializable
+Name: HashPrintJobAttributeSet
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashPrintJobAttributeSet.html
+Containing package: javax.print.attribute
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.print.attribute::PrintJobAttributeSet
+	java.io::Serializable
+	javax.print.attribute::HashAttributeSet
+}
+members {
+
+	[Function]
+	public HashPrintJobAttributeSet()
+	Name: HashPrintJobAttributeSet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashPrintJobAttributeSet.html#HashPrintJobAttributeSet--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: HashPrintJobAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.print.attribute::HashPrintJobAttributeSet
+	}
+
+	[Function]
+	public HashPrintJobAttributeSet(PrintJobAttribute attribute)
+	Name: HashPrintJobAttributeSet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashPrintJobAttributeSet.html#HashPrintJobAttributeSet-javax.print.attribute.PrintJobAttribute-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: HashPrintJobAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::PrintJobAttribute
+	
+		[result]
+		javax.print.attribute::HashPrintJobAttributeSet
+	}
+
+	[Function]
+	public HashPrintJobAttributeSet(PrintJobAttribute[] attributes)
+	Name: HashPrintJobAttributeSet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashPrintJobAttributeSet.html#HashPrintJobAttributeSet-javax.print.attribute.PrintJobAttribute:A-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: HashPrintJobAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			javax.print.attribute::PrintJobAttribute
+		}
+	
+		[result]
+		javax.print.attribute::HashPrintJobAttributeSet
+	}
+
+	[Function]
+	public HashPrintJobAttributeSet(PrintJobAttributeSet attributes)
+	Name: HashPrintJobAttributeSet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashPrintJobAttributeSet.html#HashPrintJobAttributeSet-javax.print.attribute.PrintJobAttributeSet-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: HashPrintJobAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::PrintJobAttributeSet
+	
+		[result]
+		javax.print.attribute::HashPrintJobAttributeSet
+	}
+}
+
+[Classifier]
+public class HashPrintRequestAttributeSet
+extends HashAttributeSet
+implements PrintRequestAttributeSet, Serializable
+Name: HashPrintRequestAttributeSet
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashPrintRequestAttributeSet.html
+Containing package: javax.print.attribute
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.print.attribute::PrintRequestAttributeSet
+	java.io::Serializable
+	javax.print.attribute::HashAttributeSet
+}
+members {
+
+	[Function]
+	public HashPrintRequestAttributeSet()
+	Name: HashPrintRequestAttributeSet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashPrintRequestAttributeSet.html#HashPrintRequestAttributeSet--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: HashPrintRequestAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.print.attribute::HashPrintRequestAttributeSet
+	}
+
+	[Function]
+	public HashPrintRequestAttributeSet(PrintRequestAttribute attribute)
+	Name: HashPrintRequestAttributeSet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashPrintRequestAttributeSet.html#HashPrintRequestAttributeSet-javax.print.attribute.PrintRequestAttribute-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: HashPrintRequestAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::PrintRequestAttribute
+	
+		[result]
+		javax.print.attribute::HashPrintRequestAttributeSet
+	}
+
+	[Function]
+	public HashPrintRequestAttributeSet(PrintRequestAttribute[] attributes)
+	Name: HashPrintRequestAttributeSet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashPrintRequestAttributeSet.html#HashPrintRequestAttributeSet-javax.print.attribute.PrintRequestAttribute:A-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: HashPrintRequestAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			javax.print.attribute::PrintRequestAttribute
+		}
+	
+		[result]
+		javax.print.attribute::HashPrintRequestAttributeSet
+	}
+
+	[Function]
+	public HashPrintRequestAttributeSet(PrintRequestAttributeSet attributes)
+	Name: HashPrintRequestAttributeSet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashPrintRequestAttributeSet.html#HashPrintRequestAttributeSet-javax.print.attribute.PrintRequestAttributeSet-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: HashPrintRequestAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::PrintRequestAttributeSet
+	
+		[result]
+		javax.print.attribute::HashPrintRequestAttributeSet
+	}
+}
+
+[Classifier]
+public class HashPrintServiceAttributeSet
+extends HashAttributeSet
+implements PrintServiceAttributeSet, Serializable
+Name: HashPrintServiceAttributeSet
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashPrintServiceAttributeSet.html
+Containing package: javax.print.attribute
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.print.attribute::PrintServiceAttributeSet
+	java.io::Serializable
+	javax.print.attribute::HashAttributeSet
+}
+members {
+
+	[Function]
+	public HashPrintServiceAttributeSet()
+	Name: HashPrintServiceAttributeSet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashPrintServiceAttributeSet.html#HashPrintServiceAttributeSet--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: HashPrintServiceAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.print.attribute::HashPrintServiceAttributeSet
+	}
+
+	[Function]
+	public HashPrintServiceAttributeSet(PrintServiceAttribute attribute)
+	Name: HashPrintServiceAttributeSet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashPrintServiceAttributeSet.html#HashPrintServiceAttributeSet-javax.print.attribute.PrintServiceAttribute-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: HashPrintServiceAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::PrintServiceAttribute
+	
+		[result]
+		javax.print.attribute::HashPrintServiceAttributeSet
+	}
+
+	[Function]
+	public HashPrintServiceAttributeSet(PrintServiceAttribute[] attributes)
+	Name: HashPrintServiceAttributeSet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashPrintServiceAttributeSet.html#HashPrintServiceAttributeSet-javax.print.attribute.PrintServiceAttribute:A-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: HashPrintServiceAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			javax.print.attribute::PrintServiceAttribute
+		}
+	
+		[result]
+		javax.print.attribute::HashPrintServiceAttributeSet
+	}
+
+	[Function]
+	public HashPrintServiceAttributeSet(PrintServiceAttributeSet attributes)
+	Name: HashPrintServiceAttributeSet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/HashPrintServiceAttributeSet.html#HashPrintServiceAttributeSet-javax.print.attribute.PrintServiceAttributeSet-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: HashPrintServiceAttributeSet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::PrintServiceAttributeSet
+	
+		[result]
+		javax.print.attribute::HashPrintServiceAttributeSet
+	}
+}
+
+[Classifier]
+public abstract class IntegerSyntax
+extends Object
+implements Serializable, Cloneable
+Name: IntegerSyntax
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/IntegerSyntax.html
+Containing package: javax.print.attribute
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.print.attribute.standard::JobPrioritySupported
+	javax.print.attribute.standard::NumberOfInterveningJobs
+	javax.print.attribute.standard::JobMediaSheetsCompleted
+	javax.print.attribute.standard::JobKOctets
+	javax.print.attribute.standard::QueuedJobCount
+	javax.print.attribute.standard::PagesPerMinute
+	javax.print.attribute.standard::JobMediaSheets
+	javax.print.attribute.standard::NumberUp
+	javax.print.attribute.standard::JobKOctetsProcessed
+	javax.print.attribute.standard::PagesPerMinuteColor
+	javax.print.attribute.standard::Copies
+	javax.print.attribute.standard::JobPriority
+	javax.print.attribute.standard::JobImpressions
+	javax.print.attribute.standard::NumberOfDocuments
+	javax.print.attribute.standard::JobImpressionsCompleted
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Cloneable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected IntegerSyntax(int value)
+	Name: IntegerSyntax
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/IntegerSyntax.html#IntegerSyntax-int-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: IntegerSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		javax.print.attribute::IntegerSyntax
+	}
+
+	[Function]
+	protected IntegerSyntax(int value,
+	                        int lowerBound,
+	                        int upperBound)
+	Name: IntegerSyntax
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/IntegerSyntax.html#IntegerSyntax-int-int-int-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: IntegerSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::int
+		other::int
+	
+		[result]
+		javax.print.attribute::IntegerSyntax
+	}
+
+	[Function]
+	public int getValue()
+	Name: getValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/IntegerSyntax.html#getValue--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntegerSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public boolean equals(Object object)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/IntegerSyntax.html#equals-java.lang.Object-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntegerSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public int hashCode()
+	Name: hashCode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/IntegerSyntax.html#hashCode--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntegerSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/IntegerSyntax.html#toString--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntegerSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public abstract class ResolutionSyntax
+extends Object
+implements Serializable, Cloneable
+Name: ResolutionSyntax
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/ResolutionSyntax.html
+Containing package: javax.print.attribute
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.print.attribute.standard::PrinterResolution
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Cloneable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static final int DPI
+	Name: DPI
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/ResolutionSyntax.html#DPI
+	Containing package: javax.print.attribute
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ResolutionSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int DPCM
+	Name: DPCM
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/ResolutionSyntax.html#DPCM
+	Containing package: javax.print.attribute
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ResolutionSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public ResolutionSyntax(int crossFeedResolution,
+	                        int feedResolution,
+	                        int units)
+	Name: ResolutionSyntax
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/ResolutionSyntax.html#ResolutionSyntax-int-int-int-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ResolutionSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::int
+		other::int
+	
+		[result]
+		javax.print.attribute::ResolutionSyntax
+	}
+
+	[Function]
+	public int[] getResolution(int units)
+	Name: getResolution
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/ResolutionSyntax.html#getResolution-int-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ResolutionSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::[] {
+			other::int
+		}
+	}
+
+	[Function]
+	public int getCrossFeedResolution(int units)
+	Name: getCrossFeedResolution
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/ResolutionSyntax.html#getCrossFeedResolution-int-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ResolutionSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public int getFeedResolution(int units)
+	Name: getFeedResolution
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/ResolutionSyntax.html#getFeedResolution-int-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ResolutionSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public String toString(int units,
+	                       String unitsName)
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/ResolutionSyntax.html#toString-int-java.lang.String-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ResolutionSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.lang::String
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public boolean lessThanOrEquals(ResolutionSyntax other)
+	Name: lessThanOrEquals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/ResolutionSyntax.html#lessThanOrEquals-javax.print.attribute.ResolutionSyntax-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ResolutionSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::ResolutionSyntax
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean equals(Object object)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/ResolutionSyntax.html#equals-java.lang.Object-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ResolutionSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public int hashCode()
+	Name: hashCode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/ResolutionSyntax.html#hashCode--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ResolutionSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/ResolutionSyntax.html#toString--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ResolutionSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	protected int getCrossFeedResolutionDphi()
+	Name: getCrossFeedResolutionDphi
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/ResolutionSyntax.html#getCrossFeedResolutionDphi--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ResolutionSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected int getFeedResolutionDphi()
+	Name: getFeedResolutionDphi
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/ResolutionSyntax.html#getFeedResolutionDphi--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ResolutionSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public abstract class SetOfIntegerSyntax
+extends Object
+implements Serializable, Cloneable
+Name: SetOfIntegerSyntax
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/SetOfIntegerSyntax.html
+Containing package: javax.print.attribute
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.print.attribute.standard::NumberUpSupported
+	javax.print.attribute.standard::CopiesSupported
+	javax.print.attribute.standard::JobMediaSheetsSupported
+	javax.print.attribute.standard::JobImpressionsSupported
+	javax.print.attribute.standard::JobKOctetsSupported
+	javax.print.attribute.standard::PageRanges
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Cloneable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected SetOfIntegerSyntax(String members)
+	Name: SetOfIntegerSyntax
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/SetOfIntegerSyntax.html#SetOfIntegerSyntax-java.lang.String-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: SetOfIntegerSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.print.attribute::SetOfIntegerSyntax
+	}
+
+	[Function]
+	protected SetOfIntegerSyntax(int[][] members)
+	Name: SetOfIntegerSyntax
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/SetOfIntegerSyntax.html#SetOfIntegerSyntax-int:A:A-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: SetOfIntegerSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::[] {
+				other::int
+			}
+		}
+	
+		[result]
+		javax.print.attribute::SetOfIntegerSyntax
+	}
+
+	[Function]
+	protected SetOfIntegerSyntax(int member)
+	Name: SetOfIntegerSyntax
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/SetOfIntegerSyntax.html#SetOfIntegerSyntax-int-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: SetOfIntegerSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		javax.print.attribute::SetOfIntegerSyntax
+	}
+
+	[Function]
+	protected SetOfIntegerSyntax(int lowerBound,
+	                             int upperBound)
+	Name: SetOfIntegerSyntax
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/SetOfIntegerSyntax.html#SetOfIntegerSyntax-int-int-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: SetOfIntegerSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::int
+	
+		[result]
+		javax.print.attribute::SetOfIntegerSyntax
+	}
+
+	[Function]
+	public int[][] getMembers()
+	Name: getMembers
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/SetOfIntegerSyntax.html#getMembers--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SetOfIntegerSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::[] {
+				other::int
+			}
+		}
+	}
+
+	[Function]
+	public boolean contains(int x)
+	Name: contains
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/SetOfIntegerSyntax.html#contains-int-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SetOfIntegerSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean contains(IntegerSyntax attribute)
+	Name: contains
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/SetOfIntegerSyntax.html#contains-javax.print.attribute.IntegerSyntax-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SetOfIntegerSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.print.attribute::IntegerSyntax
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public int next(int x)
+	Name: next
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/SetOfIntegerSyntax.html#next-int-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SetOfIntegerSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public boolean equals(Object object)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/SetOfIntegerSyntax.html#equals-java.lang.Object-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SetOfIntegerSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public int hashCode()
+	Name: hashCode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/SetOfIntegerSyntax.html#hashCode--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SetOfIntegerSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/SetOfIntegerSyntax.html#toString--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SetOfIntegerSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public abstract class Size2DSyntax
+extends Object
+implements Serializable, Cloneable
+Name: Size2DSyntax
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/Size2DSyntax.html
+Containing package: javax.print.attribute
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.print.attribute.standard::MediaSize
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Cloneable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static final int INCH
+	Name: INCH
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/Size2DSyntax.html#INCH
+	Containing package: javax.print.attribute
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: Size2DSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int MM
+	Name: MM
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/Size2DSyntax.html#MM
+	Containing package: javax.print.attribute
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: Size2DSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected Size2DSyntax(float x,
+	                       float y,
+	                       int units)
+	Name: Size2DSyntax
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/Size2DSyntax.html#Size2DSyntax-float-float-int-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Size2DSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::float
+		other::float
+		other::int
+	
+		[result]
+		javax.print.attribute::Size2DSyntax
+	}
+
+	[Function]
+	protected Size2DSyntax(int x,
+	                       int y,
+	                       int units)
+	Name: Size2DSyntax
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/Size2DSyntax.html#Size2DSyntax-int-int-int-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Size2DSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::int
+		other::int
+	
+		[result]
+		javax.print.attribute::Size2DSyntax
+	}
+
+	[Function]
+	public float[] getSize(int units)
+	Name: getSize
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/Size2DSyntax.html#getSize-int-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Size2DSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::[] {
+			other::float
+		}
+	}
+
+	[Function]
+	public float getX(int units)
+	Name: getX
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/Size2DSyntax.html#getX-int-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Size2DSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::float
+	}
+
+	[Function]
+	public float getY(int units)
+	Name: getY
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/Size2DSyntax.html#getY-int-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Size2DSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::float
+	}
+
+	[Function]
+	public String toString(int units,
+	                       String unitsName)
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/Size2DSyntax.html#toString-int-java.lang.String-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Size2DSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.lang::String
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public boolean equals(Object object)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/Size2DSyntax.html#equals-java.lang.Object-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Size2DSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public int hashCode()
+	Name: hashCode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/Size2DSyntax.html#hashCode--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Size2DSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/Size2DSyntax.html#toString--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Size2DSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	protected int getXMicrometers()
+	Name: getXMicrometers
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/Size2DSyntax.html#getXMicrometers--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Size2DSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected int getYMicrometers()
+	Name: getYMicrometers
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/Size2DSyntax.html#getYMicrometers--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Size2DSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public abstract class TextSyntax
+extends Object
+implements Serializable, Cloneable
+Name: TextSyntax
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/TextSyntax.html
+Containing package: javax.print.attribute
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.print.attribute.standard::OutputDeviceAssigned
+	javax.print.attribute.standard::JobName
+	javax.print.attribute.standard::JobOriginatingUserName
+	javax.print.attribute.standard::JobMessageFromOperator
+	javax.print.attribute.standard::PrinterName
+	javax.print.attribute.standard::PrinterMessageFromOperator
+	javax.print.attribute.standard::PrinterInfo
+	javax.print.attribute.standard::DocumentName
+	javax.print.attribute.standard::RequestingUserName
+	javax.print.attribute.standard::PrinterLocation
+	javax.print.attribute.standard::PrinterMakeAndModel
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Cloneable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected TextSyntax(String value,
+	                     Locale locale)
+	Name: TextSyntax
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/TextSyntax.html#TextSyntax-java.lang.String-java.util.Locale-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TextSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.util::Locale
+	
+		[result]
+		javax.print.attribute::TextSyntax
+	}
+
+	[Function]
+	public String getValue()
+	Name: getValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/TextSyntax.html#getValue--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TextSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public Locale getLocale()
+	Name: getLocale
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/TextSyntax.html#getLocale--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TextSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Locale
+	}
+
+	[Function]
+	public int hashCode()
+	Name: hashCode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/TextSyntax.html#hashCode--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TextSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public boolean equals(Object object)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/TextSyntax.html#equals-java.lang.Object-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TextSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/TextSyntax.html#toString--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TextSyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public abstract class URISyntax
+extends Object
+implements Serializable, Cloneable
+Name: URISyntax
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/URISyntax.html
+Containing package: javax.print.attribute
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.print.attribute.standard::PrinterMoreInfoManufacturer
+	javax.print.attribute.standard::PrinterMoreInfo
+	javax.print.attribute.standard::Destination
+	javax.print.attribute.standard::PrinterURI
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Cloneable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected URISyntax(URI uri)
+	Name: URISyntax
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/URISyntax.html#URISyntax-java.net.URI-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: URISyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::URI
+	
+		[result]
+		javax.print.attribute::URISyntax
+	}
+
+	[Function]
+	public URI getURI()
+	Name: getURI
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/URISyntax.html#getURI--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: URISyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.net::URI
+	}
+
+	[Function]
+	public int hashCode()
+	Name: hashCode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/URISyntax.html#hashCode--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: URISyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public boolean equals(Object object)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/URISyntax.html#equals-java.lang.Object-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: URISyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/URISyntax.html#toString--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: URISyntax
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public class UnmodifiableSetException
+extends RuntimeException
+Name: UnmodifiableSetException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/UnmodifiableSetException.html
+Containing package: javax.print.attribute
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::RuntimeException
+}
+members {
+
+	[Function]
+	public UnmodifiableSetException()
+	Name: UnmodifiableSetException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/UnmodifiableSetException.html#UnmodifiableSetException--
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: UnmodifiableSetException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.print.attribute::UnmodifiableSetException
+	}
+
+	[Function]
+	public UnmodifiableSetException(String message)
+	Name: UnmodifiableSetException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/print/attribute/UnmodifiableSetException.html#UnmodifiableSetException-java.lang.String-
+	Containing package: javax.print.attribute
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: UnmodifiableSetException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.print.attribute::UnmodifiableSetException
+	}
+}

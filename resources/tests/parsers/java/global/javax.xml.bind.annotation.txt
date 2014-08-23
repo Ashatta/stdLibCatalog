@@ -1,0 +1,1729 @@
+[Package]
+Name: javax.xml.bind.annotation
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/package-summary.html
+Containing package: javax.xml.bind
+attributes {
+}
+
+Subpackages {
+	javax.xml.bind.annotation.adapters
+}
+
+[Classifier]
+public interface DomHandler<ElementT,ResultT extends Result>
+Name: DomHandler
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/DomHandler.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	ElementT
+	ResultT: (ResultT extends Result; ResultT; javax.xml.transform::Result)
+}
+derived {
+	javax.xml.bind.annotation::W3CDomHandler
+}
+supertypes {
+}
+members {
+
+	[Function]
+	ResultT createUnmarshaller(ValidationEventHandler errorHandler)
+	Name: createUnmarshaller
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/DomHandler.html#createUnmarshaller-javax.xml.bind.ValidationEventHandler-
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DomHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.bind::ValidationEventHandler
+	
+		[result]
+		null::ResultT
+	}
+
+	[Function]
+	ElementT getElement(ResultT rt)
+	Name: getElement
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/DomHandler.html#getElement-ResultT-
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DomHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::ResultT
+	
+		[result]
+		null::ElementT
+	}
+
+	[Function]
+	Source marshal(ElementT n,
+	               ValidationEventHandler errorHandler)
+	Name: marshal
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/DomHandler.html#marshal-ElementT-javax.xml.bind.ValidationEventHandler-
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DomHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::ElementT
+		javax.xml.bind::ValidationEventHandler
+	
+		[result]
+		javax.xml.transform::Source
+	}
+}
+
+[Classifier]
+public class W3CDomHandler
+extends Object
+implements DomHandler<Element,DOMResult>
+Name: W3CDomHandler
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/W3CDomHandler.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.xml.bind.annotation::DomHandler {
+		org.w3c.dom::Element
+		javax.xml.transform.dom::DOMResult
+	}
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public W3CDomHandler()
+	Name: W3CDomHandler
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/W3CDomHandler.html#W3CDomHandler--
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: W3CDomHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.bind.annotation::W3CDomHandler
+	}
+
+	[Function]
+	public W3CDomHandler(DocumentBuilder builder)
+	Name: W3CDomHandler
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/W3CDomHandler.html#W3CDomHandler-javax.xml.parsers.DocumentBuilder-
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: W3CDomHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.parsers::DocumentBuilder
+	
+		[result]
+		javax.xml.bind.annotation::W3CDomHandler
+	}
+
+	[Function]
+	public DocumentBuilder getBuilder()
+	Name: getBuilder
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/W3CDomHandler.html#getBuilder--
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: W3CDomHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.parsers::DocumentBuilder
+	}
+
+	[Function]
+	public void setBuilder(DocumentBuilder builder)
+	Name: setBuilder
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/W3CDomHandler.html#setBuilder-javax.xml.parsers.DocumentBuilder-
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: W3CDomHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.parsers::DocumentBuilder
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public DOMResult createUnmarshaller(ValidationEventHandler errorHandler)
+	Name: createUnmarshaller
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/W3CDomHandler.html#createUnmarshaller-javax.xml.bind.ValidationEventHandler-
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: W3CDomHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.bind::ValidationEventHandler
+	
+		[result]
+		javax.xml.transform.dom::DOMResult
+	}
+
+	[Function]
+	public Element getElement(DOMResult r)
+	Name: getElement
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/W3CDomHandler.html#getElement-javax.xml.transform.dom.DOMResult-
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: W3CDomHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.transform.dom::DOMResult
+	
+		[result]
+		org.w3c.dom::Element
+	}
+
+	[Function]
+	public Source marshal(Element element,
+	                      ValidationEventHandler errorHandler)
+	Name: marshal
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/W3CDomHandler.html#marshal-org.w3c.dom.Element-javax.xml.bind.ValidationEventHandler-
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: W3CDomHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.w3c.dom::Element
+		javax.xml.bind::ValidationEventHandler
+	
+		[result]
+		javax.xml.transform::Source
+	}
+}
+
+[Classifier]
+public static final class XmlElement.DEFAULT
+extends Object
+Name: XmlElement.DEFAULT
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlElement.DEFAULT.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=true
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public DEFAULT()
+	Name: DEFAULT
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlElement.DEFAULT.html#DEFAULT--
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: XmlElement.DEFAULT
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.bind.annotation::XmlElement.DEFAULT
+	}
+}
+
+[Classifier]
+public static final class XmlElementDecl.GLOBAL
+extends Object
+Name: XmlElementDecl.GLOBAL
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlElementDecl.GLOBAL.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=true
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public GLOBAL()
+	Name: GLOBAL
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlElementDecl.GLOBAL.html#GLOBAL--
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: XmlElementDecl.GLOBAL
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.bind.annotation::XmlElementDecl.GLOBAL
+	}
+}
+
+[Classifier]
+public static final class XmlElementRef.DEFAULT
+extends Object
+Name: XmlElementRef.DEFAULT
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlElementRef.DEFAULT.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=true
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public DEFAULT()
+	Name: DEFAULT
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlElementRef.DEFAULT.html#DEFAULT--
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: XmlElementRef.DEFAULT
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.bind.annotation::XmlElementRef.DEFAULT
+	}
+}
+
+[Classifier]
+public static final class XmlSchemaType.DEFAULT
+extends Object
+Name: XmlSchemaType.DEFAULT
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlSchemaType.DEFAULT.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=true
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public DEFAULT()
+	Name: DEFAULT
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlSchemaType.DEFAULT.html#DEFAULT--
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: XmlSchemaType.DEFAULT
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.bind.annotation::XmlSchemaType.DEFAULT
+	}
+}
+
+[Classifier]
+public static final class XmlType.DEFAULT
+extends Object
+Name: XmlType.DEFAULT
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlType.DEFAULT.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=true
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public DEFAULT()
+	Name: DEFAULT
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlType.DEFAULT.html#DEFAULT--
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: XmlType.DEFAULT
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.bind.annotation::XmlType.DEFAULT
+	}
+}
+
+[Classifier]
+public enum XmlAccessOrder
+extends Enum<XmlAccessOrder>
+Name: XmlAccessOrder
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlAccessOrder.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=enum
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Enum {
+		javax.xml.bind.annotation::XmlAccessOrder
+	}
+}
+members {
+
+	[Function]
+	public static final XmlAccessOrder UNDEFINED
+	Name: UNDEFINED
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlAccessOrder.html#UNDEFINED
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: XmlAccessOrder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.bind.annotation::XmlAccessOrder
+	}
+
+	[Function]
+	public static final XmlAccessOrder ALPHABETICAL
+	Name: ALPHABETICAL
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlAccessOrder.html#ALPHABETICAL
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: XmlAccessOrder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.bind.annotation::XmlAccessOrder
+	}
+
+	[Function]
+	public static XmlAccessOrder[] values()
+	Name: values
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlAccessOrder.html#values--
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: XmlAccessOrder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			javax.xml.bind.annotation::XmlAccessOrder
+		}
+	}
+
+	[Function]
+	public static XmlAccessOrder valueOf(String name)
+	Name: valueOf
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlAccessOrder.html#valueOf-java.lang.String-
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: XmlAccessOrder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.xml.bind.annotation::XmlAccessOrder
+	}
+}
+
+[Classifier]
+public enum XmlAccessType
+extends Enum<XmlAccessType>
+Name: XmlAccessType
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlAccessType.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=enum
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Enum {
+		javax.xml.bind.annotation::XmlAccessType
+	}
+}
+members {
+
+	[Function]
+	public static final XmlAccessType PROPERTY
+	Name: PROPERTY
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlAccessType.html#PROPERTY
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: XmlAccessType
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.bind.annotation::XmlAccessType
+	}
+
+	[Function]
+	public static final XmlAccessType FIELD
+	Name: FIELD
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlAccessType.html#FIELD
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: XmlAccessType
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.bind.annotation::XmlAccessType
+	}
+
+	[Function]
+	public static final XmlAccessType PUBLIC_MEMBER
+	Name: PUBLIC_MEMBER
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlAccessType.html#PUBLIC_MEMBER
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: XmlAccessType
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.bind.annotation::XmlAccessType
+	}
+
+	[Function]
+	public static final XmlAccessType NONE
+	Name: NONE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlAccessType.html#NONE
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: XmlAccessType
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.bind.annotation::XmlAccessType
+	}
+
+	[Function]
+	public static XmlAccessType[] values()
+	Name: values
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlAccessType.html#values--
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: XmlAccessType
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			javax.xml.bind.annotation::XmlAccessType
+		}
+	}
+
+	[Function]
+	public static XmlAccessType valueOf(String name)
+	Name: valueOf
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlAccessType.html#valueOf-java.lang.String-
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: XmlAccessType
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.xml.bind.annotation::XmlAccessType
+	}
+}
+
+[Classifier]
+public enum XmlNsForm
+extends Enum<XmlNsForm>
+Name: XmlNsForm
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlNsForm.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=enum
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Enum {
+		javax.xml.bind.annotation::XmlNsForm
+	}
+}
+members {
+
+	[Function]
+	public static final XmlNsForm UNQUALIFIED
+	Name: UNQUALIFIED
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlNsForm.html#UNQUALIFIED
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: XmlNsForm
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.bind.annotation::XmlNsForm
+	}
+
+	[Function]
+	public static final XmlNsForm QUALIFIED
+	Name: QUALIFIED
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlNsForm.html#QUALIFIED
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: XmlNsForm
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.bind.annotation::XmlNsForm
+	}
+
+	[Function]
+	public static final XmlNsForm UNSET
+	Name: UNSET
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlNsForm.html#UNSET
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: XmlNsForm
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.bind.annotation::XmlNsForm
+	}
+
+	[Function]
+	public static XmlNsForm[] values()
+	Name: values
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlNsForm.html#values--
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: XmlNsForm
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			javax.xml.bind.annotation::XmlNsForm
+		}
+	}
+
+	[Function]
+	public static XmlNsForm valueOf(String name)
+	Name: valueOf
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlNsForm.html#valueOf-java.lang.String-
+	Containing package: javax.xml.bind.annotation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: XmlNsForm
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.xml.bind.annotation::XmlNsForm
+	}
+}
+
+[Classifier]
+@Inherited
+ @Retention(value=RUNTIME)
+ @Target(value={PACKAGE,TYPE})
+public @interface XmlAccessorOrder
+Name: XmlAccessorOrder
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlAccessorOrder.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Inherited
+ @Retention(value=RUNTIME)
+ @Target(value={PACKAGE,TYPE})
+public @interface XmlAccessorType
+Name: XmlAccessorType
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlAccessorType.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Retention(value=RUNTIME)
+ @Target(value={FIELD,METHOD})
+public @interface XmlAnyAttribute
+Name: XmlAnyAttribute
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlAnyAttribute.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Retention(value=RUNTIME)
+ @Target(value={FIELD,METHOD})
+public @interface XmlAnyElement
+Name: XmlAnyElement
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlAnyElement.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Retention(value=RUNTIME)
+ @Target(value={FIELD,METHOD,PARAMETER})
+public @interface XmlAttachmentRef
+Name: XmlAttachmentRef
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlAttachmentRef.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Retention(value=RUNTIME)
+ @Target(value={FIELD,METHOD})
+public @interface XmlAttribute
+Name: XmlAttribute
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlAttribute.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Retention(value=RUNTIME)
+ @Target(value={FIELD,METHOD,PARAMETER})
+public @interface XmlElement
+Name: XmlElement
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlElement.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Retention(value=RUNTIME)
+ @Target(value=METHOD)
+public @interface XmlElementDecl
+Name: XmlElementDecl
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlElementDecl.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Retention(value=RUNTIME)
+ @Target(value={FIELD,METHOD})
+public @interface XmlElementRef
+Name: XmlElementRef
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlElementRef.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Retention(value=RUNTIME)
+ @Target(value={FIELD,METHOD})
+public @interface XmlElementRefs
+Name: XmlElementRefs
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlElementRefs.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Retention(value=RUNTIME)
+ @Target(value={FIELD,METHOD})
+public @interface XmlElements
+Name: XmlElements
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlElements.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Retention(value=RUNTIME)
+ @Target(value={FIELD,METHOD})
+public @interface XmlElementWrapper
+Name: XmlElementWrapper
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlElementWrapper.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Retention(value=RUNTIME)
+ @Target(value=TYPE)
+public @interface XmlEnum
+Name: XmlEnum
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlEnum.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Retention(value=RUNTIME)
+ @Target(value=FIELD)
+public @interface XmlEnumValue
+Name: XmlEnumValue
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlEnumValue.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Retention(value=RUNTIME)
+ @Target(value={FIELD,METHOD})
+public @interface XmlID
+Name: XmlID
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlID.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Retention(value=RUNTIME)
+ @Target(value={FIELD,METHOD})
+public @interface XmlIDREF
+Name: XmlIDREF
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlIDREF.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Retention(value=RUNTIME)
+ @Target(value={FIELD,METHOD,TYPE})
+public @interface XmlInlineBinaryData
+Name: XmlInlineBinaryData
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlInlineBinaryData.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Retention(value=RUNTIME)
+ @Target(value={FIELD,METHOD,PARAMETER})
+public @interface XmlList
+Name: XmlList
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlList.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Retention(value=RUNTIME)
+ @Target(value={FIELD,METHOD,PARAMETER})
+public @interface XmlMimeType
+Name: XmlMimeType
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlMimeType.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Retention(value=RUNTIME)
+ @Target(value={FIELD,METHOD})
+public @interface XmlMixed
+Name: XmlMixed
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlMixed.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Retention(value=RUNTIME)
+ @Target(value={})
+public @interface XmlNs
+Name: XmlNs
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlNs.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Retention(value=RUNTIME)
+ @Target(value=TYPE)
+public @interface XmlRegistry
+Name: XmlRegistry
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlRegistry.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Retention(value=RUNTIME)
+ @Target(value=TYPE)
+public @interface XmlRootElement
+Name: XmlRootElement
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlRootElement.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Retention(value=RUNTIME)
+ @Target(value=PACKAGE)
+public @interface XmlSchema
+Name: XmlSchema
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlSchema.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Retention(value=RUNTIME)
+ @Target(value={FIELD,METHOD,PACKAGE})
+public @interface XmlSchemaType
+Name: XmlSchemaType
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlSchemaType.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Retention(value=RUNTIME)
+ @Target(value=PACKAGE)
+public @interface XmlSchemaTypes
+Name: XmlSchemaTypes
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlSchemaTypes.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Target(value=TYPE)
+ @Retention(value=RUNTIME)
+public @interface XmlSeeAlso
+Name: XmlSeeAlso
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlSeeAlso.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Retention(value=RUNTIME)
+ @Target(value={FIELD,METHOD,TYPE})
+public @interface XmlTransient
+Name: XmlTransient
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlTransient.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Retention(value=RUNTIME)
+ @Target(value=TYPE)
+public @interface XmlType
+Name: XmlType
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlType.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Retention(value=RUNTIME)
+ @Target(value={FIELD,METHOD})
+public @interface XmlValue
+Name: XmlValue
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/bind/annotation/XmlValue.html
+Containing package: javax.xml.bind.annotation
+attributes {
+	abstract=false
+	final=false
+	classifierType=annotation
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+}

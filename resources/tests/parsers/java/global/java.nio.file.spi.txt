@@ -1,0 +1,1019 @@
+[Package]
+Name: java.nio.file.spi
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/package-summary.html
+Containing package: java.nio.file
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+public abstract class FileSystemProvider
+extends Object
+Name: FileSystemProvider
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html
+Containing package: java.nio.file.spi
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected FileSystemProvider()
+	Name: FileSystemProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#FileSystemProvider--
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: FileSystemProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file.spi::FileSystemProvider
+	}
+
+	[Function]
+	public static List<FileSystemProvider> installedProviders()
+	Name: installedProviders
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#installedProviders--
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			java.nio.file.spi::FileSystemProvider
+		}
+	}
+
+	[Function]
+	public abstract String getScheme()
+	Name: getScheme
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#getScheme--
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public abstract FileSystem newFileSystem(URI uri,
+	                                         Map<String,?> env)
+	                                  throws IOException
+	Name: newFileSystem
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#newFileSystem-java.net.URI-java.util.Map-
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::URI
+		java.util::Map {
+			java.lang::String
+			?
+		}
+	
+		[result]
+		java.nio.file::FileSystem
+	}
+
+	[Function]
+	public abstract FileSystem getFileSystem(URI uri)
+	Name: getFileSystem
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#getFileSystem-java.net.URI-
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::URI
+	
+		[result]
+		java.nio.file::FileSystem
+	}
+
+	[Function]
+	public abstract Path getPath(URI uri)
+	Name: getPath
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#getPath-java.net.URI-
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::URI
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	public FileSystem newFileSystem(Path path,
+	                                Map<String,?> env)
+	                         throws IOException
+	Name: newFileSystem
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#newFileSystem-java.nio.file.Path-java.util.Map-
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.util::Map {
+			java.lang::String
+			?
+		}
+	
+		[result]
+		java.nio.file::FileSystem
+	}
+
+	[Function]
+	public InputStream newInputStream(Path path,
+	                                  OpenOption... options)
+	                           throws IOException
+	Name: newInputStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#newInputStream-java.nio.file.Path-java.nio.file.OpenOption...-
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		other::... {
+			java.nio.file::OpenOption
+		}
+	
+		[result]
+		java.io::InputStream
+	}
+
+	[Function]
+	public OutputStream newOutputStream(Path path,
+	                                    OpenOption... options)
+	                             throws IOException
+	Name: newOutputStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#newOutputStream-java.nio.file.Path-java.nio.file.OpenOption...-
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		other::... {
+			java.nio.file::OpenOption
+		}
+	
+		[result]
+		java.io::OutputStream
+	}
+
+	[Function]
+	public FileChannel newFileChannel(Path path,
+	                                  Set<? extends OpenOption> options,
+	                                  FileAttribute<?>... attrs)
+	                           throws IOException
+	Name: newFileChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#newFileChannel-java.nio.file.Path-java.util.Set-java.nio.file.attribute.FileAttribute...-
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.util::Set {
+			? {
+				extends java.nio.file::OpenOption
+			}
+		}
+		other::... {
+			java.nio.file.attribute::FileAttribute {
+				?
+			}
+		}
+	
+		[result]
+		java.nio.channels::FileChannel
+	}
+
+	[Function]
+	public AsynchronousFileChannel newAsynchronousFileChannel(Path path,
+	                                                          Set<? extends OpenOption> options,
+	                                                          ExecutorService executor,
+	                                                          FileAttribute<?>... attrs)
+	                                                   throws IOException
+	Name: newAsynchronousFileChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#newAsynchronousFileChannel-java.nio.file.Path-java.util.Set-java.util.concurrent.ExecutorService-java.nio.file.attribute.FileAttribute...-
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.util::Set {
+			? {
+				extends java.nio.file::OpenOption
+			}
+		}
+		java.util.concurrent::ExecutorService
+		other::... {
+			java.nio.file.attribute::FileAttribute {
+				?
+			}
+		}
+	
+		[result]
+		java.nio.channels::AsynchronousFileChannel
+	}
+
+	[Function]
+	public abstract SeekableByteChannel newByteChannel(Path path,
+	                                                   Set<? extends OpenOption> options,
+	                                                   FileAttribute<?>... attrs)
+	                                            throws IOException
+	Name: newByteChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#newByteChannel-java.nio.file.Path-java.util.Set-java.nio.file.attribute.FileAttribute...-
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.util::Set {
+			? {
+				extends java.nio.file::OpenOption
+			}
+		}
+		other::... {
+			java.nio.file.attribute::FileAttribute {
+				?
+			}
+		}
+	
+		[result]
+		java.nio.channels::SeekableByteChannel
+	}
+
+	[Function]
+	public abstract DirectoryStream<Path> newDirectoryStream(Path dir,
+	                                                         DirectoryStream.Filter<? super Path> filter)
+	                                                  throws IOException
+	Name: newDirectoryStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#newDirectoryStream-java.nio.file.Path-java.nio.file.DirectoryStream.Filter-
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.nio.file::DirectoryStream.Filter {
+			? {
+				super java.nio.file::Path
+			}
+		}
+	
+		[result]
+		java.nio.file::DirectoryStream {
+			java.nio.file::Path
+		}
+	}
+
+	[Function]
+	public abstract void createDirectory(Path dir,
+	                                     FileAttribute<?>... attrs)
+	                              throws IOException
+	Name: createDirectory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#createDirectory-java.nio.file.Path-java.nio.file.attribute.FileAttribute...-
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		other::... {
+			java.nio.file.attribute::FileAttribute {
+				?
+			}
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void createSymbolicLink(Path link,
+	                               Path target,
+	                               FileAttribute<?>... attrs)
+	                        throws IOException
+	Name: createSymbolicLink
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#createSymbolicLink-java.nio.file.Path-java.nio.file.Path-java.nio.file.attribute.FileAttribute...-
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.nio.file::Path
+		other::... {
+			java.nio.file.attribute::FileAttribute {
+				?
+			}
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void createLink(Path link,
+	                       Path existing)
+	                throws IOException
+	Name: createLink
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#createLink-java.nio.file.Path-java.nio.file.Path-
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.nio.file::Path
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract void delete(Path path)
+	                     throws IOException
+	Name: delete
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#delete-java.nio.file.Path-
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean deleteIfExists(Path path)
+	                       throws IOException
+	Name: deleteIfExists
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#deleteIfExists-java.nio.file.Path-
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public Path readSymbolicLink(Path link)
+	                      throws IOException
+	Name: readSymbolicLink
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#readSymbolicLink-java.nio.file.Path-
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		java.nio.file::Path
+	}
+
+	[Function]
+	public abstract void copy(Path source,
+	                          Path target,
+	                          CopyOption... options)
+	                   throws IOException
+	Name: copy
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#copy-java.nio.file.Path-java.nio.file.Path-java.nio.file.CopyOption...-
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.nio.file::Path
+		other::... {
+			java.nio.file::CopyOption
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract void move(Path source,
+	                          Path target,
+	                          CopyOption... options)
+	                   throws IOException
+	Name: move
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#move-java.nio.file.Path-java.nio.file.Path-java.nio.file.CopyOption...-
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.nio.file::Path
+		other::... {
+			java.nio.file::CopyOption
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract boolean isSameFile(Path path,
+	                                   Path path2)
+	                            throws IOException
+	Name: isSameFile
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#isSameFile-java.nio.file.Path-java.nio.file.Path-
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.nio.file::Path
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract boolean isHidden(Path path)
+	                          throws IOException
+	Name: isHidden
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#isHidden-java.nio.file.Path-
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract FileStore getFileStore(Path path)
+	                                throws IOException
+	Name: getFileStore
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#getFileStore-java.nio.file.Path-
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		java.nio.file::FileStore
+	}
+
+	[Function]
+	public abstract void checkAccess(Path path,
+	                                 AccessMode... modes)
+	                          throws IOException
+	Name: checkAccess
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#checkAccess-java.nio.file.Path-java.nio.file.AccessMode...-
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		other::... {
+			java.nio.file::AccessMode
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract <V extends FileAttributeView> V getFileAttributeView(Path path,
+	                                                                     Class<V> type,
+	                                                                     LinkOption... options)
+	Name: getFileAttributeView
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#getFileAttributeView-java.nio.file.Path-java.lang.Class-java.nio.file.LinkOption...-
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemProvider
+	parameters {
+		V: (V extends FileAttributeView; V; java.nio.file.attribute::FileAttributeView)
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.lang::Class {
+			null::V
+		}
+		other::... {
+			java.nio.file::LinkOption
+		}
+	
+		[result]
+		null::V
+	}
+
+	[Function]
+	public abstract <A extends BasicFileAttributes> A readAttributes(Path path,
+	                                                                 Class<A> type,
+	                                                                 LinkOption... options)
+	                                                          throws IOException
+	Name: readAttributes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#readAttributes-java.nio.file.Path-java.lang.Class-java.nio.file.LinkOption...-
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemProvider
+	parameters {
+		A: (A extends BasicFileAttributes; A; java.nio.file.attribute::BasicFileAttributes)
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.lang::Class {
+			null::A
+		}
+		other::... {
+			java.nio.file::LinkOption
+		}
+	
+		[result]
+		null::A
+	}
+
+	[Function]
+	public abstract Map<String,Object> readAttributes(Path path,
+	                                                  String attributes,
+	                                                  LinkOption... options)
+	                                           throws IOException
+	Name: readAttributes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#readAttributes-java.nio.file.Path-java.lang.String-java.nio.file.LinkOption...-
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.lang::String
+		other::... {
+			java.nio.file::LinkOption
+		}
+	
+		[result]
+		java.util::Map {
+			java.lang::String
+			java.lang::Object
+		}
+	}
+
+	[Function]
+	public abstract void setAttribute(Path path,
+	                                  String attribute,
+	                                  Object value,
+	                                  LinkOption... options)
+	                           throws IOException
+	Name: setAttribute
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileSystemProvider.html#setAttribute-java.nio.file.Path-java.lang.String-java.lang.Object-java.nio.file.LinkOption...-
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileSystemProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.lang::String
+		java.lang::Object
+		other::... {
+			java.nio.file::LinkOption
+		}
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public abstract class FileTypeDetector
+extends Object
+Name: FileTypeDetector
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileTypeDetector.html
+Containing package: java.nio.file.spi
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected FileTypeDetector()
+	Name: FileTypeDetector
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileTypeDetector.html#FileTypeDetector--
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: FileTypeDetector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.file.spi::FileTypeDetector
+	}
+
+	[Function]
+	public abstract String probeContentType(Path path)
+	                                 throws IOException
+	Name: probeContentType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/file/spi/FileTypeDetector.html#probeContentType-java.nio.file.Path-
+	Containing package: java.nio.file.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileTypeDetector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+	
+		[result]
+		java.lang::String
+	}
+}

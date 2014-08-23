@@ -1,0 +1,8731 @@
+[Package]
+Name: java.nio.channels
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/package-summary.html
+Containing package: java.nio
+attributes {
+}
+
+Subpackages {
+	java.nio.channels.spi
+}
+
+[Classifier]
+public interface AsynchronousByteChannel
+extends AsynchronousChannel
+Name: AsynchronousByteChannel
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousByteChannel.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.nio.channels::AsynchronousSocketChannel
+}
+supertypes {
+	java.nio.channels::AsynchronousChannel
+}
+members {
+
+	[Function]
+	<A> void read(ByteBuffer dst,
+	              A attachment,
+	              CompletionHandler<Integer,? super A> handler)
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousByteChannel.html#read-java.nio.ByteBuffer-A-java.nio.channels.CompletionHandler-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousByteChannel
+	parameters {
+		A
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+		null::A
+		java.nio.channels::CompletionHandler {
+			java.lang::Integer
+			? {
+				super null::A
+			}
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	Future<Integer> read(ByteBuffer dst)
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousByteChannel.html#read-java.nio.ByteBuffer-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousByteChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+	
+		[result]
+		java.util.concurrent::Future {
+			java.lang::Integer
+		}
+	}
+
+	[Function]
+	<A> void write(ByteBuffer src,
+	               A attachment,
+	               CompletionHandler<Integer,? super A> handler)
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousByteChannel.html#write-java.nio.ByteBuffer-A-java.nio.channels.CompletionHandler-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousByteChannel
+	parameters {
+		A
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+		null::A
+		java.nio.channels::CompletionHandler {
+			java.lang::Integer
+			? {
+				super null::A
+			}
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	Future<Integer> write(ByteBuffer src)
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousByteChannel.html#write-java.nio.ByteBuffer-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousByteChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+	
+		[result]
+		java.util.concurrent::Future {
+			java.lang::Integer
+		}
+	}
+}
+
+[Classifier]
+public interface AsynchronousChannel
+extends Channel
+Name: AsynchronousChannel
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousChannel.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.nio.channels::AsynchronousFileChannel
+	java.nio.channels::AsynchronousByteChannel
+	java.nio.channels::AsynchronousServerSocketChannel
+}
+supertypes {
+	java.nio.channels::Channel
+}
+members {
+
+	[Function]
+	void close()
+	    throws IOException
+	Name: close
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousChannel.html#close--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface ByteChannel
+extends ReadableByteChannel, WritableByteChannel
+Name: ByteChannel
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/ByteChannel.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.nio.channels::DatagramChannel
+	java.nio.channels::SocketChannel
+	java.nio.channels::SeekableByteChannel
+}
+supertypes {
+	java.nio.channels::ReadableByteChannel
+	java.nio.channels::WritableByteChannel
+}
+members {
+}
+
+[Classifier]
+public interface Channel
+extends Closeable
+Name: Channel
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Channel.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.nio.channels::SelectableChannel
+	java.nio.channels::WritableByteChannel
+	java.nio.channels::AsynchronousChannel
+	java.nio.channels::ReadableByteChannel
+	java.nio.channels.spi::AbstractInterruptibleChannel
+	java.nio.channels::NetworkChannel
+	java.nio.channels::InterruptibleChannel
+}
+supertypes {
+	java.io::Closeable
+}
+members {
+
+	[Function]
+	boolean isOpen()
+	Name: isOpen
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Channel.html#isOpen--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Channel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	void close()
+	    throws IOException
+	Name: close
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Channel.html#close--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Channel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface CompletionHandler<V,A>
+Name: CompletionHandler
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/CompletionHandler.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	V
+	A
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	void completed(V result,
+	               A attachment)
+	Name: completed
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/CompletionHandler.html#completed-V-A-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CompletionHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::V
+		null::A
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void failed(Throwable exc,
+	            A attachment)
+	Name: failed
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/CompletionHandler.html#failed-java.lang.Throwable-A-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CompletionHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Throwable
+		null::A
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface GatheringByteChannel
+extends WritableByteChannel
+Name: GatheringByteChannel
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/GatheringByteChannel.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.nio.channels::Pipe.SinkChannel
+	java.nio.channels::DatagramChannel
+	java.nio.channels::FileChannel
+	java.nio.channels::SocketChannel
+}
+supertypes {
+	java.nio.channels::WritableByteChannel
+}
+members {
+
+	[Function]
+	long write(ByteBuffer[] srcs,
+	           int offset,
+	           int length)
+	    throws IOException
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/GatheringByteChannel.html#write-java.nio.ByteBuffer:A-int-int-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: GatheringByteChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.nio::ByteBuffer
+		}
+		other::int
+		other::int
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	long write(ByteBuffer[] srcs)
+	    throws IOException
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/GatheringByteChannel.html#write-java.nio.ByteBuffer:A-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: GatheringByteChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.nio::ByteBuffer
+		}
+	
+		[result]
+		other::long
+	}
+}
+
+[Classifier]
+public interface InterruptibleChannel
+extends Channel
+Name: InterruptibleChannel
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/InterruptibleChannel.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.nio.channels.spi::AbstractInterruptibleChannel
+}
+supertypes {
+	java.nio.channels::Channel
+}
+members {
+
+	[Function]
+	void close()
+	    throws IOException
+	Name: close
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/InterruptibleChannel.html#close--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: InterruptibleChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface MulticastChannel
+extends NetworkChannel
+Name: MulticastChannel
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/MulticastChannel.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.nio.channels::DatagramChannel
+}
+supertypes {
+	java.nio.channels::NetworkChannel
+}
+members {
+
+	[Function]
+	void close()
+	    throws IOException
+	Name: close
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/MulticastChannel.html#close--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MulticastChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	MembershipKey join(InetAddress group,
+	                   NetworkInterface interf)
+	            throws IOException
+	Name: join
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/MulticastChannel.html#join-java.net.InetAddress-java.net.NetworkInterface-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MulticastChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::InetAddress
+		java.net::NetworkInterface
+	
+		[result]
+		java.nio.channels::MembershipKey
+	}
+
+	[Function]
+	MembershipKey join(InetAddress group,
+	                   NetworkInterface interf,
+	                   InetAddress source)
+	            throws IOException
+	Name: join
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/MulticastChannel.html#join-java.net.InetAddress-java.net.NetworkInterface-java.net.InetAddress-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MulticastChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::InetAddress
+		java.net::NetworkInterface
+		java.net::InetAddress
+	
+		[result]
+		java.nio.channels::MembershipKey
+	}
+}
+
+[Classifier]
+public interface NetworkChannel
+extends Channel
+Name: NetworkChannel
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/NetworkChannel.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.nio.channels::AsynchronousSocketChannel
+	java.nio.channels::MulticastChannel
+	java.nio.channels::SocketChannel
+	java.nio.channels::AsynchronousServerSocketChannel
+	java.nio.channels::ServerSocketChannel
+}
+supertypes {
+	java.nio.channels::Channel
+}
+members {
+
+	[Function]
+	NetworkChannel bind(SocketAddress local)
+	             throws IOException
+	Name: bind
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/NetworkChannel.html#bind-java.net.SocketAddress-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: NetworkChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::SocketAddress
+	
+		[result]
+		java.nio.channels::NetworkChannel
+	}
+
+	[Function]
+	SocketAddress getLocalAddress()
+	                       throws IOException
+	Name: getLocalAddress
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/NetworkChannel.html#getLocalAddress--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: NetworkChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.net::SocketAddress
+	}
+
+	[Function]
+	<T> NetworkChannel setOption(SocketOption<T> name,
+	                             T value)
+	                      throws IOException
+	Name: setOption
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/NetworkChannel.html#setOption-java.net.SocketOption-T-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: NetworkChannel
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::SocketOption {
+			null::T
+		}
+		null::T
+	
+		[result]
+		java.nio.channels::NetworkChannel
+	}
+
+	[Function]
+	<T> T getOption(SocketOption<T> name)
+	         throws IOException
+	Name: getOption
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/NetworkChannel.html#getOption-java.net.SocketOption-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: NetworkChannel
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::SocketOption {
+			null::T
+		}
+	
+		[result]
+		null::T
+	}
+
+	[Function]
+	Set<SocketOption<?>> supportedOptions()
+	Name: supportedOptions
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/NetworkChannel.html#supportedOptions--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: NetworkChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Set {
+			java.net::SocketOption {
+				?
+			}
+		}
+	}
+}
+
+[Classifier]
+public interface ReadableByteChannel
+extends Channel
+Name: ReadableByteChannel
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/ReadableByteChannel.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.nio.channels::Pipe.SourceChannel
+	java.nio.channels::ScatteringByteChannel
+	java.nio.channels::ByteChannel
+}
+supertypes {
+	java.nio.channels::Channel
+}
+members {
+
+	[Function]
+	int read(ByteBuffer dst)
+	  throws IOException
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/ReadableByteChannel.html#read-java.nio.ByteBuffer-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReadableByteChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public interface ScatteringByteChannel
+extends ReadableByteChannel
+Name: ScatteringByteChannel
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/ScatteringByteChannel.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.nio.channels::DatagramChannel
+	java.nio.channels::Pipe.SourceChannel
+	java.nio.channels::FileChannel
+	java.nio.channels::SocketChannel
+}
+supertypes {
+	java.nio.channels::ReadableByteChannel
+}
+members {
+
+	[Function]
+	long read(ByteBuffer[] dsts,
+	          int offset,
+	          int length)
+	   throws IOException
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/ScatteringByteChannel.html#read-java.nio.ByteBuffer:A-int-int-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScatteringByteChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.nio::ByteBuffer
+		}
+		other::int
+		other::int
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	long read(ByteBuffer[] dsts)
+	   throws IOException
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/ScatteringByteChannel.html#read-java.nio.ByteBuffer:A-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScatteringByteChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.nio::ByteBuffer
+		}
+	
+		[result]
+		other::long
+	}
+}
+
+[Classifier]
+public interface SeekableByteChannel
+extends ByteChannel
+Name: SeekableByteChannel
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SeekableByteChannel.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.nio.channels::FileChannel
+}
+supertypes {
+	java.nio.channels::ByteChannel
+}
+members {
+
+	[Function]
+	int read(ByteBuffer dst)
+	  throws IOException
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SeekableByteChannel.html#read-java.nio.ByteBuffer-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SeekableByteChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	int write(ByteBuffer src)
+	   throws IOException
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SeekableByteChannel.html#write-java.nio.ByteBuffer-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SeekableByteChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	long position()
+	       throws IOException
+	Name: position
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SeekableByteChannel.html#position--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SeekableByteChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	SeekableByteChannel position(long newPosition)
+	                      throws IOException
+	Name: position
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SeekableByteChannel.html#position-long-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SeekableByteChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		java.nio.channels::SeekableByteChannel
+	}
+
+	[Function]
+	long size()
+	   throws IOException
+	Name: size
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SeekableByteChannel.html#size--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SeekableByteChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	SeekableByteChannel truncate(long size)
+	                      throws IOException
+	Name: truncate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SeekableByteChannel.html#truncate-long-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SeekableByteChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		java.nio.channels::SeekableByteChannel
+	}
+}
+
+[Classifier]
+public interface WritableByteChannel
+extends Channel
+Name: WritableByteChannel
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/WritableByteChannel.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.nio.channels::Pipe.SinkChannel
+	java.nio.channels::ByteChannel
+	java.nio.channels::GatheringByteChannel
+}
+supertypes {
+	java.nio.channels::Channel
+}
+members {
+
+	[Function]
+	int write(ByteBuffer src)
+	   throws IOException
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/WritableByteChannel.html#write-java.nio.ByteBuffer-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: WritableByteChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public abstract class AsynchronousChannelGroup
+extends Object
+Name: AsynchronousChannelGroup
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousChannelGroup.html
+Containing package: java.nio.channels
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected AsynchronousChannelGroup(AsynchronousChannelProvider provider)
+	Name: AsynchronousChannelGroup
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousChannelGroup.html#AsynchronousChannelGroup-java.nio.channels.spi.AsynchronousChannelProvider-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AsynchronousChannelGroup
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels.spi::AsynchronousChannelProvider
+	
+		[result]
+		java.nio.channels::AsynchronousChannelGroup
+	}
+
+	[Function]
+	public final AsynchronousChannelProvider provider()
+	Name: provider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousChannelGroup.html#provider--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousChannelGroup
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels.spi::AsynchronousChannelProvider
+	}
+
+	[Function]
+	public static AsynchronousChannelGroup withFixedThreadPool(int nThreads,
+	                                                           ThreadFactory threadFactory)
+	                                                    throws IOException
+	Name: withFixedThreadPool
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousChannelGroup.html#withFixedThreadPool-int-java.util.concurrent.ThreadFactory-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousChannelGroup
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.util.concurrent::ThreadFactory
+	
+		[result]
+		java.nio.channels::AsynchronousChannelGroup
+	}
+
+	[Function]
+	public static AsynchronousChannelGroup withCachedThreadPool(ExecutorService executor,
+	                                                            int initialSize)
+	                                                     throws IOException
+	Name: withCachedThreadPool
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousChannelGroup.html#withCachedThreadPool-java.util.concurrent.ExecutorService-int-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousChannelGroup
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.concurrent::ExecutorService
+		other::int
+	
+		[result]
+		java.nio.channels::AsynchronousChannelGroup
+	}
+
+	[Function]
+	public static AsynchronousChannelGroup withThreadPool(ExecutorService executor)
+	                                               throws IOException
+	Name: withThreadPool
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousChannelGroup.html#withThreadPool-java.util.concurrent.ExecutorService-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousChannelGroup
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.concurrent::ExecutorService
+	
+		[result]
+		java.nio.channels::AsynchronousChannelGroup
+	}
+
+	[Function]
+	public abstract boolean isShutdown()
+	Name: isShutdown
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousChannelGroup.html#isShutdown--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousChannelGroup
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract boolean isTerminated()
+	Name: isTerminated
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousChannelGroup.html#isTerminated--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousChannelGroup
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract void shutdown()
+	Name: shutdown
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousChannelGroup.html#shutdown--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousChannelGroup
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract void shutdownNow()
+	                          throws IOException
+	Name: shutdownNow
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousChannelGroup.html#shutdownNow--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousChannelGroup
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract boolean awaitTermination(long timeout,
+	                                         TimeUnit unit)
+	                                  throws InterruptedException
+	Name: awaitTermination
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousChannelGroup.html#awaitTermination-long-java.util.concurrent.TimeUnit-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousChannelGroup
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		java.util.concurrent::TimeUnit
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public abstract class AsynchronousFileChannel
+extends Object
+implements AsynchronousChannel
+Name: AsynchronousFileChannel
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousFileChannel.html
+Containing package: java.nio.channels
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.nio.channels::AsynchronousChannel
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected AsynchronousFileChannel()
+	Name: AsynchronousFileChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousFileChannel.html#AsynchronousFileChannel--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AsynchronousFileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::AsynchronousFileChannel
+	}
+
+	[Function]
+	public static AsynchronousFileChannel open(Path file,
+	                                           Set<? extends OpenOption> options,
+	                                           ExecutorService executor,
+	                                           FileAttribute<?>... attrs)
+	                                    throws IOException
+	Name: open
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousFileChannel.html#open-java.nio.file.Path-java.util.Set-java.util.concurrent.ExecutorService-java.nio.file.attribute.FileAttribute...-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousFileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.util::Set {
+			? {
+				extends java.nio.file::OpenOption
+			}
+		}
+		java.util.concurrent::ExecutorService
+		other::... {
+			java.nio.file.attribute::FileAttribute {
+				?
+			}
+		}
+	
+		[result]
+		java.nio.channels::AsynchronousFileChannel
+	}
+
+	[Function]
+	public static AsynchronousFileChannel open(Path file,
+	                                           OpenOption... options)
+	                                    throws IOException
+	Name: open
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousFileChannel.html#open-java.nio.file.Path-java.nio.file.OpenOption...-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousFileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		other::... {
+			java.nio.file::OpenOption
+		}
+	
+		[result]
+		java.nio.channels::AsynchronousFileChannel
+	}
+
+	[Function]
+	public abstract long size()
+	                   throws IOException
+	Name: size
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousFileChannel.html#size--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousFileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public abstract AsynchronousFileChannel truncate(long size)
+	                                          throws IOException
+	Name: truncate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousFileChannel.html#truncate-long-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousFileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		java.nio.channels::AsynchronousFileChannel
+	}
+
+	[Function]
+	public abstract void force(boolean metaData)
+	                    throws IOException
+	Name: force
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousFileChannel.html#force-boolean-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousFileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::boolean
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract <A> void lock(long position,
+	                              long size,
+	                              boolean shared,
+	                              A attachment,
+	                              CompletionHandler<FileLock,? super A> handler)
+	Name: lock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousFileChannel.html#lock-long-long-boolean-A-java.nio.channels.CompletionHandler-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousFileChannel
+	parameters {
+		A
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		other::long
+		other::boolean
+		null::A
+		java.nio.channels::CompletionHandler {
+			java.nio.channels::FileLock
+			? {
+				super null::A
+			}
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final <A> void lock(A attachment,
+	                           CompletionHandler<FileLock,? super A> handler)
+	Name: lock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousFileChannel.html#lock-A-java.nio.channels.CompletionHandler-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousFileChannel
+	parameters {
+		A
+	}
+	Signature = <function> {
+		[parameters]
+		null::A
+		java.nio.channels::CompletionHandler {
+			java.nio.channels::FileLock
+			? {
+				super null::A
+			}
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract Future<FileLock> lock(long position,
+	                                      long size,
+	                                      boolean shared)
+	Name: lock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousFileChannel.html#lock-long-long-boolean-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousFileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		other::long
+		other::boolean
+	
+		[result]
+		java.util.concurrent::Future {
+			java.nio.channels::FileLock
+		}
+	}
+
+	[Function]
+	public final Future<FileLock> lock()
+	Name: lock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousFileChannel.html#lock--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousFileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.concurrent::Future {
+			java.nio.channels::FileLock
+		}
+	}
+
+	[Function]
+	public abstract FileLock tryLock(long position,
+	                                 long size,
+	                                 boolean shared)
+	                          throws IOException
+	Name: tryLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousFileChannel.html#tryLock-long-long-boolean-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousFileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		other::long
+		other::boolean
+	
+		[result]
+		java.nio.channels::FileLock
+	}
+
+	[Function]
+	public final FileLock tryLock()
+	                       throws IOException
+	Name: tryLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousFileChannel.html#tryLock--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousFileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::FileLock
+	}
+
+	[Function]
+	public abstract <A> void read(ByteBuffer dst,
+	                              long position,
+	                              A attachment,
+	                              CompletionHandler<Integer,? super A> handler)
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousFileChannel.html#read-java.nio.ByteBuffer-long-A-java.nio.channels.CompletionHandler-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousFileChannel
+	parameters {
+		A
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+		other::long
+		null::A
+		java.nio.channels::CompletionHandler {
+			java.lang::Integer
+			? {
+				super null::A
+			}
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract Future<Integer> read(ByteBuffer dst,
+	                                     long position)
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousFileChannel.html#read-java.nio.ByteBuffer-long-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousFileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+		other::long
+	
+		[result]
+		java.util.concurrent::Future {
+			java.lang::Integer
+		}
+	}
+
+	[Function]
+	public abstract <A> void write(ByteBuffer src,
+	                               long position,
+	                               A attachment,
+	                               CompletionHandler<Integer,? super A> handler)
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousFileChannel.html#write-java.nio.ByteBuffer-long-A-java.nio.channels.CompletionHandler-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousFileChannel
+	parameters {
+		A
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+		other::long
+		null::A
+		java.nio.channels::CompletionHandler {
+			java.lang::Integer
+			? {
+				super null::A
+			}
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract Future<Integer> write(ByteBuffer src,
+	                                      long position)
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousFileChannel.html#write-java.nio.ByteBuffer-long-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousFileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+		other::long
+	
+		[result]
+		java.util.concurrent::Future {
+			java.lang::Integer
+		}
+	}
+}
+
+[Classifier]
+public abstract class AsynchronousServerSocketChannel
+extends Object
+implements AsynchronousChannel, NetworkChannel
+Name: AsynchronousServerSocketChannel
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousServerSocketChannel.html
+Containing package: java.nio.channels
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.nio.channels::AsynchronousChannel
+	java.nio.channels::NetworkChannel
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected AsynchronousServerSocketChannel(AsynchronousChannelProvider provider)
+	Name: AsynchronousServerSocketChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousServerSocketChannel.html#AsynchronousServerSocketChannel-java.nio.channels.spi.AsynchronousChannelProvider-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AsynchronousServerSocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels.spi::AsynchronousChannelProvider
+	
+		[result]
+		java.nio.channels::AsynchronousServerSocketChannel
+	}
+
+	[Function]
+	public final AsynchronousChannelProvider provider()
+	Name: provider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousServerSocketChannel.html#provider--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousServerSocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels.spi::AsynchronousChannelProvider
+	}
+
+	[Function]
+	public static AsynchronousServerSocketChannel open(AsynchronousChannelGroup group)
+	                                            throws IOException
+	Name: open
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousServerSocketChannel.html#open-java.nio.channels.AsynchronousChannelGroup-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousServerSocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels::AsynchronousChannelGroup
+	
+		[result]
+		java.nio.channels::AsynchronousServerSocketChannel
+	}
+
+	[Function]
+	public static AsynchronousServerSocketChannel open()
+	                                            throws IOException
+	Name: open
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousServerSocketChannel.html#open--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousServerSocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::AsynchronousServerSocketChannel
+	}
+
+	[Function]
+	public final AsynchronousServerSocketChannel bind(SocketAddress local)
+	                                           throws IOException
+	Name: bind
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousServerSocketChannel.html#bind-java.net.SocketAddress-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousServerSocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::SocketAddress
+	
+		[result]
+		java.nio.channels::AsynchronousServerSocketChannel
+	}
+
+	[Function]
+	public abstract AsynchronousServerSocketChannel bind(SocketAddress local,
+	                                                     int backlog)
+	                                              throws IOException
+	Name: bind
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousServerSocketChannel.html#bind-java.net.SocketAddress-int-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousServerSocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::SocketAddress
+		other::int
+	
+		[result]
+		java.nio.channels::AsynchronousServerSocketChannel
+	}
+
+	[Function]
+	public abstract <T> AsynchronousServerSocketChannel setOption(SocketOption<T> name,
+	                                                              T value)
+	                                                       throws IOException
+	Name: setOption
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousServerSocketChannel.html#setOption-java.net.SocketOption-T-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousServerSocketChannel
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::SocketOption {
+			null::T
+		}
+		null::T
+	
+		[result]
+		java.nio.channels::AsynchronousServerSocketChannel
+	}
+
+	[Function]
+	public abstract <A> void accept(A attachment,
+	                                CompletionHandler<AsynchronousSocketChannel,? super A> handler)
+	Name: accept
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousServerSocketChannel.html#accept-A-java.nio.channels.CompletionHandler-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousServerSocketChannel
+	parameters {
+		A
+	}
+	Signature = <function> {
+		[parameters]
+		null::A
+		java.nio.channels::CompletionHandler {
+			java.nio.channels::AsynchronousSocketChannel
+			? {
+				super null::A
+			}
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract Future<AsynchronousSocketChannel> accept()
+	Name: accept
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousServerSocketChannel.html#accept--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousServerSocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.concurrent::Future {
+			java.nio.channels::AsynchronousSocketChannel
+		}
+	}
+
+	[Function]
+	public abstract SocketAddress getLocalAddress()
+	                                       throws IOException
+	Name: getLocalAddress
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousServerSocketChannel.html#getLocalAddress--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousServerSocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.net::SocketAddress
+	}
+}
+
+[Classifier]
+public abstract class AsynchronousSocketChannel
+extends Object
+implements AsynchronousByteChannel, NetworkChannel
+Name: AsynchronousSocketChannel
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousSocketChannel.html
+Containing package: java.nio.channels
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.nio.channels::AsynchronousByteChannel
+	java.nio.channels::NetworkChannel
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected AsynchronousSocketChannel(AsynchronousChannelProvider provider)
+	Name: AsynchronousSocketChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousSocketChannel.html#AsynchronousSocketChannel-java.nio.channels.spi.AsynchronousChannelProvider-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AsynchronousSocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels.spi::AsynchronousChannelProvider
+	
+		[result]
+		java.nio.channels::AsynchronousSocketChannel
+	}
+
+	[Function]
+	public final AsynchronousChannelProvider provider()
+	Name: provider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousSocketChannel.html#provider--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousSocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels.spi::AsynchronousChannelProvider
+	}
+
+	[Function]
+	public static AsynchronousSocketChannel open(AsynchronousChannelGroup group)
+	                                      throws IOException
+	Name: open
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousSocketChannel.html#open-java.nio.channels.AsynchronousChannelGroup-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousSocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels::AsynchronousChannelGroup
+	
+		[result]
+		java.nio.channels::AsynchronousSocketChannel
+	}
+
+	[Function]
+	public static AsynchronousSocketChannel open()
+	                                      throws IOException
+	Name: open
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousSocketChannel.html#open--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousSocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::AsynchronousSocketChannel
+	}
+
+	[Function]
+	public abstract AsynchronousSocketChannel bind(SocketAddress local)
+	                                        throws IOException
+	Name: bind
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousSocketChannel.html#bind-java.net.SocketAddress-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousSocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::SocketAddress
+	
+		[result]
+		java.nio.channels::AsynchronousSocketChannel
+	}
+
+	[Function]
+	public abstract <T> AsynchronousSocketChannel setOption(SocketOption<T> name,
+	                                                        T value)
+	                                                 throws IOException
+	Name: setOption
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousSocketChannel.html#setOption-java.net.SocketOption-T-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousSocketChannel
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::SocketOption {
+			null::T
+		}
+		null::T
+	
+		[result]
+		java.nio.channels::AsynchronousSocketChannel
+	}
+
+	[Function]
+	public abstract AsynchronousSocketChannel shutdownInput()
+	                                                 throws IOException
+	Name: shutdownInput
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousSocketChannel.html#shutdownInput--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousSocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::AsynchronousSocketChannel
+	}
+
+	[Function]
+	public abstract AsynchronousSocketChannel shutdownOutput()
+	                                                  throws IOException
+	Name: shutdownOutput
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousSocketChannel.html#shutdownOutput--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousSocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::AsynchronousSocketChannel
+	}
+
+	[Function]
+	public abstract SocketAddress getRemoteAddress()
+	                                        throws IOException
+	Name: getRemoteAddress
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousSocketChannel.html#getRemoteAddress--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousSocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.net::SocketAddress
+	}
+
+	[Function]
+	public abstract <A> void connect(SocketAddress remote,
+	                                 A attachment,
+	                                 CompletionHandler<Void,? super A> handler)
+	Name: connect
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousSocketChannel.html#connect-java.net.SocketAddress-A-java.nio.channels.CompletionHandler-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousSocketChannel
+	parameters {
+		A
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::SocketAddress
+		null::A
+		java.nio.channels::CompletionHandler {
+			java.lang::Void
+			? {
+				super null::A
+			}
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract Future<Void> connect(SocketAddress remote)
+	Name: connect
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousSocketChannel.html#connect-java.net.SocketAddress-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousSocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::SocketAddress
+	
+		[result]
+		java.util.concurrent::Future {
+			java.lang::Void
+		}
+	}
+
+	[Function]
+	public abstract <A> void read(ByteBuffer dst,
+	                              long timeout,
+	                              TimeUnit unit,
+	                              A attachment,
+	                              CompletionHandler<Integer,? super A> handler)
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousSocketChannel.html#read-java.nio.ByteBuffer-long-java.util.concurrent.TimeUnit-A-java.nio.channels.CompletionHandler-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousSocketChannel
+	parameters {
+		A
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+		other::long
+		java.util.concurrent::TimeUnit
+		null::A
+		java.nio.channels::CompletionHandler {
+			java.lang::Integer
+			? {
+				super null::A
+			}
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final <A> void read(ByteBuffer dst,
+	                           A attachment,
+	                           CompletionHandler<Integer,? super A> handler)
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousSocketChannel.html#read-java.nio.ByteBuffer-A-java.nio.channels.CompletionHandler-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousSocketChannel
+	parameters {
+		A
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+		null::A
+		java.nio.channels::CompletionHandler {
+			java.lang::Integer
+			? {
+				super null::A
+			}
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract Future<Integer> read(ByteBuffer dst)
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousSocketChannel.html#read-java.nio.ByteBuffer-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousSocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+	
+		[result]
+		java.util.concurrent::Future {
+			java.lang::Integer
+		}
+	}
+
+	[Function]
+	public abstract <A> void read(ByteBuffer[] dsts,
+	                              int offset,
+	                              int length,
+	                              long timeout,
+	                              TimeUnit unit,
+	                              A attachment,
+	                              CompletionHandler<Long,? super A> handler)
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousSocketChannel.html#read-java.nio.ByteBuffer:A-int-int-long-java.util.concurrent.TimeUnit-A-java.nio.channels.CompletionHandler-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousSocketChannel
+	parameters {
+		A
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.nio::ByteBuffer
+		}
+		other::int
+		other::int
+		other::long
+		java.util.concurrent::TimeUnit
+		null::A
+		java.nio.channels::CompletionHandler {
+			java.lang::Long
+			? {
+				super null::A
+			}
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract <A> void write(ByteBuffer src,
+	                               long timeout,
+	                               TimeUnit unit,
+	                               A attachment,
+	                               CompletionHandler<Integer,? super A> handler)
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousSocketChannel.html#write-java.nio.ByteBuffer-long-java.util.concurrent.TimeUnit-A-java.nio.channels.CompletionHandler-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousSocketChannel
+	parameters {
+		A
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+		other::long
+		java.util.concurrent::TimeUnit
+		null::A
+		java.nio.channels::CompletionHandler {
+			java.lang::Integer
+			? {
+				super null::A
+			}
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final <A> void write(ByteBuffer src,
+	                            A attachment,
+	                            CompletionHandler<Integer,? super A> handler)
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousSocketChannel.html#write-java.nio.ByteBuffer-A-java.nio.channels.CompletionHandler-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousSocketChannel
+	parameters {
+		A
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+		null::A
+		java.nio.channels::CompletionHandler {
+			java.lang::Integer
+			? {
+				super null::A
+			}
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract Future<Integer> write(ByteBuffer src)
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousSocketChannel.html#write-java.nio.ByteBuffer-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousSocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+	
+		[result]
+		java.util.concurrent::Future {
+			java.lang::Integer
+		}
+	}
+
+	[Function]
+	public abstract <A> void write(ByteBuffer[] srcs,
+	                               int offset,
+	                               int length,
+	                               long timeout,
+	                               TimeUnit unit,
+	                               A attachment,
+	                               CompletionHandler<Long,? super A> handler)
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousSocketChannel.html#write-java.nio.ByteBuffer:A-int-int-long-java.util.concurrent.TimeUnit-A-java.nio.channels.CompletionHandler-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousSocketChannel
+	parameters {
+		A
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.nio::ByteBuffer
+		}
+		other::int
+		other::int
+		other::long
+		java.util.concurrent::TimeUnit
+		null::A
+		java.nio.channels::CompletionHandler {
+			java.lang::Long
+			? {
+				super null::A
+			}
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract SocketAddress getLocalAddress()
+	                                       throws IOException
+	Name: getLocalAddress
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousSocketChannel.html#getLocalAddress--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousSocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.net::SocketAddress
+	}
+}
+
+[Classifier]
+public final class Channels
+extends Object
+Name: Channels
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Channels.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static InputStream newInputStream(ReadableByteChannel ch)
+	Name: newInputStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Channels.html#newInputStream-java.nio.channels.ReadableByteChannel-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Channels
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels::ReadableByteChannel
+	
+		[result]
+		java.io::InputStream
+	}
+
+	[Function]
+	public static OutputStream newOutputStream(WritableByteChannel ch)
+	Name: newOutputStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Channels.html#newOutputStream-java.nio.channels.WritableByteChannel-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Channels
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels::WritableByteChannel
+	
+		[result]
+		java.io::OutputStream
+	}
+
+	[Function]
+	public static InputStream newInputStream(AsynchronousByteChannel ch)
+	Name: newInputStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Channels.html#newInputStream-java.nio.channels.AsynchronousByteChannel-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Channels
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels::AsynchronousByteChannel
+	
+		[result]
+		java.io::InputStream
+	}
+
+	[Function]
+	public static OutputStream newOutputStream(AsynchronousByteChannel ch)
+	Name: newOutputStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Channels.html#newOutputStream-java.nio.channels.AsynchronousByteChannel-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Channels
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels::AsynchronousByteChannel
+	
+		[result]
+		java.io::OutputStream
+	}
+
+	[Function]
+	public static ReadableByteChannel newChannel(InputStream in)
+	Name: newChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Channels.html#newChannel-java.io.InputStream-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Channels
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::InputStream
+	
+		[result]
+		java.nio.channels::ReadableByteChannel
+	}
+
+	[Function]
+	public static WritableByteChannel newChannel(OutputStream out)
+	Name: newChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Channels.html#newChannel-java.io.OutputStream-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Channels
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::OutputStream
+	
+		[result]
+		java.nio.channels::WritableByteChannel
+	}
+
+	[Function]
+	public static Reader newReader(ReadableByteChannel ch,
+	                               CharsetDecoder dec,
+	                               int minBufferCap)
+	Name: newReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Channels.html#newReader-java.nio.channels.ReadableByteChannel-java.nio.charset.CharsetDecoder-int-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Channels
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels::ReadableByteChannel
+		java.nio.charset::CharsetDecoder
+		other::int
+	
+		[result]
+		java.io::Reader
+	}
+
+	[Function]
+	public static Reader newReader(ReadableByteChannel ch,
+	                               String csName)
+	Name: newReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Channels.html#newReader-java.nio.channels.ReadableByteChannel-java.lang.String-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Channels
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels::ReadableByteChannel
+		java.lang::String
+	
+		[result]
+		java.io::Reader
+	}
+
+	[Function]
+	public static Writer newWriter(WritableByteChannel ch,
+	                               CharsetEncoder enc,
+	                               int minBufferCap)
+	Name: newWriter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Channels.html#newWriter-java.nio.channels.WritableByteChannel-java.nio.charset.CharsetEncoder-int-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Channels
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels::WritableByteChannel
+		java.nio.charset::CharsetEncoder
+		other::int
+	
+		[result]
+		java.io::Writer
+	}
+
+	[Function]
+	public static Writer newWriter(WritableByteChannel ch,
+	                               String csName)
+	Name: newWriter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Channels.html#newWriter-java.nio.channels.WritableByteChannel-java.lang.String-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Channels
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels::WritableByteChannel
+		java.lang::String
+	
+		[result]
+		java.io::Writer
+	}
+}
+
+[Classifier]
+public abstract class DatagramChannel
+extends AbstractSelectableChannel
+implements ByteChannel, ScatteringByteChannel, GatheringByteChannel, MulticastChannel
+Name: DatagramChannel
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/DatagramChannel.html
+Containing package: java.nio.channels
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.nio.channels::ByteChannel
+	java.nio.channels::ScatteringByteChannel
+	java.nio.channels::GatheringByteChannel
+	java.nio.channels::MulticastChannel
+	java.nio.channels.spi::AbstractSelectableChannel
+}
+members {
+
+	[Function]
+	protected DatagramChannel(SelectorProvider provider)
+	Name: DatagramChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/DatagramChannel.html#DatagramChannel-java.nio.channels.spi.SelectorProvider-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: DatagramChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels.spi::SelectorProvider
+	
+		[result]
+		java.nio.channels::DatagramChannel
+	}
+
+	[Function]
+	public static DatagramChannel open()
+	                            throws IOException
+	Name: open
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/DatagramChannel.html#open--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: DatagramChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::DatagramChannel
+	}
+
+	[Function]
+	public static DatagramChannel open(ProtocolFamily family)
+	                            throws IOException
+	Name: open
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/DatagramChannel.html#open-java.net.ProtocolFamily-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: DatagramChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::ProtocolFamily
+	
+		[result]
+		java.nio.channels::DatagramChannel
+	}
+
+	[Function]
+	public final int validOps()
+	Name: validOps
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/DatagramChannel.html#validOps--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DatagramChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public abstract DatagramChannel bind(SocketAddress local)
+	                              throws IOException
+	Name: bind
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/DatagramChannel.html#bind-java.net.SocketAddress-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DatagramChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::SocketAddress
+	
+		[result]
+		java.nio.channels::DatagramChannel
+	}
+
+	[Function]
+	public abstract <T> DatagramChannel setOption(SocketOption<T> name,
+	                                              T value)
+	                                       throws IOException
+	Name: setOption
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/DatagramChannel.html#setOption-java.net.SocketOption-T-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DatagramChannel
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::SocketOption {
+			null::T
+		}
+		null::T
+	
+		[result]
+		java.nio.channels::DatagramChannel
+	}
+
+	[Function]
+	public abstract DatagramSocket socket()
+	Name: socket
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/DatagramChannel.html#socket--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DatagramChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.net::DatagramSocket
+	}
+
+	[Function]
+	public abstract boolean isConnected()
+	Name: isConnected
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/DatagramChannel.html#isConnected--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DatagramChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract DatagramChannel connect(SocketAddress remote)
+	                                 throws IOException
+	Name: connect
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/DatagramChannel.html#connect-java.net.SocketAddress-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DatagramChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::SocketAddress
+	
+		[result]
+		java.nio.channels::DatagramChannel
+	}
+
+	[Function]
+	public abstract DatagramChannel disconnect()
+	                                    throws IOException
+	Name: disconnect
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/DatagramChannel.html#disconnect--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DatagramChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::DatagramChannel
+	}
+
+	[Function]
+	public abstract SocketAddress getRemoteAddress()
+	                                        throws IOException
+	Name: getRemoteAddress
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/DatagramChannel.html#getRemoteAddress--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DatagramChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.net::SocketAddress
+	}
+
+	[Function]
+	public abstract SocketAddress receive(ByteBuffer dst)
+	                               throws IOException
+	Name: receive
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/DatagramChannel.html#receive-java.nio.ByteBuffer-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DatagramChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+	
+		[result]
+		java.net::SocketAddress
+	}
+
+	[Function]
+	public abstract int send(ByteBuffer src,
+	                         SocketAddress target)
+	                  throws IOException
+	Name: send
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/DatagramChannel.html#send-java.nio.ByteBuffer-java.net.SocketAddress-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DatagramChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+		java.net::SocketAddress
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public abstract int read(ByteBuffer dst)
+	                  throws IOException
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/DatagramChannel.html#read-java.nio.ByteBuffer-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DatagramChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public abstract long read(ByteBuffer[] dsts,
+	                          int offset,
+	                          int length)
+	                   throws IOException
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/DatagramChannel.html#read-java.nio.ByteBuffer:A-int-int-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DatagramChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.nio::ByteBuffer
+		}
+		other::int
+		other::int
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public final long read(ByteBuffer[] dsts)
+	                throws IOException
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/DatagramChannel.html#read-java.nio.ByteBuffer:A-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DatagramChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.nio::ByteBuffer
+		}
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public abstract int write(ByteBuffer src)
+	                   throws IOException
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/DatagramChannel.html#write-java.nio.ByteBuffer-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DatagramChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public abstract long write(ByteBuffer[] srcs,
+	                           int offset,
+	                           int length)
+	                    throws IOException
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/DatagramChannel.html#write-java.nio.ByteBuffer:A-int-int-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DatagramChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.nio::ByteBuffer
+		}
+		other::int
+		other::int
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public final long write(ByteBuffer[] srcs)
+	                 throws IOException
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/DatagramChannel.html#write-java.nio.ByteBuffer:A-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DatagramChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.nio::ByteBuffer
+		}
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public abstract SocketAddress getLocalAddress()
+	                                       throws IOException
+	Name: getLocalAddress
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/DatagramChannel.html#getLocalAddress--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DatagramChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.net::SocketAddress
+	}
+}
+
+[Classifier]
+public abstract class FileChannel
+extends AbstractInterruptibleChannel
+implements SeekableByteChannel, GatheringByteChannel, ScatteringByteChannel
+Name: FileChannel
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.html
+Containing package: java.nio.channels
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.nio.channels::SeekableByteChannel
+	java.nio.channels::GatheringByteChannel
+	java.nio.channels::ScatteringByteChannel
+	java.nio.channels.spi::AbstractInterruptibleChannel
+}
+members {
+
+	[Function]
+	protected FileChannel()
+	Name: FileChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.html#FileChannel--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: FileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::FileChannel
+	}
+
+	[Function]
+	public static FileChannel open(Path path,
+	                               Set<? extends OpenOption> options,
+	                               FileAttribute<?>... attrs)
+	                        throws IOException
+	Name: open
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.html#open-java.nio.file.Path-java.util.Set-java.nio.file.attribute.FileAttribute...-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		java.util::Set {
+			? {
+				extends java.nio.file::OpenOption
+			}
+		}
+		other::... {
+			java.nio.file.attribute::FileAttribute {
+				?
+			}
+		}
+	
+		[result]
+		java.nio.channels::FileChannel
+	}
+
+	[Function]
+	public static FileChannel open(Path path,
+	                               OpenOption... options)
+	                        throws IOException
+	Name: open
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.html#open-java.nio.file.Path-java.nio.file.OpenOption...-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.file::Path
+		other::... {
+			java.nio.file::OpenOption
+		}
+	
+		[result]
+		java.nio.channels::FileChannel
+	}
+
+	[Function]
+	public abstract int read(ByteBuffer dst)
+	                  throws IOException
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.html#read-java.nio.ByteBuffer-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public abstract long read(ByteBuffer[] dsts,
+	                          int offset,
+	                          int length)
+	                   throws IOException
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.html#read-java.nio.ByteBuffer:A-int-int-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.nio::ByteBuffer
+		}
+		other::int
+		other::int
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public final long read(ByteBuffer[] dsts)
+	                throws IOException
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.html#read-java.nio.ByteBuffer:A-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.nio::ByteBuffer
+		}
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public abstract int write(ByteBuffer src)
+	                   throws IOException
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.html#write-java.nio.ByteBuffer-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public abstract long write(ByteBuffer[] srcs,
+	                           int offset,
+	                           int length)
+	                    throws IOException
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.html#write-java.nio.ByteBuffer:A-int-int-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.nio::ByteBuffer
+		}
+		other::int
+		other::int
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public final long write(ByteBuffer[] srcs)
+	                 throws IOException
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.html#write-java.nio.ByteBuffer:A-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.nio::ByteBuffer
+		}
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public abstract long position()
+	                       throws IOException
+	Name: position
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.html#position--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public abstract FileChannel position(long newPosition)
+	                              throws IOException
+	Name: position
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.html#position-long-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		java.nio.channels::FileChannel
+	}
+
+	[Function]
+	public abstract long size()
+	                   throws IOException
+	Name: size
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.html#size--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public abstract FileChannel truncate(long size)
+	                              throws IOException
+	Name: truncate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.html#truncate-long-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		java.nio.channels::FileChannel
+	}
+
+	[Function]
+	public abstract void force(boolean metaData)
+	                    throws IOException
+	Name: force
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.html#force-boolean-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::boolean
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract long transferTo(long position,
+	                                long count,
+	                                WritableByteChannel target)
+	                         throws IOException
+	Name: transferTo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.html#transferTo-long-long-java.nio.channels.WritableByteChannel-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		other::long
+		java.nio.channels::WritableByteChannel
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public abstract long transferFrom(ReadableByteChannel src,
+	                                  long position,
+	                                  long count)
+	                           throws IOException
+	Name: transferFrom
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.html#transferFrom-java.nio.channels.ReadableByteChannel-long-long-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels::ReadableByteChannel
+		other::long
+		other::long
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public abstract int read(ByteBuffer dst,
+	                         long position)
+	                  throws IOException
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.html#read-java.nio.ByteBuffer-long-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+		other::long
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public abstract int write(ByteBuffer src,
+	                          long position)
+	                   throws IOException
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.html#write-java.nio.ByteBuffer-long-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+		other::long
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public abstract MappedByteBuffer map(FileChannel.MapMode mode,
+	                                     long position,
+	                                     long size)
+	                              throws IOException
+	Name: map
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.html#map-java.nio.channels.FileChannel.MapMode-long-long-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels::FileChannel.MapMode
+		other::long
+		other::long
+	
+		[result]
+		java.nio::MappedByteBuffer
+	}
+
+	[Function]
+	public abstract FileLock lock(long position,
+	                              long size,
+	                              boolean shared)
+	                       throws IOException
+	Name: lock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.html#lock-long-long-boolean-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		other::long
+		other::boolean
+	
+		[result]
+		java.nio.channels::FileLock
+	}
+
+	[Function]
+	public final FileLock lock()
+	                    throws IOException
+	Name: lock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.html#lock--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::FileLock
+	}
+
+	[Function]
+	public abstract FileLock tryLock(long position,
+	                                 long size,
+	                                 boolean shared)
+	                          throws IOException
+	Name: tryLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.html#tryLock-long-long-boolean-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		other::long
+		other::boolean
+	
+		[result]
+		java.nio.channels::FileLock
+	}
+
+	[Function]
+	public final FileLock tryLock()
+	                       throws IOException
+	Name: tryLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.html#tryLock--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::FileLock
+	}
+}
+
+[Classifier]
+public static class FileChannel.MapMode
+extends Object
+Name: FileChannel.MapMode
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.MapMode.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=true
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static final FileChannel.MapMode READ_ONLY
+	Name: READ_ONLY
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.MapMode.html#READ_ONLY
+	Containing package: java.nio.channels
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: FileChannel.MapMode
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::FileChannel.MapMode
+	}
+
+	[Function]
+	public static final FileChannel.MapMode READ_WRITE
+	Name: READ_WRITE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.MapMode.html#READ_WRITE
+	Containing package: java.nio.channels
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: FileChannel.MapMode
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::FileChannel.MapMode
+	}
+
+	[Function]
+	public static final FileChannel.MapMode PRIVATE
+	Name: PRIVATE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.MapMode.html#PRIVATE
+	Containing package: java.nio.channels
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: FileChannel.MapMode
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::FileChannel.MapMode
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.MapMode.html#toString--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileChannel.MapMode
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public abstract class FileLock
+extends Object
+implements AutoCloseable
+Name: FileLock
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileLock.html
+Containing package: java.nio.channels
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::AutoCloseable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected FileLock(FileChannel channel,
+	                   long position,
+	                   long size,
+	                   boolean shared)
+	Name: FileLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileLock.html#FileLock-java.nio.channels.FileChannel-long-long-boolean-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: FileLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels::FileChannel
+		other::long
+		other::long
+		other::boolean
+	
+		[result]
+		java.nio.channels::FileLock
+	}
+
+	[Function]
+	protected FileLock(AsynchronousFileChannel channel,
+	                   long position,
+	                   long size,
+	                   boolean shared)
+	Name: FileLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileLock.html#FileLock-java.nio.channels.AsynchronousFileChannel-long-long-boolean-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: FileLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels::AsynchronousFileChannel
+		other::long
+		other::long
+		other::boolean
+	
+		[result]
+		java.nio.channels::FileLock
+	}
+
+	[Function]
+	public final FileChannel channel()
+	Name: channel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileLock.html#channel--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::FileChannel
+	}
+
+	[Function]
+	public Channel acquiredBy()
+	Name: acquiredBy
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileLock.html#acquiredBy--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::Channel
+	}
+
+	[Function]
+	public final long position()
+	Name: position
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileLock.html#position--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public final long size()
+	Name: size
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileLock.html#size--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public final boolean isShared()
+	Name: isShared
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileLock.html#isShared--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final boolean overlaps(long position,
+	                              long size)
+	Name: overlaps
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileLock.html#overlaps-long-long-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		other::long
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract boolean isValid()
+	Name: isValid
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileLock.html#isValid--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract void release()
+	                      throws IOException
+	Name: release
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileLock.html#release--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void close()
+	                 throws IOException
+	Name: close
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileLock.html#close--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileLock.html#toString--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public abstract class MembershipKey
+extends Object
+Name: MembershipKey
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/MembershipKey.html
+Containing package: java.nio.channels
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected MembershipKey()
+	Name: MembershipKey
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/MembershipKey.html#MembershipKey--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MembershipKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::MembershipKey
+	}
+
+	[Function]
+	public abstract boolean isValid()
+	Name: isValid
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/MembershipKey.html#isValid--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MembershipKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract void drop()
+	Name: drop
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/MembershipKey.html#drop--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MembershipKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract MembershipKey block(InetAddress source)
+	                             throws IOException
+	Name: block
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/MembershipKey.html#block-java.net.InetAddress-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MembershipKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::InetAddress
+	
+		[result]
+		java.nio.channels::MembershipKey
+	}
+
+	[Function]
+	public abstract MembershipKey unblock(InetAddress source)
+	Name: unblock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/MembershipKey.html#unblock-java.net.InetAddress-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MembershipKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::InetAddress
+	
+		[result]
+		java.nio.channels::MembershipKey
+	}
+
+	[Function]
+	public abstract MulticastChannel channel()
+	Name: channel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/MembershipKey.html#channel--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MembershipKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::MulticastChannel
+	}
+
+	[Function]
+	public abstract InetAddress group()
+	Name: group
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/MembershipKey.html#group--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MembershipKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.net::InetAddress
+	}
+
+	[Function]
+	public abstract NetworkInterface networkInterface()
+	Name: networkInterface
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/MembershipKey.html#networkInterface--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MembershipKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.net::NetworkInterface
+	}
+
+	[Function]
+	public abstract InetAddress sourceAddress()
+	Name: sourceAddress
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/MembershipKey.html#sourceAddress--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MembershipKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.net::InetAddress
+	}
+}
+
+[Classifier]
+public abstract class Pipe
+extends Object
+Name: Pipe
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Pipe.html
+Containing package: java.nio.channels
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected Pipe()
+	Name: Pipe
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Pipe.html#Pipe--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Pipe
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::Pipe
+	}
+
+	[Function]
+	public abstract Pipe.SourceChannel source()
+	Name: source
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Pipe.html#source--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Pipe
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::Pipe.SourceChannel
+	}
+
+	[Function]
+	public abstract Pipe.SinkChannel sink()
+	Name: sink
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Pipe.html#sink--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Pipe
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::Pipe.SinkChannel
+	}
+
+	[Function]
+	public static Pipe open()
+	                 throws IOException
+	Name: open
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Pipe.html#open--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Pipe
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::Pipe
+	}
+}
+
+[Classifier]
+public abstract static class Pipe.SinkChannel
+extends AbstractSelectableChannel
+implements WritableByteChannel, GatheringByteChannel
+Name: Pipe.SinkChannel
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Pipe.SinkChannel.html
+Containing package: java.nio.channels
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=true
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.nio.channels::WritableByteChannel
+	java.nio.channels::GatheringByteChannel
+	java.nio.channels.spi::AbstractSelectableChannel
+}
+members {
+
+	[Function]
+	protected SinkChannel(SelectorProvider provider)
+	Name: SinkChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Pipe.SinkChannel.html#SinkChannel-java.nio.channels.spi.SelectorProvider-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Pipe.SinkChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels.spi::SelectorProvider
+	
+		[result]
+		java.nio.channels::Pipe.SinkChannel
+	}
+
+	[Function]
+	public final int validOps()
+	Name: validOps
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Pipe.SinkChannel.html#validOps--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Pipe.SinkChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public abstract static class Pipe.SourceChannel
+extends AbstractSelectableChannel
+implements ReadableByteChannel, ScatteringByteChannel
+Name: Pipe.SourceChannel
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Pipe.SourceChannel.html
+Containing package: java.nio.channels
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=true
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.nio.channels::ReadableByteChannel
+	java.nio.channels::ScatteringByteChannel
+	java.nio.channels.spi::AbstractSelectableChannel
+}
+members {
+
+	[Function]
+	protected SourceChannel(SelectorProvider provider)
+	Name: SourceChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Pipe.SourceChannel.html#SourceChannel-java.nio.channels.spi.SelectorProvider-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Pipe.SourceChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels.spi::SelectorProvider
+	
+		[result]
+		java.nio.channels::Pipe.SourceChannel
+	}
+
+	[Function]
+	public final int validOps()
+	Name: validOps
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Pipe.SourceChannel.html#validOps--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Pipe.SourceChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public abstract class SelectableChannel
+extends AbstractInterruptibleChannel
+implements Channel
+Name: SelectableChannel
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectableChannel.html
+Containing package: java.nio.channels
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.nio.channels.spi::AbstractSelectableChannel
+}
+supertypes {
+	java.nio.channels::Channel
+	java.nio.channels.spi::AbstractInterruptibleChannel
+}
+members {
+
+	[Function]
+	protected SelectableChannel()
+	Name: SelectableChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectableChannel.html#SelectableChannel--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: SelectableChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::SelectableChannel
+	}
+
+	[Function]
+	public abstract SelectorProvider provider()
+	Name: provider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectableChannel.html#provider--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectableChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels.spi::SelectorProvider
+	}
+
+	[Function]
+	public abstract int validOps()
+	Name: validOps
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectableChannel.html#validOps--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectableChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public abstract boolean isRegistered()
+	Name: isRegistered
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectableChannel.html#isRegistered--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectableChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract SelectionKey keyFor(Selector sel)
+	Name: keyFor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectableChannel.html#keyFor-java.nio.channels.Selector-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectableChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels::Selector
+	
+		[result]
+		java.nio.channels::SelectionKey
+	}
+
+	[Function]
+	public abstract SelectionKey register(Selector sel,
+	                                      int ops,
+	                                      Object att)
+	                               throws ClosedChannelException
+	Name: register
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectableChannel.html#register-java.nio.channels.Selector-int-java.lang.Object-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectableChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels::Selector
+		other::int
+		java.lang::Object
+	
+		[result]
+		java.nio.channels::SelectionKey
+	}
+
+	[Function]
+	public final SelectionKey register(Selector sel,
+	                                   int ops)
+	                            throws ClosedChannelException
+	Name: register
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectableChannel.html#register-java.nio.channels.Selector-int-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectableChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels::Selector
+		other::int
+	
+		[result]
+		java.nio.channels::SelectionKey
+	}
+
+	[Function]
+	public abstract SelectableChannel configureBlocking(boolean block)
+	                                             throws IOException
+	Name: configureBlocking
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectableChannel.html#configureBlocking-boolean-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectableChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::boolean
+	
+		[result]
+		java.nio.channels::SelectableChannel
+	}
+
+	[Function]
+	public abstract boolean isBlocking()
+	Name: isBlocking
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectableChannel.html#isBlocking--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectableChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract Object blockingLock()
+	Name: blockingLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectableChannel.html#blockingLock--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectableChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Object
+	}
+}
+
+[Classifier]
+public abstract class SelectionKey
+extends Object
+Name: SelectionKey
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectionKey.html
+Containing package: java.nio.channels
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.nio.channels.spi::AbstractSelectionKey
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static final int OP_READ
+	Name: OP_READ
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectionKey.html#OP_READ
+	Containing package: java.nio.channels
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: SelectionKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int OP_WRITE
+	Name: OP_WRITE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectionKey.html#OP_WRITE
+	Containing package: java.nio.channels
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: SelectionKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int OP_CONNECT
+	Name: OP_CONNECT
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectionKey.html#OP_CONNECT
+	Containing package: java.nio.channels
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: SelectionKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int OP_ACCEPT
+	Name: OP_ACCEPT
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectionKey.html#OP_ACCEPT
+	Containing package: java.nio.channels
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: SelectionKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected SelectionKey()
+	Name: SelectionKey
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectionKey.html#SelectionKey--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: SelectionKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::SelectionKey
+	}
+
+	[Function]
+	public abstract SelectableChannel channel()
+	Name: channel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectionKey.html#channel--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectionKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::SelectableChannel
+	}
+
+	[Function]
+	public abstract Selector selector()
+	Name: selector
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectionKey.html#selector--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectionKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::Selector
+	}
+
+	[Function]
+	public abstract boolean isValid()
+	Name: isValid
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectionKey.html#isValid--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectionKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract void cancel()
+	Name: cancel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectionKey.html#cancel--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectionKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract int interestOps()
+	Name: interestOps
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectionKey.html#interestOps--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectionKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public abstract SelectionKey interestOps(int ops)
+	Name: interestOps
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectionKey.html#interestOps-int-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectionKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		java.nio.channels::SelectionKey
+	}
+
+	[Function]
+	public abstract int readyOps()
+	Name: readyOps
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectionKey.html#readyOps--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectionKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public final boolean isReadable()
+	Name: isReadable
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectionKey.html#isReadable--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectionKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final boolean isWritable()
+	Name: isWritable
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectionKey.html#isWritable--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectionKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final boolean isConnectable()
+	Name: isConnectable
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectionKey.html#isConnectable--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectionKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final boolean isAcceptable()
+	Name: isAcceptable
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectionKey.html#isAcceptable--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectionKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final Object attach(Object ob)
+	Name: attach
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectionKey.html#attach-java.lang.Object-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectionKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public final Object attachment()
+	Name: attachment
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SelectionKey.html#attachment--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectionKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Object
+	}
+}
+
+[Classifier]
+public abstract class Selector
+extends Object
+implements Closeable
+Name: Selector
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Selector.html
+Containing package: java.nio.channels
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.nio.channels.spi::AbstractSelector
+}
+supertypes {
+	java.io::Closeable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected Selector()
+	Name: Selector
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Selector.html#Selector--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Selector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::Selector
+	}
+
+	[Function]
+	public static Selector open()
+	                     throws IOException
+	Name: open
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Selector.html#open--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Selector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::Selector
+	}
+
+	[Function]
+	public abstract boolean isOpen()
+	Name: isOpen
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Selector.html#isOpen--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Selector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract SelectorProvider provider()
+	Name: provider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Selector.html#provider--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Selector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels.spi::SelectorProvider
+	}
+
+	[Function]
+	public abstract Set<SelectionKey> keys()
+	Name: keys
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Selector.html#keys--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Selector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Set {
+			java.nio.channels::SelectionKey
+		}
+	}
+
+	[Function]
+	public abstract Set<SelectionKey> selectedKeys()
+	Name: selectedKeys
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Selector.html#selectedKeys--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Selector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Set {
+			java.nio.channels::SelectionKey
+		}
+	}
+
+	[Function]
+	public abstract int selectNow()
+	                       throws IOException
+	Name: selectNow
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Selector.html#selectNow--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Selector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public abstract int select(long timeout)
+	                    throws IOException
+	Name: select
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Selector.html#select-long-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Selector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public abstract int select()
+	                    throws IOException
+	Name: select
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Selector.html#select--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Selector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public abstract Selector wakeup()
+	Name: wakeup
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Selector.html#wakeup--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Selector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::Selector
+	}
+
+	[Function]
+	public abstract void close()
+	                    throws IOException
+	Name: close
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/Selector.html#close--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Selector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public abstract class ServerSocketChannel
+extends AbstractSelectableChannel
+implements NetworkChannel
+Name: ServerSocketChannel
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/ServerSocketChannel.html
+Containing package: java.nio.channels
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.nio.channels::NetworkChannel
+	java.nio.channels.spi::AbstractSelectableChannel
+}
+members {
+
+	[Function]
+	protected ServerSocketChannel(SelectorProvider provider)
+	Name: ServerSocketChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/ServerSocketChannel.html#ServerSocketChannel-java.nio.channels.spi.SelectorProvider-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ServerSocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels.spi::SelectorProvider
+	
+		[result]
+		java.nio.channels::ServerSocketChannel
+	}
+
+	[Function]
+	public static ServerSocketChannel open()
+	                                throws IOException
+	Name: open
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/ServerSocketChannel.html#open--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServerSocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::ServerSocketChannel
+	}
+
+	[Function]
+	public final int validOps()
+	Name: validOps
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/ServerSocketChannel.html#validOps--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServerSocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public final ServerSocketChannel bind(SocketAddress local)
+	                               throws IOException
+	Name: bind
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/ServerSocketChannel.html#bind-java.net.SocketAddress-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServerSocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::SocketAddress
+	
+		[result]
+		java.nio.channels::ServerSocketChannel
+	}
+
+	[Function]
+	public abstract ServerSocketChannel bind(SocketAddress local,
+	                                         int backlog)
+	                                  throws IOException
+	Name: bind
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/ServerSocketChannel.html#bind-java.net.SocketAddress-int-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServerSocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::SocketAddress
+		other::int
+	
+		[result]
+		java.nio.channels::ServerSocketChannel
+	}
+
+	[Function]
+	public abstract <T> ServerSocketChannel setOption(SocketOption<T> name,
+	                                                  T value)
+	                                           throws IOException
+	Name: setOption
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/ServerSocketChannel.html#setOption-java.net.SocketOption-T-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServerSocketChannel
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::SocketOption {
+			null::T
+		}
+		null::T
+	
+		[result]
+		java.nio.channels::ServerSocketChannel
+	}
+
+	[Function]
+	public abstract ServerSocket socket()
+	Name: socket
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/ServerSocketChannel.html#socket--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServerSocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.net::ServerSocket
+	}
+
+	[Function]
+	public abstract SocketChannel accept()
+	                              throws IOException
+	Name: accept
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/ServerSocketChannel.html#accept--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServerSocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::SocketChannel
+	}
+
+	[Function]
+	public abstract SocketAddress getLocalAddress()
+	                                       throws IOException
+	Name: getLocalAddress
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/ServerSocketChannel.html#getLocalAddress--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServerSocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.net::SocketAddress
+	}
+}
+
+[Classifier]
+public abstract class SocketChannel
+extends AbstractSelectableChannel
+implements ByteChannel, ScatteringByteChannel, GatheringByteChannel, NetworkChannel
+Name: SocketChannel
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SocketChannel.html
+Containing package: java.nio.channels
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.nio.channels::ByteChannel
+	java.nio.channels::ScatteringByteChannel
+	java.nio.channels::GatheringByteChannel
+	java.nio.channels::NetworkChannel
+	java.nio.channels.spi::AbstractSelectableChannel
+}
+members {
+
+	[Function]
+	protected SocketChannel(SelectorProvider provider)
+	Name: SocketChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SocketChannel.html#SocketChannel-java.nio.channels.spi.SelectorProvider-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: SocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels.spi::SelectorProvider
+	
+		[result]
+		java.nio.channels::SocketChannel
+	}
+
+	[Function]
+	public static SocketChannel open()
+	                          throws IOException
+	Name: open
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SocketChannel.html#open--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: SocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::SocketChannel
+	}
+
+	[Function]
+	public static SocketChannel open(SocketAddress remote)
+	                          throws IOException
+	Name: open
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SocketChannel.html#open-java.net.SocketAddress-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: SocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::SocketAddress
+	
+		[result]
+		java.nio.channels::SocketChannel
+	}
+
+	[Function]
+	public final int validOps()
+	Name: validOps
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SocketChannel.html#validOps--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public abstract SocketChannel bind(SocketAddress local)
+	                            throws IOException
+	Name: bind
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SocketChannel.html#bind-java.net.SocketAddress-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::SocketAddress
+	
+		[result]
+		java.nio.channels::SocketChannel
+	}
+
+	[Function]
+	public abstract <T> SocketChannel setOption(SocketOption<T> name,
+	                                            T value)
+	                                     throws IOException
+	Name: setOption
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SocketChannel.html#setOption-java.net.SocketOption-T-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SocketChannel
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::SocketOption {
+			null::T
+		}
+		null::T
+	
+		[result]
+		java.nio.channels::SocketChannel
+	}
+
+	[Function]
+	public abstract SocketChannel shutdownInput()
+	                                     throws IOException
+	Name: shutdownInput
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SocketChannel.html#shutdownInput--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::SocketChannel
+	}
+
+	[Function]
+	public abstract SocketChannel shutdownOutput()
+	                                      throws IOException
+	Name: shutdownOutput
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SocketChannel.html#shutdownOutput--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::SocketChannel
+	}
+
+	[Function]
+	public abstract Socket socket()
+	Name: socket
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SocketChannel.html#socket--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.net::Socket
+	}
+
+	[Function]
+	public abstract boolean isConnected()
+	Name: isConnected
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SocketChannel.html#isConnected--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract boolean isConnectionPending()
+	Name: isConnectionPending
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SocketChannel.html#isConnectionPending--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract boolean connect(SocketAddress remote)
+	                         throws IOException
+	Name: connect
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SocketChannel.html#connect-java.net.SocketAddress-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::SocketAddress
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract boolean finishConnect()
+	                               throws IOException
+	Name: finishConnect
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SocketChannel.html#finishConnect--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract SocketAddress getRemoteAddress()
+	                                        throws IOException
+	Name: getRemoteAddress
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SocketChannel.html#getRemoteAddress--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.net::SocketAddress
+	}
+
+	[Function]
+	public abstract int read(ByteBuffer dst)
+	                  throws IOException
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SocketChannel.html#read-java.nio.ByteBuffer-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public abstract long read(ByteBuffer[] dsts,
+	                          int offset,
+	                          int length)
+	                   throws IOException
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SocketChannel.html#read-java.nio.ByteBuffer:A-int-int-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.nio::ByteBuffer
+		}
+		other::int
+		other::int
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public final long read(ByteBuffer[] dsts)
+	                throws IOException
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SocketChannel.html#read-java.nio.ByteBuffer:A-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.nio::ByteBuffer
+		}
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public abstract int write(ByteBuffer src)
+	                   throws IOException
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SocketChannel.html#write-java.nio.ByteBuffer-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio::ByteBuffer
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public abstract long write(ByteBuffer[] srcs,
+	                           int offset,
+	                           int length)
+	                    throws IOException
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SocketChannel.html#write-java.nio.ByteBuffer:A-int-int-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.nio::ByteBuffer
+		}
+		other::int
+		other::int
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public final long write(ByteBuffer[] srcs)
+	                 throws IOException
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SocketChannel.html#write-java.nio.ByteBuffer:A-
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.nio::ByteBuffer
+		}
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public abstract SocketAddress getLocalAddress()
+	                                       throws IOException
+	Name: getLocalAddress
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/SocketChannel.html#getLocalAddress--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SocketChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.net::SocketAddress
+	}
+}
+
+[Classifier]
+public class AcceptPendingException
+extends IllegalStateException
+Name: AcceptPendingException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AcceptPendingException.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::IllegalStateException
+}
+members {
+
+	[Function]
+	public AcceptPendingException()
+	Name: AcceptPendingException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AcceptPendingException.html#AcceptPendingException--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AcceptPendingException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::AcceptPendingException
+	}
+}
+
+[Classifier]
+public class AlreadyBoundException
+extends IllegalStateException
+Name: AlreadyBoundException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AlreadyBoundException.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::IllegalStateException
+}
+members {
+
+	[Function]
+	public AlreadyBoundException()
+	Name: AlreadyBoundException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AlreadyBoundException.html#AlreadyBoundException--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AlreadyBoundException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::AlreadyBoundException
+	}
+}
+
+[Classifier]
+public class AlreadyConnectedException
+extends IllegalStateException
+Name: AlreadyConnectedException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AlreadyConnectedException.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::IllegalStateException
+}
+members {
+
+	[Function]
+	public AlreadyConnectedException()
+	Name: AlreadyConnectedException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AlreadyConnectedException.html#AlreadyConnectedException--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AlreadyConnectedException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::AlreadyConnectedException
+	}
+}
+
+[Classifier]
+public class AsynchronousCloseException
+extends ClosedChannelException
+Name: AsynchronousCloseException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousCloseException.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.nio.channels::ClosedByInterruptException
+}
+supertypes {
+	java.nio.channels::ClosedChannelException
+}
+members {
+
+	[Function]
+	public AsynchronousCloseException()
+	Name: AsynchronousCloseException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/AsynchronousCloseException.html#AsynchronousCloseException--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AsynchronousCloseException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::AsynchronousCloseException
+	}
+}
+
+[Classifier]
+public class CancelledKeyException
+extends IllegalStateException
+Name: CancelledKeyException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/CancelledKeyException.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::IllegalStateException
+}
+members {
+
+	[Function]
+	public CancelledKeyException()
+	Name: CancelledKeyException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/CancelledKeyException.html#CancelledKeyException--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: CancelledKeyException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::CancelledKeyException
+	}
+}
+
+[Classifier]
+public class ClosedByInterruptException
+extends AsynchronousCloseException
+Name: ClosedByInterruptException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/ClosedByInterruptException.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.nio.channels::AsynchronousCloseException
+}
+members {
+
+	[Function]
+	public ClosedByInterruptException()
+	Name: ClosedByInterruptException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/ClosedByInterruptException.html#ClosedByInterruptException--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ClosedByInterruptException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::ClosedByInterruptException
+	}
+}
+
+[Classifier]
+public class ClosedChannelException
+extends IOException
+Name: ClosedChannelException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/ClosedChannelException.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.nio.channels::AsynchronousCloseException
+}
+supertypes {
+	java.io::IOException
+}
+members {
+
+	[Function]
+	public ClosedChannelException()
+	Name: ClosedChannelException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/ClosedChannelException.html#ClosedChannelException--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ClosedChannelException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::ClosedChannelException
+	}
+}
+
+[Classifier]
+public class ClosedSelectorException
+extends IllegalStateException
+Name: ClosedSelectorException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/ClosedSelectorException.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::IllegalStateException
+}
+members {
+
+	[Function]
+	public ClosedSelectorException()
+	Name: ClosedSelectorException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/ClosedSelectorException.html#ClosedSelectorException--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ClosedSelectorException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::ClosedSelectorException
+	}
+}
+
+[Classifier]
+public class ConnectionPendingException
+extends IllegalStateException
+Name: ConnectionPendingException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/ConnectionPendingException.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::IllegalStateException
+}
+members {
+
+	[Function]
+	public ConnectionPendingException()
+	Name: ConnectionPendingException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/ConnectionPendingException.html#ConnectionPendingException--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ConnectionPendingException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::ConnectionPendingException
+	}
+}
+
+[Classifier]
+public class FileLockInterruptionException
+extends IOException
+Name: FileLockInterruptionException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileLockInterruptionException.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::IOException
+}
+members {
+
+	[Function]
+	public FileLockInterruptionException()
+	Name: FileLockInterruptionException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileLockInterruptionException.html#FileLockInterruptionException--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: FileLockInterruptionException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::FileLockInterruptionException
+	}
+}
+
+[Classifier]
+public class IllegalBlockingModeException
+extends IllegalStateException
+Name: IllegalBlockingModeException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/IllegalBlockingModeException.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::IllegalStateException
+}
+members {
+
+	[Function]
+	public IllegalBlockingModeException()
+	Name: IllegalBlockingModeException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/IllegalBlockingModeException.html#IllegalBlockingModeException--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: IllegalBlockingModeException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::IllegalBlockingModeException
+	}
+}
+
+[Classifier]
+public class IllegalChannelGroupException
+extends IllegalArgumentException
+Name: IllegalChannelGroupException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/IllegalChannelGroupException.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::IllegalArgumentException
+}
+members {
+
+	[Function]
+	public IllegalChannelGroupException()
+	Name: IllegalChannelGroupException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/IllegalChannelGroupException.html#IllegalChannelGroupException--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: IllegalChannelGroupException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::IllegalChannelGroupException
+	}
+}
+
+[Classifier]
+public class IllegalSelectorException
+extends IllegalArgumentException
+Name: IllegalSelectorException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/IllegalSelectorException.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::IllegalArgumentException
+}
+members {
+
+	[Function]
+	public IllegalSelectorException()
+	Name: IllegalSelectorException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/IllegalSelectorException.html#IllegalSelectorException--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: IllegalSelectorException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::IllegalSelectorException
+	}
+}
+
+[Classifier]
+public class InterruptedByTimeoutException
+extends IOException
+Name: InterruptedByTimeoutException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/InterruptedByTimeoutException.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::IOException
+}
+members {
+
+	[Function]
+	public InterruptedByTimeoutException()
+	Name: InterruptedByTimeoutException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/InterruptedByTimeoutException.html#InterruptedByTimeoutException--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: InterruptedByTimeoutException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::InterruptedByTimeoutException
+	}
+}
+
+[Classifier]
+public class NoConnectionPendingException
+extends IllegalStateException
+Name: NoConnectionPendingException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/NoConnectionPendingException.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::IllegalStateException
+}
+members {
+
+	[Function]
+	public NoConnectionPendingException()
+	Name: NoConnectionPendingException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/NoConnectionPendingException.html#NoConnectionPendingException--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: NoConnectionPendingException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::NoConnectionPendingException
+	}
+}
+
+[Classifier]
+public class NonReadableChannelException
+extends IllegalStateException
+Name: NonReadableChannelException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/NonReadableChannelException.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::IllegalStateException
+}
+members {
+
+	[Function]
+	public NonReadableChannelException()
+	Name: NonReadableChannelException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/NonReadableChannelException.html#NonReadableChannelException--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: NonReadableChannelException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::NonReadableChannelException
+	}
+}
+
+[Classifier]
+public class NonWritableChannelException
+extends IllegalStateException
+Name: NonWritableChannelException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/NonWritableChannelException.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::IllegalStateException
+}
+members {
+
+	[Function]
+	public NonWritableChannelException()
+	Name: NonWritableChannelException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/NonWritableChannelException.html#NonWritableChannelException--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: NonWritableChannelException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::NonWritableChannelException
+	}
+}
+
+[Classifier]
+public class NotYetBoundException
+extends IllegalStateException
+Name: NotYetBoundException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/NotYetBoundException.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::IllegalStateException
+}
+members {
+
+	[Function]
+	public NotYetBoundException()
+	Name: NotYetBoundException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/NotYetBoundException.html#NotYetBoundException--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: NotYetBoundException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::NotYetBoundException
+	}
+}
+
+[Classifier]
+public class NotYetConnectedException
+extends IllegalStateException
+Name: NotYetConnectedException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/NotYetConnectedException.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::IllegalStateException
+}
+members {
+
+	[Function]
+	public NotYetConnectedException()
+	Name: NotYetConnectedException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/NotYetConnectedException.html#NotYetConnectedException--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: NotYetConnectedException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::NotYetConnectedException
+	}
+}
+
+[Classifier]
+public class OverlappingFileLockException
+extends IllegalStateException
+Name: OverlappingFileLockException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/OverlappingFileLockException.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::IllegalStateException
+}
+members {
+
+	[Function]
+	public OverlappingFileLockException()
+	Name: OverlappingFileLockException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/OverlappingFileLockException.html#OverlappingFileLockException--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: OverlappingFileLockException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::OverlappingFileLockException
+	}
+}
+
+[Classifier]
+public class ReadPendingException
+extends IllegalStateException
+Name: ReadPendingException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/ReadPendingException.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::IllegalStateException
+}
+members {
+
+	[Function]
+	public ReadPendingException()
+	Name: ReadPendingException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/ReadPendingException.html#ReadPendingException--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ReadPendingException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::ReadPendingException
+	}
+}
+
+[Classifier]
+public class ShutdownChannelGroupException
+extends IllegalStateException
+Name: ShutdownChannelGroupException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/ShutdownChannelGroupException.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::IllegalStateException
+}
+members {
+
+	[Function]
+	public ShutdownChannelGroupException()
+	Name: ShutdownChannelGroupException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/ShutdownChannelGroupException.html#ShutdownChannelGroupException--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ShutdownChannelGroupException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::ShutdownChannelGroupException
+	}
+}
+
+[Classifier]
+public class UnresolvedAddressException
+extends IllegalArgumentException
+Name: UnresolvedAddressException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/UnresolvedAddressException.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::IllegalArgumentException
+}
+members {
+
+	[Function]
+	public UnresolvedAddressException()
+	Name: UnresolvedAddressException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/UnresolvedAddressException.html#UnresolvedAddressException--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: UnresolvedAddressException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::UnresolvedAddressException
+	}
+}
+
+[Classifier]
+public class UnsupportedAddressTypeException
+extends IllegalArgumentException
+Name: UnsupportedAddressTypeException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/UnsupportedAddressTypeException.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::IllegalArgumentException
+}
+members {
+
+	[Function]
+	public UnsupportedAddressTypeException()
+	Name: UnsupportedAddressTypeException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/UnsupportedAddressTypeException.html#UnsupportedAddressTypeException--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: UnsupportedAddressTypeException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::UnsupportedAddressTypeException
+	}
+}
+
+[Classifier]
+public class WritePendingException
+extends IllegalStateException
+Name: WritePendingException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/WritePendingException.html
+Containing package: java.nio.channels
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::IllegalStateException
+}
+members {
+
+	[Function]
+	public WritePendingException()
+	Name: WritePendingException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/WritePendingException.html#WritePendingException--
+	Containing package: java.nio.channels
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: WritePendingException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::WritePendingException
+	}
+}

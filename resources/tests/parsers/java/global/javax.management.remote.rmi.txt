@@ -1,0 +1,4820 @@
+[Package]
+Name: javax.management.remote.rmi
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/package-summary.html
+Containing package: javax.management.remote
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+public interface RMIConnection
+extends Closeable, Remote
+Name: RMIConnection
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnection.html
+Containing package: javax.management.remote.rmi
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.management.remote.rmi::RMIConnectionImpl_Stub
+	javax.management.remote.rmi::RMIConnectionImpl
+}
+supertypes {
+	java.io::Closeable
+	java.rmi::Remote
+}
+members {
+
+	[Function]
+	String getConnectionId()
+	                throws IOException
+	Name: getConnectionId
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnection.html#getConnectionId--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	void close()
+	    throws IOException
+	Name: close
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnection.html#close--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	ObjectInstance createMBean(String className,
+	                           ObjectName name,
+	                           Subject delegationSubject)
+	                    throws ReflectionException,
+	                           InstanceAlreadyExistsException,
+	                           MBeanRegistrationException,
+	                           MBeanException,
+	                           NotCompliantMBeanException,
+	                           IOException
+	Name: createMBean
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnection.html#createMBean-java.lang.String-javax.management.ObjectName-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.management::ObjectName
+		javax.security.auth::Subject
+	
+		[result]
+		javax.management::ObjectInstance
+	}
+
+	[Function]
+	ObjectInstance createMBean(String className,
+	                           ObjectName name,
+	                           ObjectName loaderName,
+	                           Subject delegationSubject)
+	                    throws ReflectionException,
+	                           InstanceAlreadyExistsException,
+	                           MBeanRegistrationException,
+	                           MBeanException,
+	                           NotCompliantMBeanException,
+	                           InstanceNotFoundException,
+	                           IOException
+	Name: createMBean
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnection.html#createMBean-java.lang.String-javax.management.ObjectName-javax.management.ObjectName-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.management::ObjectName
+		javax.management::ObjectName
+		javax.security.auth::Subject
+	
+		[result]
+		javax.management::ObjectInstance
+	}
+
+	[Function]
+	ObjectInstance createMBean(String className,
+	                           ObjectName name,
+	                           MarshalledObject params,
+	                           String[] signature,
+	                           Subject delegationSubject)
+	                    throws ReflectionException,
+	                           InstanceAlreadyExistsException,
+	                           MBeanRegistrationException,
+	                           MBeanException,
+	                           NotCompliantMBeanException,
+	                           IOException
+	Name: createMBean
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnection.html#createMBean-java.lang.String-javax.management.ObjectName-java.rmi.MarshalledObject-java.lang.String:A-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.management::ObjectName
+		java.rmi::MarshalledObject
+		other::[] {
+			java.lang::String
+		}
+		javax.security.auth::Subject
+	
+		[result]
+		javax.management::ObjectInstance
+	}
+
+	[Function]
+	ObjectInstance createMBean(String className,
+	                           ObjectName name,
+	                           ObjectName loaderName,
+	                           MarshalledObject params,
+	                           String[] signature,
+	                           Subject delegationSubject)
+	                    throws ReflectionException,
+	                           InstanceAlreadyExistsException,
+	                           MBeanRegistrationException,
+	                           MBeanException,
+	                           NotCompliantMBeanException,
+	                           InstanceNotFoundException,
+	                           IOException
+	Name: createMBean
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnection.html#createMBean-java.lang.String-javax.management.ObjectName-javax.management.ObjectName-java.rmi.MarshalledObject-java.lang.String:A-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.management::ObjectName
+		javax.management::ObjectName
+		java.rmi::MarshalledObject
+		other::[] {
+			java.lang::String
+		}
+		javax.security.auth::Subject
+	
+		[result]
+		javax.management::ObjectInstance
+	}
+
+	[Function]
+	void unregisterMBean(ObjectName name,
+	                     Subject delegationSubject)
+	              throws InstanceNotFoundException,
+	                     MBeanRegistrationException,
+	                     IOException
+	Name: unregisterMBean
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnection.html#unregisterMBean-javax.management.ObjectName-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		javax.security.auth::Subject
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	ObjectInstance getObjectInstance(ObjectName name,
+	                                 Subject delegationSubject)
+	                          throws InstanceNotFoundException,
+	                                 IOException
+	Name: getObjectInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnection.html#getObjectInstance-javax.management.ObjectName-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		javax.security.auth::Subject
+	
+		[result]
+		javax.management::ObjectInstance
+	}
+
+	[Function]
+	Set<ObjectInstance> queryMBeans(ObjectName name,
+	                                MarshalledObject query,
+	                                Subject delegationSubject)
+	                         throws IOException
+	Name: queryMBeans
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnection.html#queryMBeans-javax.management.ObjectName-java.rmi.MarshalledObject-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		java.rmi::MarshalledObject
+		javax.security.auth::Subject
+	
+		[result]
+		java.util::Set {
+			javax.management::ObjectInstance
+		}
+	}
+
+	[Function]
+	Set<ObjectName> queryNames(ObjectName name,
+	                           MarshalledObject query,
+	                           Subject delegationSubject)
+	                    throws IOException
+	Name: queryNames
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnection.html#queryNames-javax.management.ObjectName-java.rmi.MarshalledObject-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		java.rmi::MarshalledObject
+		javax.security.auth::Subject
+	
+		[result]
+		java.util::Set {
+			javax.management::ObjectName
+		}
+	}
+
+	[Function]
+	boolean isRegistered(ObjectName name,
+	                     Subject delegationSubject)
+	              throws IOException
+	Name: isRegistered
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnection.html#isRegistered-javax.management.ObjectName-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		javax.security.auth::Subject
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	Integer getMBeanCount(Subject delegationSubject)
+	               throws IOException
+	Name: getMBeanCount
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnection.html#getMBeanCount-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.security.auth::Subject
+	
+		[result]
+		java.lang::Integer
+	}
+
+	[Function]
+	Object getAttribute(ObjectName name,
+	                    String attribute,
+	                    Subject delegationSubject)
+	             throws MBeanException,
+	                    AttributeNotFoundException,
+	                    InstanceNotFoundException,
+	                    ReflectionException,
+	                    IOException
+	Name: getAttribute
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnection.html#getAttribute-javax.management.ObjectName-java.lang.String-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		java.lang::String
+		javax.security.auth::Subject
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	AttributeList getAttributes(ObjectName name,
+	                            String[] attributes,
+	                            Subject delegationSubject)
+	                     throws InstanceNotFoundException,
+	                            ReflectionException,
+	                            IOException
+	Name: getAttributes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnection.html#getAttributes-javax.management.ObjectName-java.lang.String:A-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		other::[] {
+			java.lang::String
+		}
+		javax.security.auth::Subject
+	
+		[result]
+		javax.management::AttributeList
+	}
+
+	[Function]
+	void setAttribute(ObjectName name,
+	                  MarshalledObject attribute,
+	                  Subject delegationSubject)
+	           throws InstanceNotFoundException,
+	                  AttributeNotFoundException,
+	                  InvalidAttributeValueException,
+	                  MBeanException,
+	                  ReflectionException,
+	                  IOException
+	Name: setAttribute
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnection.html#setAttribute-javax.management.ObjectName-java.rmi.MarshalledObject-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		java.rmi::MarshalledObject
+		javax.security.auth::Subject
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	AttributeList setAttributes(ObjectName name,
+	                            MarshalledObject attributes,
+	                            Subject delegationSubject)
+	                     throws InstanceNotFoundException,
+	                            ReflectionException,
+	                            IOException
+	Name: setAttributes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnection.html#setAttributes-javax.management.ObjectName-java.rmi.MarshalledObject-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		java.rmi::MarshalledObject
+		javax.security.auth::Subject
+	
+		[result]
+		javax.management::AttributeList
+	}
+
+	[Function]
+	Object invoke(ObjectName name,
+	              String operationName,
+	              MarshalledObject params,
+	              String[] signature,
+	              Subject delegationSubject)
+	       throws InstanceNotFoundException,
+	              MBeanException,
+	              ReflectionException,
+	              IOException
+	Name: invoke
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnection.html#invoke-javax.management.ObjectName-java.lang.String-java.rmi.MarshalledObject-java.lang.String:A-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		java.lang::String
+		java.rmi::MarshalledObject
+		other::[] {
+			java.lang::String
+		}
+		javax.security.auth::Subject
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	String getDefaultDomain(Subject delegationSubject)
+	                 throws IOException
+	Name: getDefaultDomain
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnection.html#getDefaultDomain-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.security.auth::Subject
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	String[] getDomains(Subject delegationSubject)
+	             throws IOException
+	Name: getDomains
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnection.html#getDomains-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.security.auth::Subject
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	MBeanInfo getMBeanInfo(ObjectName name,
+	                       Subject delegationSubject)
+	                throws InstanceNotFoundException,
+	                       IntrospectionException,
+	                       ReflectionException,
+	                       IOException
+	Name: getMBeanInfo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnection.html#getMBeanInfo-javax.management.ObjectName-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		javax.security.auth::Subject
+	
+		[result]
+		javax.management::MBeanInfo
+	}
+
+	[Function]
+	boolean isInstanceOf(ObjectName name,
+	                     String className,
+	                     Subject delegationSubject)
+	              throws InstanceNotFoundException,
+	                     IOException
+	Name: isInstanceOf
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnection.html#isInstanceOf-javax.management.ObjectName-java.lang.String-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		java.lang::String
+		javax.security.auth::Subject
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	void addNotificationListener(ObjectName name,
+	                             ObjectName listener,
+	                             MarshalledObject filter,
+	                             MarshalledObject handback,
+	                             Subject delegationSubject)
+	                      throws InstanceNotFoundException,
+	                             IOException
+	Name: addNotificationListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnection.html#addNotificationListener-javax.management.ObjectName-javax.management.ObjectName-java.rmi.MarshalledObject-java.rmi.MarshalledObject-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		javax.management::ObjectName
+		java.rmi::MarshalledObject
+		java.rmi::MarshalledObject
+		javax.security.auth::Subject
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void removeNotificationListener(ObjectName name,
+	                                ObjectName listener,
+	                                Subject delegationSubject)
+	                         throws InstanceNotFoundException,
+	                                ListenerNotFoundException,
+	                                IOException
+	Name: removeNotificationListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnection.html#removeNotificationListener-javax.management.ObjectName-javax.management.ObjectName-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		javax.management::ObjectName
+		javax.security.auth::Subject
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void removeNotificationListener(ObjectName name,
+	                                ObjectName listener,
+	                                MarshalledObject filter,
+	                                MarshalledObject handback,
+	                                Subject delegationSubject)
+	                         throws InstanceNotFoundException,
+	                                ListenerNotFoundException,
+	                                IOException
+	Name: removeNotificationListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnection.html#removeNotificationListener-javax.management.ObjectName-javax.management.ObjectName-java.rmi.MarshalledObject-java.rmi.MarshalledObject-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		javax.management::ObjectName
+		java.rmi::MarshalledObject
+		java.rmi::MarshalledObject
+		javax.security.auth::Subject
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	Integer[] addNotificationListeners(ObjectName[] names,
+	                                   MarshalledObject[] filters,
+	                                   Subject[] delegationSubjects)
+	                            throws InstanceNotFoundException,
+	                                   IOException
+	Name: addNotificationListeners
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnection.html#addNotificationListeners-javax.management.ObjectName:A-java.rmi.MarshalledObject:A-javax.security.auth.Subject:A-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			javax.management::ObjectName
+		}
+		other::[] {
+			java.rmi::MarshalledObject
+		}
+		other::[] {
+			javax.security.auth::Subject
+		}
+	
+		[result]
+		other::[] {
+			java.lang::Integer
+		}
+	}
+
+	[Function]
+	void removeNotificationListeners(ObjectName name,
+	                                 Integer[] listenerIDs,
+	                                 Subject delegationSubject)
+	                          throws InstanceNotFoundException,
+	                                 ListenerNotFoundException,
+	                                 IOException
+	Name: removeNotificationListeners
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnection.html#removeNotificationListeners-javax.management.ObjectName-java.lang.Integer:A-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		other::[] {
+			java.lang::Integer
+		}
+		javax.security.auth::Subject
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	NotificationResult fetchNotifications(long clientSequenceNumber,
+	                                      int maxNotifications,
+	                                      long timeout)
+	                               throws IOException
+	Name: fetchNotifications
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnection.html#fetchNotifications-long-int-long-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnection
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		other::int
+		other::long
+	
+		[result]
+		javax.management.remote::NotificationResult
+	}
+}
+
+[Classifier]
+public interface RMIServer
+extends Remote
+Name: RMIServer
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIServer.html
+Containing package: javax.management.remote.rmi
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.management.remote.rmi::RMIServerImpl
+	javax.management.remote.rmi::RMIServerImpl_Stub
+}
+supertypes {
+	java.rmi::Remote
+}
+members {
+
+	[Function]
+	String getVersion()
+	           throws RemoteException
+	Name: getVersion
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIServer.html#getVersion--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIServer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	RMIConnection newClient(Object credentials)
+	                 throws IOException
+	Name: newClient
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIServer.html#newClient-java.lang.Object-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIServer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		javax.management.remote.rmi::RMIConnection
+	}
+}
+
+[Classifier]
+public class RMIConnectionImpl
+extends Object
+implements RMIConnection, Unreferenced
+Name: RMIConnectionImpl
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html
+Containing package: javax.management.remote.rmi
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.management.remote.rmi::RMIConnection
+	java.rmi.server::Unreferenced
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public RMIConnectionImpl(RMIServerImpl rmiServer,
+	                         String connectionId,
+	                         ClassLoader defaultClassLoader,
+	                         Subject subject,
+	                         Map<String,?> env)
+	Name: RMIConnectionImpl
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#RMIConnectionImpl-javax.management.remote.rmi.RMIServerImpl-java.lang.String-java.lang.ClassLoader-javax.security.auth.Subject-java.util.Map-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management.remote.rmi::RMIServerImpl
+		java.lang::String
+		java.lang::ClassLoader
+		javax.security.auth::Subject
+		java.util::Map {
+			java.lang::String
+			?
+		}
+	
+		[result]
+		javax.management.remote.rmi::RMIConnectionImpl
+	}
+
+	[Function]
+	public String getConnectionId()
+	                       throws IOException
+	Name: getConnectionId
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#getConnectionId--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public void close()
+	           throws IOException
+	Name: close
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#close--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void unreferenced()
+	Name: unreferenced
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#unreferenced--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public ObjectInstance createMBean(String className,
+	                                  ObjectName name,
+	                                  Subject delegationSubject)
+	                           throws ReflectionException,
+	                                  InstanceAlreadyExistsException,
+	                                  MBeanRegistrationException,
+	                                  MBeanException,
+	                                  NotCompliantMBeanException,
+	                                  IOException
+	Name: createMBean
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#createMBean-java.lang.String-javax.management.ObjectName-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.management::ObjectName
+		javax.security.auth::Subject
+	
+		[result]
+		javax.management::ObjectInstance
+	}
+
+	[Function]
+	public ObjectInstance createMBean(String className,
+	                                  ObjectName name,
+	                                  ObjectName loaderName,
+	                                  Subject delegationSubject)
+	                           throws ReflectionException,
+	                                  InstanceAlreadyExistsException,
+	                                  MBeanRegistrationException,
+	                                  MBeanException,
+	                                  NotCompliantMBeanException,
+	                                  InstanceNotFoundException,
+	                                  IOException
+	Name: createMBean
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#createMBean-java.lang.String-javax.management.ObjectName-javax.management.ObjectName-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.management::ObjectName
+		javax.management::ObjectName
+		javax.security.auth::Subject
+	
+		[result]
+		javax.management::ObjectInstance
+	}
+
+	[Function]
+	public ObjectInstance createMBean(String className,
+	                                  ObjectName name,
+	                                  MarshalledObject params,
+	                                  String[] signature,
+	                                  Subject delegationSubject)
+	                           throws ReflectionException,
+	                                  InstanceAlreadyExistsException,
+	                                  MBeanRegistrationException,
+	                                  MBeanException,
+	                                  NotCompliantMBeanException,
+	                                  IOException
+	Name: createMBean
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#createMBean-java.lang.String-javax.management.ObjectName-java.rmi.MarshalledObject-java.lang.String:A-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.management::ObjectName
+		java.rmi::MarshalledObject
+		other::[] {
+			java.lang::String
+		}
+		javax.security.auth::Subject
+	
+		[result]
+		javax.management::ObjectInstance
+	}
+
+	[Function]
+	public ObjectInstance createMBean(String className,
+	                                  ObjectName name,
+	                                  ObjectName loaderName,
+	                                  MarshalledObject params,
+	                                  String[] signature,
+	                                  Subject delegationSubject)
+	                           throws ReflectionException,
+	                                  InstanceAlreadyExistsException,
+	                                  MBeanRegistrationException,
+	                                  MBeanException,
+	                                  NotCompliantMBeanException,
+	                                  InstanceNotFoundException,
+	                                  IOException
+	Name: createMBean
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#createMBean-java.lang.String-javax.management.ObjectName-javax.management.ObjectName-java.rmi.MarshalledObject-java.lang.String:A-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.management::ObjectName
+		javax.management::ObjectName
+		java.rmi::MarshalledObject
+		other::[] {
+			java.lang::String
+		}
+		javax.security.auth::Subject
+	
+		[result]
+		javax.management::ObjectInstance
+	}
+
+	[Function]
+	public void unregisterMBean(ObjectName name,
+	                            Subject delegationSubject)
+	                     throws InstanceNotFoundException,
+	                            MBeanRegistrationException,
+	                            IOException
+	Name: unregisterMBean
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#unregisterMBean-javax.management.ObjectName-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		javax.security.auth::Subject
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public ObjectInstance getObjectInstance(ObjectName name,
+	                                        Subject delegationSubject)
+	                                 throws InstanceNotFoundException,
+	                                        IOException
+	Name: getObjectInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#getObjectInstance-javax.management.ObjectName-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		javax.security.auth::Subject
+	
+		[result]
+		javax.management::ObjectInstance
+	}
+
+	[Function]
+	public Set<ObjectInstance> queryMBeans(ObjectName name,
+	                                       MarshalledObject query,
+	                                       Subject delegationSubject)
+	                                throws IOException
+	Name: queryMBeans
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#queryMBeans-javax.management.ObjectName-java.rmi.MarshalledObject-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		java.rmi::MarshalledObject
+		javax.security.auth::Subject
+	
+		[result]
+		java.util::Set {
+			javax.management::ObjectInstance
+		}
+	}
+
+	[Function]
+	public Set<ObjectName> queryNames(ObjectName name,
+	                                  MarshalledObject query,
+	                                  Subject delegationSubject)
+	                           throws IOException
+	Name: queryNames
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#queryNames-javax.management.ObjectName-java.rmi.MarshalledObject-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		java.rmi::MarshalledObject
+		javax.security.auth::Subject
+	
+		[result]
+		java.util::Set {
+			javax.management::ObjectName
+		}
+	}
+
+	[Function]
+	public boolean isRegistered(ObjectName name,
+	                            Subject delegationSubject)
+	                     throws IOException
+	Name: isRegistered
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#isRegistered-javax.management.ObjectName-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		javax.security.auth::Subject
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public Integer getMBeanCount(Subject delegationSubject)
+	                      throws IOException
+	Name: getMBeanCount
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#getMBeanCount-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.security.auth::Subject
+	
+		[result]
+		java.lang::Integer
+	}
+
+	[Function]
+	public Object getAttribute(ObjectName name,
+	                           String attribute,
+	                           Subject delegationSubject)
+	                    throws MBeanException,
+	                           AttributeNotFoundException,
+	                           InstanceNotFoundException,
+	                           ReflectionException,
+	                           IOException
+	Name: getAttribute
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#getAttribute-javax.management.ObjectName-java.lang.String-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		java.lang::String
+		javax.security.auth::Subject
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public AttributeList getAttributes(ObjectName name,
+	                                   String[] attributes,
+	                                   Subject delegationSubject)
+	                            throws InstanceNotFoundException,
+	                                   ReflectionException,
+	                                   IOException
+	Name: getAttributes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#getAttributes-javax.management.ObjectName-java.lang.String:A-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		other::[] {
+			java.lang::String
+		}
+		javax.security.auth::Subject
+	
+		[result]
+		javax.management::AttributeList
+	}
+
+	[Function]
+	public void setAttribute(ObjectName name,
+	                         MarshalledObject attribute,
+	                         Subject delegationSubject)
+	                  throws InstanceNotFoundException,
+	                         AttributeNotFoundException,
+	                         InvalidAttributeValueException,
+	                         MBeanException,
+	                         ReflectionException,
+	                         IOException
+	Name: setAttribute
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#setAttribute-javax.management.ObjectName-java.rmi.MarshalledObject-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		java.rmi::MarshalledObject
+		javax.security.auth::Subject
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public AttributeList setAttributes(ObjectName name,
+	                                   MarshalledObject attributes,
+	                                   Subject delegationSubject)
+	                            throws InstanceNotFoundException,
+	                                   ReflectionException,
+	                                   IOException
+	Name: setAttributes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#setAttributes-javax.management.ObjectName-java.rmi.MarshalledObject-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		java.rmi::MarshalledObject
+		javax.security.auth::Subject
+	
+		[result]
+		javax.management::AttributeList
+	}
+
+	[Function]
+	public Object invoke(ObjectName name,
+	                     String operationName,
+	                     MarshalledObject params,
+	                     String[] signature,
+	                     Subject delegationSubject)
+	              throws InstanceNotFoundException,
+	                     MBeanException,
+	                     ReflectionException,
+	                     IOException
+	Name: invoke
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#invoke-javax.management.ObjectName-java.lang.String-java.rmi.MarshalledObject-java.lang.String:A-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		java.lang::String
+		java.rmi::MarshalledObject
+		other::[] {
+			java.lang::String
+		}
+		javax.security.auth::Subject
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public String getDefaultDomain(Subject delegationSubject)
+	                        throws IOException
+	Name: getDefaultDomain
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#getDefaultDomain-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.security.auth::Subject
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String[] getDomains(Subject delegationSubject)
+	                    throws IOException
+	Name: getDomains
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#getDomains-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.security.auth::Subject
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public MBeanInfo getMBeanInfo(ObjectName name,
+	                              Subject delegationSubject)
+	                       throws InstanceNotFoundException,
+	                              IntrospectionException,
+	                              ReflectionException,
+	                              IOException
+	Name: getMBeanInfo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#getMBeanInfo-javax.management.ObjectName-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		javax.security.auth::Subject
+	
+		[result]
+		javax.management::MBeanInfo
+	}
+
+	[Function]
+	public boolean isInstanceOf(ObjectName name,
+	                            String className,
+	                            Subject delegationSubject)
+	                     throws InstanceNotFoundException,
+	                            IOException
+	Name: isInstanceOf
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#isInstanceOf-javax.management.ObjectName-java.lang.String-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		java.lang::String
+		javax.security.auth::Subject
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public Integer[] addNotificationListeners(ObjectName[] names,
+	                                          MarshalledObject[] filters,
+	                                          Subject[] delegationSubjects)
+	                                   throws InstanceNotFoundException,
+	                                          IOException
+	Name: addNotificationListeners
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#addNotificationListeners-javax.management.ObjectName:A-java.rmi.MarshalledObject:A-javax.security.auth.Subject:A-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			javax.management::ObjectName
+		}
+		other::[] {
+			java.rmi::MarshalledObject
+		}
+		other::[] {
+			javax.security.auth::Subject
+		}
+	
+		[result]
+		other::[] {
+			java.lang::Integer
+		}
+	}
+
+	[Function]
+	public void addNotificationListener(ObjectName name,
+	                                    ObjectName listener,
+	                                    MarshalledObject filter,
+	                                    MarshalledObject handback,
+	                                    Subject delegationSubject)
+	                             throws InstanceNotFoundException,
+	                                    IOException
+	Name: addNotificationListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#addNotificationListener-javax.management.ObjectName-javax.management.ObjectName-java.rmi.MarshalledObject-java.rmi.MarshalledObject-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		javax.management::ObjectName
+		java.rmi::MarshalledObject
+		java.rmi::MarshalledObject
+		javax.security.auth::Subject
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void removeNotificationListeners(ObjectName name,
+	                                        Integer[] listenerIDs,
+	                                        Subject delegationSubject)
+	                                 throws InstanceNotFoundException,
+	                                        ListenerNotFoundException,
+	                                        IOException
+	Name: removeNotificationListeners
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#removeNotificationListeners-javax.management.ObjectName-java.lang.Integer:A-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		other::[] {
+			java.lang::Integer
+		}
+		javax.security.auth::Subject
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void removeNotificationListener(ObjectName name,
+	                                       ObjectName listener,
+	                                       Subject delegationSubject)
+	                                throws InstanceNotFoundException,
+	                                       ListenerNotFoundException,
+	                                       IOException
+	Name: removeNotificationListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#removeNotificationListener-javax.management.ObjectName-javax.management.ObjectName-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		javax.management::ObjectName
+		javax.security.auth::Subject
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void removeNotificationListener(ObjectName name,
+	                                       ObjectName listener,
+	                                       MarshalledObject filter,
+	                                       MarshalledObject handback,
+	                                       Subject delegationSubject)
+	                                throws InstanceNotFoundException,
+	                                       ListenerNotFoundException,
+	                                       IOException
+	Name: removeNotificationListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#removeNotificationListener-javax.management.ObjectName-javax.management.ObjectName-java.rmi.MarshalledObject-java.rmi.MarshalledObject-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		javax.management::ObjectName
+		java.rmi::MarshalledObject
+		java.rmi::MarshalledObject
+		javax.security.auth::Subject
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public NotificationResult fetchNotifications(long clientSequenceNumber,
+	                                             int maxNotifications,
+	                                             long timeout)
+	                                      throws IOException
+	Name: fetchNotifications
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#fetchNotifications-long-int-long-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		other::int
+		other::long
+	
+		[result]
+		javax.management.remote::NotificationResult
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl.html#toString--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public final class RMIConnectionImpl_Stub
+extends RemoteStub
+implements RMIConnection
+Name: RMIConnectionImpl_Stub
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html
+Containing package: javax.management.remote.rmi
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.management.remote.rmi::RMIConnection
+	java.rmi.server::RemoteStub
+}
+members {
+
+	[Function]
+	public RMIConnectionImpl_Stub(RemoteRef ref)
+	Name: RMIConnectionImpl_Stub
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html#RMIConnectionImpl_Stub-java.rmi.server.RemoteRef-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RMIConnectionImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.server::RemoteRef
+	
+		[result]
+		javax.management.remote.rmi::RMIConnectionImpl_Stub
+	}
+
+	[Function]
+	public void addNotificationListener(ObjectName $param_ObjectName_1,
+	                                    ObjectName $param_ObjectName_2,
+	                                    MarshalledObject $param_MarshalledObject_3,
+	                                    MarshalledObject $param_MarshalledObject_4,
+	                                    Subject $param_Subject_5)
+	                             throws IOException,
+	                                    InstanceNotFoundException
+	Name: addNotificationListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html#addNotificationListener-javax.management.ObjectName-javax.management.ObjectName-java.rmi.MarshalledObject-java.rmi.MarshalledObject-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		javax.management::ObjectName
+		java.rmi::MarshalledObject
+		java.rmi::MarshalledObject
+		javax.security.auth::Subject
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Integer[] addNotificationListeners(ObjectName[] $param_arrayOf_ObjectName_1,
+	                                          MarshalledObject[] $param_arrayOf_MarshalledObject_2,
+	                                          Subject[] $param_arrayOf_Subject_3)
+	                                   throws IOException,
+	                                          InstanceNotFoundException
+	Name: addNotificationListeners
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html#addNotificationListeners-javax.management.ObjectName:A-java.rmi.MarshalledObject:A-javax.security.auth.Subject:A-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			javax.management::ObjectName
+		}
+		other::[] {
+			java.rmi::MarshalledObject
+		}
+		other::[] {
+			javax.security.auth::Subject
+		}
+	
+		[result]
+		other::[] {
+			java.lang::Integer
+		}
+	}
+
+	[Function]
+	public void close()
+	           throws IOException
+	Name: close
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html#close--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public ObjectInstance createMBean(String $param_String_1,
+	                                  ObjectName $param_ObjectName_2,
+	                                  MarshalledObject $param_MarshalledObject_3,
+	                                  String[] $param_arrayOf_String_4,
+	                                  Subject $param_Subject_5)
+	                           throws IOException,
+	                                  InstanceAlreadyExistsException,
+	                                  MBeanException,
+	                                  MBeanRegistrationException,
+	                                  NotCompliantMBeanException,
+	                                  ReflectionException
+	Name: createMBean
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html#createMBean-java.lang.String-javax.management.ObjectName-java.rmi.MarshalledObject-java.lang.String:A-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.management::ObjectName
+		java.rmi::MarshalledObject
+		other::[] {
+			java.lang::String
+		}
+		javax.security.auth::Subject
+	
+		[result]
+		javax.management::ObjectInstance
+	}
+
+	[Function]
+	public ObjectInstance createMBean(String $param_String_1,
+	                                  ObjectName $param_ObjectName_2,
+	                                  ObjectName $param_ObjectName_3,
+	                                  MarshalledObject $param_MarshalledObject_4,
+	                                  String[] $param_arrayOf_String_5,
+	                                  Subject $param_Subject_6)
+	                           throws IOException,
+	                                  InstanceAlreadyExistsException,
+	                                  InstanceNotFoundException,
+	                                  MBeanException,
+	                                  MBeanRegistrationException,
+	                                  NotCompliantMBeanException,
+	                                  ReflectionException
+	Name: createMBean
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html#createMBean-java.lang.String-javax.management.ObjectName-javax.management.ObjectName-java.rmi.MarshalledObject-java.lang.String:A-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.management::ObjectName
+		javax.management::ObjectName
+		java.rmi::MarshalledObject
+		other::[] {
+			java.lang::String
+		}
+		javax.security.auth::Subject
+	
+		[result]
+		javax.management::ObjectInstance
+	}
+
+	[Function]
+	public ObjectInstance createMBean(String $param_String_1,
+	                                  ObjectName $param_ObjectName_2,
+	                                  ObjectName $param_ObjectName_3,
+	                                  Subject $param_Subject_4)
+	                           throws IOException,
+	                                  InstanceAlreadyExistsException,
+	                                  InstanceNotFoundException,
+	                                  MBeanException,
+	                                  MBeanRegistrationException,
+	                                  NotCompliantMBeanException,
+	                                  ReflectionException
+	Name: createMBean
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html#createMBean-java.lang.String-javax.management.ObjectName-javax.management.ObjectName-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.management::ObjectName
+		javax.management::ObjectName
+		javax.security.auth::Subject
+	
+		[result]
+		javax.management::ObjectInstance
+	}
+
+	[Function]
+	public ObjectInstance createMBean(String $param_String_1,
+	                                  ObjectName $param_ObjectName_2,
+	                                  Subject $param_Subject_3)
+	                           throws IOException,
+	                                  InstanceAlreadyExistsException,
+	                                  MBeanException,
+	                                  MBeanRegistrationException,
+	                                  NotCompliantMBeanException,
+	                                  ReflectionException
+	Name: createMBean
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html#createMBean-java.lang.String-javax.management.ObjectName-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.management::ObjectName
+		javax.security.auth::Subject
+	
+		[result]
+		javax.management::ObjectInstance
+	}
+
+	[Function]
+	public NotificationResult fetchNotifications(long $param_long_1,
+	                                             int $param_int_2,
+	                                             long $param_long_3)
+	                                      throws IOException
+	Name: fetchNotifications
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html#fetchNotifications-long-int-long-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		other::int
+		other::long
+	
+		[result]
+		javax.management.remote::NotificationResult
+	}
+
+	[Function]
+	public Object getAttribute(ObjectName $param_ObjectName_1,
+	                           String $param_String_2,
+	                           Subject $param_Subject_3)
+	                    throws IOException,
+	                           AttributeNotFoundException,
+	                           InstanceNotFoundException,
+	                           MBeanException,
+	                           ReflectionException
+	Name: getAttribute
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html#getAttribute-javax.management.ObjectName-java.lang.String-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		java.lang::String
+		javax.security.auth::Subject
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public AttributeList getAttributes(ObjectName $param_ObjectName_1,
+	                                   String[] $param_arrayOf_String_2,
+	                                   Subject $param_Subject_3)
+	                            throws IOException,
+	                                   InstanceNotFoundException,
+	                                   ReflectionException
+	Name: getAttributes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html#getAttributes-javax.management.ObjectName-java.lang.String:A-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		other::[] {
+			java.lang::String
+		}
+		javax.security.auth::Subject
+	
+		[result]
+		javax.management::AttributeList
+	}
+
+	[Function]
+	public String getConnectionId()
+	                       throws IOException
+	Name: getConnectionId
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html#getConnectionId--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getDefaultDomain(Subject $param_Subject_1)
+	                        throws IOException
+	Name: getDefaultDomain
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html#getDefaultDomain-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.security.auth::Subject
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String[] getDomains(Subject $param_Subject_1)
+	                    throws IOException
+	Name: getDomains
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html#getDomains-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.security.auth::Subject
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public Integer getMBeanCount(Subject $param_Subject_1)
+	                      throws IOException
+	Name: getMBeanCount
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html#getMBeanCount-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.security.auth::Subject
+	
+		[result]
+		java.lang::Integer
+	}
+
+	[Function]
+	public MBeanInfo getMBeanInfo(ObjectName $param_ObjectName_1,
+	                              Subject $param_Subject_2)
+	                       throws IOException,
+	                              InstanceNotFoundException,
+	                              IntrospectionException,
+	                              ReflectionException
+	Name: getMBeanInfo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html#getMBeanInfo-javax.management.ObjectName-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		javax.security.auth::Subject
+	
+		[result]
+		javax.management::MBeanInfo
+	}
+
+	[Function]
+	public ObjectInstance getObjectInstance(ObjectName $param_ObjectName_1,
+	                                        Subject $param_Subject_2)
+	                                 throws IOException,
+	                                        InstanceNotFoundException
+	Name: getObjectInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html#getObjectInstance-javax.management.ObjectName-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		javax.security.auth::Subject
+	
+		[result]
+		javax.management::ObjectInstance
+	}
+
+	[Function]
+	public Object invoke(ObjectName $param_ObjectName_1,
+	                     String $param_String_2,
+	                     MarshalledObject $param_MarshalledObject_3,
+	                     String[] $param_arrayOf_String_4,
+	                     Subject $param_Subject_5)
+	              throws IOException,
+	                     InstanceNotFoundException,
+	                     MBeanException,
+	                     ReflectionException
+	Name: invoke
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html#invoke-javax.management.ObjectName-java.lang.String-java.rmi.MarshalledObject-java.lang.String:A-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		java.lang::String
+		java.rmi::MarshalledObject
+		other::[] {
+			java.lang::String
+		}
+		javax.security.auth::Subject
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public boolean isInstanceOf(ObjectName $param_ObjectName_1,
+	                            String $param_String_2,
+	                            Subject $param_Subject_3)
+	                     throws IOException,
+	                            InstanceNotFoundException
+	Name: isInstanceOf
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html#isInstanceOf-javax.management.ObjectName-java.lang.String-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		java.lang::String
+		javax.security.auth::Subject
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isRegistered(ObjectName $param_ObjectName_1,
+	                            Subject $param_Subject_2)
+	                     throws IOException
+	Name: isRegistered
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html#isRegistered-javax.management.ObjectName-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		javax.security.auth::Subject
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public Set queryMBeans(ObjectName $param_ObjectName_1,
+	                       MarshalledObject $param_MarshalledObject_2,
+	                       Subject $param_Subject_3)
+	                throws IOException
+	Name: queryMBeans
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html#queryMBeans-javax.management.ObjectName-java.rmi.MarshalledObject-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		java.rmi::MarshalledObject
+		javax.security.auth::Subject
+	
+		[result]
+		java.util::Set
+	}
+
+	[Function]
+	public Set queryNames(ObjectName $param_ObjectName_1,
+	                      MarshalledObject $param_MarshalledObject_2,
+	                      Subject $param_Subject_3)
+	               throws IOException
+	Name: queryNames
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html#queryNames-javax.management.ObjectName-java.rmi.MarshalledObject-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		java.rmi::MarshalledObject
+		javax.security.auth::Subject
+	
+		[result]
+		java.util::Set
+	}
+
+	[Function]
+	public void removeNotificationListener(ObjectName $param_ObjectName_1,
+	                                       ObjectName $param_ObjectName_2,
+	                                       MarshalledObject $param_MarshalledObject_3,
+	                                       MarshalledObject $param_MarshalledObject_4,
+	                                       Subject $param_Subject_5)
+	                                throws IOException,
+	                                       InstanceNotFoundException,
+	                                       ListenerNotFoundException
+	Name: removeNotificationListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html#removeNotificationListener-javax.management.ObjectName-javax.management.ObjectName-java.rmi.MarshalledObject-java.rmi.MarshalledObject-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		javax.management::ObjectName
+		java.rmi::MarshalledObject
+		java.rmi::MarshalledObject
+		javax.security.auth::Subject
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void removeNotificationListener(ObjectName $param_ObjectName_1,
+	                                       ObjectName $param_ObjectName_2,
+	                                       Subject $param_Subject_3)
+	                                throws IOException,
+	                                       InstanceNotFoundException,
+	                                       ListenerNotFoundException
+	Name: removeNotificationListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html#removeNotificationListener-javax.management.ObjectName-javax.management.ObjectName-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		javax.management::ObjectName
+		javax.security.auth::Subject
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void removeNotificationListeners(ObjectName $param_ObjectName_1,
+	                                        Integer[] $param_arrayOf_Integer_2,
+	                                        Subject $param_Subject_3)
+	                                 throws IOException,
+	                                        InstanceNotFoundException,
+	                                        ListenerNotFoundException
+	Name: removeNotificationListeners
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html#removeNotificationListeners-javax.management.ObjectName-java.lang.Integer:A-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		other::[] {
+			java.lang::Integer
+		}
+		javax.security.auth::Subject
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void setAttribute(ObjectName $param_ObjectName_1,
+	                         MarshalledObject $param_MarshalledObject_2,
+	                         Subject $param_Subject_3)
+	                  throws IOException,
+	                         AttributeNotFoundException,
+	                         InstanceNotFoundException,
+	                         InvalidAttributeValueException,
+	                         MBeanException,
+	                         ReflectionException
+	Name: setAttribute
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html#setAttribute-javax.management.ObjectName-java.rmi.MarshalledObject-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		java.rmi::MarshalledObject
+		javax.security.auth::Subject
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public AttributeList setAttributes(ObjectName $param_ObjectName_1,
+	                                   MarshalledObject $param_MarshalledObject_2,
+	                                   Subject $param_Subject_3)
+	                            throws IOException,
+	                                   InstanceNotFoundException,
+	                                   ReflectionException
+	Name: setAttributes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html#setAttributes-javax.management.ObjectName-java.rmi.MarshalledObject-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		java.rmi::MarshalledObject
+		javax.security.auth::Subject
+	
+		[result]
+		javax.management::AttributeList
+	}
+
+	[Function]
+	public void unregisterMBean(ObjectName $param_ObjectName_1,
+	                            Subject $param_Subject_2)
+	                     throws IOException,
+	                            InstanceNotFoundException,
+	                            MBeanRegistrationException
+	Name: unregisterMBean
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectionImpl_Stub.html#unregisterMBean-javax.management.ObjectName-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectionImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		javax.security.auth::Subject
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public class RMIConnector
+extends Object
+implements JMXConnector, Serializable, JMXAddressable
+Name: RMIConnector
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnector.html
+Containing package: javax.management.remote.rmi
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.management.remote::JMXConnector
+	java.io::Serializable
+	javax.management.remote::JMXAddressable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public RMIConnector(JMXServiceURL url,
+	                    Map<String,?> environment)
+	Name: RMIConnector
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnector.html#RMIConnector-javax.management.remote.JMXServiceURL-java.util.Map-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RMIConnector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management.remote::JMXServiceURL
+		java.util::Map {
+			java.lang::String
+			?
+		}
+	
+		[result]
+		javax.management.remote.rmi::RMIConnector
+	}
+
+	[Function]
+	public RMIConnector(RMIServer rmiServer,
+	                    Map<String,?> environment)
+	Name: RMIConnector
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnector.html#RMIConnector-javax.management.remote.rmi.RMIServer-java.util.Map-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RMIConnector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management.remote.rmi::RMIServer
+		java.util::Map {
+			java.lang::String
+			?
+		}
+	
+		[result]
+		javax.management.remote.rmi::RMIConnector
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnector.html#toString--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public JMXServiceURL getAddress()
+	Name: getAddress
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnector.html#getAddress--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management.remote::JMXServiceURL
+	}
+
+	[Function]
+	public void connect()
+	             throws IOException
+	Name: connect
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnector.html#connect--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void connect(Map<String,?> environment)
+	             throws IOException
+	Name: connect
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnector.html#connect-java.util.Map-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Map {
+			java.lang::String
+			?
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public String getConnectionId()
+	                       throws IOException
+	Name: getConnectionId
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnector.html#getConnectionId--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public MBeanServerConnection getMBeanServerConnection()
+	                                               throws IOException
+	Name: getMBeanServerConnection
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnector.html#getMBeanServerConnection--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management::MBeanServerConnection
+	}
+
+	[Function]
+	public MBeanServerConnection getMBeanServerConnection(Subject delegationSubject)
+	                                               throws IOException
+	Name: getMBeanServerConnection
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnector.html#getMBeanServerConnection-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.security.auth::Subject
+	
+		[result]
+		javax.management::MBeanServerConnection
+	}
+
+	[Function]
+	public void addConnectionNotificationListener(NotificationListener listener,
+	                                              NotificationFilter filter,
+	                                              Object handback)
+	Name: addConnectionNotificationListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnector.html#addConnectionNotificationListener-javax.management.NotificationListener-javax.management.NotificationFilter-java.lang.Object-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::NotificationListener
+		javax.management::NotificationFilter
+		java.lang::Object
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void removeConnectionNotificationListener(NotificationListener listener)
+	                                          throws ListenerNotFoundException
+	Name: removeConnectionNotificationListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnector.html#removeConnectionNotificationListener-javax.management.NotificationListener-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::NotificationListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void removeConnectionNotificationListener(NotificationListener listener,
+	                                                 NotificationFilter filter,
+	                                                 Object handback)
+	                                          throws ListenerNotFoundException
+	Name: removeConnectionNotificationListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnector.html#removeConnectionNotificationListener-javax.management.NotificationListener-javax.management.NotificationFilter-java.lang.Object-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::NotificationListener
+		javax.management::NotificationFilter
+		java.lang::Object
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void close()
+	           throws IOException
+	Name: close
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnector.html#close--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public class RMIConnectorServer
+extends JMXConnectorServer
+Name: RMIConnectorServer
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectorServer.html
+Containing package: javax.management.remote.rmi
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.management.remote::JMXConnectorServer
+}
+members {
+
+	[Function]
+	public static final String JNDI_REBIND_ATTRIBUTE
+	Name: JNDI_REBIND_ATTRIBUTE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectorServer.html#JNDI_REBIND_ATTRIBUTE
+	Containing package: javax.management.remote.rmi
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: RMIConnectorServer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final String RMI_CLIENT_SOCKET_FACTORY_ATTRIBUTE
+	Name: RMI_CLIENT_SOCKET_FACTORY_ATTRIBUTE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectorServer.html#RMI_CLIENT_SOCKET_FACTORY_ATTRIBUTE
+	Containing package: javax.management.remote.rmi
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: RMIConnectorServer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final String RMI_SERVER_SOCKET_FACTORY_ATTRIBUTE
+	Name: RMI_SERVER_SOCKET_FACTORY_ATTRIBUTE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectorServer.html#RMI_SERVER_SOCKET_FACTORY_ATTRIBUTE
+	Containing package: javax.management.remote.rmi
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: RMIConnectorServer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public RMIConnectorServer(JMXServiceURL url,
+	                          Map<String,?> environment)
+	                   throws IOException
+	Name: RMIConnectorServer
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectorServer.html#RMIConnectorServer-javax.management.remote.JMXServiceURL-java.util.Map-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RMIConnectorServer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management.remote::JMXServiceURL
+		java.util::Map {
+			java.lang::String
+			?
+		}
+	
+		[result]
+		javax.management.remote.rmi::RMIConnectorServer
+	}
+
+	[Function]
+	public RMIConnectorServer(JMXServiceURL url,
+	                          Map<String,?> environment,
+	                          MBeanServer mbeanServer)
+	                   throws IOException
+	Name: RMIConnectorServer
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectorServer.html#RMIConnectorServer-javax.management.remote.JMXServiceURL-java.util.Map-javax.management.MBeanServer-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RMIConnectorServer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management.remote::JMXServiceURL
+		java.util::Map {
+			java.lang::String
+			?
+		}
+		javax.management::MBeanServer
+	
+		[result]
+		javax.management.remote.rmi::RMIConnectorServer
+	}
+
+	[Function]
+	public RMIConnectorServer(JMXServiceURL url,
+	                          Map<String,?> environment,
+	                          RMIServerImpl rmiServerImpl,
+	                          MBeanServer mbeanServer)
+	                   throws IOException
+	Name: RMIConnectorServer
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectorServer.html#RMIConnectorServer-javax.management.remote.JMXServiceURL-java.util.Map-javax.management.remote.rmi.RMIServerImpl-javax.management.MBeanServer-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RMIConnectorServer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management.remote::JMXServiceURL
+		java.util::Map {
+			java.lang::String
+			?
+		}
+		javax.management.remote.rmi::RMIServerImpl
+		javax.management::MBeanServer
+	
+		[result]
+		javax.management.remote.rmi::RMIConnectorServer
+	}
+
+	[Function]
+	public JMXConnector toJMXConnector(Map<String,?> env)
+	                            throws IOException
+	Name: toJMXConnector
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectorServer.html#toJMXConnector-java.util.Map-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectorServer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Map {
+			java.lang::String
+			?
+		}
+	
+		[result]
+		javax.management.remote::JMXConnector
+	}
+
+	[Function]
+	public void start()
+	           throws IOException
+	Name: start
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectorServer.html#start--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectorServer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void stop()
+	          throws IOException
+	Name: stop
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectorServer.html#stop--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectorServer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean isActive()
+	Name: isActive
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectorServer.html#isActive--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectorServer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public JMXServiceURL getAddress()
+	Name: getAddress
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectorServer.html#getAddress--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectorServer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management.remote::JMXServiceURL
+	}
+
+	[Function]
+	public Map<String,?> getAttributes()
+	Name: getAttributes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectorServer.html#getAttributes--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectorServer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Map {
+			java.lang::String
+			?
+		}
+	}
+
+	[Function]
+	public void setMBeanServerForwarder(MBeanServerForwarder mbsf)
+	Name: setMBeanServerForwarder
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectorServer.html#setMBeanServerForwarder-javax.management.remote.MBeanServerForwarder-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectorServer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management.remote::MBeanServerForwarder
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void connectionOpened(String connectionId,
+	                                String message,
+	                                Object userData)
+	Name: connectionOpened
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectorServer.html#connectionOpened-java.lang.String-java.lang.String-java.lang.Object-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectorServer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		java.lang::Object
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void connectionClosed(String connectionId,
+	                                String message,
+	                                Object userData)
+	Name: connectionClosed
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectorServer.html#connectionClosed-java.lang.String-java.lang.String-java.lang.Object-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectorServer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		java.lang::Object
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void connectionFailed(String connectionId,
+	                                String message,
+	                                Object userData)
+	Name: connectionFailed
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIConnectorServer.html#connectionFailed-java.lang.String-java.lang.String-java.lang.Object-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIConnectorServer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		java.lang::Object
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public class RMIIIOPServerImpl
+extends RMIServerImpl
+Name: RMIIIOPServerImpl
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIIIOPServerImpl.html
+Containing package: javax.management.remote.rmi
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.management.remote.rmi::RMIServerImpl
+}
+members {
+
+	[Function]
+	public RMIIIOPServerImpl(Map<String,?> env)
+	                  throws IOException
+	Name: RMIIIOPServerImpl
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIIIOPServerImpl.html#RMIIIOPServerImpl-java.util.Map-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RMIIIOPServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Map {
+			java.lang::String
+			?
+		}
+	
+		[result]
+		javax.management.remote.rmi::RMIIIOPServerImpl
+	}
+
+	[Function]
+	protected void export()
+	               throws IOException
+	Name: export
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIIIOPServerImpl.html#export--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIIIOPServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected String getProtocol()
+	Name: getProtocol
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIIIOPServerImpl.html#getProtocol--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIIIOPServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public Remote toStub()
+	              throws IOException
+	Name: toStub
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIIIOPServerImpl.html#toStub--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIIIOPServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.rmi::Remote
+	}
+
+	[Function]
+	protected RMIConnection makeClient(String connectionId,
+	                                   Subject subject)
+	                            throws IOException
+	Name: makeClient
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIIIOPServerImpl.html#makeClient-java.lang.String-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIIIOPServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.security.auth::Subject
+	
+		[result]
+		javax.management.remote.rmi::RMIConnection
+	}
+
+	[Function]
+	protected void closeClient(RMIConnection client)
+	                    throws IOException
+	Name: closeClient
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIIIOPServerImpl.html#closeClient-javax.management.remote.rmi.RMIConnection-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIIIOPServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management.remote.rmi::RMIConnection
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void closeServer()
+	                    throws IOException
+	Name: closeServer
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIIIOPServerImpl.html#closeServer--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIIIOPServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public class RMIJRMPServerImpl
+extends RMIServerImpl
+Name: RMIJRMPServerImpl
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIJRMPServerImpl.html
+Containing package: javax.management.remote.rmi
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.management.remote.rmi::RMIServerImpl
+}
+members {
+
+	[Function]
+	public RMIJRMPServerImpl(int port,
+	                         RMIClientSocketFactory csf,
+	                         RMIServerSocketFactory ssf,
+	                         Map<String,?> env)
+	                  throws IOException
+	Name: RMIJRMPServerImpl
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIJRMPServerImpl.html#RMIJRMPServerImpl-int-java.rmi.server.RMIClientSocketFactory-java.rmi.server.RMIServerSocketFactory-java.util.Map-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RMIJRMPServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.rmi.server::RMIClientSocketFactory
+		java.rmi.server::RMIServerSocketFactory
+		java.util::Map {
+			java.lang::String
+			?
+		}
+	
+		[result]
+		javax.management.remote.rmi::RMIJRMPServerImpl
+	}
+
+	[Function]
+	protected void export()
+	               throws IOException
+	Name: export
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIJRMPServerImpl.html#export--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIJRMPServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected String getProtocol()
+	Name: getProtocol
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIJRMPServerImpl.html#getProtocol--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIJRMPServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public Remote toStub()
+	              throws IOException
+	Name: toStub
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIJRMPServerImpl.html#toStub--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIJRMPServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.rmi::Remote
+	}
+
+	[Function]
+	protected RMIConnection makeClient(String connectionId,
+	                                   Subject subject)
+	                            throws IOException
+	Name: makeClient
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIJRMPServerImpl.html#makeClient-java.lang.String-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIJRMPServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.security.auth::Subject
+	
+		[result]
+		javax.management.remote.rmi::RMIConnection
+	}
+
+	[Function]
+	protected void closeClient(RMIConnection client)
+	                    throws IOException
+	Name: closeClient
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIJRMPServerImpl.html#closeClient-javax.management.remote.rmi.RMIConnection-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIJRMPServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management.remote.rmi::RMIConnection
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void closeServer()
+	                    throws IOException
+	Name: closeServer
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIJRMPServerImpl.html#closeServer--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIJRMPServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public abstract class RMIServerImpl
+extends Object
+implements Closeable, RMIServer
+Name: RMIServerImpl
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIServerImpl.html
+Containing package: javax.management.remote.rmi
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.management.remote.rmi::RMIIIOPServerImpl
+	javax.management.remote.rmi::RMIJRMPServerImpl
+}
+supertypes {
+	java.io::Closeable
+	javax.management.remote.rmi::RMIServer
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public RMIServerImpl(Map<String,?> env)
+	Name: RMIServerImpl
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIServerImpl.html#RMIServerImpl-java.util.Map-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RMIServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Map {
+			java.lang::String
+			?
+		}
+	
+		[result]
+		javax.management.remote.rmi::RMIServerImpl
+	}
+
+	[Function]
+	protected abstract void export()
+	                        throws IOException
+	Name: export
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIServerImpl.html#export--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract Remote toStub()
+	                       throws IOException
+	Name: toStub
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIServerImpl.html#toStub--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.rmi::Remote
+	}
+
+	[Function]
+	public void setDefaultClassLoader(ClassLoader cl)
+	Name: setDefaultClassLoader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIServerImpl.html#setDefaultClassLoader-java.lang.ClassLoader-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::ClassLoader
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public ClassLoader getDefaultClassLoader()
+	Name: getDefaultClassLoader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIServerImpl.html#getDefaultClassLoader--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::ClassLoader
+	}
+
+	[Function]
+	public void setMBeanServer(MBeanServer mbs)
+	Name: setMBeanServer
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIServerImpl.html#setMBeanServer-javax.management.MBeanServer-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::MBeanServer
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public MBeanServer getMBeanServer()
+	Name: getMBeanServer
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIServerImpl.html#getMBeanServer--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management::MBeanServer
+	}
+
+	[Function]
+	public String getVersion()
+	Name: getVersion
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIServerImpl.html#getVersion--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public RMIConnection newClient(Object credentials)
+	                        throws IOException
+	Name: newClient
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIServerImpl.html#newClient-java.lang.Object-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		javax.management.remote.rmi::RMIConnection
+	}
+
+	[Function]
+	protected abstract RMIConnection makeClient(String connectionId,
+	                                            Subject subject)
+	                                     throws IOException
+	Name: makeClient
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIServerImpl.html#makeClient-java.lang.String-javax.security.auth.Subject-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.security.auth::Subject
+	
+		[result]
+		javax.management.remote.rmi::RMIConnection
+	}
+
+	[Function]
+	protected abstract void closeClient(RMIConnection client)
+	                             throws IOException
+	Name: closeClient
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIServerImpl.html#closeClient-javax.management.remote.rmi.RMIConnection-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management.remote.rmi::RMIConnection
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected abstract String getProtocol()
+	Name: getProtocol
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIServerImpl.html#getProtocol--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	protected void clientClosed(RMIConnection client)
+	                     throws IOException
+	Name: clientClosed
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIServerImpl.html#clientClosed-javax.management.remote.rmi.RMIConnection-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management.remote.rmi::RMIConnection
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void close()
+	           throws IOException
+	Name: close
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIServerImpl.html#close--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected abstract void closeServer()
+	                             throws IOException
+	Name: closeServer
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIServerImpl.html#closeServer--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIServerImpl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public final class RMIServerImpl_Stub
+extends RemoteStub
+implements RMIServer
+Name: RMIServerImpl_Stub
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIServerImpl_Stub.html
+Containing package: javax.management.remote.rmi
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.management.remote.rmi::RMIServer
+	java.rmi.server::RemoteStub
+}
+members {
+
+	[Function]
+	public RMIServerImpl_Stub(RemoteRef ref)
+	Name: RMIServerImpl_Stub
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIServerImpl_Stub.html#RMIServerImpl_Stub-java.rmi.server.RemoteRef-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RMIServerImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.server::RemoteRef
+	
+		[result]
+		javax.management.remote.rmi::RMIServerImpl_Stub
+	}
+
+	[Function]
+	public String getVersion()
+	                  throws RemoteException
+	Name: getVersion
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIServerImpl_Stub.html#getVersion--
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIServerImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public RMIConnection newClient(Object $param_Object_1)
+	                        throws IOException
+	Name: newClient
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/remote/rmi/RMIServerImpl_Stub.html#newClient-java.lang.Object-
+	Containing package: javax.management.remote.rmi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RMIServerImpl_Stub
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		javax.management.remote.rmi::RMIConnection
+	}
+}

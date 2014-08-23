@@ -1,0 +1,2727 @@
+[Package]
+Name: javax.swing.undo
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/package-summary.html
+Containing package: javax.swing
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+public interface StateEditable
+Name: StateEditable
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/StateEditable.html
+Containing package: javax.swing.undo
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	static final String RCSID
+	Name: RCSID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/StateEditable.html#RCSID
+	Containing package: javax.swing.undo
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: StateEditable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	void storeState(Hashtable<Object,Object> state)
+	Name: storeState
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/StateEditable.html#storeState-java.util.Hashtable-
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StateEditable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Hashtable {
+			java.lang::Object
+			java.lang::Object
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void restoreState(Hashtable<?,?> state)
+	Name: restoreState
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/StateEditable.html#restoreState-java.util.Hashtable-
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StateEditable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Hashtable {
+			?
+			?
+		}
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface UndoableEdit
+Name: UndoableEdit
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEdit.html
+Containing package: javax.swing.undo
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.swing.undo::AbstractUndoableEdit
+}
+supertypes {
+}
+members {
+
+	[Function]
+	void undo()
+	   throws CannotUndoException
+	Name: undo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEdit.html#undo--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoableEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	boolean canUndo()
+	Name: canUndo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEdit.html#canUndo--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoableEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	void redo()
+	   throws CannotRedoException
+	Name: redo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEdit.html#redo--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoableEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	boolean canRedo()
+	Name: canRedo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEdit.html#canRedo--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoableEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	void die()
+	Name: die
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEdit.html#die--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoableEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	boolean addEdit(UndoableEdit anEdit)
+	Name: addEdit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEdit.html#addEdit-javax.swing.undo.UndoableEdit-
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoableEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.swing.undo::UndoableEdit
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean replaceEdit(UndoableEdit anEdit)
+	Name: replaceEdit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEdit.html#replaceEdit-javax.swing.undo.UndoableEdit-
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoableEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.swing.undo::UndoableEdit
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean isSignificant()
+	Name: isSignificant
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEdit.html#isSignificant--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoableEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	String getPresentationName()
+	Name: getPresentationName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEdit.html#getPresentationName--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoableEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	String getUndoPresentationName()
+	Name: getUndoPresentationName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEdit.html#getUndoPresentationName--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoableEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	String getRedoPresentationName()
+	Name: getRedoPresentationName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEdit.html#getRedoPresentationName--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoableEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public class AbstractUndoableEdit
+extends Object
+implements UndoableEdit, Serializable
+Name: AbstractUndoableEdit
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/AbstractUndoableEdit.html
+Containing package: javax.swing.undo
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.swing.text::DefaultStyledDocument.AttributeUndoableEdit
+	javax.swing.text::AbstractDocument.ElementEdit
+	javax.swing.undo::StateEdit
+	javax.swing.undo::CompoundEdit
+}
+supertypes {
+	javax.swing.undo::UndoableEdit
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected static final String UndoName
+	Name: UndoName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/AbstractUndoableEdit.html#UndoName
+	Containing package: javax.swing.undo
+	attributes {
+		final=true
+		scope=protected
+		static=true
+		memberType=field
+	}
+	Containing type: AbstractUndoableEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	protected static final String RedoName
+	Name: RedoName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/AbstractUndoableEdit.html#RedoName
+	Containing package: javax.swing.undo
+	attributes {
+		final=true
+		scope=protected
+		static=true
+		memberType=field
+	}
+	Containing type: AbstractUndoableEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public AbstractUndoableEdit()
+	Name: AbstractUndoableEdit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/AbstractUndoableEdit.html#AbstractUndoableEdit--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AbstractUndoableEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.swing.undo::AbstractUndoableEdit
+	}
+
+	[Function]
+	public void die()
+	Name: die
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/AbstractUndoableEdit.html#die--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractUndoableEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void undo()
+	          throws CannotUndoException
+	Name: undo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/AbstractUndoableEdit.html#undo--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractUndoableEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean canUndo()
+	Name: canUndo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/AbstractUndoableEdit.html#canUndo--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractUndoableEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void redo()
+	          throws CannotRedoException
+	Name: redo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/AbstractUndoableEdit.html#redo--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractUndoableEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean canRedo()
+	Name: canRedo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/AbstractUndoableEdit.html#canRedo--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractUndoableEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean addEdit(UndoableEdit anEdit)
+	Name: addEdit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/AbstractUndoableEdit.html#addEdit-javax.swing.undo.UndoableEdit-
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractUndoableEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.swing.undo::UndoableEdit
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean replaceEdit(UndoableEdit anEdit)
+	Name: replaceEdit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/AbstractUndoableEdit.html#replaceEdit-javax.swing.undo.UndoableEdit-
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractUndoableEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.swing.undo::UndoableEdit
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isSignificant()
+	Name: isSignificant
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/AbstractUndoableEdit.html#isSignificant--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractUndoableEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public String getPresentationName()
+	Name: getPresentationName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/AbstractUndoableEdit.html#getPresentationName--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractUndoableEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getUndoPresentationName()
+	Name: getUndoPresentationName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/AbstractUndoableEdit.html#getUndoPresentationName--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractUndoableEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getRedoPresentationName()
+	Name: getRedoPresentationName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/AbstractUndoableEdit.html#getRedoPresentationName--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractUndoableEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/AbstractUndoableEdit.html#toString--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractUndoableEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public class CompoundEdit
+extends AbstractUndoableEdit
+Name: CompoundEdit
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/CompoundEdit.html
+Containing package: javax.swing.undo
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.swing.undo::UndoManager
+	javax.swing.text::AbstractDocument.DefaultDocumentEvent
+}
+supertypes {
+	javax.swing.undo::AbstractUndoableEdit
+}
+members {
+
+	[Function]
+	protected Vector<UndoableEdit> edits
+	Name: edits
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/CompoundEdit.html#edits
+	Containing package: javax.swing.undo
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: CompoundEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Vector {
+			javax.swing.undo::UndoableEdit
+		}
+	}
+
+	[Function]
+	public CompoundEdit()
+	Name: CompoundEdit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/CompoundEdit.html#CompoundEdit--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: CompoundEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.swing.undo::CompoundEdit
+	}
+
+	[Function]
+	public void undo()
+	          throws CannotUndoException
+	Name: undo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/CompoundEdit.html#undo--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CompoundEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void redo()
+	          throws CannotRedoException
+	Name: redo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/CompoundEdit.html#redo--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CompoundEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected UndoableEdit lastEdit()
+	Name: lastEdit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/CompoundEdit.html#lastEdit--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CompoundEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.swing.undo::UndoableEdit
+	}
+
+	[Function]
+	public void die()
+	Name: die
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/CompoundEdit.html#die--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CompoundEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean addEdit(UndoableEdit anEdit)
+	Name: addEdit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/CompoundEdit.html#addEdit-javax.swing.undo.UndoableEdit-
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CompoundEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.swing.undo::UndoableEdit
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void end()
+	Name: end
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/CompoundEdit.html#end--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CompoundEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean canUndo()
+	Name: canUndo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/CompoundEdit.html#canUndo--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CompoundEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean canRedo()
+	Name: canRedo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/CompoundEdit.html#canRedo--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CompoundEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isInProgress()
+	Name: isInProgress
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/CompoundEdit.html#isInProgress--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CompoundEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isSignificant()
+	Name: isSignificant
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/CompoundEdit.html#isSignificant--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CompoundEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public String getPresentationName()
+	Name: getPresentationName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/CompoundEdit.html#getPresentationName--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CompoundEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getUndoPresentationName()
+	Name: getUndoPresentationName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/CompoundEdit.html#getUndoPresentationName--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CompoundEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getRedoPresentationName()
+	Name: getRedoPresentationName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/CompoundEdit.html#getRedoPresentationName--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CompoundEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/CompoundEdit.html#toString--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CompoundEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public class StateEdit
+extends AbstractUndoableEdit
+Name: StateEdit
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/StateEdit.html
+Containing package: javax.swing.undo
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.swing.undo::AbstractUndoableEdit
+}
+members {
+
+	[Function]
+	protected static final String RCSID
+	Name: RCSID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/StateEdit.html#RCSID
+	Containing package: javax.swing.undo
+	attributes {
+		final=true
+		scope=protected
+		static=true
+		memberType=field
+	}
+	Containing type: StateEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	protected StateEditable object
+	Name: object
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/StateEdit.html#object
+	Containing package: javax.swing.undo
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: StateEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.swing.undo::StateEditable
+	}
+
+	[Function]
+	protected Hashtable<Object,Object> preState
+	Name: preState
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/StateEdit.html#preState
+	Containing package: javax.swing.undo
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: StateEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Hashtable {
+			java.lang::Object
+			java.lang::Object
+		}
+	}
+
+	[Function]
+	protected Hashtable<Object,Object> postState
+	Name: postState
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/StateEdit.html#postState
+	Containing package: javax.swing.undo
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: StateEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Hashtable {
+			java.lang::Object
+			java.lang::Object
+		}
+	}
+
+	[Function]
+	protected String undoRedoName
+	Name: undoRedoName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/StateEdit.html#undoRedoName
+	Containing package: javax.swing.undo
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: StateEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public StateEdit(StateEditable anObject)
+	Name: StateEdit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/StateEdit.html#StateEdit-javax.swing.undo.StateEditable-
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: StateEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.swing.undo::StateEditable
+	
+		[result]
+		javax.swing.undo::StateEdit
+	}
+
+	[Function]
+	public StateEdit(StateEditable anObject,
+	                 String name)
+	Name: StateEdit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/StateEdit.html#StateEdit-javax.swing.undo.StateEditable-java.lang.String-
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: StateEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.swing.undo::StateEditable
+		java.lang::String
+	
+		[result]
+		javax.swing.undo::StateEdit
+	}
+
+	[Function]
+	protected void init(StateEditable anObject,
+	                    String name)
+	Name: init
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/StateEdit.html#init-javax.swing.undo.StateEditable-java.lang.String-
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StateEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.swing.undo::StateEditable
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void end()
+	Name: end
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/StateEdit.html#end--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StateEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void undo()
+	Name: undo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/StateEdit.html#undo--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StateEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void redo()
+	Name: redo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/StateEdit.html#redo--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StateEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public String getPresentationName()
+	Name: getPresentationName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/StateEdit.html#getPresentationName--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StateEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	protected void removeRedundantState()
+	Name: removeRedundantState
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/StateEdit.html#removeRedundantState--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StateEdit
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public class UndoableEditSupport
+extends Object
+Name: UndoableEditSupport
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEditSupport.html
+Containing package: javax.swing.undo
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected int updateLevel
+	Name: updateLevel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEditSupport.html#updateLevel
+	Containing package: javax.swing.undo
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: UndoableEditSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected CompoundEdit compoundEdit
+	Name: compoundEdit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEditSupport.html#compoundEdit
+	Containing package: javax.swing.undo
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: UndoableEditSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.swing.undo::CompoundEdit
+	}
+
+	[Function]
+	protected Vector<UndoableEditListener> listeners
+	Name: listeners
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEditSupport.html#listeners
+	Containing package: javax.swing.undo
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: UndoableEditSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Vector {
+			javax.swing.event::UndoableEditListener
+		}
+	}
+
+	[Function]
+	protected Object realSource
+	Name: realSource
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEditSupport.html#realSource
+	Containing package: javax.swing.undo
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: UndoableEditSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public UndoableEditSupport()
+	Name: UndoableEditSupport
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEditSupport.html#UndoableEditSupport--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: UndoableEditSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.swing.undo::UndoableEditSupport
+	}
+
+	[Function]
+	public UndoableEditSupport(Object r)
+	Name: UndoableEditSupport
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEditSupport.html#UndoableEditSupport-java.lang.Object-
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: UndoableEditSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		javax.swing.undo::UndoableEditSupport
+	}
+
+	[Function]
+	public void addUndoableEditListener(UndoableEditListener l)
+	Name: addUndoableEditListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEditSupport.html#addUndoableEditListener-javax.swing.event.UndoableEditListener-
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoableEditSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.swing.event::UndoableEditListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void removeUndoableEditListener(UndoableEditListener l)
+	Name: removeUndoableEditListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEditSupport.html#removeUndoableEditListener-javax.swing.event.UndoableEditListener-
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoableEditSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.swing.event::UndoableEditListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public UndoableEditListener[] getUndoableEditListeners()
+	Name: getUndoableEditListeners
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEditSupport.html#getUndoableEditListeners--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoableEditSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			javax.swing.event::UndoableEditListener
+		}
+	}
+
+	[Function]
+	protected void _postEdit(UndoableEdit e)
+	Name: _postEdit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEditSupport.html#Z:Z_postEdit-javax.swing.undo.UndoableEdit-
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoableEditSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.swing.undo::UndoableEdit
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void postEdit(UndoableEdit e)
+	Name: postEdit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEditSupport.html#postEdit-javax.swing.undo.UndoableEdit-
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoableEditSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.swing.undo::UndoableEdit
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public int getUpdateLevel()
+	Name: getUpdateLevel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEditSupport.html#getUpdateLevel--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoableEditSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public void beginUpdate()
+	Name: beginUpdate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEditSupport.html#beginUpdate--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoableEditSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected CompoundEdit createCompoundEdit()
+	Name: createCompoundEdit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEditSupport.html#createCompoundEdit--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoableEditSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.swing.undo::CompoundEdit
+	}
+
+	[Function]
+	public void endUpdate()
+	Name: endUpdate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEditSupport.html#endUpdate--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoableEditSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoableEditSupport.html#toString--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoableEditSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public class UndoManager
+extends CompoundEdit
+implements UndoableEditListener
+Name: UndoManager
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoManager.html
+Containing package: javax.swing.undo
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.swing.event::UndoableEditListener
+	javax.swing.undo::CompoundEdit
+}
+members {
+
+	[Function]
+	public UndoManager()
+	Name: UndoManager
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoManager.html#UndoManager--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: UndoManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.swing.undo::UndoManager
+	}
+
+	[Function]
+	public int getLimit()
+	Name: getLimit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoManager.html#getLimit--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public void discardAllEdits()
+	Name: discardAllEdits
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoManager.html#discardAllEdits--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void trimForLimit()
+	Name: trimForLimit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoManager.html#trimForLimit--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void trimEdits(int from,
+	                         int to)
+	Name: trimEdits
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoManager.html#trimEdits-int-int-
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void setLimit(int l)
+	Name: setLimit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoManager.html#setLimit-int-
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected UndoableEdit editToBeUndone()
+	Name: editToBeUndone
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoManager.html#editToBeUndone--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.swing.undo::UndoableEdit
+	}
+
+	[Function]
+	protected UndoableEdit editToBeRedone()
+	Name: editToBeRedone
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoManager.html#editToBeRedone--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.swing.undo::UndoableEdit
+	}
+
+	[Function]
+	protected void undoTo(UndoableEdit edit)
+	               throws CannotUndoException
+	Name: undoTo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoManager.html#undoTo-javax.swing.undo.UndoableEdit-
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.swing.undo::UndoableEdit
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void redoTo(UndoableEdit edit)
+	               throws CannotRedoException
+	Name: redoTo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoManager.html#redoTo-javax.swing.undo.UndoableEdit-
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.swing.undo::UndoableEdit
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void undoOrRedo()
+	                throws CannotRedoException,
+	                       CannotUndoException
+	Name: undoOrRedo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoManager.html#undoOrRedo--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean canUndoOrRedo()
+	Name: canUndoOrRedo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoManager.html#canUndoOrRedo--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void undo()
+	          throws CannotUndoException
+	Name: undo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoManager.html#undo--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean canUndo()
+	Name: canUndo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoManager.html#canUndo--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void redo()
+	          throws CannotRedoException
+	Name: redo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoManager.html#redo--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean canRedo()
+	Name: canRedo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoManager.html#canRedo--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean addEdit(UndoableEdit anEdit)
+	Name: addEdit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoManager.html#addEdit-javax.swing.undo.UndoableEdit-
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.swing.undo::UndoableEdit
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void end()
+	Name: end
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoManager.html#end--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public String getUndoOrRedoPresentationName()
+	Name: getUndoOrRedoPresentationName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoManager.html#getUndoOrRedoPresentationName--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getUndoPresentationName()
+	Name: getUndoPresentationName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoManager.html#getUndoPresentationName--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getRedoPresentationName()
+	Name: getRedoPresentationName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoManager.html#getRedoPresentationName--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public void undoableEditHappened(UndoableEditEvent e)
+	Name: undoableEditHappened
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoManager.html#undoableEditHappened-javax.swing.event.UndoableEditEvent-
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.swing.event::UndoableEditEvent
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/UndoManager.html#toString--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UndoManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public class CannotRedoException
+extends RuntimeException
+Name: CannotRedoException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/CannotRedoException.html
+Containing package: javax.swing.undo
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::RuntimeException
+}
+members {
+
+	[Function]
+	public CannotRedoException()
+	Name: CannotRedoException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/CannotRedoException.html#CannotRedoException--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: CannotRedoException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.swing.undo::CannotRedoException
+	}
+}
+
+[Classifier]
+public class CannotUndoException
+extends RuntimeException
+Name: CannotUndoException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/CannotUndoException.html
+Containing package: javax.swing.undo
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::RuntimeException
+}
+members {
+
+	[Function]
+	public CannotUndoException()
+	Name: CannotUndoException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/swing/undo/CannotUndoException.html#CannotUndoException--
+	Containing package: javax.swing.undo
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: CannotUndoException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.swing.undo::CannotUndoException
+	}
+}

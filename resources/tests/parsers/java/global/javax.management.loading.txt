@@ -1,0 +1,1702 @@
+[Package]
+Name: javax.management.loading
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/package-summary.html
+Containing package: javax.management
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+public interface ClassLoaderRepository
+Name: ClassLoaderRepository
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/ClassLoaderRepository.html
+Containing package: javax.management.loading
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	Class<?> loadClass(String className)
+	            throws ClassNotFoundException
+	Name: loadClass
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/ClassLoaderRepository.html#loadClass-java.lang.String-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ClassLoaderRepository
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::Class {
+			?
+		}
+	}
+
+	[Function]
+	Class<?> loadClassWithout(ClassLoader exclude,
+	                          String className)
+	                   throws ClassNotFoundException
+	Name: loadClassWithout
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/ClassLoaderRepository.html#loadClassWithout-java.lang.ClassLoader-java.lang.String-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ClassLoaderRepository
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::ClassLoader
+		java.lang::String
+	
+		[result]
+		java.lang::Class {
+			?
+		}
+	}
+
+	[Function]
+	Class<?> loadClassBefore(ClassLoader stop,
+	                         String className)
+	                  throws ClassNotFoundException
+	Name: loadClassBefore
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/ClassLoaderRepository.html#loadClassBefore-java.lang.ClassLoader-java.lang.String-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ClassLoaderRepository
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::ClassLoader
+		java.lang::String
+	
+		[result]
+		java.lang::Class {
+			?
+		}
+	}
+}
+
+[Classifier]
+public interface MLetMBean
+Name: MLetMBean
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLetMBean.html
+Containing package: javax.management.loading
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.management.loading::MLet
+}
+supertypes {
+}
+members {
+
+	[Function]
+	Set<Object> getMBeansFromURL(String url)
+	                      throws ServiceNotFoundException
+	Name: getMBeansFromURL
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLetMBean.html#getMBeansFromURL-java.lang.String-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLetMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.util::Set {
+			java.lang::Object
+		}
+	}
+
+	[Function]
+	Set<Object> getMBeansFromURL(URL url)
+	                      throws ServiceNotFoundException
+	Name: getMBeansFromURL
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLetMBean.html#getMBeansFromURL-java.net.URL-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLetMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::URL
+	
+		[result]
+		java.util::Set {
+			java.lang::Object
+		}
+	}
+
+	[Function]
+	void addURL(URL url)
+	Name: addURL
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLetMBean.html#addURL-java.net.URL-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLetMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::URL
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void addURL(String url)
+	     throws ServiceNotFoundException
+	Name: addURL
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLetMBean.html#addURL-java.lang.String-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLetMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	URL[] getURLs()
+	Name: getURLs
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLetMBean.html#getURLs--
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLetMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.net::URL
+		}
+	}
+
+	[Function]
+	URL getResource(String name)
+	Name: getResource
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLetMBean.html#getResource-java.lang.String-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLetMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.net::URL
+	}
+
+	[Function]
+	InputStream getResourceAsStream(String name)
+	Name: getResourceAsStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLetMBean.html#getResourceAsStream-java.lang.String-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLetMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.io::InputStream
+	}
+
+	[Function]
+	Enumeration<URL> getResources(String name)
+	                       throws IOException
+	Name: getResources
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLetMBean.html#getResources-java.lang.String-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLetMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.util::Enumeration {
+			java.net::URL
+		}
+	}
+
+	[Function]
+	String getLibraryDirectory()
+	Name: getLibraryDirectory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLetMBean.html#getLibraryDirectory--
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLetMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	void setLibraryDirectory(String libdir)
+	Name: setLibraryDirectory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLetMBean.html#setLibraryDirectory-java.lang.String-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLetMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface PrivateClassLoader
+Name: PrivateClassLoader
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/PrivateClassLoader.html
+Containing package: javax.management.loading
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.management.loading::PrivateMLet
+}
+supertypes {
+}
+members {
+}
+
+[Classifier]
+@Deprecated
+public class DefaultLoaderRepository
+extends Object
+Name: DefaultLoaderRepository
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/DefaultLoaderRepository.html
+Containing package: javax.management.loading
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public DefaultLoaderRepository()
+	Name: DefaultLoaderRepository
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/DefaultLoaderRepository.html#DefaultLoaderRepository--
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: DefaultLoaderRepository
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management.loading::DefaultLoaderRepository
+	}
+
+	[Function]
+	public static Class<?> loadClass(String className)
+	                          throws ClassNotFoundException
+	Name: loadClass
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/DefaultLoaderRepository.html#loadClass-java.lang.String-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: DefaultLoaderRepository
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::Class {
+			?
+		}
+	}
+
+	[Function]
+	public static Class<?> loadClassWithout(ClassLoader loader,
+	                                        String className)
+	                                 throws ClassNotFoundException
+	Name: loadClassWithout
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/DefaultLoaderRepository.html#loadClassWithout-java.lang.ClassLoader-java.lang.String-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: DefaultLoaderRepository
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::ClassLoader
+		java.lang::String
+	
+		[result]
+		java.lang::Class {
+			?
+		}
+	}
+}
+
+[Classifier]
+public class MLet
+extends URLClassLoader
+implements MLetMBean, MBeanRegistration, Externalizable
+Name: MLet
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLet.html
+Containing package: javax.management.loading
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.management.loading::PrivateMLet
+}
+supertypes {
+	javax.management.loading::MLetMBean
+	javax.management::MBeanRegistration
+	java.io::Externalizable
+	java.net::URLClassLoader
+}
+members {
+
+	[Function]
+	public MLet()
+	Name: MLet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLet.html#MLet--
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MLet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management.loading::MLet
+	}
+
+	[Function]
+	public MLet(URL[] urls)
+	Name: MLet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLet.html#MLet-java.net.URL:A-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MLet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.net::URL
+		}
+	
+		[result]
+		javax.management.loading::MLet
+	}
+
+	[Function]
+	public MLet(URL[] urls,
+	            ClassLoader parent)
+	Name: MLet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLet.html#MLet-java.net.URL:A-java.lang.ClassLoader-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MLet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.net::URL
+		}
+		java.lang::ClassLoader
+	
+		[result]
+		javax.management.loading::MLet
+	}
+
+	[Function]
+	public MLet(URL[] urls,
+	            ClassLoader parent,
+	            URLStreamHandlerFactory factory)
+	Name: MLet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLet.html#MLet-java.net.URL:A-java.lang.ClassLoader-java.net.URLStreamHandlerFactory-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MLet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.net::URL
+		}
+		java.lang::ClassLoader
+		java.net::URLStreamHandlerFactory
+	
+		[result]
+		javax.management.loading::MLet
+	}
+
+	[Function]
+	public MLet(URL[] urls,
+	            boolean delegateToCLR)
+	Name: MLet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLet.html#MLet-java.net.URL:A-boolean-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MLet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.net::URL
+		}
+		other::boolean
+	
+		[result]
+		javax.management.loading::MLet
+	}
+
+	[Function]
+	public MLet(URL[] urls,
+	            ClassLoader parent,
+	            boolean delegateToCLR)
+	Name: MLet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLet.html#MLet-java.net.URL:A-java.lang.ClassLoader-boolean-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MLet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.net::URL
+		}
+		java.lang::ClassLoader
+		other::boolean
+	
+		[result]
+		javax.management.loading::MLet
+	}
+
+	[Function]
+	public MLet(URL[] urls,
+	            ClassLoader parent,
+	            URLStreamHandlerFactory factory,
+	            boolean delegateToCLR)
+	Name: MLet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLet.html#MLet-java.net.URL:A-java.lang.ClassLoader-java.net.URLStreamHandlerFactory-boolean-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MLet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.net::URL
+		}
+		java.lang::ClassLoader
+		java.net::URLStreamHandlerFactory
+		other::boolean
+	
+		[result]
+		javax.management.loading::MLet
+	}
+
+	[Function]
+	public void addURL(URL url)
+	Name: addURL
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLet.html#addURL-java.net.URL-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::URL
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void addURL(String url)
+	            throws ServiceNotFoundException
+	Name: addURL
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLet.html#addURL-java.lang.String-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public URL[] getURLs()
+	Name: getURLs
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLet.html#getURLs--
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.net::URL
+		}
+	}
+
+	[Function]
+	public Set<Object> getMBeansFromURL(URL url)
+	                             throws ServiceNotFoundException
+	Name: getMBeansFromURL
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLet.html#getMBeansFromURL-java.net.URL-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::URL
+	
+		[result]
+		java.util::Set {
+			java.lang::Object
+		}
+	}
+
+	[Function]
+	public Set<Object> getMBeansFromURL(String url)
+	                             throws ServiceNotFoundException
+	Name: getMBeansFromURL
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLet.html#getMBeansFromURL-java.lang.String-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.util::Set {
+			java.lang::Object
+		}
+	}
+
+	[Function]
+	public String getLibraryDirectory()
+	Name: getLibraryDirectory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLet.html#getLibraryDirectory--
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public void setLibraryDirectory(String libdir)
+	Name: setLibraryDirectory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLet.html#setLibraryDirectory-java.lang.String-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public ObjectName preRegister(MBeanServer server,
+	                              ObjectName name)
+	                       throws Exception
+	Name: preRegister
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLet.html#preRegister-javax.management.MBeanServer-javax.management.ObjectName-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::MBeanServer
+		javax.management::ObjectName
+	
+		[result]
+		javax.management::ObjectName
+	}
+
+	[Function]
+	public void postRegister(Boolean registrationDone)
+	Name: postRegister
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLet.html#postRegister-java.lang.Boolean-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Boolean
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void preDeregister()
+	                   throws Exception
+	Name: preDeregister
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLet.html#preDeregister--
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void postDeregister()
+	Name: postDeregister
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLet.html#postDeregister--
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void writeExternal(ObjectOutput out)
+	                   throws IOException,
+	                          UnsupportedOperationException
+	Name: writeExternal
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLet.html#writeExternal-java.io.ObjectOutput-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::ObjectOutput
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void readExternal(ObjectInput in)
+	                  throws IOException,
+	                         ClassNotFoundException,
+	                         UnsupportedOperationException
+	Name: readExternal
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLet.html#readExternal-java.io.ObjectInput-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::ObjectInput
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Class<?> loadClass(String name,
+	                          ClassLoaderRepository clr)
+	                   throws ClassNotFoundException
+	Name: loadClass
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLet.html#loadClass-java.lang.String-javax.management.loading.ClassLoaderRepository-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.management.loading::ClassLoaderRepository
+	
+		[result]
+		java.lang::Class {
+			?
+		}
+	}
+
+	[Function]
+	protected Class<?> findClass(String name)
+	                      throws ClassNotFoundException
+	Name: findClass
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLet.html#findClass-java.lang.String-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::Class {
+			?
+		}
+	}
+
+	[Function]
+	protected String findLibrary(String libname)
+	Name: findLibrary
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLet.html#findLibrary-java.lang.String-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	protected URL check(String version,
+	                    URL codebase,
+	                    String jarfile,
+	                    MLetContent mlet)
+	             throws Exception
+	Name: check
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLet.html#check-java.lang.String-java.net.URL-java.lang.String-javax.management.loading.MLetContent-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.net::URL
+		java.lang::String
+		javax.management.loading::MLetContent
+	
+		[result]
+		java.net::URL
+	}
+}
+
+[Classifier]
+public class MLetContent
+extends Object
+Name: MLetContent
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLetContent.html
+Containing package: javax.management.loading
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public MLetContent(URL url,
+	                   Map<String,String> attributes,
+	                   List<String> types,
+	                   List<String> values)
+	Name: MLetContent
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLetContent.html#MLetContent-java.net.URL-java.util.Map-java.util.List-java.util.List-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MLetContent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::URL
+		java.util::Map {
+			java.lang::String
+			java.lang::String
+		}
+		java.util::List {
+			java.lang::String
+		}
+		java.util::List {
+			java.lang::String
+		}
+	
+		[result]
+		javax.management.loading::MLetContent
+	}
+
+	[Function]
+	public Map<String,String> getAttributes()
+	Name: getAttributes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLetContent.html#getAttributes--
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLetContent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Map {
+			java.lang::String
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public URL getDocumentBase()
+	Name: getDocumentBase
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLetContent.html#getDocumentBase--
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLetContent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.net::URL
+	}
+
+	[Function]
+	public URL getCodeBase()
+	Name: getCodeBase
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLetContent.html#getCodeBase--
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLetContent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.net::URL
+	}
+
+	[Function]
+	public String getJarFiles()
+	Name: getJarFiles
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLetContent.html#getJarFiles--
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLetContent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getCode()
+	Name: getCode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLetContent.html#getCode--
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLetContent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getSerializedObject()
+	Name: getSerializedObject
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLetContent.html#getSerializedObject--
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLetContent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getName()
+	Name: getName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLetContent.html#getName--
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLetContent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getVersion()
+	Name: getVersion
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLetContent.html#getVersion--
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLetContent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public List<String> getParameterTypes()
+	Name: getParameterTypes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLetContent.html#getParameterTypes--
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLetContent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public List<String> getParameterValues()
+	Name: getParameterValues
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/MLetContent.html#getParameterValues--
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MLetContent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			java.lang::String
+		}
+	}
+}
+
+[Classifier]
+public class PrivateMLet
+extends MLet
+implements PrivateClassLoader
+Name: PrivateMLet
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/PrivateMLet.html
+Containing package: javax.management.loading
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.management.loading::PrivateClassLoader
+	javax.management.loading::MLet
+}
+members {
+
+	[Function]
+	public PrivateMLet(URL[] urls,
+	                   boolean delegateToCLR)
+	Name: PrivateMLet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/PrivateMLet.html#PrivateMLet-java.net.URL:A-boolean-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: PrivateMLet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.net::URL
+		}
+		other::boolean
+	
+		[result]
+		javax.management.loading::PrivateMLet
+	}
+
+	[Function]
+	public PrivateMLet(URL[] urls,
+	                   ClassLoader parent,
+	                   boolean delegateToCLR)
+	Name: PrivateMLet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/PrivateMLet.html#PrivateMLet-java.net.URL:A-java.lang.ClassLoader-boolean-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: PrivateMLet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.net::URL
+		}
+		java.lang::ClassLoader
+		other::boolean
+	
+		[result]
+		javax.management.loading::PrivateMLet
+	}
+
+	[Function]
+	public PrivateMLet(URL[] urls,
+	                   ClassLoader parent,
+	                   URLStreamHandlerFactory factory,
+	                   boolean delegateToCLR)
+	Name: PrivateMLet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/loading/PrivateMLet.html#PrivateMLet-java.net.URL:A-java.lang.ClassLoader-java.net.URLStreamHandlerFactory-boolean-
+	Containing package: javax.management.loading
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: PrivateMLet
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.net::URL
+		}
+		java.lang::ClassLoader
+		java.net::URLStreamHandlerFactory
+		other::boolean
+	
+		[result]
+		javax.management.loading::PrivateMLet
+	}
+}

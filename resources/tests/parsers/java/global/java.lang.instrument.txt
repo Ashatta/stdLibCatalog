@@ -1,0 +1,760 @@
+[Package]
+Name: java.lang.instrument
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/package-summary.html
+Containing package: java.lang
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+public interface ClassFileTransformer
+Name: ClassFileTransformer
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/ClassFileTransformer.html
+Containing package: java.lang.instrument
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	byte[] transform(ClassLoader loader,
+	                 String className,
+	                 Class<?> classBeingRedefined,
+	                 ProtectionDomain protectionDomain,
+	                 byte[] classfileBuffer)
+	          throws IllegalClassFormatException
+	Name: transform
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/ClassFileTransformer.html#transform-java.lang.ClassLoader-java.lang.String-java.lang.Class-java.security.ProtectionDomain-byte:A-
+	Containing package: java.lang.instrument
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ClassFileTransformer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::ClassLoader
+		java.lang::String
+		java.lang::Class {
+			?
+		}
+		java.security::ProtectionDomain
+		other::[] {
+			other::byte
+		}
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+}
+
+[Classifier]
+public interface Instrumentation
+Name: Instrumentation
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/Instrumentation.html
+Containing package: java.lang.instrument
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	void addTransformer(ClassFileTransformer transformer,
+	                    boolean canRetransform)
+	Name: addTransformer
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/Instrumentation.html#addTransformer-java.lang.instrument.ClassFileTransformer-boolean-
+	Containing package: java.lang.instrument
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Instrumentation
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang.instrument::ClassFileTransformer
+		other::boolean
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void addTransformer(ClassFileTransformer transformer)
+	Name: addTransformer
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/Instrumentation.html#addTransformer-java.lang.instrument.ClassFileTransformer-
+	Containing package: java.lang.instrument
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Instrumentation
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang.instrument::ClassFileTransformer
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	boolean removeTransformer(ClassFileTransformer transformer)
+	Name: removeTransformer
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/Instrumentation.html#removeTransformer-java.lang.instrument.ClassFileTransformer-
+	Containing package: java.lang.instrument
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Instrumentation
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang.instrument::ClassFileTransformer
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean isRetransformClassesSupported()
+	Name: isRetransformClassesSupported
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/Instrumentation.html#isRetransformClassesSupported--
+	Containing package: java.lang.instrument
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Instrumentation
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	void retransformClasses(Class<?>... classes)
+	                 throws UnmodifiableClassException
+	Name: retransformClasses
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/Instrumentation.html#retransformClasses-java.lang.Class...-
+	Containing package: java.lang.instrument
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Instrumentation
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::... {
+			java.lang::Class {
+				?
+			}
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	boolean isRedefineClassesSupported()
+	Name: isRedefineClassesSupported
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/Instrumentation.html#isRedefineClassesSupported--
+	Containing package: java.lang.instrument
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Instrumentation
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	void redefineClasses(ClassDefinition... definitions)
+	              throws ClassNotFoundException,
+	                     UnmodifiableClassException
+	Name: redefineClasses
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/Instrumentation.html#redefineClasses-java.lang.instrument.ClassDefinition...-
+	Containing package: java.lang.instrument
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Instrumentation
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::... {
+			java.lang.instrument::ClassDefinition
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	boolean isModifiableClass(Class<?> theClass)
+	Name: isModifiableClass
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/Instrumentation.html#isModifiableClass-java.lang.Class-
+	Containing package: java.lang.instrument
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Instrumentation
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			?
+		}
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	Class[] getAllLoadedClasses()
+	Name: getAllLoadedClasses
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/Instrumentation.html#getAllLoadedClasses--
+	Containing package: java.lang.instrument
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Instrumentation
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::Class
+		}
+	}
+
+	[Function]
+	Class[] getInitiatedClasses(ClassLoader loader)
+	Name: getInitiatedClasses
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/Instrumentation.html#getInitiatedClasses-java.lang.ClassLoader-
+	Containing package: java.lang.instrument
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Instrumentation
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::ClassLoader
+	
+		[result]
+		other::[] {
+			java.lang::Class
+		}
+	}
+
+	[Function]
+	long getObjectSize(Object objectToSize)
+	Name: getObjectSize
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/Instrumentation.html#getObjectSize-java.lang.Object-
+	Containing package: java.lang.instrument
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Instrumentation
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	void appendToBootstrapClassLoaderSearch(JarFile jarfile)
+	Name: appendToBootstrapClassLoaderSearch
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/Instrumentation.html#appendToBootstrapClassLoaderSearch-java.util.jar.JarFile-
+	Containing package: java.lang.instrument
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Instrumentation
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.jar::JarFile
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void appendToSystemClassLoaderSearch(JarFile jarfile)
+	Name: appendToSystemClassLoaderSearch
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/Instrumentation.html#appendToSystemClassLoaderSearch-java.util.jar.JarFile-
+	Containing package: java.lang.instrument
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Instrumentation
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.jar::JarFile
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	boolean isNativeMethodPrefixSupported()
+	Name: isNativeMethodPrefixSupported
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/Instrumentation.html#isNativeMethodPrefixSupported--
+	Containing package: java.lang.instrument
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Instrumentation
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	void setNativeMethodPrefix(ClassFileTransformer transformer,
+	                           String prefix)
+	Name: setNativeMethodPrefix
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/Instrumentation.html#setNativeMethodPrefix-java.lang.instrument.ClassFileTransformer-java.lang.String-
+	Containing package: java.lang.instrument
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Instrumentation
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang.instrument::ClassFileTransformer
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public final class ClassDefinition
+extends Object
+Name: ClassDefinition
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/ClassDefinition.html
+Containing package: java.lang.instrument
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public ClassDefinition(Class<?> theClass,
+	                       byte[] theClassFile)
+	Name: ClassDefinition
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/ClassDefinition.html#ClassDefinition-java.lang.Class-byte:A-
+	Containing package: java.lang.instrument
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ClassDefinition
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			?
+		}
+		other::[] {
+			other::byte
+		}
+	
+		[result]
+		java.lang.instrument::ClassDefinition
+	}
+
+	[Function]
+	public Class<?> getDefinitionClass()
+	Name: getDefinitionClass
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/ClassDefinition.html#getDefinitionClass--
+	Containing package: java.lang.instrument
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ClassDefinition
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Class {
+			?
+		}
+	}
+
+	[Function]
+	public byte[] getDefinitionClassFile()
+	Name: getDefinitionClassFile
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/ClassDefinition.html#getDefinitionClassFile--
+	Containing package: java.lang.instrument
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ClassDefinition
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+}
+
+[Classifier]
+public class IllegalClassFormatException
+extends Exception
+Name: IllegalClassFormatException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/IllegalClassFormatException.html
+Containing package: java.lang.instrument
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Exception
+}
+members {
+
+	[Function]
+	public IllegalClassFormatException()
+	Name: IllegalClassFormatException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/IllegalClassFormatException.html#IllegalClassFormatException--
+	Containing package: java.lang.instrument
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: IllegalClassFormatException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang.instrument::IllegalClassFormatException
+	}
+
+	[Function]
+	public IllegalClassFormatException(String s)
+	Name: IllegalClassFormatException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/IllegalClassFormatException.html#IllegalClassFormatException-java.lang.String-
+	Containing package: java.lang.instrument
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: IllegalClassFormatException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang.instrument::IllegalClassFormatException
+	}
+}
+
+[Classifier]
+public class UnmodifiableClassException
+extends Exception
+Name: UnmodifiableClassException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/UnmodifiableClassException.html
+Containing package: java.lang.instrument
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Exception
+}
+members {
+
+	[Function]
+	public UnmodifiableClassException()
+	Name: UnmodifiableClassException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/UnmodifiableClassException.html#UnmodifiableClassException--
+	Containing package: java.lang.instrument
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: UnmodifiableClassException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang.instrument::UnmodifiableClassException
+	}
+
+	[Function]
+	public UnmodifiableClassException(String s)
+	Name: UnmodifiableClassException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/lang/instrument/UnmodifiableClassException.html#UnmodifiableClassException-java.lang.String-
+	Containing package: java.lang.instrument
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: UnmodifiableClassException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang.instrument::UnmodifiableClassException
+	}
+}

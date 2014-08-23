@@ -1,0 +1,1338 @@
+[Package]
+Name: java.nio.channels.spi
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/package-summary.html
+Containing package: java.nio.channels
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+public abstract class AbstractInterruptibleChannel
+extends Object
+implements Channel, InterruptibleChannel
+Name: AbstractInterruptibleChannel
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractInterruptibleChannel.html
+Containing package: java.nio.channels.spi
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.nio.channels::SelectableChannel
+	java.nio.channels::FileChannel
+}
+supertypes {
+	java.nio.channels::Channel
+	java.nio.channels::InterruptibleChannel
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected AbstractInterruptibleChannel()
+	Name: AbstractInterruptibleChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractInterruptibleChannel.html#AbstractInterruptibleChannel--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AbstractInterruptibleChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels.spi::AbstractInterruptibleChannel
+	}
+
+	[Function]
+	public final void close()
+	                 throws IOException
+	Name: close
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractInterruptibleChannel.html#close--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractInterruptibleChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected abstract void implCloseChannel()
+	                                  throws IOException
+	Name: implCloseChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractInterruptibleChannel.html#implCloseChannel--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractInterruptibleChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final boolean isOpen()
+	Name: isOpen
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractInterruptibleChannel.html#isOpen--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractInterruptibleChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected final void begin()
+	Name: begin
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractInterruptibleChannel.html#begin--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractInterruptibleChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected final void end(boolean completed)
+	                  throws AsynchronousCloseException
+	Name: end
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractInterruptibleChannel.html#end-boolean-
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractInterruptibleChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::boolean
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public abstract class AbstractSelectableChannel
+extends SelectableChannel
+Name: AbstractSelectableChannel
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractSelectableChannel.html
+Containing package: java.nio.channels.spi
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.nio.channels::Pipe.SinkChannel
+	java.nio.channels::DatagramChannel
+	java.nio.channels::Pipe.SourceChannel
+	java.nio.channels::SocketChannel
+	java.nio.channels::ServerSocketChannel
+}
+supertypes {
+	java.nio.channels::SelectableChannel
+}
+members {
+
+	[Function]
+	protected AbstractSelectableChannel(SelectorProvider provider)
+	Name: AbstractSelectableChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractSelectableChannel.html#AbstractSelectableChannel-java.nio.channels.spi.SelectorProvider-
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AbstractSelectableChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels.spi::SelectorProvider
+	
+		[result]
+		java.nio.channels.spi::AbstractSelectableChannel
+	}
+
+	[Function]
+	public final SelectorProvider provider()
+	Name: provider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractSelectableChannel.html#provider--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractSelectableChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels.spi::SelectorProvider
+	}
+
+	[Function]
+	public final boolean isRegistered()
+	Name: isRegistered
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractSelectableChannel.html#isRegistered--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractSelectableChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final SelectionKey keyFor(Selector sel)
+	Name: keyFor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractSelectableChannel.html#keyFor-java.nio.channels.Selector-
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractSelectableChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels::Selector
+	
+		[result]
+		java.nio.channels::SelectionKey
+	}
+
+	[Function]
+	public final SelectionKey register(Selector sel,
+	                                   int ops,
+	                                   Object att)
+	                            throws ClosedChannelException
+	Name: register
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractSelectableChannel.html#register-java.nio.channels.Selector-int-java.lang.Object-
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractSelectableChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels::Selector
+		other::int
+		java.lang::Object
+	
+		[result]
+		java.nio.channels::SelectionKey
+	}
+
+	[Function]
+	protected final void implCloseChannel()
+	                               throws IOException
+	Name: implCloseChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractSelectableChannel.html#implCloseChannel--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractSelectableChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected abstract void implCloseSelectableChannel()
+	                                            throws IOException
+	Name: implCloseSelectableChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractSelectableChannel.html#implCloseSelectableChannel--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractSelectableChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final boolean isBlocking()
+	Name: isBlocking
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractSelectableChannel.html#isBlocking--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractSelectableChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final Object blockingLock()
+	Name: blockingLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractSelectableChannel.html#blockingLock--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractSelectableChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public final SelectableChannel configureBlocking(boolean block)
+	                                          throws IOException
+	Name: configureBlocking
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractSelectableChannel.html#configureBlocking-boolean-
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractSelectableChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::boolean
+	
+		[result]
+		java.nio.channels::SelectableChannel
+	}
+
+	[Function]
+	protected abstract void implConfigureBlocking(boolean block)
+	                                       throws IOException
+	Name: implConfigureBlocking
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractSelectableChannel.html#implConfigureBlocking-boolean-
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractSelectableChannel
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::boolean
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public abstract class AbstractSelectionKey
+extends SelectionKey
+Name: AbstractSelectionKey
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractSelectionKey.html
+Containing package: java.nio.channels.spi
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.nio.channels::SelectionKey
+}
+members {
+
+	[Function]
+	protected AbstractSelectionKey()
+	Name: AbstractSelectionKey
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractSelectionKey.html#AbstractSelectionKey--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AbstractSelectionKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels.spi::AbstractSelectionKey
+	}
+
+	[Function]
+	public final boolean isValid()
+	Name: isValid
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractSelectionKey.html#isValid--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractSelectionKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final void cancel()
+	Name: cancel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractSelectionKey.html#cancel--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractSelectionKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public abstract class AbstractSelector
+extends Selector
+Name: AbstractSelector
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractSelector.html
+Containing package: java.nio.channels.spi
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.nio.channels::Selector
+}
+members {
+
+	[Function]
+	protected AbstractSelector(SelectorProvider provider)
+	Name: AbstractSelector
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractSelector.html#AbstractSelector-java.nio.channels.spi.SelectorProvider-
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AbstractSelector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels.spi::SelectorProvider
+	
+		[result]
+		java.nio.channels.spi::AbstractSelector
+	}
+
+	[Function]
+	public final void close()
+	                 throws IOException
+	Name: close
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractSelector.html#close--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractSelector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected abstract void implCloseSelector()
+	                                   throws IOException
+	Name: implCloseSelector
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractSelector.html#implCloseSelector--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractSelector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final boolean isOpen()
+	Name: isOpen
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractSelector.html#isOpen--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractSelector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final SelectorProvider provider()
+	Name: provider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractSelector.html#provider--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractSelector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels.spi::SelectorProvider
+	}
+
+	[Function]
+	protected final Set<SelectionKey> cancelledKeys()
+	Name: cancelledKeys
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractSelector.html#cancelledKeys--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractSelector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Set {
+			java.nio.channels::SelectionKey
+		}
+	}
+
+	[Function]
+	protected abstract SelectionKey register(AbstractSelectableChannel ch,
+	                                         int ops,
+	                                         Object att)
+	Name: register
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractSelector.html#register-java.nio.channels.spi.AbstractSelectableChannel-int-java.lang.Object-
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractSelector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels.spi::AbstractSelectableChannel
+		other::int
+		java.lang::Object
+	
+		[result]
+		java.nio.channels::SelectionKey
+	}
+
+	[Function]
+	protected final void deregister(AbstractSelectionKey key)
+	Name: deregister
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractSelector.html#deregister-java.nio.channels.spi.AbstractSelectionKey-
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractSelector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels.spi::AbstractSelectionKey
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected final void begin()
+	Name: begin
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractSelector.html#begin--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractSelector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected final void end()
+	Name: end
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AbstractSelector.html#end--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractSelector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public abstract class AsynchronousChannelProvider
+extends Object
+Name: AsynchronousChannelProvider
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AsynchronousChannelProvider.html
+Containing package: java.nio.channels.spi
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected AsynchronousChannelProvider()
+	Name: AsynchronousChannelProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AsynchronousChannelProvider.html#AsynchronousChannelProvider--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AsynchronousChannelProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels.spi::AsynchronousChannelProvider
+	}
+
+	[Function]
+	public static AsynchronousChannelProvider provider()
+	Name: provider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AsynchronousChannelProvider.html#provider--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousChannelProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels.spi::AsynchronousChannelProvider
+	}
+
+	[Function]
+	public abstract AsynchronousChannelGroup openAsynchronousChannelGroup(int nThreads,
+	                                                                      ThreadFactory threadFactory)
+	                                                               throws IOException
+	Name: openAsynchronousChannelGroup
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AsynchronousChannelProvider.html#openAsynchronousChannelGroup-int-java.util.concurrent.ThreadFactory-
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousChannelProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.util.concurrent::ThreadFactory
+	
+		[result]
+		java.nio.channels::AsynchronousChannelGroup
+	}
+
+	[Function]
+	public abstract AsynchronousChannelGroup openAsynchronousChannelGroup(ExecutorService executor,
+	                                                                      int initialSize)
+	                                                               throws IOException
+	Name: openAsynchronousChannelGroup
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AsynchronousChannelProvider.html#openAsynchronousChannelGroup-java.util.concurrent.ExecutorService-int-
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousChannelProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.concurrent::ExecutorService
+		other::int
+	
+		[result]
+		java.nio.channels::AsynchronousChannelGroup
+	}
+
+	[Function]
+	public abstract AsynchronousServerSocketChannel openAsynchronousServerSocketChannel(AsynchronousChannelGroup group)
+	                                                                             throws IOException
+	Name: openAsynchronousServerSocketChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AsynchronousChannelProvider.html#openAsynchronousServerSocketChannel-java.nio.channels.AsynchronousChannelGroup-
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousChannelProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels::AsynchronousChannelGroup
+	
+		[result]
+		java.nio.channels::AsynchronousServerSocketChannel
+	}
+
+	[Function]
+	public abstract AsynchronousSocketChannel openAsynchronousSocketChannel(AsynchronousChannelGroup group)
+	                                                                 throws IOException
+	Name: openAsynchronousSocketChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/AsynchronousChannelProvider.html#openAsynchronousSocketChannel-java.nio.channels.AsynchronousChannelGroup-
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AsynchronousChannelProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.nio.channels::AsynchronousChannelGroup
+	
+		[result]
+		java.nio.channels::AsynchronousSocketChannel
+	}
+}
+
+[Classifier]
+public abstract class SelectorProvider
+extends Object
+Name: SelectorProvider
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/SelectorProvider.html
+Containing package: java.nio.channels.spi
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected SelectorProvider()
+	Name: SelectorProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/SelectorProvider.html#SelectorProvider--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: SelectorProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels.spi::SelectorProvider
+	}
+
+	[Function]
+	public static SelectorProvider provider()
+	Name: provider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/SelectorProvider.html#provider--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectorProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels.spi::SelectorProvider
+	}
+
+	[Function]
+	public abstract DatagramChannel openDatagramChannel()
+	                                             throws IOException
+	Name: openDatagramChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/SelectorProvider.html#openDatagramChannel--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectorProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::DatagramChannel
+	}
+
+	[Function]
+	public abstract DatagramChannel openDatagramChannel(ProtocolFamily family)
+	                                             throws IOException
+	Name: openDatagramChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/SelectorProvider.html#openDatagramChannel-java.net.ProtocolFamily-
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectorProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::ProtocolFamily
+	
+		[result]
+		java.nio.channels::DatagramChannel
+	}
+
+	[Function]
+	public abstract Pipe openPipe()
+	                       throws IOException
+	Name: openPipe
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/SelectorProvider.html#openPipe--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectorProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::Pipe
+	}
+
+	[Function]
+	public abstract AbstractSelector openSelector()
+	                                       throws IOException
+	Name: openSelector
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/SelectorProvider.html#openSelector--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectorProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels.spi::AbstractSelector
+	}
+
+	[Function]
+	public abstract ServerSocketChannel openServerSocketChannel()
+	                                                     throws IOException
+	Name: openServerSocketChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/SelectorProvider.html#openServerSocketChannel--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectorProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::ServerSocketChannel
+	}
+
+	[Function]
+	public abstract SocketChannel openSocketChannel()
+	                                         throws IOException
+	Name: openSocketChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/SelectorProvider.html#openSocketChannel--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectorProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::SocketChannel
+	}
+
+	[Function]
+	public Channel inheritedChannel()
+	                         throws IOException
+	Name: inheritedChannel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/nio/channels/spi/SelectorProvider.html#inheritedChannel--
+	Containing package: java.nio.channels.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SelectorProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.nio.channels::Channel
+	}
+}

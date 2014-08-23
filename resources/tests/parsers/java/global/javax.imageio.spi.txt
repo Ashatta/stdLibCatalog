@@ -1,0 +1,3193 @@
+[Package]
+Name: javax.imageio.spi
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/package-summary.html
+Containing package: javax.imageio
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+public interface RegisterableService
+Name: RegisterableService
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/RegisterableService.html
+Containing package: javax.imageio.spi
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.imageio.spi::IIOServiceProvider
+}
+supertypes {
+}
+members {
+
+	[Function]
+	void onRegistration(ServiceRegistry registry,
+	                    Class<?> category)
+	Name: onRegistration
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/RegisterableService.html#onRegistration-javax.imageio.spi.ServiceRegistry-java.lang.Class-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RegisterableService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio.spi::ServiceRegistry
+		java.lang::Class {
+			?
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void onDeregistration(ServiceRegistry registry,
+	                      Class<?> category)
+	Name: onDeregistration
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/RegisterableService.html#onDeregistration-javax.imageio.spi.ServiceRegistry-java.lang.Class-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RegisterableService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio.spi::ServiceRegistry
+		java.lang::Class {
+			?
+		}
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public static interface ServiceRegistry.Filter
+Name: ServiceRegistry.Filter
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ServiceRegistry.Filter.html
+Containing package: javax.imageio.spi
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=true
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	boolean filter(Object provider)
+	Name: filter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ServiceRegistry.Filter.html#filter-java.lang.Object-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceRegistry.Filter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public final class IIORegistry
+extends ServiceRegistry
+Name: IIORegistry
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/IIORegistry.html
+Containing package: javax.imageio.spi
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.imageio.spi::ServiceRegistry
+}
+members {
+
+	[Function]
+	public static IIORegistry getDefaultInstance()
+	Name: getDefaultInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/IIORegistry.html#getDefaultInstance--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIORegistry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio.spi::IIORegistry
+	}
+
+	[Function]
+	public void registerApplicationClasspathSpis()
+	Name: registerApplicationClasspathSpis
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/IIORegistry.html#registerApplicationClasspathSpis--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIORegistry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public abstract class IIOServiceProvider
+extends Object
+implements RegisterableService
+Name: IIOServiceProvider
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/IIOServiceProvider.html
+Containing package: javax.imageio.spi
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.imageio.spi::ImageOutputStreamSpi
+	javax.imageio.spi::ImageTranscoderSpi
+	javax.imageio.spi::ImageInputStreamSpi
+	javax.imageio.spi::ImageReaderWriterSpi
+}
+supertypes {
+	javax.imageio.spi::RegisterableService
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected String vendorName
+	Name: vendorName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/IIOServiceProvider.html#vendorName
+	Containing package: javax.imageio.spi
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: IIOServiceProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	protected String version
+	Name: version
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/IIOServiceProvider.html#version
+	Containing package: javax.imageio.spi
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: IIOServiceProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public IIOServiceProvider(String vendorName,
+	                          String version)
+	Name: IIOServiceProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/IIOServiceProvider.html#IIOServiceProvider-java.lang.String-java.lang.String-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: IIOServiceProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.imageio.spi::IIOServiceProvider
+	}
+
+	[Function]
+	public IIOServiceProvider()
+	Name: IIOServiceProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/IIOServiceProvider.html#IIOServiceProvider--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: IIOServiceProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio.spi::IIOServiceProvider
+	}
+
+	[Function]
+	public void onRegistration(ServiceRegistry registry,
+	                           Class<?> category)
+	Name: onRegistration
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/IIOServiceProvider.html#onRegistration-javax.imageio.spi.ServiceRegistry-java.lang.Class-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOServiceProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio.spi::ServiceRegistry
+		java.lang::Class {
+			?
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void onDeregistration(ServiceRegistry registry,
+	                             Class<?> category)
+	Name: onDeregistration
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/IIOServiceProvider.html#onDeregistration-javax.imageio.spi.ServiceRegistry-java.lang.Class-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOServiceProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio.spi::ServiceRegistry
+		java.lang::Class {
+			?
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public String getVendorName()
+	Name: getVendorName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/IIOServiceProvider.html#getVendorName--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOServiceProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getVersion()
+	Name: getVersion
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/IIOServiceProvider.html#getVersion--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOServiceProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public abstract String getDescription(Locale locale)
+	Name: getDescription
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/IIOServiceProvider.html#getDescription-java.util.Locale-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IIOServiceProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Locale
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public abstract class ImageInputStreamSpi
+extends IIOServiceProvider
+Name: ImageInputStreamSpi
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageInputStreamSpi.html
+Containing package: javax.imageio.spi
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.imageio.spi::IIOServiceProvider
+}
+members {
+
+	[Function]
+	protected Class<?> inputClass
+	Name: inputClass
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageInputStreamSpi.html#inputClass
+	Containing package: javax.imageio.spi
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageInputStreamSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Class {
+			?
+		}
+	}
+
+	[Function]
+	protected ImageInputStreamSpi()
+	Name: ImageInputStreamSpi
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageInputStreamSpi.html#ImageInputStreamSpi--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ImageInputStreamSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio.spi::ImageInputStreamSpi
+	}
+
+	[Function]
+	public ImageInputStreamSpi(String vendorName,
+	                           String version,
+	                           Class<?> inputClass)
+	Name: ImageInputStreamSpi
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageInputStreamSpi.html#ImageInputStreamSpi-java.lang.String-java.lang.String-java.lang.Class-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ImageInputStreamSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		java.lang::Class {
+			?
+		}
+	
+		[result]
+		javax.imageio.spi::ImageInputStreamSpi
+	}
+
+	[Function]
+	public Class<?> getInputClass()
+	Name: getInputClass
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageInputStreamSpi.html#getInputClass--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageInputStreamSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Class {
+			?
+		}
+	}
+
+	[Function]
+	public boolean canUseCacheFile()
+	Name: canUseCacheFile
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageInputStreamSpi.html#canUseCacheFile--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageInputStreamSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean needsCacheFile()
+	Name: needsCacheFile
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageInputStreamSpi.html#needsCacheFile--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageInputStreamSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract ImageInputStream createInputStreamInstance(Object input,
+	                                                           boolean useCache,
+	                                                           File cacheDir)
+	                                                    throws IOException
+	Name: createInputStreamInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageInputStreamSpi.html#createInputStreamInstance-java.lang.Object-boolean-java.io.File-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageInputStreamSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+		other::boolean
+		java.io::File
+	
+		[result]
+		javax.imageio.stream::ImageInputStream
+	}
+
+	[Function]
+	public ImageInputStream createInputStreamInstance(Object input)
+	                                           throws IOException
+	Name: createInputStreamInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageInputStreamSpi.html#createInputStreamInstance-java.lang.Object-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageInputStreamSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		javax.imageio.stream::ImageInputStream
+	}
+}
+
+[Classifier]
+public abstract class ImageOutputStreamSpi
+extends IIOServiceProvider
+Name: ImageOutputStreamSpi
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageOutputStreamSpi.html
+Containing package: javax.imageio.spi
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.imageio.spi::IIOServiceProvider
+}
+members {
+
+	[Function]
+	protected Class<?> outputClass
+	Name: outputClass
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageOutputStreamSpi.html#outputClass
+	Containing package: javax.imageio.spi
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageOutputStreamSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Class {
+			?
+		}
+	}
+
+	[Function]
+	protected ImageOutputStreamSpi()
+	Name: ImageOutputStreamSpi
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageOutputStreamSpi.html#ImageOutputStreamSpi--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ImageOutputStreamSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio.spi::ImageOutputStreamSpi
+	}
+
+	[Function]
+	public ImageOutputStreamSpi(String vendorName,
+	                            String version,
+	                            Class<?> outputClass)
+	Name: ImageOutputStreamSpi
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageOutputStreamSpi.html#ImageOutputStreamSpi-java.lang.String-java.lang.String-java.lang.Class-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ImageOutputStreamSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		java.lang::Class {
+			?
+		}
+	
+		[result]
+		javax.imageio.spi::ImageOutputStreamSpi
+	}
+
+	[Function]
+	public Class<?> getOutputClass()
+	Name: getOutputClass
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageOutputStreamSpi.html#getOutputClass--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageOutputStreamSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Class {
+			?
+		}
+	}
+
+	[Function]
+	public boolean canUseCacheFile()
+	Name: canUseCacheFile
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageOutputStreamSpi.html#canUseCacheFile--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageOutputStreamSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean needsCacheFile()
+	Name: needsCacheFile
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageOutputStreamSpi.html#needsCacheFile--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageOutputStreamSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract ImageOutputStream createOutputStreamInstance(Object output,
+	                                                             boolean useCache,
+	                                                             File cacheDir)
+	                                                      throws IOException
+	Name: createOutputStreamInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageOutputStreamSpi.html#createOutputStreamInstance-java.lang.Object-boolean-java.io.File-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageOutputStreamSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+		other::boolean
+		java.io::File
+	
+		[result]
+		javax.imageio.stream::ImageOutputStream
+	}
+
+	[Function]
+	public ImageOutputStream createOutputStreamInstance(Object output)
+	                                             throws IOException
+	Name: createOutputStreamInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageOutputStreamSpi.html#createOutputStreamInstance-java.lang.Object-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageOutputStreamSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		javax.imageio.stream::ImageOutputStream
+	}
+}
+
+[Classifier]
+public abstract class ImageReaderSpi
+extends ImageReaderWriterSpi
+Name: ImageReaderSpi
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderSpi.html
+Containing package: javax.imageio.spi
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.imageio.spi::ImageReaderWriterSpi
+}
+members {
+
+	[Function]
+	@Deprecated
+	public static final Class[] STANDARD_INPUT_TYPE
+	Name: STANDARD_INPUT_TYPE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderSpi.html#STANDARD_INPUT_TYPE
+	Containing package: javax.imageio.spi
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ImageReaderSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::Class
+		}
+	}
+
+	[Function]
+	protected Class[] inputTypes
+	Name: inputTypes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderSpi.html#inputTypes
+	Containing package: javax.imageio.spi
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReaderSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::Class
+		}
+	}
+
+	[Function]
+	protected String[] writerSpiNames
+	Name: writerSpiNames
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderSpi.html#writerSpiNames
+	Containing package: javax.imageio.spi
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReaderSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	protected ImageReaderSpi()
+	Name: ImageReaderSpi
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderSpi.html#ImageReaderSpi--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ImageReaderSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio.spi::ImageReaderSpi
+	}
+
+	[Function]
+	public ImageReaderSpi(String vendorName,
+	                      String version,
+	                      String[] names,
+	                      String[] suffixes,
+	                      String[] MIMETypes,
+	                      String readerClassName,
+	                      Class[] inputTypes,
+	                      String[] writerSpiNames,
+	                      boolean supportsStandardStreamMetadataFormat,
+	                      String nativeStreamMetadataFormatName,
+	                      String nativeStreamMetadataFormatClassName,
+	                      String[] extraStreamMetadataFormatNames,
+	                      String[] extraStreamMetadataFormatClassNames,
+	                      boolean supportsStandardImageMetadataFormat,
+	                      String nativeImageMetadataFormatName,
+	                      String nativeImageMetadataFormatClassName,
+	                      String[] extraImageMetadataFormatNames,
+	                      String[] extraImageMetadataFormatClassNames)
+	Name: ImageReaderSpi
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderSpi.html#ImageReaderSpi-java.lang.String-java.lang.String-java.lang.String:A-java.lang.String:A-java.lang.String:A-java.lang.String-java.lang.Class:A-java.lang.String:A-boolean-java.lang.String-java.lang.String-java.lang.String:A-java.lang.String:A-boolean-java.lang.String-java.lang.String-java.lang.String:A-java.lang.String:A-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ImageReaderSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		other::[] {
+			java.lang::String
+		}
+		other::[] {
+			java.lang::String
+		}
+		other::[] {
+			java.lang::String
+		}
+		java.lang::String
+		other::[] {
+			java.lang::Class
+		}
+		other::[] {
+			java.lang::String
+		}
+		other::boolean
+		java.lang::String
+		java.lang::String
+		other::[] {
+			java.lang::String
+		}
+		other::[] {
+			java.lang::String
+		}
+		other::boolean
+		java.lang::String
+		java.lang::String
+		other::[] {
+			java.lang::String
+		}
+		other::[] {
+			java.lang::String
+		}
+	
+		[result]
+		javax.imageio.spi::ImageReaderSpi
+	}
+
+	[Function]
+	public Class[] getInputTypes()
+	Name: getInputTypes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderSpi.html#getInputTypes--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReaderSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::Class
+		}
+	}
+
+	[Function]
+	public abstract boolean canDecodeInput(Object source)
+	                                throws IOException
+	Name: canDecodeInput
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderSpi.html#canDecodeInput-java.lang.Object-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReaderSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public ImageReader createReaderInstance()
+	                                 throws IOException
+	Name: createReaderInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderSpi.html#createReaderInstance--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReaderSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio::ImageReader
+	}
+
+	[Function]
+	public abstract ImageReader createReaderInstance(Object extension)
+	                                          throws IOException
+	Name: createReaderInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderSpi.html#createReaderInstance-java.lang.Object-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReaderSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		javax.imageio::ImageReader
+	}
+
+	[Function]
+	public boolean isOwnReader(ImageReader reader)
+	Name: isOwnReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderSpi.html#isOwnReader-javax.imageio.ImageReader-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReaderSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio::ImageReader
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public String[] getImageWriterSpiNames()
+	Name: getImageWriterSpiNames
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderSpi.html#getImageWriterSpiNames--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReaderSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+}
+
+[Classifier]
+public abstract class ImageReaderWriterSpi
+extends IIOServiceProvider
+Name: ImageReaderWriterSpi
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html
+Containing package: javax.imageio.spi
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.imageio.spi::ImageWriterSpi
+	javax.imageio.spi::ImageReaderSpi
+}
+supertypes {
+	javax.imageio.spi::IIOServiceProvider
+}
+members {
+
+	[Function]
+	protected String[] names
+	Name: names
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html#names
+	Containing package: javax.imageio.spi
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReaderWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	protected String[] suffixes
+	Name: suffixes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html#suffixes
+	Containing package: javax.imageio.spi
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReaderWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	protected String[] MIMETypes
+	Name: MIMETypes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html#MIMETypes
+	Containing package: javax.imageio.spi
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReaderWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	protected String pluginClassName
+	Name: pluginClassName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html#pluginClassName
+	Containing package: javax.imageio.spi
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReaderWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	protected boolean supportsStandardStreamMetadataFormat
+	Name: supportsStandardStreamMetadataFormat
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html#supportsStandardStreamMetadataFormat
+	Containing package: javax.imageio.spi
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReaderWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected String nativeStreamMetadataFormatName
+	Name: nativeStreamMetadataFormatName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html#nativeStreamMetadataFormatName
+	Containing package: javax.imageio.spi
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReaderWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	protected String nativeStreamMetadataFormatClassName
+	Name: nativeStreamMetadataFormatClassName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html#nativeStreamMetadataFormatClassName
+	Containing package: javax.imageio.spi
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReaderWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	protected String[] extraStreamMetadataFormatNames
+	Name: extraStreamMetadataFormatNames
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html#extraStreamMetadataFormatNames
+	Containing package: javax.imageio.spi
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReaderWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	protected String[] extraStreamMetadataFormatClassNames
+	Name: extraStreamMetadataFormatClassNames
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html#extraStreamMetadataFormatClassNames
+	Containing package: javax.imageio.spi
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReaderWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	protected boolean supportsStandardImageMetadataFormat
+	Name: supportsStandardImageMetadataFormat
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html#supportsStandardImageMetadataFormat
+	Containing package: javax.imageio.spi
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReaderWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected String nativeImageMetadataFormatName
+	Name: nativeImageMetadataFormatName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html#nativeImageMetadataFormatName
+	Containing package: javax.imageio.spi
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReaderWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	protected String nativeImageMetadataFormatClassName
+	Name: nativeImageMetadataFormatClassName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html#nativeImageMetadataFormatClassName
+	Containing package: javax.imageio.spi
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReaderWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	protected String[] extraImageMetadataFormatNames
+	Name: extraImageMetadataFormatNames
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html#extraImageMetadataFormatNames
+	Containing package: javax.imageio.spi
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReaderWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	protected String[] extraImageMetadataFormatClassNames
+	Name: extraImageMetadataFormatClassNames
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html#extraImageMetadataFormatClassNames
+	Containing package: javax.imageio.spi
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageReaderWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public ImageReaderWriterSpi(String vendorName,
+	                            String version,
+	                            String[] names,
+	                            String[] suffixes,
+	                            String[] MIMETypes,
+	                            String pluginClassName,
+	                            boolean supportsStandardStreamMetadataFormat,
+	                            String nativeStreamMetadataFormatName,
+	                            String nativeStreamMetadataFormatClassName,
+	                            String[] extraStreamMetadataFormatNames,
+	                            String[] extraStreamMetadataFormatClassNames,
+	                            boolean supportsStandardImageMetadataFormat,
+	                            String nativeImageMetadataFormatName,
+	                            String nativeImageMetadataFormatClassName,
+	                            String[] extraImageMetadataFormatNames,
+	                            String[] extraImageMetadataFormatClassNames)
+	Name: ImageReaderWriterSpi
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html#ImageReaderWriterSpi-java.lang.String-java.lang.String-java.lang.String:A-java.lang.String:A-java.lang.String:A-java.lang.String-boolean-java.lang.String-java.lang.String-java.lang.String:A-java.lang.String:A-boolean-java.lang.String-java.lang.String-java.lang.String:A-java.lang.String:A-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ImageReaderWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		other::[] {
+			java.lang::String
+		}
+		other::[] {
+			java.lang::String
+		}
+		other::[] {
+			java.lang::String
+		}
+		java.lang::String
+		other::boolean
+		java.lang::String
+		java.lang::String
+		other::[] {
+			java.lang::String
+		}
+		other::[] {
+			java.lang::String
+		}
+		other::boolean
+		java.lang::String
+		java.lang::String
+		other::[] {
+			java.lang::String
+		}
+		other::[] {
+			java.lang::String
+		}
+	
+		[result]
+		javax.imageio.spi::ImageReaderWriterSpi
+	}
+
+	[Function]
+	public ImageReaderWriterSpi()
+	Name: ImageReaderWriterSpi
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html#ImageReaderWriterSpi--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ImageReaderWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio.spi::ImageReaderWriterSpi
+	}
+
+	[Function]
+	public String[] getFormatNames()
+	Name: getFormatNames
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html#getFormatNames--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReaderWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public String[] getFileSuffixes()
+	Name: getFileSuffixes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html#getFileSuffixes--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReaderWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public String[] getMIMETypes()
+	Name: getMIMETypes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html#getMIMETypes--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReaderWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public String getPluginClassName()
+	Name: getPluginClassName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html#getPluginClassName--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReaderWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public boolean isStandardStreamMetadataFormatSupported()
+	Name: isStandardStreamMetadataFormatSupported
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html#isStandardStreamMetadataFormatSupported--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReaderWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public String getNativeStreamMetadataFormatName()
+	Name: getNativeStreamMetadataFormatName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html#getNativeStreamMetadataFormatName--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReaderWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String[] getExtraStreamMetadataFormatNames()
+	Name: getExtraStreamMetadataFormatNames
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html#getExtraStreamMetadataFormatNames--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReaderWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public boolean isStandardImageMetadataFormatSupported()
+	Name: isStandardImageMetadataFormatSupported
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html#isStandardImageMetadataFormatSupported--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReaderWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public String getNativeImageMetadataFormatName()
+	Name: getNativeImageMetadataFormatName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html#getNativeImageMetadataFormatName--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReaderWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String[] getExtraImageMetadataFormatNames()
+	Name: getExtraImageMetadataFormatNames
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html#getExtraImageMetadataFormatNames--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReaderWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public IIOMetadataFormat getStreamMetadataFormat(String formatName)
+	Name: getStreamMetadataFormat
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html#getStreamMetadataFormat-java.lang.String-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReaderWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.imageio.metadata::IIOMetadataFormat
+	}
+
+	[Function]
+	public IIOMetadataFormat getImageMetadataFormat(String formatName)
+	Name: getImageMetadataFormat
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageReaderWriterSpi.html#getImageMetadataFormat-java.lang.String-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageReaderWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.imageio.metadata::IIOMetadataFormat
+	}
+}
+
+[Classifier]
+public abstract class ImageTranscoderSpi
+extends IIOServiceProvider
+Name: ImageTranscoderSpi
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageTranscoderSpi.html
+Containing package: javax.imageio.spi
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.imageio.spi::IIOServiceProvider
+}
+members {
+
+	[Function]
+	protected ImageTranscoderSpi()
+	Name: ImageTranscoderSpi
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageTranscoderSpi.html#ImageTranscoderSpi--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ImageTranscoderSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio.spi::ImageTranscoderSpi
+	}
+
+	[Function]
+	public ImageTranscoderSpi(String vendorName,
+	                          String version)
+	Name: ImageTranscoderSpi
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageTranscoderSpi.html#ImageTranscoderSpi-java.lang.String-java.lang.String-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ImageTranscoderSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.imageio.spi::ImageTranscoderSpi
+	}
+
+	[Function]
+	public abstract String getReaderServiceProviderName()
+	Name: getReaderServiceProviderName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageTranscoderSpi.html#getReaderServiceProviderName--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageTranscoderSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public abstract String getWriterServiceProviderName()
+	Name: getWriterServiceProviderName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageTranscoderSpi.html#getWriterServiceProviderName--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageTranscoderSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public abstract ImageTranscoder createTranscoderInstance()
+	Name: createTranscoderInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageTranscoderSpi.html#createTranscoderInstance--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageTranscoderSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio::ImageTranscoder
+	}
+}
+
+[Classifier]
+public abstract class ImageWriterSpi
+extends ImageReaderWriterSpi
+Name: ImageWriterSpi
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageWriterSpi.html
+Containing package: javax.imageio.spi
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.imageio.spi::ImageReaderWriterSpi
+}
+members {
+
+	[Function]
+	@Deprecated
+	public static final Class[] STANDARD_OUTPUT_TYPE
+	Name: STANDARD_OUTPUT_TYPE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageWriterSpi.html#STANDARD_OUTPUT_TYPE
+	Containing package: javax.imageio.spi
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ImageWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::Class
+		}
+	}
+
+	[Function]
+	protected Class[] outputTypes
+	Name: outputTypes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageWriterSpi.html#outputTypes
+	Containing package: javax.imageio.spi
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::Class
+		}
+	}
+
+	[Function]
+	protected String[] readerSpiNames
+	Name: readerSpiNames
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageWriterSpi.html#readerSpiNames
+	Containing package: javax.imageio.spi
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: ImageWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	protected ImageWriterSpi()
+	Name: ImageWriterSpi
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageWriterSpi.html#ImageWriterSpi--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ImageWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio.spi::ImageWriterSpi
+	}
+
+	[Function]
+	public ImageWriterSpi(String vendorName,
+	                      String version,
+	                      String[] names,
+	                      String[] suffixes,
+	                      String[] MIMETypes,
+	                      String writerClassName,
+	                      Class[] outputTypes,
+	                      String[] readerSpiNames,
+	                      boolean supportsStandardStreamMetadataFormat,
+	                      String nativeStreamMetadataFormatName,
+	                      String nativeStreamMetadataFormatClassName,
+	                      String[] extraStreamMetadataFormatNames,
+	                      String[] extraStreamMetadataFormatClassNames,
+	                      boolean supportsStandardImageMetadataFormat,
+	                      String nativeImageMetadataFormatName,
+	                      String nativeImageMetadataFormatClassName,
+	                      String[] extraImageMetadataFormatNames,
+	                      String[] extraImageMetadataFormatClassNames)
+	Name: ImageWriterSpi
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageWriterSpi.html#ImageWriterSpi-java.lang.String-java.lang.String-java.lang.String:A-java.lang.String:A-java.lang.String:A-java.lang.String-java.lang.Class:A-java.lang.String:A-boolean-java.lang.String-java.lang.String-java.lang.String:A-java.lang.String:A-boolean-java.lang.String-java.lang.String-java.lang.String:A-java.lang.String:A-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ImageWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		other::[] {
+			java.lang::String
+		}
+		other::[] {
+			java.lang::String
+		}
+		other::[] {
+			java.lang::String
+		}
+		java.lang::String
+		other::[] {
+			java.lang::Class
+		}
+		other::[] {
+			java.lang::String
+		}
+		other::boolean
+		java.lang::String
+		java.lang::String
+		other::[] {
+			java.lang::String
+		}
+		other::[] {
+			java.lang::String
+		}
+		other::boolean
+		java.lang::String
+		java.lang::String
+		other::[] {
+			java.lang::String
+		}
+		other::[] {
+			java.lang::String
+		}
+	
+		[result]
+		javax.imageio.spi::ImageWriterSpi
+	}
+
+	[Function]
+	public boolean isFormatLossless()
+	Name: isFormatLossless
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageWriterSpi.html#isFormatLossless--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public Class[] getOutputTypes()
+	Name: getOutputTypes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageWriterSpi.html#getOutputTypes--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::Class
+		}
+	}
+
+	[Function]
+	public abstract boolean canEncodeImage(ImageTypeSpecifier type)
+	Name: canEncodeImage
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageWriterSpi.html#canEncodeImage-javax.imageio.ImageTypeSpecifier-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio::ImageTypeSpecifier
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean canEncodeImage(RenderedImage im)
+	Name: canEncodeImage
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageWriterSpi.html#canEncodeImage-java.awt.image.RenderedImage-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.image::RenderedImage
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public ImageWriter createWriterInstance()
+	                                 throws IOException
+	Name: createWriterInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageWriterSpi.html#createWriterInstance--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.imageio::ImageWriter
+	}
+
+	[Function]
+	public abstract ImageWriter createWriterInstance(Object extension)
+	                                          throws IOException
+	Name: createWriterInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageWriterSpi.html#createWriterInstance-java.lang.Object-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		javax.imageio::ImageWriter
+	}
+
+	[Function]
+	public boolean isOwnWriter(ImageWriter writer)
+	Name: isOwnWriter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageWriterSpi.html#isOwnWriter-javax.imageio.ImageWriter-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.imageio::ImageWriter
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public String[] getImageReaderSpiNames()
+	Name: getImageReaderSpiNames
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ImageWriterSpi.html#getImageReaderSpiNames--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ImageWriterSpi
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+}
+
+[Classifier]
+public class ServiceRegistry
+extends Object
+Name: ServiceRegistry
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ServiceRegistry.html
+Containing package: javax.imageio.spi
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.imageio.spi::IIORegistry
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public ServiceRegistry(Iterator<Class<?>> categories)
+	Name: ServiceRegistry
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ServiceRegistry.html#ServiceRegistry-java.util.Iterator-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ServiceRegistry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Iterator {
+			java.lang::Class {
+				?
+			}
+		}
+	
+		[result]
+		javax.imageio.spi::ServiceRegistry
+	}
+
+	[Function]
+	public static <T> Iterator<T> lookupProviders(Class<T> providerClass,
+	                                              ClassLoader loader)
+	Name: lookupProviders
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ServiceRegistry.html#lookupProviders-java.lang.Class-java.lang.ClassLoader-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceRegistry
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			null::T
+		}
+		java.lang::ClassLoader
+	
+		[result]
+		java.util::Iterator {
+			null::T
+		}
+	}
+
+	[Function]
+	public static <T> Iterator<T> lookupProviders(Class<T> providerClass)
+	Name: lookupProviders
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ServiceRegistry.html#lookupProviders-java.lang.Class-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceRegistry
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			null::T
+		}
+	
+		[result]
+		java.util::Iterator {
+			null::T
+		}
+	}
+
+	[Function]
+	public Iterator<Class<?>> getCategories()
+	Name: getCategories
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ServiceRegistry.html#getCategories--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceRegistry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Iterator {
+			java.lang::Class {
+				?
+			}
+		}
+	}
+
+	[Function]
+	public <T> boolean registerServiceProvider(T provider,
+	                                           Class<T> category)
+	Name: registerServiceProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ServiceRegistry.html#registerServiceProvider-T-java.lang.Class-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceRegistry
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		java.lang::Class {
+			null::T
+		}
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void registerServiceProvider(Object provider)
+	Name: registerServiceProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ServiceRegistry.html#registerServiceProvider-java.lang.Object-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceRegistry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void registerServiceProviders(Iterator<?> providers)
+	Name: registerServiceProviders
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ServiceRegistry.html#registerServiceProviders-java.util.Iterator-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceRegistry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Iterator {
+			?
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public <T> boolean deregisterServiceProvider(T provider,
+	                                             Class<T> category)
+	Name: deregisterServiceProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ServiceRegistry.html#deregisterServiceProvider-T-java.lang.Class-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceRegistry
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		java.lang::Class {
+			null::T
+		}
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void deregisterServiceProvider(Object provider)
+	Name: deregisterServiceProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ServiceRegistry.html#deregisterServiceProvider-java.lang.Object-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceRegistry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean contains(Object provider)
+	Name: contains
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ServiceRegistry.html#contains-java.lang.Object-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceRegistry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public <T> Iterator<T> getServiceProviders(Class<T> category,
+	                                           boolean useOrdering)
+	Name: getServiceProviders
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ServiceRegistry.html#getServiceProviders-java.lang.Class-boolean-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceRegistry
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			null::T
+		}
+		other::boolean
+	
+		[result]
+		java.util::Iterator {
+			null::T
+		}
+	}
+
+	[Function]
+	public <T> Iterator<T> getServiceProviders(Class<T> category,
+	                                           ServiceRegistry.Filter filter,
+	                                           boolean useOrdering)
+	Name: getServiceProviders
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ServiceRegistry.html#getServiceProviders-java.lang.Class-javax.imageio.spi.ServiceRegistry.Filter-boolean-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceRegistry
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			null::T
+		}
+		javax.imageio.spi::ServiceRegistry.Filter
+		other::boolean
+	
+		[result]
+		java.util::Iterator {
+			null::T
+		}
+	}
+
+	[Function]
+	public <T> T getServiceProviderByClass(Class<T> providerClass)
+	Name: getServiceProviderByClass
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ServiceRegistry.html#getServiceProviderByClass-java.lang.Class-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceRegistry
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			null::T
+		}
+	
+		[result]
+		null::T
+	}
+
+	[Function]
+	public <T> boolean setOrdering(Class<T> category,
+	                               T firstProvider,
+	                               T secondProvider)
+	Name: setOrdering
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ServiceRegistry.html#setOrdering-java.lang.Class-T-T-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceRegistry
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			null::T
+		}
+		null::T
+		null::T
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public <T> boolean unsetOrdering(Class<T> category,
+	                                 T firstProvider,
+	                                 T secondProvider)
+	Name: unsetOrdering
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ServiceRegistry.html#unsetOrdering-java.lang.Class-T-T-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceRegistry
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			null::T
+		}
+		null::T
+		null::T
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void deregisterAll(Class<?> category)
+	Name: deregisterAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ServiceRegistry.html#deregisterAll-java.lang.Class-
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceRegistry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			?
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void deregisterAll()
+	Name: deregisterAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ServiceRegistry.html#deregisterAll--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceRegistry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void finalize()
+	              throws Throwable
+	Name: finalize
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/imageio/spi/ServiceRegistry.html#finalize--
+	Containing package: javax.imageio.spi
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceRegistry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+}

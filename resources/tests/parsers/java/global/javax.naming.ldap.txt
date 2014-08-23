@@ -1,0 +1,4057 @@
+[Package]
+Name: javax.naming.ldap
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/package-summary.html
+Containing package: javax.naming
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+public interface Control
+extends Serializable
+Name: Control
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/Control.html
+Containing package: javax.naming.ldap
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.naming.ldap::BasicControl
+}
+supertypes {
+	java.io::Serializable
+}
+members {
+
+	[Function]
+	static final boolean CRITICAL
+	Name: CRITICAL
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/Control.html#CRITICAL
+	Containing package: javax.naming.ldap
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: Control
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	static final boolean NONCRITICAL
+	Name: NONCRITICAL
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/Control.html#NONCRITICAL
+	Containing package: javax.naming.ldap
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: Control
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	String getID()
+	Name: getID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/Control.html#getID--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Control
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	boolean isCritical()
+	Name: isCritical
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/Control.html#isCritical--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Control
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	byte[] getEncodedValue()
+	Name: getEncodedValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/Control.html#getEncodedValue--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Control
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+}
+
+[Classifier]
+public interface ExtendedRequest
+extends Serializable
+Name: ExtendedRequest
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/ExtendedRequest.html
+Containing package: javax.naming.ldap
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.naming.ldap::StartTlsRequest
+}
+supertypes {
+	java.io::Serializable
+}
+members {
+
+	[Function]
+	String getID()
+	Name: getID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/ExtendedRequest.html#getID--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ExtendedRequest
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	byte[] getEncodedValue()
+	Name: getEncodedValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/ExtendedRequest.html#getEncodedValue--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ExtendedRequest
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	ExtendedResponse createExtendedResponse(String id,
+	                                        byte[] berValue,
+	                                        int offset,
+	                                        int length)
+	                                 throws NamingException
+	Name: createExtendedResponse
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/ExtendedRequest.html#createExtendedResponse-java.lang.String-byte:A-int-int-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ExtendedRequest
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::[] {
+			other::byte
+		}
+		other::int
+		other::int
+	
+		[result]
+		javax.naming.ldap::ExtendedResponse
+	}
+}
+
+[Classifier]
+public interface ExtendedResponse
+extends Serializable
+Name: ExtendedResponse
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/ExtendedResponse.html
+Containing package: javax.naming.ldap
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.naming.ldap::StartTlsResponse
+	javax.naming.ldap::UnsolicitedNotification
+}
+supertypes {
+	java.io::Serializable
+}
+members {
+
+	[Function]
+	String getID()
+	Name: getID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/ExtendedResponse.html#getID--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ExtendedResponse
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	byte[] getEncodedValue()
+	Name: getEncodedValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/ExtendedResponse.html#getEncodedValue--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ExtendedResponse
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+}
+
+[Classifier]
+public interface HasControls
+Name: HasControls
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/HasControls.html
+Containing package: javax.naming.ldap
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.naming.ldap::UnsolicitedNotification
+}
+supertypes {
+}
+members {
+
+	[Function]
+	Control[] getControls()
+	               throws NamingException
+	Name: getControls
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/HasControls.html#getControls--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: HasControls
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			javax.naming.ldap::Control
+		}
+	}
+}
+
+[Classifier]
+public interface LdapContext
+extends DirContext
+Name: LdapContext
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapContext.html
+Containing package: javax.naming.ldap
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.naming.ldap::InitialLdapContext
+}
+supertypes {
+	javax.naming.directory::DirContext
+}
+members {
+
+	[Function]
+	static final String CONTROL_FACTORIES
+	Name: CONTROL_FACTORIES
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapContext.html#CONTROL_FACTORIES
+	Containing package: javax.naming.ldap
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: LdapContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	ExtendedResponse extendedOperation(ExtendedRequest request)
+	                            throws NamingException
+	Name: extendedOperation
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapContext.html#extendedOperation-javax.naming.ldap.ExtendedRequest-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.naming.ldap::ExtendedRequest
+	
+		[result]
+		javax.naming.ldap::ExtendedResponse
+	}
+
+	[Function]
+	LdapContext newInstance(Control[] requestControls)
+	                 throws NamingException
+	Name: newInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapContext.html#newInstance-javax.naming.ldap.Control:A-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			javax.naming.ldap::Control
+		}
+	
+		[result]
+		javax.naming.ldap::LdapContext
+	}
+
+	[Function]
+	void reconnect(Control[] connCtls)
+	        throws NamingException
+	Name: reconnect
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapContext.html#reconnect-javax.naming.ldap.Control:A-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			javax.naming.ldap::Control
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	Control[] getConnectControls()
+	                      throws NamingException
+	Name: getConnectControls
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapContext.html#getConnectControls--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			javax.naming.ldap::Control
+		}
+	}
+
+	[Function]
+	void setRequestControls(Control[] requestControls)
+	                 throws NamingException
+	Name: setRequestControls
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapContext.html#setRequestControls-javax.naming.ldap.Control:A-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			javax.naming.ldap::Control
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	Control[] getRequestControls()
+	                      throws NamingException
+	Name: getRequestControls
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapContext.html#getRequestControls--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			javax.naming.ldap::Control
+		}
+	}
+
+	[Function]
+	Control[] getResponseControls()
+	                       throws NamingException
+	Name: getResponseControls
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapContext.html#getResponseControls--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			javax.naming.ldap::Control
+		}
+	}
+}
+
+[Classifier]
+public interface UnsolicitedNotification
+extends ExtendedResponse, HasControls
+Name: UnsolicitedNotification
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/UnsolicitedNotification.html
+Containing package: javax.naming.ldap
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.naming.ldap::ExtendedResponse
+	javax.naming.ldap::HasControls
+}
+members {
+
+	[Function]
+	String[] getReferrals()
+	Name: getReferrals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/UnsolicitedNotification.html#getReferrals--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UnsolicitedNotification
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	NamingException getException()
+	Name: getException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/UnsolicitedNotification.html#getException--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UnsolicitedNotification
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.naming::NamingException
+	}
+}
+
+[Classifier]
+public interface UnsolicitedNotificationListener
+extends NamingListener
+Name: UnsolicitedNotificationListener
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/UnsolicitedNotificationListener.html
+Containing package: javax.naming.ldap
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.naming.event::NamingListener
+}
+members {
+
+	[Function]
+	void notificationReceived(UnsolicitedNotificationEvent evt)
+	Name: notificationReceived
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/UnsolicitedNotificationListener.html#notificationReceived-javax.naming.ldap.UnsolicitedNotificationEvent-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UnsolicitedNotificationListener
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.naming.ldap::UnsolicitedNotificationEvent
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public class BasicControl
+extends Object
+implements Control
+Name: BasicControl
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/BasicControl.html
+Containing package: javax.naming.ldap
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.naming.ldap::PagedResultsResponseControl
+	javax.naming.ldap::SortResponseControl
+	javax.naming.ldap::PagedResultsControl
+	javax.naming.ldap::SortControl
+	javax.naming.ldap::ManageReferralControl
+}
+supertypes {
+	javax.naming.ldap::Control
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected String id
+	Name: id
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/BasicControl.html#id
+	Containing package: javax.naming.ldap
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: BasicControl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	protected boolean criticality
+	Name: criticality
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/BasicControl.html#criticality
+	Containing package: javax.naming.ldap
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: BasicControl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected byte[] value
+	Name: value
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/BasicControl.html#value
+	Containing package: javax.naming.ldap
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: BasicControl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	public BasicControl(String id)
+	Name: BasicControl
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/BasicControl.html#BasicControl-java.lang.String-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: BasicControl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.naming.ldap::BasicControl
+	}
+
+	[Function]
+	public BasicControl(String id,
+	                    boolean criticality,
+	                    byte[] value)
+	Name: BasicControl
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/BasicControl.html#BasicControl-java.lang.String-boolean-byte:A-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: BasicControl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::boolean
+		other::[] {
+			other::byte
+		}
+	
+		[result]
+		javax.naming.ldap::BasicControl
+	}
+
+	[Function]
+	public String getID()
+	Name: getID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/BasicControl.html#getID--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BasicControl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public boolean isCritical()
+	Name: isCritical
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/BasicControl.html#isCritical--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BasicControl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public byte[] getEncodedValue()
+	Name: getEncodedValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/BasicControl.html#getEncodedValue--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BasicControl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+}
+
+[Classifier]
+public abstract class ControlFactory
+extends Object
+Name: ControlFactory
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/ControlFactory.html
+Containing package: javax.naming.ldap
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected ControlFactory()
+	Name: ControlFactory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/ControlFactory.html#ControlFactory--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ControlFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.naming.ldap::ControlFactory
+	}
+
+	[Function]
+	public abstract Control getControlInstance(Control ctl)
+	                                    throws NamingException
+	Name: getControlInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/ControlFactory.html#getControlInstance-javax.naming.ldap.Control-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ControlFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.naming.ldap::Control
+	
+		[result]
+		javax.naming.ldap::Control
+	}
+
+	[Function]
+	public static Control getControlInstance(Control ctl,
+	                                         Context ctx,
+	                                         Hashtable<?,?> env)
+	                                  throws NamingException
+	Name: getControlInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/ControlFactory.html#getControlInstance-javax.naming.ldap.Control-javax.naming.Context-java.util.Hashtable-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ControlFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.naming.ldap::Control
+		javax.naming::Context
+		java.util::Hashtable {
+			?
+			?
+		}
+	
+		[result]
+		javax.naming.ldap::Control
+	}
+}
+
+[Classifier]
+public class InitialLdapContext
+extends InitialDirContext
+implements LdapContext
+Name: InitialLdapContext
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/InitialLdapContext.html
+Containing package: javax.naming.ldap
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.naming.ldap::LdapContext
+	javax.naming.directory::InitialDirContext
+}
+members {
+
+	[Function]
+	public InitialLdapContext()
+	                   throws NamingException
+	Name: InitialLdapContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/InitialLdapContext.html#InitialLdapContext--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: InitialLdapContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.naming.ldap::InitialLdapContext
+	}
+
+	[Function]
+	public InitialLdapContext(Hashtable<?,?> environment,
+	                          Control[] connCtls)
+	                   throws NamingException
+	Name: InitialLdapContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/InitialLdapContext.html#InitialLdapContext-java.util.Hashtable-javax.naming.ldap.Control:A-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: InitialLdapContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Hashtable {
+			?
+			?
+		}
+		other::[] {
+			javax.naming.ldap::Control
+		}
+	
+		[result]
+		javax.naming.ldap::InitialLdapContext
+	}
+
+	[Function]
+	public ExtendedResponse extendedOperation(ExtendedRequest request)
+	                                   throws NamingException
+	Name: extendedOperation
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/InitialLdapContext.html#extendedOperation-javax.naming.ldap.ExtendedRequest-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: InitialLdapContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.naming.ldap::ExtendedRequest
+	
+		[result]
+		javax.naming.ldap::ExtendedResponse
+	}
+
+	[Function]
+	public LdapContext newInstance(Control[] reqCtls)
+	                        throws NamingException
+	Name: newInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/InitialLdapContext.html#newInstance-javax.naming.ldap.Control:A-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: InitialLdapContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			javax.naming.ldap::Control
+		}
+	
+		[result]
+		javax.naming.ldap::LdapContext
+	}
+
+	[Function]
+	public void reconnect(Control[] connCtls)
+	               throws NamingException
+	Name: reconnect
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/InitialLdapContext.html#reconnect-javax.naming.ldap.Control:A-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: InitialLdapContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			javax.naming.ldap::Control
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Control[] getConnectControls()
+	                             throws NamingException
+	Name: getConnectControls
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/InitialLdapContext.html#getConnectControls--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: InitialLdapContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			javax.naming.ldap::Control
+		}
+	}
+
+	[Function]
+	public void setRequestControls(Control[] requestControls)
+	                        throws NamingException
+	Name: setRequestControls
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/InitialLdapContext.html#setRequestControls-javax.naming.ldap.Control:A-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: InitialLdapContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			javax.naming.ldap::Control
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Control[] getRequestControls()
+	                             throws NamingException
+	Name: getRequestControls
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/InitialLdapContext.html#getRequestControls--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: InitialLdapContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			javax.naming.ldap::Control
+		}
+	}
+
+	[Function]
+	public Control[] getResponseControls()
+	                              throws NamingException
+	Name: getResponseControls
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/InitialLdapContext.html#getResponseControls--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: InitialLdapContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			javax.naming.ldap::Control
+		}
+	}
+}
+
+[Classifier]
+public class LdapName
+extends Object
+implements Name
+Name: LdapName
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html
+Containing package: javax.naming.ldap
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.naming::Name
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public LdapName(String name)
+	         throws InvalidNameException
+	Name: LdapName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html#LdapName-java.lang.String-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: LdapName
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.naming.ldap::LdapName
+	}
+
+	[Function]
+	public LdapName(List<Rdn> rdns)
+	Name: LdapName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html#LdapName-java.util.List-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: LdapName
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::List {
+			javax.naming.ldap::Rdn
+		}
+	
+		[result]
+		javax.naming.ldap::LdapName
+	}
+
+	[Function]
+	public int size()
+	Name: size
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html#size--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapName
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public boolean isEmpty()
+	Name: isEmpty
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html#isEmpty--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapName
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public Enumeration<String> getAll()
+	Name: getAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html#getAll--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapName
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Enumeration {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public String get(int posn)
+	Name: get
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html#get-int-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapName
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public Rdn getRdn(int posn)
+	Name: getRdn
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html#getRdn-int-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapName
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		javax.naming.ldap::Rdn
+	}
+
+	[Function]
+	public Name getPrefix(int posn)
+	Name: getPrefix
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html#getPrefix-int-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapName
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		javax.naming::Name
+	}
+
+	[Function]
+	public Name getSuffix(int posn)
+	Name: getSuffix
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html#getSuffix-int-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapName
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		javax.naming::Name
+	}
+
+	[Function]
+	public boolean startsWith(Name n)
+	Name: startsWith
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html#startsWith-javax.naming.Name-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapName
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.naming::Name
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean startsWith(List<Rdn> rdns)
+	Name: startsWith
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html#startsWith-java.util.List-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapName
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::List {
+			javax.naming.ldap::Rdn
+		}
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean endsWith(Name n)
+	Name: endsWith
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html#endsWith-javax.naming.Name-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapName
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.naming::Name
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean endsWith(List<Rdn> rdns)
+	Name: endsWith
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html#endsWith-java.util.List-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapName
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::List {
+			javax.naming.ldap::Rdn
+		}
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public Name addAll(Name suffix)
+	            throws InvalidNameException
+	Name: addAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html#addAll-javax.naming.Name-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapName
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.naming::Name
+	
+		[result]
+		javax.naming::Name
+	}
+
+	[Function]
+	public Name addAll(List<Rdn> suffixRdns)
+	Name: addAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html#addAll-java.util.List-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapName
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::List {
+			javax.naming.ldap::Rdn
+		}
+	
+		[result]
+		javax.naming::Name
+	}
+
+	[Function]
+	public Name addAll(int posn,
+	                   Name suffix)
+	            throws InvalidNameException
+	Name: addAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html#addAll-int-javax.naming.Name-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapName
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		javax.naming::Name
+	
+		[result]
+		javax.naming::Name
+	}
+
+	[Function]
+	public Name addAll(int posn,
+	                   List<Rdn> suffixRdns)
+	Name: addAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html#addAll-int-java.util.List-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapName
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.util::List {
+			javax.naming.ldap::Rdn
+		}
+	
+		[result]
+		javax.naming::Name
+	}
+
+	[Function]
+	public Name add(String comp)
+	         throws InvalidNameException
+	Name: add
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html#add-java.lang.String-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapName
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.naming::Name
+	}
+
+	[Function]
+	public Name add(Rdn comp)
+	Name: add
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html#add-javax.naming.ldap.Rdn-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapName
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.naming.ldap::Rdn
+	
+		[result]
+		javax.naming::Name
+	}
+
+	[Function]
+	public Name add(int posn,
+	                String comp)
+	         throws InvalidNameException
+	Name: add
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html#add-int-java.lang.String-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapName
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.lang::String
+	
+		[result]
+		javax.naming::Name
+	}
+
+	[Function]
+	public Name add(int posn,
+	                Rdn comp)
+	Name: add
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html#add-int-javax.naming.ldap.Rdn-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapName
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		javax.naming.ldap::Rdn
+	
+		[result]
+		javax.naming::Name
+	}
+
+	[Function]
+	public Object remove(int posn)
+	              throws InvalidNameException
+	Name: remove
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html#remove-int-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapName
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public List<Rdn> getRdns()
+	Name: getRdns
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html#getRdns--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapName
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			javax.naming.ldap::Rdn
+		}
+	}
+
+	[Function]
+	public Object clone()
+	Name: clone
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html#clone--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapName
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html#toString--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapName
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public boolean equals(Object obj)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html#equals-java.lang.Object-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapName
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public int compareTo(Object obj)
+	Name: compareTo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html#compareTo-java.lang.Object-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapName
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public int hashCode()
+	Name: hashCode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapName.html#hashCode--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapName
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public final class ManageReferralControl
+extends BasicControl
+Name: ManageReferralControl
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/ManageReferralControl.html
+Containing package: javax.naming.ldap
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.naming.ldap::BasicControl
+}
+members {
+
+	[Function]
+	public static final String OID
+	Name: OID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/ManageReferralControl.html#OID
+	Containing package: javax.naming.ldap
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ManageReferralControl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public ManageReferralControl()
+	Name: ManageReferralControl
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/ManageReferralControl.html#ManageReferralControl--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ManageReferralControl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.naming.ldap::ManageReferralControl
+	}
+
+	[Function]
+	public ManageReferralControl(boolean criticality)
+	Name: ManageReferralControl
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/ManageReferralControl.html#ManageReferralControl-boolean-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ManageReferralControl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::boolean
+	
+		[result]
+		javax.naming.ldap::ManageReferralControl
+	}
+}
+
+[Classifier]
+public final class PagedResultsControl
+extends BasicControl
+Name: PagedResultsControl
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/PagedResultsControl.html
+Containing package: javax.naming.ldap
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.naming.ldap::BasicControl
+}
+members {
+
+	[Function]
+	public static final String OID
+	Name: OID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/PagedResultsControl.html#OID
+	Containing package: javax.naming.ldap
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: PagedResultsControl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public PagedResultsControl(int pageSize,
+	                           boolean criticality)
+	                    throws IOException
+	Name: PagedResultsControl
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/PagedResultsControl.html#PagedResultsControl-int-boolean-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: PagedResultsControl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::boolean
+	
+		[result]
+		javax.naming.ldap::PagedResultsControl
+	}
+
+	[Function]
+	public PagedResultsControl(int pageSize,
+	                           byte[] cookie,
+	                           boolean criticality)
+	                    throws IOException
+	Name: PagedResultsControl
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/PagedResultsControl.html#PagedResultsControl-int-byte:A-boolean-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: PagedResultsControl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::[] {
+			other::byte
+		}
+		other::boolean
+	
+		[result]
+		javax.naming.ldap::PagedResultsControl
+	}
+}
+
+[Classifier]
+public final class PagedResultsResponseControl
+extends BasicControl
+Name: PagedResultsResponseControl
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/PagedResultsResponseControl.html
+Containing package: javax.naming.ldap
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.naming.ldap::BasicControl
+}
+members {
+
+	[Function]
+	public static final String OID
+	Name: OID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/PagedResultsResponseControl.html#OID
+	Containing package: javax.naming.ldap
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: PagedResultsResponseControl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public PagedResultsResponseControl(String id,
+	                                   boolean criticality,
+	                                   byte[] value)
+	                            throws IOException
+	Name: PagedResultsResponseControl
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/PagedResultsResponseControl.html#PagedResultsResponseControl-java.lang.String-boolean-byte:A-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: PagedResultsResponseControl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::boolean
+		other::[] {
+			other::byte
+		}
+	
+		[result]
+		javax.naming.ldap::PagedResultsResponseControl
+	}
+
+	[Function]
+	public int getResultSize()
+	Name: getResultSize
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/PagedResultsResponseControl.html#getResultSize--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: PagedResultsResponseControl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public byte[] getCookie()
+	Name: getCookie
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/PagedResultsResponseControl.html#getCookie--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: PagedResultsResponseControl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+}
+
+[Classifier]
+public class Rdn
+extends Object
+implements Serializable, Comparable<Object>
+Name: Rdn
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/Rdn.html
+Containing package: javax.naming.ldap
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Comparable {
+		java.lang::Object
+	}
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public Rdn(Attributes attrSet)
+	    throws InvalidNameException
+	Name: Rdn
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/Rdn.html#Rdn-javax.naming.directory.Attributes-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Rdn
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.naming.directory::Attributes
+	
+		[result]
+		javax.naming.ldap::Rdn
+	}
+
+	[Function]
+	public Rdn(String rdnString)
+	    throws InvalidNameException
+	Name: Rdn
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/Rdn.html#Rdn-java.lang.String-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Rdn
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.naming.ldap::Rdn
+	}
+
+	[Function]
+	public Rdn(Rdn rdn)
+	Name: Rdn
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/Rdn.html#Rdn-javax.naming.ldap.Rdn-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Rdn
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.naming.ldap::Rdn
+	
+		[result]
+		javax.naming.ldap::Rdn
+	}
+
+	[Function]
+	public Rdn(String type,
+	           Object value)
+	    throws InvalidNameException
+	Name: Rdn
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/Rdn.html#Rdn-java.lang.String-java.lang.Object-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Rdn
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Object
+	
+		[result]
+		javax.naming.ldap::Rdn
+	}
+
+	[Function]
+	public Object getValue()
+	Name: getValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/Rdn.html#getValue--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Rdn
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public String getType()
+	Name: getType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/Rdn.html#getType--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Rdn
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/Rdn.html#toString--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Rdn
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public int compareTo(Object obj)
+	Name: compareTo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/Rdn.html#compareTo-java.lang.Object-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Rdn
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public boolean equals(Object obj)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/Rdn.html#equals-java.lang.Object-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Rdn
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public int hashCode()
+	Name: hashCode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/Rdn.html#hashCode--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Rdn
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public Attributes toAttributes()
+	Name: toAttributes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/Rdn.html#toAttributes--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Rdn
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.naming.directory::Attributes
+	}
+
+	[Function]
+	public int size()
+	Name: size
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/Rdn.html#size--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Rdn
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static String escapeValue(Object val)
+	Name: escapeValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/Rdn.html#escapeValue-java.lang.Object-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Rdn
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static Object unescapeValue(String val)
+	Name: unescapeValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/Rdn.html#unescapeValue-java.lang.String-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Rdn
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::Object
+	}
+}
+
+[Classifier]
+public final class SortControl
+extends BasicControl
+Name: SortControl
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/SortControl.html
+Containing package: javax.naming.ldap
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.naming.ldap::BasicControl
+}
+members {
+
+	[Function]
+	public static final String OID
+	Name: OID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/SortControl.html#OID
+	Containing package: javax.naming.ldap
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: SortControl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public SortControl(String sortBy,
+	                   boolean criticality)
+	            throws IOException
+	Name: SortControl
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/SortControl.html#SortControl-java.lang.String-boolean-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: SortControl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::boolean
+	
+		[result]
+		javax.naming.ldap::SortControl
+	}
+
+	[Function]
+	public SortControl(String[] sortBy,
+	                   boolean criticality)
+	            throws IOException
+	Name: SortControl
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/SortControl.html#SortControl-java.lang.String:A-boolean-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: SortControl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.lang::String
+		}
+		other::boolean
+	
+		[result]
+		javax.naming.ldap::SortControl
+	}
+
+	[Function]
+	public SortControl(SortKey[] sortBy,
+	                   boolean criticality)
+	            throws IOException
+	Name: SortControl
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/SortControl.html#SortControl-javax.naming.ldap.SortKey:A-boolean-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: SortControl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			javax.naming.ldap::SortKey
+		}
+		other::boolean
+	
+		[result]
+		javax.naming.ldap::SortControl
+	}
+}
+
+[Classifier]
+public class SortKey
+extends Object
+Name: SortKey
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/SortKey.html
+Containing package: javax.naming.ldap
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public SortKey(String attrID)
+	Name: SortKey
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/SortKey.html#SortKey-java.lang.String-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: SortKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.naming.ldap::SortKey
+	}
+
+	[Function]
+	public SortKey(String attrID,
+	               boolean ascendingOrder,
+	               String matchingRuleID)
+	Name: SortKey
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/SortKey.html#SortKey-java.lang.String-boolean-java.lang.String-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: SortKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::boolean
+		java.lang::String
+	
+		[result]
+		javax.naming.ldap::SortKey
+	}
+
+	[Function]
+	public String getAttributeID()
+	Name: getAttributeID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/SortKey.html#getAttributeID--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SortKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public boolean isAscending()
+	Name: isAscending
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/SortKey.html#isAscending--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SortKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public String getMatchingRuleID()
+	Name: getMatchingRuleID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/SortKey.html#getMatchingRuleID--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SortKey
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public final class SortResponseControl
+extends BasicControl
+Name: SortResponseControl
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/SortResponseControl.html
+Containing package: javax.naming.ldap
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.naming.ldap::BasicControl
+}
+members {
+
+	[Function]
+	public static final String OID
+	Name: OID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/SortResponseControl.html#OID
+	Containing package: javax.naming.ldap
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: SortResponseControl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public SortResponseControl(String id,
+	                           boolean criticality,
+	                           byte[] value)
+	                    throws IOException
+	Name: SortResponseControl
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/SortResponseControl.html#SortResponseControl-java.lang.String-boolean-byte:A-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: SortResponseControl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::boolean
+		other::[] {
+			other::byte
+		}
+	
+		[result]
+		javax.naming.ldap::SortResponseControl
+	}
+
+	[Function]
+	public boolean isSorted()
+	Name: isSorted
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/SortResponseControl.html#isSorted--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SortResponseControl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public int getResultCode()
+	Name: getResultCode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/SortResponseControl.html#getResultCode--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SortResponseControl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public String getAttributeID()
+	Name: getAttributeID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/SortResponseControl.html#getAttributeID--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SortResponseControl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public NamingException getException()
+	Name: getException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/SortResponseControl.html#getException--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SortResponseControl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.naming::NamingException
+	}
+}
+
+[Classifier]
+public class StartTlsRequest
+extends Object
+implements ExtendedRequest
+Name: StartTlsRequest
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/StartTlsRequest.html
+Containing package: javax.naming.ldap
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.naming.ldap::ExtendedRequest
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static final String OID
+	Name: OID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/StartTlsRequest.html#OID
+	Containing package: javax.naming.ldap
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: StartTlsRequest
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public StartTlsRequest()
+	Name: StartTlsRequest
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/StartTlsRequest.html#StartTlsRequest--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: StartTlsRequest
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.naming.ldap::StartTlsRequest
+	}
+
+	[Function]
+	public String getID()
+	Name: getID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/StartTlsRequest.html#getID--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StartTlsRequest
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public byte[] getEncodedValue()
+	Name: getEncodedValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/StartTlsRequest.html#getEncodedValue--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StartTlsRequest
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	public ExtendedResponse createExtendedResponse(String id,
+	                                               byte[] berValue,
+	                                               int offset,
+	                                               int length)
+	                                        throws NamingException
+	Name: createExtendedResponse
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/StartTlsRequest.html#createExtendedResponse-java.lang.String-byte:A-int-int-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StartTlsRequest
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::[] {
+			other::byte
+		}
+		other::int
+		other::int
+	
+		[result]
+		javax.naming.ldap::ExtendedResponse
+	}
+}
+
+[Classifier]
+public abstract class StartTlsResponse
+extends Object
+implements ExtendedResponse
+Name: StartTlsResponse
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/StartTlsResponse.html
+Containing package: javax.naming.ldap
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.naming.ldap::ExtendedResponse
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static final String OID
+	Name: OID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/StartTlsResponse.html#OID
+	Containing package: javax.naming.ldap
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: StartTlsResponse
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	protected StartTlsResponse()
+	Name: StartTlsResponse
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/StartTlsResponse.html#StartTlsResponse--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: StartTlsResponse
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.naming.ldap::StartTlsResponse
+	}
+
+	[Function]
+	public String getID()
+	Name: getID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/StartTlsResponse.html#getID--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StartTlsResponse
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public byte[] getEncodedValue()
+	Name: getEncodedValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/StartTlsResponse.html#getEncodedValue--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StartTlsResponse
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	public abstract void setEnabledCipherSuites(String[] suites)
+	Name: setEnabledCipherSuites
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/StartTlsResponse.html#setEnabledCipherSuites-java.lang.String:A-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StartTlsResponse
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.lang::String
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract void setHostnameVerifier(HostnameVerifier verifier)
+	Name: setHostnameVerifier
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/StartTlsResponse.html#setHostnameVerifier-javax.net.ssl.HostnameVerifier-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StartTlsResponse
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.net.ssl::HostnameVerifier
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract SSLSession negotiate()
+	                              throws IOException
+	Name: negotiate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/StartTlsResponse.html#negotiate--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StartTlsResponse
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.net.ssl::SSLSession
+	}
+
+	[Function]
+	public abstract SSLSession negotiate(SSLSocketFactory factory)
+	                              throws IOException
+	Name: negotiate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/StartTlsResponse.html#negotiate-javax.net.ssl.SSLSocketFactory-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StartTlsResponse
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.net.ssl::SSLSocketFactory
+	
+		[result]
+		javax.net.ssl::SSLSession
+	}
+
+	[Function]
+	public abstract void close()
+	                    throws IOException
+	Name: close
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/StartTlsResponse.html#close--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StartTlsResponse
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public class UnsolicitedNotificationEvent
+extends EventObject
+Name: UnsolicitedNotificationEvent
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/UnsolicitedNotificationEvent.html
+Containing package: javax.naming.ldap
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.util::EventObject
+}
+members {
+
+	[Function]
+	public UnsolicitedNotificationEvent(Object src,
+	                                    UnsolicitedNotification notice)
+	Name: UnsolicitedNotificationEvent
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/UnsolicitedNotificationEvent.html#UnsolicitedNotificationEvent-java.lang.Object-javax.naming.ldap.UnsolicitedNotification-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: UnsolicitedNotificationEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+		javax.naming.ldap::UnsolicitedNotification
+	
+		[result]
+		javax.naming.ldap::UnsolicitedNotificationEvent
+	}
+
+	[Function]
+	public UnsolicitedNotification getNotification()
+	Name: getNotification
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/UnsolicitedNotificationEvent.html#getNotification--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UnsolicitedNotificationEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.naming.ldap::UnsolicitedNotification
+	}
+
+	[Function]
+	public void dispatch(UnsolicitedNotificationListener listener)
+	Name: dispatch
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/UnsolicitedNotificationEvent.html#dispatch-javax.naming.ldap.UnsolicitedNotificationListener-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: UnsolicitedNotificationEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.naming.ldap::UnsolicitedNotificationListener
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public abstract class LdapReferralException
+extends ReferralException
+Name: LdapReferralException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapReferralException.html
+Containing package: javax.naming.ldap
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.naming::ReferralException
+}
+members {
+
+	[Function]
+	protected LdapReferralException(String explanation)
+	Name: LdapReferralException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapReferralException.html#LdapReferralException-java.lang.String-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: LdapReferralException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.naming.ldap::LdapReferralException
+	}
+
+	[Function]
+	protected LdapReferralException()
+	Name: LdapReferralException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapReferralException.html#LdapReferralException--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: LdapReferralException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.naming.ldap::LdapReferralException
+	}
+
+	[Function]
+	public abstract Context getReferralContext()
+	                                    throws NamingException
+	Name: getReferralContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapReferralException.html#getReferralContext--
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapReferralException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.naming::Context
+	}
+
+	[Function]
+	public abstract Context getReferralContext(Hashtable<?,?> env)
+	                                    throws NamingException
+	Name: getReferralContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapReferralException.html#getReferralContext-java.util.Hashtable-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapReferralException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Hashtable {
+			?
+			?
+		}
+	
+		[result]
+		javax.naming::Context
+	}
+
+	[Function]
+	public abstract Context getReferralContext(Hashtable<?,?> env,
+	                                           Control[] reqCtls)
+	                                    throws NamingException
+	Name: getReferralContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/naming/ldap/LdapReferralException.html#getReferralContext-java.util.Hashtable-javax.naming.ldap.Control:A-
+	Containing package: javax.naming.ldap
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LdapReferralException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Hashtable {
+			?
+			?
+		}
+		other::[] {
+			javax.naming.ldap::Control
+		}
+	
+		[result]
+		javax.naming::Context
+	}
+}

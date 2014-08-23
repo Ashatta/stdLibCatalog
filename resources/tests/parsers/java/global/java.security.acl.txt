@@ -1,0 +1,993 @@
+[Package]
+Name: java.security.acl
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/package-summary.html
+Containing package: java.security
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+public interface Acl
+extends Owner
+Name: Acl
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/Acl.html
+Containing package: java.security.acl
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.security.acl::Owner
+}
+members {
+
+	[Function]
+	void setName(Principal caller,
+	             String name)
+	      throws NotOwnerException
+	Name: setName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/Acl.html#setName-java.security.Principal-java.lang.String-
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Acl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Principal
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	String getName()
+	Name: getName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/Acl.html#getName--
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Acl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	boolean addEntry(Principal caller,
+	                 AclEntry entry)
+	          throws NotOwnerException
+	Name: addEntry
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/Acl.html#addEntry-java.security.Principal-java.security.acl.AclEntry-
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Acl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Principal
+		java.security.acl::AclEntry
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean removeEntry(Principal caller,
+	                    AclEntry entry)
+	             throws NotOwnerException
+	Name: removeEntry
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/Acl.html#removeEntry-java.security.Principal-java.security.acl.AclEntry-
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Acl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Principal
+		java.security.acl::AclEntry
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	Enumeration<Permission> getPermissions(Principal user)
+	Name: getPermissions
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/Acl.html#getPermissions-java.security.Principal-
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Acl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Principal
+	
+		[result]
+		java.util::Enumeration {
+			java.security.acl::Permission
+		}
+	}
+
+	[Function]
+	Enumeration<AclEntry> entries()
+	Name: entries
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/Acl.html#entries--
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Acl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Enumeration {
+			java.security.acl::AclEntry
+		}
+	}
+
+	[Function]
+	boolean checkPermission(Principal principal,
+	                        Permission permission)
+	Name: checkPermission
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/Acl.html#checkPermission-java.security.Principal-java.security.acl.Permission-
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Acl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Principal
+		java.security.acl::Permission
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/Acl.html#toString--
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Acl
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public interface AclEntry
+extends Cloneable
+Name: AclEntry
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/AclEntry.html
+Containing package: java.security.acl
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Cloneable
+}
+members {
+
+	[Function]
+	boolean setPrincipal(Principal user)
+	Name: setPrincipal
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/AclEntry.html#setPrincipal-java.security.Principal-
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AclEntry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Principal
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	Principal getPrincipal()
+	Name: getPrincipal
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/AclEntry.html#getPrincipal--
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AclEntry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.security::Principal
+	}
+
+	[Function]
+	void setNegativePermissions()
+	Name: setNegativePermissions
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/AclEntry.html#setNegativePermissions--
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AclEntry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	boolean isNegative()
+	Name: isNegative
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/AclEntry.html#isNegative--
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AclEntry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean addPermission(Permission permission)
+	Name: addPermission
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/AclEntry.html#addPermission-java.security.acl.Permission-
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AclEntry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security.acl::Permission
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean removePermission(Permission permission)
+	Name: removePermission
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/AclEntry.html#removePermission-java.security.acl.Permission-
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AclEntry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security.acl::Permission
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean checkPermission(Permission permission)
+	Name: checkPermission
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/AclEntry.html#checkPermission-java.security.acl.Permission-
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AclEntry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security.acl::Permission
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	Enumeration<Permission> permissions()
+	Name: permissions
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/AclEntry.html#permissions--
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AclEntry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Enumeration {
+			java.security.acl::Permission
+		}
+	}
+
+	[Function]
+	String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/AclEntry.html#toString--
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AclEntry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	Object clone()
+	Name: clone
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/AclEntry.html#clone--
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AclEntry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Object
+	}
+}
+
+[Classifier]
+public interface Group
+extends Principal
+Name: Group
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/Group.html
+Containing package: java.security.acl
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.security::Principal
+}
+members {
+
+	[Function]
+	boolean addMember(Principal user)
+	Name: addMember
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/Group.html#addMember-java.security.Principal-
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Group
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Principal
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean removeMember(Principal user)
+	Name: removeMember
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/Group.html#removeMember-java.security.Principal-
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Group
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Principal
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean isMember(Principal member)
+	Name: isMember
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/Group.html#isMember-java.security.Principal-
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Group
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Principal
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	Enumeration<? extends Principal> members()
+	Name: members
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/Group.html#members--
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Group
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Enumeration {
+			? {
+				extends java.security::Principal
+			}
+		}
+	}
+}
+
+[Classifier]
+public interface Owner
+Name: Owner
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/Owner.html
+Containing package: java.security.acl
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.security.acl::Acl
+}
+supertypes {
+}
+members {
+
+	[Function]
+	boolean addOwner(Principal caller,
+	                 Principal owner)
+	          throws NotOwnerException
+	Name: addOwner
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/Owner.html#addOwner-java.security.Principal-java.security.Principal-
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Owner
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Principal
+		java.security::Principal
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean deleteOwner(Principal caller,
+	                    Principal owner)
+	             throws NotOwnerException,
+	                    LastOwnerException
+	Name: deleteOwner
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/Owner.html#deleteOwner-java.security.Principal-java.security.Principal-
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Owner
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Principal
+		java.security::Principal
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean isOwner(Principal owner)
+	Name: isOwner
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/Owner.html#isOwner-java.security.Principal-
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Owner
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.security::Principal
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public interface Permission
+Name: Permission
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/Permission.html
+Containing package: java.security.acl
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	boolean equals(Object another)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/Permission.html#equals-java.lang.Object-
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Permission
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/Permission.html#toString--
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Permission
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public class AclNotFoundException
+extends Exception
+Name: AclNotFoundException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/AclNotFoundException.html
+Containing package: java.security.acl
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Exception
+}
+members {
+
+	[Function]
+	public AclNotFoundException()
+	Name: AclNotFoundException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/AclNotFoundException.html#AclNotFoundException--
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AclNotFoundException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.security.acl::AclNotFoundException
+	}
+}
+
+[Classifier]
+public class LastOwnerException
+extends Exception
+Name: LastOwnerException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/LastOwnerException.html
+Containing package: java.security.acl
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Exception
+}
+members {
+
+	[Function]
+	public LastOwnerException()
+	Name: LastOwnerException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/LastOwnerException.html#LastOwnerException--
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: LastOwnerException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.security.acl::LastOwnerException
+	}
+}
+
+[Classifier]
+public class NotOwnerException
+extends Exception
+Name: NotOwnerException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/NotOwnerException.html
+Containing package: java.security.acl
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Exception
+}
+members {
+
+	[Function]
+	public NotOwnerException()
+	Name: NotOwnerException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/security/acl/NotOwnerException.html#NotOwnerException--
+	Containing package: java.security.acl
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: NotOwnerException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.security.acl::NotOwnerException
+	}
+}

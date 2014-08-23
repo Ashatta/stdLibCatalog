@@ -1,0 +1,3645 @@
+[Package]
+Name: javax.activation
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/package-summary.html
+Containing package: null
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+public interface CommandObject
+Name: CommandObject
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/CommandObject.html
+Containing package: javax.activation
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	void setCommandContext(String verb,
+	                       DataHandler dh)
+	                throws IOException
+	Name: setCommandContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/CommandObject.html#setCommandContext-java.lang.String-javax.activation.DataHandler-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CommandObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.activation::DataHandler
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface DataContentHandler
+Name: DataContentHandler
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataContentHandler.html
+Containing package: javax.activation
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	DataFlavor[] getTransferDataFlavors()
+	Name: getTransferDataFlavors
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataContentHandler.html#getTransferDataFlavors--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataContentHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.awt.datatransfer::DataFlavor
+		}
+	}
+
+	[Function]
+	Object getTransferData(DataFlavor df,
+	                       DataSource ds)
+	                throws UnsupportedFlavorException,
+	                       IOException
+	Name: getTransferData
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataContentHandler.html#getTransferData-java.awt.datatransfer.DataFlavor-javax.activation.DataSource-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataContentHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.datatransfer::DataFlavor
+		javax.activation::DataSource
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	Object getContent(DataSource ds)
+	           throws IOException
+	Name: getContent
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataContentHandler.html#getContent-javax.activation.DataSource-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataContentHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.activation::DataSource
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	void writeTo(Object obj,
+	             String mimeType,
+	             OutputStream os)
+	      throws IOException
+	Name: writeTo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataContentHandler.html#writeTo-java.lang.Object-java.lang.String-java.io.OutputStream-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataContentHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+		java.lang::String
+		java.io::OutputStream
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface DataContentHandlerFactory
+Name: DataContentHandlerFactory
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataContentHandlerFactory.html
+Containing package: javax.activation
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	DataContentHandler createDataContentHandler(String mimeType)
+	Name: createDataContentHandler
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataContentHandlerFactory.html#createDataContentHandler-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataContentHandlerFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.activation::DataContentHandler
+	}
+}
+
+[Classifier]
+public interface DataSource
+Name: DataSource
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataSource.html
+Containing package: javax.activation
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.activation::FileDataSource
+	javax.activation::URLDataSource
+}
+supertypes {
+}
+members {
+
+	[Function]
+	InputStream getInputStream()
+	                    throws IOException
+	Name: getInputStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataSource.html#getInputStream--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataSource
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.io::InputStream
+	}
+
+	[Function]
+	OutputStream getOutputStream()
+	                      throws IOException
+	Name: getOutputStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataSource.html#getOutputStream--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataSource
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.io::OutputStream
+	}
+
+	[Function]
+	String getContentType()
+	Name: getContentType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataSource.html#getContentType--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataSource
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	String getName()
+	Name: getName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataSource.html#getName--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataSource
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public class ActivationDataFlavor
+extends DataFlavor
+Name: ActivationDataFlavor
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/ActivationDataFlavor.html
+Containing package: javax.activation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.awt.datatransfer::DataFlavor
+}
+members {
+
+	[Function]
+	public ActivationDataFlavor(Class representationClass,
+	                            String mimeType,
+	                            String humanPresentableName)
+	Name: ActivationDataFlavor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/ActivationDataFlavor.html#ActivationDataFlavor-java.lang.Class-java.lang.String-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ActivationDataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.activation::ActivationDataFlavor
+	}
+
+	[Function]
+	public ActivationDataFlavor(Class representationClass,
+	                            String humanPresentableName)
+	Name: ActivationDataFlavor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/ActivationDataFlavor.html#ActivationDataFlavor-java.lang.Class-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ActivationDataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class
+		java.lang::String
+	
+		[result]
+		javax.activation::ActivationDataFlavor
+	}
+
+	[Function]
+	public ActivationDataFlavor(String mimeType,
+	                            String humanPresentableName)
+	Name: ActivationDataFlavor
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/ActivationDataFlavor.html#ActivationDataFlavor-java.lang.String-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ActivationDataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.activation::ActivationDataFlavor
+	}
+
+	[Function]
+	public String getMimeType()
+	Name: getMimeType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/ActivationDataFlavor.html#getMimeType--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationDataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public Class getRepresentationClass()
+	Name: getRepresentationClass
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/ActivationDataFlavor.html#getRepresentationClass--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationDataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Class
+	}
+
+	[Function]
+	public String getHumanPresentableName()
+	Name: getHumanPresentableName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/ActivationDataFlavor.html#getHumanPresentableName--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationDataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public void setHumanPresentableName(String humanPresentableName)
+	Name: setHumanPresentableName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/ActivationDataFlavor.html#setHumanPresentableName-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationDataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean equals(DataFlavor dataFlavor)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/ActivationDataFlavor.html#equals-java.awt.datatransfer.DataFlavor-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationDataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.datatransfer::DataFlavor
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isMimeTypeEqual(String mimeType)
+	Name: isMimeTypeEqual
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/ActivationDataFlavor.html#isMimeTypeEqual-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationDataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected String normalizeMimeTypeParameter(String parameterName,
+	                                            String parameterValue)
+	Name: normalizeMimeTypeParameter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/ActivationDataFlavor.html#normalizeMimeTypeParameter-java.lang.String-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationDataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	protected String normalizeMimeType(String mimeType)
+	Name: normalizeMimeType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/ActivationDataFlavor.html#normalizeMimeType-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ActivationDataFlavor
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public class CommandInfo
+extends Object
+Name: CommandInfo
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/CommandInfo.html
+Containing package: javax.activation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public CommandInfo(String verb,
+	                   String className)
+	Name: CommandInfo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/CommandInfo.html#CommandInfo-java.lang.String-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: CommandInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.activation::CommandInfo
+	}
+
+	[Function]
+	public String getCommandName()
+	Name: getCommandName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/CommandInfo.html#getCommandName--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CommandInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getCommandClass()
+	Name: getCommandClass
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/CommandInfo.html#getCommandClass--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CommandInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public Object getCommandObject(DataHandler dh,
+	                               ClassLoader loader)
+	                        throws IOException,
+	                               ClassNotFoundException
+	Name: getCommandObject
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/CommandInfo.html#getCommandObject-javax.activation.DataHandler-java.lang.ClassLoader-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CommandInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.activation::DataHandler
+		java.lang::ClassLoader
+	
+		[result]
+		java.lang::Object
+	}
+}
+
+[Classifier]
+public abstract class CommandMap
+extends Object
+Name: CommandMap
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/CommandMap.html
+Containing package: javax.activation
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.activation::MailcapCommandMap
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public CommandMap()
+	Name: CommandMap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/CommandMap.html#CommandMap--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: CommandMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.activation::CommandMap
+	}
+
+	[Function]
+	public static CommandMap getDefaultCommandMap()
+	Name: getDefaultCommandMap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/CommandMap.html#getDefaultCommandMap--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: CommandMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.activation::CommandMap
+	}
+
+	[Function]
+	public static void setDefaultCommandMap(CommandMap commandMap)
+	Name: setDefaultCommandMap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/CommandMap.html#setDefaultCommandMap-javax.activation.CommandMap-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: CommandMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.activation::CommandMap
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract CommandInfo[] getPreferredCommands(String mimeType)
+	Name: getPreferredCommands
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/CommandMap.html#getPreferredCommands-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CommandMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::[] {
+			javax.activation::CommandInfo
+		}
+	}
+
+	[Function]
+	public CommandInfo[] getPreferredCommands(String mimeType,
+	                                          DataSource ds)
+	Name: getPreferredCommands
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/CommandMap.html#getPreferredCommands-java.lang.String-javax.activation.DataSource-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CommandMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.activation::DataSource
+	
+		[result]
+		other::[] {
+			javax.activation::CommandInfo
+		}
+	}
+
+	[Function]
+	public abstract CommandInfo[] getAllCommands(String mimeType)
+	Name: getAllCommands
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/CommandMap.html#getAllCommands-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CommandMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::[] {
+			javax.activation::CommandInfo
+		}
+	}
+
+	[Function]
+	public CommandInfo[] getAllCommands(String mimeType,
+	                                    DataSource ds)
+	Name: getAllCommands
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/CommandMap.html#getAllCommands-java.lang.String-javax.activation.DataSource-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CommandMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.activation::DataSource
+	
+		[result]
+		other::[] {
+			javax.activation::CommandInfo
+		}
+	}
+
+	[Function]
+	public abstract CommandInfo getCommand(String mimeType,
+	                                       String cmdName)
+	Name: getCommand
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/CommandMap.html#getCommand-java.lang.String-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CommandMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.activation::CommandInfo
+	}
+
+	[Function]
+	public CommandInfo getCommand(String mimeType,
+	                              String cmdName,
+	                              DataSource ds)
+	Name: getCommand
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/CommandMap.html#getCommand-java.lang.String-java.lang.String-javax.activation.DataSource-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CommandMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		javax.activation::DataSource
+	
+		[result]
+		javax.activation::CommandInfo
+	}
+
+	[Function]
+	public abstract DataContentHandler createDataContentHandler(String mimeType)
+	Name: createDataContentHandler
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/CommandMap.html#createDataContentHandler-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CommandMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.activation::DataContentHandler
+	}
+
+	[Function]
+	public DataContentHandler createDataContentHandler(String mimeType,
+	                                                   DataSource ds)
+	Name: createDataContentHandler
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/CommandMap.html#createDataContentHandler-java.lang.String-javax.activation.DataSource-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CommandMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.activation::DataSource
+	
+		[result]
+		javax.activation::DataContentHandler
+	}
+
+	[Function]
+	public String[] getMimeTypes()
+	Name: getMimeTypes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/CommandMap.html#getMimeTypes--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CommandMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+}
+
+[Classifier]
+public class DataHandler
+extends Object
+implements Transferable
+Name: DataHandler
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataHandler.html
+Containing package: javax.activation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.awt.datatransfer::Transferable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public DataHandler(DataSource ds)
+	Name: DataHandler
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataHandler.html#DataHandler-javax.activation.DataSource-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: DataHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.activation::DataSource
+	
+		[result]
+		javax.activation::DataHandler
+	}
+
+	[Function]
+	public DataHandler(Object obj,
+	                   String mimeType)
+	Name: DataHandler
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataHandler.html#DataHandler-java.lang.Object-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: DataHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+		java.lang::String
+	
+		[result]
+		javax.activation::DataHandler
+	}
+
+	[Function]
+	public DataHandler(URL url)
+	Name: DataHandler
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataHandler.html#DataHandler-java.net.URL-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: DataHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::URL
+	
+		[result]
+		javax.activation::DataHandler
+	}
+
+	[Function]
+	public DataSource getDataSource()
+	Name: getDataSource
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataHandler.html#getDataSource--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.activation::DataSource
+	}
+
+	[Function]
+	public String getName()
+	Name: getName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataHandler.html#getName--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getContentType()
+	Name: getContentType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataHandler.html#getContentType--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public InputStream getInputStream()
+	                           throws IOException
+	Name: getInputStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataHandler.html#getInputStream--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.io::InputStream
+	}
+
+	[Function]
+	public void writeTo(OutputStream os)
+	             throws IOException
+	Name: writeTo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataHandler.html#writeTo-java.io.OutputStream-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::OutputStream
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public OutputStream getOutputStream()
+	                             throws IOException
+	Name: getOutputStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataHandler.html#getOutputStream--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.io::OutputStream
+	}
+
+	[Function]
+	public DataFlavor[] getTransferDataFlavors()
+	Name: getTransferDataFlavors
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataHandler.html#getTransferDataFlavors--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.awt.datatransfer::DataFlavor
+		}
+	}
+
+	[Function]
+	public boolean isDataFlavorSupported(DataFlavor flavor)
+	Name: isDataFlavorSupported
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataHandler.html#isDataFlavorSupported-java.awt.datatransfer.DataFlavor-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.datatransfer::DataFlavor
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public Object getTransferData(DataFlavor flavor)
+	                       throws UnsupportedFlavorException,
+	                              IOException
+	Name: getTransferData
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataHandler.html#getTransferData-java.awt.datatransfer.DataFlavor-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.awt.datatransfer::DataFlavor
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public void setCommandMap(CommandMap commandMap)
+	Name: setCommandMap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataHandler.html#setCommandMap-javax.activation.CommandMap-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.activation::CommandMap
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public CommandInfo[] getPreferredCommands()
+	Name: getPreferredCommands
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataHandler.html#getPreferredCommands--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			javax.activation::CommandInfo
+		}
+	}
+
+	[Function]
+	public CommandInfo[] getAllCommands()
+	Name: getAllCommands
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataHandler.html#getAllCommands--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			javax.activation::CommandInfo
+		}
+	}
+
+	[Function]
+	public CommandInfo getCommand(String cmdName)
+	Name: getCommand
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataHandler.html#getCommand-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.activation::CommandInfo
+	}
+
+	[Function]
+	public Object getContent()
+	                  throws IOException
+	Name: getContent
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataHandler.html#getContent--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public Object getBean(CommandInfo cmdinfo)
+	Name: getBean
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataHandler.html#getBean-javax.activation.CommandInfo-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.activation::CommandInfo
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public static void setDataContentHandlerFactory(DataContentHandlerFactory newFactory)
+	Name: setDataContentHandlerFactory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/DataHandler.html#setDataContentHandlerFactory-javax.activation.DataContentHandlerFactory-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: DataHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.activation::DataContentHandlerFactory
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public class FileDataSource
+extends Object
+implements DataSource
+Name: FileDataSource
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/FileDataSource.html
+Containing package: javax.activation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.activation::DataSource
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public FileDataSource(File file)
+	Name: FileDataSource
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/FileDataSource.html#FileDataSource-java.io.File-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: FileDataSource
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::File
+	
+		[result]
+		javax.activation::FileDataSource
+	}
+
+	[Function]
+	public FileDataSource(String name)
+	Name: FileDataSource
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/FileDataSource.html#FileDataSource-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: FileDataSource
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.activation::FileDataSource
+	}
+
+	[Function]
+	public InputStream getInputStream()
+	                           throws IOException
+	Name: getInputStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/FileDataSource.html#getInputStream--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileDataSource
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.io::InputStream
+	}
+
+	[Function]
+	public OutputStream getOutputStream()
+	                             throws IOException
+	Name: getOutputStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/FileDataSource.html#getOutputStream--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileDataSource
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.io::OutputStream
+	}
+
+	[Function]
+	public String getContentType()
+	Name: getContentType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/FileDataSource.html#getContentType--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileDataSource
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getName()
+	Name: getName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/FileDataSource.html#getName--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileDataSource
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public File getFile()
+	Name: getFile
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/FileDataSource.html#getFile--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileDataSource
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.io::File
+	}
+
+	[Function]
+	public void setFileTypeMap(FileTypeMap map)
+	Name: setFileTypeMap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/FileDataSource.html#setFileTypeMap-javax.activation.FileTypeMap-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileDataSource
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.activation::FileTypeMap
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public abstract class FileTypeMap
+extends Object
+Name: FileTypeMap
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/FileTypeMap.html
+Containing package: javax.activation
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.activation::MimetypesFileTypeMap
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public FileTypeMap()
+	Name: FileTypeMap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/FileTypeMap.html#FileTypeMap--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: FileTypeMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.activation::FileTypeMap
+	}
+
+	[Function]
+	public abstract String getContentType(File file)
+	Name: getContentType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/FileTypeMap.html#getContentType-java.io.File-
+	Containing package: javax.activation
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileTypeMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::File
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public abstract String getContentType(String filename)
+	Name: getContentType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/FileTypeMap.html#getContentType-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileTypeMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static void setDefaultFileTypeMap(FileTypeMap fileTypeMap)
+	Name: setDefaultFileTypeMap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/FileTypeMap.html#setDefaultFileTypeMap-javax.activation.FileTypeMap-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileTypeMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.activation::FileTypeMap
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static FileTypeMap getDefaultFileTypeMap()
+	Name: getDefaultFileTypeMap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/FileTypeMap.html#getDefaultFileTypeMap--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: FileTypeMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.activation::FileTypeMap
+	}
+}
+
+[Classifier]
+public class MailcapCommandMap
+extends CommandMap
+Name: MailcapCommandMap
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MailcapCommandMap.html
+Containing package: javax.activation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.activation::CommandMap
+}
+members {
+
+	[Function]
+	public MailcapCommandMap()
+	Name: MailcapCommandMap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MailcapCommandMap.html#MailcapCommandMap--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MailcapCommandMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.activation::MailcapCommandMap
+	}
+
+	[Function]
+	public MailcapCommandMap(String fileName)
+	                  throws IOException
+	Name: MailcapCommandMap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MailcapCommandMap.html#MailcapCommandMap-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MailcapCommandMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.activation::MailcapCommandMap
+	}
+
+	[Function]
+	public MailcapCommandMap(InputStream is)
+	Name: MailcapCommandMap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MailcapCommandMap.html#MailcapCommandMap-java.io.InputStream-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MailcapCommandMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::InputStream
+	
+		[result]
+		javax.activation::MailcapCommandMap
+	}
+
+	[Function]
+	public CommandInfo[] getPreferredCommands(String mimeType)
+	Name: getPreferredCommands
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MailcapCommandMap.html#getPreferredCommands-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MailcapCommandMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::[] {
+			javax.activation::CommandInfo
+		}
+	}
+
+	[Function]
+	public CommandInfo[] getAllCommands(String mimeType)
+	Name: getAllCommands
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MailcapCommandMap.html#getAllCommands-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MailcapCommandMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::[] {
+			javax.activation::CommandInfo
+		}
+	}
+
+	[Function]
+	public CommandInfo getCommand(String mimeType,
+	                              String cmdName)
+	Name: getCommand
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MailcapCommandMap.html#getCommand-java.lang.String-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MailcapCommandMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.activation::CommandInfo
+	}
+
+	[Function]
+	public void addMailcap(String mail_cap)
+	Name: addMailcap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MailcapCommandMap.html#addMailcap-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MailcapCommandMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public DataContentHandler createDataContentHandler(String mimeType)
+	Name: createDataContentHandler
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MailcapCommandMap.html#createDataContentHandler-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MailcapCommandMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.activation::DataContentHandler
+	}
+
+	[Function]
+	public String[] getMimeTypes()
+	Name: getMimeTypes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MailcapCommandMap.html#getMimeTypes--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MailcapCommandMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public String[] getNativeCommands(String mimeType)
+	Name: getNativeCommands
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MailcapCommandMap.html#getNativeCommands-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MailcapCommandMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+}
+
+[Classifier]
+public class MimeType
+extends Object
+implements Externalizable
+Name: MimeType
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeType.html
+Containing package: javax.activation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::Externalizable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public MimeType()
+	Name: MimeType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeType.html#MimeType--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MimeType
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.activation::MimeType
+	}
+
+	[Function]
+	public MimeType(String rawdata)
+	         throws MimeTypeParseException
+	Name: MimeType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeType.html#MimeType-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MimeType
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.activation::MimeType
+	}
+
+	[Function]
+	public MimeType(String primary,
+	                String sub)
+	         throws MimeTypeParseException
+	Name: MimeType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeType.html#MimeType-java.lang.String-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MimeType
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.activation::MimeType
+	}
+
+	[Function]
+	public String getPrimaryType()
+	Name: getPrimaryType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeType.html#getPrimaryType--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MimeType
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public void setPrimaryType(String primary)
+	                    throws MimeTypeParseException
+	Name: setPrimaryType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeType.html#setPrimaryType-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MimeType
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public String getSubType()
+	Name: getSubType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeType.html#getSubType--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MimeType
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public void setSubType(String sub)
+	                throws MimeTypeParseException
+	Name: setSubType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeType.html#setSubType-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MimeType
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public MimeTypeParameterList getParameters()
+	Name: getParameters
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeType.html#getParameters--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MimeType
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.activation::MimeTypeParameterList
+	}
+
+	[Function]
+	public String getParameter(String name)
+	Name: getParameter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeType.html#getParameter-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MimeType
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public void setParameter(String name,
+	                         String value)
+	Name: setParameter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeType.html#setParameter-java.lang.String-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MimeType
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void removeParameter(String name)
+	Name: removeParameter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeType.html#removeParameter-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MimeType
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeType.html#toString--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MimeType
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getBaseType()
+	Name: getBaseType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeType.html#getBaseType--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MimeType
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public boolean match(MimeType type)
+	Name: match
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeType.html#match-javax.activation.MimeType-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MimeType
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.activation::MimeType
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean match(String rawdata)
+	              throws MimeTypeParseException
+	Name: match
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeType.html#match-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MimeType
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void writeExternal(ObjectOutput out)
+	                   throws IOException
+	Name: writeExternal
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeType.html#writeExternal-java.io.ObjectOutput-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MimeType
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::ObjectOutput
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void readExternal(ObjectInput in)
+	                  throws IOException,
+	                         ClassNotFoundException
+	Name: readExternal
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeType.html#readExternal-java.io.ObjectInput-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MimeType
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::ObjectInput
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public class MimeTypeParameterList
+extends Object
+Name: MimeTypeParameterList
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeTypeParameterList.html
+Containing package: javax.activation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public MimeTypeParameterList()
+	Name: MimeTypeParameterList
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeTypeParameterList.html#MimeTypeParameterList--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MimeTypeParameterList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.activation::MimeTypeParameterList
+	}
+
+	[Function]
+	public MimeTypeParameterList(String parameterList)
+	                      throws MimeTypeParseException
+	Name: MimeTypeParameterList
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeTypeParameterList.html#MimeTypeParameterList-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MimeTypeParameterList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.activation::MimeTypeParameterList
+	}
+
+	[Function]
+	protected void parse(String parameterList)
+	              throws MimeTypeParseException
+	Name: parse
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeTypeParameterList.html#parse-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MimeTypeParameterList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public int size()
+	Name: size
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeTypeParameterList.html#size--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MimeTypeParameterList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public boolean isEmpty()
+	Name: isEmpty
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeTypeParameterList.html#isEmpty--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MimeTypeParameterList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public String get(String name)
+	Name: get
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeTypeParameterList.html#get-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MimeTypeParameterList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public void set(String name,
+	                String value)
+	Name: set
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeTypeParameterList.html#set-java.lang.String-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MimeTypeParameterList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void remove(String name)
+	Name: remove
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeTypeParameterList.html#remove-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MimeTypeParameterList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Enumeration getNames()
+	Name: getNames
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeTypeParameterList.html#getNames--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MimeTypeParameterList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Enumeration
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeTypeParameterList.html#toString--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MimeTypeParameterList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public class MimetypesFileTypeMap
+extends FileTypeMap
+Name: MimetypesFileTypeMap
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimetypesFileTypeMap.html
+Containing package: javax.activation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.activation::FileTypeMap
+}
+members {
+
+	[Function]
+	public MimetypesFileTypeMap()
+	Name: MimetypesFileTypeMap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimetypesFileTypeMap.html#MimetypesFileTypeMap--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MimetypesFileTypeMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.activation::MimetypesFileTypeMap
+	}
+
+	[Function]
+	public MimetypesFileTypeMap(String mimeTypeFileName)
+	                     throws IOException
+	Name: MimetypesFileTypeMap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimetypesFileTypeMap.html#MimetypesFileTypeMap-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MimetypesFileTypeMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.activation::MimetypesFileTypeMap
+	}
+
+	[Function]
+	public MimetypesFileTypeMap(InputStream is)
+	Name: MimetypesFileTypeMap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimetypesFileTypeMap.html#MimetypesFileTypeMap-java.io.InputStream-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MimetypesFileTypeMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::InputStream
+	
+		[result]
+		javax.activation::MimetypesFileTypeMap
+	}
+
+	[Function]
+	public void addMimeTypes(String mime_types)
+	Name: addMimeTypes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimetypesFileTypeMap.html#addMimeTypes-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MimetypesFileTypeMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public String getContentType(File f)
+	Name: getContentType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimetypesFileTypeMap.html#getContentType-java.io.File-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MimetypesFileTypeMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::File
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getContentType(String filename)
+	Name: getContentType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimetypesFileTypeMap.html#getContentType-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MimetypesFileTypeMap
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public class URLDataSource
+extends Object
+implements DataSource
+Name: URLDataSource
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/URLDataSource.html
+Containing package: javax.activation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.activation::DataSource
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public URLDataSource(URL url)
+	Name: URLDataSource
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/URLDataSource.html#URLDataSource-java.net.URL-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: URLDataSource
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.net::URL
+	
+		[result]
+		javax.activation::URLDataSource
+	}
+
+	[Function]
+	public String getContentType()
+	Name: getContentType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/URLDataSource.html#getContentType--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: URLDataSource
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getName()
+	Name: getName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/URLDataSource.html#getName--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: URLDataSource
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public InputStream getInputStream()
+	                           throws IOException
+	Name: getInputStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/URLDataSource.html#getInputStream--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: URLDataSource
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.io::InputStream
+	}
+
+	[Function]
+	public OutputStream getOutputStream()
+	                             throws IOException
+	Name: getOutputStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/URLDataSource.html#getOutputStream--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: URLDataSource
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.io::OutputStream
+	}
+
+	[Function]
+	public URL getURL()
+	Name: getURL
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/URLDataSource.html#getURL--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: URLDataSource
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.net::URL
+	}
+}
+
+[Classifier]
+public class MimeTypeParseException
+extends Exception
+Name: MimeTypeParseException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeTypeParseException.html
+Containing package: javax.activation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Exception
+}
+members {
+
+	[Function]
+	public MimeTypeParseException()
+	Name: MimeTypeParseException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeTypeParseException.html#MimeTypeParseException--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MimeTypeParseException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.activation::MimeTypeParseException
+	}
+
+	[Function]
+	public MimeTypeParseException(String s)
+	Name: MimeTypeParseException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/MimeTypeParseException.html#MimeTypeParseException-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MimeTypeParseException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.activation::MimeTypeParseException
+	}
+}
+
+[Classifier]
+public class UnsupportedDataTypeException
+extends IOException
+Name: UnsupportedDataTypeException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/UnsupportedDataTypeException.html
+Containing package: javax.activation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::IOException
+}
+members {
+
+	[Function]
+	public UnsupportedDataTypeException()
+	Name: UnsupportedDataTypeException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/UnsupportedDataTypeException.html#UnsupportedDataTypeException--
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: UnsupportedDataTypeException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.activation::UnsupportedDataTypeException
+	}
+
+	[Function]
+	public UnsupportedDataTypeException(String s)
+	Name: UnsupportedDataTypeException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/activation/UnsupportedDataTypeException.html#UnsupportedDataTypeException-java.lang.String-
+	Containing package: javax.activation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: UnsupportedDataTypeException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.activation::UnsupportedDataTypeException
+	}
+}

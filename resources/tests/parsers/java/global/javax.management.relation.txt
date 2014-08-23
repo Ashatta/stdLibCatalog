@@ -1,0 +1,7319 @@
+[Package]
+Name: javax.management.relation
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/package-summary.html
+Containing package: javax.management
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+public interface Relation
+Name: Relation
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/Relation.html
+Containing package: javax.management.relation
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.management.relation::RelationSupportMBean
+}
+supertypes {
+}
+members {
+
+	[Function]
+	List<ObjectName> getRole(String roleName)
+	                  throws IllegalArgumentException,
+	                         RoleNotFoundException,
+	                         RelationServiceNotRegisteredException
+	Name: getRole
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/Relation.html#getRole-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Relation
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.util::List {
+			javax.management::ObjectName
+		}
+	}
+
+	[Function]
+	RoleResult getRoles(String[] roleNameArray)
+	             throws IllegalArgumentException,
+	                    RelationServiceNotRegisteredException
+	Name: getRoles
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/Relation.html#getRoles-java.lang.String:A-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Relation
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.lang::String
+		}
+	
+		[result]
+		javax.management.relation::RoleResult
+	}
+
+	[Function]
+	Integer getRoleCardinality(String roleName)
+	                    throws IllegalArgumentException,
+	                           RoleNotFoundException
+	Name: getRoleCardinality
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/Relation.html#getRoleCardinality-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Relation
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::Integer
+	}
+
+	[Function]
+	RoleResult getAllRoles()
+	                throws RelationServiceNotRegisteredException
+	Name: getAllRoles
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/Relation.html#getAllRoles--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Relation
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management.relation::RoleResult
+	}
+
+	[Function]
+	RoleList retrieveAllRoles()
+	Name: retrieveAllRoles
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/Relation.html#retrieveAllRoles--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Relation
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management.relation::RoleList
+	}
+
+	[Function]
+	void setRole(Role role)
+	      throws IllegalArgumentException,
+	             RoleNotFoundException,
+	             RelationTypeNotFoundException,
+	             InvalidRoleValueException,
+	             RelationServiceNotRegisteredException,
+	             RelationNotFoundException
+	Name: setRole
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/Relation.html#setRole-javax.management.relation.Role-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Relation
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management.relation::Role
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	RoleResult setRoles(RoleList roleList)
+	             throws IllegalArgumentException,
+	                    RelationServiceNotRegisteredException,
+	                    RelationTypeNotFoundException,
+	                    RelationNotFoundException
+	Name: setRoles
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/Relation.html#setRoles-javax.management.relation.RoleList-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Relation
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management.relation::RoleList
+	
+		[result]
+		javax.management.relation::RoleResult
+	}
+
+	[Function]
+	void handleMBeanUnregistration(ObjectName objectName,
+	                               String roleName)
+	                        throws IllegalArgumentException,
+	                               RoleNotFoundException,
+	                               InvalidRoleValueException,
+	                               RelationServiceNotRegisteredException,
+	                               RelationTypeNotFoundException,
+	                               RelationNotFoundException
+	Name: handleMBeanUnregistration
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/Relation.html#handleMBeanUnregistration-javax.management.ObjectName-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Relation
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	Map<ObjectName,List<String>> getReferencedMBeans()
+	Name: getReferencedMBeans
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/Relation.html#getReferencedMBeans--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Relation
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Map {
+			javax.management::ObjectName
+			java.util::List {
+				java.lang::String
+			}
+		}
+	}
+
+	[Function]
+	String getRelationTypeName()
+	Name: getRelationTypeName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/Relation.html#getRelationTypeName--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Relation
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	ObjectName getRelationServiceName()
+	Name: getRelationServiceName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/Relation.html#getRelationServiceName--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Relation
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management::ObjectName
+	}
+
+	[Function]
+	String getRelationId()
+	Name: getRelationId
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/Relation.html#getRelationId--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Relation
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public interface RelationServiceMBean
+Name: RelationServiceMBean
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html
+Containing package: javax.management.relation
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.management.relation::RelationService
+}
+supertypes {
+}
+members {
+
+	[Function]
+	void isActive()
+	       throws RelationServiceNotRegisteredException
+	Name: isActive
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#isActive--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	boolean getPurgeFlag()
+	Name: getPurgeFlag
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#getPurgeFlag--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	void setPurgeFlag(boolean purgeFlag)
+	Name: setPurgeFlag
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#setPurgeFlag-boolean-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::boolean
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void createRelationType(String relationTypeName,
+	                        RoleInfo[] roleInfoArray)
+	                 throws IllegalArgumentException,
+	                        InvalidRelationTypeException
+	Name: createRelationType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#createRelationType-java.lang.String-javax.management.relation.RoleInfo:A-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::[] {
+			javax.management.relation::RoleInfo
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void addRelationType(RelationType relationTypeObj)
+	              throws IllegalArgumentException,
+	                     InvalidRelationTypeException
+	Name: addRelationType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#addRelationType-javax.management.relation.RelationType-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management.relation::RelationType
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	List<String> getAllRelationTypeNames()
+	Name: getAllRelationTypeNames
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#getAllRelationTypeNames--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	List<RoleInfo> getRoleInfos(String relationTypeName)
+	                     throws IllegalArgumentException,
+	                            RelationTypeNotFoundException
+	Name: getRoleInfos
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#getRoleInfos-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.util::List {
+			javax.management.relation::RoleInfo
+		}
+	}
+
+	[Function]
+	RoleInfo getRoleInfo(String relationTypeName,
+	                     String roleInfoName)
+	              throws IllegalArgumentException,
+	                     RelationTypeNotFoundException,
+	                     RoleInfoNotFoundException
+	Name: getRoleInfo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#getRoleInfo-java.lang.String-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.management.relation::RoleInfo
+	}
+
+	[Function]
+	void removeRelationType(String relationTypeName)
+	                 throws RelationServiceNotRegisteredException,
+	                        IllegalArgumentException,
+	                        RelationTypeNotFoundException
+	Name: removeRelationType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#removeRelationType-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void createRelation(String relationId,
+	                    String relationTypeName,
+	                    RoleList roleList)
+	             throws RelationServiceNotRegisteredException,
+	                    IllegalArgumentException,
+	                    RoleNotFoundException,
+	                    InvalidRelationIdException,
+	                    RelationTypeNotFoundException,
+	                    InvalidRoleValueException
+	Name: createRelation
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#createRelation-java.lang.String-java.lang.String-javax.management.relation.RoleList-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		javax.management.relation::RoleList
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void addRelation(ObjectName relationObjectName)
+	          throws IllegalArgumentException,
+	                 RelationServiceNotRegisteredException,
+	                 NoSuchMethodException,
+	                 InvalidRelationIdException,
+	                 InstanceNotFoundException,
+	                 InvalidRelationServiceException,
+	                 RelationTypeNotFoundException,
+	                 RoleNotFoundException,
+	                 InvalidRoleValueException
+	Name: addRelation
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#addRelation-javax.management.ObjectName-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	ObjectName isRelationMBean(String relationId)
+	                    throws IllegalArgumentException,
+	                           RelationNotFoundException
+	Name: isRelationMBean
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#isRelationMBean-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.management::ObjectName
+	}
+
+	[Function]
+	String isRelation(ObjectName objectName)
+	           throws IllegalArgumentException
+	Name: isRelation
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#isRelation-javax.management.ObjectName-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	Boolean hasRelation(String relationId)
+	             throws IllegalArgumentException
+	Name: hasRelation
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#hasRelation-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::Boolean
+	}
+
+	[Function]
+	List<String> getAllRelationIds()
+	Name: getAllRelationIds
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#getAllRelationIds--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	Integer checkRoleReading(String roleName,
+	                         String relationTypeName)
+	                  throws IllegalArgumentException,
+	                         RelationTypeNotFoundException
+	Name: checkRoleReading
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#checkRoleReading-java.lang.String-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		java.lang::Integer
+	}
+
+	[Function]
+	Integer checkRoleWriting(Role role,
+	                         String relationTypeName,
+	                         Boolean initFlag)
+	                  throws IllegalArgumentException,
+	                         RelationTypeNotFoundException
+	Name: checkRoleWriting
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#checkRoleWriting-javax.management.relation.Role-java.lang.String-java.lang.Boolean-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management.relation::Role
+		java.lang::String
+		java.lang::Boolean
+	
+		[result]
+		java.lang::Integer
+	}
+
+	[Function]
+	void sendRelationCreationNotification(String relationId)
+	                               throws IllegalArgumentException,
+	                                      RelationNotFoundException
+	Name: sendRelationCreationNotification
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#sendRelationCreationNotification-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void sendRoleUpdateNotification(String relationId,
+	                                Role newRole,
+	                                List<ObjectName> oldRoleValue)
+	                         throws IllegalArgumentException,
+	                                RelationNotFoundException
+	Name: sendRoleUpdateNotification
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#sendRoleUpdateNotification-java.lang.String-javax.management.relation.Role-java.util.List-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.management.relation::Role
+		java.util::List {
+			javax.management::ObjectName
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void sendRelationRemovalNotification(String relationId,
+	                                     List<ObjectName> unregMBeanList)
+	                              throws IllegalArgumentException,
+	                                     RelationNotFoundException
+	Name: sendRelationRemovalNotification
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#sendRelationRemovalNotification-java.lang.String-java.util.List-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.util::List {
+			javax.management::ObjectName
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void updateRoleMap(String relationId,
+	                   Role newRole,
+	                   List<ObjectName> oldRoleValue)
+	            throws IllegalArgumentException,
+	                   RelationServiceNotRegisteredException,
+	                   RelationNotFoundException
+	Name: updateRoleMap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#updateRoleMap-java.lang.String-javax.management.relation.Role-java.util.List-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.management.relation::Role
+		java.util::List {
+			javax.management::ObjectName
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void removeRelation(String relationId)
+	             throws RelationServiceNotRegisteredException,
+	                    IllegalArgumentException,
+	                    RelationNotFoundException
+	Name: removeRelation
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#removeRelation-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void purgeRelations()
+	             throws RelationServiceNotRegisteredException
+	Name: purgeRelations
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#purgeRelations--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	Map<String,List<String>> findReferencingRelations(ObjectName mbeanName,
+	                                                  String relationTypeName,
+	                                                  String roleName)
+	                                           throws IllegalArgumentException
+	Name: findReferencingRelations
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#findReferencingRelations-javax.management.ObjectName-java.lang.String-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		java.util::Map {
+			java.lang::String
+			java.util::List {
+				java.lang::String
+			}
+		}
+	}
+
+	[Function]
+	Map<ObjectName,List<String>> findAssociatedMBeans(ObjectName mbeanName,
+	                                                  String relationTypeName,
+	                                                  String roleName)
+	                                           throws IllegalArgumentException
+	Name: findAssociatedMBeans
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#findAssociatedMBeans-javax.management.ObjectName-java.lang.String-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		java.util::Map {
+			javax.management::ObjectName
+			java.util::List {
+				java.lang::String
+			}
+		}
+	}
+
+	[Function]
+	List<String> findRelationsOfType(String relationTypeName)
+	                          throws IllegalArgumentException,
+	                                 RelationTypeNotFoundException
+	Name: findRelationsOfType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#findRelationsOfType-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.util::List {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	List<ObjectName> getRole(String relationId,
+	                         String roleName)
+	                  throws RelationServiceNotRegisteredException,
+	                         IllegalArgumentException,
+	                         RelationNotFoundException,
+	                         RoleNotFoundException
+	Name: getRole
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#getRole-java.lang.String-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		java.util::List {
+			javax.management::ObjectName
+		}
+	}
+
+	[Function]
+	RoleResult getRoles(String relationId,
+	                    String[] roleNameArray)
+	             throws RelationServiceNotRegisteredException,
+	                    IllegalArgumentException,
+	                    RelationNotFoundException
+	Name: getRoles
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#getRoles-java.lang.String-java.lang.String:A-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::[] {
+			java.lang::String
+		}
+	
+		[result]
+		javax.management.relation::RoleResult
+	}
+
+	[Function]
+	RoleResult getAllRoles(String relationId)
+	                throws IllegalArgumentException,
+	                       RelationNotFoundException,
+	                       RelationServiceNotRegisteredException
+	Name: getAllRoles
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#getAllRoles-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.management.relation::RoleResult
+	}
+
+	[Function]
+	Integer getRoleCardinality(String relationId,
+	                           String roleName)
+	                    throws IllegalArgumentException,
+	                           RelationNotFoundException,
+	                           RoleNotFoundException
+	Name: getRoleCardinality
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#getRoleCardinality-java.lang.String-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		java.lang::Integer
+	}
+
+	[Function]
+	void setRole(String relationId,
+	             Role role)
+	      throws RelationServiceNotRegisteredException,
+	             IllegalArgumentException,
+	             RelationNotFoundException,
+	             RoleNotFoundException,
+	             InvalidRoleValueException,
+	             RelationTypeNotFoundException
+	Name: setRole
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#setRole-java.lang.String-javax.management.relation.Role-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.management.relation::Role
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	RoleResult setRoles(String relationId,
+	                    RoleList roleList)
+	             throws RelationServiceNotRegisteredException,
+	                    IllegalArgumentException,
+	                    RelationNotFoundException
+	Name: setRoles
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#setRoles-java.lang.String-javax.management.relation.RoleList-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.management.relation::RoleList
+	
+		[result]
+		javax.management.relation::RoleResult
+	}
+
+	[Function]
+	Map<ObjectName,List<String>> getReferencedMBeans(String relationId)
+	                                          throws IllegalArgumentException,
+	                                                 RelationNotFoundException
+	Name: getReferencedMBeans
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#getReferencedMBeans-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.util::Map {
+			javax.management::ObjectName
+			java.util::List {
+				java.lang::String
+			}
+		}
+	}
+
+	[Function]
+	String getRelationTypeName(String relationId)
+	                    throws IllegalArgumentException,
+	                           RelationNotFoundException
+	Name: getRelationTypeName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceMBean.html#getRelationTypeName-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationServiceMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public interface RelationSupportMBean
+extends Relation
+Name: RelationSupportMBean
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationSupportMBean.html
+Containing package: javax.management.relation
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.management.relation::RelationSupport
+}
+supertypes {
+	javax.management.relation::Relation
+}
+members {
+
+	[Function]
+	Boolean isInRelationService()
+	Name: isInRelationService
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationSupportMBean.html#isInRelationService--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationSupportMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Boolean
+	}
+
+	[Function]
+	void setRelationServiceManagementFlag(Boolean flag)
+	                               throws IllegalArgumentException
+	Name: setRelationServiceManagementFlag
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationSupportMBean.html#setRelationServiceManagementFlag-java.lang.Boolean-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationSupportMBean
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Boolean
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface RelationType
+extends Serializable
+Name: RelationType
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationType.html
+Containing package: javax.management.relation
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.management.relation::RelationTypeSupport
+}
+supertypes {
+	java.io::Serializable
+}
+members {
+
+	[Function]
+	String getRelationTypeName()
+	Name: getRelationTypeName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationType.html#getRelationTypeName--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationType
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	List<RoleInfo> getRoleInfos()
+	Name: getRoleInfos
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationType.html#getRoleInfos--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationType
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			javax.management.relation::RoleInfo
+		}
+	}
+
+	[Function]
+	RoleInfo getRoleInfo(String roleInfoName)
+	              throws IllegalArgumentException,
+	                     RoleInfoNotFoundException
+	Name: getRoleInfo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationType.html#getRoleInfo-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationType
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.management.relation::RoleInfo
+	}
+}
+
+[Classifier]
+public class MBeanServerNotificationFilter
+extends NotificationFilterSupport
+Name: MBeanServerNotificationFilter
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/MBeanServerNotificationFilter.html
+Containing package: javax.management.relation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.management::NotificationFilterSupport
+}
+members {
+
+	[Function]
+	public MBeanServerNotificationFilter()
+	Name: MBeanServerNotificationFilter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/MBeanServerNotificationFilter.html#MBeanServerNotificationFilter--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MBeanServerNotificationFilter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management.relation::MBeanServerNotificationFilter
+	}
+
+	[Function]
+	public void disableAllObjectNames()
+	Name: disableAllObjectNames
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/MBeanServerNotificationFilter.html#disableAllObjectNames--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MBeanServerNotificationFilter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void disableObjectName(ObjectName objectName)
+	                       throws IllegalArgumentException
+	Name: disableObjectName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/MBeanServerNotificationFilter.html#disableObjectName-javax.management.ObjectName-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MBeanServerNotificationFilter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void enableAllObjectNames()
+	Name: enableAllObjectNames
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/MBeanServerNotificationFilter.html#enableAllObjectNames--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MBeanServerNotificationFilter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void enableObjectName(ObjectName objectName)
+	                      throws IllegalArgumentException
+	Name: enableObjectName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/MBeanServerNotificationFilter.html#enableObjectName-javax.management.ObjectName-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MBeanServerNotificationFilter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Vector<ObjectName> getEnabledObjectNames()
+	Name: getEnabledObjectNames
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/MBeanServerNotificationFilter.html#getEnabledObjectNames--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MBeanServerNotificationFilter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Vector {
+			javax.management::ObjectName
+		}
+	}
+
+	[Function]
+	public Vector<ObjectName> getDisabledObjectNames()
+	Name: getDisabledObjectNames
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/MBeanServerNotificationFilter.html#getDisabledObjectNames--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MBeanServerNotificationFilter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Vector {
+			javax.management::ObjectName
+		}
+	}
+
+	[Function]
+	public boolean isNotificationEnabled(Notification notif)
+	                              throws IllegalArgumentException
+	Name: isNotificationEnabled
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/MBeanServerNotificationFilter.html#isNotificationEnabled-javax.management.Notification-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MBeanServerNotificationFilter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::Notification
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public class RelationNotification
+extends Notification
+Name: RelationNotification
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationNotification.html
+Containing package: javax.management.relation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.management::Notification
+}
+members {
+
+	[Function]
+	public static final String RELATION_BASIC_CREATION
+	Name: RELATION_BASIC_CREATION
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationNotification.html#RELATION_BASIC_CREATION
+	Containing package: javax.management.relation
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: RelationNotification
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final String RELATION_MBEAN_CREATION
+	Name: RELATION_MBEAN_CREATION
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationNotification.html#RELATION_MBEAN_CREATION
+	Containing package: javax.management.relation
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: RelationNotification
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final String RELATION_BASIC_UPDATE
+	Name: RELATION_BASIC_UPDATE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationNotification.html#RELATION_BASIC_UPDATE
+	Containing package: javax.management.relation
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: RelationNotification
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final String RELATION_MBEAN_UPDATE
+	Name: RELATION_MBEAN_UPDATE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationNotification.html#RELATION_MBEAN_UPDATE
+	Containing package: javax.management.relation
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: RelationNotification
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final String RELATION_BASIC_REMOVAL
+	Name: RELATION_BASIC_REMOVAL
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationNotification.html#RELATION_BASIC_REMOVAL
+	Containing package: javax.management.relation
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: RelationNotification
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final String RELATION_MBEAN_REMOVAL
+	Name: RELATION_MBEAN_REMOVAL
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationNotification.html#RELATION_MBEAN_REMOVAL
+	Containing package: javax.management.relation
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: RelationNotification
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public RelationNotification(String notifType,
+	                            Object sourceObj,
+	                            long sequence,
+	                            long timeStamp,
+	                            String message,
+	                            String id,
+	                            String typeName,
+	                            ObjectName objectName,
+	                            List<ObjectName> unregMBeanList)
+	                     throws IllegalArgumentException
+	Name: RelationNotification
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationNotification.html#RelationNotification-java.lang.String-java.lang.Object-long-long-java.lang.String-java.lang.String-java.lang.String-javax.management.ObjectName-java.util.List-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RelationNotification
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Object
+		other::long
+		other::long
+		java.lang::String
+		java.lang::String
+		java.lang::String
+		javax.management::ObjectName
+		java.util::List {
+			javax.management::ObjectName
+		}
+	
+		[result]
+		javax.management.relation::RelationNotification
+	}
+
+	[Function]
+	public RelationNotification(String notifType,
+	                            Object sourceObj,
+	                            long sequence,
+	                            long timeStamp,
+	                            String message,
+	                            String id,
+	                            String typeName,
+	                            ObjectName objectName,
+	                            String name,
+	                            List<ObjectName> newValue,
+	                            List<ObjectName> oldValue)
+	                     throws IllegalArgumentException
+	Name: RelationNotification
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationNotification.html#RelationNotification-java.lang.String-java.lang.Object-long-long-java.lang.String-java.lang.String-java.lang.String-javax.management.ObjectName-java.lang.String-java.util.List-java.util.List-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RelationNotification
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Object
+		other::long
+		other::long
+		java.lang::String
+		java.lang::String
+		java.lang::String
+		javax.management::ObjectName
+		java.lang::String
+		java.util::List {
+			javax.management::ObjectName
+		}
+		java.util::List {
+			javax.management::ObjectName
+		}
+	
+		[result]
+		javax.management.relation::RelationNotification
+	}
+
+	[Function]
+	public String getRelationId()
+	Name: getRelationId
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationNotification.html#getRelationId--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationNotification
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public String getRelationTypeName()
+	Name: getRelationTypeName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationNotification.html#getRelationTypeName--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationNotification
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public ObjectName getObjectName()
+	Name: getObjectName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationNotification.html#getObjectName--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationNotification
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management::ObjectName
+	}
+
+	[Function]
+	public List<ObjectName> getMBeansToUnregister()
+	Name: getMBeansToUnregister
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationNotification.html#getMBeansToUnregister--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationNotification
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			javax.management::ObjectName
+		}
+	}
+
+	[Function]
+	public String getRoleName()
+	Name: getRoleName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationNotification.html#getRoleName--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationNotification
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public List<ObjectName> getOldRoleValue()
+	Name: getOldRoleValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationNotification.html#getOldRoleValue--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationNotification
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			javax.management::ObjectName
+		}
+	}
+
+	[Function]
+	public List<ObjectName> getNewRoleValue()
+	Name: getNewRoleValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationNotification.html#getNewRoleValue--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationNotification
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			javax.management::ObjectName
+		}
+	}
+}
+
+[Classifier]
+public class RelationService
+extends NotificationBroadcasterSupport
+implements RelationServiceMBean, MBeanRegistration, NotificationListener
+Name: RelationService
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html
+Containing package: javax.management.relation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.management.relation::RelationServiceMBean
+	javax.management::MBeanRegistration
+	javax.management::NotificationListener
+	javax.management::NotificationBroadcasterSupport
+}
+members {
+
+	[Function]
+	public RelationService(boolean immediatePurgeFlag)
+	Name: RelationService
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#RelationService-boolean-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::boolean
+	
+		[result]
+		javax.management.relation::RelationService
+	}
+
+	[Function]
+	public void isActive()
+	              throws RelationServiceNotRegisteredException
+	Name: isActive
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#isActive--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public ObjectName preRegister(MBeanServer server,
+	                              ObjectName name)
+	                       throws Exception
+	Name: preRegister
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#preRegister-javax.management.MBeanServer-javax.management.ObjectName-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::MBeanServer
+		javax.management::ObjectName
+	
+		[result]
+		javax.management::ObjectName
+	}
+
+	[Function]
+	public void postRegister(Boolean registrationDone)
+	Name: postRegister
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#postRegister-java.lang.Boolean-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Boolean
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void preDeregister()
+	                   throws Exception
+	Name: preDeregister
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#preDeregister--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void postDeregister()
+	Name: postDeregister
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#postDeregister--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean getPurgeFlag()
+	Name: getPurgeFlag
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#getPurgeFlag--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void setPurgeFlag(boolean purgeFlag)
+	Name: setPurgeFlag
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#setPurgeFlag-boolean-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::boolean
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void createRelationType(String relationTypeName,
+	                               RoleInfo[] roleInfoArray)
+	                        throws IllegalArgumentException,
+	                               InvalidRelationTypeException
+	Name: createRelationType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#createRelationType-java.lang.String-javax.management.relation.RoleInfo:A-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::[] {
+			javax.management.relation::RoleInfo
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void addRelationType(RelationType relationTypeObj)
+	                     throws IllegalArgumentException,
+	                            InvalidRelationTypeException
+	Name: addRelationType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#addRelationType-javax.management.relation.RelationType-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management.relation::RelationType
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public List<String> getAllRelationTypeNames()
+	Name: getAllRelationTypeNames
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#getAllRelationTypeNames--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public List<RoleInfo> getRoleInfos(String relationTypeName)
+	                            throws IllegalArgumentException,
+	                                   RelationTypeNotFoundException
+	Name: getRoleInfos
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#getRoleInfos-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.util::List {
+			javax.management.relation::RoleInfo
+		}
+	}
+
+	[Function]
+	public RoleInfo getRoleInfo(String relationTypeName,
+	                            String roleInfoName)
+	                     throws IllegalArgumentException,
+	                            RelationTypeNotFoundException,
+	                            RoleInfoNotFoundException
+	Name: getRoleInfo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#getRoleInfo-java.lang.String-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.management.relation::RoleInfo
+	}
+
+	[Function]
+	public void removeRelationType(String relationTypeName)
+	                        throws RelationServiceNotRegisteredException,
+	                               IllegalArgumentException,
+	                               RelationTypeNotFoundException
+	Name: removeRelationType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#removeRelationType-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void createRelation(String relationId,
+	                           String relationTypeName,
+	                           RoleList roleList)
+	                    throws RelationServiceNotRegisteredException,
+	                           IllegalArgumentException,
+	                           RoleNotFoundException,
+	                           InvalidRelationIdException,
+	                           RelationTypeNotFoundException,
+	                           InvalidRoleValueException
+	Name: createRelation
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#createRelation-java.lang.String-java.lang.String-javax.management.relation.RoleList-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		javax.management.relation::RoleList
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void addRelation(ObjectName relationObjectName)
+	                 throws IllegalArgumentException,
+	                        RelationServiceNotRegisteredException,
+	                        NoSuchMethodException,
+	                        InvalidRelationIdException,
+	                        InstanceNotFoundException,
+	                        InvalidRelationServiceException,
+	                        RelationTypeNotFoundException,
+	                        RoleNotFoundException,
+	                        InvalidRoleValueException
+	Name: addRelation
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#addRelation-javax.management.ObjectName-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public ObjectName isRelationMBean(String relationId)
+	                           throws IllegalArgumentException,
+	                                  RelationNotFoundException
+	Name: isRelationMBean
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#isRelationMBean-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.management::ObjectName
+	}
+
+	[Function]
+	public String isRelation(ObjectName objectName)
+	                  throws IllegalArgumentException
+	Name: isRelation
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#isRelation-javax.management.ObjectName-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public Boolean hasRelation(String relationId)
+	                    throws IllegalArgumentException
+	Name: hasRelation
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#hasRelation-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::Boolean
+	}
+
+	[Function]
+	public List<String> getAllRelationIds()
+	Name: getAllRelationIds
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#getAllRelationIds--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public Integer checkRoleReading(String roleName,
+	                                String relationTypeName)
+	                         throws IllegalArgumentException,
+	                                RelationTypeNotFoundException
+	Name: checkRoleReading
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#checkRoleReading-java.lang.String-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		java.lang::Integer
+	}
+
+	[Function]
+	public Integer checkRoleWriting(Role role,
+	                                String relationTypeName,
+	                                Boolean initFlag)
+	                         throws IllegalArgumentException,
+	                                RelationTypeNotFoundException
+	Name: checkRoleWriting
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#checkRoleWriting-javax.management.relation.Role-java.lang.String-java.lang.Boolean-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management.relation::Role
+		java.lang::String
+		java.lang::Boolean
+	
+		[result]
+		java.lang::Integer
+	}
+
+	[Function]
+	public void sendRelationCreationNotification(String relationId)
+	                                      throws IllegalArgumentException,
+	                                             RelationNotFoundException
+	Name: sendRelationCreationNotification
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#sendRelationCreationNotification-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void sendRoleUpdateNotification(String relationId,
+	                                       Role newRole,
+	                                       List<ObjectName> oldValue)
+	                                throws IllegalArgumentException,
+	                                       RelationNotFoundException
+	Name: sendRoleUpdateNotification
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#sendRoleUpdateNotification-java.lang.String-javax.management.relation.Role-java.util.List-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.management.relation::Role
+		java.util::List {
+			javax.management::ObjectName
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void sendRelationRemovalNotification(String relationId,
+	                                            List<ObjectName> unregMBeanList)
+	                                     throws IllegalArgumentException,
+	                                            RelationNotFoundException
+	Name: sendRelationRemovalNotification
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#sendRelationRemovalNotification-java.lang.String-java.util.List-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.util::List {
+			javax.management::ObjectName
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void updateRoleMap(String relationId,
+	                          Role newRole,
+	                          List<ObjectName> oldValue)
+	                   throws IllegalArgumentException,
+	                          RelationServiceNotRegisteredException,
+	                          RelationNotFoundException
+	Name: updateRoleMap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#updateRoleMap-java.lang.String-javax.management.relation.Role-java.util.List-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.management.relation::Role
+		java.util::List {
+			javax.management::ObjectName
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void removeRelation(String relationId)
+	                    throws RelationServiceNotRegisteredException,
+	                           IllegalArgumentException,
+	                           RelationNotFoundException
+	Name: removeRelation
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#removeRelation-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void purgeRelations()
+	                    throws RelationServiceNotRegisteredException
+	Name: purgeRelations
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#purgeRelations--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Map<String,List<String>> findReferencingRelations(ObjectName mbeanName,
+	                                                         String relationTypeName,
+	                                                         String roleName)
+	                                                  throws IllegalArgumentException
+	Name: findReferencingRelations
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#findReferencingRelations-javax.management.ObjectName-java.lang.String-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		java.util::Map {
+			java.lang::String
+			java.util::List {
+				java.lang::String
+			}
+		}
+	}
+
+	[Function]
+	public Map<ObjectName,List<String>> findAssociatedMBeans(ObjectName mbeanName,
+	                                                         String relationTypeName,
+	                                                         String roleName)
+	                                                  throws IllegalArgumentException
+	Name: findAssociatedMBeans
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#findAssociatedMBeans-javax.management.ObjectName-java.lang.String-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		java.util::Map {
+			javax.management::ObjectName
+			java.util::List {
+				java.lang::String
+			}
+		}
+	}
+
+	[Function]
+	public List<String> findRelationsOfType(String relationTypeName)
+	                                 throws IllegalArgumentException,
+	                                        RelationTypeNotFoundException
+	Name: findRelationsOfType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#findRelationsOfType-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.util::List {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public List<ObjectName> getRole(String relationId,
+	                                String roleName)
+	                         throws RelationServiceNotRegisteredException,
+	                                IllegalArgumentException,
+	                                RelationNotFoundException,
+	                                RoleNotFoundException
+	Name: getRole
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#getRole-java.lang.String-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		java.util::List {
+			javax.management::ObjectName
+		}
+	}
+
+	[Function]
+	public RoleResult getRoles(String relationId,
+	                           String[] roleNameArray)
+	                    throws RelationServiceNotRegisteredException,
+	                           IllegalArgumentException,
+	                           RelationNotFoundException
+	Name: getRoles
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#getRoles-java.lang.String-java.lang.String:A-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::[] {
+			java.lang::String
+		}
+	
+		[result]
+		javax.management.relation::RoleResult
+	}
+
+	[Function]
+	public RoleResult getAllRoles(String relationId)
+	                       throws IllegalArgumentException,
+	                              RelationNotFoundException,
+	                              RelationServiceNotRegisteredException
+	Name: getAllRoles
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#getAllRoles-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.management.relation::RoleResult
+	}
+
+	[Function]
+	public Integer getRoleCardinality(String relationId,
+	                                  String roleName)
+	                           throws IllegalArgumentException,
+	                                  RelationNotFoundException,
+	                                  RoleNotFoundException
+	Name: getRoleCardinality
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#getRoleCardinality-java.lang.String-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		java.lang::Integer
+	}
+
+	[Function]
+	public void setRole(String relationId,
+	                    Role role)
+	             throws RelationServiceNotRegisteredException,
+	                    IllegalArgumentException,
+	                    RelationNotFoundException,
+	                    RoleNotFoundException,
+	                    InvalidRoleValueException
+	Name: setRole
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#setRole-java.lang.String-javax.management.relation.Role-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.management.relation::Role
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public RoleResult setRoles(String relationId,
+	                           RoleList roleList)
+	                    throws RelationServiceNotRegisteredException,
+	                           IllegalArgumentException,
+	                           RelationNotFoundException
+	Name: setRoles
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#setRoles-java.lang.String-javax.management.relation.RoleList-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.management.relation::RoleList
+	
+		[result]
+		javax.management.relation::RoleResult
+	}
+
+	[Function]
+	public Map<ObjectName,List<String>> getReferencedMBeans(String relationId)
+	                                                 throws IllegalArgumentException,
+	                                                        RelationNotFoundException
+	Name: getReferencedMBeans
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#getReferencedMBeans-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.util::Map {
+			javax.management::ObjectName
+			java.util::List {
+				java.lang::String
+			}
+		}
+	}
+
+	[Function]
+	public String getRelationTypeName(String relationId)
+	                           throws IllegalArgumentException,
+	                                  RelationNotFoundException
+	Name: getRelationTypeName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#getRelationTypeName-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public void handleNotification(Notification notif,
+	                               Object handback)
+	Name: handleNotification
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#handleNotification-javax.management.Notification-java.lang.Object-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::Notification
+		java.lang::Object
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public MBeanNotificationInfo[] getNotificationInfo()
+	Name: getNotificationInfo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationService.html#getNotificationInfo--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			javax.management::MBeanNotificationInfo
+		}
+	}
+}
+
+[Classifier]
+public class RelationSupport
+extends Object
+implements RelationSupportMBean, MBeanRegistration
+Name: RelationSupport
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationSupport.html
+Containing package: javax.management.relation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.management.relation::RelationSupportMBean
+	javax.management::MBeanRegistration
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public RelationSupport(String relationId,
+	                       ObjectName relationServiceName,
+	                       String relationTypeName,
+	                       RoleList list)
+	                throws InvalidRoleValueException,
+	                       IllegalArgumentException
+	Name: RelationSupport
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationSupport.html#RelationSupport-java.lang.String-javax.management.ObjectName-java.lang.String-javax.management.relation.RoleList-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RelationSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.management::ObjectName
+		java.lang::String
+		javax.management.relation::RoleList
+	
+		[result]
+		javax.management.relation::RelationSupport
+	}
+
+	[Function]
+	public RelationSupport(String relationId,
+	                       ObjectName relationServiceName,
+	                       MBeanServer relationServiceMBeanServer,
+	                       String relationTypeName,
+	                       RoleList list)
+	                throws InvalidRoleValueException,
+	                       IllegalArgumentException
+	Name: RelationSupport
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationSupport.html#RelationSupport-java.lang.String-javax.management.ObjectName-javax.management.MBeanServer-java.lang.String-javax.management.relation.RoleList-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RelationSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.management::ObjectName
+		javax.management::MBeanServer
+		java.lang::String
+		javax.management.relation::RoleList
+	
+		[result]
+		javax.management.relation::RelationSupport
+	}
+
+	[Function]
+	public List<ObjectName> getRole(String roleName)
+	                         throws IllegalArgumentException,
+	                                RoleNotFoundException,
+	                                RelationServiceNotRegisteredException
+	Name: getRole
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationSupport.html#getRole-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.util::List {
+			javax.management::ObjectName
+		}
+	}
+
+	[Function]
+	public RoleResult getRoles(String[] roleNameArray)
+	                    throws IllegalArgumentException,
+	                           RelationServiceNotRegisteredException
+	Name: getRoles
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationSupport.html#getRoles-java.lang.String:A-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.lang::String
+		}
+	
+		[result]
+		javax.management.relation::RoleResult
+	}
+
+	[Function]
+	public RoleResult getAllRoles()
+	                       throws RelationServiceNotRegisteredException
+	Name: getAllRoles
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationSupport.html#getAllRoles--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management.relation::RoleResult
+	}
+
+	[Function]
+	public RoleList retrieveAllRoles()
+	Name: retrieveAllRoles
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationSupport.html#retrieveAllRoles--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management.relation::RoleList
+	}
+
+	[Function]
+	public Integer getRoleCardinality(String roleName)
+	                           throws IllegalArgumentException,
+	                                  RoleNotFoundException
+	Name: getRoleCardinality
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationSupport.html#getRoleCardinality-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::Integer
+	}
+
+	[Function]
+	public void setRole(Role role)
+	             throws IllegalArgumentException,
+	                    RoleNotFoundException,
+	                    RelationTypeNotFoundException,
+	                    InvalidRoleValueException,
+	                    RelationServiceNotRegisteredException,
+	                    RelationNotFoundException
+	Name: setRole
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationSupport.html#setRole-javax.management.relation.Role-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management.relation::Role
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public RoleResult setRoles(RoleList list)
+	                    throws IllegalArgumentException,
+	                           RelationServiceNotRegisteredException,
+	                           RelationTypeNotFoundException,
+	                           RelationNotFoundException
+	Name: setRoles
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationSupport.html#setRoles-javax.management.relation.RoleList-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management.relation::RoleList
+	
+		[result]
+		javax.management.relation::RoleResult
+	}
+
+	[Function]
+	public void handleMBeanUnregistration(ObjectName objectName,
+	                                      String roleName)
+	                               throws IllegalArgumentException,
+	                                      RoleNotFoundException,
+	                                      InvalidRoleValueException,
+	                                      RelationServiceNotRegisteredException,
+	                                      RelationTypeNotFoundException,
+	                                      RelationNotFoundException
+	Name: handleMBeanUnregistration
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationSupport.html#handleMBeanUnregistration-javax.management.ObjectName-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::ObjectName
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Map<ObjectName,List<String>> getReferencedMBeans()
+	Name: getReferencedMBeans
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationSupport.html#getReferencedMBeans--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Map {
+			javax.management::ObjectName
+			java.util::List {
+				java.lang::String
+			}
+		}
+	}
+
+	[Function]
+	public String getRelationTypeName()
+	Name: getRelationTypeName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationSupport.html#getRelationTypeName--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public ObjectName getRelationServiceName()
+	Name: getRelationServiceName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationSupport.html#getRelationServiceName--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management::ObjectName
+	}
+
+	[Function]
+	public String getRelationId()
+	Name: getRelationId
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationSupport.html#getRelationId--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public ObjectName preRegister(MBeanServer server,
+	                              ObjectName name)
+	                       throws Exception
+	Name: preRegister
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationSupport.html#preRegister-javax.management.MBeanServer-javax.management.ObjectName-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management::MBeanServer
+		javax.management::ObjectName
+	
+		[result]
+		javax.management::ObjectName
+	}
+
+	[Function]
+	public void postRegister(Boolean registrationDone)
+	Name: postRegister
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationSupport.html#postRegister-java.lang.Boolean-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Boolean
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void preDeregister()
+	                   throws Exception
+	Name: preDeregister
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationSupport.html#preDeregister--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void postDeregister()
+	Name: postDeregister
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationSupport.html#postDeregister--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Boolean isInRelationService()
+	Name: isInRelationService
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationSupport.html#isInRelationService--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Boolean
+	}
+
+	[Function]
+	public void setRelationServiceManagementFlag(Boolean flag)
+	                                      throws IllegalArgumentException
+	Name: setRelationServiceManagementFlag
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationSupport.html#setRelationServiceManagementFlag-java.lang.Boolean-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Boolean
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public class RelationTypeSupport
+extends Object
+implements RelationType
+Name: RelationTypeSupport
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationTypeSupport.html
+Containing package: javax.management.relation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.management.relation::RelationType
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public RelationTypeSupport(String relationTypeName,
+	                           RoleInfo[] roleInfoArray)
+	                    throws IllegalArgumentException,
+	                           InvalidRelationTypeException
+	Name: RelationTypeSupport
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationTypeSupport.html#RelationTypeSupport-java.lang.String-javax.management.relation.RoleInfo:A-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RelationTypeSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::[] {
+			javax.management.relation::RoleInfo
+		}
+	
+		[result]
+		javax.management.relation::RelationTypeSupport
+	}
+
+	[Function]
+	protected RelationTypeSupport(String relationTypeName)
+	Name: RelationTypeSupport
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationTypeSupport.html#RelationTypeSupport-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RelationTypeSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.management.relation::RelationTypeSupport
+	}
+
+	[Function]
+	public String getRelationTypeName()
+	Name: getRelationTypeName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationTypeSupport.html#getRelationTypeName--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationTypeSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public List<RoleInfo> getRoleInfos()
+	Name: getRoleInfos
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationTypeSupport.html#getRoleInfos--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationTypeSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			javax.management.relation::RoleInfo
+		}
+	}
+
+	[Function]
+	public RoleInfo getRoleInfo(String roleInfoName)
+	                     throws IllegalArgumentException,
+	                            RoleInfoNotFoundException
+	Name: getRoleInfo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationTypeSupport.html#getRoleInfo-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationTypeSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.management.relation::RoleInfo
+	}
+
+	[Function]
+	protected void addRoleInfo(RoleInfo roleInfo)
+	                    throws IllegalArgumentException,
+	                           InvalidRelationTypeException
+	Name: addRoleInfo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationTypeSupport.html#addRoleInfo-javax.management.relation.RoleInfo-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RelationTypeSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management.relation::RoleInfo
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public class Role
+extends Object
+implements Serializable
+Name: Role
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/Role.html
+Containing package: javax.management.relation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public Role(String roleName,
+	            List<ObjectName> roleValue)
+	     throws IllegalArgumentException
+	Name: Role
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/Role.html#Role-java.lang.String-java.util.List-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Role
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.util::List {
+			javax.management::ObjectName
+		}
+	
+		[result]
+		javax.management.relation::Role
+	}
+
+	[Function]
+	public String getRoleName()
+	Name: getRoleName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/Role.html#getRoleName--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Role
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public List<ObjectName> getRoleValue()
+	Name: getRoleValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/Role.html#getRoleValue--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Role
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			javax.management::ObjectName
+		}
+	}
+
+	[Function]
+	public void setRoleName(String roleName)
+	                 throws IllegalArgumentException
+	Name: setRoleName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/Role.html#setRoleName-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Role
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void setRoleValue(List<ObjectName> roleValue)
+	                  throws IllegalArgumentException
+	Name: setRoleValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/Role.html#setRoleValue-java.util.List-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Role
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::List {
+			javax.management::ObjectName
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/Role.html#toString--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Role
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public Object clone()
+	Name: clone
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/Role.html#clone--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Role
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public static String roleValueToString(List<ObjectName> roleValue)
+	                                throws IllegalArgumentException
+	Name: roleValueToString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/Role.html#roleValueToString-java.util.List-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Role
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::List {
+			javax.management::ObjectName
+		}
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public class RoleInfo
+extends Object
+implements Serializable
+Name: RoleInfo
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleInfo.html
+Containing package: javax.management.relation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static final int ROLE_CARDINALITY_INFINITY
+	Name: ROLE_CARDINALITY_INFINITY
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleInfo.html#ROLE_CARDINALITY_INFINITY
+	Containing package: javax.management.relation
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: RoleInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public RoleInfo(String roleName,
+	                String mbeanClassName,
+	                boolean read,
+	                boolean write,
+	                int min,
+	                int max,
+	                String descr)
+	         throws IllegalArgumentException,
+	                InvalidRoleInfoException,
+	                ClassNotFoundException,
+	                NotCompliantMBeanException
+	Name: RoleInfo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleInfo.html#RoleInfo-java.lang.String-java.lang.String-boolean-boolean-int-int-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RoleInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		other::boolean
+		other::boolean
+		other::int
+		other::int
+		java.lang::String
+	
+		[result]
+		javax.management.relation::RoleInfo
+	}
+
+	[Function]
+	public RoleInfo(String roleName,
+	                String mbeanClassName,
+	                boolean read,
+	                boolean write)
+	         throws IllegalArgumentException,
+	                ClassNotFoundException,
+	                NotCompliantMBeanException
+	Name: RoleInfo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleInfo.html#RoleInfo-java.lang.String-java.lang.String-boolean-boolean-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RoleInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		other::boolean
+		other::boolean
+	
+		[result]
+		javax.management.relation::RoleInfo
+	}
+
+	[Function]
+	public RoleInfo(String roleName,
+	                String mbeanClassName)
+	         throws IllegalArgumentException,
+	                ClassNotFoundException,
+	                NotCompliantMBeanException
+	Name: RoleInfo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleInfo.html#RoleInfo-java.lang.String-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RoleInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.management.relation::RoleInfo
+	}
+
+	[Function]
+	public RoleInfo(RoleInfo roleInfo)
+	         throws IllegalArgumentException
+	Name: RoleInfo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleInfo.html#RoleInfo-javax.management.relation.RoleInfo-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RoleInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management.relation::RoleInfo
+	
+		[result]
+		javax.management.relation::RoleInfo
+	}
+
+	[Function]
+	public String getName()
+	Name: getName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleInfo.html#getName--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public boolean isReadable()
+	Name: isReadable
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleInfo.html#isReadable--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isWritable()
+	Name: isWritable
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleInfo.html#isWritable--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public String getDescription()
+	Name: getDescription
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleInfo.html#getDescription--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public int getMinDegree()
+	Name: getMinDegree
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleInfo.html#getMinDegree--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public int getMaxDegree()
+	Name: getMaxDegree
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleInfo.html#getMaxDegree--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public String getRefMBeanClassName()
+	Name: getRefMBeanClassName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleInfo.html#getRefMBeanClassName--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public boolean checkMinDegree(int value)
+	Name: checkMinDegree
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleInfo.html#checkMinDegree-int-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean checkMaxDegree(int value)
+	Name: checkMaxDegree
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleInfo.html#checkMaxDegree-int-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleInfo.html#toString--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public class RoleList
+extends ArrayList<Object>
+Name: RoleList
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleList.html
+Containing package: javax.management.relation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.util::ArrayList {
+		java.lang::Object
+	}
+}
+members {
+
+	[Function]
+	public RoleList()
+	Name: RoleList
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleList.html#RoleList--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RoleList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management.relation::RoleList
+	}
+
+	[Function]
+	public RoleList(int initialCapacity)
+	Name: RoleList
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleList.html#RoleList-int-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RoleList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		javax.management.relation::RoleList
+	}
+
+	[Function]
+	public RoleList(List<Role> list)
+	         throws IllegalArgumentException
+	Name: RoleList
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleList.html#RoleList-java.util.List-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RoleList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::List {
+			javax.management.relation::Role
+		}
+	
+		[result]
+		javax.management.relation::RoleList
+	}
+
+	[Function]
+	public List<Role> asList()
+	Name: asList
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleList.html#asList--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			javax.management.relation::Role
+		}
+	}
+
+	[Function]
+	public void add(Role role)
+	         throws IllegalArgumentException
+	Name: add
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleList.html#add-javax.management.relation.Role-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management.relation::Role
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void add(int index,
+	                Role role)
+	         throws IllegalArgumentException,
+	                IndexOutOfBoundsException
+	Name: add
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleList.html#add-int-javax.management.relation.Role-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		javax.management.relation::Role
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void set(int index,
+	                Role role)
+	         throws IllegalArgumentException,
+	                IndexOutOfBoundsException
+	Name: set
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleList.html#set-int-javax.management.relation.Role-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		javax.management.relation::Role
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean addAll(RoleList roleList)
+	               throws IndexOutOfBoundsException
+	Name: addAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleList.html#addAll-javax.management.relation.RoleList-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management.relation::RoleList
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean addAll(int index,
+	                      RoleList roleList)
+	               throws IllegalArgumentException,
+	                      IndexOutOfBoundsException
+	Name: addAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleList.html#addAll-int-javax.management.relation.RoleList-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		javax.management.relation::RoleList
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean add(Object o)
+	Name: add
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleList.html#add-java.lang.Object-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void add(int index,
+	                Object element)
+	Name: add
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleList.html#add-int-java.lang.Object-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.lang::Object
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean addAll(Collection<?> c)
+	Name: addAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleList.html#addAll-java.util.Collection-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Collection {
+			?
+		}
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean addAll(int index,
+	                      Collection<?> c)
+	Name: addAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleList.html#addAll-int-java.util.Collection-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.util::Collection {
+			?
+		}
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public Object set(int index,
+	                  Object element)
+	Name: set
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleList.html#set-int-java.lang.Object-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.lang::Object
+	
+		[result]
+		java.lang::Object
+	}
+}
+
+[Classifier]
+public class RoleResult
+extends Object
+implements Serializable
+Name: RoleResult
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleResult.html
+Containing package: javax.management.relation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public RoleResult(RoleList list,
+	                  RoleUnresolvedList unresolvedList)
+	Name: RoleResult
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleResult.html#RoleResult-javax.management.relation.RoleList-javax.management.relation.RoleUnresolvedList-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RoleResult
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management.relation::RoleList
+		javax.management.relation::RoleUnresolvedList
+	
+		[result]
+		javax.management.relation::RoleResult
+	}
+
+	[Function]
+	public RoleList getRoles()
+	Name: getRoles
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleResult.html#getRoles--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleResult
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management.relation::RoleList
+	}
+
+	[Function]
+	public RoleUnresolvedList getRolesUnresolved()
+	Name: getRolesUnresolved
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleResult.html#getRolesUnresolved--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleResult
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management.relation::RoleUnresolvedList
+	}
+
+	[Function]
+	public void setRoles(RoleList list)
+	Name: setRoles
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleResult.html#setRoles-javax.management.relation.RoleList-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleResult
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management.relation::RoleList
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void setRolesUnresolved(RoleUnresolvedList unresolvedList)
+	Name: setRolesUnresolved
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleResult.html#setRolesUnresolved-javax.management.relation.RoleUnresolvedList-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleResult
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management.relation::RoleUnresolvedList
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public class RoleStatus
+extends Object
+Name: RoleStatus
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleStatus.html
+Containing package: javax.management.relation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static final int NO_ROLE_WITH_NAME
+	Name: NO_ROLE_WITH_NAME
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleStatus.html#NO_ROLE_WITH_NAME
+	Containing package: javax.management.relation
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: RoleStatus
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int ROLE_NOT_READABLE
+	Name: ROLE_NOT_READABLE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleStatus.html#ROLE_NOT_READABLE
+	Containing package: javax.management.relation
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: RoleStatus
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int ROLE_NOT_WRITABLE
+	Name: ROLE_NOT_WRITABLE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleStatus.html#ROLE_NOT_WRITABLE
+	Containing package: javax.management.relation
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: RoleStatus
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int LESS_THAN_MIN_ROLE_DEGREE
+	Name: LESS_THAN_MIN_ROLE_DEGREE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleStatus.html#LESS_THAN_MIN_ROLE_DEGREE
+	Containing package: javax.management.relation
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: RoleStatus
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int MORE_THAN_MAX_ROLE_DEGREE
+	Name: MORE_THAN_MAX_ROLE_DEGREE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleStatus.html#MORE_THAN_MAX_ROLE_DEGREE
+	Containing package: javax.management.relation
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: RoleStatus
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int REF_MBEAN_OF_INCORRECT_CLASS
+	Name: REF_MBEAN_OF_INCORRECT_CLASS
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleStatus.html#REF_MBEAN_OF_INCORRECT_CLASS
+	Containing package: javax.management.relation
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: RoleStatus
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static final int REF_MBEAN_NOT_REGISTERED
+	Name: REF_MBEAN_NOT_REGISTERED
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleStatus.html#REF_MBEAN_NOT_REGISTERED
+	Containing package: javax.management.relation
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: RoleStatus
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public RoleStatus()
+	Name: RoleStatus
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleStatus.html#RoleStatus--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RoleStatus
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management.relation::RoleStatus
+	}
+
+	[Function]
+	public static boolean isRoleStatus(int status)
+	Name: isRoleStatus
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleStatus.html#isRoleStatus-int-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleStatus
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public class RoleUnresolved
+extends Object
+implements Serializable
+Name: RoleUnresolved
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleUnresolved.html
+Containing package: javax.management.relation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public RoleUnresolved(String name,
+	                      List<ObjectName> value,
+	                      int pbType)
+	               throws IllegalArgumentException
+	Name: RoleUnresolved
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleUnresolved.html#RoleUnresolved-java.lang.String-java.util.List-int-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RoleUnresolved
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.util::List {
+			javax.management::ObjectName
+		}
+		other::int
+	
+		[result]
+		javax.management.relation::RoleUnresolved
+	}
+
+	[Function]
+	public String getRoleName()
+	Name: getRoleName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleUnresolved.html#getRoleName--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleUnresolved
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public List<ObjectName> getRoleValue()
+	Name: getRoleValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleUnresolved.html#getRoleValue--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleUnresolved
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			javax.management::ObjectName
+		}
+	}
+
+	[Function]
+	public int getProblemType()
+	Name: getProblemType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleUnresolved.html#getProblemType--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleUnresolved
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public void setRoleName(String name)
+	                 throws IllegalArgumentException
+	Name: setRoleName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleUnresolved.html#setRoleName-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleUnresolved
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void setRoleValue(List<ObjectName> value)
+	Name: setRoleValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleUnresolved.html#setRoleValue-java.util.List-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleUnresolved
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::List {
+			javax.management::ObjectName
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void setProblemType(int pbType)
+	                    throws IllegalArgumentException
+	Name: setProblemType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleUnresolved.html#setProblemType-int-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleUnresolved
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Object clone()
+	Name: clone
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleUnresolved.html#clone--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleUnresolved
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleUnresolved.html#toString--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleUnresolved
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public class RoleUnresolvedList
+extends ArrayList<Object>
+Name: RoleUnresolvedList
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleUnresolvedList.html
+Containing package: javax.management.relation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.util::ArrayList {
+		java.lang::Object
+	}
+}
+members {
+
+	[Function]
+	public RoleUnresolvedList()
+	Name: RoleUnresolvedList
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleUnresolvedList.html#RoleUnresolvedList--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RoleUnresolvedList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management.relation::RoleUnresolvedList
+	}
+
+	[Function]
+	public RoleUnresolvedList(int initialCapacity)
+	Name: RoleUnresolvedList
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleUnresolvedList.html#RoleUnresolvedList-int-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RoleUnresolvedList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		javax.management.relation::RoleUnresolvedList
+	}
+
+	[Function]
+	public RoleUnresolvedList(List<RoleUnresolved> list)
+	                   throws IllegalArgumentException
+	Name: RoleUnresolvedList
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleUnresolvedList.html#RoleUnresolvedList-java.util.List-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RoleUnresolvedList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::List {
+			javax.management.relation::RoleUnresolved
+		}
+	
+		[result]
+		javax.management.relation::RoleUnresolvedList
+	}
+
+	[Function]
+	public List<RoleUnresolved> asList()
+	Name: asList
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleUnresolvedList.html#asList--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleUnresolvedList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			javax.management.relation::RoleUnresolved
+		}
+	}
+
+	[Function]
+	public void add(RoleUnresolved role)
+	         throws IllegalArgumentException
+	Name: add
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleUnresolvedList.html#add-javax.management.relation.RoleUnresolved-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleUnresolvedList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management.relation::RoleUnresolved
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void add(int index,
+	                RoleUnresolved role)
+	         throws IllegalArgumentException,
+	                IndexOutOfBoundsException
+	Name: add
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleUnresolvedList.html#add-int-javax.management.relation.RoleUnresolved-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleUnresolvedList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		javax.management.relation::RoleUnresolved
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void set(int index,
+	                RoleUnresolved role)
+	         throws IllegalArgumentException,
+	                IndexOutOfBoundsException
+	Name: set
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleUnresolvedList.html#set-int-javax.management.relation.RoleUnresolved-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleUnresolvedList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		javax.management.relation::RoleUnresolved
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean addAll(RoleUnresolvedList roleList)
+	               throws IndexOutOfBoundsException
+	Name: addAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleUnresolvedList.html#addAll-javax.management.relation.RoleUnresolvedList-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleUnresolvedList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.management.relation::RoleUnresolvedList
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean addAll(int index,
+	                      RoleUnresolvedList roleList)
+	               throws IllegalArgumentException,
+	                      IndexOutOfBoundsException
+	Name: addAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleUnresolvedList.html#addAll-int-javax.management.relation.RoleUnresolvedList-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleUnresolvedList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		javax.management.relation::RoleUnresolvedList
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean add(Object o)
+	Name: add
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleUnresolvedList.html#add-java.lang.Object-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleUnresolvedList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void add(int index,
+	                Object element)
+	Name: add
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleUnresolvedList.html#add-int-java.lang.Object-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleUnresolvedList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.lang::Object
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean addAll(Collection<?> c)
+	Name: addAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleUnresolvedList.html#addAll-java.util.Collection-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleUnresolvedList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Collection {
+			?
+		}
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean addAll(int index,
+	                      Collection<?> c)
+	Name: addAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleUnresolvedList.html#addAll-int-java.util.Collection-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleUnresolvedList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.util::Collection {
+			?
+		}
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public Object set(int index,
+	                  Object element)
+	Name: set
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleUnresolvedList.html#set-int-java.lang.Object-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RoleUnresolvedList
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.lang::Object
+	
+		[result]
+		java.lang::Object
+	}
+}
+
+[Classifier]
+public class InvalidRelationIdException
+extends RelationException
+Name: InvalidRelationIdException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/InvalidRelationIdException.html
+Containing package: javax.management.relation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.management.relation::RelationException
+}
+members {
+
+	[Function]
+	public InvalidRelationIdException()
+	Name: InvalidRelationIdException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/InvalidRelationIdException.html#InvalidRelationIdException--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: InvalidRelationIdException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management.relation::InvalidRelationIdException
+	}
+
+	[Function]
+	public InvalidRelationIdException(String message)
+	Name: InvalidRelationIdException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/InvalidRelationIdException.html#InvalidRelationIdException-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: InvalidRelationIdException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.management.relation::InvalidRelationIdException
+	}
+}
+
+[Classifier]
+public class InvalidRelationServiceException
+extends RelationException
+Name: InvalidRelationServiceException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/InvalidRelationServiceException.html
+Containing package: javax.management.relation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.management.relation::RelationException
+}
+members {
+
+	[Function]
+	public InvalidRelationServiceException()
+	Name: InvalidRelationServiceException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/InvalidRelationServiceException.html#InvalidRelationServiceException--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: InvalidRelationServiceException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management.relation::InvalidRelationServiceException
+	}
+
+	[Function]
+	public InvalidRelationServiceException(String message)
+	Name: InvalidRelationServiceException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/InvalidRelationServiceException.html#InvalidRelationServiceException-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: InvalidRelationServiceException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.management.relation::InvalidRelationServiceException
+	}
+}
+
+[Classifier]
+public class InvalidRelationTypeException
+extends RelationException
+Name: InvalidRelationTypeException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/InvalidRelationTypeException.html
+Containing package: javax.management.relation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.management.relation::RelationException
+}
+members {
+
+	[Function]
+	public InvalidRelationTypeException()
+	Name: InvalidRelationTypeException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/InvalidRelationTypeException.html#InvalidRelationTypeException--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: InvalidRelationTypeException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management.relation::InvalidRelationTypeException
+	}
+
+	[Function]
+	public InvalidRelationTypeException(String message)
+	Name: InvalidRelationTypeException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/InvalidRelationTypeException.html#InvalidRelationTypeException-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: InvalidRelationTypeException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.management.relation::InvalidRelationTypeException
+	}
+}
+
+[Classifier]
+public class InvalidRoleInfoException
+extends RelationException
+Name: InvalidRoleInfoException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/InvalidRoleInfoException.html
+Containing package: javax.management.relation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.management.relation::RelationException
+}
+members {
+
+	[Function]
+	public InvalidRoleInfoException()
+	Name: InvalidRoleInfoException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/InvalidRoleInfoException.html#InvalidRoleInfoException--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: InvalidRoleInfoException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management.relation::InvalidRoleInfoException
+	}
+
+	[Function]
+	public InvalidRoleInfoException(String message)
+	Name: InvalidRoleInfoException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/InvalidRoleInfoException.html#InvalidRoleInfoException-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: InvalidRoleInfoException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.management.relation::InvalidRoleInfoException
+	}
+}
+
+[Classifier]
+public class InvalidRoleValueException
+extends RelationException
+Name: InvalidRoleValueException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/InvalidRoleValueException.html
+Containing package: javax.management.relation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.management.relation::RelationException
+}
+members {
+
+	[Function]
+	public InvalidRoleValueException()
+	Name: InvalidRoleValueException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/InvalidRoleValueException.html#InvalidRoleValueException--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: InvalidRoleValueException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management.relation::InvalidRoleValueException
+	}
+
+	[Function]
+	public InvalidRoleValueException(String message)
+	Name: InvalidRoleValueException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/InvalidRoleValueException.html#InvalidRoleValueException-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: InvalidRoleValueException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.management.relation::InvalidRoleValueException
+	}
+}
+
+[Classifier]
+public class RelationException
+extends JMException
+Name: RelationException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationException.html
+Containing package: javax.management.relation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.management.relation::InvalidRelationIdException
+	javax.management.relation::InvalidRoleInfoException
+	javax.management.relation::RelationServiceNotRegisteredException
+	javax.management.relation::RelationTypeNotFoundException
+	javax.management.relation::RoleInfoNotFoundException
+	javax.management.relation::InvalidRelationTypeException
+	javax.management.relation::InvalidRelationServiceException
+	javax.management.relation::InvalidRoleValueException
+	javax.management.relation::RelationNotFoundException
+	javax.management.relation::RoleNotFoundException
+}
+supertypes {
+	javax.management::JMException
+}
+members {
+
+	[Function]
+	public RelationException()
+	Name: RelationException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationException.html#RelationException--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RelationException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management.relation::RelationException
+	}
+
+	[Function]
+	public RelationException(String message)
+	Name: RelationException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationException.html#RelationException-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RelationException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.management.relation::RelationException
+	}
+}
+
+[Classifier]
+public class RelationNotFoundException
+extends RelationException
+Name: RelationNotFoundException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationNotFoundException.html
+Containing package: javax.management.relation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.management.relation::RelationException
+}
+members {
+
+	[Function]
+	public RelationNotFoundException()
+	Name: RelationNotFoundException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationNotFoundException.html#RelationNotFoundException--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RelationNotFoundException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management.relation::RelationNotFoundException
+	}
+
+	[Function]
+	public RelationNotFoundException(String message)
+	Name: RelationNotFoundException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationNotFoundException.html#RelationNotFoundException-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RelationNotFoundException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.management.relation::RelationNotFoundException
+	}
+}
+
+[Classifier]
+public class RelationServiceNotRegisteredException
+extends RelationException
+Name: RelationServiceNotRegisteredException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceNotRegisteredException.html
+Containing package: javax.management.relation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.management.relation::RelationException
+}
+members {
+
+	[Function]
+	public RelationServiceNotRegisteredException()
+	Name: RelationServiceNotRegisteredException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceNotRegisteredException.html#RelationServiceNotRegisteredException--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RelationServiceNotRegisteredException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management.relation::RelationServiceNotRegisteredException
+	}
+
+	[Function]
+	public RelationServiceNotRegisteredException(String message)
+	Name: RelationServiceNotRegisteredException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationServiceNotRegisteredException.html#RelationServiceNotRegisteredException-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RelationServiceNotRegisteredException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.management.relation::RelationServiceNotRegisteredException
+	}
+}
+
+[Classifier]
+public class RelationTypeNotFoundException
+extends RelationException
+Name: RelationTypeNotFoundException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationTypeNotFoundException.html
+Containing package: javax.management.relation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.management.relation::RelationException
+}
+members {
+
+	[Function]
+	public RelationTypeNotFoundException()
+	Name: RelationTypeNotFoundException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationTypeNotFoundException.html#RelationTypeNotFoundException--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RelationTypeNotFoundException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management.relation::RelationTypeNotFoundException
+	}
+
+	[Function]
+	public RelationTypeNotFoundException(String message)
+	Name: RelationTypeNotFoundException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RelationTypeNotFoundException.html#RelationTypeNotFoundException-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RelationTypeNotFoundException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.management.relation::RelationTypeNotFoundException
+	}
+}
+
+[Classifier]
+public class RoleInfoNotFoundException
+extends RelationException
+Name: RoleInfoNotFoundException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleInfoNotFoundException.html
+Containing package: javax.management.relation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.management.relation::RelationException
+}
+members {
+
+	[Function]
+	public RoleInfoNotFoundException()
+	Name: RoleInfoNotFoundException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleInfoNotFoundException.html#RoleInfoNotFoundException--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RoleInfoNotFoundException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management.relation::RoleInfoNotFoundException
+	}
+
+	[Function]
+	public RoleInfoNotFoundException(String message)
+	Name: RoleInfoNotFoundException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleInfoNotFoundException.html#RoleInfoNotFoundException-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RoleInfoNotFoundException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.management.relation::RoleInfoNotFoundException
+	}
+}
+
+[Classifier]
+public class RoleNotFoundException
+extends RelationException
+Name: RoleNotFoundException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleNotFoundException.html
+Containing package: javax.management.relation
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.management.relation::RelationException
+}
+members {
+
+	[Function]
+	public RoleNotFoundException()
+	Name: RoleNotFoundException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleNotFoundException.html#RoleNotFoundException--
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RoleNotFoundException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.management.relation::RoleNotFoundException
+	}
+
+	[Function]
+	public RoleNotFoundException(String message)
+	Name: RoleNotFoundException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/management/relation/RoleNotFoundException.html#RoleNotFoundException-java.lang.String-
+	Containing package: javax.management.relation
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: RoleNotFoundException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.management.relation::RoleNotFoundException
+	}
+}

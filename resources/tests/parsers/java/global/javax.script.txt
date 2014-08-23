@@ -1,0 +1,3830 @@
+[Package]
+Name: javax.script
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/package-summary.html
+Containing package: null
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+public interface Bindings
+extends Map<String,Object>
+Name: Bindings
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/Bindings.html
+Containing package: javax.script
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.script::SimpleBindings
+}
+supertypes {
+	java.util::Map {
+		java.lang::String
+		java.lang::Object
+	}
+}
+members {
+
+	[Function]
+	Object put(String name,
+	           Object value)
+	Name: put
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/Bindings.html#put-java.lang.String-java.lang.Object-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Bindings
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Object
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	void putAll(Map<? extends String,? extends Object> toMerge)
+	Name: putAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/Bindings.html#putAll-java.util.Map-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Bindings
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Map {
+			? {
+				extends java.lang::String
+			}
+			? {
+				extends java.lang::Object
+			}
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	boolean containsKey(Object key)
+	Name: containsKey
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/Bindings.html#containsKey-java.lang.Object-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Bindings
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	Object get(Object key)
+	Name: get
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/Bindings.html#get-java.lang.Object-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Bindings
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	Object remove(Object key)
+	Name: remove
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/Bindings.html#remove-java.lang.Object-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Bindings
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		java.lang::Object
+	}
+}
+
+[Classifier]
+public interface Compilable
+Name: Compilable
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/Compilable.html
+Containing package: javax.script
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	CompiledScript compile(String script)
+	                throws ScriptException
+	Name: compile
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/Compilable.html#compile-java.lang.String-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Compilable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.script::CompiledScript
+	}
+
+	[Function]
+	CompiledScript compile(Reader script)
+	                throws ScriptException
+	Name: compile
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/Compilable.html#compile-java.io.Reader-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Compilable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::Reader
+	
+		[result]
+		javax.script::CompiledScript
+	}
+}
+
+[Classifier]
+public interface Invocable
+Name: Invocable
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/Invocable.html
+Containing package: javax.script
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	Object invokeMethod(Object thiz,
+	                    String name,
+	                    Object... args)
+	             throws ScriptException,
+	                    NoSuchMethodException
+	Name: invokeMethod
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/Invocable.html#invokeMethod-java.lang.Object-java.lang.String-java.lang.Object...-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Invocable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+		java.lang::String
+		other::... {
+			java.lang::Object
+		}
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	Object invokeFunction(String name,
+	                      Object... args)
+	               throws ScriptException,
+	                      NoSuchMethodException
+	Name: invokeFunction
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/Invocable.html#invokeFunction-java.lang.String-java.lang.Object...-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Invocable
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::... {
+			java.lang::Object
+		}
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	<T> T getInterface(Class<T> clasz)
+	Name: getInterface
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/Invocable.html#getInterface-java.lang.Class-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Invocable
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class {
+			null::T
+		}
+	
+		[result]
+		null::T
+	}
+
+	[Function]
+	<T> T getInterface(Object thiz,
+	                   Class<T> clasz)
+	Name: getInterface
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/Invocable.html#getInterface-java.lang.Object-java.lang.Class-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Invocable
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+		java.lang::Class {
+			null::T
+		}
+	
+		[result]
+		null::T
+	}
+}
+
+[Classifier]
+public interface ScriptContext
+Name: ScriptContext
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptContext.html
+Containing package: javax.script
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.script::SimpleScriptContext
+}
+supertypes {
+}
+members {
+
+	[Function]
+	static final int ENGINE_SCOPE
+	Name: ENGINE_SCOPE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptContext.html#ENGINE_SCOPE
+	Containing package: javax.script
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	static final int GLOBAL_SCOPE
+	Name: GLOBAL_SCOPE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptContext.html#GLOBAL_SCOPE
+	Containing package: javax.script
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	void setBindings(Bindings bindings,
+	                 int scope)
+	Name: setBindings
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptContext.html#setBindings-javax.script.Bindings-int-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.script::Bindings
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	Bindings getBindings(int scope)
+	Name: getBindings
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptContext.html#getBindings-int-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		javax.script::Bindings
+	}
+
+	[Function]
+	void setAttribute(String name,
+	                  Object value,
+	                  int scope)
+	Name: setAttribute
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptContext.html#setAttribute-java.lang.String-java.lang.Object-int-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Object
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	Object getAttribute(String name,
+	                    int scope)
+	Name: getAttribute
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptContext.html#getAttribute-java.lang.String-int-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::int
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	Object removeAttribute(String name,
+	                       int scope)
+	Name: removeAttribute
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptContext.html#removeAttribute-java.lang.String-int-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::int
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	Object getAttribute(String name)
+	Name: getAttribute
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptContext.html#getAttribute-java.lang.String-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	int getAttributesScope(String name)
+	Name: getAttributesScope
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptContext.html#getAttributesScope-java.lang.String-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	Writer getWriter()
+	Name: getWriter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptContext.html#getWriter--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.io::Writer
+	}
+
+	[Function]
+	Writer getErrorWriter()
+	Name: getErrorWriter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptContext.html#getErrorWriter--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.io::Writer
+	}
+
+	[Function]
+	void setWriter(Writer writer)
+	Name: setWriter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptContext.html#setWriter-java.io.Writer-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::Writer
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void setErrorWriter(Writer writer)
+	Name: setErrorWriter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptContext.html#setErrorWriter-java.io.Writer-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::Writer
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	Reader getReader()
+	Name: getReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptContext.html#getReader--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.io::Reader
+	}
+
+	[Function]
+	void setReader(Reader reader)
+	Name: setReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptContext.html#setReader-java.io.Reader-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::Reader
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	List<Integer> getScopes()
+	Name: getScopes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptContext.html#getScopes--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			java.lang::Integer
+		}
+	}
+}
+
+[Classifier]
+public interface ScriptEngine
+Name: ScriptEngine
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngine.html
+Containing package: javax.script
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.script::AbstractScriptEngine
+}
+supertypes {
+}
+members {
+
+	[Function]
+	static final String ARGV
+	Name: ARGV
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngine.html#ARGV
+	Containing package: javax.script
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String FILENAME
+	Name: FILENAME
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngine.html#FILENAME
+	Containing package: javax.script
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String ENGINE
+	Name: ENGINE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngine.html#ENGINE
+	Containing package: javax.script
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String ENGINE_VERSION
+	Name: ENGINE_VERSION
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngine.html#ENGINE_VERSION
+	Containing package: javax.script
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String NAME
+	Name: NAME
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngine.html#NAME
+	Containing package: javax.script
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String LANGUAGE
+	Name: LANGUAGE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngine.html#LANGUAGE
+	Containing package: javax.script
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	static final String LANGUAGE_VERSION
+	Name: LANGUAGE_VERSION
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngine.html#LANGUAGE_VERSION
+	Containing package: javax.script
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	Object eval(String script,
+	            ScriptContext context)
+	     throws ScriptException
+	Name: eval
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngine.html#eval-java.lang.String-javax.script.ScriptContext-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.script::ScriptContext
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	Object eval(Reader reader,
+	            ScriptContext context)
+	     throws ScriptException
+	Name: eval
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngine.html#eval-java.io.Reader-javax.script.ScriptContext-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::Reader
+		javax.script::ScriptContext
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	Object eval(String script)
+	     throws ScriptException
+	Name: eval
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngine.html#eval-java.lang.String-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	Object eval(Reader reader)
+	     throws ScriptException
+	Name: eval
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngine.html#eval-java.io.Reader-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::Reader
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	Object eval(String script,
+	            Bindings n)
+	     throws ScriptException
+	Name: eval
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngine.html#eval-java.lang.String-javax.script.Bindings-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.script::Bindings
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	Object eval(Reader reader,
+	            Bindings n)
+	     throws ScriptException
+	Name: eval
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngine.html#eval-java.io.Reader-javax.script.Bindings-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::Reader
+		javax.script::Bindings
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	void put(String key,
+	         Object value)
+	Name: put
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngine.html#put-java.lang.String-java.lang.Object-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Object
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	Object get(String key)
+	Name: get
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngine.html#get-java.lang.String-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	Bindings getBindings(int scope)
+	Name: getBindings
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngine.html#getBindings-int-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		javax.script::Bindings
+	}
+
+	[Function]
+	void setBindings(Bindings bindings,
+	                 int scope)
+	Name: setBindings
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngine.html#setBindings-javax.script.Bindings-int-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.script::Bindings
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	Bindings createBindings()
+	Name: createBindings
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngine.html#createBindings--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.script::Bindings
+	}
+
+	[Function]
+	ScriptContext getContext()
+	Name: getContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngine.html#getContext--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.script::ScriptContext
+	}
+
+	[Function]
+	void setContext(ScriptContext context)
+	Name: setContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngine.html#setContext-javax.script.ScriptContext-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.script::ScriptContext
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	ScriptEngineFactory getFactory()
+	Name: getFactory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngine.html#getFactory--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.script::ScriptEngineFactory
+	}
+}
+
+[Classifier]
+public interface ScriptEngineFactory
+Name: ScriptEngineFactory
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineFactory.html
+Containing package: javax.script
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	String getEngineName()
+	Name: getEngineName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineFactory.html#getEngineName--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngineFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	String getEngineVersion()
+	Name: getEngineVersion
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineFactory.html#getEngineVersion--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngineFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	List<String> getExtensions()
+	Name: getExtensions
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineFactory.html#getExtensions--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngineFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	List<String> getMimeTypes()
+	Name: getMimeTypes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineFactory.html#getMimeTypes--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngineFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	List<String> getNames()
+	Name: getNames
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineFactory.html#getNames--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngineFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	String getLanguageName()
+	Name: getLanguageName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineFactory.html#getLanguageName--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngineFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	String getLanguageVersion()
+	Name: getLanguageVersion
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineFactory.html#getLanguageVersion--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngineFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	Object getParameter(String key)
+	Name: getParameter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineFactory.html#getParameter-java.lang.String-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngineFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	String getMethodCallSyntax(String obj,
+	                           String m,
+	                           String... args)
+	Name: getMethodCallSyntax
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineFactory.html#getMethodCallSyntax-java.lang.String-java.lang.String-java.lang.String...-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngineFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		other::... {
+			java.lang::String
+		}
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	String getOutputStatement(String toDisplay)
+	Name: getOutputStatement
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineFactory.html#getOutputStatement-java.lang.String-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngineFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	String getProgram(String... statements)
+	Name: getProgram
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineFactory.html#getProgram-java.lang.String...-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngineFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::... {
+			java.lang::String
+		}
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	ScriptEngine getScriptEngine()
+	Name: getScriptEngine
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineFactory.html#getScriptEngine--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngineFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.script::ScriptEngine
+	}
+}
+
+[Classifier]
+public abstract class AbstractScriptEngine
+extends Object
+implements ScriptEngine
+Name: AbstractScriptEngine
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/AbstractScriptEngine.html
+Containing package: javax.script
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.script::ScriptEngine
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected ScriptContext context
+	Name: context
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/AbstractScriptEngine.html#context
+	Containing package: javax.script
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: AbstractScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.script::ScriptContext
+	}
+
+	[Function]
+	public AbstractScriptEngine()
+	Name: AbstractScriptEngine
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/AbstractScriptEngine.html#AbstractScriptEngine--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AbstractScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.script::AbstractScriptEngine
+	}
+
+	[Function]
+	public AbstractScriptEngine(Bindings n)
+	Name: AbstractScriptEngine
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/AbstractScriptEngine.html#AbstractScriptEngine-javax.script.Bindings-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AbstractScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.script::Bindings
+	
+		[result]
+		javax.script::AbstractScriptEngine
+	}
+
+	[Function]
+	public void setContext(ScriptContext ctxt)
+	Name: setContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/AbstractScriptEngine.html#setContext-javax.script.ScriptContext-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.script::ScriptContext
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public ScriptContext getContext()
+	Name: getContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/AbstractScriptEngine.html#getContext--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.script::ScriptContext
+	}
+
+	[Function]
+	public Bindings getBindings(int scope)
+	Name: getBindings
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/AbstractScriptEngine.html#getBindings-int-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		javax.script::Bindings
+	}
+
+	[Function]
+	public void setBindings(Bindings bindings,
+	                        int scope)
+	Name: setBindings
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/AbstractScriptEngine.html#setBindings-javax.script.Bindings-int-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.script::Bindings
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void put(String key,
+	                Object value)
+	Name: put
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/AbstractScriptEngine.html#put-java.lang.String-java.lang.Object-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Object
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Object get(String key)
+	Name: get
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/AbstractScriptEngine.html#get-java.lang.String-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public Object eval(Reader reader,
+	                   Bindings bindings)
+	            throws ScriptException
+	Name: eval
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/AbstractScriptEngine.html#eval-java.io.Reader-javax.script.Bindings-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::Reader
+		javax.script::Bindings
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public Object eval(String script,
+	                   Bindings bindings)
+	            throws ScriptException
+	Name: eval
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/AbstractScriptEngine.html#eval-java.lang.String-javax.script.Bindings-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.script::Bindings
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public Object eval(Reader reader)
+	            throws ScriptException
+	Name: eval
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/AbstractScriptEngine.html#eval-java.io.Reader-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::Reader
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public Object eval(String script)
+	            throws ScriptException
+	Name: eval
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/AbstractScriptEngine.html#eval-java.lang.String-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	protected ScriptContext getScriptContext(Bindings nn)
+	Name: getScriptContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/AbstractScriptEngine.html#getScriptContext-javax.script.Bindings-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractScriptEngine
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.script::Bindings
+	
+		[result]
+		javax.script::ScriptContext
+	}
+}
+
+[Classifier]
+public abstract class CompiledScript
+extends Object
+Name: CompiledScript
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/CompiledScript.html
+Containing package: javax.script
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public CompiledScript()
+	Name: CompiledScript
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/CompiledScript.html#CompiledScript--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: CompiledScript
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.script::CompiledScript
+	}
+
+	[Function]
+	public abstract Object eval(ScriptContext context)
+	                     throws ScriptException
+	Name: eval
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/CompiledScript.html#eval-javax.script.ScriptContext-
+	Containing package: javax.script
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CompiledScript
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.script::ScriptContext
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public Object eval(Bindings bindings)
+	            throws ScriptException
+	Name: eval
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/CompiledScript.html#eval-javax.script.Bindings-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CompiledScript
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.script::Bindings
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public Object eval()
+	            throws ScriptException
+	Name: eval
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/CompiledScript.html#eval--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CompiledScript
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public abstract ScriptEngine getEngine()
+	Name: getEngine
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/CompiledScript.html#getEngine--
+	Containing package: javax.script
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CompiledScript
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.script::ScriptEngine
+	}
+}
+
+[Classifier]
+public class ScriptEngineManager
+extends Object
+Name: ScriptEngineManager
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineManager.html
+Containing package: javax.script
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public ScriptEngineManager()
+	Name: ScriptEngineManager
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineManager.html#ScriptEngineManager--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ScriptEngineManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.script::ScriptEngineManager
+	}
+
+	[Function]
+	public ScriptEngineManager(ClassLoader loader)
+	Name: ScriptEngineManager
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineManager.html#ScriptEngineManager-java.lang.ClassLoader-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ScriptEngineManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::ClassLoader
+	
+		[result]
+		javax.script::ScriptEngineManager
+	}
+
+	[Function]
+	public void setBindings(Bindings bindings)
+	Name: setBindings
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineManager.html#setBindings-javax.script.Bindings-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngineManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.script::Bindings
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Bindings getBindings()
+	Name: getBindings
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineManager.html#getBindings--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngineManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.script::Bindings
+	}
+
+	[Function]
+	public void put(String key,
+	                Object value)
+	Name: put
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineManager.html#put-java.lang.String-java.lang.Object-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngineManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Object
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Object get(String key)
+	Name: get
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineManager.html#get-java.lang.String-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngineManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public ScriptEngine getEngineByName(String shortName)
+	Name: getEngineByName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineManager.html#getEngineByName-java.lang.String-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngineManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.script::ScriptEngine
+	}
+
+	[Function]
+	public ScriptEngine getEngineByExtension(String extension)
+	Name: getEngineByExtension
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineManager.html#getEngineByExtension-java.lang.String-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngineManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.script::ScriptEngine
+	}
+
+	[Function]
+	public ScriptEngine getEngineByMimeType(String mimeType)
+	Name: getEngineByMimeType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineManager.html#getEngineByMimeType-java.lang.String-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngineManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.script::ScriptEngine
+	}
+
+	[Function]
+	public List<ScriptEngineFactory> getEngineFactories()
+	Name: getEngineFactories
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineManager.html#getEngineFactories--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngineManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			javax.script::ScriptEngineFactory
+		}
+	}
+
+	[Function]
+	public void registerEngineName(String name,
+	                               ScriptEngineFactory factory)
+	Name: registerEngineName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineManager.html#registerEngineName-java.lang.String-javax.script.ScriptEngineFactory-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngineManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.script::ScriptEngineFactory
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void registerEngineMimeType(String type,
+	                                   ScriptEngineFactory factory)
+	Name: registerEngineMimeType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineManager.html#registerEngineMimeType-java.lang.String-javax.script.ScriptEngineFactory-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngineManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.script::ScriptEngineFactory
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void registerEngineExtension(String extension,
+	                                    ScriptEngineFactory factory)
+	Name: registerEngineExtension
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineManager.html#registerEngineExtension-java.lang.String-javax.script.ScriptEngineFactory-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptEngineManager
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.script::ScriptEngineFactory
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public class SimpleBindings
+extends Object
+implements Bindings
+Name: SimpleBindings
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleBindings.html
+Containing package: javax.script
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.script::Bindings
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public SimpleBindings(Map<String,Object> m)
+	Name: SimpleBindings
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleBindings.html#SimpleBindings-java.util.Map-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: SimpleBindings
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Map {
+			java.lang::String
+			java.lang::Object
+		}
+	
+		[result]
+		javax.script::SimpleBindings
+	}
+
+	[Function]
+	public SimpleBindings()
+	Name: SimpleBindings
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleBindings.html#SimpleBindings--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: SimpleBindings
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.script::SimpleBindings
+	}
+
+	[Function]
+	public Object put(String name,
+	                  Object value)
+	Name: put
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleBindings.html#put-java.lang.String-java.lang.Object-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleBindings
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Object
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public void putAll(Map<? extends String,? extends Object> toMerge)
+	Name: putAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleBindings.html#putAll-java.util.Map-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleBindings
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Map {
+			? {
+				extends java.lang::String
+			}
+			? {
+				extends java.lang::Object
+			}
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void clear()
+	Name: clear
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleBindings.html#clear--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleBindings
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean containsKey(Object key)
+	Name: containsKey
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleBindings.html#containsKey-java.lang.Object-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleBindings
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean containsValue(Object value)
+	Name: containsValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleBindings.html#containsValue-java.lang.Object-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleBindings
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public Set<Map.Entry<String,Object>> entrySet()
+	Name: entrySet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleBindings.html#entrySet--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleBindings
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Set {
+			java.util::Map.Entry {
+				java.lang::String
+				java.lang::Object
+			}
+		}
+	}
+
+	[Function]
+	public Object get(Object key)
+	Name: get
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleBindings.html#get-java.lang.Object-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleBindings
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public boolean isEmpty()
+	Name: isEmpty
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleBindings.html#isEmpty--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleBindings
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public Set<String> keySet()
+	Name: keySet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleBindings.html#keySet--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleBindings
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Set {
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public Object remove(Object key)
+	Name: remove
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleBindings.html#remove-java.lang.Object-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleBindings
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public int size()
+	Name: size
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleBindings.html#size--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleBindings
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public Collection<Object> values()
+	Name: values
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleBindings.html#values--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleBindings
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Collection {
+			java.lang::Object
+		}
+	}
+}
+
+[Classifier]
+public class SimpleScriptContext
+extends Object
+implements ScriptContext
+Name: SimpleScriptContext
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleScriptContext.html
+Containing package: javax.script
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.script::ScriptContext
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected Writer writer
+	Name: writer
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleScriptContext.html#writer
+	Containing package: javax.script
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: SimpleScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.io::Writer
+	}
+
+	[Function]
+	protected Writer errorWriter
+	Name: errorWriter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleScriptContext.html#errorWriter
+	Containing package: javax.script
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: SimpleScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.io::Writer
+	}
+
+	[Function]
+	protected Reader reader
+	Name: reader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleScriptContext.html#reader
+	Containing package: javax.script
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: SimpleScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.io::Reader
+	}
+
+	[Function]
+	protected Bindings engineScope
+	Name: engineScope
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleScriptContext.html#engineScope
+	Containing package: javax.script
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: SimpleScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.script::Bindings
+	}
+
+	[Function]
+	protected Bindings globalScope
+	Name: globalScope
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleScriptContext.html#globalScope
+	Containing package: javax.script
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: SimpleScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.script::Bindings
+	}
+
+	[Function]
+	public SimpleScriptContext()
+	Name: SimpleScriptContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleScriptContext.html#SimpleScriptContext--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: SimpleScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.script::SimpleScriptContext
+	}
+
+	[Function]
+	public void setBindings(Bindings bindings,
+	                        int scope)
+	Name: setBindings
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleScriptContext.html#setBindings-javax.script.Bindings-int-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.script::Bindings
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Object getAttribute(String name)
+	Name: getAttribute
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleScriptContext.html#getAttribute-java.lang.String-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public Object getAttribute(String name,
+	                           int scope)
+	Name: getAttribute
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleScriptContext.html#getAttribute-java.lang.String-int-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::int
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public Object removeAttribute(String name,
+	                              int scope)
+	Name: removeAttribute
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleScriptContext.html#removeAttribute-java.lang.String-int-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::int
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public void setAttribute(String name,
+	                         Object value,
+	                         int scope)
+	Name: setAttribute
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleScriptContext.html#setAttribute-java.lang.String-java.lang.Object-int-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Object
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Writer getWriter()
+	Name: getWriter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleScriptContext.html#getWriter--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.io::Writer
+	}
+
+	[Function]
+	public Reader getReader()
+	Name: getReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleScriptContext.html#getReader--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.io::Reader
+	}
+
+	[Function]
+	public void setReader(Reader reader)
+	Name: setReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleScriptContext.html#setReader-java.io.Reader-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::Reader
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void setWriter(Writer writer)
+	Name: setWriter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleScriptContext.html#setWriter-java.io.Writer-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::Writer
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Writer getErrorWriter()
+	Name: getErrorWriter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleScriptContext.html#getErrorWriter--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.io::Writer
+	}
+
+	[Function]
+	public void setErrorWriter(Writer writer)
+	Name: setErrorWriter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleScriptContext.html#setErrorWriter-java.io.Writer-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::Writer
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public int getAttributesScope(String name)
+	Name: getAttributesScope
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleScriptContext.html#getAttributesScope-java.lang.String-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public Bindings getBindings(int scope)
+	Name: getBindings
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleScriptContext.html#getBindings-int-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		javax.script::Bindings
+	}
+
+	[Function]
+	public List<Integer> getScopes()
+	Name: getScopes
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/SimpleScriptContext.html#getScopes--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: SimpleScriptContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::List {
+			java.lang::Integer
+		}
+	}
+}
+
+[Classifier]
+public class ScriptException
+extends Exception
+Name: ScriptException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptException.html
+Containing package: javax.script
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Exception
+}
+members {
+
+	[Function]
+	public ScriptException(String s)
+	Name: ScriptException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptException.html#ScriptException-java.lang.String-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ScriptException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.script::ScriptException
+	}
+
+	[Function]
+	public ScriptException(Exception e)
+	Name: ScriptException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptException.html#ScriptException-java.lang.Exception-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ScriptException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Exception
+	
+		[result]
+		javax.script::ScriptException
+	}
+
+	[Function]
+	public ScriptException(String message,
+	                       String fileName,
+	                       int lineNumber)
+	Name: ScriptException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptException.html#ScriptException-java.lang.String-java.lang.String-int-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ScriptException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		other::int
+	
+		[result]
+		javax.script::ScriptException
+	}
+
+	[Function]
+	public ScriptException(String message,
+	                       String fileName,
+	                       int lineNumber,
+	                       int columnNumber)
+	Name: ScriptException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptException.html#ScriptException-java.lang.String-java.lang.String-int-int-
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ScriptException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		other::int
+		other::int
+	
+		[result]
+		javax.script::ScriptException
+	}
+
+	[Function]
+	public String getMessage()
+	Name: getMessage
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptException.html#getMessage--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public int getLineNumber()
+	Name: getLineNumber
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptException.html#getLineNumber--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public int getColumnNumber()
+	Name: getColumnNumber
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptException.html#getColumnNumber--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public String getFileName()
+	Name: getFileName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/script/ScriptException.html#getFileName--
+	Containing package: javax.script
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ScriptException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}

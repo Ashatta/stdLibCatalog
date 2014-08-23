@@ -1,0 +1,6198 @@
+[Package]
+Name: javax.xml.stream
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/package-summary.html
+Containing package: javax.xml
+attributes {
+}
+
+Subpackages {
+	javax.xml.stream.util
+	javax.xml.stream.events
+}
+
+[Classifier]
+public interface EventFilter
+Name: EventFilter
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/EventFilter.html
+Containing package: javax.xml.stream
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	boolean accept(XMLEvent event)
+	Name: accept
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/EventFilter.html#accept-javax.xml.stream.events.XMLEvent-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: EventFilter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.stream.events::XMLEvent
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public interface Location
+Name: Location
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/Location.html
+Containing package: javax.xml.stream
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	int getLineNumber()
+	Name: getLineNumber
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/Location.html#getLineNumber--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Location
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	int getColumnNumber()
+	Name: getColumnNumber
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/Location.html#getColumnNumber--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Location
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	int getCharacterOffset()
+	Name: getCharacterOffset
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/Location.html#getCharacterOffset--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Location
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	String getPublicId()
+	Name: getPublicId
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/Location.html#getPublicId--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Location
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	String getSystemId()
+	Name: getSystemId
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/Location.html#getSystemId--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Location
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public interface StreamFilter
+Name: StreamFilter
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/StreamFilter.html
+Containing package: javax.xml.stream
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	boolean accept(XMLStreamReader reader)
+	Name: accept
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/StreamFilter.html#accept-javax.xml.stream.XMLStreamReader-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StreamFilter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.stream::XMLStreamReader
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public interface XMLEventReader
+extends Iterator
+Name: XMLEventReader
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventReader.html
+Containing package: javax.xml.stream
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.xml.stream.util::EventReaderDelegate
+}
+supertypes {
+	java.util::Iterator
+}
+members {
+
+	[Function]
+	XMLEvent nextEvent()
+	            throws XMLStreamException
+	Name: nextEvent
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventReader.html#nextEvent--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.stream.events::XMLEvent
+	}
+
+	[Function]
+	boolean hasNext()
+	Name: hasNext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventReader.html#hasNext--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	XMLEvent peek()
+	       throws XMLStreamException
+	Name: peek
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventReader.html#peek--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.stream.events::XMLEvent
+	}
+
+	[Function]
+	String getElementText()
+	               throws XMLStreamException
+	Name: getElementText
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventReader.html#getElementText--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	XMLEvent nextTag()
+	          throws XMLStreamException
+	Name: nextTag
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventReader.html#nextTag--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.stream.events::XMLEvent
+	}
+
+	[Function]
+	Object getProperty(String name)
+	            throws IllegalArgumentException
+	Name: getProperty
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventReader.html#getProperty-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	void close()
+	    throws XMLStreamException
+	Name: close
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventReader.html#close--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface XMLEventWriter
+extends XMLEventConsumer
+Name: XMLEventWriter
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventWriter.html
+Containing package: javax.xml.stream
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	javax.xml.stream.util::XMLEventConsumer
+}
+members {
+
+	[Function]
+	void flush()
+	    throws XMLStreamException
+	Name: flush
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventWriter.html#flush--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void close()
+	    throws XMLStreamException
+	Name: close
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventWriter.html#close--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void add(XMLEvent event)
+	  throws XMLStreamException
+	Name: add
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventWriter.html#add-javax.xml.stream.events.XMLEvent-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.stream.events::XMLEvent
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void add(XMLEventReader reader)
+	  throws XMLStreamException
+	Name: add
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventWriter.html#add-javax.xml.stream.XMLEventReader-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.stream::XMLEventReader
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	String getPrefix(String uri)
+	          throws XMLStreamException
+	Name: getPrefix
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventWriter.html#getPrefix-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	void setPrefix(String prefix,
+	               String uri)
+	        throws XMLStreamException
+	Name: setPrefix
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventWriter.html#setPrefix-java.lang.String-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void setDefaultNamespace(String uri)
+	                  throws XMLStreamException
+	Name: setDefaultNamespace
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventWriter.html#setDefaultNamespace-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void setNamespaceContext(NamespaceContext context)
+	                  throws XMLStreamException
+	Name: setNamespaceContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventWriter.html#setNamespaceContext-javax.xml.namespace.NamespaceContext-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.namespace::NamespaceContext
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	NamespaceContext getNamespaceContext()
+	Name: getNamespaceContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventWriter.html#getNamespaceContext--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.namespace::NamespaceContext
+	}
+}
+
+[Classifier]
+public interface XMLReporter
+Name: XMLReporter
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLReporter.html
+Containing package: javax.xml.stream
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	void report(String message,
+	            String errorType,
+	            Object relatedInformation,
+	            Location location)
+	     throws XMLStreamException
+	Name: report
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLReporter.html#report-java.lang.String-java.lang.String-java.lang.Object-javax.xml.stream.Location-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLReporter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		java.lang::Object
+		javax.xml.stream::Location
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface XMLResolver
+Name: XMLResolver
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLResolver.html
+Containing package: javax.xml.stream
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	Object resolveEntity(String publicID,
+	                     String systemID,
+	                     String baseURI,
+	                     String namespace)
+	              throws XMLStreamException
+	Name: resolveEntity
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLResolver.html#resolveEntity-java.lang.String-java.lang.String-java.lang.String-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLResolver
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		java.lang::Object
+	}
+}
+
+[Classifier]
+public interface XMLStreamConstants
+Name: XMLStreamConstants
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamConstants.html
+Containing package: javax.xml.stream
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.xml.stream::XMLStreamReader
+	javax.xml.stream.events::XMLEvent
+}
+supertypes {
+}
+members {
+
+	[Function]
+	static final int START_ELEMENT
+	Name: START_ELEMENT
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamConstants.html#START_ELEMENT
+	Containing package: javax.xml.stream
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: XMLStreamConstants
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	static final int END_ELEMENT
+	Name: END_ELEMENT
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamConstants.html#END_ELEMENT
+	Containing package: javax.xml.stream
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: XMLStreamConstants
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	static final int PROCESSING_INSTRUCTION
+	Name: PROCESSING_INSTRUCTION
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamConstants.html#PROCESSING_INSTRUCTION
+	Containing package: javax.xml.stream
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: XMLStreamConstants
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	static final int CHARACTERS
+	Name: CHARACTERS
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamConstants.html#CHARACTERS
+	Containing package: javax.xml.stream
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: XMLStreamConstants
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	static final int COMMENT
+	Name: COMMENT
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamConstants.html#COMMENT
+	Containing package: javax.xml.stream
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: XMLStreamConstants
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	static final int SPACE
+	Name: SPACE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamConstants.html#SPACE
+	Containing package: javax.xml.stream
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: XMLStreamConstants
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	static final int START_DOCUMENT
+	Name: START_DOCUMENT
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamConstants.html#START_DOCUMENT
+	Containing package: javax.xml.stream
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: XMLStreamConstants
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	static final int END_DOCUMENT
+	Name: END_DOCUMENT
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamConstants.html#END_DOCUMENT
+	Containing package: javax.xml.stream
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: XMLStreamConstants
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	static final int ENTITY_REFERENCE
+	Name: ENTITY_REFERENCE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamConstants.html#ENTITY_REFERENCE
+	Containing package: javax.xml.stream
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: XMLStreamConstants
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	static final int ATTRIBUTE
+	Name: ATTRIBUTE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamConstants.html#ATTRIBUTE
+	Containing package: javax.xml.stream
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: XMLStreamConstants
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	static final int DTD
+	Name: DTD
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamConstants.html#DTD
+	Containing package: javax.xml.stream
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: XMLStreamConstants
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	static final int CDATA
+	Name: CDATA
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamConstants.html#CDATA
+	Containing package: javax.xml.stream
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: XMLStreamConstants
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	static final int NAMESPACE
+	Name: NAMESPACE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamConstants.html#NAMESPACE
+	Containing package: javax.xml.stream
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: XMLStreamConstants
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	static final int NOTATION_DECLARATION
+	Name: NOTATION_DECLARATION
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamConstants.html#NOTATION_DECLARATION
+	Containing package: javax.xml.stream
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: XMLStreamConstants
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	static final int ENTITY_DECLARATION
+	Name: ENTITY_DECLARATION
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamConstants.html#ENTITY_DECLARATION
+	Containing package: javax.xml.stream
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: XMLStreamConstants
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public interface XMLStreamReader
+extends XMLStreamConstants
+Name: XMLStreamReader
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html
+Containing package: javax.xml.stream
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	javax.xml.stream.util::StreamReaderDelegate
+}
+supertypes {
+	javax.xml.stream::XMLStreamConstants
+}
+members {
+
+	[Function]
+	Object getProperty(String name)
+	            throws IllegalArgumentException
+	Name: getProperty
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getProperty-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	int next()
+	  throws XMLStreamException
+	Name: next
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#next--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	void require(int type,
+	             String namespaceURI,
+	             String localName)
+	      throws XMLStreamException
+	Name: require
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#require-int-java.lang.String-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	String getElementText()
+	               throws XMLStreamException
+	Name: getElementText
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getElementText--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	int nextTag()
+	     throws XMLStreamException
+	Name: nextTag
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#nextTag--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	boolean hasNext()
+	         throws XMLStreamException
+	Name: hasNext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#hasNext--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	void close()
+	    throws XMLStreamException
+	Name: close
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#close--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	String getNamespaceURI(String prefix)
+	Name: getNamespaceURI
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getNamespaceURI-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	boolean isStartElement()
+	Name: isStartElement
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#isStartElement--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean isEndElement()
+	Name: isEndElement
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#isEndElement--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean isCharacters()
+	Name: isCharacters
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#isCharacters--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean isWhiteSpace()
+	Name: isWhiteSpace
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#isWhiteSpace--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	String getAttributeValue(String namespaceURI,
+	                         String localName)
+	Name: getAttributeValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getAttributeValue-java.lang.String-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	int getAttributeCount()
+	Name: getAttributeCount
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getAttributeCount--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	QName getAttributeName(int index)
+	Name: getAttributeName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getAttributeName-int-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		javax.xml.namespace::QName
+	}
+
+	[Function]
+	String getAttributeNamespace(int index)
+	Name: getAttributeNamespace
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getAttributeNamespace-int-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	String getAttributeLocalName(int index)
+	Name: getAttributeLocalName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getAttributeLocalName-int-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	String getAttributePrefix(int index)
+	Name: getAttributePrefix
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getAttributePrefix-int-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	String getAttributeType(int index)
+	Name: getAttributeType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getAttributeType-int-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	String getAttributeValue(int index)
+	Name: getAttributeValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getAttributeValue-int-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	boolean isAttributeSpecified(int index)
+	Name: isAttributeSpecified
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#isAttributeSpecified-int-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	int getNamespaceCount()
+	Name: getNamespaceCount
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getNamespaceCount--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	String getNamespacePrefix(int index)
+	Name: getNamespacePrefix
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getNamespacePrefix-int-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	String getNamespaceURI(int index)
+	Name: getNamespaceURI
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getNamespaceURI-int-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	NamespaceContext getNamespaceContext()
+	Name: getNamespaceContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getNamespaceContext--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.namespace::NamespaceContext
+	}
+
+	[Function]
+	int getEventType()
+	Name: getEventType
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getEventType--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	String getText()
+	Name: getText
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getText--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	char[] getTextCharacters()
+	Name: getTextCharacters
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getTextCharacters--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::char
+		}
+	}
+
+	[Function]
+	int getTextCharacters(int sourceStart,
+	                      char[] target,
+	                      int targetStart,
+	                      int length)
+	               throws XMLStreamException
+	Name: getTextCharacters
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getTextCharacters-int-char:A-int-int-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::[] {
+			other::char
+		}
+		other::int
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	int getTextStart()
+	Name: getTextStart
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getTextStart--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	int getTextLength()
+	Name: getTextLength
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getTextLength--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	String getEncoding()
+	Name: getEncoding
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getEncoding--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	boolean hasText()
+	Name: hasText
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#hasText--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	Location getLocation()
+	Name: getLocation
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getLocation--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.stream::Location
+	}
+
+	[Function]
+	QName getName()
+	Name: getName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getName--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.namespace::QName
+	}
+
+	[Function]
+	String getLocalName()
+	Name: getLocalName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getLocalName--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	boolean hasName()
+	Name: hasName
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#hasName--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	String getNamespaceURI()
+	Name: getNamespaceURI
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getNamespaceURI--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	String getPrefix()
+	Name: getPrefix
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getPrefix--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	String getVersion()
+	Name: getVersion
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getVersion--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	boolean isStandalone()
+	Name: isStandalone
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#isStandalone--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean standaloneSet()
+	Name: standaloneSet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#standaloneSet--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	String getCharacterEncodingScheme()
+	Name: getCharacterEncodingScheme
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getCharacterEncodingScheme--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	String getPITarget()
+	Name: getPITarget
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getPITarget--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	String getPIData()
+	Name: getPIData
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamReader.html#getPIData--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamReader
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public interface XMLStreamWriter
+Name: XMLStreamWriter
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html
+Containing package: javax.xml.stream
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	void writeStartElement(String localName)
+	                throws XMLStreamException
+	Name: writeStartElement
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#writeStartElement-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void writeStartElement(String namespaceURI,
+	                       String localName)
+	                throws XMLStreamException
+	Name: writeStartElement
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#writeStartElement-java.lang.String-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void writeStartElement(String prefix,
+	                       String localName,
+	                       String namespaceURI)
+	                throws XMLStreamException
+	Name: writeStartElement
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#writeStartElement-java.lang.String-java.lang.String-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void writeEmptyElement(String namespaceURI,
+	                       String localName)
+	                throws XMLStreamException
+	Name: writeEmptyElement
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#writeEmptyElement-java.lang.String-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void writeEmptyElement(String prefix,
+	                       String localName,
+	                       String namespaceURI)
+	                throws XMLStreamException
+	Name: writeEmptyElement
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#writeEmptyElement-java.lang.String-java.lang.String-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void writeEmptyElement(String localName)
+	                throws XMLStreamException
+	Name: writeEmptyElement
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#writeEmptyElement-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void writeEndElement()
+	              throws XMLStreamException
+	Name: writeEndElement
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#writeEndElement--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void writeEndDocument()
+	               throws XMLStreamException
+	Name: writeEndDocument
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#writeEndDocument--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void close()
+	    throws XMLStreamException
+	Name: close
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#close--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void flush()
+	    throws XMLStreamException
+	Name: flush
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#flush--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void writeAttribute(String localName,
+	                    String value)
+	             throws XMLStreamException
+	Name: writeAttribute
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#writeAttribute-java.lang.String-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void writeAttribute(String prefix,
+	                    String namespaceURI,
+	                    String localName,
+	                    String value)
+	             throws XMLStreamException
+	Name: writeAttribute
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#writeAttribute-java.lang.String-java.lang.String-java.lang.String-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void writeAttribute(String namespaceURI,
+	                    String localName,
+	                    String value)
+	             throws XMLStreamException
+	Name: writeAttribute
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#writeAttribute-java.lang.String-java.lang.String-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void writeNamespace(String prefix,
+	                    String namespaceURI)
+	             throws XMLStreamException
+	Name: writeNamespace
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#writeNamespace-java.lang.String-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void writeDefaultNamespace(String namespaceURI)
+	                    throws XMLStreamException
+	Name: writeDefaultNamespace
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#writeDefaultNamespace-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void writeComment(String data)
+	           throws XMLStreamException
+	Name: writeComment
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#writeComment-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void writeProcessingInstruction(String target)
+	                         throws XMLStreamException
+	Name: writeProcessingInstruction
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#writeProcessingInstruction-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void writeProcessingInstruction(String target,
+	                                String data)
+	                         throws XMLStreamException
+	Name: writeProcessingInstruction
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#writeProcessingInstruction-java.lang.String-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void writeCData(String data)
+	         throws XMLStreamException
+	Name: writeCData
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#writeCData-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void writeDTD(String dtd)
+	       throws XMLStreamException
+	Name: writeDTD
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#writeDTD-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void writeEntityRef(String name)
+	             throws XMLStreamException
+	Name: writeEntityRef
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#writeEntityRef-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void writeStartDocument()
+	                 throws XMLStreamException
+	Name: writeStartDocument
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#writeStartDocument--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void writeStartDocument(String version)
+	                 throws XMLStreamException
+	Name: writeStartDocument
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#writeStartDocument-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void writeStartDocument(String encoding,
+	                        String version)
+	                 throws XMLStreamException
+	Name: writeStartDocument
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#writeStartDocument-java.lang.String-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void writeCharacters(String text)
+	              throws XMLStreamException
+	Name: writeCharacters
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#writeCharacters-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void writeCharacters(char[] text,
+	                     int start,
+	                     int len)
+	              throws XMLStreamException
+	Name: writeCharacters
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#writeCharacters-char:A-int-int-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::char
+		}
+		other::int
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	String getPrefix(String uri)
+	          throws XMLStreamException
+	Name: getPrefix
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#getPrefix-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	void setPrefix(String prefix,
+	               String uri)
+	        throws XMLStreamException
+	Name: setPrefix
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#setPrefix-java.lang.String-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void setDefaultNamespace(String uri)
+	                  throws XMLStreamException
+	Name: setDefaultNamespace
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#setDefaultNamespace-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void setNamespaceContext(NamespaceContext context)
+	                  throws XMLStreamException
+	Name: setNamespaceContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#setNamespaceContext-javax.xml.namespace.NamespaceContext-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.namespace::NamespaceContext
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	NamespaceContext getNamespaceContext()
+	Name: getNamespaceContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#getNamespaceContext--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.namespace::NamespaceContext
+	}
+
+	[Function]
+	Object getProperty(String name)
+	            throws IllegalArgumentException
+	Name: getProperty
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamWriter.html#getProperty-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamWriter
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::Object
+	}
+}
+
+[Classifier]
+public abstract class XMLEventFactory
+extends Object
+Name: XMLEventFactory
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html
+Containing package: javax.xml.stream
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected XMLEventFactory()
+	Name: XMLEventFactory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#XMLEventFactory--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.stream::XMLEventFactory
+	}
+
+	[Function]
+	public static XMLEventFactory newInstance()
+	                                   throws FactoryConfigurationError
+	Name: newInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#newInstance--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.stream::XMLEventFactory
+	}
+
+	[Function]
+	public static XMLEventFactory newFactory()
+	                                  throws FactoryConfigurationError
+	Name: newFactory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#newFactory--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.stream::XMLEventFactory
+	}
+
+	[Function]
+	public static XMLEventFactory newInstance(String factoryId,
+	                                          ClassLoader classLoader)
+	                                   throws FactoryConfigurationError
+	Name: newInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#newInstance-java.lang.String-java.lang.ClassLoader-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::ClassLoader
+	
+		[result]
+		javax.xml.stream::XMLEventFactory
+	}
+
+	[Function]
+	public static XMLEventFactory newFactory(String factoryId,
+	                                         ClassLoader classLoader)
+	                                  throws FactoryConfigurationError
+	Name: newFactory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#newFactory-java.lang.String-java.lang.ClassLoader-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::ClassLoader
+	
+		[result]
+		javax.xml.stream::XMLEventFactory
+	}
+
+	[Function]
+	public abstract void setLocation(Location location)
+	Name: setLocation
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#setLocation-javax.xml.stream.Location-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.stream::Location
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract Attribute createAttribute(String prefix,
+	                                          String namespaceURI,
+	                                          String localName,
+	                                          String value)
+	Name: createAttribute
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#createAttribute-java.lang.String-java.lang.String-java.lang.String-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.xml.stream.events::Attribute
+	}
+
+	[Function]
+	public abstract Attribute createAttribute(String localName,
+	                                          String value)
+	Name: createAttribute
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#createAttribute-java.lang.String-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.xml.stream.events::Attribute
+	}
+
+	[Function]
+	public abstract Attribute createAttribute(QName name,
+	                                          String value)
+	Name: createAttribute
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#createAttribute-javax.xml.namespace.QName-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.namespace::QName
+		java.lang::String
+	
+		[result]
+		javax.xml.stream.events::Attribute
+	}
+
+	[Function]
+	public abstract Namespace createNamespace(String namespaceURI)
+	Name: createNamespace
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#createNamespace-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.xml.stream.events::Namespace
+	}
+
+	[Function]
+	public abstract Namespace createNamespace(String prefix,
+	                                          String namespaceUri)
+	Name: createNamespace
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#createNamespace-java.lang.String-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.xml.stream.events::Namespace
+	}
+
+	[Function]
+	public abstract StartElement createStartElement(QName name,
+	                                                Iterator attributes,
+	                                                Iterator namespaces)
+	Name: createStartElement
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#createStartElement-javax.xml.namespace.QName-java.util.Iterator-java.util.Iterator-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.namespace::QName
+		java.util::Iterator
+		java.util::Iterator
+	
+		[result]
+		javax.xml.stream.events::StartElement
+	}
+
+	[Function]
+	public abstract StartElement createStartElement(String prefix,
+	                                                String namespaceUri,
+	                                                String localName)
+	Name: createStartElement
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#createStartElement-java.lang.String-java.lang.String-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.xml.stream.events::StartElement
+	}
+
+	[Function]
+	public abstract StartElement createStartElement(String prefix,
+	                                                String namespaceUri,
+	                                                String localName,
+	                                                Iterator attributes,
+	                                                Iterator namespaces)
+	Name: createStartElement
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#createStartElement-java.lang.String-java.lang.String-java.lang.String-java.util.Iterator-java.util.Iterator-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		java.lang::String
+		java.util::Iterator
+		java.util::Iterator
+	
+		[result]
+		javax.xml.stream.events::StartElement
+	}
+
+	[Function]
+	public abstract StartElement createStartElement(String prefix,
+	                                                String namespaceUri,
+	                                                String localName,
+	                                                Iterator attributes,
+	                                                Iterator namespaces,
+	                                                NamespaceContext context)
+	Name: createStartElement
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#createStartElement-java.lang.String-java.lang.String-java.lang.String-java.util.Iterator-java.util.Iterator-javax.xml.namespace.NamespaceContext-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		java.lang::String
+		java.util::Iterator
+		java.util::Iterator
+		javax.xml.namespace::NamespaceContext
+	
+		[result]
+		javax.xml.stream.events::StartElement
+	}
+
+	[Function]
+	public abstract EndElement createEndElement(QName name,
+	                                            Iterator namespaces)
+	Name: createEndElement
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#createEndElement-javax.xml.namespace.QName-java.util.Iterator-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.namespace::QName
+		java.util::Iterator
+	
+		[result]
+		javax.xml.stream.events::EndElement
+	}
+
+	[Function]
+	public abstract EndElement createEndElement(String prefix,
+	                                            String namespaceUri,
+	                                            String localName)
+	Name: createEndElement
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#createEndElement-java.lang.String-java.lang.String-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.xml.stream.events::EndElement
+	}
+
+	[Function]
+	public abstract EndElement createEndElement(String prefix,
+	                                            String namespaceUri,
+	                                            String localName,
+	                                            Iterator namespaces)
+	Name: createEndElement
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#createEndElement-java.lang.String-java.lang.String-java.lang.String-java.util.Iterator-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		java.lang::String
+		java.util::Iterator
+	
+		[result]
+		javax.xml.stream.events::EndElement
+	}
+
+	[Function]
+	public abstract Characters createCharacters(String content)
+	Name: createCharacters
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#createCharacters-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.xml.stream.events::Characters
+	}
+
+	[Function]
+	public abstract Characters createCData(String content)
+	Name: createCData
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#createCData-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.xml.stream.events::Characters
+	}
+
+	[Function]
+	public abstract Characters createSpace(String content)
+	Name: createSpace
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#createSpace-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.xml.stream.events::Characters
+	}
+
+	[Function]
+	public abstract Characters createIgnorableSpace(String content)
+	Name: createIgnorableSpace
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#createIgnorableSpace-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.xml.stream.events::Characters
+	}
+
+	[Function]
+	public abstract StartDocument createStartDocument()
+	Name: createStartDocument
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#createStartDocument--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.stream.events::StartDocument
+	}
+
+	[Function]
+	public abstract StartDocument createStartDocument(String encoding,
+	                                                  String version,
+	                                                  boolean standalone)
+	Name: createStartDocument
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#createStartDocument-java.lang.String-java.lang.String-boolean-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+		other::boolean
+	
+		[result]
+		javax.xml.stream.events::StartDocument
+	}
+
+	[Function]
+	public abstract StartDocument createStartDocument(String encoding,
+	                                                  String version)
+	Name: createStartDocument
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#createStartDocument-java.lang.String-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.xml.stream.events::StartDocument
+	}
+
+	[Function]
+	public abstract StartDocument createStartDocument(String encoding)
+	Name: createStartDocument
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#createStartDocument-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.xml.stream.events::StartDocument
+	}
+
+	[Function]
+	public abstract EndDocument createEndDocument()
+	Name: createEndDocument
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#createEndDocument--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.stream.events::EndDocument
+	}
+
+	[Function]
+	public abstract EntityReference createEntityReference(String name,
+	                                                      EntityDeclaration declaration)
+	Name: createEntityReference
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#createEntityReference-java.lang.String-javax.xml.stream.events.EntityDeclaration-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.xml.stream.events::EntityDeclaration
+	
+		[result]
+		javax.xml.stream.events::EntityReference
+	}
+
+	[Function]
+	public abstract Comment createComment(String text)
+	Name: createComment
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#createComment-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.xml.stream.events::Comment
+	}
+
+	[Function]
+	public abstract ProcessingInstruction createProcessingInstruction(String target,
+	                                                                  String data)
+	Name: createProcessingInstruction
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#createProcessingInstruction-java.lang.String-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::String
+	
+		[result]
+		javax.xml.stream.events::ProcessingInstruction
+	}
+
+	[Function]
+	public abstract DTD createDTD(String dtd)
+	Name: createDTD
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLEventFactory.html#createDTD-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLEventFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.xml.stream.events::DTD
+	}
+}
+
+[Classifier]
+public abstract class XMLInputFactory
+extends Object
+Name: XMLInputFactory
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html
+Containing package: javax.xml.stream
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static final String IS_NAMESPACE_AWARE
+	Name: IS_NAMESPACE_AWARE
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#IS_NAMESPACE_AWARE
+	Containing package: javax.xml.stream
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final String IS_VALIDATING
+	Name: IS_VALIDATING
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#IS_VALIDATING
+	Containing package: javax.xml.stream
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final String IS_COALESCING
+	Name: IS_COALESCING
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#IS_COALESCING
+	Containing package: javax.xml.stream
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final String IS_REPLACING_ENTITY_REFERENCES
+	Name: IS_REPLACING_ENTITY_REFERENCES
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#IS_REPLACING_ENTITY_REFERENCES
+	Containing package: javax.xml.stream
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final String IS_SUPPORTING_EXTERNAL_ENTITIES
+	Name: IS_SUPPORTING_EXTERNAL_ENTITIES
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#IS_SUPPORTING_EXTERNAL_ENTITIES
+	Containing package: javax.xml.stream
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final String SUPPORT_DTD
+	Name: SUPPORT_DTD
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#SUPPORT_DTD
+	Containing package: javax.xml.stream
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final String REPORTER
+	Name: REPORTER
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#REPORTER
+	Containing package: javax.xml.stream
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final String RESOLVER
+	Name: RESOLVER
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#RESOLVER
+	Containing package: javax.xml.stream
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static final String ALLOCATOR
+	Name: ALLOCATOR
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#ALLOCATOR
+	Containing package: javax.xml.stream
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	protected XMLInputFactory()
+	Name: XMLInputFactory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#XMLInputFactory--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.stream::XMLInputFactory
+	}
+
+	[Function]
+	public static XMLInputFactory newInstance()
+	                                   throws FactoryConfigurationError
+	Name: newInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#newInstance--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.stream::XMLInputFactory
+	}
+
+	[Function]
+	public static XMLInputFactory newFactory()
+	                                  throws FactoryConfigurationError
+	Name: newFactory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#newFactory--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.stream::XMLInputFactory
+	}
+
+	[Function]
+	public static XMLInputFactory newInstance(String factoryId,
+	                                          ClassLoader classLoader)
+	                                   throws FactoryConfigurationError
+	Name: newInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#newInstance-java.lang.String-java.lang.ClassLoader-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::ClassLoader
+	
+		[result]
+		javax.xml.stream::XMLInputFactory
+	}
+
+	[Function]
+	public static XMLInputFactory newFactory(String factoryId,
+	                                         ClassLoader classLoader)
+	                                  throws FactoryConfigurationError
+	Name: newFactory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#newFactory-java.lang.String-java.lang.ClassLoader-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::ClassLoader
+	
+		[result]
+		javax.xml.stream::XMLInputFactory
+	}
+
+	[Function]
+	public abstract XMLStreamReader createXMLStreamReader(Reader reader)
+	                                               throws XMLStreamException
+	Name: createXMLStreamReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#createXMLStreamReader-java.io.Reader-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::Reader
+	
+		[result]
+		javax.xml.stream::XMLStreamReader
+	}
+
+	[Function]
+	public abstract XMLStreamReader createXMLStreamReader(Source source)
+	                                               throws XMLStreamException
+	Name: createXMLStreamReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#createXMLStreamReader-javax.xml.transform.Source-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.transform::Source
+	
+		[result]
+		javax.xml.stream::XMLStreamReader
+	}
+
+	[Function]
+	public abstract XMLStreamReader createXMLStreamReader(InputStream stream)
+	                                               throws XMLStreamException
+	Name: createXMLStreamReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#createXMLStreamReader-java.io.InputStream-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::InputStream
+	
+		[result]
+		javax.xml.stream::XMLStreamReader
+	}
+
+	[Function]
+	public abstract XMLStreamReader createXMLStreamReader(InputStream stream,
+	                                                      String encoding)
+	                                               throws XMLStreamException
+	Name: createXMLStreamReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#createXMLStreamReader-java.io.InputStream-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::InputStream
+		java.lang::String
+	
+		[result]
+		javax.xml.stream::XMLStreamReader
+	}
+
+	[Function]
+	public abstract XMLStreamReader createXMLStreamReader(String systemId,
+	                                                      InputStream stream)
+	                                               throws XMLStreamException
+	Name: createXMLStreamReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#createXMLStreamReader-java.lang.String-java.io.InputStream-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.io::InputStream
+	
+		[result]
+		javax.xml.stream::XMLStreamReader
+	}
+
+	[Function]
+	public abstract XMLStreamReader createXMLStreamReader(String systemId,
+	                                                      Reader reader)
+	                                               throws XMLStreamException
+	Name: createXMLStreamReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#createXMLStreamReader-java.lang.String-java.io.Reader-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.io::Reader
+	
+		[result]
+		javax.xml.stream::XMLStreamReader
+	}
+
+	[Function]
+	public abstract XMLEventReader createXMLEventReader(Reader reader)
+	                                             throws XMLStreamException
+	Name: createXMLEventReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#createXMLEventReader-java.io.Reader-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::Reader
+	
+		[result]
+		javax.xml.stream::XMLEventReader
+	}
+
+	[Function]
+	public abstract XMLEventReader createXMLEventReader(String systemId,
+	                                                    Reader reader)
+	                                             throws XMLStreamException
+	Name: createXMLEventReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#createXMLEventReader-java.lang.String-java.io.Reader-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.io::Reader
+	
+		[result]
+		javax.xml.stream::XMLEventReader
+	}
+
+	[Function]
+	public abstract XMLEventReader createXMLEventReader(XMLStreamReader reader)
+	                                             throws XMLStreamException
+	Name: createXMLEventReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#createXMLEventReader-javax.xml.stream.XMLStreamReader-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.stream::XMLStreamReader
+	
+		[result]
+		javax.xml.stream::XMLEventReader
+	}
+
+	[Function]
+	public abstract XMLEventReader createXMLEventReader(Source source)
+	                                             throws XMLStreamException
+	Name: createXMLEventReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#createXMLEventReader-javax.xml.transform.Source-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.transform::Source
+	
+		[result]
+		javax.xml.stream::XMLEventReader
+	}
+
+	[Function]
+	public abstract XMLEventReader createXMLEventReader(InputStream stream)
+	                                             throws XMLStreamException
+	Name: createXMLEventReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#createXMLEventReader-java.io.InputStream-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::InputStream
+	
+		[result]
+		javax.xml.stream::XMLEventReader
+	}
+
+	[Function]
+	public abstract XMLEventReader createXMLEventReader(InputStream stream,
+	                                                    String encoding)
+	                                             throws XMLStreamException
+	Name: createXMLEventReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#createXMLEventReader-java.io.InputStream-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::InputStream
+		java.lang::String
+	
+		[result]
+		javax.xml.stream::XMLEventReader
+	}
+
+	[Function]
+	public abstract XMLEventReader createXMLEventReader(String systemId,
+	                                                    InputStream stream)
+	                                             throws XMLStreamException
+	Name: createXMLEventReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#createXMLEventReader-java.lang.String-java.io.InputStream-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.io::InputStream
+	
+		[result]
+		javax.xml.stream::XMLEventReader
+	}
+
+	[Function]
+	public abstract XMLStreamReader createFilteredReader(XMLStreamReader reader,
+	                                                     StreamFilter filter)
+	                                              throws XMLStreamException
+	Name: createFilteredReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#createFilteredReader-javax.xml.stream.XMLStreamReader-javax.xml.stream.StreamFilter-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.stream::XMLStreamReader
+		javax.xml.stream::StreamFilter
+	
+		[result]
+		javax.xml.stream::XMLStreamReader
+	}
+
+	[Function]
+	public abstract XMLEventReader createFilteredReader(XMLEventReader reader,
+	                                                    EventFilter filter)
+	                                             throws XMLStreamException
+	Name: createFilteredReader
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#createFilteredReader-javax.xml.stream.XMLEventReader-javax.xml.stream.EventFilter-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.stream::XMLEventReader
+		javax.xml.stream::EventFilter
+	
+		[result]
+		javax.xml.stream::XMLEventReader
+	}
+
+	[Function]
+	public abstract XMLResolver getXMLResolver()
+	Name: getXMLResolver
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#getXMLResolver--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.stream::XMLResolver
+	}
+
+	[Function]
+	public abstract void setXMLResolver(XMLResolver resolver)
+	Name: setXMLResolver
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#setXMLResolver-javax.xml.stream.XMLResolver-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.stream::XMLResolver
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract XMLReporter getXMLReporter()
+	Name: getXMLReporter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#getXMLReporter--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.stream::XMLReporter
+	}
+
+	[Function]
+	public abstract void setXMLReporter(XMLReporter reporter)
+	Name: setXMLReporter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#setXMLReporter-javax.xml.stream.XMLReporter-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.stream::XMLReporter
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract void setProperty(String name,
+	                                 Object value)
+	                          throws IllegalArgumentException
+	Name: setProperty
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#setProperty-java.lang.String-java.lang.Object-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Object
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract Object getProperty(String name)
+	                            throws IllegalArgumentException
+	Name: getProperty
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#getProperty-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public abstract boolean isPropertySupported(String name)
+	Name: isPropertySupported
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#isPropertySupported-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public abstract void setEventAllocator(XMLEventAllocator allocator)
+	Name: setEventAllocator
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#setEventAllocator-javax.xml.stream.util.XMLEventAllocator-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.stream.util::XMLEventAllocator
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract XMLEventAllocator getEventAllocator()
+	Name: getEventAllocator
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLInputFactory.html#getEventAllocator--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLInputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.stream.util::XMLEventAllocator
+	}
+}
+
+[Classifier]
+public abstract class XMLOutputFactory
+extends Object
+Name: XMLOutputFactory
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLOutputFactory.html
+Containing package: javax.xml.stream
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static final String IS_REPAIRING_NAMESPACES
+	Name: IS_REPAIRING_NAMESPACES
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLOutputFactory.html#IS_REPAIRING_NAMESPACES
+	Containing package: javax.xml.stream
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: XMLOutputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	protected XMLOutputFactory()
+	Name: XMLOutputFactory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLOutputFactory.html#XMLOutputFactory--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: XMLOutputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.stream::XMLOutputFactory
+	}
+
+	[Function]
+	public static XMLOutputFactory newInstance()
+	                                    throws FactoryConfigurationError
+	Name: newInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLOutputFactory.html#newInstance--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLOutputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.stream::XMLOutputFactory
+	}
+
+	[Function]
+	public static XMLOutputFactory newFactory()
+	                                   throws FactoryConfigurationError
+	Name: newFactory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLOutputFactory.html#newFactory--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLOutputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.stream::XMLOutputFactory
+	}
+
+	[Function]
+	public static XMLInputFactory newInstance(String factoryId,
+	                                          ClassLoader classLoader)
+	                                   throws FactoryConfigurationError
+	Name: newInstance
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLOutputFactory.html#newInstance-java.lang.String-java.lang.ClassLoader-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLOutputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::ClassLoader
+	
+		[result]
+		javax.xml.stream::XMLInputFactory
+	}
+
+	[Function]
+	public static XMLOutputFactory newFactory(String factoryId,
+	                                          ClassLoader classLoader)
+	                                   throws FactoryConfigurationError
+	Name: newFactory
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLOutputFactory.html#newFactory-java.lang.String-java.lang.ClassLoader-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLOutputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::ClassLoader
+	
+		[result]
+		javax.xml.stream::XMLOutputFactory
+	}
+
+	[Function]
+	public abstract XMLStreamWriter createXMLStreamWriter(Writer stream)
+	                                               throws XMLStreamException
+	Name: createXMLStreamWriter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLOutputFactory.html#createXMLStreamWriter-java.io.Writer-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLOutputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::Writer
+	
+		[result]
+		javax.xml.stream::XMLStreamWriter
+	}
+
+	[Function]
+	public abstract XMLStreamWriter createXMLStreamWriter(OutputStream stream)
+	                                               throws XMLStreamException
+	Name: createXMLStreamWriter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLOutputFactory.html#createXMLStreamWriter-java.io.OutputStream-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLOutputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::OutputStream
+	
+		[result]
+		javax.xml.stream::XMLStreamWriter
+	}
+
+	[Function]
+	public abstract XMLStreamWriter createXMLStreamWriter(OutputStream stream,
+	                                                      String encoding)
+	                                               throws XMLStreamException
+	Name: createXMLStreamWriter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLOutputFactory.html#createXMLStreamWriter-java.io.OutputStream-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLOutputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::OutputStream
+		java.lang::String
+	
+		[result]
+		javax.xml.stream::XMLStreamWriter
+	}
+
+	[Function]
+	public abstract XMLStreamWriter createXMLStreamWriter(Result result)
+	                                               throws XMLStreamException
+	Name: createXMLStreamWriter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLOutputFactory.html#createXMLStreamWriter-javax.xml.transform.Result-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLOutputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.transform::Result
+	
+		[result]
+		javax.xml.stream::XMLStreamWriter
+	}
+
+	[Function]
+	public abstract XMLEventWriter createXMLEventWriter(Result result)
+	                                             throws XMLStreamException
+	Name: createXMLEventWriter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLOutputFactory.html#createXMLEventWriter-javax.xml.transform.Result-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLOutputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		javax.xml.transform::Result
+	
+		[result]
+		javax.xml.stream::XMLEventWriter
+	}
+
+	[Function]
+	public abstract XMLEventWriter createXMLEventWriter(OutputStream stream)
+	                                             throws XMLStreamException
+	Name: createXMLEventWriter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLOutputFactory.html#createXMLEventWriter-java.io.OutputStream-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLOutputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::OutputStream
+	
+		[result]
+		javax.xml.stream::XMLEventWriter
+	}
+
+	[Function]
+	public abstract XMLEventWriter createXMLEventWriter(OutputStream stream,
+	                                                    String encoding)
+	                                             throws XMLStreamException
+	Name: createXMLEventWriter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLOutputFactory.html#createXMLEventWriter-java.io.OutputStream-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLOutputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::OutputStream
+		java.lang::String
+	
+		[result]
+		javax.xml.stream::XMLEventWriter
+	}
+
+	[Function]
+	public abstract XMLEventWriter createXMLEventWriter(Writer stream)
+	                                             throws XMLStreamException
+	Name: createXMLEventWriter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLOutputFactory.html#createXMLEventWriter-java.io.Writer-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLOutputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::Writer
+	
+		[result]
+		javax.xml.stream::XMLEventWriter
+	}
+
+	[Function]
+	public abstract void setProperty(String name,
+	                                 Object value)
+	                          throws IllegalArgumentException
+	Name: setProperty
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLOutputFactory.html#setProperty-java.lang.String-java.lang.Object-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLOutputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Object
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public abstract Object getProperty(String name)
+	                            throws IllegalArgumentException
+	Name: getProperty
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLOutputFactory.html#getProperty-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLOutputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public abstract boolean isPropertySupported(String name)
+	Name: isPropertySupported
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLOutputFactory.html#isPropertySupported-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=true
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLOutputFactory
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public class XMLStreamException
+extends Exception
+Name: XMLStreamException
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamException.html
+Containing package: javax.xml.stream
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Exception
+}
+members {
+
+	[Function]
+	protected Throwable nested
+	Name: nested
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamException.html#nested
+	Containing package: javax.xml.stream
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: XMLStreamException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Throwable
+	}
+
+	[Function]
+	protected Location location
+	Name: location
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamException.html#location
+	Containing package: javax.xml.stream
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: XMLStreamException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.stream::Location
+	}
+
+	[Function]
+	public XMLStreamException()
+	Name: XMLStreamException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamException.html#XMLStreamException--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: XMLStreamException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.stream::XMLStreamException
+	}
+
+	[Function]
+	public XMLStreamException(String msg)
+	Name: XMLStreamException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamException.html#XMLStreamException-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: XMLStreamException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.xml.stream::XMLStreamException
+	}
+
+	[Function]
+	public XMLStreamException(Throwable th)
+	Name: XMLStreamException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamException.html#XMLStreamException-java.lang.Throwable-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: XMLStreamException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Throwable
+	
+		[result]
+		javax.xml.stream::XMLStreamException
+	}
+
+	[Function]
+	public XMLStreamException(String msg,
+	                          Throwable th)
+	Name: XMLStreamException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamException.html#XMLStreamException-java.lang.String-java.lang.Throwable-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: XMLStreamException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Throwable
+	
+		[result]
+		javax.xml.stream::XMLStreamException
+	}
+
+	[Function]
+	public XMLStreamException(String msg,
+	                          Location location,
+	                          Throwable th)
+	Name: XMLStreamException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamException.html#XMLStreamException-java.lang.String-javax.xml.stream.Location-java.lang.Throwable-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: XMLStreamException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.xml.stream::Location
+		java.lang::Throwable
+	
+		[result]
+		javax.xml.stream::XMLStreamException
+	}
+
+	[Function]
+	public XMLStreamException(String msg,
+	                          Location location)
+	Name: XMLStreamException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamException.html#XMLStreamException-java.lang.String-javax.xml.stream.Location-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: XMLStreamException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		javax.xml.stream::Location
+	
+		[result]
+		javax.xml.stream::XMLStreamException
+	}
+
+	[Function]
+	public Throwable getNestedException()
+	Name: getNestedException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamException.html#getNestedException--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Throwable
+	}
+
+	[Function]
+	public Location getLocation()
+	Name: getLocation
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/XMLStreamException.html#getLocation--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: XMLStreamException
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.stream::Location
+	}
+}
+
+[Classifier]
+public class FactoryConfigurationError
+extends Error
+Name: FactoryConfigurationError
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/FactoryConfigurationError.html
+Containing package: javax.xml.stream
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Error
+}
+members {
+
+	[Function]
+	public FactoryConfigurationError()
+	Name: FactoryConfigurationError
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/FactoryConfigurationError.html#FactoryConfigurationError--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: FactoryConfigurationError
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		javax.xml.stream::FactoryConfigurationError
+	}
+
+	[Function]
+	public FactoryConfigurationError(Exception e)
+	Name: FactoryConfigurationError
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/FactoryConfigurationError.html#FactoryConfigurationError-java.lang.Exception-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: FactoryConfigurationError
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Exception
+	
+		[result]
+		javax.xml.stream::FactoryConfigurationError
+	}
+
+	[Function]
+	public FactoryConfigurationError(Exception e,
+	                                 String msg)
+	Name: FactoryConfigurationError
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/FactoryConfigurationError.html#FactoryConfigurationError-java.lang.Exception-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: FactoryConfigurationError
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Exception
+		java.lang::String
+	
+		[result]
+		javax.xml.stream::FactoryConfigurationError
+	}
+
+	[Function]
+	public FactoryConfigurationError(String msg,
+	                                 Exception e)
+	Name: FactoryConfigurationError
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/FactoryConfigurationError.html#FactoryConfigurationError-java.lang.String-java.lang.Exception-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: FactoryConfigurationError
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Exception
+	
+		[result]
+		javax.xml.stream::FactoryConfigurationError
+	}
+
+	[Function]
+	public FactoryConfigurationError(String msg)
+	Name: FactoryConfigurationError
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/FactoryConfigurationError.html#FactoryConfigurationError-java.lang.String-
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: FactoryConfigurationError
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		javax.xml.stream::FactoryConfigurationError
+	}
+
+	[Function]
+	public Exception getException()
+	Name: getException
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/FactoryConfigurationError.html#getException--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FactoryConfigurationError
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Exception
+	}
+
+	[Function]
+	public Throwable getCause()
+	Name: getCause
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/FactoryConfigurationError.html#getCause--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FactoryConfigurationError
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Throwable
+	}
+
+	[Function]
+	public String getMessage()
+	Name: getMessage
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/javax/xml/stream/FactoryConfigurationError.html#getMessage--
+	Containing package: javax.xml.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: FactoryConfigurationError
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}

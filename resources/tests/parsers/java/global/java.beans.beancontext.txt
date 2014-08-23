@@ -1,0 +1,5542 @@
+[Package]
+Name: java.beans.beancontext
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/package-summary.html
+Containing package: java.beans
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+public interface BeanContext
+extends BeanContextChild, Collection, DesignMode, Visibility
+Name: BeanContext
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContext.html
+Containing package: java.beans.beancontext
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.beans.beancontext::BeanContextSupport
+	java.beans.beancontext::BeanContextServices
+}
+supertypes {
+	java.beans.beancontext::BeanContextChild
+	java.util::Collection
+	java.beans::DesignMode
+	java.beans::Visibility
+}
+members {
+
+	[Function]
+	static final Object globalHierarchyLock
+	Name: globalHierarchyLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContext.html#globalHierarchyLock
+	Containing package: java.beans.beancontext
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: BeanContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	Object instantiateChild(String beanName)
+	                 throws IOException,
+	                        ClassNotFoundException
+	Name: instantiateChild
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContext.html#instantiateChild-java.lang.String-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	InputStream getResourceAsStream(String name,
+	                                BeanContextChild bcc)
+	                         throws IllegalArgumentException
+	Name: getResourceAsStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContext.html#getResourceAsStream-java.lang.String-java.beans.beancontext.BeanContextChild-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.beans.beancontext::BeanContextChild
+	
+		[result]
+		java.io::InputStream
+	}
+
+	[Function]
+	URL getResource(String name,
+	                BeanContextChild bcc)
+	         throws IllegalArgumentException
+	Name: getResource
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContext.html#getResource-java.lang.String-java.beans.beancontext.BeanContextChild-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.beans.beancontext::BeanContextChild
+	
+		[result]
+		java.net::URL
+	}
+
+	[Function]
+	void addBeanContextMembershipListener(BeanContextMembershipListener bcml)
+	Name: addBeanContextMembershipListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContext.html#addBeanContextMembershipListener-java.beans.beancontext.BeanContextMembershipListener-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextMembershipListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void removeBeanContextMembershipListener(BeanContextMembershipListener bcml)
+	Name: removeBeanContextMembershipListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContext.html#removeBeanContextMembershipListener-java.beans.beancontext.BeanContextMembershipListener-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextMembershipListener
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface BeanContextChild
+Name: BeanContextChild
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChild.html
+Containing package: java.beans.beancontext
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.beans.beancontext::BeanContext
+	java.beans.beancontext::BeanContextChildSupport
+}
+supertypes {
+}
+members {
+
+	[Function]
+	void setBeanContext(BeanContext bc)
+	             throws PropertyVetoException
+	Name: setBeanContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChild.html#setBeanContext-java.beans.beancontext.BeanContext-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextChild
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContext
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	BeanContext getBeanContext()
+	Name: getBeanContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChild.html#getBeanContext--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextChild
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.beans.beancontext::BeanContext
+	}
+
+	[Function]
+	void addPropertyChangeListener(String name,
+	                               PropertyChangeListener pcl)
+	Name: addPropertyChangeListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChild.html#addPropertyChangeListener-java.lang.String-java.beans.PropertyChangeListener-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextChild
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.beans::PropertyChangeListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void removePropertyChangeListener(String name,
+	                                  PropertyChangeListener pcl)
+	Name: removePropertyChangeListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChild.html#removePropertyChangeListener-java.lang.String-java.beans.PropertyChangeListener-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextChild
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.beans::PropertyChangeListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void addVetoableChangeListener(String name,
+	                               VetoableChangeListener vcl)
+	Name: addVetoableChangeListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChild.html#addVetoableChangeListener-java.lang.String-java.beans.VetoableChangeListener-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextChild
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.beans::VetoableChangeListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void removeVetoableChangeListener(String name,
+	                                  VetoableChangeListener vcl)
+	Name: removeVetoableChangeListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChild.html#removeVetoableChangeListener-java.lang.String-java.beans.VetoableChangeListener-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextChild
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.beans::VetoableChangeListener
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface BeanContextChildComponentProxy
+Name: BeanContextChildComponentProxy
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChildComponentProxy.html
+Containing package: java.beans.beancontext
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	Component getComponent()
+	Name: getComponent
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChildComponentProxy.html#getComponent--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextChildComponentProxy
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt::Component
+	}
+}
+
+[Classifier]
+public interface BeanContextContainerProxy
+Name: BeanContextContainerProxy
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextContainerProxy.html
+Containing package: java.beans.beancontext
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	Container getContainer()
+	Name: getContainer
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextContainerProxy.html#getContainer--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextContainerProxy
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.awt::Container
+	}
+}
+
+[Classifier]
+public interface BeanContextMembershipListener
+extends EventListener
+Name: BeanContextMembershipListener
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextMembershipListener.html
+Containing package: java.beans.beancontext
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.util::EventListener
+}
+members {
+
+	[Function]
+	void childrenAdded(BeanContextMembershipEvent bcme)
+	Name: childrenAdded
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextMembershipListener.html#childrenAdded-java.beans.beancontext.BeanContextMembershipEvent-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextMembershipListener
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextMembershipEvent
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void childrenRemoved(BeanContextMembershipEvent bcme)
+	Name: childrenRemoved
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextMembershipListener.html#childrenRemoved-java.beans.beancontext.BeanContextMembershipEvent-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextMembershipListener
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextMembershipEvent
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface BeanContextProxy
+Name: BeanContextProxy
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextProxy.html
+Containing package: java.beans.beancontext
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	BeanContextChild getBeanContextProxy()
+	Name: getBeanContextProxy
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextProxy.html#getBeanContextProxy--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextProxy
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.beans.beancontext::BeanContextChild
+	}
+}
+
+[Classifier]
+public interface BeanContextServiceProvider
+Name: BeanContextServiceProvider
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServiceProvider.html
+Containing package: java.beans.beancontext
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.beans.beancontext::BeanContextServicesSupport.BCSSProxyServiceProvider
+}
+supertypes {
+}
+members {
+
+	[Function]
+	Object getService(BeanContextServices bcs,
+	                  Object requestor,
+	                  Class serviceClass,
+	                  Object serviceSelector)
+	Name: getService
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServiceProvider.html#getService-java.beans.beancontext.BeanContextServices-java.lang.Object-java.lang.Class-java.lang.Object-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServiceProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextServices
+		java.lang::Object
+		java.lang::Class
+		java.lang::Object
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	void releaseService(BeanContextServices bcs,
+	                    Object requestor,
+	                    Object service)
+	Name: releaseService
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServiceProvider.html#releaseService-java.beans.beancontext.BeanContextServices-java.lang.Object-java.lang.Object-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServiceProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextServices
+		java.lang::Object
+		java.lang::Object
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	Iterator getCurrentServiceSelectors(BeanContextServices bcs,
+	                                    Class serviceClass)
+	Name: getCurrentServiceSelectors
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServiceProvider.html#getCurrentServiceSelectors-java.beans.beancontext.BeanContextServices-java.lang.Class-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServiceProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextServices
+		java.lang::Class
+	
+		[result]
+		java.util::Iterator
+	}
+}
+
+[Classifier]
+public interface BeanContextServiceProviderBeanInfo
+extends BeanInfo
+Name: BeanContextServiceProviderBeanInfo
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServiceProviderBeanInfo.html
+Containing package: java.beans.beancontext
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.beans::BeanInfo
+}
+members {
+
+	[Function]
+	BeanInfo[] getServicesBeanInfo()
+	Name: getServicesBeanInfo
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServiceProviderBeanInfo.html#getServicesBeanInfo--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServiceProviderBeanInfo
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.beans::BeanInfo
+		}
+	}
+}
+
+[Classifier]
+public interface BeanContextServiceRevokedListener
+extends EventListener
+Name: BeanContextServiceRevokedListener
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServiceRevokedListener.html
+Containing package: java.beans.beancontext
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.beans.beancontext::BeanContextServicesListener
+	java.beans.beancontext::BeanContextServicesSupport.BCSSProxyServiceProvider
+}
+supertypes {
+	java.util::EventListener
+}
+members {
+
+	[Function]
+	void serviceRevoked(BeanContextServiceRevokedEvent bcsre)
+	Name: serviceRevoked
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServiceRevokedListener.html#serviceRevoked-java.beans.beancontext.BeanContextServiceRevokedEvent-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServiceRevokedListener
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextServiceRevokedEvent
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface BeanContextServices
+extends BeanContext, BeanContextServicesListener
+Name: BeanContextServices
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServices.html
+Containing package: java.beans.beancontext
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.beans.beancontext::BeanContextServicesSupport
+}
+supertypes {
+	java.beans.beancontext::BeanContext
+	java.beans.beancontext::BeanContextServicesListener
+}
+members {
+
+	[Function]
+	boolean addService(Class serviceClass,
+	                   BeanContextServiceProvider serviceProvider)
+	Name: addService
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServices.html#addService-java.lang.Class-java.beans.beancontext.BeanContextServiceProvider-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServices
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class
+		java.beans.beancontext::BeanContextServiceProvider
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	void revokeService(Class serviceClass,
+	                   BeanContextServiceProvider serviceProvider,
+	                   boolean revokeCurrentServicesNow)
+	Name: revokeService
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServices.html#revokeService-java.lang.Class-java.beans.beancontext.BeanContextServiceProvider-boolean-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServices
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class
+		java.beans.beancontext::BeanContextServiceProvider
+		other::boolean
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	boolean hasService(Class serviceClass)
+	Name: hasService
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServices.html#hasService-java.lang.Class-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServices
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	Object getService(BeanContextChild child,
+	                  Object requestor,
+	                  Class serviceClass,
+	                  Object serviceSelector,
+	                  BeanContextServiceRevokedListener bcsrl)
+	           throws TooManyListenersException
+	Name: getService
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServices.html#getService-java.beans.beancontext.BeanContextChild-java.lang.Object-java.lang.Class-java.lang.Object-java.beans.beancontext.BeanContextServiceRevokedListener-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServices
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextChild
+		java.lang::Object
+		java.lang::Class
+		java.lang::Object
+		java.beans.beancontext::BeanContextServiceRevokedListener
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	void releaseService(BeanContextChild child,
+	                    Object requestor,
+	                    Object service)
+	Name: releaseService
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServices.html#releaseService-java.beans.beancontext.BeanContextChild-java.lang.Object-java.lang.Object-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServices
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextChild
+		java.lang::Object
+		java.lang::Object
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	Iterator getCurrentServiceClasses()
+	Name: getCurrentServiceClasses
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServices.html#getCurrentServiceClasses--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServices
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Iterator
+	}
+
+	[Function]
+	Iterator getCurrentServiceSelectors(Class serviceClass)
+	Name: getCurrentServiceSelectors
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServices.html#getCurrentServiceSelectors-java.lang.Class-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServices
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class
+	
+		[result]
+		java.util::Iterator
+	}
+
+	[Function]
+	void addBeanContextServicesListener(BeanContextServicesListener bcsl)
+	Name: addBeanContextServicesListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServices.html#addBeanContextServicesListener-java.beans.beancontext.BeanContextServicesListener-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServices
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextServicesListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void removeBeanContextServicesListener(BeanContextServicesListener bcsl)
+	Name: removeBeanContextServicesListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServices.html#removeBeanContextServicesListener-java.beans.beancontext.BeanContextServicesListener-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServices
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextServicesListener
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface BeanContextServicesListener
+extends BeanContextServiceRevokedListener
+Name: BeanContextServicesListener
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesListener.html
+Containing package: java.beans.beancontext
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.beans.beancontext::BeanContextChildSupport
+	java.beans.beancontext::BeanContextServices
+}
+supertypes {
+	java.beans.beancontext::BeanContextServiceRevokedListener
+}
+members {
+
+	[Function]
+	void serviceAvailable(BeanContextServiceAvailableEvent bcsae)
+	Name: serviceAvailable
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesListener.html#serviceAvailable-java.beans.beancontext.BeanContextServiceAvailableEvent-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesListener
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextServiceAvailableEvent
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public class BeanContextChildSupport
+extends Object
+implements BeanContextChild, BeanContextServicesListener, Serializable
+Name: BeanContextChildSupport
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChildSupport.html
+Containing package: java.beans.beancontext
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.beans.beancontext::BeanContextSupport
+}
+supertypes {
+	java.beans.beancontext::BeanContextChild
+	java.beans.beancontext::BeanContextServicesListener
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public BeanContextChild beanContextChildPeer
+	Name: beanContextChildPeer
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChildSupport.html#beanContextChildPeer
+	Containing package: java.beans.beancontext
+	attributes {
+		final=false
+		scope=public
+		static=false
+		memberType=field
+	}
+	Containing type: BeanContextChildSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.beans.beancontext::BeanContextChild
+	}
+
+	[Function]
+	protected PropertyChangeSupport pcSupport
+	Name: pcSupport
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChildSupport.html#pcSupport
+	Containing package: java.beans.beancontext
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: BeanContextChildSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.beans::PropertyChangeSupport
+	}
+
+	[Function]
+	protected VetoableChangeSupport vcSupport
+	Name: vcSupport
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChildSupport.html#vcSupport
+	Containing package: java.beans.beancontext
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: BeanContextChildSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.beans::VetoableChangeSupport
+	}
+
+	[Function]
+	protected transient BeanContext beanContext
+	Name: beanContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChildSupport.html#beanContext
+	Containing package: java.beans.beancontext
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: BeanContextChildSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.beans.beancontext::BeanContext
+	}
+
+	[Function]
+	protected transient boolean rejectedSetBCOnce
+	Name: rejectedSetBCOnce
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChildSupport.html#rejectedSetBCOnce
+	Containing package: java.beans.beancontext
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: BeanContextChildSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public BeanContextChildSupport()
+	Name: BeanContextChildSupport
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChildSupport.html#BeanContextChildSupport--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: BeanContextChildSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.beans.beancontext::BeanContextChildSupport
+	}
+
+	[Function]
+	public BeanContextChildSupport(BeanContextChild bcc)
+	Name: BeanContextChildSupport
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChildSupport.html#BeanContextChildSupport-java.beans.beancontext.BeanContextChild-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: BeanContextChildSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextChild
+	
+		[result]
+		java.beans.beancontext::BeanContextChildSupport
+	}
+
+	[Function]
+	public void setBeanContext(BeanContext bc)
+	                    throws PropertyVetoException
+	Name: setBeanContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChildSupport.html#setBeanContext-java.beans.beancontext.BeanContext-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextChildSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContext
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public BeanContext getBeanContext()
+	Name: getBeanContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChildSupport.html#getBeanContext--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextChildSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.beans.beancontext::BeanContext
+	}
+
+	[Function]
+	public void addPropertyChangeListener(String name,
+	                                      PropertyChangeListener pcl)
+	Name: addPropertyChangeListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChildSupport.html#addPropertyChangeListener-java.lang.String-java.beans.PropertyChangeListener-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextChildSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.beans::PropertyChangeListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void removePropertyChangeListener(String name,
+	                                         PropertyChangeListener pcl)
+	Name: removePropertyChangeListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChildSupport.html#removePropertyChangeListener-java.lang.String-java.beans.PropertyChangeListener-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextChildSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.beans::PropertyChangeListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void addVetoableChangeListener(String name,
+	                                      VetoableChangeListener vcl)
+	Name: addVetoableChangeListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChildSupport.html#addVetoableChangeListener-java.lang.String-java.beans.VetoableChangeListener-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextChildSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.beans::VetoableChangeListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void removeVetoableChangeListener(String name,
+	                                         VetoableChangeListener vcl)
+	Name: removeVetoableChangeListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChildSupport.html#removeVetoableChangeListener-java.lang.String-java.beans.VetoableChangeListener-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextChildSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.beans::VetoableChangeListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void serviceRevoked(BeanContextServiceRevokedEvent bcsre)
+	Name: serviceRevoked
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChildSupport.html#serviceRevoked-java.beans.beancontext.BeanContextServiceRevokedEvent-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextChildSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextServiceRevokedEvent
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void serviceAvailable(BeanContextServiceAvailableEvent bcsae)
+	Name: serviceAvailable
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChildSupport.html#serviceAvailable-java.beans.beancontext.BeanContextServiceAvailableEvent-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextChildSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextServiceAvailableEvent
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public BeanContextChild getBeanContextChildPeer()
+	Name: getBeanContextChildPeer
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChildSupport.html#getBeanContextChildPeer--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextChildSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.beans.beancontext::BeanContextChild
+	}
+
+	[Function]
+	public boolean isDelegated()
+	Name: isDelegated
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChildSupport.html#isDelegated--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextChildSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void firePropertyChange(String name,
+	                               Object oldValue,
+	                               Object newValue)
+	Name: firePropertyChange
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChildSupport.html#firePropertyChange-java.lang.String-java.lang.Object-java.lang.Object-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextChildSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Object
+		java.lang::Object
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void fireVetoableChange(String name,
+	                               Object oldValue,
+	                               Object newValue)
+	                        throws PropertyVetoException
+	Name: fireVetoableChange
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChildSupport.html#fireVetoableChange-java.lang.String-java.lang.Object-java.lang.Object-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextChildSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.lang::Object
+		java.lang::Object
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean validatePendingSetBeanContext(BeanContext newValue)
+	Name: validatePendingSetBeanContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChildSupport.html#validatePendingSetBeanContext-java.beans.beancontext.BeanContext-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextChildSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContext
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected void releaseBeanContextResources()
+	Name: releaseBeanContextResources
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChildSupport.html#releaseBeanContextResources--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextChildSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void initializeBeanContextResources()
+	Name: initializeBeanContextResources
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextChildSupport.html#initializeBeanContextResources--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextChildSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public abstract class BeanContextEvent
+extends EventObject
+Name: BeanContextEvent
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextEvent.html
+Containing package: java.beans.beancontext
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.beans.beancontext::BeanContextServiceAvailableEvent
+	java.beans.beancontext::BeanContextMembershipEvent
+	java.beans.beancontext::BeanContextServiceRevokedEvent
+}
+supertypes {
+	java.util::EventObject
+}
+members {
+
+	[Function]
+	protected BeanContext propagatedFrom
+	Name: propagatedFrom
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextEvent.html#propagatedFrom
+	Containing package: java.beans.beancontext
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: BeanContextEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.beans.beancontext::BeanContext
+	}
+
+	[Function]
+	protected BeanContextEvent(BeanContext bc)
+	Name: BeanContextEvent
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextEvent.html#BeanContextEvent-java.beans.beancontext.BeanContext-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: BeanContextEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContext
+	
+		[result]
+		java.beans.beancontext::BeanContextEvent
+	}
+
+	[Function]
+	public BeanContext getBeanContext()
+	Name: getBeanContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextEvent.html#getBeanContext--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.beans.beancontext::BeanContext
+	}
+
+	[Function]
+	public void setPropagatedFrom(BeanContext bc)
+	Name: setPropagatedFrom
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextEvent.html#setPropagatedFrom-java.beans.beancontext.BeanContext-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContext
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public BeanContext getPropagatedFrom()
+	Name: getPropagatedFrom
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextEvent.html#getPropagatedFrom--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.beans.beancontext::BeanContext
+	}
+
+	[Function]
+	public boolean isPropagated()
+	Name: isPropagated
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextEvent.html#isPropagated--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public class BeanContextMembershipEvent
+extends BeanContextEvent
+Name: BeanContextMembershipEvent
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextMembershipEvent.html
+Containing package: java.beans.beancontext
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.beans.beancontext::BeanContextEvent
+}
+members {
+
+	[Function]
+	protected Collection children
+	Name: children
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextMembershipEvent.html#children
+	Containing package: java.beans.beancontext
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: BeanContextMembershipEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Collection
+	}
+
+	[Function]
+	public BeanContextMembershipEvent(BeanContext bc,
+	                                  Collection changes)
+	Name: BeanContextMembershipEvent
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextMembershipEvent.html#BeanContextMembershipEvent-java.beans.beancontext.BeanContext-java.util.Collection-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: BeanContextMembershipEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContext
+		java.util::Collection
+	
+		[result]
+		java.beans.beancontext::BeanContextMembershipEvent
+	}
+
+	[Function]
+	public BeanContextMembershipEvent(BeanContext bc,
+	                                  Object[] changes)
+	Name: BeanContextMembershipEvent
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextMembershipEvent.html#BeanContextMembershipEvent-java.beans.beancontext.BeanContext-java.lang.Object:A-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: BeanContextMembershipEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContext
+		other::[] {
+			java.lang::Object
+		}
+	
+		[result]
+		java.beans.beancontext::BeanContextMembershipEvent
+	}
+
+	[Function]
+	public int size()
+	Name: size
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextMembershipEvent.html#size--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextMembershipEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public boolean contains(Object child)
+	Name: contains
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextMembershipEvent.html#contains-java.lang.Object-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextMembershipEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public Object[] toArray()
+	Name: toArray
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextMembershipEvent.html#toArray--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextMembershipEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::Object
+		}
+	}
+
+	[Function]
+	public Iterator iterator()
+	Name: iterator
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextMembershipEvent.html#iterator--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextMembershipEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Iterator
+	}
+}
+
+[Classifier]
+public class BeanContextServiceAvailableEvent
+extends BeanContextEvent
+Name: BeanContextServiceAvailableEvent
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServiceAvailableEvent.html
+Containing package: java.beans.beancontext
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.beans.beancontext::BeanContextEvent
+}
+members {
+
+	[Function]
+	protected Class serviceClass
+	Name: serviceClass
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServiceAvailableEvent.html#serviceClass
+	Containing package: java.beans.beancontext
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: BeanContextServiceAvailableEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Class
+	}
+
+	[Function]
+	public BeanContextServiceAvailableEvent(BeanContextServices bcs,
+	                                        Class sc)
+	Name: BeanContextServiceAvailableEvent
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServiceAvailableEvent.html#BeanContextServiceAvailableEvent-java.beans.beancontext.BeanContextServices-java.lang.Class-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: BeanContextServiceAvailableEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextServices
+		java.lang::Class
+	
+		[result]
+		java.beans.beancontext::BeanContextServiceAvailableEvent
+	}
+
+	[Function]
+	public BeanContextServices getSourceAsBeanContextServices()
+	Name: getSourceAsBeanContextServices
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServiceAvailableEvent.html#getSourceAsBeanContextServices--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServiceAvailableEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.beans.beancontext::BeanContextServices
+	}
+
+	[Function]
+	public Class getServiceClass()
+	Name: getServiceClass
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServiceAvailableEvent.html#getServiceClass--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServiceAvailableEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Class
+	}
+
+	[Function]
+	public Iterator getCurrentServiceSelectors()
+	Name: getCurrentServiceSelectors
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServiceAvailableEvent.html#getCurrentServiceSelectors--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServiceAvailableEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Iterator
+	}
+}
+
+[Classifier]
+public class BeanContextServiceRevokedEvent
+extends BeanContextEvent
+Name: BeanContextServiceRevokedEvent
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServiceRevokedEvent.html
+Containing package: java.beans.beancontext
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.beans.beancontext::BeanContextEvent
+}
+members {
+
+	[Function]
+	protected Class serviceClass
+	Name: serviceClass
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServiceRevokedEvent.html#serviceClass
+	Containing package: java.beans.beancontext
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: BeanContextServiceRevokedEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Class
+	}
+
+	[Function]
+	public BeanContextServiceRevokedEvent(BeanContextServices bcs,
+	                                      Class sc,
+	                                      boolean invalidate)
+	Name: BeanContextServiceRevokedEvent
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServiceRevokedEvent.html#BeanContextServiceRevokedEvent-java.beans.beancontext.BeanContextServices-java.lang.Class-boolean-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: BeanContextServiceRevokedEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextServices
+		java.lang::Class
+		other::boolean
+	
+		[result]
+		java.beans.beancontext::BeanContextServiceRevokedEvent
+	}
+
+	[Function]
+	public BeanContextServices getSourceAsBeanContextServices()
+	Name: getSourceAsBeanContextServices
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServiceRevokedEvent.html#getSourceAsBeanContextServices--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServiceRevokedEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.beans.beancontext::BeanContextServices
+	}
+
+	[Function]
+	public Class getServiceClass()
+	Name: getServiceClass
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServiceRevokedEvent.html#getServiceClass--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServiceRevokedEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Class
+	}
+
+	[Function]
+	public boolean isServiceClass(Class service)
+	Name: isServiceClass
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServiceRevokedEvent.html#isServiceClass-java.lang.Class-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServiceRevokedEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isCurrentServiceInvalidNow()
+	Name: isCurrentServiceInvalidNow
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServiceRevokedEvent.html#isCurrentServiceInvalidNow--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServiceRevokedEvent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+public class BeanContextServicesSupport
+extends BeanContextSupport
+implements BeanContextServices
+Name: BeanContextServicesSupport
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html
+Containing package: java.beans.beancontext
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.beans.beancontext::BeanContextServices
+	java.beans.beancontext::BeanContextSupport
+}
+members {
+
+	[Function]
+	protected transient HashMap services
+	Name: services
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#services
+	Containing package: java.beans.beancontext
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::HashMap
+	}
+
+	[Function]
+	protected transient int serializable
+	Name: serializable
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#serializable
+	Containing package: java.beans.beancontext
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected transient BeanContextServicesSupport.BCSSProxyServiceProvider proxy
+	Name: proxy
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#proxy
+	Containing package: java.beans.beancontext
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.beans.beancontext::BeanContextServicesSupport.BCSSProxyServiceProvider
+	}
+
+	[Function]
+	protected transient ArrayList bcsListeners
+	Name: bcsListeners
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#bcsListeners
+	Containing package: java.beans.beancontext
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::ArrayList
+	}
+
+	[Function]
+	public BeanContextServicesSupport(BeanContextServices peer,
+	                                  Locale lcle,
+	                                  boolean dTime,
+	                                  boolean visible)
+	Name: BeanContextServicesSupport
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#BeanContextServicesSupport-java.beans.beancontext.BeanContextServices-java.util.Locale-boolean-boolean-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextServices
+		java.util::Locale
+		other::boolean
+		other::boolean
+	
+		[result]
+		java.beans.beancontext::BeanContextServicesSupport
+	}
+
+	[Function]
+	public BeanContextServicesSupport(BeanContextServices peer,
+	                                  Locale lcle,
+	                                  boolean dtime)
+	Name: BeanContextServicesSupport
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#BeanContextServicesSupport-java.beans.beancontext.BeanContextServices-java.util.Locale-boolean-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextServices
+		java.util::Locale
+		other::boolean
+	
+		[result]
+		java.beans.beancontext::BeanContextServicesSupport
+	}
+
+	[Function]
+	public BeanContextServicesSupport(BeanContextServices peer,
+	                                  Locale lcle)
+	Name: BeanContextServicesSupport
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#BeanContextServicesSupport-java.beans.beancontext.BeanContextServices-java.util.Locale-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextServices
+		java.util::Locale
+	
+		[result]
+		java.beans.beancontext::BeanContextServicesSupport
+	}
+
+	[Function]
+	public BeanContextServicesSupport(BeanContextServices peer)
+	Name: BeanContextServicesSupport
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#BeanContextServicesSupport-java.beans.beancontext.BeanContextServices-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextServices
+	
+		[result]
+		java.beans.beancontext::BeanContextServicesSupport
+	}
+
+	[Function]
+	public BeanContextServicesSupport()
+	Name: BeanContextServicesSupport
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#BeanContextServicesSupport--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.beans.beancontext::BeanContextServicesSupport
+	}
+
+	[Function]
+	public void initialize()
+	Name: initialize
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#initialize--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public BeanContextServices getBeanContextServicesPeer()
+	Name: getBeanContextServicesPeer
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#getBeanContextServicesPeer--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.beans.beancontext::BeanContextServices
+	}
+
+	[Function]
+	protected BeanContextSupport.BCSChild createBCSChild(Object targetChild,
+	                                                     Object peer)
+	Name: createBCSChild
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#createBCSChild-java.lang.Object-java.lang.Object-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+		java.lang::Object
+	
+		[result]
+		java.beans.beancontext::BeanContextSupport.BCSChild
+	}
+
+	[Function]
+	protected BeanContextServicesSupport.BCSSServiceProvider createBCSSServiceProvider(Class sc,
+	                                                                                   BeanContextServiceProvider bcsp)
+	Name: createBCSSServiceProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#createBCSSServiceProvider-java.lang.Class-java.beans.beancontext.BeanContextServiceProvider-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class
+		java.beans.beancontext::BeanContextServiceProvider
+	
+		[result]
+		java.beans.beancontext::BeanContextServicesSupport.BCSSServiceProvider
+	}
+
+	[Function]
+	public void addBeanContextServicesListener(BeanContextServicesListener bcsl)
+	Name: addBeanContextServicesListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#addBeanContextServicesListener-java.beans.beancontext.BeanContextServicesListener-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextServicesListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void removeBeanContextServicesListener(BeanContextServicesListener bcsl)
+	Name: removeBeanContextServicesListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#removeBeanContextServicesListener-java.beans.beancontext.BeanContextServicesListener-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextServicesListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean addService(Class serviceClass,
+	                          BeanContextServiceProvider bcsp)
+	Name: addService
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#addService-java.lang.Class-java.beans.beancontext.BeanContextServiceProvider-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class
+		java.beans.beancontext::BeanContextServiceProvider
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected boolean addService(Class serviceClass,
+	                             BeanContextServiceProvider bcsp,
+	                             boolean fireEvent)
+	Name: addService
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#addService-java.lang.Class-java.beans.beancontext.BeanContextServiceProvider-boolean-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class
+		java.beans.beancontext::BeanContextServiceProvider
+		other::boolean
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void revokeService(Class serviceClass,
+	                          BeanContextServiceProvider bcsp,
+	                          boolean revokeCurrentServicesNow)
+	Name: revokeService
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#revokeService-java.lang.Class-java.beans.beancontext.BeanContextServiceProvider-boolean-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class
+		java.beans.beancontext::BeanContextServiceProvider
+		other::boolean
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean hasService(Class serviceClass)
+	Name: hasService
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#hasService-java.lang.Class-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public Object getService(BeanContextChild child,
+	                         Object requestor,
+	                         Class serviceClass,
+	                         Object serviceSelector,
+	                         BeanContextServiceRevokedListener bcsrl)
+	                  throws TooManyListenersException
+	Name: getService
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#getService-java.beans.beancontext.BeanContextChild-java.lang.Object-java.lang.Class-java.lang.Object-java.beans.beancontext.BeanContextServiceRevokedListener-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextChild
+		java.lang::Object
+		java.lang::Class
+		java.lang::Object
+		java.beans.beancontext::BeanContextServiceRevokedListener
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public void releaseService(BeanContextChild child,
+	                           Object requestor,
+	                           Object service)
+	Name: releaseService
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#releaseService-java.beans.beancontext.BeanContextChild-java.lang.Object-java.lang.Object-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextChild
+		java.lang::Object
+		java.lang::Object
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Iterator getCurrentServiceClasses()
+	Name: getCurrentServiceClasses
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#getCurrentServiceClasses--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Iterator
+	}
+
+	[Function]
+	public Iterator getCurrentServiceSelectors(Class serviceClass)
+	Name: getCurrentServiceSelectors
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#getCurrentServiceSelectors-java.lang.Class-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class
+	
+		[result]
+		java.util::Iterator
+	}
+
+	[Function]
+	public void serviceAvailable(BeanContextServiceAvailableEvent bcssae)
+	Name: serviceAvailable
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#serviceAvailable-java.beans.beancontext.BeanContextServiceAvailableEvent-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextServiceAvailableEvent
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void serviceRevoked(BeanContextServiceRevokedEvent bcssre)
+	Name: serviceRevoked
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#serviceRevoked-java.beans.beancontext.BeanContextServiceRevokedEvent-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextServiceRevokedEvent
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected static final BeanContextServicesListener getChildBeanContextServicesListener(Object child)
+	Name: getChildBeanContextServicesListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#getChildBeanContextServicesListener-java.lang.Object-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		java.beans.beancontext::BeanContextServicesListener
+	}
+
+	[Function]
+	protected void childJustRemovedHook(Object child,
+	                                    BeanContextSupport.BCSChild bcsc)
+	Name: childJustRemovedHook
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#childJustRemovedHook-java.lang.Object-java.beans.beancontext.BeanContextSupport.BCSChild-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+		java.beans.beancontext::BeanContextSupport.BCSChild
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void releaseBeanContextResources()
+	Name: releaseBeanContextResources
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#releaseBeanContextResources--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void initializeBeanContextResources()
+	Name: initializeBeanContextResources
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#initializeBeanContextResources--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected final void fireServiceAdded(Class serviceClass)
+	Name: fireServiceAdded
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#fireServiceAdded-java.lang.Class-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected final void fireServiceAdded(BeanContextServiceAvailableEvent bcssae)
+	Name: fireServiceAdded
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#fireServiceAdded-java.beans.beancontext.BeanContextServiceAvailableEvent-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextServiceAvailableEvent
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected final void fireServiceRevoked(BeanContextServiceRevokedEvent bcsre)
+	Name: fireServiceRevoked
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#fireServiceRevoked-java.beans.beancontext.BeanContextServiceRevokedEvent-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextServiceRevokedEvent
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected final void fireServiceRevoked(Class serviceClass,
+	                                        boolean revokeNow)
+	Name: fireServiceRevoked
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#fireServiceRevoked-java.lang.Class-boolean-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class
+		other::boolean
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void bcsPreSerializationHook(ObjectOutputStream oos)
+	                                throws IOException
+	Name: bcsPreSerializationHook
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#bcsPreSerializationHook-java.io.ObjectOutputStream-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::ObjectOutputStream
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void bcsPreDeserializationHook(ObjectInputStream ois)
+	                                  throws IOException,
+	                                         ClassNotFoundException
+	Name: bcsPreDeserializationHook
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#bcsPreDeserializationHook-java.io.ObjectInputStream-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::ObjectInputStream
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+protected class BeanContextServicesSupport.BCSSChild
+extends BeanContextSupport.BCSChild
+Name: BeanContextServicesSupport.BCSSChild
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.BCSSChild.html
+Containing package: java.beans.beancontext
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=protected
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.beans.beancontext::BeanContextSupport.BCSChild
+}
+members {
+}
+
+[Classifier]
+protected class BeanContextServicesSupport.BCSSProxyServiceProvider
+extends Object
+implements BeanContextServiceProvider, BeanContextServiceRevokedListener
+Name: BeanContextServicesSupport.BCSSProxyServiceProvider
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.BCSSProxyServiceProvider.html
+Containing package: java.beans.beancontext
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=protected
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.beans.beancontext::BeanContextServiceProvider
+	java.beans.beancontext::BeanContextServiceRevokedListener
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public Object getService(BeanContextServices bcs,
+	                         Object requestor,
+	                         Class serviceClass,
+	                         Object serviceSelector)
+	Name: getService
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.BCSSProxyServiceProvider.html#getService-java.beans.beancontext.BeanContextServices-java.lang.Object-java.lang.Class-java.lang.Object-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport.BCSSProxyServiceProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextServices
+		java.lang::Object
+		java.lang::Class
+		java.lang::Object
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public void releaseService(BeanContextServices bcs,
+	                           Object requestor,
+	                           Object service)
+	Name: releaseService
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.BCSSProxyServiceProvider.html#releaseService-java.beans.beancontext.BeanContextServices-java.lang.Object-java.lang.Object-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport.BCSSProxyServiceProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextServices
+		java.lang::Object
+		java.lang::Object
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Iterator getCurrentServiceSelectors(BeanContextServices bcs,
+	                                           Class serviceClass)
+	Name: getCurrentServiceSelectors
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.BCSSProxyServiceProvider.html#getCurrentServiceSelectors-java.beans.beancontext.BeanContextServices-java.lang.Class-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport.BCSSProxyServiceProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextServices
+		java.lang::Class
+	
+		[result]
+		java.util::Iterator
+	}
+
+	[Function]
+	public void serviceRevoked(BeanContextServiceRevokedEvent bcsre)
+	Name: serviceRevoked
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.BCSSProxyServiceProvider.html#serviceRevoked-java.beans.beancontext.BeanContextServiceRevokedEvent-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport.BCSSProxyServiceProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextServiceRevokedEvent
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+protected static class BeanContextServicesSupport.BCSSServiceProvider
+extends Object
+implements Serializable
+Name: BeanContextServicesSupport.BCSSServiceProvider
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.BCSSServiceProvider.html
+Containing package: java.beans.beancontext
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=true
+	scope=protected
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected BeanContextServiceProvider serviceProvider
+	Name: serviceProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.BCSSServiceProvider.html#serviceProvider
+	Containing package: java.beans.beancontext
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: BeanContextServicesSupport.BCSSServiceProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.beans.beancontext::BeanContextServiceProvider
+	}
+
+	[Function]
+	protected BeanContextServiceProvider getServiceProvider()
+	Name: getServiceProvider
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextServicesSupport.BCSSServiceProvider.html#getServiceProvider--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextServicesSupport.BCSSServiceProvider
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.beans.beancontext::BeanContextServiceProvider
+	}
+}
+
+[Classifier]
+public class BeanContextSupport
+extends BeanContextChildSupport
+implements BeanContext, Serializable, PropertyChangeListener, VetoableChangeListener
+Name: BeanContextSupport
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html
+Containing package: java.beans.beancontext
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.beans.beancontext::BeanContextServicesSupport
+}
+supertypes {
+	java.beans.beancontext::BeanContext
+	java.io::Serializable
+	java.beans::PropertyChangeListener
+	java.beans::VetoableChangeListener
+	java.beans.beancontext::BeanContextChildSupport
+}
+members {
+
+	[Function]
+	protected transient HashMap children
+	Name: children
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#children
+	Containing package: java.beans.beancontext
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::HashMap
+	}
+
+	[Function]
+	protected transient ArrayList bcmListeners
+	Name: bcmListeners
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#bcmListeners
+	Containing package: java.beans.beancontext
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::ArrayList
+	}
+
+	[Function]
+	protected Locale locale
+	Name: locale
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#locale
+	Containing package: java.beans.beancontext
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Locale
+	}
+
+	[Function]
+	protected boolean okToUseGui
+	Name: okToUseGui
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#okToUseGui
+	Containing package: java.beans.beancontext
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected boolean designTime
+	Name: designTime
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#designTime
+	Containing package: java.beans.beancontext
+	attributes {
+		final=false
+		scope=protected
+		static=false
+		memberType=field
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public BeanContextSupport(BeanContext peer,
+	                          Locale lcle,
+	                          boolean dTime,
+	                          boolean visible)
+	Name: BeanContextSupport
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#BeanContextSupport-java.beans.beancontext.BeanContext-java.util.Locale-boolean-boolean-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContext
+		java.util::Locale
+		other::boolean
+		other::boolean
+	
+		[result]
+		java.beans.beancontext::BeanContextSupport
+	}
+
+	[Function]
+	public BeanContextSupport(BeanContext peer,
+	                          Locale lcle,
+	                          boolean dtime)
+	Name: BeanContextSupport
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#BeanContextSupport-java.beans.beancontext.BeanContext-java.util.Locale-boolean-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContext
+		java.util::Locale
+		other::boolean
+	
+		[result]
+		java.beans.beancontext::BeanContextSupport
+	}
+
+	[Function]
+	public BeanContextSupport(BeanContext peer,
+	                          Locale lcle)
+	Name: BeanContextSupport
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#BeanContextSupport-java.beans.beancontext.BeanContext-java.util.Locale-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContext
+		java.util::Locale
+	
+		[result]
+		java.beans.beancontext::BeanContextSupport
+	}
+
+	[Function]
+	public BeanContextSupport(BeanContext peer)
+	Name: BeanContextSupport
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#BeanContextSupport-java.beans.beancontext.BeanContext-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContext
+	
+		[result]
+		java.beans.beancontext::BeanContextSupport
+	}
+
+	[Function]
+	public BeanContextSupport()
+	Name: BeanContextSupport
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#BeanContextSupport--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.beans.beancontext::BeanContextSupport
+	}
+
+	[Function]
+	public BeanContext getBeanContextPeer()
+	Name: getBeanContextPeer
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#getBeanContextPeer--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.beans.beancontext::BeanContext
+	}
+
+	[Function]
+	public Object instantiateChild(String beanName)
+	                        throws IOException,
+	                               ClassNotFoundException
+	Name: instantiateChild
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#instantiateChild-java.lang.String-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public int size()
+	Name: size
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#size--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public boolean isEmpty()
+	Name: isEmpty
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#isEmpty--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean contains(Object o)
+	Name: contains
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#contains-java.lang.Object-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean containsKey(Object o)
+	Name: containsKey
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#containsKey-java.lang.Object-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public Iterator iterator()
+	Name: iterator
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#iterator--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Iterator
+	}
+
+	[Function]
+	public Object[] toArray()
+	Name: toArray
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#toArray--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::Object
+		}
+	}
+
+	[Function]
+	public Object[] toArray(Object[] arry)
+	Name: toArray
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#toArray-java.lang.Object:A-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.lang::Object
+		}
+	
+		[result]
+		other::[] {
+			java.lang::Object
+		}
+	}
+
+	[Function]
+	protected BeanContextSupport.BCSChild createBCSChild(Object targetChild,
+	                                                     Object peer)
+	Name: createBCSChild
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#createBCSChild-java.lang.Object-java.lang.Object-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+		java.lang::Object
+	
+		[result]
+		java.beans.beancontext::BeanContextSupport.BCSChild
+	}
+
+	[Function]
+	public boolean add(Object targetChild)
+	Name: add
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#add-java.lang.Object-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean remove(Object targetChild)
+	Name: remove
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#remove-java.lang.Object-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected boolean remove(Object targetChild,
+	                         boolean callChildSetBC)
+	Name: remove
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#remove-java.lang.Object-boolean-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+		other::boolean
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean containsAll(Collection c)
+	Name: containsAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#containsAll-java.util.Collection-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Collection
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean addAll(Collection c)
+	Name: addAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#addAll-java.util.Collection-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Collection
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean removeAll(Collection c)
+	Name: removeAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#removeAll-java.util.Collection-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Collection
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean retainAll(Collection c)
+	Name: retainAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#retainAll-java.util.Collection-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Collection
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void clear()
+	Name: clear
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#clear--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void addBeanContextMembershipListener(BeanContextMembershipListener bcml)
+	Name: addBeanContextMembershipListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#addBeanContextMembershipListener-java.beans.beancontext.BeanContextMembershipListener-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextMembershipListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void removeBeanContextMembershipListener(BeanContextMembershipListener bcml)
+	Name: removeBeanContextMembershipListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#removeBeanContextMembershipListener-java.beans.beancontext.BeanContextMembershipListener-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextMembershipListener
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public InputStream getResourceAsStream(String name,
+	                                       BeanContextChild bcc)
+	Name: getResourceAsStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#getResourceAsStream-java.lang.String-java.beans.beancontext.BeanContextChild-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.beans.beancontext::BeanContextChild
+	
+		[result]
+		java.io::InputStream
+	}
+
+	[Function]
+	public URL getResource(String name,
+	                       BeanContextChild bcc)
+	Name: getResource
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#getResource-java.lang.String-java.beans.beancontext.BeanContextChild-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.beans.beancontext::BeanContextChild
+	
+		[result]
+		java.net::URL
+	}
+
+	[Function]
+	public void setDesignTime(boolean dTime)
+	Name: setDesignTime
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#setDesignTime-boolean-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::boolean
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean isDesignTime()
+	Name: isDesignTime
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#isDesignTime--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void setLocale(Locale newLocale)
+	               throws PropertyVetoException
+	Name: setLocale
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#setLocale-java.util.Locale-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Locale
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Locale getLocale()
+	Name: getLocale
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#getLocale--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Locale
+	}
+
+	[Function]
+	public boolean needsGui()
+	Name: needsGui
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#needsGui--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void dontUseGui()
+	Name: dontUseGui
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#dontUseGui--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void okToUseGui()
+	Name: okToUseGui
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#okToUseGui--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean avoidingGui()
+	Name: avoidingGui
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#avoidingGui--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isSerializing()
+	Name: isSerializing
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#isSerializing--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected Iterator bcsChildren()
+	Name: bcsChildren
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#bcsChildren--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Iterator
+	}
+
+	[Function]
+	protected void bcsPreSerializationHook(ObjectOutputStream oos)
+	                                throws IOException
+	Name: bcsPreSerializationHook
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#bcsPreSerializationHook-java.io.ObjectOutputStream-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::ObjectOutputStream
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void bcsPreDeserializationHook(ObjectInputStream ois)
+	                                  throws IOException,
+	                                         ClassNotFoundException
+	Name: bcsPreDeserializationHook
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#bcsPreDeserializationHook-java.io.ObjectInputStream-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::ObjectInputStream
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void childDeserializedHook(Object child,
+	                                     BeanContextSupport.BCSChild bcsc)
+	Name: childDeserializedHook
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#childDeserializedHook-java.lang.Object-java.beans.beancontext.BeanContextSupport.BCSChild-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+		java.beans.beancontext::BeanContextSupport.BCSChild
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected final void serialize(ObjectOutputStream oos,
+	                               Collection coll)
+	                        throws IOException
+	Name: serialize
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#serialize-java.io.ObjectOutputStream-java.util.Collection-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::ObjectOutputStream
+		java.util::Collection
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected final void deserialize(ObjectInputStream ois,
+	                                 Collection coll)
+	                          throws IOException,
+	                                 ClassNotFoundException
+	Name: deserialize
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#deserialize-java.io.ObjectInputStream-java.util.Collection-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::ObjectInputStream
+		java.util::Collection
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void writeChildren(ObjectOutputStream oos)
+	                         throws IOException
+	Name: writeChildren
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#writeChildren-java.io.ObjectOutputStream-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::ObjectOutputStream
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void readChildren(ObjectInputStream ois)
+	                        throws IOException,
+	                               ClassNotFoundException
+	Name: readChildren
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#readChildren-java.io.ObjectInputStream-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.io::ObjectInputStream
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void vetoableChange(PropertyChangeEvent pce)
+	                    throws PropertyVetoException
+	Name: vetoableChange
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#vetoableChange-java.beans.PropertyChangeEvent-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans::PropertyChangeEvent
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void propertyChange(PropertyChangeEvent pce)
+	Name: propertyChange
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#propertyChange-java.beans.PropertyChangeEvent-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans::PropertyChangeEvent
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected boolean validatePendingAdd(Object targetChild)
+	Name: validatePendingAdd
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#validatePendingAdd-java.lang.Object-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected boolean validatePendingRemove(Object targetChild)
+	Name: validatePendingRemove
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#validatePendingRemove-java.lang.Object-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected void childJustAddedHook(Object child,
+	                                  BeanContextSupport.BCSChild bcsc)
+	Name: childJustAddedHook
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#childJustAddedHook-java.lang.Object-java.beans.beancontext.BeanContextSupport.BCSChild-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+		java.beans.beancontext::BeanContextSupport.BCSChild
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void childJustRemovedHook(Object child,
+	                                    BeanContextSupport.BCSChild bcsc)
+	Name: childJustRemovedHook
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#childJustRemovedHook-java.lang.Object-java.beans.beancontext.BeanContextSupport.BCSChild-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+		java.beans.beancontext::BeanContextSupport.BCSChild
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected static final Visibility getChildVisibility(Object child)
+	Name: getChildVisibility
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#getChildVisibility-java.lang.Object-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		java.beans::Visibility
+	}
+
+	[Function]
+	protected static final Serializable getChildSerializable(Object child)
+	Name: getChildSerializable
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#getChildSerializable-java.lang.Object-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		java.io::Serializable
+	}
+
+	[Function]
+	protected static final PropertyChangeListener getChildPropertyChangeListener(Object child)
+	Name: getChildPropertyChangeListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#getChildPropertyChangeListener-java.lang.Object-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		java.beans::PropertyChangeListener
+	}
+
+	[Function]
+	protected static final VetoableChangeListener getChildVetoableChangeListener(Object child)
+	Name: getChildVetoableChangeListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#getChildVetoableChangeListener-java.lang.Object-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		java.beans::VetoableChangeListener
+	}
+
+	[Function]
+	protected static final BeanContextMembershipListener getChildBeanContextMembershipListener(Object child)
+	Name: getChildBeanContextMembershipListener
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#getChildBeanContextMembershipListener-java.lang.Object-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		java.beans.beancontext::BeanContextMembershipListener
+	}
+
+	[Function]
+	protected static final BeanContextChild getChildBeanContextChild(Object child)
+	Name: getChildBeanContextChild
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#getChildBeanContextChild-java.lang.Object-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		java.beans.beancontext::BeanContextChild
+	}
+
+	[Function]
+	protected final void fireChildrenAdded(BeanContextMembershipEvent bcme)
+	Name: fireChildrenAdded
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#fireChildrenAdded-java.beans.beancontext.BeanContextMembershipEvent-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextMembershipEvent
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected final void fireChildrenRemoved(BeanContextMembershipEvent bcme)
+	Name: fireChildrenRemoved
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#fireChildrenRemoved-java.beans.beancontext.BeanContextMembershipEvent-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.beans.beancontext::BeanContextMembershipEvent
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected void initialize()
+	Name: initialize
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#initialize--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected final Object[] copyChildren()
+	Name: copyChildren
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#copyChildren--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::Object
+		}
+	}
+
+	[Function]
+	protected static final boolean classEquals(Class first,
+	                                           Class second)
+	Name: classEquals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.html#classEquals-java.lang.Class-java.lang.Class-
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Class
+		java.lang::Class
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+protected class BeanContextSupport.BCSChild
+extends Object
+implements Serializable
+Name: BeanContextSupport.BCSChild
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.BCSChild.html
+Containing package: java.beans.beancontext
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=protected
+}
+parameters {
+}
+derived {
+	java.beans.beancontext::BeanContextServicesSupport.BCSSChild
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+}
+
+[Classifier]
+protected static final class BeanContextSupport.BCSIterator
+extends Object
+implements Iterator
+Name: BeanContextSupport.BCSIterator
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.BCSIterator.html
+Containing package: java.beans.beancontext
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=true
+	scope=protected
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.util::Iterator
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public boolean hasNext()
+	Name: hasNext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.BCSIterator.html#hasNext--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport.BCSIterator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public Object next()
+	Name: next
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.BCSIterator.html#next--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport.BCSIterator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public void remove()
+	Name: remove
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/beans/beancontext/BeanContextSupport.BCSIterator.html#remove--
+	Containing package: java.beans.beancontext
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BeanContextSupport.BCSIterator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+}

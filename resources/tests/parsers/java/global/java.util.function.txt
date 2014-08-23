@@ -1,0 +1,3197 @@
+[Package]
+Name: java.util.function
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html
+Containing package: java.util
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+@FunctionalInterface
+public interface BiConsumer<T,U>
+Name: BiConsumer
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/BiConsumer.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	U
+	T
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	void accept(T t,
+	            U u)
+	Name: accept
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/BiConsumer.html#accept-T-U-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BiConsumer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		null::U
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	default BiConsumer<T,U> andThen(BiConsumer<? super T,? super U> after)
+	Name: andThen
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/BiConsumer.html#andThen-java.util.function.BiConsumer-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BiConsumer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::BiConsumer {
+			? {
+				super null::T
+			}
+			? {
+				super null::U
+			}
+		}
+	
+		[result]
+		java.util.function::BiConsumer {
+			null::T
+			null::U
+		}
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface BiFunction<T,U,R>
+Name: BiFunction
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/BiFunction.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	U
+	T
+	R
+}
+derived {
+	java.util.function::BinaryOperator
+}
+supertypes {
+}
+members {
+
+	[Function]
+	R apply(T t,
+	        U u)
+	Name: apply
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/BiFunction.html#apply-T-U-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BiFunction
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		null::U
+	
+		[result]
+		null::R
+	}
+
+	[Function]
+	default <V> BiFunction<T,U,V> andThen(Function<? super R,? extends V> after)
+	Name: andThen
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/BiFunction.html#andThen-java.util.function.Function-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BiFunction
+	parameters {
+		V
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Function {
+			? {
+				super null::R
+			}
+			? {
+				extends null::V
+			}
+		}
+	
+		[result]
+		java.util.function::BiFunction {
+			null::T
+			null::U
+			null::V
+		}
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface BinaryOperator<T>
+extends BiFunction<T,T,T>
+Name: BinaryOperator
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/BinaryOperator.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+}
+supertypes {
+	java.util.function::BiFunction {
+		null::T
+		null::T
+		null::T
+	}
+}
+members {
+
+	[Function]
+	static <T> BinaryOperator<T> minBy(Comparator<? super T> comparator)
+	Name: minBy
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/BinaryOperator.html#minBy-java.util.Comparator-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: BinaryOperator
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Comparator {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		java.util.function::BinaryOperator {
+			null::T
+		}
+	}
+
+	[Function]
+	static <T> BinaryOperator<T> maxBy(Comparator<? super T> comparator)
+	Name: maxBy
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/BinaryOperator.html#maxBy-java.util.Comparator-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: BinaryOperator
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Comparator {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		java.util.function::BinaryOperator {
+			null::T
+		}
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface BiPredicate<T,U>
+Name: BiPredicate
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/BiPredicate.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	U
+	T
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	boolean test(T t,
+	             U u)
+	Name: test
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/BiPredicate.html#test-T-U-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BiPredicate
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		null::U
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	default BiPredicate<T,U> and(BiPredicate<? super T,? super U> other)
+	Name: and
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/BiPredicate.html#and-java.util.function.BiPredicate-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BiPredicate
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::BiPredicate {
+			? {
+				super null::T
+			}
+			? {
+				super null::U
+			}
+		}
+	
+		[result]
+		java.util.function::BiPredicate {
+			null::T
+			null::U
+		}
+	}
+
+	[Function]
+	default BiPredicate<T,U> negate()
+	Name: negate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/BiPredicate.html#negate--
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BiPredicate
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.function::BiPredicate {
+			null::T
+			null::U
+		}
+	}
+
+	[Function]
+	default BiPredicate<T,U> or(BiPredicate<? super T,? super U> other)
+	Name: or
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/BiPredicate.html#or-java.util.function.BiPredicate-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BiPredicate
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::BiPredicate {
+			? {
+				super null::T
+			}
+			? {
+				super null::U
+			}
+		}
+	
+		[result]
+		java.util.function::BiPredicate {
+			null::T
+			null::U
+		}
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface BooleanSupplier
+Name: BooleanSupplier
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/BooleanSupplier.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	boolean getAsBoolean()
+	Name: getAsBoolean
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/BooleanSupplier.html#getAsBoolean--
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BooleanSupplier
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface Consumer<T>
+Name: Consumer
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+	java.util.stream::Stream.Builder
+}
+supertypes {
+}
+members {
+
+	[Function]
+	void accept(T t)
+	Name: accept
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html#accept-T-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Consumer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	default Consumer<T> andThen(Consumer<? super T> after)
+	Name: andThen
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html#andThen-java.util.function.Consumer-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Consumer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Consumer {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		java.util.function::Consumer {
+			null::T
+		}
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface DoubleBinaryOperator
+Name: DoubleBinaryOperator
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/DoubleBinaryOperator.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	double applyAsDouble(double left,
+	                     double right)
+	Name: applyAsDouble
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/DoubleBinaryOperator.html#applyAsDouble-double-double-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleBinaryOperator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::double
+		other::double
+	
+		[result]
+		other::double
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface DoubleConsumer
+Name: DoubleConsumer
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/DoubleConsumer.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.util.stream::DoubleStream.Builder
+	java.util::DoubleSummaryStatistics
+}
+supertypes {
+}
+members {
+
+	[Function]
+	void accept(double value)
+	Name: accept
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/DoubleConsumer.html#accept-double-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleConsumer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::double
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	default DoubleConsumer andThen(DoubleConsumer after)
+	Name: andThen
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/DoubleConsumer.html#andThen-java.util.function.DoubleConsumer-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleConsumer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::DoubleConsumer
+	
+		[result]
+		java.util.function::DoubleConsumer
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface DoubleFunction<R>
+Name: DoubleFunction
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/DoubleFunction.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	R
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	R apply(double value)
+	Name: apply
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/DoubleFunction.html#apply-double-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleFunction
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::double
+	
+		[result]
+		null::R
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface DoublePredicate
+Name: DoublePredicate
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/DoublePredicate.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	boolean test(double value)
+	Name: test
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/DoublePredicate.html#test-double-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoublePredicate
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::double
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	default DoublePredicate and(DoublePredicate other)
+	Name: and
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/DoublePredicate.html#and-java.util.function.DoublePredicate-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoublePredicate
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::DoublePredicate
+	
+		[result]
+		java.util.function::DoublePredicate
+	}
+
+	[Function]
+	default DoublePredicate negate()
+	Name: negate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/DoublePredicate.html#negate--
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoublePredicate
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.function::DoublePredicate
+	}
+
+	[Function]
+	default DoublePredicate or(DoublePredicate other)
+	Name: or
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/DoublePredicate.html#or-java.util.function.DoublePredicate-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoublePredicate
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::DoublePredicate
+	
+		[result]
+		java.util.function::DoublePredicate
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface DoubleSupplier
+Name: DoubleSupplier
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/DoubleSupplier.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	double getAsDouble()
+	Name: getAsDouble
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/DoubleSupplier.html#getAsDouble--
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleSupplier
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::double
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface DoubleToIntFunction
+Name: DoubleToIntFunction
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/DoubleToIntFunction.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	int applyAsInt(double value)
+	Name: applyAsInt
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/DoubleToIntFunction.html#applyAsInt-double-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleToIntFunction
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::double
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface DoubleToLongFunction
+Name: DoubleToLongFunction
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/DoubleToLongFunction.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	long applyAsLong(double value)
+	Name: applyAsLong
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/DoubleToLongFunction.html#applyAsLong-double-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleToLongFunction
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::double
+	
+		[result]
+		other::long
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface DoubleUnaryOperator
+Name: DoubleUnaryOperator
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/DoubleUnaryOperator.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	double applyAsDouble(double operand)
+	Name: applyAsDouble
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/DoubleUnaryOperator.html#applyAsDouble-double-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleUnaryOperator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::double
+	
+		[result]
+		other::double
+	}
+
+	[Function]
+	default DoubleUnaryOperator compose(DoubleUnaryOperator before)
+	Name: compose
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/DoubleUnaryOperator.html#compose-java.util.function.DoubleUnaryOperator-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleUnaryOperator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::DoubleUnaryOperator
+	
+		[result]
+		java.util.function::DoubleUnaryOperator
+	}
+
+	[Function]
+	default DoubleUnaryOperator andThen(DoubleUnaryOperator after)
+	Name: andThen
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/DoubleUnaryOperator.html#andThen-java.util.function.DoubleUnaryOperator-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleUnaryOperator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::DoubleUnaryOperator
+	
+		[result]
+		java.util.function::DoubleUnaryOperator
+	}
+
+	[Function]
+	static DoubleUnaryOperator identity()
+	Name: identity
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/DoubleUnaryOperator.html#identity--
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleUnaryOperator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.function::DoubleUnaryOperator
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface Function<T,R>
+Name: Function
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	T
+	R
+}
+derived {
+	java.util.function::UnaryOperator
+}
+supertypes {
+}
+members {
+
+	[Function]
+	R apply(T t)
+	Name: apply
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html#apply-T-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Function
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+	
+		[result]
+		null::R
+	}
+
+	[Function]
+	default <V> Function<V,R> compose(Function<? super V,? extends T> before)
+	Name: compose
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html#compose-java.util.function.Function-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Function
+	parameters {
+		V
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Function {
+			? {
+				super null::V
+			}
+			? {
+				extends null::T
+			}
+		}
+	
+		[result]
+		java.util.function::Function {
+			null::V
+			null::R
+		}
+	}
+
+	[Function]
+	default <V> Function<T,V> andThen(Function<? super R,? extends V> after)
+	Name: andThen
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html#andThen-java.util.function.Function-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Function
+	parameters {
+		V
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Function {
+			? {
+				super null::R
+			}
+			? {
+				extends null::V
+			}
+		}
+	
+		[result]
+		java.util.function::Function {
+			null::T
+			null::V
+		}
+	}
+
+	[Function]
+	static <T> Function<T,T> identity()
+	Name: identity
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html#identity--
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Function
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.function::Function {
+			null::T
+			null::T
+		}
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface IntBinaryOperator
+Name: IntBinaryOperator
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/IntBinaryOperator.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	int applyAsInt(int left,
+	               int right)
+	Name: applyAsInt
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/IntBinaryOperator.html#applyAsInt-int-int-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntBinaryOperator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::int
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface IntConsumer
+Name: IntConsumer
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/IntConsumer.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.util.stream::IntStream.Builder
+	java.util::LongSummaryStatistics
+	java.util::IntSummaryStatistics
+}
+supertypes {
+}
+members {
+
+	[Function]
+	void accept(int value)
+	Name: accept
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/IntConsumer.html#accept-int-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntConsumer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	default IntConsumer andThen(IntConsumer after)
+	Name: andThen
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/IntConsumer.html#andThen-java.util.function.IntConsumer-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntConsumer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::IntConsumer
+	
+		[result]
+		java.util.function::IntConsumer
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface IntFunction<R>
+Name: IntFunction
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/IntFunction.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	R
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	R apply(int value)
+	Name: apply
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/IntFunction.html#apply-int-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntFunction
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		null::R
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface IntPredicate
+Name: IntPredicate
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/IntPredicate.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	boolean test(int value)
+	Name: test
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/IntPredicate.html#test-int-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntPredicate
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	default IntPredicate and(IntPredicate other)
+	Name: and
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/IntPredicate.html#and-java.util.function.IntPredicate-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntPredicate
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::IntPredicate
+	
+		[result]
+		java.util.function::IntPredicate
+	}
+
+	[Function]
+	default IntPredicate negate()
+	Name: negate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/IntPredicate.html#negate--
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntPredicate
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.function::IntPredicate
+	}
+
+	[Function]
+	default IntPredicate or(IntPredicate other)
+	Name: or
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/IntPredicate.html#or-java.util.function.IntPredicate-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntPredicate
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::IntPredicate
+	
+		[result]
+		java.util.function::IntPredicate
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface IntSupplier
+Name: IntSupplier
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/IntSupplier.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	int getAsInt()
+	Name: getAsInt
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/IntSupplier.html#getAsInt--
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntSupplier
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface IntToDoubleFunction
+Name: IntToDoubleFunction
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/IntToDoubleFunction.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	double applyAsDouble(int value)
+	Name: applyAsDouble
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/IntToDoubleFunction.html#applyAsDouble-int-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntToDoubleFunction
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::double
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface IntToLongFunction
+Name: IntToLongFunction
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/IntToLongFunction.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	long applyAsLong(int value)
+	Name: applyAsLong
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/IntToLongFunction.html#applyAsLong-int-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntToLongFunction
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::long
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface IntUnaryOperator
+Name: IntUnaryOperator
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/IntUnaryOperator.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	int applyAsInt(int operand)
+	Name: applyAsInt
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/IntUnaryOperator.html#applyAsInt-int-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntUnaryOperator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	default IntUnaryOperator compose(IntUnaryOperator before)
+	Name: compose
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/IntUnaryOperator.html#compose-java.util.function.IntUnaryOperator-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntUnaryOperator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::IntUnaryOperator
+	
+		[result]
+		java.util.function::IntUnaryOperator
+	}
+
+	[Function]
+	default IntUnaryOperator andThen(IntUnaryOperator after)
+	Name: andThen
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/IntUnaryOperator.html#andThen-java.util.function.IntUnaryOperator-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntUnaryOperator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::IntUnaryOperator
+	
+		[result]
+		java.util.function::IntUnaryOperator
+	}
+
+	[Function]
+	static IntUnaryOperator identity()
+	Name: identity
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/IntUnaryOperator.html#identity--
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntUnaryOperator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.function::IntUnaryOperator
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface LongBinaryOperator
+Name: LongBinaryOperator
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/LongBinaryOperator.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	long applyAsLong(long left,
+	                 long right)
+	Name: applyAsLong
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/LongBinaryOperator.html#applyAsLong-long-long-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongBinaryOperator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		other::long
+	
+		[result]
+		other::long
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface LongConsumer
+Name: LongConsumer
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/LongConsumer.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.util::LongSummaryStatistics
+	java.util.stream::LongStream.Builder
+}
+supertypes {
+}
+members {
+
+	[Function]
+	void accept(long value)
+	Name: accept
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/LongConsumer.html#accept-long-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongConsumer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	default LongConsumer andThen(LongConsumer after)
+	Name: andThen
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/LongConsumer.html#andThen-java.util.function.LongConsumer-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongConsumer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::LongConsumer
+	
+		[result]
+		java.util.function::LongConsumer
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface LongFunction<R>
+Name: LongFunction
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/LongFunction.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	R
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	R apply(long value)
+	Name: apply
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/LongFunction.html#apply-long-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongFunction
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		null::R
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface LongPredicate
+Name: LongPredicate
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/LongPredicate.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	boolean test(long value)
+	Name: test
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/LongPredicate.html#test-long-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongPredicate
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	default LongPredicate and(LongPredicate other)
+	Name: and
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/LongPredicate.html#and-java.util.function.LongPredicate-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongPredicate
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::LongPredicate
+	
+		[result]
+		java.util.function::LongPredicate
+	}
+
+	[Function]
+	default LongPredicate negate()
+	Name: negate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/LongPredicate.html#negate--
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongPredicate
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.function::LongPredicate
+	}
+
+	[Function]
+	default LongPredicate or(LongPredicate other)
+	Name: or
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/LongPredicate.html#or-java.util.function.LongPredicate-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongPredicate
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::LongPredicate
+	
+		[result]
+		java.util.function::LongPredicate
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface LongSupplier
+Name: LongSupplier
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/LongSupplier.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	long getAsLong()
+	Name: getAsLong
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/LongSupplier.html#getAsLong--
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongSupplier
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface LongToDoubleFunction
+Name: LongToDoubleFunction
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/LongToDoubleFunction.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	double applyAsDouble(long value)
+	Name: applyAsDouble
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/LongToDoubleFunction.html#applyAsDouble-long-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongToDoubleFunction
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::double
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface LongToIntFunction
+Name: LongToIntFunction
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/LongToIntFunction.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	int applyAsInt(long value)
+	Name: applyAsInt
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/LongToIntFunction.html#applyAsInt-long-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongToIntFunction
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface LongUnaryOperator
+Name: LongUnaryOperator
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/LongUnaryOperator.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	long applyAsLong(long operand)
+	Name: applyAsLong
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/LongUnaryOperator.html#applyAsLong-long-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongUnaryOperator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	default LongUnaryOperator compose(LongUnaryOperator before)
+	Name: compose
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/LongUnaryOperator.html#compose-java.util.function.LongUnaryOperator-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongUnaryOperator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::LongUnaryOperator
+	
+		[result]
+		java.util.function::LongUnaryOperator
+	}
+
+	[Function]
+	default LongUnaryOperator andThen(LongUnaryOperator after)
+	Name: andThen
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/LongUnaryOperator.html#andThen-java.util.function.LongUnaryOperator-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongUnaryOperator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::LongUnaryOperator
+	
+		[result]
+		java.util.function::LongUnaryOperator
+	}
+
+	[Function]
+	static LongUnaryOperator identity()
+	Name: identity
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/LongUnaryOperator.html#identity--
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongUnaryOperator
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.function::LongUnaryOperator
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface ObjDoubleConsumer<T>
+Name: ObjDoubleConsumer
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/ObjDoubleConsumer.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	void accept(T t,
+	            double value)
+	Name: accept
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/ObjDoubleConsumer.html#accept-T-double-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ObjDoubleConsumer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		other::double
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface ObjIntConsumer<T>
+Name: ObjIntConsumer
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/ObjIntConsumer.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	void accept(T t,
+	            int value)
+	Name: accept
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/ObjIntConsumer.html#accept-T-int-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ObjIntConsumer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		other::int
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface ObjLongConsumer<T>
+Name: ObjLongConsumer
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/ObjLongConsumer.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	void accept(T t,
+	            long value)
+	Name: accept
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/ObjLongConsumer.html#accept-T-long-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ObjLongConsumer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		other::long
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface Predicate<T>
+Name: Predicate
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	boolean test(T t)
+	Name: test
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html#test-T-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Predicate
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	default Predicate<T> and(Predicate<? super T> other)
+	Name: and
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html#and-java.util.function.Predicate-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Predicate
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Predicate {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		java.util.function::Predicate {
+			null::T
+		}
+	}
+
+	[Function]
+	default Predicate<T> negate()
+	Name: negate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html#negate--
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Predicate
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.function::Predicate {
+			null::T
+		}
+	}
+
+	[Function]
+	default Predicate<T> or(Predicate<? super T> other)
+	Name: or
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html#or-java.util.function.Predicate-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Predicate
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Predicate {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		java.util.function::Predicate {
+			null::T
+		}
+	}
+
+	[Function]
+	static <T> Predicate<T> isEqual(Object targetRef)
+	Name: isEqual
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html#isEqual-java.lang.Object-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Predicate
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		java.util.function::Predicate {
+			null::T
+		}
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface Supplier<T>
+Name: Supplier
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/Supplier.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	T get()
+	Name: get
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/Supplier.html#get--
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Supplier
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		null::T
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface ToDoubleBiFunction<T,U>
+Name: ToDoubleBiFunction
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/ToDoubleBiFunction.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	U
+	T
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	double applyAsDouble(T t,
+	                     U u)
+	Name: applyAsDouble
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/ToDoubleBiFunction.html#applyAsDouble-T-U-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ToDoubleBiFunction
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		null::U
+	
+		[result]
+		other::double
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface ToDoubleFunction<T>
+Name: ToDoubleFunction
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/ToDoubleFunction.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	double applyAsDouble(T value)
+	Name: applyAsDouble
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/ToDoubleFunction.html#applyAsDouble-T-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ToDoubleFunction
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+	
+		[result]
+		other::double
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface ToIntBiFunction<T,U>
+Name: ToIntBiFunction
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/ToIntBiFunction.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	U
+	T
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	int applyAsInt(T t,
+	               U u)
+	Name: applyAsInt
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/ToIntBiFunction.html#applyAsInt-T-U-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ToIntBiFunction
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		null::U
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface ToIntFunction<T>
+Name: ToIntFunction
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/ToIntFunction.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	int applyAsInt(T value)
+	Name: applyAsInt
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/ToIntFunction.html#applyAsInt-T-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ToIntFunction
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface ToLongBiFunction<T,U>
+Name: ToLongBiFunction
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/ToLongBiFunction.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	U
+	T
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	long applyAsLong(T t,
+	                 U u)
+	Name: applyAsLong
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/ToLongBiFunction.html#applyAsLong-T-U-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ToLongBiFunction
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		null::U
+	
+		[result]
+		other::long
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface ToLongFunction<T>
+Name: ToLongFunction
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/ToLongFunction.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	long applyAsLong(T value)
+	Name: applyAsLong
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/ToLongFunction.html#applyAsLong-T-
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ToLongFunction
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+	
+		[result]
+		other::long
+	}
+}
+
+[Classifier]
+@FunctionalInterface
+public interface UnaryOperator<T>
+extends Function<T,T>
+Name: UnaryOperator
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/UnaryOperator.html
+Containing package: java.util.function
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+}
+supertypes {
+	java.util.function::Function {
+		null::T
+		null::T
+	}
+}
+members {
+
+	[Function]
+	static <T> UnaryOperator<T> identity()
+	Name: identity
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/function/UnaryOperator.html#identity--
+	Containing package: java.util.function
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: UnaryOperator
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.function::UnaryOperator {
+			null::T
+		}
+	}
+}

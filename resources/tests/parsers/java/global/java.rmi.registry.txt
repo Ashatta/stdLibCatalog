@@ -1,0 +1,508 @@
+[Package]
+Name: java.rmi.registry
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/registry/package-summary.html
+Containing package: java.rmi
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+public interface Registry
+extends Remote
+Name: Registry
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/registry/Registry.html
+Containing package: java.rmi.registry
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.rmi::Remote
+}
+members {
+
+	[Function]
+	static final int REGISTRY_PORT
+	Name: REGISTRY_PORT
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/registry/Registry.html#REGISTRY_PORT
+	Containing package: java.rmi.registry
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: Registry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	Remote lookup(String name)
+	       throws RemoteException,
+	              NotBoundException,
+	              AccessException
+	Name: lookup
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/registry/Registry.html#lookup-java.lang.String-
+	Containing package: java.rmi.registry
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Registry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.rmi::Remote
+	}
+
+	[Function]
+	void bind(String name,
+	          Remote obj)
+	   throws RemoteException,
+	          AlreadyBoundException,
+	          AccessException
+	Name: bind
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/registry/Registry.html#bind-java.lang.String-java.rmi.Remote-
+	Containing package: java.rmi.registry
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Registry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.rmi::Remote
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void unbind(String name)
+	     throws RemoteException,
+	            NotBoundException,
+	            AccessException
+	Name: unbind
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/registry/Registry.html#unbind-java.lang.String-
+	Containing package: java.rmi.registry
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Registry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void rebind(String name,
+	            Remote obj)
+	     throws RemoteException,
+	            AccessException
+	Name: rebind
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/registry/Registry.html#rebind-java.lang.String-java.rmi.Remote-
+	Containing package: java.rmi.registry
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Registry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		java.rmi::Remote
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	String[] list()
+	       throws RemoteException,
+	              AccessException
+	Name: list
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/registry/Registry.html#list--
+	Containing package: java.rmi.registry
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Registry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::String
+		}
+	}
+}
+
+[Classifier]
+@Deprecated
+public interface RegistryHandler
+Name: RegistryHandler
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/registry/RegistryHandler.html
+Containing package: java.rmi.registry
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	@Deprecated
+	Registry registryStub(String host,
+	                                  int port)
+	                           throws RemoteException,
+	                                  UnknownHostException
+	Name: registryStub
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/registry/RegistryHandler.html#registryStub-java.lang.String-int-
+	Containing package: java.rmi.registry
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RegistryHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::int
+	
+		[result]
+		java.rmi.registry::Registry
+	}
+
+	[Function]
+	@Deprecated
+	Registry registryImpl(int port)
+	                           throws RemoteException
+	Name: registryImpl
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/registry/RegistryHandler.html#registryImpl-int-
+	Containing package: java.rmi.registry
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: RegistryHandler
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		java.rmi.registry::Registry
+	}
+}
+
+[Classifier]
+public final class LocateRegistry
+extends Object
+Name: LocateRegistry
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/registry/LocateRegistry.html
+Containing package: java.rmi.registry
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static Registry getRegistry()
+	                            throws RemoteException
+	Name: getRegistry
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/registry/LocateRegistry.html#getRegistry--
+	Containing package: java.rmi.registry
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: LocateRegistry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.rmi.registry::Registry
+	}
+
+	[Function]
+	public static Registry getRegistry(int port)
+	                            throws RemoteException
+	Name: getRegistry
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/registry/LocateRegistry.html#getRegistry-int-
+	Containing package: java.rmi.registry
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: LocateRegistry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		java.rmi.registry::Registry
+	}
+
+	[Function]
+	public static Registry getRegistry(String host)
+	                            throws RemoteException
+	Name: getRegistry
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/registry/LocateRegistry.html#getRegistry-java.lang.String-
+	Containing package: java.rmi.registry
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: LocateRegistry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.rmi.registry::Registry
+	}
+
+	[Function]
+	public static Registry getRegistry(String host,
+	                                   int port)
+	                            throws RemoteException
+	Name: getRegistry
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/registry/LocateRegistry.html#getRegistry-java.lang.String-int-
+	Containing package: java.rmi.registry
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: LocateRegistry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::int
+	
+		[result]
+		java.rmi.registry::Registry
+	}
+
+	[Function]
+	public static Registry getRegistry(String host,
+	                                   int port,
+	                                   RMIClientSocketFactory csf)
+	                            throws RemoteException
+	Name: getRegistry
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/registry/LocateRegistry.html#getRegistry-java.lang.String-int-java.rmi.server.RMIClientSocketFactory-
+	Containing package: java.rmi.registry
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: LocateRegistry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::int
+		java.rmi.server::RMIClientSocketFactory
+	
+		[result]
+		java.rmi.registry::Registry
+	}
+
+	[Function]
+	public static Registry createRegistry(int port)
+	                               throws RemoteException
+	Name: createRegistry
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/registry/LocateRegistry.html#createRegistry-int-
+	Containing package: java.rmi.registry
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: LocateRegistry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		java.rmi.registry::Registry
+	}
+
+	[Function]
+	public static Registry createRegistry(int port,
+	                                      RMIClientSocketFactory csf,
+	                                      RMIServerSocketFactory ssf)
+	                               throws RemoteException
+	Name: createRegistry
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/registry/LocateRegistry.html#createRegistry-int-java.rmi.server.RMIClientSocketFactory-java.rmi.server.RMIServerSocketFactory-
+	Containing package: java.rmi.registry
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: LocateRegistry
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.rmi.server::RMIClientSocketFactory
+		java.rmi.server::RMIServerSocketFactory
+	
+		[result]
+		java.rmi.registry::Registry
+	}
+}

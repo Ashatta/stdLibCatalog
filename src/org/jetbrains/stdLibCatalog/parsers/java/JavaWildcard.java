@@ -62,7 +62,8 @@ public class JavaWildcard extends JavaType {
     public String buildString() {
         String result = "?";
         for (BoundDescription bound : bounds) {
-            result += " " + bound.getKey() + " " + bound.getValue().buildString();
+            result += " " + (bound.getKey() == BoundDescription.BoundType.LOWER ? "super" : "extends") + " "
+                    + bound.getValue().buildString();
         }
         return result;
     }

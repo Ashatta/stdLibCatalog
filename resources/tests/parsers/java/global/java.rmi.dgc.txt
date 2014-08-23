@@ -1,0 +1,359 @@
+[Package]
+Name: java.rmi.dgc
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/dgc/package-summary.html
+Containing package: java.rmi
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+public interface DGC
+extends Remote
+Name: DGC
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/dgc/DGC.html
+Containing package: java.rmi.dgc
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.rmi::Remote
+}
+members {
+
+	[Function]
+	Lease dirty(ObjID[] ids,
+	            long sequenceNum,
+	            Lease lease)
+	     throws RemoteException
+	Name: dirty
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/dgc/DGC.html#dirty-java.rmi.server.ObjID:A-long-java.rmi.dgc.Lease-
+	Containing package: java.rmi.dgc
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DGC
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.rmi.server::ObjID
+		}
+		other::long
+		java.rmi.dgc::Lease
+	
+		[result]
+		java.rmi.dgc::Lease
+	}
+
+	[Function]
+	void clean(ObjID[] ids,
+	           long sequenceNum,
+	           VMID vmid,
+	           boolean strong)
+	    throws RemoteException
+	Name: clean
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/dgc/DGC.html#clean-java.rmi.server.ObjID:A-long-java.rmi.dgc.VMID-boolean-
+	Containing package: java.rmi.dgc
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DGC
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			java.rmi.server::ObjID
+		}
+		other::long
+		java.rmi.dgc::VMID
+		other::boolean
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public final class Lease
+extends Object
+implements Serializable
+Name: Lease
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/dgc/Lease.html
+Containing package: java.rmi.dgc
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public Lease(VMID id,
+	             long duration)
+	Name: Lease
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/dgc/Lease.html#Lease-java.rmi.dgc.VMID-long-
+	Containing package: java.rmi.dgc
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Lease
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.rmi.dgc::VMID
+		other::long
+	
+		[result]
+		java.rmi.dgc::Lease
+	}
+
+	[Function]
+	public VMID getVMID()
+	Name: getVMID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/dgc/Lease.html#getVMID--
+	Containing package: java.rmi.dgc
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Lease
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.rmi.dgc::VMID
+	}
+
+	[Function]
+	public long getValue()
+	Name: getValue
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/dgc/Lease.html#getValue--
+	Containing package: java.rmi.dgc
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Lease
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+}
+
+[Classifier]
+public final class VMID
+extends Object
+implements Serializable
+Name: VMID
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/dgc/VMID.html
+Containing package: java.rmi.dgc
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public VMID()
+	Name: VMID
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/dgc/VMID.html#VMID--
+	Containing package: java.rmi.dgc
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: VMID
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.rmi.dgc::VMID
+	}
+
+	[Function]
+	@Deprecated
+	public static boolean isUnique()
+	Name: isUnique
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/dgc/VMID.html#isUnique--
+	Containing package: java.rmi.dgc
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: VMID
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public int hashCode()
+	Name: hashCode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/dgc/VMID.html#hashCode--
+	Containing package: java.rmi.dgc
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: VMID
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public boolean equals(Object obj)
+	Name: equals
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/dgc/VMID.html#equals-java.lang.Object-
+	Containing package: java.rmi.dgc
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: VMID
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/rmi/dgc/VMID.html#toString--
+	Containing package: java.rmi.dgc
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: VMID
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}

@@ -1,0 +1,7593 @@
+[Package]
+Name: java.util.stream
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html
+Containing package: java.util
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+public interface BaseStream<T,S extends BaseStream<T,S>>
+extends AutoCloseable
+Name: BaseStream
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/BaseStream.html
+Containing package: java.util.stream
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	T: (S extends BaseStream<T,S>; T, S; java.util.stream::BaseStream)
+	S: (S extends BaseStream<T,S>; T, S; java.util.stream::BaseStream)
+}
+derived {
+	java.util.stream::IntStream
+	java.util.stream::Stream
+	java.util.stream::DoubleStream
+	java.util.stream::LongStream
+}
+supertypes {
+	java.lang::AutoCloseable
+}
+members {
+
+	[Function]
+	Iterator<T> iterator()
+	Name: iterator
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/BaseStream.html#iterator--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BaseStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Iterator {
+			null::T
+		}
+	}
+
+	[Function]
+	Spliterator<T> spliterator()
+	Name: spliterator
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/BaseStream.html#spliterator--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BaseStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Spliterator {
+			null::T
+		}
+	}
+
+	[Function]
+	boolean isParallel()
+	Name: isParallel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/BaseStream.html#isParallel--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BaseStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	S sequential()
+	Name: sequential
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/BaseStream.html#sequential--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BaseStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		null::S
+	}
+
+	[Function]
+	S parallel()
+	Name: parallel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/BaseStream.html#parallel--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BaseStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		null::S
+	}
+
+	[Function]
+	S unordered()
+	Name: unordered
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/BaseStream.html#unordered--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BaseStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		null::S
+	}
+
+	[Function]
+	S onClose(Runnable closeHandler)
+	Name: onClose
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/BaseStream.html#onClose-java.lang.Runnable-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BaseStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Runnable
+	
+		[result]
+		null::S
+	}
+
+	[Function]
+	void close()
+	Name: close
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/BaseStream.html#close--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: BaseStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface Collector<T,A,R>
+Name: Collector
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collector.html
+Containing package: java.util.stream
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	T
+	A
+	R
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	Supplier<A> supplier()
+	Name: supplier
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collector.html#supplier--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.function::Supplier {
+			null::A
+		}
+	}
+
+	[Function]
+	BiConsumer<A,T> accumulator()
+	Name: accumulator
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collector.html#accumulator--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.function::BiConsumer {
+			null::A
+			null::T
+		}
+	}
+
+	[Function]
+	BinaryOperator<A> combiner()
+	Name: combiner
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collector.html#combiner--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.function::BinaryOperator {
+			null::A
+		}
+	}
+
+	[Function]
+	Function<A,R> finisher()
+	Name: finisher
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collector.html#finisher--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.function::Function {
+			null::A
+			null::R
+		}
+	}
+
+	[Function]
+	Set<Collector.Characteristics> characteristics()
+	Name: characteristics
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collector.html#characteristics--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collector
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Set {
+			java.util.stream::Collector.Characteristics
+		}
+	}
+
+	[Function]
+	static <T,R> Collector<T,R,R> of(Supplier<R> supplier,
+	                                 BiConsumer<R,T> accumulator,
+	                                 BinaryOperator<R> combiner,
+	                                 Collector.Characteristics... characteristics)
+	Name: of
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collector.html#of-java.util.function.Supplier-java.util.function.BiConsumer-java.util.function.BinaryOperator-java.util.stream.Collector.Characteristics...-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collector
+	parameters {
+		T
+		R
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Supplier {
+			null::R
+		}
+		java.util.function::BiConsumer {
+			null::R
+			null::T
+		}
+		java.util.function::BinaryOperator {
+			null::R
+		}
+		other::... {
+			java.util.stream::Collector.Characteristics
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			null::R
+			null::R
+		}
+	}
+
+	[Function]
+	static <T,A,R> Collector<T,A,R> of(Supplier<A> supplier,
+	                                   BiConsumer<A,T> accumulator,
+	                                   BinaryOperator<A> combiner,
+	                                   Function<A,R> finisher,
+	                                   Collector.Characteristics... characteristics)
+	Name: of
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collector.html#of-java.util.function.Supplier-java.util.function.BiConsumer-java.util.function.BinaryOperator-java.util.function.Function-java.util.stream.Collector.Characteristics...-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collector
+	parameters {
+		T
+		A
+		R
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Supplier {
+			null::A
+		}
+		java.util.function::BiConsumer {
+			null::A
+			null::T
+		}
+		java.util.function::BinaryOperator {
+			null::A
+		}
+		java.util.function::Function {
+			null::A
+			null::R
+		}
+		other::... {
+			java.util.stream::Collector.Characteristics
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			null::A
+			null::R
+		}
+	}
+}
+
+[Classifier]
+public static enum Collector.Characteristics
+extends Enum<Collector.Characteristics>
+Name: Collector.Characteristics
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collector.Characteristics.html
+Containing package: java.util.stream
+attributes {
+	abstract=false
+	final=false
+	classifierType=enum
+	static=true
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Enum {
+		java.util.stream::Collector.Characteristics
+	}
+}
+members {
+
+	[Function]
+	public static final Collector.Characteristics CONCURRENT
+	Name: CONCURRENT
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collector.Characteristics.html#CONCURRENT
+	Containing package: java.util.stream
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: Collector.Characteristics
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::Collector.Characteristics
+	}
+
+	[Function]
+	public static final Collector.Characteristics UNORDERED
+	Name: UNORDERED
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collector.Characteristics.html#UNORDERED
+	Containing package: java.util.stream
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: Collector.Characteristics
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::Collector.Characteristics
+	}
+
+	[Function]
+	public static final Collector.Characteristics IDENTITY_FINISH
+	Name: IDENTITY_FINISH
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collector.Characteristics.html#IDENTITY_FINISH
+	Containing package: java.util.stream
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=enumConst
+	}
+	Containing type: Collector.Characteristics
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::Collector.Characteristics
+	}
+
+	[Function]
+	public static Collector.Characteristics[] values()
+	Name: values
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collector.Characteristics.html#values--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collector.Characteristics
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.util.stream::Collector.Characteristics
+		}
+	}
+
+	[Function]
+	public static Collector.Characteristics valueOf(String name)
+	Name: valueOf
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collector.Characteristics.html#valueOf-java.lang.String-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collector.Characteristics
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+	
+		[result]
+		java.util.stream::Collector.Characteristics
+	}
+}
+
+[Classifier]
+public interface DoubleStream
+extends BaseStream<Double,DoubleStream>
+Name: DoubleStream
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html
+Containing package: java.util.stream
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.util.stream::BaseStream {
+		java.lang::Double
+		java.util.stream::DoubleStream
+	}
+}
+members {
+
+	[Function]
+	DoubleStream filter(DoublePredicate predicate)
+	Name: filter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#filter-java.util.function.DoublePredicate-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::DoublePredicate
+	
+		[result]
+		java.util.stream::DoubleStream
+	}
+
+	[Function]
+	DoubleStream map(DoubleUnaryOperator mapper)
+	Name: map
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#map-java.util.function.DoubleUnaryOperator-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::DoubleUnaryOperator
+	
+		[result]
+		java.util.stream::DoubleStream
+	}
+
+	[Function]
+	<U> Stream<U> mapToObj(DoubleFunction<? extends U> mapper)
+	Name: mapToObj
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#mapToObj-java.util.function.DoubleFunction-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+		U
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::DoubleFunction {
+			? {
+				extends null::U
+			}
+		}
+	
+		[result]
+		java.util.stream::Stream {
+			null::U
+		}
+	}
+
+	[Function]
+	IntStream mapToInt(DoubleToIntFunction mapper)
+	Name: mapToInt
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#mapToInt-java.util.function.DoubleToIntFunction-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::DoubleToIntFunction
+	
+		[result]
+		java.util.stream::IntStream
+	}
+
+	[Function]
+	LongStream mapToLong(DoubleToLongFunction mapper)
+	Name: mapToLong
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#mapToLong-java.util.function.DoubleToLongFunction-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::DoubleToLongFunction
+	
+		[result]
+		java.util.stream::LongStream
+	}
+
+	[Function]
+	DoubleStream flatMap(DoubleFunction<? extends DoubleStream> mapper)
+	Name: flatMap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#flatMap-java.util.function.DoubleFunction-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::DoubleFunction {
+			? {
+				extends java.util.stream::DoubleStream
+			}
+		}
+	
+		[result]
+		java.util.stream::DoubleStream
+	}
+
+	[Function]
+	DoubleStream distinct()
+	Name: distinct
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#distinct--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::DoubleStream
+	}
+
+	[Function]
+	DoubleStream sorted()
+	Name: sorted
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#sorted--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::DoubleStream
+	}
+
+	[Function]
+	DoubleStream peek(DoubleConsumer action)
+	Name: peek
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#peek-java.util.function.DoubleConsumer-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::DoubleConsumer
+	
+		[result]
+		java.util.stream::DoubleStream
+	}
+
+	[Function]
+	DoubleStream limit(long maxSize)
+	Name: limit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#limit-long-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		java.util.stream::DoubleStream
+	}
+
+	[Function]
+	DoubleStream skip(long n)
+	Name: skip
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#skip-long-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		java.util.stream::DoubleStream
+	}
+
+	[Function]
+	void forEach(DoubleConsumer action)
+	Name: forEach
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#forEach-java.util.function.DoubleConsumer-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::DoubleConsumer
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void forEachOrdered(DoubleConsumer action)
+	Name: forEachOrdered
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#forEachOrdered-java.util.function.DoubleConsumer-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::DoubleConsumer
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	double[] toArray()
+	Name: toArray
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#toArray--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::double
+		}
+	}
+
+	[Function]
+	double reduce(double identity,
+	              DoubleBinaryOperator op)
+	Name: reduce
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#reduce-double-java.util.function.DoubleBinaryOperator-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::double
+		java.util.function::DoubleBinaryOperator
+	
+		[result]
+		other::double
+	}
+
+	[Function]
+	OptionalDouble reduce(DoubleBinaryOperator op)
+	Name: reduce
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#reduce-java.util.function.DoubleBinaryOperator-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::DoubleBinaryOperator
+	
+		[result]
+		java.util::OptionalDouble
+	}
+
+	[Function]
+	<R> R collect(Supplier<R> supplier,
+	              ObjDoubleConsumer<R> accumulator,
+	              BiConsumer<R,R> combiner)
+	Name: collect
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#collect-java.util.function.Supplier-java.util.function.ObjDoubleConsumer-java.util.function.BiConsumer-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+		R
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Supplier {
+			null::R
+		}
+		java.util.function::ObjDoubleConsumer {
+			null::R
+		}
+		java.util.function::BiConsumer {
+			null::R
+			null::R
+		}
+	
+		[result]
+		null::R
+	}
+
+	[Function]
+	double sum()
+	Name: sum
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#sum--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::double
+	}
+
+	[Function]
+	OptionalDouble min()
+	Name: min
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#min--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::OptionalDouble
+	}
+
+	[Function]
+	OptionalDouble max()
+	Name: max
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#max--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::OptionalDouble
+	}
+
+	[Function]
+	long count()
+	Name: count
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#count--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	OptionalDouble average()
+	Name: average
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#average--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::OptionalDouble
+	}
+
+	[Function]
+	DoubleSummaryStatistics summaryStatistics()
+	Name: summaryStatistics
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#summaryStatistics--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::DoubleSummaryStatistics
+	}
+
+	[Function]
+	boolean anyMatch(DoublePredicate predicate)
+	Name: anyMatch
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#anyMatch-java.util.function.DoublePredicate-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::DoublePredicate
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean allMatch(DoublePredicate predicate)
+	Name: allMatch
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#allMatch-java.util.function.DoublePredicate-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::DoublePredicate
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean noneMatch(DoublePredicate predicate)
+	Name: noneMatch
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#noneMatch-java.util.function.DoublePredicate-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::DoublePredicate
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	OptionalDouble findFirst()
+	Name: findFirst
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#findFirst--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::OptionalDouble
+	}
+
+	[Function]
+	OptionalDouble findAny()
+	Name: findAny
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#findAny--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::OptionalDouble
+	}
+
+	[Function]
+	Stream<Double> boxed()
+	Name: boxed
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#boxed--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::Stream {
+			java.lang::Double
+		}
+	}
+
+	[Function]
+	DoubleStream sequential()
+	Name: sequential
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#sequential--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::DoubleStream
+	}
+
+	[Function]
+	DoubleStream parallel()
+	Name: parallel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#parallel--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::DoubleStream
+	}
+
+	[Function]
+	PrimitiveIterator.OfDouble iterator()
+	Name: iterator
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#iterator--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::PrimitiveIterator.OfDouble
+	}
+
+	[Function]
+	Spliterator.OfDouble spliterator()
+	Name: spliterator
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#spliterator--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Spliterator.OfDouble
+	}
+
+	[Function]
+	static DoubleStream.Builder builder()
+	Name: builder
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#builder--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::DoubleStream.Builder
+	}
+
+	[Function]
+	static DoubleStream empty()
+	Name: empty
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#empty--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::DoubleStream
+	}
+
+	[Function]
+	static DoubleStream of(double t)
+	Name: of
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#of-double-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::double
+	
+		[result]
+		java.util.stream::DoubleStream
+	}
+
+	[Function]
+	static DoubleStream of(double... values)
+	Name: of
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#of-double...-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::... {
+			other::double
+		}
+	
+		[result]
+		java.util.stream::DoubleStream
+	}
+
+	[Function]
+	static DoubleStream iterate(double seed,
+	                            DoubleUnaryOperator f)
+	Name: iterate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#iterate-double-java.util.function.DoubleUnaryOperator-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::double
+		java.util.function::DoubleUnaryOperator
+	
+		[result]
+		java.util.stream::DoubleStream
+	}
+
+	[Function]
+	static DoubleStream generate(DoubleSupplier s)
+	Name: generate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#generate-java.util.function.DoubleSupplier-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::DoubleSupplier
+	
+		[result]
+		java.util.stream::DoubleStream
+	}
+
+	[Function]
+	static DoubleStream concat(DoubleStream a,
+	                           DoubleStream b)
+	Name: concat
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html#concat-java.util.stream.DoubleStream-java.util.stream.DoubleStream-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.stream::DoubleStream
+		java.util.stream::DoubleStream
+	
+		[result]
+		java.util.stream::DoubleStream
+	}
+}
+
+[Classifier]
+public static interface DoubleStream.Builder
+extends DoubleConsumer
+Name: DoubleStream.Builder
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.Builder.html
+Containing package: java.util.stream
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=true
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.util.function::DoubleConsumer
+}
+members {
+
+	[Function]
+	void accept(double t)
+	Name: accept
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.Builder.html#accept-double-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream.Builder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::double
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	default DoubleStream.Builder add(double t)
+	Name: add
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.Builder.html#add-double-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream.Builder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::double
+	
+		[result]
+		java.util.stream::DoubleStream.Builder
+	}
+
+	[Function]
+	DoubleStream build()
+	Name: build
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.Builder.html#build--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: DoubleStream.Builder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::DoubleStream
+	}
+}
+
+[Classifier]
+public interface IntStream
+extends BaseStream<Integer,IntStream>
+Name: IntStream
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html
+Containing package: java.util.stream
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.util.stream::BaseStream {
+		java.lang::Integer
+		java.util.stream::IntStream
+	}
+}
+members {
+
+	[Function]
+	IntStream filter(IntPredicate predicate)
+	Name: filter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#filter-java.util.function.IntPredicate-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::IntPredicate
+	
+		[result]
+		java.util.stream::IntStream
+	}
+
+	[Function]
+	IntStream map(IntUnaryOperator mapper)
+	Name: map
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#map-java.util.function.IntUnaryOperator-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::IntUnaryOperator
+	
+		[result]
+		java.util.stream::IntStream
+	}
+
+	[Function]
+	<U> Stream<U> mapToObj(IntFunction<? extends U> mapper)
+	Name: mapToObj
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#mapToObj-java.util.function.IntFunction-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+		U
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::IntFunction {
+			? {
+				extends null::U
+			}
+		}
+	
+		[result]
+		java.util.stream::Stream {
+			null::U
+		}
+	}
+
+	[Function]
+	LongStream mapToLong(IntToLongFunction mapper)
+	Name: mapToLong
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#mapToLong-java.util.function.IntToLongFunction-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::IntToLongFunction
+	
+		[result]
+		java.util.stream::LongStream
+	}
+
+	[Function]
+	DoubleStream mapToDouble(IntToDoubleFunction mapper)
+	Name: mapToDouble
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#mapToDouble-java.util.function.IntToDoubleFunction-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::IntToDoubleFunction
+	
+		[result]
+		java.util.stream::DoubleStream
+	}
+
+	[Function]
+	IntStream flatMap(IntFunction<? extends IntStream> mapper)
+	Name: flatMap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#flatMap-java.util.function.IntFunction-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::IntFunction {
+			? {
+				extends java.util.stream::IntStream
+			}
+		}
+	
+		[result]
+		java.util.stream::IntStream
+	}
+
+	[Function]
+	IntStream distinct()
+	Name: distinct
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#distinct--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::IntStream
+	}
+
+	[Function]
+	IntStream sorted()
+	Name: sorted
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#sorted--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::IntStream
+	}
+
+	[Function]
+	IntStream peek(IntConsumer action)
+	Name: peek
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#peek-java.util.function.IntConsumer-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::IntConsumer
+	
+		[result]
+		java.util.stream::IntStream
+	}
+
+	[Function]
+	IntStream limit(long maxSize)
+	Name: limit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#limit-long-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		java.util.stream::IntStream
+	}
+
+	[Function]
+	IntStream skip(long n)
+	Name: skip
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#skip-long-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		java.util.stream::IntStream
+	}
+
+	[Function]
+	void forEach(IntConsumer action)
+	Name: forEach
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#forEach-java.util.function.IntConsumer-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::IntConsumer
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void forEachOrdered(IntConsumer action)
+	Name: forEachOrdered
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#forEachOrdered-java.util.function.IntConsumer-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::IntConsumer
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	int[] toArray()
+	Name: toArray
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#toArray--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::int
+		}
+	}
+
+	[Function]
+	int reduce(int identity,
+	           IntBinaryOperator op)
+	Name: reduce
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#reduce-int-java.util.function.IntBinaryOperator-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.util.function::IntBinaryOperator
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	OptionalInt reduce(IntBinaryOperator op)
+	Name: reduce
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#reduce-java.util.function.IntBinaryOperator-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::IntBinaryOperator
+	
+		[result]
+		java.util::OptionalInt
+	}
+
+	[Function]
+	<R> R collect(Supplier<R> supplier,
+	              ObjIntConsumer<R> accumulator,
+	              BiConsumer<R,R> combiner)
+	Name: collect
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#collect-java.util.function.Supplier-java.util.function.ObjIntConsumer-java.util.function.BiConsumer-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+		R
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Supplier {
+			null::R
+		}
+		java.util.function::ObjIntConsumer {
+			null::R
+		}
+		java.util.function::BiConsumer {
+			null::R
+			null::R
+		}
+	
+		[result]
+		null::R
+	}
+
+	[Function]
+	int sum()
+	Name: sum
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#sum--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	OptionalInt min()
+	Name: min
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#min--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::OptionalInt
+	}
+
+	[Function]
+	OptionalInt max()
+	Name: max
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#max--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::OptionalInt
+	}
+
+	[Function]
+	long count()
+	Name: count
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#count--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	OptionalDouble average()
+	Name: average
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#average--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::OptionalDouble
+	}
+
+	[Function]
+	IntSummaryStatistics summaryStatistics()
+	Name: summaryStatistics
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#summaryStatistics--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::IntSummaryStatistics
+	}
+
+	[Function]
+	boolean anyMatch(IntPredicate predicate)
+	Name: anyMatch
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#anyMatch-java.util.function.IntPredicate-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::IntPredicate
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean allMatch(IntPredicate predicate)
+	Name: allMatch
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#allMatch-java.util.function.IntPredicate-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::IntPredicate
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean noneMatch(IntPredicate predicate)
+	Name: noneMatch
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#noneMatch-java.util.function.IntPredicate-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::IntPredicate
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	OptionalInt findFirst()
+	Name: findFirst
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#findFirst--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::OptionalInt
+	}
+
+	[Function]
+	OptionalInt findAny()
+	Name: findAny
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#findAny--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::OptionalInt
+	}
+
+	[Function]
+	LongStream asLongStream()
+	Name: asLongStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#asLongStream--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::LongStream
+	}
+
+	[Function]
+	DoubleStream asDoubleStream()
+	Name: asDoubleStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#asDoubleStream--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::DoubleStream
+	}
+
+	[Function]
+	Stream<Integer> boxed()
+	Name: boxed
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#boxed--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::Stream {
+			java.lang::Integer
+		}
+	}
+
+	[Function]
+	IntStream sequential()
+	Name: sequential
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#sequential--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::IntStream
+	}
+
+	[Function]
+	IntStream parallel()
+	Name: parallel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#parallel--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::IntStream
+	}
+
+	[Function]
+	PrimitiveIterator.OfInt iterator()
+	Name: iterator
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#iterator--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::PrimitiveIterator.OfInt
+	}
+
+	[Function]
+	Spliterator.OfInt spliterator()
+	Name: spliterator
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#spliterator--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Spliterator.OfInt
+	}
+
+	[Function]
+	static IntStream.Builder builder()
+	Name: builder
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#builder--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::IntStream.Builder
+	}
+
+	[Function]
+	static IntStream empty()
+	Name: empty
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#empty--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::IntStream
+	}
+
+	[Function]
+	static IntStream of(int t)
+	Name: of
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#of-int-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		java.util.stream::IntStream
+	}
+
+	[Function]
+	static IntStream of(int... values)
+	Name: of
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#of-int...-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::... {
+			other::int
+		}
+	
+		[result]
+		java.util.stream::IntStream
+	}
+
+	[Function]
+	static IntStream iterate(int seed,
+	                         IntUnaryOperator f)
+	Name: iterate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#iterate-int-java.util.function.IntUnaryOperator-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		java.util.function::IntUnaryOperator
+	
+		[result]
+		java.util.stream::IntStream
+	}
+
+	[Function]
+	static IntStream generate(IntSupplier s)
+	Name: generate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#generate-java.util.function.IntSupplier-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::IntSupplier
+	
+		[result]
+		java.util.stream::IntStream
+	}
+
+	[Function]
+	static IntStream range(int startInclusive,
+	                       int endExclusive)
+	Name: range
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#range-int-int-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::int
+	
+		[result]
+		java.util.stream::IntStream
+	}
+
+	[Function]
+	static IntStream rangeClosed(int startInclusive,
+	                             int endInclusive)
+	Name: rangeClosed
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#rangeClosed-int-int-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::int
+	
+		[result]
+		java.util.stream::IntStream
+	}
+
+	[Function]
+	static IntStream concat(IntStream a,
+	                        IntStream b)
+	Name: concat
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#concat-java.util.stream.IntStream-java.util.stream.IntStream-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.stream::IntStream
+		java.util.stream::IntStream
+	
+		[result]
+		java.util.stream::IntStream
+	}
+}
+
+[Classifier]
+public static interface IntStream.Builder
+extends IntConsumer
+Name: IntStream.Builder
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.Builder.html
+Containing package: java.util.stream
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=true
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.util.function::IntConsumer
+}
+members {
+
+	[Function]
+	void accept(int t)
+	Name: accept
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.Builder.html#accept-int-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream.Builder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	default IntStream.Builder add(int t)
+	Name: add
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.Builder.html#add-int-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream.Builder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		java.util.stream::IntStream.Builder
+	}
+
+	[Function]
+	IntStream build()
+	Name: build
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.Builder.html#build--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IntStream.Builder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::IntStream
+	}
+}
+
+[Classifier]
+public interface LongStream
+extends BaseStream<Long,LongStream>
+Name: LongStream
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html
+Containing package: java.util.stream
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.util.stream::BaseStream {
+		java.lang::Long
+		java.util.stream::LongStream
+	}
+}
+members {
+
+	[Function]
+	LongStream filter(LongPredicate predicate)
+	Name: filter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#filter-java.util.function.LongPredicate-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::LongPredicate
+	
+		[result]
+		java.util.stream::LongStream
+	}
+
+	[Function]
+	LongStream map(LongUnaryOperator mapper)
+	Name: map
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#map-java.util.function.LongUnaryOperator-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::LongUnaryOperator
+	
+		[result]
+		java.util.stream::LongStream
+	}
+
+	[Function]
+	<U> Stream<U> mapToObj(LongFunction<? extends U> mapper)
+	Name: mapToObj
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#mapToObj-java.util.function.LongFunction-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+		U
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::LongFunction {
+			? {
+				extends null::U
+			}
+		}
+	
+		[result]
+		java.util.stream::Stream {
+			null::U
+		}
+	}
+
+	[Function]
+	IntStream mapToInt(LongToIntFunction mapper)
+	Name: mapToInt
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#mapToInt-java.util.function.LongToIntFunction-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::LongToIntFunction
+	
+		[result]
+		java.util.stream::IntStream
+	}
+
+	[Function]
+	DoubleStream mapToDouble(LongToDoubleFunction mapper)
+	Name: mapToDouble
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#mapToDouble-java.util.function.LongToDoubleFunction-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::LongToDoubleFunction
+	
+		[result]
+		java.util.stream::DoubleStream
+	}
+
+	[Function]
+	LongStream flatMap(LongFunction<? extends LongStream> mapper)
+	Name: flatMap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#flatMap-java.util.function.LongFunction-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::LongFunction {
+			? {
+				extends java.util.stream::LongStream
+			}
+		}
+	
+		[result]
+		java.util.stream::LongStream
+	}
+
+	[Function]
+	LongStream distinct()
+	Name: distinct
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#distinct--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::LongStream
+	}
+
+	[Function]
+	LongStream sorted()
+	Name: sorted
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#sorted--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::LongStream
+	}
+
+	[Function]
+	LongStream peek(LongConsumer action)
+	Name: peek
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#peek-java.util.function.LongConsumer-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::LongConsumer
+	
+		[result]
+		java.util.stream::LongStream
+	}
+
+	[Function]
+	LongStream limit(long maxSize)
+	Name: limit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#limit-long-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		java.util.stream::LongStream
+	}
+
+	[Function]
+	LongStream skip(long n)
+	Name: skip
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#skip-long-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		java.util.stream::LongStream
+	}
+
+	[Function]
+	void forEach(LongConsumer action)
+	Name: forEach
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#forEach-java.util.function.LongConsumer-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::LongConsumer
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void forEachOrdered(LongConsumer action)
+	Name: forEachOrdered
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#forEachOrdered-java.util.function.LongConsumer-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::LongConsumer
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	long[] toArray()
+	Name: toArray
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#toArray--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::long
+		}
+	}
+
+	[Function]
+	long reduce(long identity,
+	            LongBinaryOperator op)
+	Name: reduce
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#reduce-long-java.util.function.LongBinaryOperator-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		java.util.function::LongBinaryOperator
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	OptionalLong reduce(LongBinaryOperator op)
+	Name: reduce
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#reduce-java.util.function.LongBinaryOperator-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::LongBinaryOperator
+	
+		[result]
+		java.util::OptionalLong
+	}
+
+	[Function]
+	<R> R collect(Supplier<R> supplier,
+	              ObjLongConsumer<R> accumulator,
+	              BiConsumer<R,R> combiner)
+	Name: collect
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#collect-java.util.function.Supplier-java.util.function.ObjLongConsumer-java.util.function.BiConsumer-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+		R
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Supplier {
+			null::R
+		}
+		java.util.function::ObjLongConsumer {
+			null::R
+		}
+		java.util.function::BiConsumer {
+			null::R
+			null::R
+		}
+	
+		[result]
+		null::R
+	}
+
+	[Function]
+	long sum()
+	Name: sum
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#sum--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	OptionalLong min()
+	Name: min
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#min--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::OptionalLong
+	}
+
+	[Function]
+	OptionalLong max()
+	Name: max
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#max--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::OptionalLong
+	}
+
+	[Function]
+	long count()
+	Name: count
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#count--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	OptionalDouble average()
+	Name: average
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#average--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::OptionalDouble
+	}
+
+	[Function]
+	LongSummaryStatistics summaryStatistics()
+	Name: summaryStatistics
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#summaryStatistics--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::LongSummaryStatistics
+	}
+
+	[Function]
+	boolean anyMatch(LongPredicate predicate)
+	Name: anyMatch
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#anyMatch-java.util.function.LongPredicate-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::LongPredicate
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean allMatch(LongPredicate predicate)
+	Name: allMatch
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#allMatch-java.util.function.LongPredicate-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::LongPredicate
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean noneMatch(LongPredicate predicate)
+	Name: noneMatch
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#noneMatch-java.util.function.LongPredicate-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::LongPredicate
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	OptionalLong findFirst()
+	Name: findFirst
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#findFirst--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::OptionalLong
+	}
+
+	[Function]
+	OptionalLong findAny()
+	Name: findAny
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#findAny--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::OptionalLong
+	}
+
+	[Function]
+	DoubleStream asDoubleStream()
+	Name: asDoubleStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#asDoubleStream--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::DoubleStream
+	}
+
+	[Function]
+	Stream<Long> boxed()
+	Name: boxed
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#boxed--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::Stream {
+			java.lang::Long
+		}
+	}
+
+	[Function]
+	LongStream sequential()
+	Name: sequential
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#sequential--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::LongStream
+	}
+
+	[Function]
+	LongStream parallel()
+	Name: parallel
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#parallel--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::LongStream
+	}
+
+	[Function]
+	PrimitiveIterator.OfLong iterator()
+	Name: iterator
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#iterator--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::PrimitiveIterator.OfLong
+	}
+
+	[Function]
+	Spliterator.OfLong spliterator()
+	Name: spliterator
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#spliterator--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Spliterator.OfLong
+	}
+
+	[Function]
+	static LongStream.Builder builder()
+	Name: builder
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#builder--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::LongStream.Builder
+	}
+
+	[Function]
+	static LongStream empty()
+	Name: empty
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#empty--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::LongStream
+	}
+
+	[Function]
+	static LongStream of(long t)
+	Name: of
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#of-long-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		java.util.stream::LongStream
+	}
+
+	[Function]
+	static LongStream of(long... values)
+	Name: of
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#of-long...-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::... {
+			other::long
+		}
+	
+		[result]
+		java.util.stream::LongStream
+	}
+
+	[Function]
+	static LongStream iterate(long seed,
+	                          LongUnaryOperator f)
+	Name: iterate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#iterate-long-java.util.function.LongUnaryOperator-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		java.util.function::LongUnaryOperator
+	
+		[result]
+		java.util.stream::LongStream
+	}
+
+	[Function]
+	static LongStream generate(LongSupplier s)
+	Name: generate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#generate-java.util.function.LongSupplier-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::LongSupplier
+	
+		[result]
+		java.util.stream::LongStream
+	}
+
+	[Function]
+	static LongStream range(long startInclusive,
+	                        long endExclusive)
+	Name: range
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#range-long-long-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		other::long
+	
+		[result]
+		java.util.stream::LongStream
+	}
+
+	[Function]
+	static LongStream rangeClosed(long startInclusive,
+	                              long endInclusive)
+	Name: rangeClosed
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#rangeClosed-long-long-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		other::long
+	
+		[result]
+		java.util.stream::LongStream
+	}
+
+	[Function]
+	static LongStream concat(LongStream a,
+	                         LongStream b)
+	Name: concat
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html#concat-java.util.stream.LongStream-java.util.stream.LongStream-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.stream::LongStream
+		java.util.stream::LongStream
+	
+		[result]
+		java.util.stream::LongStream
+	}
+}
+
+[Classifier]
+public static interface LongStream.Builder
+extends LongConsumer
+Name: LongStream.Builder
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.Builder.html
+Containing package: java.util.stream
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=true
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.util.function::LongConsumer
+}
+members {
+
+	[Function]
+	void accept(long t)
+	Name: accept
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.Builder.html#accept-long-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream.Builder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	default LongStream.Builder add(long t)
+	Name: add
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.Builder.html#add-long-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream.Builder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		java.util.stream::LongStream.Builder
+	}
+
+	[Function]
+	LongStream build()
+	Name: build
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.Builder.html#build--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: LongStream.Builder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::LongStream
+	}
+}
+
+[Classifier]
+public interface Stream<T>
+extends BaseStream<T,Stream<T>>
+Name: Stream
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html
+Containing package: java.util.stream
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+}
+supertypes {
+	java.util.stream::BaseStream {
+		null::T
+		java.util.stream::Stream {
+			null::T
+		}
+	}
+}
+members {
+
+	[Function]
+	Stream<T> filter(Predicate<? super T> predicate)
+	Name: filter
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#filter-java.util.function.Predicate-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Predicate {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		java.util.stream::Stream {
+			null::T
+		}
+	}
+
+	[Function]
+	<R> Stream<R> map(Function<? super T,? extends R> mapper)
+	Name: map
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#map-java.util.function.Function-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+		R
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Function {
+			? {
+				super null::T
+			}
+			? {
+				extends null::R
+			}
+		}
+	
+		[result]
+		java.util.stream::Stream {
+			null::R
+		}
+	}
+
+	[Function]
+	IntStream mapToInt(ToIntFunction<? super T> mapper)
+	Name: mapToInt
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#mapToInt-java.util.function.ToIntFunction-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::ToIntFunction {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		java.util.stream::IntStream
+	}
+
+	[Function]
+	LongStream mapToLong(ToLongFunction<? super T> mapper)
+	Name: mapToLong
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#mapToLong-java.util.function.ToLongFunction-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::ToLongFunction {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		java.util.stream::LongStream
+	}
+
+	[Function]
+	DoubleStream mapToDouble(ToDoubleFunction<? super T> mapper)
+	Name: mapToDouble
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#mapToDouble-java.util.function.ToDoubleFunction-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::ToDoubleFunction {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		java.util.stream::DoubleStream
+	}
+
+	[Function]
+	<R> Stream<R> flatMap(Function<? super T,? extends Stream<? extends R>> mapper)
+	Name: flatMap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#flatMap-java.util.function.Function-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+		R
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Function {
+			? {
+				super null::T
+			}
+			? {
+				extends java.util.stream::Stream {
+					? {
+						extends null::R
+					}
+				}
+			}
+		}
+	
+		[result]
+		java.util.stream::Stream {
+			null::R
+		}
+	}
+
+	[Function]
+	IntStream flatMapToInt(Function<? super T,? extends IntStream> mapper)
+	Name: flatMapToInt
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#flatMapToInt-java.util.function.Function-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Function {
+			? {
+				super null::T
+			}
+			? {
+				extends java.util.stream::IntStream
+			}
+		}
+	
+		[result]
+		java.util.stream::IntStream
+	}
+
+	[Function]
+	LongStream flatMapToLong(Function<? super T,? extends LongStream> mapper)
+	Name: flatMapToLong
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#flatMapToLong-java.util.function.Function-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Function {
+			? {
+				super null::T
+			}
+			? {
+				extends java.util.stream::LongStream
+			}
+		}
+	
+		[result]
+		java.util.stream::LongStream
+	}
+
+	[Function]
+	DoubleStream flatMapToDouble(Function<? super T,? extends DoubleStream> mapper)
+	Name: flatMapToDouble
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#flatMapToDouble-java.util.function.Function-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Function {
+			? {
+				super null::T
+			}
+			? {
+				extends java.util.stream::DoubleStream
+			}
+		}
+	
+		[result]
+		java.util.stream::DoubleStream
+	}
+
+	[Function]
+	Stream<T> distinct()
+	Name: distinct
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#distinct--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::Stream {
+			null::T
+		}
+	}
+
+	[Function]
+	Stream<T> sorted()
+	Name: sorted
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#sorted--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::Stream {
+			null::T
+		}
+	}
+
+	[Function]
+	Stream<T> sorted(Comparator<? super T> comparator)
+	Name: sorted
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#sorted-java.util.Comparator-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Comparator {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		java.util.stream::Stream {
+			null::T
+		}
+	}
+
+	[Function]
+	Stream<T> peek(Consumer<? super T> action)
+	Name: peek
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#peek-java.util.function.Consumer-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Consumer {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		java.util.stream::Stream {
+			null::T
+		}
+	}
+
+	[Function]
+	Stream<T> limit(long maxSize)
+	Name: limit
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#limit-long-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		java.util.stream::Stream {
+			null::T
+		}
+	}
+
+	[Function]
+	Stream<T> skip(long n)
+	Name: skip
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#skip-long-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		java.util.stream::Stream {
+			null::T
+		}
+	}
+
+	[Function]
+	void forEach(Consumer<? super T> action)
+	Name: forEach
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#forEach-java.util.function.Consumer-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Consumer {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void forEachOrdered(Consumer<? super T> action)
+	Name: forEachOrdered
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#forEachOrdered-java.util.function.Consumer-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Consumer {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	Object[] toArray()
+	Name: toArray
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#toArray--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			java.lang::Object
+		}
+	}
+
+	[Function]
+	<A> A[] toArray(IntFunction<A[]> generator)
+	Name: toArray
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#toArray-java.util.function.IntFunction-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+		A
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::IntFunction {
+			other::[] {
+				null::A
+			}
+		}
+	
+		[result]
+		other::[] {
+			null::A
+		}
+	}
+
+	[Function]
+	T reduce(T identity,
+	         BinaryOperator<T> accumulator)
+	Name: reduce
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#reduce-T-java.util.function.BinaryOperator-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		java.util.function::BinaryOperator {
+			null::T
+		}
+	
+		[result]
+		null::T
+	}
+
+	[Function]
+	Optional<T> reduce(BinaryOperator<T> accumulator)
+	Name: reduce
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#reduce-java.util.function.BinaryOperator-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::BinaryOperator {
+			null::T
+		}
+	
+		[result]
+		java.util::Optional {
+			null::T
+		}
+	}
+
+	[Function]
+	<U> U reduce(U identity,
+	             BiFunction<U,? super T,U> accumulator,
+	             BinaryOperator<U> combiner)
+	Name: reduce
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#reduce-U-java.util.function.BiFunction-java.util.function.BinaryOperator-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+		U
+	}
+	Signature = <function> {
+		[parameters]
+		null::U
+		java.util.function::BiFunction {
+			null::U
+			? {
+				super null::T
+			}
+			null::U
+		}
+		java.util.function::BinaryOperator {
+			null::U
+		}
+	
+		[result]
+		null::U
+	}
+
+	[Function]
+	<R> R collect(Supplier<R> supplier,
+	              BiConsumer<R,? super T> accumulator,
+	              BiConsumer<R,R> combiner)
+	Name: collect
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#collect-java.util.function.Supplier-java.util.function.BiConsumer-java.util.function.BiConsumer-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+		R
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Supplier {
+			null::R
+		}
+		java.util.function::BiConsumer {
+			null::R
+			? {
+				super null::T
+			}
+		}
+		java.util.function::BiConsumer {
+			null::R
+			null::R
+		}
+	
+		[result]
+		null::R
+	}
+
+	[Function]
+	<R,A> R collect(Collector<? super T,A,R> collector)
+	Name: collect
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#collect-java.util.stream.Collector-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+		A
+		R
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.stream::Collector {
+			? {
+				super null::T
+			}
+			null::A
+			null::R
+		}
+	
+		[result]
+		null::R
+	}
+
+	[Function]
+	Optional<T> min(Comparator<? super T> comparator)
+	Name: min
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#min-java.util.Comparator-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Comparator {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		java.util::Optional {
+			null::T
+		}
+	}
+
+	[Function]
+	Optional<T> max(Comparator<? super T> comparator)
+	Name: max
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#max-java.util.Comparator-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Comparator {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		java.util::Optional {
+			null::T
+		}
+	}
+
+	[Function]
+	long count()
+	Name: count
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#count--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	boolean anyMatch(Predicate<? super T> predicate)
+	Name: anyMatch
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#anyMatch-java.util.function.Predicate-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Predicate {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean allMatch(Predicate<? super T> predicate)
+	Name: allMatch
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#allMatch-java.util.function.Predicate-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Predicate {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean noneMatch(Predicate<? super T> predicate)
+	Name: noneMatch
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#noneMatch-java.util.function.Predicate-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Predicate {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	Optional<T> findFirst()
+	Name: findFirst
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#findFirst--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Optional {
+			null::T
+		}
+	}
+
+	[Function]
+	Optional<T> findAny()
+	Name: findAny
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#findAny--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Optional {
+			null::T
+		}
+	}
+
+	[Function]
+	static <T> Stream.Builder<T> builder()
+	Name: builder
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#builder--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::Stream.Builder {
+			null::T
+		}
+	}
+
+	[Function]
+	static <T> Stream<T> empty()
+	Name: empty
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#empty--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::Stream {
+			null::T
+		}
+	}
+
+	[Function]
+	static <T> Stream<T> of(T t)
+	Name: of
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#of-T-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+	
+		[result]
+		java.util.stream::Stream {
+			null::T
+		}
+	}
+
+	[Function]
+	@SafeVarargs
+	static <T> Stream<T> of(T... values)
+	Name: of
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#of-T...-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		other::... {
+			null::T
+		}
+	
+		[result]
+		java.util.stream::Stream {
+			null::T
+		}
+	}
+
+	[Function]
+	static <T> Stream<T> iterate(T seed,
+	                             UnaryOperator<T> f)
+	Name: iterate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#iterate-T-java.util.function.UnaryOperator-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		java.util.function::UnaryOperator {
+			null::T
+		}
+	
+		[result]
+		java.util.stream::Stream {
+			null::T
+		}
+	}
+
+	[Function]
+	static <T> Stream<T> generate(Supplier<T> s)
+	Name: generate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#generate-java.util.function.Supplier-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Supplier {
+			null::T
+		}
+	
+		[result]
+		java.util.stream::Stream {
+			null::T
+		}
+	}
+
+	[Function]
+	static <T> Stream<T> concat(Stream<? extends T> a,
+	                            Stream<? extends T> b)
+	Name: concat
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#concat-java.util.stream.Stream-java.util.stream.Stream-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.stream::Stream {
+			? {
+				extends null::T
+			}
+		}
+		java.util.stream::Stream {
+			? {
+				extends null::T
+			}
+		}
+	
+		[result]
+		java.util.stream::Stream {
+			null::T
+		}
+	}
+}
+
+[Classifier]
+public static interface Stream.Builder<T>
+extends Consumer<T>
+Name: Stream.Builder
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.Builder.html
+Containing package: java.util.stream
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=true
+	scope=public
+}
+parameters {
+	T
+}
+derived {
+}
+supertypes {
+	java.util.function::Consumer {
+		null::T
+	}
+}
+members {
+
+	[Function]
+	void accept(T t)
+	Name: accept
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.Builder.html#accept-T-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream.Builder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	default Stream.Builder<T> add(T t)
+	Name: add
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.Builder.html#add-T-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=true
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream.Builder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+	
+		[result]
+		java.util.stream::Stream.Builder {
+			null::T
+		}
+	}
+
+	[Function]
+	Stream<T> build()
+	Name: build
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.Builder.html#build--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Stream.Builder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::Stream {
+			null::T
+		}
+	}
+}
+
+[Classifier]
+public final class Collectors
+extends Object
+Name: Collectors
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html
+Containing package: java.util.stream
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static <T,C extends Collection<T>> Collector<T,?,C> toCollection(Supplier<C> collectionFactory)
+	Name: toCollection
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#toCollection-java.util.function.Supplier-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		T: (C extends Collection<T>; T, C; java.util::Collection)
+		C: (C extends Collection<T>; T, C; java.util::Collection)
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Supplier {
+			null::C
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			null::C
+		}
+	}
+
+	[Function]
+	public static <T> Collector<T,?,List<T>> toList()
+	Name: toList
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#toList--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			java.util::List {
+				null::T
+			}
+		}
+	}
+
+	[Function]
+	public static <T> Collector<T,?,Set<T>> toSet()
+	Name: toSet
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#toSet--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			java.util::Set {
+				null::T
+			}
+		}
+	}
+
+	[Function]
+	public static Collector<CharSequence,?,String> joining()
+	Name: joining
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#joining--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::Collector {
+			java.lang::CharSequence
+			?
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public static Collector<CharSequence,?,String> joining(CharSequence delimiter)
+	Name: joining
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#joining-java.lang.CharSequence-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::CharSequence
+	
+		[result]
+		java.util.stream::Collector {
+			java.lang::CharSequence
+			?
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public static Collector<CharSequence,?,String> joining(CharSequence delimiter,
+	                                                       CharSequence prefix,
+	                                                       CharSequence suffix)
+	Name: joining
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#joining-java.lang.CharSequence-java.lang.CharSequence-java.lang.CharSequence-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::CharSequence
+		java.lang::CharSequence
+		java.lang::CharSequence
+	
+		[result]
+		java.util.stream::Collector {
+			java.lang::CharSequence
+			?
+			java.lang::String
+		}
+	}
+
+	[Function]
+	public static <T,U,A,R> Collector<T,?,R> mapping(Function<? super T,? extends U> mapper,
+	                                                 Collector<? super U,A,R> downstream)
+	Name: mapping
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#mapping-java.util.function.Function-java.util.stream.Collector-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		U
+		T
+		A
+		R
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Function {
+			? {
+				super null::T
+			}
+			? {
+				extends null::U
+			}
+		}
+		java.util.stream::Collector {
+			? {
+				super null::U
+			}
+			null::A
+			null::R
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			null::R
+		}
+	}
+
+	[Function]
+	public static <T,A,R,RR> Collector<T,A,RR> collectingAndThen(Collector<T,A,R> downstream,
+	                                                             Function<R,RR> finisher)
+	Name: collectingAndThen
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#collectingAndThen-java.util.stream.Collector-java.util.function.Function-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		RR
+		T
+		A
+		R
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.stream::Collector {
+			null::T
+			null::A
+			null::R
+		}
+		java.util.function::Function {
+			null::R
+			null::RR
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			null::A
+			null::RR
+		}
+	}
+
+	[Function]
+	public static <T> Collector<T,?,Long> counting()
+	Name: counting
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#counting--
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			java.lang::Long
+		}
+	}
+
+	[Function]
+	public static <T> Collector<T,?,Optional<T>> minBy(Comparator<? super T> comparator)
+	Name: minBy
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#minBy-java.util.Comparator-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Comparator {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			java.util::Optional {
+				null::T
+			}
+		}
+	}
+
+	[Function]
+	public static <T> Collector<T,?,Optional<T>> maxBy(Comparator<? super T> comparator)
+	Name: maxBy
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#maxBy-java.util.Comparator-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Comparator {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			java.util::Optional {
+				null::T
+			}
+		}
+	}
+
+	[Function]
+	public static <T> Collector<T,?,Integer> summingInt(ToIntFunction<? super T> mapper)
+	Name: summingInt
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#summingInt-java.util.function.ToIntFunction-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::ToIntFunction {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			java.lang::Integer
+		}
+	}
+
+	[Function]
+	public static <T> Collector<T,?,Long> summingLong(ToLongFunction<? super T> mapper)
+	Name: summingLong
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#summingLong-java.util.function.ToLongFunction-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::ToLongFunction {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			java.lang::Long
+		}
+	}
+
+	[Function]
+	public static <T> Collector<T,?,Double> summingDouble(ToDoubleFunction<? super T> mapper)
+	Name: summingDouble
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#summingDouble-java.util.function.ToDoubleFunction-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::ToDoubleFunction {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			java.lang::Double
+		}
+	}
+
+	[Function]
+	public static <T> Collector<T,?,Double> averagingInt(ToIntFunction<? super T> mapper)
+	Name: averagingInt
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#averagingInt-java.util.function.ToIntFunction-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::ToIntFunction {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			java.lang::Double
+		}
+	}
+
+	[Function]
+	public static <T> Collector<T,?,Double> averagingLong(ToLongFunction<? super T> mapper)
+	Name: averagingLong
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#averagingLong-java.util.function.ToLongFunction-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::ToLongFunction {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			java.lang::Double
+		}
+	}
+
+	[Function]
+	public static <T> Collector<T,?,Double> averagingDouble(ToDoubleFunction<? super T> mapper)
+	Name: averagingDouble
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#averagingDouble-java.util.function.ToDoubleFunction-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::ToDoubleFunction {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			java.lang::Double
+		}
+	}
+
+	[Function]
+	public static <T> Collector<T,?,T> reducing(T identity,
+	                                            BinaryOperator<T> op)
+	Name: reducing
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#reducing-T-java.util.function.BinaryOperator-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		null::T
+		java.util.function::BinaryOperator {
+			null::T
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			null::T
+		}
+	}
+
+	[Function]
+	public static <T> Collector<T,?,Optional<T>> reducing(BinaryOperator<T> op)
+	Name: reducing
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#reducing-java.util.function.BinaryOperator-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::BinaryOperator {
+			null::T
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			java.util::Optional {
+				null::T
+			}
+		}
+	}
+
+	[Function]
+	public static <T,U> Collector<T,?,U> reducing(U identity,
+	                                              Function<? super T,? extends U> mapper,
+	                                              BinaryOperator<U> op)
+	Name: reducing
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#reducing-U-java.util.function.Function-java.util.function.BinaryOperator-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		U
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		null::U
+		java.util.function::Function {
+			? {
+				super null::T
+			}
+			? {
+				extends null::U
+			}
+		}
+		java.util.function::BinaryOperator {
+			null::U
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			null::U
+		}
+	}
+
+	[Function]
+	public static <T,K> Collector<T,?,Map<K,List<T>>> groupingBy(Function<? super T,? extends K> classifier)
+	Name: groupingBy
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#groupingBy-java.util.function.Function-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		T
+		K
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Function {
+			? {
+				super null::T
+			}
+			? {
+				extends null::K
+			}
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			java.util::Map {
+				null::K
+				java.util::List {
+					null::T
+				}
+			}
+		}
+	}
+
+	[Function]
+	public static <T,K,A,D> Collector<T,?,Map<K,D>> groupingBy(Function<? super T,? extends K> classifier,
+	                                                           Collector<? super T,A,D> downstream)
+	Name: groupingBy
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#groupingBy-java.util.function.Function-java.util.stream.Collector-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		D
+		T
+		A
+		K
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Function {
+			? {
+				super null::T
+			}
+			? {
+				extends null::K
+			}
+		}
+		java.util.stream::Collector {
+			? {
+				super null::T
+			}
+			null::A
+			null::D
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			java.util::Map {
+				null::K
+				null::D
+			}
+		}
+	}
+
+	[Function]
+	public static <T,K,D,A,M extends Map<K,D>> Collector<T,?,M> groupingBy(Function<? super T,? extends K> classifier,
+	                                                                       Supplier<M> mapFactory,
+	                                                                       Collector<? super T,A,D> downstream)
+	Name: groupingBy
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#groupingBy-java.util.function.Function-java.util.function.Supplier-java.util.stream.Collector-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		D: (M extends Map<K,D>; K, D, M; java.util::Map)
+		T
+		A
+		M: (M extends Map<K,D>; K, D, M; java.util::Map)
+		K: (M extends Map<K,D>; K, D, M; java.util::Map)
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Function {
+			? {
+				super null::T
+			}
+			? {
+				extends null::K
+			}
+		}
+		java.util.function::Supplier {
+			null::M
+		}
+		java.util.stream::Collector {
+			? {
+				super null::T
+			}
+			null::A
+			null::D
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			null::M
+		}
+	}
+
+	[Function]
+	public static <T,K> Collector<T,?,ConcurrentMap<K,List<T>>> groupingByConcurrent(Function<? super T,? extends K> classifier)
+	Name: groupingByConcurrent
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#groupingByConcurrent-java.util.function.Function-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		T
+		K
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Function {
+			? {
+				super null::T
+			}
+			? {
+				extends null::K
+			}
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			java.util.concurrent::ConcurrentMap {
+				null::K
+				java.util::List {
+					null::T
+				}
+			}
+		}
+	}
+
+	[Function]
+	public static <T,K,A,D> Collector<T,?,ConcurrentMap<K,D>> groupingByConcurrent(Function<? super T,? extends K> classifier,
+	                                                                               Collector<? super T,A,D> downstream)
+	Name: groupingByConcurrent
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#groupingByConcurrent-java.util.function.Function-java.util.stream.Collector-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		D
+		T
+		A
+		K
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Function {
+			? {
+				super null::T
+			}
+			? {
+				extends null::K
+			}
+		}
+		java.util.stream::Collector {
+			? {
+				super null::T
+			}
+			null::A
+			null::D
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			java.util.concurrent::ConcurrentMap {
+				null::K
+				null::D
+			}
+		}
+	}
+
+	[Function]
+	public static <T,K,A,D,M extends ConcurrentMap<K,D>> Collector<T,?,M> groupingByConcurrent(Function<? super T,? extends K> classifier,
+	                                                                                           Supplier<M> mapFactory,
+	                                                                                           Collector<? super T,A,D> downstream)
+	Name: groupingByConcurrent
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#groupingByConcurrent-java.util.function.Function-java.util.function.Supplier-java.util.stream.Collector-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		D: (M extends ConcurrentMap<K,D>; K, D, M; java.util.concurrent::ConcurrentMap)
+		T
+		A
+		M: (M extends ConcurrentMap<K,D>; K, D, M; java.util.concurrent::ConcurrentMap)
+		K: (M extends ConcurrentMap<K,D>; K, D, M; java.util.concurrent::ConcurrentMap)
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Function {
+			? {
+				super null::T
+			}
+			? {
+				extends null::K
+			}
+		}
+		java.util.function::Supplier {
+			null::M
+		}
+		java.util.stream::Collector {
+			? {
+				super null::T
+			}
+			null::A
+			null::D
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			null::M
+		}
+	}
+
+	[Function]
+	public static <T> Collector<T,?,Map<Boolean,List<T>>> partitioningBy(Predicate<? super T> predicate)
+	Name: partitioningBy
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#partitioningBy-java.util.function.Predicate-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Predicate {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			java.util::Map {
+				java.lang::Boolean
+				java.util::List {
+					null::T
+				}
+			}
+		}
+	}
+
+	[Function]
+	public static <T,D,A> Collector<T,?,Map<Boolean,D>> partitioningBy(Predicate<? super T> predicate,
+	                                                                   Collector<? super T,A,D> downstream)
+	Name: partitioningBy
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#partitioningBy-java.util.function.Predicate-java.util.stream.Collector-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		D
+		T
+		A
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Predicate {
+			? {
+				super null::T
+			}
+		}
+		java.util.stream::Collector {
+			? {
+				super null::T
+			}
+			null::A
+			null::D
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			java.util::Map {
+				java.lang::Boolean
+				null::D
+			}
+		}
+	}
+
+	[Function]
+	public static <T,K,U> Collector<T,?,Map<K,U>> toMap(Function<? super T,? extends K> keyMapper,
+	                                                    Function<? super T,? extends U> valueMapper)
+	Name: toMap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#toMap-java.util.function.Function-java.util.function.Function-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		U
+		T
+		K
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Function {
+			? {
+				super null::T
+			}
+			? {
+				extends null::K
+			}
+		}
+		java.util.function::Function {
+			? {
+				super null::T
+			}
+			? {
+				extends null::U
+			}
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			java.util::Map {
+				null::K
+				null::U
+			}
+		}
+	}
+
+	[Function]
+	public static <T,K,U> Collector<T,?,Map<K,U>> toMap(Function<? super T,? extends K> keyMapper,
+	                                                    Function<? super T,? extends U> valueMapper,
+	                                                    BinaryOperator<U> mergeFunction)
+	Name: toMap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#toMap-java.util.function.Function-java.util.function.Function-java.util.function.BinaryOperator-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		U
+		T
+		K
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Function {
+			? {
+				super null::T
+			}
+			? {
+				extends null::K
+			}
+		}
+		java.util.function::Function {
+			? {
+				super null::T
+			}
+			? {
+				extends null::U
+			}
+		}
+		java.util.function::BinaryOperator {
+			null::U
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			java.util::Map {
+				null::K
+				null::U
+			}
+		}
+	}
+
+	[Function]
+	public static <T,K,U,M extends Map<K,U>> Collector<T,?,M> toMap(Function<? super T,? extends K> keyMapper,
+	                                                                Function<? super T,? extends U> valueMapper,
+	                                                                BinaryOperator<U> mergeFunction,
+	                                                                Supplier<M> mapSupplier)
+	Name: toMap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#toMap-java.util.function.Function-java.util.function.Function-java.util.function.BinaryOperator-java.util.function.Supplier-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		U: (M extends Map<K,U>; K, U, M; java.util::Map)
+		T
+		M: (M extends Map<K,U>; K, U, M; java.util::Map)
+		K: (M extends Map<K,U>; K, U, M; java.util::Map)
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Function {
+			? {
+				super null::T
+			}
+			? {
+				extends null::K
+			}
+		}
+		java.util.function::Function {
+			? {
+				super null::T
+			}
+			? {
+				extends null::U
+			}
+		}
+		java.util.function::BinaryOperator {
+			null::U
+		}
+		java.util.function::Supplier {
+			null::M
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			null::M
+		}
+	}
+
+	[Function]
+	public static <T,K,U> Collector<T,?,ConcurrentMap<K,U>> toConcurrentMap(Function<? super T,? extends K> keyMapper,
+	                                                                        Function<? super T,? extends U> valueMapper)
+	Name: toConcurrentMap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#toConcurrentMap-java.util.function.Function-java.util.function.Function-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		U
+		T
+		K
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Function {
+			? {
+				super null::T
+			}
+			? {
+				extends null::K
+			}
+		}
+		java.util.function::Function {
+			? {
+				super null::T
+			}
+			? {
+				extends null::U
+			}
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			java.util.concurrent::ConcurrentMap {
+				null::K
+				null::U
+			}
+		}
+	}
+
+	[Function]
+	public static <T,K,U> Collector<T,?,ConcurrentMap<K,U>> toConcurrentMap(Function<? super T,? extends K> keyMapper,
+	                                                                        Function<? super T,? extends U> valueMapper,
+	                                                                        BinaryOperator<U> mergeFunction)
+	Name: toConcurrentMap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#toConcurrentMap-java.util.function.Function-java.util.function.Function-java.util.function.BinaryOperator-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		U
+		T
+		K
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Function {
+			? {
+				super null::T
+			}
+			? {
+				extends null::K
+			}
+		}
+		java.util.function::Function {
+			? {
+				super null::T
+			}
+			? {
+				extends null::U
+			}
+		}
+		java.util.function::BinaryOperator {
+			null::U
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			java.util.concurrent::ConcurrentMap {
+				null::K
+				null::U
+			}
+		}
+	}
+
+	[Function]
+	public static <T,K,U,M extends ConcurrentMap<K,U>> Collector<T,?,M> toConcurrentMap(Function<? super T,? extends K> keyMapper,
+	                                                                                    Function<? super T,? extends U> valueMapper,
+	                                                                                    BinaryOperator<U> mergeFunction,
+	                                                                                    Supplier<M> mapSupplier)
+	Name: toConcurrentMap
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#toConcurrentMap-java.util.function.Function-java.util.function.Function-java.util.function.BinaryOperator-java.util.function.Supplier-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		U: (M extends ConcurrentMap<K,U>; K, U, M; java.util.concurrent::ConcurrentMap)
+		T
+		M: (M extends ConcurrentMap<K,U>; K, U, M; java.util.concurrent::ConcurrentMap)
+		K: (M extends ConcurrentMap<K,U>; K, U, M; java.util.concurrent::ConcurrentMap)
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Function {
+			? {
+				super null::T
+			}
+			? {
+				extends null::K
+			}
+		}
+		java.util.function::Function {
+			? {
+				super null::T
+			}
+			? {
+				extends null::U
+			}
+		}
+		java.util.function::BinaryOperator {
+			null::U
+		}
+		java.util.function::Supplier {
+			null::M
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			null::M
+		}
+	}
+
+	[Function]
+	public static <T> Collector<T,?,IntSummaryStatistics> summarizingInt(ToIntFunction<? super T> mapper)
+	Name: summarizingInt
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#summarizingInt-java.util.function.ToIntFunction-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::ToIntFunction {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			java.util::IntSummaryStatistics
+		}
+	}
+
+	[Function]
+	public static <T> Collector<T,?,LongSummaryStatistics> summarizingLong(ToLongFunction<? super T> mapper)
+	Name: summarizingLong
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#summarizingLong-java.util.function.ToLongFunction-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::ToLongFunction {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			java.util::LongSummaryStatistics
+		}
+	}
+
+	[Function]
+	public static <T> Collector<T,?,DoubleSummaryStatistics> summarizingDouble(ToDoubleFunction<? super T> mapper)
+	Name: summarizingDouble
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#summarizingDouble-java.util.function.ToDoubleFunction-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: Collectors
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::ToDoubleFunction {
+			? {
+				super null::T
+			}
+		}
+	
+		[result]
+		java.util.stream::Collector {
+			null::T
+			?
+			java.util::DoubleSummaryStatistics
+		}
+	}
+}
+
+[Classifier]
+public final class StreamSupport
+extends Object
+Name: StreamSupport
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/StreamSupport.html
+Containing package: java.util.stream
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static <T> Stream<T> stream(Spliterator<T> spliterator,
+	                                   boolean parallel)
+	Name: stream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/StreamSupport.html#stream-java.util.Spliterator-boolean-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: StreamSupport
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Spliterator {
+			null::T
+		}
+		other::boolean
+	
+		[result]
+		java.util.stream::Stream {
+			null::T
+		}
+	}
+
+	[Function]
+	public static <T> Stream<T> stream(Supplier<? extends Spliterator<T>> supplier,
+	                                   int characteristics,
+	                                   boolean parallel)
+	Name: stream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/StreamSupport.html#stream-java.util.function.Supplier-int-boolean-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: StreamSupport
+	parameters {
+		T
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Supplier {
+			? {
+				extends java.util::Spliterator {
+					null::T
+				}
+			}
+		}
+		other::int
+		other::boolean
+	
+		[result]
+		java.util.stream::Stream {
+			null::T
+		}
+	}
+
+	[Function]
+	public static IntStream intStream(Spliterator.OfInt spliterator,
+	                                  boolean parallel)
+	Name: intStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/StreamSupport.html#intStream-java.util.Spliterator.OfInt-boolean-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: StreamSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Spliterator.OfInt
+		other::boolean
+	
+		[result]
+		java.util.stream::IntStream
+	}
+
+	[Function]
+	public static IntStream intStream(Supplier<? extends Spliterator.OfInt> supplier,
+	                                  int characteristics,
+	                                  boolean parallel)
+	Name: intStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/StreamSupport.html#intStream-java.util.function.Supplier-int-boolean-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: StreamSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Supplier {
+			? {
+				extends java.util::Spliterator.OfInt
+			}
+		}
+		other::int
+		other::boolean
+	
+		[result]
+		java.util.stream::IntStream
+	}
+
+	[Function]
+	public static LongStream longStream(Spliterator.OfLong spliterator,
+	                                    boolean parallel)
+	Name: longStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/StreamSupport.html#longStream-java.util.Spliterator.OfLong-boolean-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: StreamSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Spliterator.OfLong
+		other::boolean
+	
+		[result]
+		java.util.stream::LongStream
+	}
+
+	[Function]
+	public static LongStream longStream(Supplier<? extends Spliterator.OfLong> supplier,
+	                                    int characteristics,
+	                                    boolean parallel)
+	Name: longStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/StreamSupport.html#longStream-java.util.function.Supplier-int-boolean-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: StreamSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Supplier {
+			? {
+				extends java.util::Spliterator.OfLong
+			}
+		}
+		other::int
+		other::boolean
+	
+		[result]
+		java.util.stream::LongStream
+	}
+
+	[Function]
+	public static DoubleStream doubleStream(Spliterator.OfDouble spliterator,
+	                                        boolean parallel)
+	Name: doubleStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/StreamSupport.html#doubleStream-java.util.Spliterator.OfDouble-boolean-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: StreamSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Spliterator.OfDouble
+		other::boolean
+	
+		[result]
+		java.util.stream::DoubleStream
+	}
+
+	[Function]
+	public static DoubleStream doubleStream(Supplier<? extends Spliterator.OfDouble> supplier,
+	                                        int characteristics,
+	                                        boolean parallel)
+	Name: doubleStream
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/stream/StreamSupport.html#doubleStream-java.util.function.Supplier-int-boolean-
+	Containing package: java.util.stream
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: StreamSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.function::Supplier {
+			? {
+				extends java.util::Spliterator.OfDouble
+			}
+		}
+		other::int
+		other::boolean
+	
+		[result]
+		java.util.stream::DoubleStream
+	}
+}

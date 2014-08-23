@@ -1,0 +1,4685 @@
+[Package]
+Name: org.omg.IOP
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/package-summary.html
+Containing package: null
+attributes {
+}
+
+Subpackages {
+	org.omg.IOP.CodecFactoryPackage
+	org.omg.IOP.CodecPackage
+}
+
+[Classifier]
+public interface Codec
+extends CodecOperations, Object, IDLEntity
+Name: Codec
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/Codec.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	org.omg.IOP::CodecOperations
+	org.omg.CORBA::Object
+	org.omg.CORBA.portable::IDLEntity
+}
+members {
+}
+
+[Classifier]
+public interface CodecFactory
+extends CodecFactoryOperations, Object, IDLEntity
+Name: CodecFactory
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/CodecFactory.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	org.omg.IOP::CodecFactoryOperations
+	org.omg.CORBA::Object
+	org.omg.CORBA.portable::IDLEntity
+}
+members {
+}
+
+[Classifier]
+public interface CodecFactoryOperations
+Name: CodecFactoryOperations
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/CodecFactoryOperations.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	org.omg.IOP::CodecFactory
+}
+supertypes {
+}
+members {
+
+	[Function]
+	Codec create_codec(Encoding enc)
+	            throws UnknownEncoding
+	Name: create_codec
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/CodecFactoryOperations.html#create_codec-org.omg.IOP.Encoding-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CodecFactoryOperations
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.IOP::Encoding
+	
+		[result]
+		org.omg.IOP::Codec
+	}
+}
+
+[Classifier]
+public interface CodecOperations
+Name: CodecOperations
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/CodecOperations.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	org.omg.IOP::Codec
+}
+supertypes {
+}
+members {
+
+	[Function]
+	byte[] encode(Any data)
+	       throws InvalidTypeForEncoding
+	Name: encode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/CodecOperations.html#encode-org.omg.CORBA.Any-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CodecOperations
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA::Any
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	Any decode(byte[] data)
+	    throws FormatMismatch
+	Name: decode
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/CodecOperations.html#decode-byte:A-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CodecOperations
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+	
+		[result]
+		org.omg.CORBA::Any
+	}
+
+	[Function]
+	byte[] encode_value(Any data)
+	             throws InvalidTypeForEncoding
+	Name: encode_value
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/CodecOperations.html#encode_value-org.omg.CORBA.Any-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CodecOperations
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA::Any
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	Any decode_value(byte[] data,
+	                 TypeCode tc)
+	          throws FormatMismatch,
+	                 TypeMismatch
+	Name: decode_value
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/CodecOperations.html#decode_value-byte:A-org.omg.CORBA.TypeCode-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: CodecOperations
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			other::byte
+		}
+		org.omg.CORBA::TypeCode
+	
+		[result]
+		org.omg.CORBA::Any
+	}
+}
+
+[Classifier]
+public interface CodeSets
+Name: CodeSets
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/CodeSets.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	static final int value
+	Name: value
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/CodeSets.html#value
+	Containing package: org.omg.IOP
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: CodeSets
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public interface ENCODING_CDR_ENCAPS
+Name: ENCODING_CDR_ENCAPS
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ENCODING_CDR_ENCAPS.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	static final short value
+	Name: value
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ENCODING_CDR_ENCAPS.html#value
+	Containing package: org.omg.IOP
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ENCODING_CDR_ENCAPS
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::short
+	}
+}
+
+[Classifier]
+public interface ExceptionDetailMessage
+Name: ExceptionDetailMessage
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ExceptionDetailMessage.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	static final int value
+	Name: value
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ExceptionDetailMessage.html#value
+	Containing package: org.omg.IOP
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: ExceptionDetailMessage
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public interface RMICustomMaxStreamFormat
+Name: RMICustomMaxStreamFormat
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/RMICustomMaxStreamFormat.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	static final int value
+	Name: value
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/RMICustomMaxStreamFormat.html#value
+	Containing package: org.omg.IOP
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: RMICustomMaxStreamFormat
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public interface TAG_ALTERNATE_IIOP_ADDRESS
+Name: TAG_ALTERNATE_IIOP_ADDRESS
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TAG_ALTERNATE_IIOP_ADDRESS.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	static final int value
+	Name: value
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TAG_ALTERNATE_IIOP_ADDRESS.html#value
+	Containing package: org.omg.IOP
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: TAG_ALTERNATE_IIOP_ADDRESS
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public interface TAG_CODE_SETS
+Name: TAG_CODE_SETS
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TAG_CODE_SETS.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	static final int value
+	Name: value
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TAG_CODE_SETS.html#value
+	Containing package: org.omg.IOP
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: TAG_CODE_SETS
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public interface TAG_INTERNET_IOP
+Name: TAG_INTERNET_IOP
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TAG_INTERNET_IOP.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	static final int value
+	Name: value
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TAG_INTERNET_IOP.html#value
+	Containing package: org.omg.IOP
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: TAG_INTERNET_IOP
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public interface TAG_JAVA_CODEBASE
+Name: TAG_JAVA_CODEBASE
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TAG_JAVA_CODEBASE.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	static final int value
+	Name: value
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TAG_JAVA_CODEBASE.html#value
+	Containing package: org.omg.IOP
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: TAG_JAVA_CODEBASE
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public interface TAG_MULTIPLE_COMPONENTS
+Name: TAG_MULTIPLE_COMPONENTS
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TAG_MULTIPLE_COMPONENTS.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	static final int value
+	Name: value
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TAG_MULTIPLE_COMPONENTS.html#value
+	Containing package: org.omg.IOP
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: TAG_MULTIPLE_COMPONENTS
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public interface TAG_ORB_TYPE
+Name: TAG_ORB_TYPE
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TAG_ORB_TYPE.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	static final int value
+	Name: value
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TAG_ORB_TYPE.html#value
+	Containing package: org.omg.IOP
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: TAG_ORB_TYPE
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public interface TAG_POLICIES
+Name: TAG_POLICIES
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TAG_POLICIES.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	static final int value
+	Name: value
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TAG_POLICIES.html#value
+	Containing package: org.omg.IOP
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: TAG_POLICIES
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public interface TAG_RMI_CUSTOM_MAX_STREAM_FORMAT
+Name: TAG_RMI_CUSTOM_MAX_STREAM_FORMAT
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TAG_RMI_CUSTOM_MAX_STREAM_FORMAT.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	static final int value
+	Name: value
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TAG_RMI_CUSTOM_MAX_STREAM_FORMAT.html#value
+	Containing package: org.omg.IOP
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: TAG_RMI_CUSTOM_MAX_STREAM_FORMAT
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public interface TransactionService
+Name: TransactionService
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TransactionService.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+}
+members {
+
+	[Function]
+	static final int value
+	Name: value
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TransactionService.html#value
+	Containing package: org.omg.IOP
+	attributes {
+		final=true
+		scope=public
+		static=true
+		memberType=field
+	}
+	Containing type: TransactionService
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public abstract class CodecFactoryHelper
+extends Object
+Name: CodecFactoryHelper
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/CodecFactoryHelper.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public CodecFactoryHelper()
+	Name: CodecFactoryHelper
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/CodecFactoryHelper.html#CodecFactoryHelper--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: CodecFactoryHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.IOP::CodecFactoryHelper
+	}
+
+	[Function]
+	public static void insert(Any a,
+	                          CodecFactory that)
+	Name: insert
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/CodecFactoryHelper.html#insert-org.omg.CORBA.Any-org.omg.IOP.CodecFactory-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: CodecFactoryHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA::Any
+		org.omg.IOP::CodecFactory
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static CodecFactory extract(Any a)
+	Name: extract
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/CodecFactoryHelper.html#extract-org.omg.CORBA.Any-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: CodecFactoryHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA::Any
+	
+		[result]
+		org.omg.IOP::CodecFactory
+	}
+
+	[Function]
+	public static TypeCode type()
+	Name: type
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/CodecFactoryHelper.html#type--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: CodecFactoryHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.CORBA::TypeCode
+	}
+
+	[Function]
+	public static String id()
+	Name: id
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/CodecFactoryHelper.html#id--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: CodecFactoryHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static CodecFactory read(InputStream istream)
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/CodecFactoryHelper.html#read-org.omg.CORBA.portable.InputStream-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: CodecFactoryHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::InputStream
+	
+		[result]
+		org.omg.IOP::CodecFactory
+	}
+
+	[Function]
+	public static void write(OutputStream ostream,
+	                         CodecFactory value)
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/CodecFactoryHelper.html#write-org.omg.CORBA.portable.OutputStream-org.omg.IOP.CodecFactory-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: CodecFactoryHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::OutputStream
+		org.omg.IOP::CodecFactory
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static CodecFactory narrow(Object obj)
+	Name: narrow
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/CodecFactoryHelper.html#narrow-org.omg.CORBA.Object-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: CodecFactoryHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA::Object
+	
+		[result]
+		org.omg.IOP::CodecFactory
+	}
+
+	[Function]
+	public static CodecFactory unchecked_narrow(Object obj)
+	Name: unchecked_narrow
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/CodecFactoryHelper.html#unchecked_narrow-org.omg.CORBA.Object-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: CodecFactoryHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA::Object
+	
+		[result]
+		org.omg.IOP::CodecFactory
+	}
+}
+
+[Classifier]
+public abstract class ComponentIdHelper
+extends Object
+Name: ComponentIdHelper
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ComponentIdHelper.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public ComponentIdHelper()
+	Name: ComponentIdHelper
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ComponentIdHelper.html#ComponentIdHelper--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ComponentIdHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.IOP::ComponentIdHelper
+	}
+
+	[Function]
+	public static void insert(Any a,
+	                          int that)
+	Name: insert
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ComponentIdHelper.html#insert-org.omg.CORBA.Any-int-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ComponentIdHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA::Any
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static int extract(Any a)
+	Name: extract
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ComponentIdHelper.html#extract-org.omg.CORBA.Any-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ComponentIdHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA::Any
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static TypeCode type()
+	Name: type
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ComponentIdHelper.html#type--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ComponentIdHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.CORBA::TypeCode
+	}
+
+	[Function]
+	public static String id()
+	Name: id
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ComponentIdHelper.html#id--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ComponentIdHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static int read(InputStream istream)
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ComponentIdHelper.html#read-org.omg.CORBA.portable.InputStream-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ComponentIdHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::InputStream
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static void write(OutputStream ostream,
+	                         int value)
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ComponentIdHelper.html#write-org.omg.CORBA.portable.OutputStream-int-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ComponentIdHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::OutputStream
+		other::int
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public final class Encoding
+extends Object
+implements IDLEntity
+Name: Encoding
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/Encoding.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	org.omg.CORBA.portable::IDLEntity
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public short format
+	Name: format
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/Encoding.html#format
+	Containing package: org.omg.IOP
+	attributes {
+		final=false
+		scope=public
+		static=false
+		memberType=field
+	}
+	Containing type: Encoding
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::short
+	}
+
+	[Function]
+	public byte major_version
+	Name: major_version
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/Encoding.html#major_version
+	Containing package: org.omg.IOP
+	attributes {
+		final=false
+		scope=public
+		static=false
+		memberType=field
+	}
+	Containing type: Encoding
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::byte
+	}
+
+	[Function]
+	public byte minor_version
+	Name: minor_version
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/Encoding.html#minor_version
+	Containing package: org.omg.IOP
+	attributes {
+		final=false
+		scope=public
+		static=false
+		memberType=field
+	}
+	Containing type: Encoding
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::byte
+	}
+
+	[Function]
+	public Encoding()
+	Name: Encoding
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/Encoding.html#Encoding--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Encoding
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.IOP::Encoding
+	}
+
+	[Function]
+	public Encoding(short _format,
+	                byte _major_version,
+	                byte _minor_version)
+	Name: Encoding
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/Encoding.html#Encoding-short-byte-byte-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: Encoding
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::short
+		other::byte
+		other::byte
+	
+		[result]
+		org.omg.IOP::Encoding
+	}
+}
+
+[Classifier]
+public final class IOR
+extends Object
+implements IDLEntity
+Name: IOR
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/IOR.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	org.omg.CORBA.portable::IDLEntity
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public String type_id
+	Name: type_id
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/IOR.html#type_id
+	Containing package: org.omg.IOP
+	attributes {
+		final=false
+		scope=public
+		static=false
+		memberType=field
+	}
+	Containing type: IOR
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public TaggedProfile[] profiles
+	Name: profiles
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/IOR.html#profiles
+	Containing package: org.omg.IOP
+	attributes {
+		final=false
+		scope=public
+		static=false
+		memberType=field
+	}
+	Containing type: IOR
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			org.omg.IOP::TaggedProfile
+		}
+	}
+
+	[Function]
+	public IOR()
+	Name: IOR
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/IOR.html#IOR--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: IOR
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.IOP::IOR
+	}
+
+	[Function]
+	public IOR(String _type_id,
+	           TaggedProfile[] _profiles)
+	Name: IOR
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/IOR.html#IOR-java.lang.String-org.omg.IOP.TaggedProfile:A-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: IOR
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::String
+		other::[] {
+			org.omg.IOP::TaggedProfile
+		}
+	
+		[result]
+		org.omg.IOP::IOR
+	}
+}
+
+[Classifier]
+public abstract class IORHelper
+extends Object
+Name: IORHelper
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/IORHelper.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public IORHelper()
+	Name: IORHelper
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/IORHelper.html#IORHelper--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: IORHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.IOP::IORHelper
+	}
+
+	[Function]
+	public static void insert(Any a,
+	                          IOR that)
+	Name: insert
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/IORHelper.html#insert-org.omg.CORBA.Any-org.omg.IOP.IOR-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: IORHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA::Any
+		org.omg.IOP::IOR
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static IOR extract(Any a)
+	Name: extract
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/IORHelper.html#extract-org.omg.CORBA.Any-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: IORHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA::Any
+	
+		[result]
+		org.omg.IOP::IOR
+	}
+
+	[Function]
+	public static TypeCode type()
+	Name: type
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/IORHelper.html#type--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: IORHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.CORBA::TypeCode
+	}
+
+	[Function]
+	public static String id()
+	Name: id
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/IORHelper.html#id--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: IORHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static IOR read(InputStream istream)
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/IORHelper.html#read-org.omg.CORBA.portable.InputStream-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: IORHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::InputStream
+	
+		[result]
+		org.omg.IOP::IOR
+	}
+
+	[Function]
+	public static void write(OutputStream ostream,
+	                         IOR value)
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/IORHelper.html#write-org.omg.CORBA.portable.OutputStream-org.omg.IOP.IOR-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: IORHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::OutputStream
+		org.omg.IOP::IOR
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public final class IORHolder
+extends Object
+implements Streamable
+Name: IORHolder
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/IORHolder.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	org.omg.CORBA.portable::Streamable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public IOR value
+	Name: value
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/IORHolder.html#value
+	Containing package: org.omg.IOP
+	attributes {
+		final=false
+		scope=public
+		static=false
+		memberType=field
+	}
+	Containing type: IORHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.IOP::IOR
+	}
+
+	[Function]
+	public IORHolder()
+	Name: IORHolder
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/IORHolder.html#IORHolder--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: IORHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.IOP::IORHolder
+	}
+
+	[Function]
+	public IORHolder(IOR initialValue)
+	Name: IORHolder
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/IORHolder.html#IORHolder-org.omg.IOP.IOR-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: IORHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.IOP::IOR
+	
+		[result]
+		org.omg.IOP::IORHolder
+	}
+
+	[Function]
+	public void _read(InputStream i)
+	Name: _read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/IORHolder.html#Z:Z_read-org.omg.CORBA.portable.InputStream-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IORHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::InputStream
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void _write(OutputStream o)
+	Name: _write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/IORHolder.html#Z:Z_write-org.omg.CORBA.portable.OutputStream-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IORHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::OutputStream
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public TypeCode _type()
+	Name: _type
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/IORHolder.html#Z:Z_type--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: IORHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.CORBA::TypeCode
+	}
+}
+
+[Classifier]
+public abstract class MultipleComponentProfileHelper
+extends Object
+Name: MultipleComponentProfileHelper
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/MultipleComponentProfileHelper.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public MultipleComponentProfileHelper()
+	Name: MultipleComponentProfileHelper
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/MultipleComponentProfileHelper.html#MultipleComponentProfileHelper--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MultipleComponentProfileHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.IOP::MultipleComponentProfileHelper
+	}
+
+	[Function]
+	public static void insert(Any a,
+	                          TaggedComponent[] that)
+	Name: insert
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/MultipleComponentProfileHelper.html#insert-org.omg.CORBA.Any-org.omg.IOP.TaggedComponent:A-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: MultipleComponentProfileHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA::Any
+		other::[] {
+			org.omg.IOP::TaggedComponent
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static TaggedComponent[] extract(Any a)
+	Name: extract
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/MultipleComponentProfileHelper.html#extract-org.omg.CORBA.Any-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: MultipleComponentProfileHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA::Any
+	
+		[result]
+		other::[] {
+			org.omg.IOP::TaggedComponent
+		}
+	}
+
+	[Function]
+	public static TypeCode type()
+	Name: type
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/MultipleComponentProfileHelper.html#type--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: MultipleComponentProfileHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.CORBA::TypeCode
+	}
+
+	[Function]
+	public static String id()
+	Name: id
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/MultipleComponentProfileHelper.html#id--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: MultipleComponentProfileHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static TaggedComponent[] read(InputStream istream)
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/MultipleComponentProfileHelper.html#read-org.omg.CORBA.portable.InputStream-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: MultipleComponentProfileHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::InputStream
+	
+		[result]
+		other::[] {
+			org.omg.IOP::TaggedComponent
+		}
+	}
+
+	[Function]
+	public static void write(OutputStream ostream,
+	                         TaggedComponent[] value)
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/MultipleComponentProfileHelper.html#write-org.omg.CORBA.portable.OutputStream-org.omg.IOP.TaggedComponent:A-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: MultipleComponentProfileHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::OutputStream
+		other::[] {
+			org.omg.IOP::TaggedComponent
+		}
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public final class MultipleComponentProfileHolder
+extends Object
+implements Streamable
+Name: MultipleComponentProfileHolder
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/MultipleComponentProfileHolder.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	org.omg.CORBA.portable::Streamable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public TaggedComponent[] value
+	Name: value
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/MultipleComponentProfileHolder.html#value
+	Containing package: org.omg.IOP
+	attributes {
+		final=false
+		scope=public
+		static=false
+		memberType=field
+	}
+	Containing type: MultipleComponentProfileHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			org.omg.IOP::TaggedComponent
+		}
+	}
+
+	[Function]
+	public MultipleComponentProfileHolder()
+	Name: MultipleComponentProfileHolder
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/MultipleComponentProfileHolder.html#MultipleComponentProfileHolder--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MultipleComponentProfileHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.IOP::MultipleComponentProfileHolder
+	}
+
+	[Function]
+	public MultipleComponentProfileHolder(TaggedComponent[] initialValue)
+	Name: MultipleComponentProfileHolder
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/MultipleComponentProfileHolder.html#MultipleComponentProfileHolder-org.omg.IOP.TaggedComponent:A-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: MultipleComponentProfileHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			org.omg.IOP::TaggedComponent
+		}
+	
+		[result]
+		org.omg.IOP::MultipleComponentProfileHolder
+	}
+
+	[Function]
+	public void _read(InputStream i)
+	Name: _read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/MultipleComponentProfileHolder.html#Z:Z_read-org.omg.CORBA.portable.InputStream-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MultipleComponentProfileHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::InputStream
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void _write(OutputStream o)
+	Name: _write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/MultipleComponentProfileHolder.html#Z:Z_write-org.omg.CORBA.portable.OutputStream-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MultipleComponentProfileHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::OutputStream
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public TypeCode _type()
+	Name: _type
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/MultipleComponentProfileHolder.html#Z:Z_type--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: MultipleComponentProfileHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.CORBA::TypeCode
+	}
+}
+
+[Classifier]
+public abstract class ProfileIdHelper
+extends Object
+Name: ProfileIdHelper
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ProfileIdHelper.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public ProfileIdHelper()
+	Name: ProfileIdHelper
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ProfileIdHelper.html#ProfileIdHelper--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ProfileIdHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.IOP::ProfileIdHelper
+	}
+
+	[Function]
+	public static void insert(Any a,
+	                          int that)
+	Name: insert
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ProfileIdHelper.html#insert-org.omg.CORBA.Any-int-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ProfileIdHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA::Any
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static int extract(Any a)
+	Name: extract
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ProfileIdHelper.html#extract-org.omg.CORBA.Any-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ProfileIdHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA::Any
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static TypeCode type()
+	Name: type
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ProfileIdHelper.html#type--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ProfileIdHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.CORBA::TypeCode
+	}
+
+	[Function]
+	public static String id()
+	Name: id
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ProfileIdHelper.html#id--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ProfileIdHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static int read(InputStream istream)
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ProfileIdHelper.html#read-org.omg.CORBA.portable.InputStream-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ProfileIdHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::InputStream
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static void write(OutputStream ostream,
+	                         int value)
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ProfileIdHelper.html#write-org.omg.CORBA.portable.OutputStream-int-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ProfileIdHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::OutputStream
+		other::int
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public final class ServiceContext
+extends Object
+implements IDLEntity
+Name: ServiceContext
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContext.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	org.omg.CORBA.portable::IDLEntity
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public int context_id
+	Name: context_id
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContext.html#context_id
+	Containing package: org.omg.IOP
+	attributes {
+		final=false
+		scope=public
+		static=false
+		memberType=field
+	}
+	Containing type: ServiceContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public byte[] context_data
+	Name: context_data
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContext.html#context_data
+	Containing package: org.omg.IOP
+	attributes {
+		final=false
+		scope=public
+		static=false
+		memberType=field
+	}
+	Containing type: ServiceContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	public ServiceContext()
+	Name: ServiceContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContext.html#ServiceContext--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ServiceContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.IOP::ServiceContext
+	}
+
+	[Function]
+	public ServiceContext(int _context_id,
+	                      byte[] _context_data)
+	Name: ServiceContext
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContext.html#ServiceContext-int-byte:A-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ServiceContext
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::[] {
+			other::byte
+		}
+	
+		[result]
+		org.omg.IOP::ServiceContext
+	}
+}
+
+[Classifier]
+public abstract class ServiceContextHelper
+extends Object
+Name: ServiceContextHelper
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextHelper.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public ServiceContextHelper()
+	Name: ServiceContextHelper
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextHelper.html#ServiceContextHelper--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ServiceContextHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.IOP::ServiceContextHelper
+	}
+
+	[Function]
+	public static void insert(Any a,
+	                          ServiceContext that)
+	Name: insert
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextHelper.html#insert-org.omg.CORBA.Any-org.omg.IOP.ServiceContext-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceContextHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA::Any
+		org.omg.IOP::ServiceContext
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static ServiceContext extract(Any a)
+	Name: extract
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextHelper.html#extract-org.omg.CORBA.Any-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceContextHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA::Any
+	
+		[result]
+		org.omg.IOP::ServiceContext
+	}
+
+	[Function]
+	public static TypeCode type()
+	Name: type
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextHelper.html#type--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceContextHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.CORBA::TypeCode
+	}
+
+	[Function]
+	public static String id()
+	Name: id
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextHelper.html#id--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceContextHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static ServiceContext read(InputStream istream)
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextHelper.html#read-org.omg.CORBA.portable.InputStream-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceContextHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::InputStream
+	
+		[result]
+		org.omg.IOP::ServiceContext
+	}
+
+	[Function]
+	public static void write(OutputStream ostream,
+	                         ServiceContext value)
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextHelper.html#write-org.omg.CORBA.portable.OutputStream-org.omg.IOP.ServiceContext-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceContextHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::OutputStream
+		org.omg.IOP::ServiceContext
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public final class ServiceContextHolder
+extends Object
+implements Streamable
+Name: ServiceContextHolder
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextHolder.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	org.omg.CORBA.portable::Streamable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public ServiceContext value
+	Name: value
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextHolder.html#value
+	Containing package: org.omg.IOP
+	attributes {
+		final=false
+		scope=public
+		static=false
+		memberType=field
+	}
+	Containing type: ServiceContextHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.IOP::ServiceContext
+	}
+
+	[Function]
+	public ServiceContextHolder()
+	Name: ServiceContextHolder
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextHolder.html#ServiceContextHolder--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ServiceContextHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.IOP::ServiceContextHolder
+	}
+
+	[Function]
+	public ServiceContextHolder(ServiceContext initialValue)
+	Name: ServiceContextHolder
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextHolder.html#ServiceContextHolder-org.omg.IOP.ServiceContext-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ServiceContextHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.IOP::ServiceContext
+	
+		[result]
+		org.omg.IOP::ServiceContextHolder
+	}
+
+	[Function]
+	public void _read(InputStream i)
+	Name: _read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextHolder.html#Z:Z_read-org.omg.CORBA.portable.InputStream-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceContextHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::InputStream
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void _write(OutputStream o)
+	Name: _write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextHolder.html#Z:Z_write-org.omg.CORBA.portable.OutputStream-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceContextHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::OutputStream
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public TypeCode _type()
+	Name: _type
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextHolder.html#Z:Z_type--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceContextHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.CORBA::TypeCode
+	}
+}
+
+[Classifier]
+public abstract class ServiceContextListHelper
+extends Object
+Name: ServiceContextListHelper
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextListHelper.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public ServiceContextListHelper()
+	Name: ServiceContextListHelper
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextListHelper.html#ServiceContextListHelper--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ServiceContextListHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.IOP::ServiceContextListHelper
+	}
+
+	[Function]
+	public static void insert(Any a,
+	                          ServiceContext[] that)
+	Name: insert
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextListHelper.html#insert-org.omg.CORBA.Any-org.omg.IOP.ServiceContext:A-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceContextListHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA::Any
+		other::[] {
+			org.omg.IOP::ServiceContext
+		}
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static ServiceContext[] extract(Any a)
+	Name: extract
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextListHelper.html#extract-org.omg.CORBA.Any-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceContextListHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA::Any
+	
+		[result]
+		other::[] {
+			org.omg.IOP::ServiceContext
+		}
+	}
+
+	[Function]
+	public static TypeCode type()
+	Name: type
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextListHelper.html#type--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceContextListHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.CORBA::TypeCode
+	}
+
+	[Function]
+	public static String id()
+	Name: id
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextListHelper.html#id--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceContextListHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static ServiceContext[] read(InputStream istream)
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextListHelper.html#read-org.omg.CORBA.portable.InputStream-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceContextListHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::InputStream
+	
+		[result]
+		other::[] {
+			org.omg.IOP::ServiceContext
+		}
+	}
+
+	[Function]
+	public static void write(OutputStream ostream,
+	                         ServiceContext[] value)
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextListHelper.html#write-org.omg.CORBA.portable.OutputStream-org.omg.IOP.ServiceContext:A-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceContextListHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::OutputStream
+		other::[] {
+			org.omg.IOP::ServiceContext
+		}
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public final class ServiceContextListHolder
+extends Object
+implements Streamable
+Name: ServiceContextListHolder
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextListHolder.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	org.omg.CORBA.portable::Streamable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public ServiceContext[] value
+	Name: value
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextListHolder.html#value
+	Containing package: org.omg.IOP
+	attributes {
+		final=false
+		scope=public
+		static=false
+		memberType=field
+	}
+	Containing type: ServiceContextListHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			org.omg.IOP::ServiceContext
+		}
+	}
+
+	[Function]
+	public ServiceContextListHolder()
+	Name: ServiceContextListHolder
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextListHolder.html#ServiceContextListHolder--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ServiceContextListHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.IOP::ServiceContextListHolder
+	}
+
+	[Function]
+	public ServiceContextListHolder(ServiceContext[] initialValue)
+	Name: ServiceContextListHolder
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextListHolder.html#ServiceContextListHolder-org.omg.IOP.ServiceContext:A-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ServiceContextListHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::[] {
+			org.omg.IOP::ServiceContext
+		}
+	
+		[result]
+		org.omg.IOP::ServiceContextListHolder
+	}
+
+	[Function]
+	public void _read(InputStream i)
+	Name: _read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextListHolder.html#Z:Z_read-org.omg.CORBA.portable.InputStream-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceContextListHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::InputStream
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void _write(OutputStream o)
+	Name: _write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextListHolder.html#Z:Z_write-org.omg.CORBA.portable.OutputStream-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceContextListHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::OutputStream
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public TypeCode _type()
+	Name: _type
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceContextListHolder.html#Z:Z_type--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceContextListHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.CORBA::TypeCode
+	}
+}
+
+[Classifier]
+public abstract class ServiceIdHelper
+extends Object
+Name: ServiceIdHelper
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceIdHelper.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public ServiceIdHelper()
+	Name: ServiceIdHelper
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceIdHelper.html#ServiceIdHelper--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ServiceIdHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.IOP::ServiceIdHelper
+	}
+
+	[Function]
+	public static void insert(Any a,
+	                          int that)
+	Name: insert
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceIdHelper.html#insert-org.omg.CORBA.Any-int-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceIdHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA::Any
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static int extract(Any a)
+	Name: extract
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceIdHelper.html#extract-org.omg.CORBA.Any-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceIdHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA::Any
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static TypeCode type()
+	Name: type
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceIdHelper.html#type--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceIdHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.CORBA::TypeCode
+	}
+
+	[Function]
+	public static String id()
+	Name: id
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceIdHelper.html#id--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceIdHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static int read(InputStream istream)
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceIdHelper.html#read-org.omg.CORBA.portable.InputStream-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceIdHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::InputStream
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public static void write(OutputStream ostream,
+	                         int value)
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/ServiceIdHelper.html#write-org.omg.CORBA.portable.OutputStream-int-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: ServiceIdHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::OutputStream
+		other::int
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public final class TaggedComponent
+extends Object
+implements IDLEntity
+Name: TaggedComponent
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedComponent.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	org.omg.CORBA.portable::IDLEntity
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public int tag
+	Name: tag
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedComponent.html#tag
+	Containing package: org.omg.IOP
+	attributes {
+		final=false
+		scope=public
+		static=false
+		memberType=field
+	}
+	Containing type: TaggedComponent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public byte[] component_data
+	Name: component_data
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedComponent.html#component_data
+	Containing package: org.omg.IOP
+	attributes {
+		final=false
+		scope=public
+		static=false
+		memberType=field
+	}
+	Containing type: TaggedComponent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	public TaggedComponent()
+	Name: TaggedComponent
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedComponent.html#TaggedComponent--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TaggedComponent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.IOP::TaggedComponent
+	}
+
+	[Function]
+	public TaggedComponent(int _tag,
+	                       byte[] _component_data)
+	Name: TaggedComponent
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedComponent.html#TaggedComponent-int-byte:A-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TaggedComponent
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::[] {
+			other::byte
+		}
+	
+		[result]
+		org.omg.IOP::TaggedComponent
+	}
+}
+
+[Classifier]
+public abstract class TaggedComponentHelper
+extends Object
+Name: TaggedComponentHelper
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedComponentHelper.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public TaggedComponentHelper()
+	Name: TaggedComponentHelper
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedComponentHelper.html#TaggedComponentHelper--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TaggedComponentHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.IOP::TaggedComponentHelper
+	}
+
+	[Function]
+	public static void insert(Any a,
+	                          TaggedComponent that)
+	Name: insert
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedComponentHelper.html#insert-org.omg.CORBA.Any-org.omg.IOP.TaggedComponent-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TaggedComponentHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA::Any
+		org.omg.IOP::TaggedComponent
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static TaggedComponent extract(Any a)
+	Name: extract
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedComponentHelper.html#extract-org.omg.CORBA.Any-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TaggedComponentHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA::Any
+	
+		[result]
+		org.omg.IOP::TaggedComponent
+	}
+
+	[Function]
+	public static TypeCode type()
+	Name: type
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedComponentHelper.html#type--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TaggedComponentHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.CORBA::TypeCode
+	}
+
+	[Function]
+	public static String id()
+	Name: id
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedComponentHelper.html#id--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TaggedComponentHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static TaggedComponent read(InputStream istream)
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedComponentHelper.html#read-org.omg.CORBA.portable.InputStream-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TaggedComponentHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::InputStream
+	
+		[result]
+		org.omg.IOP::TaggedComponent
+	}
+
+	[Function]
+	public static void write(OutputStream ostream,
+	                         TaggedComponent value)
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedComponentHelper.html#write-org.omg.CORBA.portable.OutputStream-org.omg.IOP.TaggedComponent-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TaggedComponentHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::OutputStream
+		org.omg.IOP::TaggedComponent
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public final class TaggedComponentHolder
+extends Object
+implements Streamable
+Name: TaggedComponentHolder
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedComponentHolder.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	org.omg.CORBA.portable::Streamable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public TaggedComponent value
+	Name: value
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedComponentHolder.html#value
+	Containing package: org.omg.IOP
+	attributes {
+		final=false
+		scope=public
+		static=false
+		memberType=field
+	}
+	Containing type: TaggedComponentHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.IOP::TaggedComponent
+	}
+
+	[Function]
+	public TaggedComponentHolder()
+	Name: TaggedComponentHolder
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedComponentHolder.html#TaggedComponentHolder--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TaggedComponentHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.IOP::TaggedComponentHolder
+	}
+
+	[Function]
+	public TaggedComponentHolder(TaggedComponent initialValue)
+	Name: TaggedComponentHolder
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedComponentHolder.html#TaggedComponentHolder-org.omg.IOP.TaggedComponent-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TaggedComponentHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.IOP::TaggedComponent
+	
+		[result]
+		org.omg.IOP::TaggedComponentHolder
+	}
+
+	[Function]
+	public void _read(InputStream i)
+	Name: _read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedComponentHolder.html#Z:Z_read-org.omg.CORBA.portable.InputStream-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TaggedComponentHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::InputStream
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void _write(OutputStream o)
+	Name: _write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedComponentHolder.html#Z:Z_write-org.omg.CORBA.portable.OutputStream-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TaggedComponentHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::OutputStream
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public TypeCode _type()
+	Name: _type
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedComponentHolder.html#Z:Z_type--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TaggedComponentHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.CORBA::TypeCode
+	}
+}
+
+[Classifier]
+public final class TaggedProfile
+extends Object
+implements IDLEntity
+Name: TaggedProfile
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedProfile.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	org.omg.CORBA.portable::IDLEntity
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public int tag
+	Name: tag
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedProfile.html#tag
+	Containing package: org.omg.IOP
+	attributes {
+		final=false
+		scope=public
+		static=false
+		memberType=field
+	}
+	Containing type: TaggedProfile
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public byte[] profile_data
+	Name: profile_data
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedProfile.html#profile_data
+	Containing package: org.omg.IOP
+	attributes {
+		final=false
+		scope=public
+		static=false
+		memberType=field
+	}
+	Containing type: TaggedProfile
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::[] {
+			other::byte
+		}
+	}
+
+	[Function]
+	public TaggedProfile()
+	Name: TaggedProfile
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedProfile.html#TaggedProfile--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TaggedProfile
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.IOP::TaggedProfile
+	}
+
+	[Function]
+	public TaggedProfile(int _tag,
+	                     byte[] _profile_data)
+	Name: TaggedProfile
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedProfile.html#TaggedProfile-int-byte:A-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TaggedProfile
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::[] {
+			other::byte
+		}
+	
+		[result]
+		org.omg.IOP::TaggedProfile
+	}
+}
+
+[Classifier]
+public abstract class TaggedProfileHelper
+extends Object
+Name: TaggedProfileHelper
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedProfileHelper.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public TaggedProfileHelper()
+	Name: TaggedProfileHelper
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedProfileHelper.html#TaggedProfileHelper--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TaggedProfileHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.IOP::TaggedProfileHelper
+	}
+
+	[Function]
+	public static void insert(Any a,
+	                          TaggedProfile that)
+	Name: insert
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedProfileHelper.html#insert-org.omg.CORBA.Any-org.omg.IOP.TaggedProfile-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TaggedProfileHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA::Any
+		org.omg.IOP::TaggedProfile
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static TaggedProfile extract(Any a)
+	Name: extract
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedProfileHelper.html#extract-org.omg.CORBA.Any-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TaggedProfileHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA::Any
+	
+		[result]
+		org.omg.IOP::TaggedProfile
+	}
+
+	[Function]
+	public static TypeCode type()
+	Name: type
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedProfileHelper.html#type--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TaggedProfileHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.CORBA::TypeCode
+	}
+
+	[Function]
+	public static String id()
+	Name: id
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedProfileHelper.html#id--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TaggedProfileHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public static TaggedProfile read(InputStream istream)
+	Name: read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedProfileHelper.html#read-org.omg.CORBA.portable.InputStream-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TaggedProfileHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::InputStream
+	
+		[result]
+		org.omg.IOP::TaggedProfile
+	}
+
+	[Function]
+	public static void write(OutputStream ostream,
+	                         TaggedProfile value)
+	Name: write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedProfileHelper.html#write-org.omg.CORBA.portable.OutputStream-org.omg.IOP.TaggedProfile-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: TaggedProfileHelper
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::OutputStream
+		org.omg.IOP::TaggedProfile
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public final class TaggedProfileHolder
+extends Object
+implements Streamable
+Name: TaggedProfileHolder
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedProfileHolder.html
+Containing package: org.omg.IOP
+attributes {
+	abstract=false
+	final=true
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	org.omg.CORBA.portable::Streamable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public TaggedProfile value
+	Name: value
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedProfileHolder.html#value
+	Containing package: org.omg.IOP
+	attributes {
+		final=false
+		scope=public
+		static=false
+		memberType=field
+	}
+	Containing type: TaggedProfileHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.IOP::TaggedProfile
+	}
+
+	[Function]
+	public TaggedProfileHolder()
+	Name: TaggedProfileHolder
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedProfileHolder.html#TaggedProfileHolder--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TaggedProfileHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.IOP::TaggedProfileHolder
+	}
+
+	[Function]
+	public TaggedProfileHolder(TaggedProfile initialValue)
+	Name: TaggedProfileHolder
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedProfileHolder.html#TaggedProfileHolder-org.omg.IOP.TaggedProfile-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: TaggedProfileHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.IOP::TaggedProfile
+	
+		[result]
+		org.omg.IOP::TaggedProfileHolder
+	}
+
+	[Function]
+	public void _read(InputStream i)
+	Name: _read
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedProfileHolder.html#Z:Z_read-org.omg.CORBA.portable.InputStream-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TaggedProfileHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::InputStream
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void _write(OutputStream o)
+	Name: _write
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedProfileHolder.html#Z:Z_write-org.omg.CORBA.portable.OutputStream-
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TaggedProfileHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		org.omg.CORBA.portable::OutputStream
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public TypeCode _type()
+	Name: _type
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/org/omg/IOP/TaggedProfileHolder.html#Z:Z_type--
+	Containing package: org.omg.IOP
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: TaggedProfileHolder
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		org.omg.CORBA::TypeCode
+	}
+}

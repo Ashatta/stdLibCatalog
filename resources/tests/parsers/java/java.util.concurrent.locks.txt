@@ -1,0 +1,5452 @@
+[Package]
+Name: java.util.concurrent.locks
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/package-summary.html
+Containing package: java.util.concurrent
+attributes {
+}
+
+Subpackages {
+}
+
+[Classifier]
+public interface Condition
+Name: Condition
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Condition.html
+Containing package: java.util.concurrent.locks
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.util.concurrent.locks::AbstractQueuedLongSynchronizer.ConditionObject
+	java.util.concurrent.locks::AbstractQueuedSynchronizer.ConditionObject
+}
+supertypes {
+}
+members {
+
+	[Function]
+	void await()
+	    throws InterruptedException
+	Name: await
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Condition.html#await--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Condition
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void awaitUninterruptibly()
+	Name: awaitUninterruptibly
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Condition.html#awaitUninterruptibly--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Condition
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	long awaitNanos(long nanosTimeout)
+	         throws InterruptedException
+	Name: awaitNanos
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Condition.html#awaitNanos-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Condition
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	boolean await(long time,
+	              TimeUnit unit)
+	       throws InterruptedException
+	Name: await
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Condition.html#await-long-java.util.concurrent.TimeUnit-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Condition
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		java.util.concurrent::TimeUnit
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean awaitUntil(Date deadline)
+	            throws InterruptedException
+	Name: awaitUntil
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Condition.html#awaitUntil-java.util.Date-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Condition
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Date
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	void signal()
+	Name: signal
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Condition.html#signal--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Condition
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void signalAll()
+	Name: signalAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Condition.html#signalAll--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Condition
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public interface Lock
+Name: Lock
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Lock.html
+Containing package: java.util.concurrent.locks
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.util.concurrent.locks::ReentrantReadWriteLock.WriteLock
+	java.util.concurrent.locks::ReentrantReadWriteLock.ReadLock
+	java.util.concurrent.locks::ReentrantLock
+}
+supertypes {
+}
+members {
+
+	[Function]
+	void lock()
+	Name: lock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Lock.html#lock--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Lock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	void lockInterruptibly()
+	                throws InterruptedException
+	Name: lockInterruptibly
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Lock.html#lockInterruptibly--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Lock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	boolean tryLock()
+	Name: tryLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Lock.html#tryLock--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Lock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	boolean tryLock(long time,
+	                TimeUnit unit)
+	         throws InterruptedException
+	Name: tryLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Lock.html#tryLock-long-java.util.concurrent.TimeUnit-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Lock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		java.util.concurrent::TimeUnit
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	void unlock()
+	Name: unlock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Lock.html#unlock--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Lock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	Condition newCondition()
+	Name: newCondition
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Lock.html#newCondition--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: Lock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.concurrent.locks::Condition
+	}
+}
+
+[Classifier]
+public interface ReadWriteLock
+Name: ReadWriteLock
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReadWriteLock.html
+Containing package: java.util.concurrent.locks
+attributes {
+	abstract=false
+	final=false
+	classifierType=interface
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.util.concurrent.locks::ReentrantReadWriteLock
+}
+supertypes {
+}
+members {
+
+	[Function]
+	Lock readLock()
+	Name: readLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReadWriteLock.html#readLock--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReadWriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.concurrent.locks::Lock
+	}
+
+	[Function]
+	Lock writeLock()
+	Name: writeLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReadWriteLock.html#writeLock--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReadWriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.concurrent.locks::Lock
+	}
+}
+
+[Classifier]
+public abstract class AbstractOwnableSynchronizer
+extends Object
+implements Serializable
+Name: AbstractOwnableSynchronizer
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractOwnableSynchronizer.html
+Containing package: java.util.concurrent.locks
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+	java.util.concurrent.locks::AbstractQueuedSynchronizer
+	java.util.concurrent.locks::AbstractQueuedLongSynchronizer
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected AbstractOwnableSynchronizer()
+	Name: AbstractOwnableSynchronizer
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractOwnableSynchronizer.html#AbstractOwnableSynchronizer--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AbstractOwnableSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.concurrent.locks::AbstractOwnableSynchronizer
+	}
+
+	[Function]
+	protected final void setExclusiveOwnerThread(Thread thread)
+	Name: setExclusiveOwnerThread
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractOwnableSynchronizer.html#setExclusiveOwnerThread-java.lang.Thread-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractOwnableSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Thread
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected final Thread getExclusiveOwnerThread()
+	Name: getExclusiveOwnerThread
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractOwnableSynchronizer.html#getExclusiveOwnerThread--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractOwnableSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Thread
+	}
+}
+
+[Classifier]
+public abstract class AbstractQueuedLongSynchronizer
+extends AbstractOwnableSynchronizer
+implements Serializable
+Name: AbstractQueuedLongSynchronizer
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html
+Containing package: java.util.concurrent.locks
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::Serializable
+	java.util.concurrent.locks::AbstractOwnableSynchronizer
+}
+members {
+
+	[Function]
+	protected AbstractQueuedLongSynchronizer()
+	Name: AbstractQueuedLongSynchronizer
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#AbstractQueuedLongSynchronizer--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.concurrent.locks::AbstractQueuedLongSynchronizer
+	}
+
+	[Function]
+	protected final long getState()
+	Name: getState
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#getState--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	protected final void setState(long newState)
+	Name: setState
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#setState-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected final boolean compareAndSetState(long expect,
+	                                           long update)
+	Name: compareAndSetState
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#compareAndSetState-long-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		other::long
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected boolean tryAcquire(long arg)
+	Name: tryAcquire
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#tryAcquire-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected boolean tryRelease(long arg)
+	Name: tryRelease
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#tryRelease-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected long tryAcquireShared(long arg)
+	Name: tryAcquireShared
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#tryAcquireShared-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	protected boolean tryReleaseShared(long arg)
+	Name: tryReleaseShared
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#tryReleaseShared-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected boolean isHeldExclusively()
+	Name: isHeldExclusively
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#isHeldExclusively--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final void acquire(long arg)
+	Name: acquire
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#acquire-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void acquireInterruptibly(long arg)
+	                                throws InterruptedException
+	Name: acquireInterruptibly
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#acquireInterruptibly-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final boolean tryAcquireNanos(long arg,
+	                                     long nanosTimeout)
+	                              throws InterruptedException
+	Name: tryAcquireNanos
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#tryAcquireNanos-long-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		other::long
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final boolean release(long arg)
+	Name: release
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#release-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final void acquireShared(long arg)
+	Name: acquireShared
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#acquireShared-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void acquireSharedInterruptibly(long arg)
+	                                      throws InterruptedException
+	Name: acquireSharedInterruptibly
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#acquireSharedInterruptibly-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final boolean tryAcquireSharedNanos(long arg,
+	                                           long nanosTimeout)
+	                                    throws InterruptedException
+	Name: tryAcquireSharedNanos
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#tryAcquireSharedNanos-long-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		other::long
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final boolean releaseShared(long arg)
+	Name: releaseShared
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#releaseShared-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final boolean hasQueuedThreads()
+	Name: hasQueuedThreads
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#hasQueuedThreads--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final boolean hasContended()
+	Name: hasContended
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#hasContended--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final Thread getFirstQueuedThread()
+	Name: getFirstQueuedThread
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#getFirstQueuedThread--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Thread
+	}
+
+	[Function]
+	public final boolean isQueued(Thread thread)
+	Name: isQueued
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#isQueued-java.lang.Thread-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Thread
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final boolean hasQueuedPredecessors()
+	Name: hasQueuedPredecessors
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#hasQueuedPredecessors--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final int getQueueLength()
+	Name: getQueueLength
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#getQueueLength--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public final Collection<Thread> getQueuedThreads()
+	Name: getQueuedThreads
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#getQueuedThreads--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Collection {
+			java.lang::Thread
+		}
+	}
+
+	[Function]
+	public final Collection<Thread> getExclusiveQueuedThreads()
+	Name: getExclusiveQueuedThreads
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#getExclusiveQueuedThreads--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Collection {
+			java.lang::Thread
+		}
+	}
+
+	[Function]
+	public final Collection<Thread> getSharedQueuedThreads()
+	Name: getSharedQueuedThreads
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#getSharedQueuedThreads--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Collection {
+			java.lang::Thread
+		}
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#toString--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public final boolean owns(AbstractQueuedLongSynchronizer.ConditionObject condition)
+	Name: owns
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#owns-java.util.concurrent.locks.AbstractQueuedLongSynchronizer.ConditionObject-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.concurrent.locks::AbstractQueuedLongSynchronizer.ConditionObject
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final boolean hasWaiters(AbstractQueuedLongSynchronizer.ConditionObject condition)
+	Name: hasWaiters
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#hasWaiters-java.util.concurrent.locks.AbstractQueuedLongSynchronizer.ConditionObject-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.concurrent.locks::AbstractQueuedLongSynchronizer.ConditionObject
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final int getWaitQueueLength(AbstractQueuedLongSynchronizer.ConditionObject condition)
+	Name: getWaitQueueLength
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#getWaitQueueLength-java.util.concurrent.locks.AbstractQueuedLongSynchronizer.ConditionObject-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.concurrent.locks::AbstractQueuedLongSynchronizer.ConditionObject
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public final Collection<Thread> getWaitingThreads(AbstractQueuedLongSynchronizer.ConditionObject condition)
+	Name: getWaitingThreads
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.html#getWaitingThreads-java.util.concurrent.locks.AbstractQueuedLongSynchronizer.ConditionObject-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.concurrent.locks::AbstractQueuedLongSynchronizer.ConditionObject
+	
+		[result]
+		java.util::Collection {
+			java.lang::Thread
+		}
+	}
+}
+
+[Classifier]
+public class AbstractQueuedLongSynchronizer.ConditionObject
+extends Object
+implements Condition, Serializable
+Name: AbstractQueuedLongSynchronizer.ConditionObject
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.ConditionObject.html
+Containing package: java.util.concurrent.locks
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.util.concurrent.locks::Condition
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public ConditionObject()
+	Name: ConditionObject
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.ConditionObject.html#ConditionObject--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AbstractQueuedLongSynchronizer.ConditionObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.concurrent.locks::AbstractQueuedLongSynchronizer.ConditionObject
+	}
+
+	[Function]
+	public final void signal()
+	Name: signal
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.ConditionObject.html#signal--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer.ConditionObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void signalAll()
+	Name: signalAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.ConditionObject.html#signalAll--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer.ConditionObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void awaitUninterruptibly()
+	Name: awaitUninterruptibly
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.ConditionObject.html#awaitUninterruptibly--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer.ConditionObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void await()
+	                 throws InterruptedException
+	Name: await
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.ConditionObject.html#await--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer.ConditionObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final long awaitNanos(long nanosTimeout)
+	                      throws InterruptedException
+	Name: awaitNanos
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.ConditionObject.html#awaitNanos-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer.ConditionObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public final boolean awaitUntil(Date deadline)
+	                         throws InterruptedException
+	Name: awaitUntil
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.ConditionObject.html#awaitUntil-java.util.Date-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer.ConditionObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Date
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final boolean await(long time,
+	                           TimeUnit unit)
+	                    throws InterruptedException
+	Name: await
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.ConditionObject.html#await-long-java.util.concurrent.TimeUnit-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer.ConditionObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		java.util.concurrent::TimeUnit
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected final boolean hasWaiters()
+	Name: hasWaiters
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.ConditionObject.html#hasWaiters--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer.ConditionObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected final int getWaitQueueLength()
+	Name: getWaitQueueLength
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.ConditionObject.html#getWaitQueueLength--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer.ConditionObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected final Collection<Thread> getWaitingThreads()
+	Name: getWaitingThreads
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.ConditionObject.html#getWaitingThreads--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedLongSynchronizer.ConditionObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Collection {
+			java.lang::Thread
+		}
+	}
+}
+
+[Classifier]
+public abstract class AbstractQueuedSynchronizer
+extends AbstractOwnableSynchronizer
+implements Serializable
+Name: AbstractQueuedSynchronizer
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html
+Containing package: java.util.concurrent.locks
+attributes {
+	abstract=true
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::Serializable
+	java.util.concurrent.locks::AbstractOwnableSynchronizer
+}
+members {
+
+	[Function]
+	protected AbstractQueuedSynchronizer()
+	Name: AbstractQueuedSynchronizer
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#AbstractQueuedSynchronizer--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.concurrent.locks::AbstractQueuedSynchronizer
+	}
+
+	[Function]
+	protected final int getState()
+	Name: getState
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#getState--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected final void setState(int newState)
+	Name: setState
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#setState-int-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	protected final boolean compareAndSetState(int expect,
+	                                           int update)
+	Name: compareAndSetState
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#compareAndSetState-int-int-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::int
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected boolean tryAcquire(int arg)
+	Name: tryAcquire
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#tryAcquire-int-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected boolean tryRelease(int arg)
+	Name: tryRelease
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#tryRelease-int-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected int tryAcquireShared(int arg)
+	Name: tryAcquireShared
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#tryAcquireShared-int-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected boolean tryReleaseShared(int arg)
+	Name: tryReleaseShared
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#tryReleaseShared-int-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected boolean isHeldExclusively()
+	Name: isHeldExclusively
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#isHeldExclusively--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final void acquire(int arg)
+	Name: acquire
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#acquire-int-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void acquireInterruptibly(int arg)
+	                                throws InterruptedException
+	Name: acquireInterruptibly
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#acquireInterruptibly-int-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final boolean tryAcquireNanos(int arg,
+	                                     long nanosTimeout)
+	                              throws InterruptedException
+	Name: tryAcquireNanos
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#tryAcquireNanos-int-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::long
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final boolean release(int arg)
+	Name: release
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#release-int-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final void acquireShared(int arg)
+	Name: acquireShared
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#acquireShared-int-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void acquireSharedInterruptibly(int arg)
+	                                      throws InterruptedException
+	Name: acquireSharedInterruptibly
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#acquireSharedInterruptibly-int-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final boolean tryAcquireSharedNanos(int arg,
+	                                           long nanosTimeout)
+	                                    throws InterruptedException
+	Name: tryAcquireSharedNanos
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#tryAcquireSharedNanos-int-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+		other::long
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final boolean releaseShared(int arg)
+	Name: releaseShared
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#releaseShared-int-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::int
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final boolean hasQueuedThreads()
+	Name: hasQueuedThreads
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#hasQueuedThreads--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final boolean hasContended()
+	Name: hasContended
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#hasContended--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final Thread getFirstQueuedThread()
+	Name: getFirstQueuedThread
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#getFirstQueuedThread--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Thread
+	}
+
+	[Function]
+	public final boolean isQueued(Thread thread)
+	Name: isQueued
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#isQueued-java.lang.Thread-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Thread
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final boolean hasQueuedPredecessors()
+	Name: hasQueuedPredecessors
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#hasQueuedPredecessors--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final int getQueueLength()
+	Name: getQueueLength
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#getQueueLength--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public final Collection<Thread> getQueuedThreads()
+	Name: getQueuedThreads
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#getQueuedThreads--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Collection {
+			java.lang::Thread
+		}
+	}
+
+	[Function]
+	public final Collection<Thread> getExclusiveQueuedThreads()
+	Name: getExclusiveQueuedThreads
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#getExclusiveQueuedThreads--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Collection {
+			java.lang::Thread
+		}
+	}
+
+	[Function]
+	public final Collection<Thread> getSharedQueuedThreads()
+	Name: getSharedQueuedThreads
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#getSharedQueuedThreads--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Collection {
+			java.lang::Thread
+		}
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#toString--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public final boolean owns(AbstractQueuedSynchronizer.ConditionObject condition)
+	Name: owns
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#owns-java.util.concurrent.locks.AbstractQueuedSynchronizer.ConditionObject-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.concurrent.locks::AbstractQueuedSynchronizer.ConditionObject
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final boolean hasWaiters(AbstractQueuedSynchronizer.ConditionObject condition)
+	Name: hasWaiters
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#hasWaiters-java.util.concurrent.locks.AbstractQueuedSynchronizer.ConditionObject-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.concurrent.locks::AbstractQueuedSynchronizer.ConditionObject
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final int getWaitQueueLength(AbstractQueuedSynchronizer.ConditionObject condition)
+	Name: getWaitQueueLength
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#getWaitQueueLength-java.util.concurrent.locks.AbstractQueuedSynchronizer.ConditionObject-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.concurrent.locks::AbstractQueuedSynchronizer.ConditionObject
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public final Collection<Thread> getWaitingThreads(AbstractQueuedSynchronizer.ConditionObject condition)
+	Name: getWaitingThreads
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#getWaitingThreads-java.util.concurrent.locks.AbstractQueuedSynchronizer.ConditionObject-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.concurrent.locks::AbstractQueuedSynchronizer.ConditionObject
+	
+		[result]
+		java.util::Collection {
+			java.lang::Thread
+		}
+	}
+}
+
+[Classifier]
+public class AbstractQueuedSynchronizer.ConditionObject
+extends Object
+implements Condition, Serializable
+Name: AbstractQueuedSynchronizer.ConditionObject
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.ConditionObject.html
+Containing package: java.util.concurrent.locks
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.util.concurrent.locks::Condition
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public ConditionObject()
+	Name: ConditionObject
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.ConditionObject.html#ConditionObject--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: AbstractQueuedSynchronizer.ConditionObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.concurrent.locks::AbstractQueuedSynchronizer.ConditionObject
+	}
+
+	[Function]
+	public final void signal()
+	Name: signal
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.ConditionObject.html#signal--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer.ConditionObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void signalAll()
+	Name: signalAll
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.ConditionObject.html#signalAll--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer.ConditionObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void awaitUninterruptibly()
+	Name: awaitUninterruptibly
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.ConditionObject.html#awaitUninterruptibly--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer.ConditionObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final void await()
+	                 throws InterruptedException
+	Name: await
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.ConditionObject.html#await--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer.ConditionObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public final long awaitNanos(long nanosTimeout)
+	                      throws InterruptedException
+	Name: awaitNanos
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.ConditionObject.html#awaitNanos-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer.ConditionObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public final boolean awaitUntil(Date deadline)
+	                         throws InterruptedException
+	Name: awaitUntil
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.ConditionObject.html#awaitUntil-java.util.Date-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer.ConditionObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util::Date
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final boolean await(long time,
+	                           TimeUnit unit)
+	                    throws InterruptedException
+	Name: await
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.ConditionObject.html#await-long-java.util.concurrent.TimeUnit-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer.ConditionObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		java.util.concurrent::TimeUnit
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected final boolean hasWaiters()
+	Name: hasWaiters
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.ConditionObject.html#hasWaiters--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer.ConditionObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected final int getWaitQueueLength()
+	Name: getWaitQueueLength
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.ConditionObject.html#getWaitQueueLength--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer.ConditionObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected final Collection<Thread> getWaitingThreads()
+	Name: getWaitingThreads
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.ConditionObject.html#getWaitingThreads--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: AbstractQueuedSynchronizer.ConditionObject
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Collection {
+			java.lang::Thread
+		}
+	}
+}
+
+[Classifier]
+public class LockSupport
+extends Object
+Name: LockSupport
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/LockSupport.html
+Containing package: java.util.concurrent.locks
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public static void unpark(Thread thread)
+	Name: unpark
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/LockSupport.html#unpark-java.lang.Thread-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: LockSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Thread
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static void park(Object blocker)
+	Name: park
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/LockSupport.html#park-java.lang.Object-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: LockSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static void parkNanos(Object blocker,
+	                             long nanos)
+	Name: parkNanos
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/LockSupport.html#parkNanos-java.lang.Object-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: LockSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+		other::long
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static void parkUntil(Object blocker,
+	                             long deadline)
+	Name: parkUntil
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/LockSupport.html#parkUntil-java.lang.Object-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: LockSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Object
+		other::long
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static Object getBlocker(Thread t)
+	Name: getBlocker
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/LockSupport.html#getBlocker-java.lang.Thread-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: LockSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Thread
+	
+		[result]
+		java.lang::Object
+	}
+
+	[Function]
+	public static void park()
+	Name: park
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/LockSupport.html#park--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: LockSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static void parkNanos(long nanos)
+	Name: parkNanos
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/LockSupport.html#parkNanos-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: LockSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public static void parkUntil(long deadline)
+	Name: parkUntil
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/LockSupport.html#parkUntil-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=true
+		memberType=method
+		constructor=false
+	}
+	Containing type: LockSupport
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::void
+	}
+}
+
+[Classifier]
+public class ReentrantLock
+extends Object
+implements Lock, Serializable
+Name: ReentrantLock
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html
+Containing package: java.util.concurrent.locks
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.util.concurrent.locks::Lock
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public ReentrantLock()
+	Name: ReentrantLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html#ReentrantLock--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ReentrantLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.concurrent.locks::ReentrantLock
+	}
+
+	[Function]
+	public ReentrantLock(boolean fair)
+	Name: ReentrantLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html#ReentrantLock-boolean-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ReentrantLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::boolean
+	
+		[result]
+		java.util.concurrent.locks::ReentrantLock
+	}
+
+	[Function]
+	public void lock()
+	Name: lock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html#lock--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void lockInterruptibly()
+	                       throws InterruptedException
+	Name: lockInterruptibly
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html#lockInterruptibly--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean tryLock()
+	Name: tryLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html#tryLock--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean tryLock(long timeout,
+	                       TimeUnit unit)
+	                throws InterruptedException
+	Name: tryLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html#tryLock-long-java.util.concurrent.TimeUnit-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		java.util.concurrent::TimeUnit
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void unlock()
+	Name: unlock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html#unlock--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Condition newCondition()
+	Name: newCondition
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html#newCondition--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.concurrent.locks::Condition
+	}
+
+	[Function]
+	public int getHoldCount()
+	Name: getHoldCount
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html#getHoldCount--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public boolean isHeldByCurrentThread()
+	Name: isHeldByCurrentThread
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html#isHeldByCurrentThread--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isLocked()
+	Name: isLocked
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html#isLocked--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final boolean isFair()
+	Name: isFair
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html#isFair--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected Thread getOwner()
+	Name: getOwner
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html#getOwner--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Thread
+	}
+
+	[Function]
+	public final boolean hasQueuedThreads()
+	Name: hasQueuedThreads
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html#hasQueuedThreads--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final boolean hasQueuedThread(Thread thread)
+	Name: hasQueuedThread
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html#hasQueuedThread-java.lang.Thread-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Thread
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final int getQueueLength()
+	Name: getQueueLength
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html#getQueueLength--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected Collection<Thread> getQueuedThreads()
+	Name: getQueuedThreads
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html#getQueuedThreads--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Collection {
+			java.lang::Thread
+		}
+	}
+
+	[Function]
+	public boolean hasWaiters(Condition condition)
+	Name: hasWaiters
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html#hasWaiters-java.util.concurrent.locks.Condition-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.concurrent.locks::Condition
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public int getWaitQueueLength(Condition condition)
+	Name: getWaitQueueLength
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html#getWaitQueueLength-java.util.concurrent.locks.Condition-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.concurrent.locks::Condition
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected Collection<Thread> getWaitingThreads(Condition condition)
+	Name: getWaitingThreads
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html#getWaitingThreads-java.util.concurrent.locks.Condition-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.concurrent.locks::Condition
+	
+		[result]
+		java.util::Collection {
+			java.lang::Thread
+		}
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html#toString--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public class ReentrantReadWriteLock
+extends Object
+implements ReadWriteLock, Serializable
+Name: ReentrantReadWriteLock
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html
+Containing package: java.util.concurrent.locks
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.util.concurrent.locks::ReadWriteLock
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public ReentrantReadWriteLock()
+	Name: ReentrantReadWriteLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html#ReentrantReadWriteLock--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ReentrantReadWriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.concurrent.locks::ReentrantReadWriteLock
+	}
+
+	[Function]
+	public ReentrantReadWriteLock(boolean fair)
+	Name: ReentrantReadWriteLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html#ReentrantReadWriteLock-boolean-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ReentrantReadWriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::boolean
+	
+		[result]
+		java.util.concurrent.locks::ReentrantReadWriteLock
+	}
+
+	[Function]
+	public ReentrantReadWriteLock.WriteLock writeLock()
+	Name: writeLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html#writeLock--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.concurrent.locks::ReentrantReadWriteLock.WriteLock
+	}
+
+	[Function]
+	public ReentrantReadWriteLock.ReadLock readLock()
+	Name: readLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html#readLock--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.concurrent.locks::ReentrantReadWriteLock.ReadLock
+	}
+
+	[Function]
+	public final boolean isFair()
+	Name: isFair
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html#isFair--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	protected Thread getOwner()
+	Name: getOwner
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html#getOwner--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::Thread
+	}
+
+	[Function]
+	public int getReadLockCount()
+	Name: getReadLockCount
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html#getReadLockCount--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public boolean isWriteLocked()
+	Name: isWriteLocked
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html#isWriteLocked--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isWriteLockedByCurrentThread()
+	Name: isWriteLockedByCurrentThread
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html#isWriteLockedByCurrentThread--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public int getWriteHoldCount()
+	Name: getWriteHoldCount
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html#getWriteHoldCount--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public int getReadHoldCount()
+	Name: getReadHoldCount
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html#getReadHoldCount--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected Collection<Thread> getQueuedWriterThreads()
+	Name: getQueuedWriterThreads
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html#getQueuedWriterThreads--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Collection {
+			java.lang::Thread
+		}
+	}
+
+	[Function]
+	protected Collection<Thread> getQueuedReaderThreads()
+	Name: getQueuedReaderThreads
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html#getQueuedReaderThreads--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Collection {
+			java.lang::Thread
+		}
+	}
+
+	[Function]
+	public final boolean hasQueuedThreads()
+	Name: hasQueuedThreads
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html#hasQueuedThreads--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final boolean hasQueuedThread(Thread thread)
+	Name: hasQueuedThread
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html#hasQueuedThread-java.lang.Thread-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.lang::Thread
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public final int getQueueLength()
+	Name: getQueueLength
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html#getQueueLength--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=true
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected Collection<Thread> getQueuedThreads()
+	Name: getQueuedThreads
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html#getQueuedThreads--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util::Collection {
+			java.lang::Thread
+		}
+	}
+
+	[Function]
+	public boolean hasWaiters(Condition condition)
+	Name: hasWaiters
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html#hasWaiters-java.util.concurrent.locks.Condition-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.concurrent.locks::Condition
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public int getWaitQueueLength(Condition condition)
+	Name: getWaitQueueLength
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html#getWaitQueueLength-java.util.concurrent.locks.Condition-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.concurrent.locks::Condition
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	protected Collection<Thread> getWaitingThreads(Condition condition)
+	Name: getWaitingThreads
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html#getWaitingThreads-java.util.concurrent.locks.Condition-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.concurrent.locks::Condition
+	
+		[result]
+		java.util::Collection {
+			java.lang::Thread
+		}
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html#toString--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public static class ReentrantReadWriteLock.ReadLock
+extends Object
+implements Lock, Serializable
+Name: ReentrantReadWriteLock.ReadLock
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.ReadLock.html
+Containing package: java.util.concurrent.locks
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=true
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.util.concurrent.locks::Lock
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected ReadLock(ReentrantReadWriteLock lock)
+	Name: ReadLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.ReadLock.html#ReadLock-java.util.concurrent.locks.ReentrantReadWriteLock-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ReentrantReadWriteLock.ReadLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.concurrent.locks::ReentrantReadWriteLock
+	
+		[result]
+		java.util.concurrent.locks::ReentrantReadWriteLock.ReadLock
+	}
+
+	[Function]
+	public void lock()
+	Name: lock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.ReadLock.html#lock--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock.ReadLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void lockInterruptibly()
+	                       throws InterruptedException
+	Name: lockInterruptibly
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.ReadLock.html#lockInterruptibly--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock.ReadLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean tryLock()
+	Name: tryLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.ReadLock.html#tryLock--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock.ReadLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean tryLock(long timeout,
+	                       TimeUnit unit)
+	                throws InterruptedException
+	Name: tryLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.ReadLock.html#tryLock-long-java.util.concurrent.TimeUnit-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock.ReadLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		java.util.concurrent::TimeUnit
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void unlock()
+	Name: unlock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.ReadLock.html#unlock--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock.ReadLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Condition newCondition()
+	Name: newCondition
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.ReadLock.html#newCondition--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock.ReadLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.concurrent.locks::Condition
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.ReadLock.html#toString--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock.ReadLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+}
+
+[Classifier]
+public static class ReentrantReadWriteLock.WriteLock
+extends Object
+implements Lock, Serializable
+Name: ReentrantReadWriteLock.WriteLock
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.WriteLock.html
+Containing package: java.util.concurrent.locks
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=true
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.util.concurrent.locks::Lock
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	protected WriteLock(ReentrantReadWriteLock lock)
+	Name: WriteLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.WriteLock.html#WriteLock-java.util.concurrent.locks.ReentrantReadWriteLock-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=protected
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: ReentrantReadWriteLock.WriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		java.util.concurrent.locks::ReentrantReadWriteLock
+	
+		[result]
+		java.util.concurrent.locks::ReentrantReadWriteLock.WriteLock
+	}
+
+	[Function]
+	public void lock()
+	Name: lock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.WriteLock.html#lock--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock.WriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void lockInterruptibly()
+	                       throws InterruptedException
+	Name: lockInterruptibly
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.WriteLock.html#lockInterruptibly--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock.WriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public boolean tryLock()
+	Name: tryLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.WriteLock.html#tryLock--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock.WriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean tryLock(long timeout,
+	                       TimeUnit unit)
+	                throws InterruptedException
+	Name: tryLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.WriteLock.html#tryLock-long-java.util.concurrent.TimeUnit-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock.WriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		java.util.concurrent::TimeUnit
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void unlock()
+	Name: unlock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.WriteLock.html#unlock--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock.WriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public Condition newCondition()
+	Name: newCondition
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.WriteLock.html#newCondition--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock.WriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.concurrent.locks::Condition
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.WriteLock.html#toString--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock.WriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public boolean isHeldByCurrentThread()
+	Name: isHeldByCurrentThread
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.WriteLock.html#isHeldByCurrentThread--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock.WriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public int getHoldCount()
+	Name: getHoldCount
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.WriteLock.html#getHoldCount--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: ReentrantReadWriteLock.WriteLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+}
+
+[Classifier]
+public class StampedLock
+extends Object
+implements Serializable
+Name: StampedLock
+Language: JAVA
+Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/StampedLock.html
+Containing package: java.util.concurrent.locks
+attributes {
+	abstract=false
+	final=false
+	classifierType=class
+	static=false
+	scope=public
+}
+parameters {
+}
+derived {
+}
+supertypes {
+	java.io::Serializable
+	java.lang::Object
+}
+members {
+
+	[Function]
+	public StampedLock()
+	Name: StampedLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/StampedLock.html#StampedLock--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=true
+	}
+	Containing type: StampedLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.concurrent.locks::StampedLock
+	}
+
+	[Function]
+	public long writeLock()
+	Name: writeLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/StampedLock.html#writeLock--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StampedLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public long tryWriteLock()
+	Name: tryWriteLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/StampedLock.html#tryWriteLock--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StampedLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public long tryWriteLock(long time,
+	                         TimeUnit unit)
+	                  throws InterruptedException
+	Name: tryWriteLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/StampedLock.html#tryWriteLock-long-java.util.concurrent.TimeUnit-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StampedLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		java.util.concurrent::TimeUnit
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public long writeLockInterruptibly()
+	                            throws InterruptedException
+	Name: writeLockInterruptibly
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/StampedLock.html#writeLockInterruptibly--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StampedLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public long readLock()
+	Name: readLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/StampedLock.html#readLock--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StampedLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public long tryReadLock()
+	Name: tryReadLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/StampedLock.html#tryReadLock--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StampedLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public long tryReadLock(long time,
+	                        TimeUnit unit)
+	                 throws InterruptedException
+	Name: tryReadLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/StampedLock.html#tryReadLock-long-java.util.concurrent.TimeUnit-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StampedLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+		java.util.concurrent::TimeUnit
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public long readLockInterruptibly()
+	                           throws InterruptedException
+	Name: readLockInterruptibly
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/StampedLock.html#readLockInterruptibly--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StampedLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public long tryOptimisticRead()
+	Name: tryOptimisticRead
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/StampedLock.html#tryOptimisticRead--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StampedLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public boolean validate(long stamp)
+	Name: validate
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/StampedLock.html#validate-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StampedLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public void unlockWrite(long stamp)
+	Name: unlockWrite
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/StampedLock.html#unlockWrite-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StampedLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void unlockRead(long stamp)
+	Name: unlockRead
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/StampedLock.html#unlockRead-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StampedLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public void unlock(long stamp)
+	Name: unlock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/StampedLock.html#unlock-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StampedLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::void
+	}
+
+	[Function]
+	public long tryConvertToWriteLock(long stamp)
+	Name: tryConvertToWriteLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/StampedLock.html#tryConvertToWriteLock-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StampedLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public long tryConvertToReadLock(long stamp)
+	Name: tryConvertToReadLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/StampedLock.html#tryConvertToReadLock-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StampedLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public long tryConvertToOptimisticRead(long stamp)
+	Name: tryConvertToOptimisticRead
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/StampedLock.html#tryConvertToOptimisticRead-long-
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StampedLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+		other::long
+	
+		[result]
+		other::long
+	}
+
+	[Function]
+	public boolean tryUnlockWrite()
+	Name: tryUnlockWrite
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/StampedLock.html#tryUnlockWrite--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StampedLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean tryUnlockRead()
+	Name: tryUnlockRead
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/StampedLock.html#tryUnlockRead--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StampedLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isWriteLocked()
+	Name: isWriteLocked
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/StampedLock.html#isWriteLocked--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StampedLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public boolean isReadLocked()
+	Name: isReadLocked
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/StampedLock.html#isReadLocked--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StampedLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::boolean
+	}
+
+	[Function]
+	public int getReadLockCount()
+	Name: getReadLockCount
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/StampedLock.html#getReadLockCount--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StampedLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		other::int
+	}
+
+	[Function]
+	public String toString()
+	Name: toString
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/StampedLock.html#toString--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StampedLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.lang::String
+	}
+
+	[Function]
+	public Lock asReadLock()
+	Name: asReadLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/StampedLock.html#asReadLock--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StampedLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.concurrent.locks::Lock
+	}
+
+	[Function]
+	public Lock asWriteLock()
+	Name: asWriteLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/StampedLock.html#asWriteLock--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StampedLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.concurrent.locks::Lock
+	}
+
+	[Function]
+	public ReadWriteLock asReadWriteLock()
+	Name: asReadWriteLock
+	Language: JAVA
+	Doc: http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/StampedLock.html#asReadWriteLock--
+	Containing package: java.util.concurrent.locks
+	attributes {
+		abstract=false
+		final=false
+		scope=public
+		default=false
+		static=false
+		memberType=method
+		constructor=false
+	}
+	Containing type: StampedLock
+	parameters {
+	}
+	Signature = <function> {
+		[parameters]
+	
+		[result]
+		java.util.concurrent.locks::ReadWriteLock
+	}
+}

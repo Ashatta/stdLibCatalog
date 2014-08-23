@@ -54,44 +54,39 @@ public class JavaParser {
 
     private final Map<String, PackageEntity> packages = new HashMap<>();
     private final Map<QualifiedName, Classifier> classes = new HashMap<>();
+    private final Map<QualifiedName, Map<String, MemberEntity>> classMembers = new HashMap<>();
     private final Map<QualifiedName, List<TypeConstructor>> nestedClasses = new HashMap<>();
+    private final Map<QualifiedName, Map<String, JavaType>> fields = new HashMap<>();
+    private final Map<QualifiedName, Map<String, JavaFunction>> methods = new HashMap<>();
     private final Map<QualifiedName, List<JavaType>> superTypes = new HashMap<>();
     private final Map<QualifiedName, ParametersDescription> parameters = new HashMap<>();
     private final Map<QualifiedName, Map<String, ParametersDescription>> memberParameters = new HashMap<>();
-    private final Map<QualifiedName, Map<String, JavaType>> fields = new HashMap<>();
-    private final Map<QualifiedName, Map<String, JavaFunction>> methods = new HashMap<>();
     private final Map<MemberEntity, String> membersReverseIndex = new HashMap<>();
+
+    public JavaParser() {
+        fillEmbeddedTypes();
+    }
 
     public static void main(String[] args) throws IOException {
         JavaParser parser = new JavaParser();
-        parser.fillEmbeddedTypes();
         parser.parse();
 /*
-        File dir = new File("/home/ashatta/debug");
+        File dir = new File("resources/tests/parsers/java/global");
+        if (dir.exists()) {
+            dir.delete();
+        }
         dir.mkdir();
         for (PackageEntity pack : parser.packages.values()) {
-            File packDir = new File(dir.getAbsolutePath() + "/" + pack.getName());
-            packDir.mkdir();
-            File packFile = new File(packDir.getAbsolutePath() + "/" + pack.getName() + ".txt");
+            File packFile = new File(dir.getAbsolutePath() + "/" + pack.getName() + ".txt");
             packFile.createNewFile();
             FileWriter out = new FileWriter(packFile);
             out.write(pack.toString());
             out.close();
-
-            File contentsDir = new File(packDir.getAbsolutePath() + "/contents");
-            contentsDir.mkdir();
-            for (TypeConstructor member : pack.getContainedClasses()) {
-                File memberFile = new File(contentsDir.getAbsoluteFile() + "/" + member.getName() + ".txt");
-                memberFile.createNewFile();
-                out = new FileWriter(memberFile);
-                out.write(member.toString());
-                out.close();
-            }
         }
-        */
+*/
     }
 
-    private void parse() throws IOException {
+    public void parse() throws IOException {
         Document document = Jsoup.parse(new File(BASE_FOLDER + "overview-summary.html"), "UTF-8");
         Element overviewTable = document.getElementsByClass("overviewSummary").first().getElementsByTag("tbody").last();
         for (Element row : overviewTable.children()) {
@@ -224,7 +219,7 @@ public class JavaParser {
 
         for (String attr : CLASSIFIER_TYPES_ATTRIBUTES) {
             if (attributes.contains(attr)) {
-                attrs.put("classifierType", attr.equals("@interface") ? "annotation" : attr);
+                attrs.put("classifierType", attr.startsWith("@") ? "annotation" : attr);
             }
         }
 
@@ -326,6 +321,7 @@ public class JavaParser {
         fillFieldAttributes(field, parts.subList(0, parts.size() - 2), isEnumConst);
 
         fields.get(enclosingClass).put(addressName, type);
+        classMembers.get(enclosingClass).put(addressName, field);
         membersReverseIndex.put(field, addressName);
         return field;
     }
@@ -377,6 +373,7 @@ public class JavaParser {
         }
 
         methods.get(enclosingClass).put(addressName, func);
+        classMembers.get(enclosingClass).put(addressName, function);
         membersReverseIndex.put(function, addressName);
         return function;
     }
@@ -515,7 +512,8 @@ public class JavaParser {
         List<Entity> otherEntities = new ArrayList<>();
         constraintDescription.getValue().extractOtherEntities(this, entityParams, parentParams, otherEntities);
         String type = constraintDescription.getKey().equals(BoundDescription.BoundType.LOWER) ? "super" : "extends";
-        return new Constraint(variables, otherEntities, type + " " + constraintDescription.getValue().buildString());
+        return new Constraint(variables, otherEntities,
+                variable.getName() + " " + type + " " + constraintDescription.getValue().buildString());
     }
 
     private boolean contains(List<TypeVariable> variables, TypeVariable variable) {
@@ -590,6 +588,7 @@ public class JavaParser {
     private void createClassMaps(QualifiedName className) {
         fields.put(className, new HashMap<String, JavaType>());
         methods.put(className, new HashMap<String, JavaFunction>());
+        classMembers.put(className, new HashMap<String, MemberEntity>());
         memberParameters.put(className, new HashMap<String, ParametersDescription>());
         nestedClasses.put(className, new ArrayList<TypeConstructor>());
     }
@@ -601,4 +600,12 @@ public class JavaParser {
     public Map<QualifiedName, ParametersDescription> getParameters() {
         return parameters;
     }
+    public Map<QualifiedName, Map<String, MemberEntity>> getClassMembers() {
+        return classMembers;
+    }
+
+    public Map<String, PackageEntity> getPackages() {
+        return packages;
+    }
+
 }
