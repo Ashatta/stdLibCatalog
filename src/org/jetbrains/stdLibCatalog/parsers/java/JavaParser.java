@@ -1,6 +1,5 @@
 package org.jetbrains.stdLibCatalog.parsers.java;
 
-import javafx.util.Pair;
 import org.jetbrains.stdLibCatalog.domain.*;
 import org.jetbrains.stdLibCatalog.parsers.utils.ParserUtils;
 import org.jsoup.Jsoup;
@@ -9,7 +8,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -27,18 +25,7 @@ public class JavaParser {
         METHOD
     }
 
-    static class BoundDescription extends Pair<BoundDescription.BoundType, JavaType> {
-        public BoundDescription(BoundType boundType, JavaType type) {
-            super(boundType, type);
-        }
-
-        public static enum BoundType {
-            LOWER,
-            UPPER
-        }
-    }
-
-    static class ParametersDescription extends HashMap<String, List<BoundDescription>> {
+    static class ParametersDescription extends HashMap<String, List<JavaWildcard.BoundDescription>> {
     }
 
     public static final String OTHER_PACKAGE = "other";
@@ -171,14 +158,14 @@ public class JavaParser {
         for (String paramDesc : paramsStrings) {
             Iterator<String> partsIterator = typeSplit(paramDesc, "").iterator();
             String paramName = partsIterator.next();
-            params.put(paramName, new ArrayList<BoundDescription>());
-            BoundDescription.BoundType boundType = BoundDescription.BoundType.UPPER;
+            params.put(paramName, new ArrayList<JavaWildcard.BoundDescription>());
+            JavaWildcard.BoundDescription.BoundType boundType = JavaWildcard.BoundDescription.BoundType.UPPER;
             while (partsIterator.hasNext()) {
                 String part = partsIterator.next();
                 if (part.equals("extends") || part.equals("super")) {
-                    boundType = part.equals("extends") ? BoundDescription.BoundType.UPPER : BoundDescription.BoundType.LOWER;
+                    boundType = part.equals("extends") ? JavaWildcard.BoundDescription.BoundType.UPPER : JavaWildcard.BoundDescription.BoundType.LOWER;
                 } else if (!part.equals("&")) {
-                    params.get(paramName).add(new BoundDescription(boundType, JavaType.parse(elem, part)));
+                    params.get(paramName).add(new JavaWildcard.BoundDescription(boundType, JavaType.parse(elem, part)));
                 }
             }
         }
@@ -480,15 +467,15 @@ public class JavaParser {
                 : fields.get(enclosingClass).get(addressName).buildAsFunction(this, vars, parentVars, enclosingClass));
     }
 
-    private Map<String, TypeVariable> getTypeParameters(Map<String, List<BoundDescription>> params) {
+    private Map<String, TypeVariable> getTypeParameters(Map<String, List<JavaWildcard.BoundDescription>> params) {
         Map<String, TypeVariable> variables = new HashMap<>();
-        for (Map.Entry<String, List<BoundDescription>> param : params.entrySet()) {
+        for (Map.Entry<String, List<JavaWildcard.BoundDescription>> param : params.entrySet()) {
             variables.put(param.getKey(), new TypeVariable(param.getKey(), Language.JAVA));
         }
 
         List<Constraint> constraints = new ArrayList<>();
-        for (Map.Entry<String, List<BoundDescription>> param : params.entrySet()) {
-            for (BoundDescription constraintDescription : param.getValue()) {
+        for (Map.Entry<String, List<JavaWildcard.BoundDescription>> param : params.entrySet()) {
+            for (JavaWildcard.BoundDescription constraintDescription : param.getValue()) {
                 constraints.add(buildConstraint(variables.get(param.getKey()), constraintDescription, variables, variables));
             }
         }
@@ -501,7 +488,7 @@ public class JavaParser {
         return variables;
     }
 
-    Constraint buildConstraint(TypeVariable variable, BoundDescription constraintDescription
+    Constraint buildConstraint(TypeVariable variable, JavaWildcard.BoundDescription constraintDescription
             , Map<String, TypeVariable> entityParams, Map<String, TypeVariable> parentParams) {
         List<TypeVariable> variables = new ArrayList<>();
         constraintDescription.getValue().extractVariables(entityParams, parentParams, variables);
@@ -511,7 +498,7 @@ public class JavaParser {
 
         List<Entity> otherEntities = new ArrayList<>();
         constraintDescription.getValue().extractOtherEntities(this, entityParams, parentParams, otherEntities);
-        String type = constraintDescription.getKey().equals(BoundDescription.BoundType.LOWER) ? "super" : "extends";
+        String type = constraintDescription.getKey().equals(JavaWildcard.BoundDescription.BoundType.LOWER) ? "super" : "extends";
         return new Constraint(variables, otherEntities,
                 variable.getName() + " " + type + " " + constraintDescription.getValue().buildString());
     }

@@ -1,5 +1,6 @@
 package org.jetbrains.stdLibCatalog.parsers.java;
 
+import javafx.util.Pair;
 import org.jetbrains.stdLibCatalog.domain.*;
 import org.jsoup.nodes.Element;
 
@@ -8,10 +9,20 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import static org.jetbrains.stdLibCatalog.parsers.java.JavaParser.BoundDescription;
 import static org.jetbrains.stdLibCatalog.parsers.utils.ParserUtils.QualifiedName;
 
 public class JavaWildcard extends JavaType {
+    public static class BoundDescription extends Pair<BoundDescription.BoundType, JavaType> {
+        public BoundDescription(BoundType boundType, JavaType type) {
+            super(boundType, type);
+        }
+
+        public static enum BoundType {
+            LOWER,
+            UPPER
+        }
+    }
+
     private final List<BoundDescription> bounds = new ArrayList<>();
 
     public static JavaType parse(Element elem, String typeString) {

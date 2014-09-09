@@ -32,6 +32,14 @@ public class PackageEntity extends Entity {
         subPackages.add(subPackage);
     }
 
+    public void addContainedClass(TypeConstructor containedClass) {
+        containedClasses.add(containedClass);
+    }
+
+    public void addMember(MemberEntity member) {
+        members.add(member);
+    }
+
     public String toString() {
         String result = "[Package]\n" + super.toString() + "\n\nSubpackages {";
 

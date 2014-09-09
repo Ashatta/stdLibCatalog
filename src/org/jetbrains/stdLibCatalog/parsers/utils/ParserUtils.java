@@ -40,6 +40,31 @@ public class ParserUtils {
         return result;
     }
 
+    public static List<String> splitByBraces(String signature, List<Character> openingBraces,
+            List<Character> closingBraces) {
+        List<String> result = new ArrayList<>();
+        if (signature.isEmpty() || !openingBraces.contains(signature.charAt(0))
+                || !closingBraces.contains(signature.charAt(signature.length() - 1))) {
+            return result;
+        }
+
+        int braces = 0;
+        int start = 0;
+        for (int i = 0; i < signature.length(); ++i) {
+            if (openingBraces.contains(signature.charAt(i))) {
+                braces++;
+            } else if (closingBraces.contains(signature.charAt(i))) {
+                braces--;
+                if (braces == 0) {
+                    result.add(signature.substring(start, i + 1));
+                    start = i + 1;
+                }
+            }
+        }
+
+        return result;
+    }
+
     private static boolean substr(String signature, String str, int i, int len) {
         if (len == 0) {
             return Character.isWhitespace(signature.charAt(i));
