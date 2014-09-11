@@ -8,6 +8,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -18,11 +20,14 @@ import static org.jetbrains.stdLibCatalog.parsers.utils.ParserUtils.QualifiedNam
 import static org.jetbrains.stdLibCatalog.parsers.utils.ParserUtils.splitByBraces;
 
 public class ScalaParser {
-    private static final int CONNECTION_TIMEOUT = 2000;
+    private final int CONNECTION_TIMEOUT = 2000;
     static final String OTHER_PACKAGE = "other";
     static final String NON_EXISTING_PACKAGE = "non-existing";
     private final String BASE_ADDRESS = "http://www.scala-lang.org/api/current/";
     private String currentAddress = "";
+    private final List<String> CLASSIFIER_ATTRIBUTES = Arrays.asList("abstract", "final", "implicit", "sealed");
+    private final List<String> ALIAS_ATTRIBUTES = Arrays.asList("abstract");
+    private final List<String> MEMBER_ATTRIBUTES = Arrays.asList("abstract", "final", "implicit");
 
     private final Map<QualifiedName, Classifier> classes = new HashMap<>();
     private final Map<QualifiedName, TypeAlias> aliases = new HashMap<>();
@@ -47,6 +52,19 @@ public class ScalaParser {
 
         parser.createConnections();
         System.out.println();
+
+        File dir = new File("resources/tests/parsers/scala/global");
+        if (dir.exists()) {
+            dir.delete();
+        }
+        dir.mkdir();
+        for (PackageEntity pack : parser.packages.values()) {
+            File packFile = new File(dir.getAbsolutePath() + "/" + pack.getName() + ".txt");
+            packFile.createNewFile();
+            FileWriter out = new FileWriter(packFile);
+            out.write(pack.toString());
+            out.close();
+        }
     }
 
     private void createConnections() {
@@ -80,7 +98,9 @@ public class ScalaParser {
             for (ScalaConstraint constraint : classParametersConstraints.get(type.getKey())) {
                 Constraint constr = constraint.buildConstraint(getAllClassVars(type.getKey()), this);
                 for (TypeVariable var : constr.getVariables()) {
-                    var.addConstraint(constr);
+                    if (!constr.getDeclaration().equals(var.getName())) {
+                        var.addConstraint(constr);
+                    }
                 }
             }
         }
@@ -106,7 +126,9 @@ public class ScalaParser {
             for (ScalaConstraint constraint : classParametersConstraints.get(type.getKey())) {
                 Constraint constr = constraint.buildConstraint(getAllClassVars(type.getKey()), this);
                 for (TypeVariable var : constr.getVariables()) {
-                    var.addConstraint(constr);
+                    if (!constr.getDeclaration().equals(var.getName())) {
+                        var.addConstraint(constr);
+                    }
                 }
             }
         }
@@ -125,7 +147,9 @@ public class ScalaParser {
         for (Map.Entry<QualifiedName, Map<String, MemberEntity>> members : classMembers.entrySet()) {
             for (Map.Entry<String, MemberEntity> member : members.getValue().entrySet()) {
                 member.getValue().setContainingPackage(packages.get(members.getKey().getKey()));
-                packages.get(members.getKey().getKey()).addMember(member.getValue());
+                if (members.getKey().getValue().isEmpty()) {
+                    packages.get(members.getKey().getKey()).addMember(member.getValue());
+                }
                 member.getValue().setContainingType(members.getKey().getValue().isEmpty() ? null : classes.get(members.getKey()));
                 createMemberVariables(members.getKey(), member);
             }
@@ -164,7 +188,9 @@ public class ScalaParser {
                     allVars.putAll(memberEndParameters.get(members.getKey()).get(member.getKey()));
                     Constraint constr = constraint.buildConstraint(allVars, this);
                     for (TypeVariable var : constr.getVariables()) {
-                        var.addConstraint(constr);
+                        if (!constr.getDeclaration().equals(var.getName())) {
+                            var.addConstraint(constr);
+                        }
                     }
                 }
             }
@@ -239,12 +265,17 @@ public class ScalaParser {
 
         enclosingClasses.put(qualifiedName, enclosingClass);
 
-        classes.put(qualifiedName, new Classifier(name, Language.SCALA, document.getElementById("comment").text(),
+        Classifier classifier = new Classifier(name, Language.SCALA, document.getElementById("comment").text(),
                 getLink(document.getElementById("definition")), parseMembers(document, qualifiedName, name),
-                signatureElem.text()));
+                signatureElem.text());
+        classes.put(qualifiedName, classifier);
+        classifier.setAttr("classifierType", signatureElem.getElementsByClass("kind").get(0).text());
+        String attrString = signatureElem.getElementsByClass("modifier").get(0).text().trim();
+        for (Map.Entry<String, String> attr : parseAttributes(attrString, CLASSIFIER_ATTRIBUTES).entrySet()) {
+            classifier.setAttr(attr.getKey(), attr.getValue());
+        }
 
         parseInnerTypes(document, qualifiedName);
-        parseAttributes(signatureElem.text().split("\\s+" + name)[0]);
     }
 
     private void parseTypeParameters(Element signature, List<String> parameters,
@@ -270,8 +301,13 @@ public class ScalaParser {
         }
     }
 
-    private void parseAttributes(String attrString) {
-
+    private Map<String, String> parseAttributes(String attrString, List<String> attributeNames) {
+        Map<String, String> result = new HashMap<>();
+        List<String> attrs = typeSplit(attrString, "");
+        for (String attr : attributeNames) {
+            result.put(attr, attrs.contains(attr) ? "true" : "false");
+        }
+        return result;
     }
 
     private void parseInnerTypes(Document document, QualifiedName className) throws IOException {
@@ -297,8 +333,14 @@ public class ScalaParser {
                 String[] declParts = memberType.text().split("\\s+=\\s+");
 
                 initClass(qualifiedName);
-                aliases.put(qualifiedName, new TypeAlias(name, Language.SCALA, getDoc(memberType),
-                        getLink(memberType.nextElementSibling()), memberType.text()));
+                TypeAlias alias = new TypeAlias(name, Language.SCALA, getDoc(memberType),
+                        getLink(memberType.nextElementSibling()), memberType.text());
+                aliases.put(qualifiedName, alias);
+                alias.setAttr("memberType", memberType.getElementsByClass("kind").get(0).text());
+                String attrString = memberType.getElementsByClass("modifier").get(0).text().trim();
+                for (Map.Entry<String, String> attr : parseAttributes(attrString, MEMBER_ATTRIBUTES).entrySet()) {
+                    alias.setAttr(attr.getKey(), attr.getValue());
+                }
 
                 ScalaType aliasedType = declParts.length == 2
                         ? ScalaType.parse(memberType, declParts[declParts.length - 1])
@@ -355,6 +397,10 @@ public class ScalaParser {
     private void parseClassMember(Element methodElem, QualifiedName className, List<MemberEntity> result)
             throws MalformedURLException {
         String signature = methodElem.text().replaceAll("\\s+\\{.*\\}$", "");
+        String addressName = signature;
+        if (classMembers.get(className).containsKey(addressName)) {
+            return;
+        }
         Element nameElem = methodElem.getElementsByClass("name").isEmpty()
                 ? (methodElem.getElementsByClass("implicit").isEmpty() ? null : methodElem.getElementsByClass("implicit").get(0))
                 : methodElem.getElementsByClass("name").get(0);
@@ -364,7 +410,6 @@ public class ScalaParser {
 
         String name = nameElem.text();
         String[] parts = signature.split("(def|val)\\s+" + Pattern.quote(name));
-        String attrString = parts[0];
         signature = parts[1];
         String paramsString = "";
         if (signature.startsWith("[")) {
@@ -407,7 +452,6 @@ public class ScalaParser {
         }
         signature += " \u21D2 " + resultPart;
 
-        String addressName = name + signature;
         memberTypes.get(className).put(addressName, ScalaFunction.parse(methodElem, signature));
         memberParameters.get(className).put(addressName, new ArrayList<String>());
         memberParametersConstraints.get(className).put(addressName, new ArrayList<ScalaConstraint>());
@@ -422,6 +466,12 @@ public class ScalaParser {
                 methodElem.text());
         result.add(function);
         classMembers.get(className).put(addressName, function);
+        String memberType = methodElem.getElementsByClass("kind").get(0).text().equals("def") ? "function" : "field";
+        function.setAttr("memberType", memberType);
+        String attrString = methodElem.getElementsByClass("modifier").get(0).text().trim();
+        for (Map.Entry<String, String> attr : parseAttributes(attrString, MEMBER_ATTRIBUTES).entrySet()) {
+            function.setAttr(attr.getKey(), attr.getValue());
+        }
     }
 
     private void parseConstructors(Element constructors, QualifiedName enclosingClass, String className,
@@ -432,6 +482,7 @@ public class ScalaParser {
 
         for (Element constructorElem : constructors.getElementsByClass("signature")) {
             String signature = constructorElem.text();
+            String addressName = signature;
             String args = typeSplit(signature, className).get(1);
 
             String paramsString = "";
@@ -464,19 +515,24 @@ public class ScalaParser {
             }
             signature += ") \u21D2 " + className;
 
-            memberTypes.get(enclosingClass).put(signature, ScalaFunction.parse(constructorElem, signature));
-            memberParameters.get(enclosingClass).put(signature, new ArrayList<String>());
-            memberParametersConstraints.get(enclosingClass).put(signature, new ArrayList<ScalaConstraint>());
+            memberTypes.get(enclosingClass).put(addressName, ScalaFunction.parse(constructorElem, signature));
+            memberParameters.get(enclosingClass).put(addressName, new ArrayList<String>());
+            memberParametersConstraints.get(enclosingClass).put(addressName, new ArrayList<ScalaConstraint>());
 
             if (!paramsString.isEmpty()) {
-                parseTypeParameters(constructorElem, memberParameters.get(enclosingClass).get(signature)
-                        , memberParametersConstraints.get(enclosingClass).get(signature), paramsString);
+                parseTypeParameters(constructorElem, memberParameters.get(enclosingClass).get(addressName)
+                        , memberParametersConstraints.get(enclosingClass).get(addressName), paramsString);
             }
 
             MemberEntity constructor = new MemberEntity(className, Language.SCALA, getDoc(constructorElem),
                     getLink(constructorElem.nextElementSibling()), constructorElem.text());
             result.add(constructor);
-            classMembers.get(enclosingClass).put(signature, constructor);
+            classMembers.get(enclosingClass).put(addressName, constructor);
+            constructor.setAttr("memberType", "constructor");
+            String attrString = constructorElem.getElementsByClass("modifier").get(0).text().trim();
+            for (Map.Entry<String, String> attr : parseAttributes(attrString, MEMBER_ATTRIBUTES).entrySet()) {
+                constructor.setAttr(attr.getKey(), attr.getValue());
+            }
         }
     }
 
