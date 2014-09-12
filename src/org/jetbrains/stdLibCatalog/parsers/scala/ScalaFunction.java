@@ -1,5 +1,6 @@
 package org.jetbrains.stdLibCatalog.parsers.scala;
 
+import org.jetbrains.stdLibCatalog.domain.Classifier;
 import org.jetbrains.stdLibCatalog.domain.FunctionType;
 import org.jetbrains.stdLibCatalog.domain.Type;
 import org.jetbrains.stdLibCatalog.domain.TypeVariable;
@@ -44,6 +45,10 @@ public class ScalaFunction extends ScalaType {
 
         result.result = ScalaType.parse(signatureElem, parts.get(1));
         return (result.result == null ? null : result);
+    }
+
+    public Classifier getClassifier(ScalaParser parser) {
+        return null;
     }
 
     public FunctionType buildType(ScalaParser parser, ParserUtils.QualifiedName className, Map<String, TypeVariable> typeVariables) {

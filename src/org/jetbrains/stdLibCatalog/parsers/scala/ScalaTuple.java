@@ -1,5 +1,6 @@
 package org.jetbrains.stdLibCatalog.parsers.scala;
 
+import org.jetbrains.stdLibCatalog.domain.Classifier;
 import org.jetbrains.stdLibCatalog.domain.DataType;
 import org.jetbrains.stdLibCatalog.domain.Type;
 import org.jetbrains.stdLibCatalog.domain.TypeVariable;
@@ -31,6 +32,11 @@ public class ScalaTuple extends ScalaType {
         }
 
         return result;
+    }
+
+    public Classifier getClassifier(ScalaParser parser) {
+        QualifiedName tupleName = new QualifiedName("scala", "Tuple" + String.valueOf(parameters.size()));
+        return parser.getClasses().get(tupleName);
     }
 
     public DataType buildType(ScalaParser parser, QualifiedName className, Map<String, TypeVariable> typeVariables) {

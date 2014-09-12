@@ -46,6 +46,10 @@ public class ScalaWildcard extends ScalaType {
         return result;
     }
 
+    public Classifier getClassifier(ScalaParser parser) {
+        return null;
+    }
+
     public DataType buildType(ScalaParser parser, ParserUtils.QualifiedName className, Map<String, TypeVariable> typeVariables) {
         Wildcard wildcard = new Wildcard(Language.SCALA);
         for (BoundDescription boundDesc : bounds) {

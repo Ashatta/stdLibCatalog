@@ -52,6 +52,16 @@ public class ScalaClass extends ScalaType {
         return result;
     }
 
+    public Classifier getClassifier(ScalaParser parser) {
+        for (QualifiedName typeName : getQualifiedNames()) {
+            if (parser.getClasses().containsKey(typeName)) {
+                return parser.getClasses().get(typeName);
+            }
+        }
+
+        return null;
+    }
+
     public DataType buildType(ScalaParser parser, QualifiedName className, Map<String, TypeVariable> typeVariables) {
         List<Type> params = new ArrayList<>();
         for (ScalaType param : parameters) {
@@ -70,35 +80,27 @@ public class ScalaClass extends ScalaType {
     }
 
     private List<QualifiedName> getQualifiedNames() {
-        try {
-            List<QualifiedName> result = new ArrayList<>();
-            String[] parts = packageName.split("\\.");
-            int i = 0;
-            while (i < parts.length && Character.isLowerCase(parts[i].charAt(0))) {
-                ++i;
-            }
-
-            for (int j = 0; j < i; ++j) {
-                String packName = "";
-                for (int k = 0; k <= j; ++k) {
-                    packName += parts[k] + ".";
-                }
-                packName = packName.substring(0, packName.length() - 1);
-
-                for (String fullName : getNames(Arrays.asList(parts).subList(j + 1, parts.length))) {
-                    if (packageName.equals("scala.collection.immutable") && name.equals("::")) {
-                        System.out.println();
-                    }
-                    fullName = symbolNames(fullName);
-                    result.add(new QualifiedName(packName, fullName));
-                }
-            }
-
-            return result;
-        } catch (Exception e) {
-            System.out.println();
-            throw e;
+        List<QualifiedName> result = new ArrayList<>();
+        String[] parts = packageName.split("\\.");
+        int i = 0;
+        while (i < parts.length && Character.isLowerCase(parts[i].charAt(0))) {
+            ++i;
         }
+
+        for (int j = 0; j < i; ++j) {
+            String packName = "";
+            for (int k = 0; k <= j; ++k) {
+                packName += parts[k] + ".";
+            }
+            packName = packName.substring(0, packName.length() - 1);
+
+            for (String fullName : getNames(Arrays.asList(parts).subList(j + 1, parts.length))) {
+                fullName = symbolNames(fullName);
+                result.add(new QualifiedName(packName, fullName));
+            }
+        }
+
+        return result;
     }
 
     private List<String> getNames(List<String> nameParts) {

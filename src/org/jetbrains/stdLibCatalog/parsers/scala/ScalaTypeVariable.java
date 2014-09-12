@@ -1,6 +1,5 @@
 package org.jetbrains.stdLibCatalog.parsers.scala;
 
-import com.sun.org.omg.CORBA.ExcDescriptionSeqHelper;
 import org.jetbrains.stdLibCatalog.domain.*;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -52,6 +51,10 @@ public class ScalaTypeVariable extends ScalaType {
         result.qualifiedName = !linkElems.isEmpty() ? linkElems.get(linkElems.size() - 1).attr("name") : result.name;
 
         return result;
+    }
+
+    public Classifier getClassifier(ScalaParser parser) {
+        return null;
     }
 
     public DataType buildType(ScalaParser parser, QualifiedName className, Map<String, TypeVariable> typeVariables) {

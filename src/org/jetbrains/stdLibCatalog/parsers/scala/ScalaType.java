@@ -1,5 +1,6 @@
 package org.jetbrains.stdLibCatalog.parsers.scala;
 
+import org.jetbrains.stdLibCatalog.domain.Classifier;
 import org.jetbrains.stdLibCatalog.domain.FunctionType;
 import org.jetbrains.stdLibCatalog.domain.Type;
 import org.jetbrains.stdLibCatalog.domain.TypeVariable;
@@ -40,6 +41,8 @@ public abstract class ScalaType {
 
         return null;
     }
+
+    public abstract Classifier getClassifier(ScalaParser parser);
 
     public abstract Type buildType(ScalaParser parser, QualifiedName className, Map<String, TypeVariable> typeVariables);
 

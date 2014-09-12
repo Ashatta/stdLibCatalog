@@ -27,7 +27,7 @@ public class ScalaParser {
     private String currentAddress = "";
     private final List<String> CLASSIFIER_ATTRIBUTES = Arrays.asList("abstract", "final", "implicit", "sealed");
     private final List<String> ALIAS_ATTRIBUTES = Arrays.asList("abstract");
-    private final List<String> MEMBER_ATTRIBUTES = Arrays.asList("abstract", "final", "implicit");
+    private final List<String> MEMBER_ATTRIBUTES = Arrays.asList("abstract", "final", "implicit", "lazy");
 
     private final Map<QualifiedName, Classifier> classes = new HashMap<>();
     private final Map<QualifiedName, TypeAlias> aliases = new HashMap<>();
@@ -43,6 +43,7 @@ public class ScalaParser {
     private final Map<QualifiedName, Map<String, MemberEntity>> classMembers = new HashMap<>();
     private final Map<String, PackageEntity> packages = new HashMap<>();
     private final Map<QualifiedName, QualifiedName> enclosingClasses = new HashMap<>();
+    private final Map<Classifier, QualifiedName> namesReverseIndex = new HashMap<>();
 
     public static void main(String[] args) throws IOException {
         ScalaParser parser = new ScalaParser();
@@ -82,6 +83,18 @@ public class ScalaParser {
         }
 
         createConstraints();
+
+        for (Map.Entry<QualifiedName, List<ScalaType>> classSuperTypes : superTypes.entrySet()) {
+            Classifier type = classes.get(classSuperTypes.getKey());
+            QualifiedName name = namesReverseIndex.get(type);
+            for (ScalaType superType : classSuperTypes.getValue()) {
+                Classifier superTypeClassifier = superType.getClassifier(this);
+                type.addBase(superType.buildType(this, name, getAllClassVars(name)));
+                if (superTypeClassifier != null) {
+                    superTypeClassifier.addDerived(type);
+                }
+            }
+        }
     }
 
     private void createTypeVariables(Map.Entry<QualifiedName, Classifier> type) {
@@ -234,9 +247,6 @@ public class ScalaParser {
     }
 
     private void parseClass(QualifiedName enclosingClass) throws IOException {
-        if (currentAddress.endsWith("/")) {
-            return;
-        }
         Document document = Jsoup.parse(new URL(currentAddress), CONNECTION_TIMEOUT);
         Element signatureElem = document.getElementById("signature");
 
@@ -269,6 +279,7 @@ public class ScalaParser {
                 getLink(document.getElementById("definition")), parseMembers(document, qualifiedName, name),
                 signatureElem.text());
         classes.put(qualifiedName, classifier);
+        namesReverseIndex.put(classifier, qualifiedName);
         classifier.setAttr("classifierType", signatureElem.getElementsByClass("kind").get(0).text());
         String attrString = signatureElem.getElementsByClass("modifier").get(0).text().trim();
         for (Map.Entry<String, String> attr : parseAttributes(attrString, CLASSIFIER_ATTRIBUTES).entrySet()) {
@@ -321,10 +332,41 @@ public class ScalaParser {
             if (kind.equals("class") || kind.equals("trait") || kind.equals("case class")) {
                 Element nameElem = memberType.getElementsByClass("name").get(0);
                 String link = nameElem.parent().attr("href");
-                String oldAddress = currentAddress;
-                currentAddress = getNewAddress(link);
-                parseClass(className);
-                currentAddress = oldAddress;
+                if (!link.isEmpty()) {
+                    String oldAddress = currentAddress;
+                    currentAddress = getNewAddress(link);
+                    parseClass(className);
+                    currentAddress = oldAddress;
+                } else {
+                    String name = nameElem.text();
+                    QualifiedName qualifiedName = new QualifiedName(className.getKey(), className.getValue() + "$" + name);
+                    if (classes.containsKey(qualifiedName)) {
+                        return;
+                    }
+
+                    initClass(qualifiedName);
+
+                    List<String> parts = typeSplit(memberType.text().split("\\s+extends\\s+")[0], name);
+                    parseTypeParameters(memberType, classParameters.get(qualifiedName),
+                            classParametersConstraints.get(qualifiedName), parts.get(parts.size() - 1).replaceAll("\\(.*\\)$", ""));
+
+                    List<String> parts2 = typeSplit(memberType.text(), "with");
+                    parseSuperTypes(qualifiedName, memberType, parts2);
+                    parts2 = typeSplit(parts2.get(0), "extends");
+                    parseSuperTypes(qualifiedName, memberType, parts2);
+
+                    enclosingClasses.put(qualifiedName, className);
+
+                    Classifier classifier = new Classifier(name, Language.SCALA, getDoc(memberType),
+                            getLink(memberType.nextElementSibling()), new ArrayList<MemberEntity>(), memberType.text());
+                    classes.put(qualifiedName, classifier);
+                    namesReverseIndex.put(classifier, qualifiedName);
+                    classifier.setAttr("classifierType", memberType.getElementsByClass("kind").get(0).text());
+                    String attrString = memberType.getElementsByClass("modifier").get(0).text().trim();
+                    for (Map.Entry<String, String> attr : parseAttributes(attrString, CLASSIFIER_ATTRIBUTES).entrySet()) {
+                        classifier.setAttr(attr.getKey(), attr.getValue());
+                    }
+                }
             } else if (kind.equals("type")) {
                 String name = memberType.getElementsByClass("name").text();
                 QualifiedName qualifiedName = new QualifiedName(className.getKey(),
@@ -336,9 +378,8 @@ public class ScalaParser {
                 TypeAlias alias = new TypeAlias(name, Language.SCALA, getDoc(memberType),
                         getLink(memberType.nextElementSibling()), memberType.text());
                 aliases.put(qualifiedName, alias);
-                alias.setAttr("memberType", memberType.getElementsByClass("kind").get(0).text());
                 String attrString = memberType.getElementsByClass("modifier").get(0).text().trim();
-                for (Map.Entry<String, String> attr : parseAttributes(attrString, MEMBER_ATTRIBUTES).entrySet()) {
+                for (Map.Entry<String, String> attr : parseAttributes(attrString, ALIAS_ATTRIBUTES).entrySet()) {
                     alias.setAttr(attr.getKey(), attr.getValue());
                 }
 
@@ -614,11 +655,18 @@ public class ScalaParser {
         return result + link;
     }
 
+    public Map<String, PackageEntity> getPackages() {
+        return packages;
+    }
+
     public Map<QualifiedName, Classifier> getClasses() {
         return classes;
     }
 
     public Map<QualifiedName, TypeAlias> getAliases() {
         return aliases;
+    }
+    public Map<QualifiedName, Map<String, MemberEntity>> getClassMembers() {
+        return classMembers;
     }
 }
