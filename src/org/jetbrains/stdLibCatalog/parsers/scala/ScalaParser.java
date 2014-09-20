@@ -1,6 +1,7 @@
 package org.jetbrains.stdLibCatalog.parsers.scala;
 
 import org.jetbrains.stdLibCatalog.domain.*;
+import org.jetbrains.stdLibCatalog.parsers.java.JavaParser;
 import org.jetbrains.stdLibCatalog.parsers.utils.ParserUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.helper.StringUtil;
@@ -8,9 +9,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.*;
@@ -21,6 +20,7 @@ import static org.jetbrains.stdLibCatalog.parsers.utils.ParserUtils.splitByBrace
 
 public class ScalaParser {
     private final int CONNECTION_TIMEOUT = 2000;
+    final JavaParser JAVA_PARSER;
     static final String OTHER_PACKAGE = "other";
     static final String NON_EXISTING_PACKAGE = "non-existing";
     private final String BASE_ADDRESS = "http://www.scala-lang.org/api/current/";
@@ -45,15 +45,16 @@ public class ScalaParser {
     private final Map<QualifiedName, QualifiedName> enclosingClasses = new HashMap<>();
     private final Map<Classifier, QualifiedName> namesReverseIndex = new HashMap<>();
 
+    public ScalaParser(JavaParser javaParser) {
+        JAVA_PARSER = javaParser;
+    }
+
     public static void main(String[] args) throws IOException {
-        ScalaParser parser = new ScalaParser();
-        parser.fillOther();
-        parser.currentAddress = "http://www.scala-lang.org/api/current/scala/package.html";
-        parser.parsePackage();
-
-        parser.createConnections();
-        System.out.println();
-
+        JavaParser javaParser = new JavaParser();
+        javaParser.parse();
+        ScalaParser parser = new ScalaParser(javaParser);
+        parser.parse();
+/*
         File dir = new File("resources/tests/parsers/scala/global");
         if (dir.exists()) {
             dir.delete();
@@ -62,26 +63,62 @@ public class ScalaParser {
         for (PackageEntity pack : parser.packages.values()) {
             File packFile = new File(dir.getAbsolutePath() + "/" + pack.getName() + ".txt");
             packFile.createNewFile();
-            FileWriter out = new FileWriter(packFile);
+            FileOutputStream outStream = new FileOutputStream(packFile);
+            OutputStreamWriter out = new OutputStreamWriter(outStream, "UTF-16");
             out.write(pack.toString());
             out.close();
         }
+        */
+    }
+
+    public void parse() throws IOException {
+        fillOther();
+        currentAddress = "http://www.scala-lang.org/api/current/scala/package.html";
+        parsePackage();
+
+        createConnections();
     }
 
     private void createConnections() {
+        createHierarchy();
         createClassConnections();
         createAliasConnections();
         createMemberConnections();
-        createPackageHierarchy();
     }
 
-    private void createClassConnections() {
+    private void createHierarchy() {
+        for (PackageEntity pack : packages.values()) {
+            String name = pack.getName();
+            int dot = name.lastIndexOf('.');
+            if (dot >= 0) {
+                String parentName = name.substring(0, dot);
+                packages.get(parentName).addSubPackage(pack);
+                pack.setContainingPackage(packages.get(parentName));
+            }
+        }
+
         for (Map.Entry<QualifiedName, Classifier> type : classes.entrySet()) {
             type.getValue().setContainingPackage(packages.get(type.getKey().getKey()));
             packages.get(type.getKey().getKey()).addContainedClass(type.getValue());
-            createTypeVariables(type);
         }
 
+        for (Map.Entry<QualifiedName, TypeAlias> type : aliases.entrySet()) {
+            type.getValue().setContainingPackage(packages.get(type.getKey().getKey()));
+            packages.get(type.getKey().getKey()).addContainedClass(type.getValue());
+        }
+
+        for (Map.Entry<QualifiedName, Map<String, MemberEntity>> members : classMembers.entrySet()) {
+            for (Map.Entry<String, MemberEntity> member : members.getValue().entrySet()) {
+                member.getValue().setContainingPackage(packages.get(members.getKey().getKey()));
+                if (members.getKey().getValue().isEmpty()) {
+                    packages.get(members.getKey().getKey()).addMember(member.getValue());
+                }
+                member.getValue().setContainingType(members.getKey().getValue().isEmpty() ? null : classes.get(members.getKey()));
+            }
+        }
+    }
+
+    private void createClassConnections() {
         createConstraints();
 
         for (Map.Entry<QualifiedName, List<ScalaType>> classSuperTypes : superTypes.entrySet()) {
@@ -97,6 +134,23 @@ public class ScalaParser {
         }
     }
 
+    private void createConstraints() {
+        for (Map.Entry<QualifiedName, Classifier> type : classes.entrySet()) {
+            createTypeVariables(type);
+        }
+
+        for (Map.Entry<QualifiedName, Classifier> type : classes.entrySet()) {
+            for (ScalaConstraint constraint : classParametersConstraints.get(type.getKey())) {
+                Constraint constr = constraint.buildConstraint(getAllClassVars(type.getKey()), this);
+                for (TypeVariable var : constr.getVariables()) {
+                    if (!constr.getDeclaration().equals(var.getName()) && type.getValue().getParameters().contains(var)) {
+                        var.addConstraint(constr);
+                    }
+                }
+            }
+        }
+    }
+
     private void createTypeVariables(Map.Entry<QualifiedName, Classifier> type) {
         classEndParameters.put(type.getKey(), new HashMap<String, TypeVariable>());
         for (String param : classParameters.get(type.getKey())) {
@@ -106,26 +160,7 @@ public class ScalaParser {
         }
     }
 
-    private void createConstraints() {
-        for (Map.Entry<QualifiedName, Classifier> type : classes.entrySet()) {
-            for (ScalaConstraint constraint : classParametersConstraints.get(type.getKey())) {
-                Constraint constr = constraint.buildConstraint(getAllClassVars(type.getKey()), this);
-                for (TypeVariable var : constr.getVariables()) {
-                    if (!constr.getDeclaration().equals(var.getName())) {
-                        var.addConstraint(constr);
-                    }
-                }
-            }
-        }
-    }
-
     private void createAliasConnections() {
-        for (Map.Entry<QualifiedName, TypeAlias> type : aliases.entrySet()) {
-            type.getValue().setContainingPackage(packages.get(type.getKey().getKey()));
-            packages.get(type.getKey().getKey()).addContainedClass(type.getValue());
-            createTypeAliasVariables(type);
-        }
-
         createAliasConstraints();
 
         for (Map.Entry<QualifiedName, TypeAlias> type : aliases.entrySet()) {
@@ -136,10 +171,14 @@ public class ScalaParser {
 
     private void createAliasConstraints() {
         for (Map.Entry<QualifiedName, TypeAlias> type : aliases.entrySet()) {
+            createTypeAliasVariables(type);
+        }
+
+        for (Map.Entry<QualifiedName, TypeAlias> type : aliases.entrySet()) {
             for (ScalaConstraint constraint : classParametersConstraints.get(type.getKey())) {
                 Constraint constr = constraint.buildConstraint(getAllClassVars(type.getKey()), this);
                 for (TypeVariable var : constr.getVariables()) {
-                    if (!constr.getDeclaration().equals(var.getName())) {
+                    if (!constr.getDeclaration().equals(var.getName()) && type.getValue().getParameters().contains(var)) {
                         var.addConstraint(constr);
                     }
                 }
@@ -157,17 +196,6 @@ public class ScalaParser {
     }
 
     private void createMemberConnections() {
-        for (Map.Entry<QualifiedName, Map<String, MemberEntity>> members : classMembers.entrySet()) {
-            for (Map.Entry<String, MemberEntity> member : members.getValue().entrySet()) {
-                member.getValue().setContainingPackage(packages.get(members.getKey().getKey()));
-                if (members.getKey().getValue().isEmpty()) {
-                    packages.get(members.getKey().getKey()).addMember(member.getValue());
-                }
-                member.getValue().setContainingType(members.getKey().getValue().isEmpty() ? null : classes.get(members.getKey()));
-                createMemberVariables(members.getKey(), member);
-            }
-        }
-
         createMemberConstraints();
 
         for (Map.Entry<QualifiedName, Map<String, MemberEntity>> members : classMembers.entrySet()) {
@@ -176,6 +204,29 @@ public class ScalaParser {
                 allVars.putAll(memberEndParameters.get(members.getKey()).get(member.getKey()));
                 member.getValue().setSignature(memberTypes.get(members.getKey()).get(
                         member.getKey()).buildFunction(this, members.getKey(), allVars));
+            }
+        }
+    }
+
+    private void createMemberConstraints() {
+        for (Map.Entry<QualifiedName, Map<String, MemberEntity>> members : classMembers.entrySet()) {
+            for (Map.Entry<String, MemberEntity> member : members.getValue().entrySet()) {
+                createMemberVariables(members.getKey(), member);
+            }
+        }
+
+        for (Map.Entry<QualifiedName, Map<String, MemberEntity>> members : classMembers.entrySet()) {
+            for (Map.Entry<String, MemberEntity> member : members.getValue().entrySet()) {
+                for (ScalaConstraint constraint : memberParametersConstraints.get(members.getKey()).get(member.getKey())) {
+                    Map<String, TypeVariable> allVars = getAllClassVars(members.getKey());
+                    allVars.putAll(memberEndParameters.get(members.getKey()).get(member.getKey()));
+                    Constraint constr = constraint.buildConstraint(allVars, this);
+                    for (TypeVariable var : constr.getVariables()) {
+                        if (!constr.getDeclaration().equals(var.getName()) && member.getValue().getParameters().contains(var)) {
+                            var.addConstraint(constr);
+                        }
+                    }
+                }
             }
         }
     }
@@ -190,35 +241,6 @@ public class ScalaParser {
             TypeVariable var = new TypeVariable(param, Language.SCALA);
             memberEndParameters.get(className).get(member.getKey()).put(param, var);
             member.getValue().addParameter(var);
-        }
-    }
-
-    private void createMemberConstraints() {
-        for (Map.Entry<QualifiedName, Map<String, MemberEntity>> members : classMembers.entrySet()) {
-            for (Map.Entry<String, MemberEntity> member : members.getValue().entrySet()) {
-                for (ScalaConstraint constraint : memberParametersConstraints.get(members.getKey()).get(member.getKey())) {
-                    Map<String, TypeVariable> allVars = getAllClassVars(members.getKey());
-                    allVars.putAll(memberEndParameters.get(members.getKey()).get(member.getKey()));
-                    Constraint constr = constraint.buildConstraint(allVars, this);
-                    for (TypeVariable var : constr.getVariables()) {
-                        if (!constr.getDeclaration().equals(var.getName())) {
-                            var.addConstraint(constr);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    private void createPackageHierarchy() {
-        for (PackageEntity pack : packages.values()) {
-            String name = pack.getName();
-            int dot = name.lastIndexOf('.');
-            if (dot >= 0) {
-                String parentName = name.substring(0, dot);
-                packages.get(parentName).addSubPackage(pack);
-                pack.setContainingPackage(packages.get(parentName));
-            }
         }
     }
 
@@ -488,7 +510,7 @@ public class ScalaParser {
             signature += ")";
         }
         String resultPart = StringUtil.join(signatureParts.subList(1, signatureParts.size()), ":");
-        if (resultPart.contains("\u21D2")) {
+        if (typeSplit(resultPart, "\u21D2").size() > 1) {
             resultPart = "(" + resultPart + ")";
         }
         signature += " \u21D2 " + resultPart;
@@ -503,8 +525,7 @@ public class ScalaParser {
         }
 
         MemberEntity function = new MemberEntity(name, Language.SCALA, getDoc(methodElem),
-                getLink(methodElem.nextElementSibling()),
-                methodElem.text());
+                getLink(methodElem.nextElementSibling()), methodElem.text());
         result.add(function);
         classMembers.get(className).put(addressName, function);
         String memberType = methodElem.getElementsByClass("kind").get(0).text().equals("def") ? "function" : "field";
@@ -616,6 +637,14 @@ public class ScalaParser {
 
         Classifier star = new Classifier("*", Language.SCALA, "", null, new ArrayList<MemberEntity>(), "*");
         classes.put(name, star);
+
+        PackageEntity forkjoin = new PackageEntity("scala.concurrent.forkjoin", Language.SCALA,
+                new ArrayList<TypeConstructor>(), new ArrayList<MemberEntity>(), new ArrayList<PackageEntity>(), "", null);
+        packages.put("scala.concurrent.forkjoin", forkjoin);
+
+        PackageEntity processInternal = new PackageEntity("scala.sys.process.processInternal", Language.SCALA,
+                new ArrayList<TypeConstructor>(), new ArrayList<MemberEntity>(), new ArrayList<PackageEntity>(), "", null);
+        packages.put("scala.sys.process.processInternal", processInternal);
     }
 
     static List<String> typeSplit(String signature, String str) {

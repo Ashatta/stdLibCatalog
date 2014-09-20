@@ -587,6 +587,7 @@ public class JavaParser {
     public Map<QualifiedName, ParametersDescription> getParameters() {
         return parameters;
     }
+
     public Map<QualifiedName, Map<String, MemberEntity>> getClassMembers() {
         return classMembers;
     }

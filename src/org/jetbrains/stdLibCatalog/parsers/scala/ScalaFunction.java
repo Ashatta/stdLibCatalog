@@ -5,6 +5,7 @@ import org.jetbrains.stdLibCatalog.domain.FunctionType;
 import org.jetbrains.stdLibCatalog.domain.Type;
 import org.jetbrains.stdLibCatalog.domain.TypeVariable;
 import org.jetbrains.stdLibCatalog.parsers.utils.ParserUtils;
+import org.jsoup.helper.StringUtil;
 import org.jsoup.nodes.Element;
 
 import java.util.ArrayList;
@@ -43,7 +44,7 @@ public class ScalaFunction extends ScalaType {
             }
         }
 
-        result.result = ScalaType.parse(signatureElem, parts.get(1));
+        result.result = ScalaType.parse(signatureElem, StringUtil.join(parts.subList(1, parts.size()), "\u21D2"));
         return (result.result == null ? null : result);
     }
 

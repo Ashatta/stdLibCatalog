@@ -79,10 +79,11 @@ public class ScalaTypeVariable extends ScalaType {
                 }
             }
 
+            if (Arrays.asList("CC", "ConcurrentMap").contains(name) || name.endsWith(".type")) {
+                return new DataType(new TypeVariable(name, Language.SCALA), params);
+            }
+
             if (packageName.isEmpty()) {
-                if (Arrays.asList("CC", "ConcurrentMap").contains(name) || name.endsWith(".type")) {
-                    return new DataType(new TypeVariable(name, Language.SCALA), params);
-                }
                 if (name.startsWith("Double(") || name.startsWith("Int(") || name.startsWith("Char(")
                         || name.startsWith("Float(") || name.startsWith("Byte(") || name.startsWith("Long(")
                         || name.startsWith("Short(")) {
@@ -104,14 +105,33 @@ public class ScalaTypeVariable extends ScalaType {
 
             String[] nameParts = name.split("\\.");
             name = nameParts[nameParts.length - 1];
-            QualifiedName fullName = new QualifiedName(packageName, name);
-            if (!parser.getClasses().containsKey(fullName)) {
-                parser.getClasses().put(fullName, new Classifier(name,
-                        packageName.startsWith("scala") ? Language.SCALA : Language.JAVA, "", null,
-                        new ArrayList<MemberEntity>(), ""));
+            if (packageName.equals("immutable")) {
+                packageName = "scala.collection.immutable";
             }
+            if (packageName.equals("java.lang") && (name.equals("UncaughtExceptionHandler") || name.equals("State"))) {
+                name = "Thread." + name;
+            }
+            if (packageName.equals("java.util.concurrent") && name.startsWith("TimeUnit(")) {
+                name = "TimeUnit";
+            }
+            if (packageName.equals("java.util.jar") && name.equals("Name")) {
+                name = "Attributes.Name";
+            }
+            QualifiedName fullName = new QualifiedName(packageName, name);
+            if (parser.JAVA_PARSER.getClasses().containsKey(fullName)) {
+                constructor = parser.JAVA_PARSER.getClasses().get(fullName);
+            } else {
+                if (!parser.getClasses().containsKey(fullName)) {
+                    Classifier classifier = new Classifier(name,
+                            packageName.startsWith("scala") ? Language.SCALA : Language.JAVA, "", null,
+                            new ArrayList<MemberEntity>(), "");
+                    parser.getClasses().put(fullName, classifier);
+                    classifier.setContainingPackage(parser.getPackages().get(packageName));
+                    parser.getPackages().get(packageName).addContainedClass(classifier);
+                }
 
-            constructor = parser.getClasses().get(fullName);
+                constructor = parser.getClasses().get(fullName);
+            }
         }
 
         return new DataType(constructor, params);
