@@ -1,6 +1,7 @@
 package org.jetbrains.stdLibCatalog.parsers.scala;
 
 import org.jetbrains.stdLibCatalog.domain.*;
+import org.jetbrains.stdLibCatalog.parsers.utils.ParserUtils;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
@@ -69,71 +70,88 @@ public class ScalaTypeVariable extends ScalaType {
         } else if (typeVariables.containsKey(name)) {
             constructor = typeVariables.get(name);
         } else {
-            String packageName = "";
-            if (!qualifiedName.isEmpty()) {
-                for (String part : qualifiedName.split("\\.")) {
-                    if (!Character.isLowerCase(part.charAt(0))) {
-                        break;
-                    }
-                    packageName += part + ".";
-                }
-            }
-
-            if (Arrays.asList("CC", "ConcurrentMap").contains(name) || name.endsWith(".type")) {
-                return new DataType(new TypeVariable(name, Language.SCALA), params);
-            }
-
-            if (packageName.isEmpty()) {
-                if (name.startsWith("Double(") || name.startsWith("Int(") || name.startsWith("Char(")
-                        || name.startsWith("Float(") || name.startsWith("Byte(") || name.startsWith("Long(")
-                        || name.startsWith("Short(")) {
-                    name = name.substring(0, name.indexOf('('));
-                    return new DataType(parser.getClasses().get(new QualifiedName("scala", name)), params);
-                }
-                if (name.equals("String") || name.startsWith("String(")) {
-                    return new DataType(parser.getAliases().get(new QualifiedName("scala", "Predef$$String")), params);
-                }
-                if (name.equals("ArrayBuffer")) {
-                    return new DataType(parser.getClasses().get(new QualifiedName("scala.collection.mutable", "ArrayBuffer")), params);
-                }
-                if (name.equals("Growable") || name.equals("Shrinkable")) {
-                    return new DataType(parser.getClasses().get(new QualifiedName("scala.collection.generic", name)), params);
-                }
-            }
-
-            packageName = packageName.substring(0, packageName.length() - 1);
-
-            String[] nameParts = name.split("\\.");
-            name = nameParts[nameParts.length - 1];
-            if (packageName.equals("immutable")) {
-                packageName = "scala.collection.immutable";
-            }
-            if (packageName.equals("java.lang") && (name.equals("UncaughtExceptionHandler") || name.equals("State"))) {
-                name = "Thread." + name;
-            }
-            if (packageName.equals("java.util.concurrent") && name.startsWith("TimeUnit(")) {
-                name = "TimeUnit";
-            }
-            if (packageName.equals("java.util.jar") && name.equals("Name")) {
-                name = "Attributes.Name";
-            }
-            QualifiedName fullName = new QualifiedName(packageName, name);
-            if (parser.JAVA_PARSER.getClasses().containsKey(fullName)) {
-                constructor = parser.JAVA_PARSER.getClasses().get(fullName);
-            } else {
-                if (!parser.getClasses().containsKey(fullName)) {
-                    Classifier classifier = new Classifier(name,
-                            packageName.startsWith("scala") ? Language.SCALA : Language.JAVA, "", null,
-                            new ArrayList<MemberEntity>(), "");
-                    parser.getClasses().put(fullName, classifier);
-                    classifier.setContainingPackage(parser.getPackages().get(packageName));
-                    parser.getPackages().get(packageName).addContainedClass(classifier);
-                }
-
-                constructor = parser.getClasses().get(fullName);
+            String packageName = getPackageName();
+            constructor = specialCase(parser, packageName);
+            if (constructor == null) {
+                QualifiedName fullName = getFullName(packageName.substring(0, packageName.length() - 1));
+                constructor = (parser.JAVA_PARSER.getClasses().containsKey(fullName)
+                        ? parser.JAVA_PARSER.getClasses().get(fullName)
+                        : getScalaClass(parser, fullName));
             }
         }
 
         return new DataType(constructor, params);
+    }
+
+    public String getPackageName() {
+        String packageName = "";
+        if (!qualifiedName.isEmpty()) {
+            for (String part : qualifiedName.split("\\.")) {
+                if (!Character.isLowerCase(part.charAt(0))) {
+                    break;
+                }
+                packageName += part + ".";
+            }
+        }
+        return packageName;
+    }
+
+    private TypeConstructor specialCase(ScalaParser parser, String packageName) {
+        if (Arrays.asList("CC", "ConcurrentMap").contains(name) || name.endsWith(".type")) {
+            return new TypeVariable(name, Language.SCALA);
+        }
+
+        if (packageName.isEmpty()) {
+            if (name.startsWith("Double(") || name.startsWith("Int(") || name.startsWith("Char(")
+                    || name.startsWith("Float(") || name.startsWith("Byte(") || name.startsWith("Long(")
+                    || name.startsWith("Short(")) {
+                name = name.substring(0, name.indexOf('('));
+                return parser.getClasses().get(new QualifiedName("scala", name));
+            }
+            if (name.equals("String") || name.startsWith("String(")) {
+                return parser.getAliases().get(new QualifiedName("scala", "Predef$$String"));
+            }
+            if (name.equals("ArrayBuffer")) {
+                return parser.getClasses().get(new QualifiedName("scala.collection.mutable", "ArrayBuffer"));
+            }
+            if (name.equals("Growable") || name.equals("Shrinkable")) {
+                return parser.getClasses().get(new QualifiedName("scala.collection.generic", name));
+            }
+        }
+
+        return null;
+    }
+
+    public QualifiedName getFullName(String packageName) {
+        if (packageName.equals("immutable")) {
+            packageName = "scala.collection.immutable";
+        }
+
+        String[] nameParts = name.split("\\.");
+        name = nameParts[nameParts.length - 1];
+        if (packageName.equals("java.lang") && (name.equals("UncaughtExceptionHandler") || name.equals("State"))) {
+            name = "Thread." + name;
+        }
+        if (packageName.equals("java.util.concurrent") && name.startsWith("TimeUnit(")) {
+            name = "TimeUnit";
+        }
+        if (packageName.equals("java.util.jar") && name.equals("Name")) {
+            name = "Attributes.Name";
+        }
+
+        return new QualifiedName(packageName, name);
+    }
+
+    public TypeConstructor getScalaClass(ScalaParser parser, QualifiedName className) {
+        if (!parser.getClasses().containsKey(className)) {
+            Classifier classifier = new Classifier(name,
+                    className.getKey().startsWith("scala") ? Language.SCALA : Language.JAVA, "", null,
+                    new ArrayList<MemberEntity>(), "");
+            parser.getClasses().put(className, classifier);
+            classifier.setContainingPackage(parser.getPackages().get(className.getKey()));
+            parser.getPackages().get(className.getKey()).addContainedClass(classifier);
+        }
+
+        return parser.getClasses().get(className);
     }
 }

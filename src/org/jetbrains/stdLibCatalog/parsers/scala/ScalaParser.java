@@ -79,6 +79,350 @@ public class ScalaParser {
         createConnections();
     }
 
+    private void parsePackage() throws IOException {
+        Document document = Jsoup.parse(new URL(currentAddress), CONNECTION_TIMEOUT);
+
+        String name = currentAddress.replaceAll(Pattern.quote(BASE_ADDRESS), "")
+                .replaceAll("/package\\.html$", "").replaceAll("/", ".");
+        QualifiedName fakeClass = new QualifiedName(name, "");
+
+        initClass(fakeClass);
+        parseInnerTypes(document, fakeClass);
+        packages.put(name, new PackageEntity(name, Language.SCALA, new ArrayList<TypeConstructor>(),
+                parseMembers(document, fakeClass, ""), new ArrayList<PackageEntity>(),
+                document.getElementById("comment").text(), getLink(document.getElementById("definition"))));
+    }
+
+    private void parseInnerTypes(Document document, QualifiedName className) throws IOException {
+        Element typesElem = document.getElementById("types");
+        if (typesElem == null) {
+            return;
+        }
+
+        for (Element memberType : typesElem.getElementsByClass("signature")) {
+            String kind = memberType.getElementsByClass("kind").get(0).text();
+            if (kind.equals("class") || kind.equals("trait") || kind.equals("case class")) {
+                Element nameElem = memberType.getElementsByClass("name").get(0);
+                String link = nameElem.parent().attr("href");
+                if (!link.isEmpty()) {
+                    String oldAddress = currentAddress;
+                    currentAddress = getNewAddress(link);
+                    parseClass(className);
+                    currentAddress = oldAddress;
+                } else {
+                    parseClassWithoutDocs(memberType, className);
+                }
+            } else if (kind.equals("type")) {
+                parseTypeAlias(memberType, className);
+            }
+        }
+    }
+
+    private void parseClass(QualifiedName enclosingClass) throws IOException {
+        Document document = Jsoup.parse(new URL(currentAddress), CONNECTION_TIMEOUT);
+        Element signatureElem = document.getElementById("signature");
+
+        String classQualifiedName = currentAddress.replaceAll(Pattern.quote(BASE_ADDRESS), "")
+                .replaceAll("\\.html$", "").replaceAll("/", ".");
+        int lastSeparator = classQualifiedName.lastIndexOf('.');
+        String name = signatureElem.getElementsByClass("name").get(0).text();
+        String addressName = classQualifiedName.substring(lastSeparator + 1, classQualifiedName.length());
+        addressName = addressName.replaceAll("package\\$+", "");
+        String packageName = classQualifiedName.substring(0, lastSeparator);
+        QualifiedName qualifiedName = new QualifiedName(packageName, addressName);
+        if (classes.containsKey(qualifiedName)) {
+            return;
+        }
+
+        initClass(qualifiedName);
+        parseClassSignature(signatureElem, name, qualifiedName);
+        enclosingClasses.put(qualifiedName, enclosingClass);
+
+        Classifier classifier = new Classifier(name, Language.SCALA, document.getElementById("comment").text(),
+                getLink(document.getElementById("definition")), parseMembers(document, qualifiedName, name),
+                signatureElem.text());
+        classes.put(qualifiedName, classifier);
+        namesReverseIndex.put(classifier, qualifiedName);
+        parseClassAttributes(signatureElem, classifier);
+
+        parseInnerTypes(document, qualifiedName);
+    }
+
+    private void parseClassWithoutDocs(Element classElem, QualifiedName enclosingClass) throws MalformedURLException {
+        Element nameElem = classElem.getElementsByClass("name").get(0);
+        String name = nameElem.text();
+        QualifiedName qualifiedName = new QualifiedName(enclosingClass.getKey(), enclosingClass.getValue() + "$" + name);
+        if (classes.containsKey(qualifiedName)) {
+            return;
+        }
+
+        initClass(qualifiedName);
+        parseClassSignature(classElem, name, qualifiedName);
+        enclosingClasses.put(qualifiedName, enclosingClass);
+
+        Classifier classifier = new Classifier(name, Language.SCALA, getDoc(classElem),
+                getLink(classElem.nextElementSibling()), new ArrayList<MemberEntity>(), classElem.text());
+        classes.put(qualifiedName, classifier);
+        namesReverseIndex.put(classifier, qualifiedName);
+        parseClassAttributes(classElem, classifier);
+    }
+
+    private void parseClassSignature(Element signatureElem, String name, QualifiedName qualifiedName) {
+        List<String> parts = typeSplit(signatureElem.text().split("\\s+extends\\s+")[0], name);
+        parseTypeParameters(signatureElem, classParameters.get(qualifiedName),
+                classParametersConstraints.get(qualifiedName), parts.get(parts.size() - 1).replaceAll("\\(.*\\)$", ""));
+
+        List<String> parts2 = typeSplit(signatureElem.text(), "with");
+        parseSuperTypes(qualifiedName, signatureElem, parts2);
+        parts2 = typeSplit(parts2.get(0), "extends");
+        parseSuperTypes(qualifiedName, signatureElem, parts2);
+    }
+
+    private void parseTypeParameters(Element signature, List<String> parameters,
+            List<ScalaConstraint> parametersConstraints, String paramsString) {
+        if (!paramsString.startsWith("[") || !paramsString.endsWith("]")) {
+            return;
+        }
+        paramsString = paramsString.substring(1, paramsString.length() - 1);
+
+        List<String> params = typeSplit(paramsString, ",");
+        for (String paramString : params) {
+            if (paramString.startsWith("-") || paramString.startsWith("+")) {
+                paramString = paramString.substring(1, paramString.length());
+            }
+            parameters.add(paramString.split("\\[|\\s")[0]);
+            parametersConstraints.add(ScalaConstraint.parse(signature, paramString));
+        }
+    }
+
+    private void parseSuperTypes(QualifiedName className, Element signature, List<String> parts) {
+        for (int i = 1; i < parts.size(); ++i) {
+            superTypes.get(className).add(ScalaType.parse(signature, parts.get(i)));
+        }
+    }
+
+    private void parseClassAttributes(Element classElem, Classifier classifier) {
+        classifier.setAttr("classifierType", classElem.getElementsByClass("kind").get(0).text());
+        String attrString = classElem.getElementsByClass("modifier").get(0).text().trim();
+        for (Map.Entry<String, String> attr : parseAttributes(attrString, CLASSIFIER_ATTRIBUTES).entrySet()) {
+            classifier.setAttr(attr.getKey(), attr.getValue());
+        }
+    }
+
+    private void parseTypeAlias(Element aliasElem, QualifiedName enclosingClass) throws MalformedURLException {
+        String name = aliasElem.getElementsByClass("name").text();
+        QualifiedName qualifiedName = new QualifiedName(enclosingClass.getKey(),
+                (enclosingClass.getValue().isEmpty() ? "" : (enclosingClass.getValue() + "$")) + name);
+
+        String[] declParts = aliasElem.text().split("\\s+=\\s+");
+
+        initClass(qualifiedName);
+        TypeAlias alias = new TypeAlias(name, Language.SCALA, getDoc(aliasElem),
+                getLink(aliasElem.nextElementSibling()), aliasElem.text());
+        aliases.put(qualifiedName, alias);
+        String attrString = aliasElem.getElementsByClass("modifier").get(0).text().trim();
+        for (Map.Entry<String, String> attr : parseAttributes(attrString, ALIAS_ATTRIBUTES).entrySet()) {
+            alias.setAttr(attr.getKey(), attr.getValue());
+        }
+
+        ScalaType aliasedType = declParts.length == 2
+                ? ScalaType.parse(aliasElem, declParts[declParts.length - 1])
+                : new ScalaWildcard();
+        aliasedTypes.put(qualifiedName, aliasedType);
+
+        enclosingClasses.put(qualifiedName, enclosingClass);
+
+        declParts = typeSplit(typeSplit(declParts[0], "<:").get(0), ">:").get(0).split("\\s+" + Pattern.quote(name));
+        if (declParts.length > 1) {
+            parseTypeParameters(aliasElem, classParameters.get(qualifiedName)
+                    , classParametersConstraints.get(qualifiedName), declParts[declParts.length - 1]);
+        }
+    }
+
+    private Map<String, String> parseAttributes(String attrString, List<String> attributeNames) {
+        Map<String, String> result = new HashMap<>();
+        List<String> attrs = typeSplit(attrString, "");
+        for (String attr : attributeNames) {
+            result.put(attr, attrs.contains(attr) ? "true" : "false");
+        }
+        return result;
+    }
+
+    private List<MemberEntity> parseMembers(Document document, QualifiedName enclosingClass, String className)
+            throws IOException {
+        List<MemberEntity> result = new ArrayList<>();
+        for (Element membersSection : document.getElementsByClass("values")) {
+            parseMembers(membersSection, enclosingClass, result);
+        }
+
+        parseConstructors(document.getElementById("constructors"), enclosingClass, className, result);
+
+        return result;
+    }
+
+    private void parseMembers(Element members, QualifiedName enclosingClass, List<MemberEntity> result) throws IOException {
+        for (Element member : members.getElementsByClass("signature")) {
+            if (member.text().equals("def ^(x:")) {  // broken element in html doc
+                continue;
+            }
+
+            String kind = member.getElementsByClass("kind").get(0).text();
+            if (kind.equals("def") || kind.equals("val")) {
+                parseClassMember(member, enclosingClass, result);
+            } else if (kind.equals("object") || kind.equals("package")) {
+                Element nameElem = member.getElementsByClass("name").get(0);
+                String link = nameElem.parent().attr("href");
+                String oldAddress = currentAddress;
+                currentAddress = getNewAddress(link);
+                if (kind.equals("object")) {
+                    parseClass(enclosingClass);
+                } else {
+                    parsePackage();
+                }
+                currentAddress = oldAddress;
+            }
+        }
+    }
+
+    private void parseClassMember(Element memberElem, QualifiedName className, List<MemberEntity> result)
+            throws MalformedURLException {
+        String signature = memberElem.text().replaceAll("\\s+\\{.*\\}$", "");
+        String addressName = signature;
+        if (classMembers.get(className).containsKey(addressName)) {
+            return;
+        }
+
+        if (memberElem.getElementsByClass("name").isEmpty() && memberElem.getElementsByClass("implicit").isEmpty()) {
+            return;
+        }
+
+        Element nameElem = memberElem.getElementsByClass("name").isEmpty()
+                ? memberElem.getElementsByClass("implicit").get(0)
+                : memberElem.getElementsByClass("name").get(0);
+        String name = nameElem.text();
+
+        signature = signature.split("(def|val)\\s+" + Pattern.quote(name))[1];
+        String paramsString = getParamsString(signature);
+        signature = signature.substring(paramsString.length(), signature.length());
+
+        signature = getFunctionSignature(signature);
+        fillClassMember(memberElem, className, addressName, signature);
+        parseMemberTypeParameters(memberElem, className, addressName, paramsString);
+
+        MemberEntity function = new MemberEntity(name, Language.SCALA, getDoc(memberElem),
+                getLink(memberElem.nextElementSibling()), memberElem.text());
+        result.add(function);
+        classMembers.get(className).put(addressName, function);
+        parseMemberAttributes(memberElem, function);
+    }
+
+    private String getFunctionSignature(String signature) {
+        List<String> signatureParts = typeSplit(signature, ":");
+        String paramsPart = signatureParts.get(0);
+        String resultPart = StringUtil.join(signatureParts.subList(1, signatureParts.size()), ":");
+        if (typeSplit(resultPart, "\u21D2").size() > 1) {
+            resultPart = "(" + resultPart + ")";
+        }
+        signature = getFunctionParametersDescription(paramsPart) + " \u21D2 " + resultPart;
+        return signature;
+    }
+
+    private void parseConstructors(Element constructors, QualifiedName enclosingClass, String className,
+            List<MemberEntity> result) throws MalformedURLException {
+        if (constructors == null) {
+            return;
+        }
+
+        for (Element constructorElem : constructors.getElementsByClass("signature")) {
+            String signature = constructorElem.text();
+            String addressName = signature;
+            String args = typeSplit(signature, className).get(1);
+
+            String paramsString = getParamsString(args);
+            args = args.substring((paramsString.isEmpty() ? 0 : paramsString.length()), args.length());
+
+            signature = getFunctionParametersDescription(args) + "\u21D2 " + className;
+            fillClassMember(constructorElem, enclosingClass, addressName, signature);
+            parseMemberTypeParameters(constructorElem, enclosingClass, addressName, paramsString);
+
+            MemberEntity constructor = new MemberEntity(className, Language.SCALA, getDoc(constructorElem),
+                    getLink(constructorElem.nextElementSibling()), constructorElem.text());
+            result.add(constructor);
+            classMembers.get(enclosingClass).put(addressName, constructor);
+            parseConstructorAttributes(constructorElem, constructor);
+        }
+    }
+
+    private String getFunctionParametersDescription(String params) {
+        String result = "";
+        if (params.startsWith("(")) {
+            List<String> paramsSections = splitByBraces(params, Arrays.asList('(', '['), Arrays.asList(')', ']'));
+            result = "(";
+            for (String argSection : paramsSections) {
+                argSection = argSection.substring(1, argSection.length() - 1);
+                for (String param : typeSplit(argSection, ",")) {
+                    param = param.split("\\s=\\s")[0];
+                    if (!param.startsWith("implicit")) {
+                        result += param.substring(param.indexOf(':') + 2, param.length()) + ",";
+                    }
+                }
+            }
+            if (result.endsWith(",")) {
+                result = result.substring(0, result.length() - 1);
+            }
+            result += ")";
+        }
+        return result;
+    }
+
+    private void parseMemberAttributes(Element memberElem, MemberEntity member) {
+        String memberType = memberElem.getElementsByClass("kind").get(0).text().equals("def") ? "function" : "field";
+        member.setAttr("memberType", memberType);
+        String attrString = memberElem.getElementsByClass("modifier").get(0).text().trim();
+        for (Map.Entry<String, String> attr : parseAttributes(attrString, MEMBER_ATTRIBUTES).entrySet()) {
+            member.setAttr(attr.getKey(), attr.getValue());
+        }
+    }
+
+    private void fillClassMember(Element memberElem, QualifiedName enclosingClass, String addressName, String signature) {
+        memberTypes.get(enclosingClass).put(addressName, ScalaFunction.parse(memberElem, signature));
+        memberParameters.get(enclosingClass).put(addressName, new ArrayList<String>());
+        memberParametersConstraints.get(enclosingClass).put(addressName, new ArrayList<ScalaConstraint>());
+    }
+
+    private void parseConstructorAttributes(Element constructorElem, MemberEntity constructor) {
+        constructor.setAttr("memberType", "constructor");
+        String attrString = constructorElem.getElementsByClass("modifier").get(0).text().trim();
+        for (Map.Entry<String, String> attr : parseAttributes(attrString, MEMBER_ATTRIBUTES).entrySet()) {
+            constructor.setAttr(attr.getKey(), attr.getValue());
+        }
+    }
+
+    private String getParamsString(String signature) {
+        String paramsString = "";
+        if (signature.startsWith("[")) {
+            int braces = 1;
+            int i = 1;
+            for (; braces > 0; ++i) {
+                if (signature.charAt(i) == '[') {
+                    braces++;
+                } else if (signature.charAt(i) == ']') {
+                    braces--;
+                }
+            }
+            paramsString = signature.substring(0, i);
+        }
+        return paramsString;
+    }
+
+    private void parseMemberTypeParameters(Element memberElem, QualifiedName enclosingClass, String addressName,
+            String paramsString) {
+        if (!paramsString.isEmpty()) {
+            parseTypeParameters(memberElem, memberParameters.get(enclosingClass).get(addressName)
+                    , memberParametersConstraints.get(enclosingClass).get(addressName), paramsString);
+        }
+    }
+
     private void createConnections() {
         createHierarchy();
         createClassConnections();
@@ -254,350 +598,6 @@ public class ScalaParser {
         return result;
     }
 
-    private void parsePackage() throws IOException {
-        Document document = Jsoup.parse(new URL(currentAddress), CONNECTION_TIMEOUT);
-
-        String name = currentAddress.replaceAll(Pattern.quote(BASE_ADDRESS), "")
-                .replaceAll("/package\\.html$", "").replaceAll("/", ".");
-        QualifiedName fakeClass = new QualifiedName(name, "");
-
-        initClass(fakeClass);
-        parseInnerTypes(document, fakeClass);
-        packages.put(name, new PackageEntity(name, Language.SCALA, new ArrayList<TypeConstructor>(),
-                parseMembers(document, fakeClass, ""), new ArrayList<PackageEntity>(),
-                document.getElementById("comment").text(), getLink(document.getElementById("definition"))));
-    }
-
-    private void parseClass(QualifiedName enclosingClass) throws IOException {
-        Document document = Jsoup.parse(new URL(currentAddress), CONNECTION_TIMEOUT);
-        Element signatureElem = document.getElementById("signature");
-
-        String classQualifiedName = currentAddress.replaceAll(Pattern.quote(BASE_ADDRESS), "")
-                .replaceAll("\\.html$", "").replaceAll("/", ".");
-        int lastSeparator = classQualifiedName.lastIndexOf('.');
-        String name = signatureElem.getElementsByClass("name").get(0).text();
-        String addressName = classQualifiedName.substring(lastSeparator + 1, classQualifiedName.length());
-        addressName = addressName.replaceAll("package\\$+", "");
-        String packageName = classQualifiedName.substring(0, lastSeparator);
-        QualifiedName qualifiedName = new QualifiedName(packageName, addressName);
-        if (classes.containsKey(qualifiedName)) {
-            return;
-        }
-
-        initClass(qualifiedName);
-
-        List<String> parts = typeSplit(signatureElem.text().split("\\s+extends\\s+")[0], name);
-        parseTypeParameters(signatureElem, classParameters.get(qualifiedName),
-                classParametersConstraints.get(qualifiedName), parts.get(parts.size() - 1).replaceAll("\\(.*\\)$", ""));
-
-        List<String> parts2 = typeSplit(signatureElem.text(), "with");
-        parseSuperTypes(qualifiedName, signatureElem, parts2);
-        parts2 = typeSplit(parts2.get(0), "extends");
-        parseSuperTypes(qualifiedName, signatureElem, parts2);
-
-        enclosingClasses.put(qualifiedName, enclosingClass);
-
-        Classifier classifier = new Classifier(name, Language.SCALA, document.getElementById("comment").text(),
-                getLink(document.getElementById("definition")), parseMembers(document, qualifiedName, name),
-                signatureElem.text());
-        classes.put(qualifiedName, classifier);
-        namesReverseIndex.put(classifier, qualifiedName);
-        classifier.setAttr("classifierType", signatureElem.getElementsByClass("kind").get(0).text());
-        String attrString = signatureElem.getElementsByClass("modifier").get(0).text().trim();
-        for (Map.Entry<String, String> attr : parseAttributes(attrString, CLASSIFIER_ATTRIBUTES).entrySet()) {
-            classifier.setAttr(attr.getKey(), attr.getValue());
-        }
-
-        parseInnerTypes(document, qualifiedName);
-    }
-
-    private void parseTypeParameters(Element signature, List<String> parameters,
-            List<ScalaConstraint> parametersConstraints, String paramsString) {
-        if (!paramsString.startsWith("[") || !paramsString.endsWith("]")) {
-            return;
-        }
-        paramsString = paramsString.substring(1, paramsString.length() - 1);
-
-        List<String> params = typeSplit(paramsString, ",");
-        for (String paramString : params) {
-            if (paramString.startsWith("-") || paramString.startsWith("+")) {
-                paramString = paramString.substring(1, paramString.length());
-            }
-            parameters.add(paramString.split("\\[|\\s")[0]);
-            parametersConstraints.add(ScalaConstraint.parse(signature, paramString));
-        }
-    }
-
-    private void parseSuperTypes(QualifiedName className, Element signature, List<String> parts) {
-        for (int i = 1; i < parts.size(); ++i) {
-            superTypes.get(className).add(ScalaType.parse(signature, parts.get(i)));
-        }
-    }
-
-    private Map<String, String> parseAttributes(String attrString, List<String> attributeNames) {
-        Map<String, String> result = new HashMap<>();
-        List<String> attrs = typeSplit(attrString, "");
-        for (String attr : attributeNames) {
-            result.put(attr, attrs.contains(attr) ? "true" : "false");
-        }
-        return result;
-    }
-
-    private void parseInnerTypes(Document document, QualifiedName className) throws IOException {
-        Element typesElem = document.getElementById("types");
-        if (typesElem == null) {
-            return;
-        }
-
-        for (Element memberType : typesElem.getElementsByClass("signature")) {
-            String kind = memberType.getElementsByClass("kind").get(0).text();
-            if (kind.equals("class") || kind.equals("trait") || kind.equals("case class")) {
-                Element nameElem = memberType.getElementsByClass("name").get(0);
-                String link = nameElem.parent().attr("href");
-                if (!link.isEmpty()) {
-                    String oldAddress = currentAddress;
-                    currentAddress = getNewAddress(link);
-                    parseClass(className);
-                    currentAddress = oldAddress;
-                } else {
-                    String name = nameElem.text();
-                    QualifiedName qualifiedName = new QualifiedName(className.getKey(), className.getValue() + "$" + name);
-                    if (classes.containsKey(qualifiedName)) {
-                        return;
-                    }
-
-                    initClass(qualifiedName);
-
-                    List<String> parts = typeSplit(memberType.text().split("\\s+extends\\s+")[0], name);
-                    parseTypeParameters(memberType, classParameters.get(qualifiedName),
-                            classParametersConstraints.get(qualifiedName), parts.get(parts.size() - 1).replaceAll("\\(.*\\)$", ""));
-
-                    List<String> parts2 = typeSplit(memberType.text(), "with");
-                    parseSuperTypes(qualifiedName, memberType, parts2);
-                    parts2 = typeSplit(parts2.get(0), "extends");
-                    parseSuperTypes(qualifiedName, memberType, parts2);
-
-                    enclosingClasses.put(qualifiedName, className);
-
-                    Classifier classifier = new Classifier(name, Language.SCALA, getDoc(memberType),
-                            getLink(memberType.nextElementSibling()), new ArrayList<MemberEntity>(), memberType.text());
-                    classes.put(qualifiedName, classifier);
-                    namesReverseIndex.put(classifier, qualifiedName);
-                    classifier.setAttr("classifierType", memberType.getElementsByClass("kind").get(0).text());
-                    String attrString = memberType.getElementsByClass("modifier").get(0).text().trim();
-                    for (Map.Entry<String, String> attr : parseAttributes(attrString, CLASSIFIER_ATTRIBUTES).entrySet()) {
-                        classifier.setAttr(attr.getKey(), attr.getValue());
-                    }
-                }
-            } else if (kind.equals("type")) {
-                String name = memberType.getElementsByClass("name").text();
-                QualifiedName qualifiedName = new QualifiedName(className.getKey(),
-                        (className.getValue().isEmpty() ? "" : (className.getValue() + "$")) + name);
-
-                String[] declParts = memberType.text().split("\\s+=\\s+");
-
-                initClass(qualifiedName);
-                TypeAlias alias = new TypeAlias(name, Language.SCALA, getDoc(memberType),
-                        getLink(memberType.nextElementSibling()), memberType.text());
-                aliases.put(qualifiedName, alias);
-                String attrString = memberType.getElementsByClass("modifier").get(0).text().trim();
-                for (Map.Entry<String, String> attr : parseAttributes(attrString, ALIAS_ATTRIBUTES).entrySet()) {
-                    alias.setAttr(attr.getKey(), attr.getValue());
-                }
-
-                ScalaType aliasedType = declParts.length == 2
-                        ? ScalaType.parse(memberType, declParts[declParts.length - 1])
-                        : new ScalaWildcard();
-                aliasedTypes.put(qualifiedName, aliasedType);
-
-                enclosingClasses.put(qualifiedName, className);
-
-                declParts = typeSplit(typeSplit(declParts[0], "<:").get(0), ">:").get(0).split("\\s+" + Pattern.quote(name));
-                if (declParts.length > 1) {
-                    parseTypeParameters(memberType, classParameters.get(qualifiedName)
-                            , classParametersConstraints.get(qualifiedName), declParts[declParts.length - 1]);
-                }
-            }
-        }
-    }
-
-    private List<MemberEntity> parseMembers(Document document, QualifiedName enclosingClass, String className)
-            throws IOException {
-        List<MemberEntity> result = new ArrayList<>();
-        for (Element membersSection : document.getElementsByClass("values")) {
-            parseMembers(membersSection, enclosingClass, result);
-        }
-
-        parseConstructors(document.getElementById("constructors"), enclosingClass, className, result);
-
-        return result;
-    }
-
-    private void parseMembers(Element members, QualifiedName enclosingClass, List<MemberEntity> result) throws IOException {
-        for (Element member : members.getElementsByClass("signature")) {
-            if (member.text().equals("def ^(x:")) {  // broken element in html doc
-                continue;
-            }
-
-            String kind = member.getElementsByClass("kind").get(0).text();
-            if (kind.equals("def") || kind.equals("val")) {
-                parseClassMember(member, enclosingClass, result);
-            } else if (kind.equals("object") || kind.equals("package")) {
-                Element nameElem = member.getElementsByClass("name").get(0);
-                String link = nameElem.parent().attr("href");
-                String oldAddress = currentAddress;
-                currentAddress = getNewAddress(link);
-                if (kind.equals("object")) {
-                    parseClass(enclosingClass);
-                } else {
-                    parsePackage();
-                }
-                currentAddress = oldAddress;
-            }
-        }
-    }
-
-    private void parseClassMember(Element methodElem, QualifiedName className, List<MemberEntity> result)
-            throws MalformedURLException {
-        String signature = methodElem.text().replaceAll("\\s+\\{.*\\}$", "");
-        String addressName = signature;
-        if (classMembers.get(className).containsKey(addressName)) {
-            return;
-        }
-        Element nameElem = methodElem.getElementsByClass("name").isEmpty()
-                ? (methodElem.getElementsByClass("implicit").isEmpty() ? null : methodElem.getElementsByClass("implicit").get(0))
-                : methodElem.getElementsByClass("name").get(0);
-        if (nameElem == null) {
-            return;
-        }
-
-        String name = nameElem.text();
-        String[] parts = signature.split("(def|val)\\s+" + Pattern.quote(name));
-        signature = parts[1];
-        String paramsString = "";
-        if (signature.startsWith("[")) {
-            int braces = 1;
-            int i = 1;
-            for (; braces > 0; ++i) {
-                if (signature.charAt(i) == '[') {
-                    braces++;
-                } else if (signature.charAt(i) == ']') {
-                    braces--;
-                }
-            }
-            paramsString = signature.substring(0, i);
-        }
-
-        signature = signature.substring(paramsString.length(), signature.length());
-        List<String> signatureParts = typeSplit(signature, ":");
-        signature = "";
-        String paramsPart = signatureParts.get(0);
-        if (paramsPart.startsWith("(")) {
-            List<String> paramsSections = splitByBraces(paramsPart, Arrays.asList('(', '['), Arrays.asList(')', ']'));
-            signature = "(";
-            for (String paramsSection : paramsSections) {
-                List<String> funcParams = typeSplit(paramsSection.substring(1, paramsSection.length() - 1), ",");
-                for (String param : funcParams) {
-                    param = param.split("\\s=\\s")[0];
-                    if (!param.startsWith("implicit")) {
-                        signature += param.substring(param.indexOf(':') + 2, param.length()) + ",";
-                    }
-                }
-            }
-            if (signature.endsWith(",")) {
-                signature = signature.substring(0, signature.length() - 1);
-            }
-            signature += ")";
-        }
-        String resultPart = StringUtil.join(signatureParts.subList(1, signatureParts.size()), ":");
-        if (typeSplit(resultPart, "\u21D2").size() > 1) {
-            resultPart = "(" + resultPart + ")";
-        }
-        signature += " \u21D2 " + resultPart;
-
-        memberTypes.get(className).put(addressName, ScalaFunction.parse(methodElem, signature));
-        memberParameters.get(className).put(addressName, new ArrayList<String>());
-        memberParametersConstraints.get(className).put(addressName, new ArrayList<ScalaConstraint>());
-
-        if (!paramsString.isEmpty()) {
-            parseTypeParameters(methodElem, memberParameters.get(className).get(addressName)
-                    , memberParametersConstraints.get(className).get(addressName), paramsString);
-        }
-
-        MemberEntity function = new MemberEntity(name, Language.SCALA, getDoc(methodElem),
-                getLink(methodElem.nextElementSibling()), methodElem.text());
-        result.add(function);
-        classMembers.get(className).put(addressName, function);
-        String memberType = methodElem.getElementsByClass("kind").get(0).text().equals("def") ? "function" : "field";
-        function.setAttr("memberType", memberType);
-        String attrString = methodElem.getElementsByClass("modifier").get(0).text().trim();
-        for (Map.Entry<String, String> attr : parseAttributes(attrString, MEMBER_ATTRIBUTES).entrySet()) {
-            function.setAttr(attr.getKey(), attr.getValue());
-        }
-    }
-
-    private void parseConstructors(Element constructors, QualifiedName enclosingClass, String className,
-            List<MemberEntity> result) throws MalformedURLException {
-        if (constructors == null) {
-            return;
-        }
-
-        for (Element constructorElem : constructors.getElementsByClass("signature")) {
-            String signature = constructorElem.text();
-            String addressName = signature;
-            String args = typeSplit(signature, className).get(1);
-
-            String paramsString = "";
-            if (args.startsWith("[")) {
-                int braces = 1;
-                int i = 1;
-                for (; braces > 0; ++i) {
-                    if (args.charAt(i) == '[') {
-                        braces++;
-                    } else if (args.charAt(i) == ']') {
-                        braces--;
-                    }
-                }
-                paramsString = args.substring(0, i);
-            }
-            args = args.substring((paramsString.isEmpty() ? 0 : paramsString.length()), args.length());
-
-            signature = "(";
-            for (String argSection : splitByBraces(args, Arrays.asList('(', '['), Arrays.asList(')', ']'))) {
-                argSection = argSection.substring(1, argSection.length() - 1);
-                for (String param : typeSplit(argSection, ",")) {
-                    param = param.split("\\s=\\s")[0];
-                    if (!param.startsWith("implicit")) {
-                        signature += param.substring(param.indexOf(':') + 2, param.length()) + ",";
-                    }
-                }
-            }
-            if (signature.endsWith(",")) {
-                signature = signature.substring(0, signature.length() - 1);
-            }
-            signature += ") \u21D2 " + className;
-
-            memberTypes.get(enclosingClass).put(addressName, ScalaFunction.parse(constructorElem, signature));
-            memberParameters.get(enclosingClass).put(addressName, new ArrayList<String>());
-            memberParametersConstraints.get(enclosingClass).put(addressName, new ArrayList<ScalaConstraint>());
-
-            if (!paramsString.isEmpty()) {
-                parseTypeParameters(constructorElem, memberParameters.get(enclosingClass).get(addressName)
-                        , memberParametersConstraints.get(enclosingClass).get(addressName), paramsString);
-            }
-
-            MemberEntity constructor = new MemberEntity(className, Language.SCALA, getDoc(constructorElem),
-                    getLink(constructorElem.nextElementSibling()), constructorElem.text());
-            result.add(constructor);
-            classMembers.get(enclosingClass).put(addressName, constructor);
-            constructor.setAttr("memberType", "constructor");
-            String attrString = constructorElem.getElementsByClass("modifier").get(0).text().trim();
-            for (Map.Entry<String, String> attr : parseAttributes(attrString, MEMBER_ATTRIBUTES).entrySet()) {
-                constructor.setAttr(attr.getKey(), attr.getValue());
-            }
-        }
-    }
-
     private String getDoc(Element entityElem) {
         if (entityElem.nextElementSibling() == null) {
             return "";
@@ -695,6 +695,7 @@ public class ScalaParser {
     public Map<QualifiedName, TypeAlias> getAliases() {
         return aliases;
     }
+
     public Map<QualifiedName, Map<String, MemberEntity>> getClassMembers() {
         return classMembers;
     }

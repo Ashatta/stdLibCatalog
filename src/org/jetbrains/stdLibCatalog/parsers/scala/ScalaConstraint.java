@@ -46,11 +46,11 @@ public class ScalaConstraint {
         return result;
     }
 
-    public Constraint buildConstraint(Map<String, TypeVariable> allVars, ScalaParser parser) {
+    public Constraint buildConstraint(Map<String, TypeVariable> variables, ScalaParser parser) {
         List<TypeVariable> vars = new ArrayList<>();
-        for (String var : variables) {
-            if (allVars.containsKey(var)) {
-                vars.add(allVars.get(var));
+        for (String var : this.variables) {
+            if (variables.containsKey(var)) {
+                vars.add(variables.get(var));
             }
         }
 
